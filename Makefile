@@ -10,3 +10,6 @@ github_actions:
 		${VENV}/bin/python3 -m pip install ./orquestra-qiskit && \
 		${VENV}/bin/python3 -m pip install ./orquestra-cirq
 		${VENV}/bin/python3 -m pip install -e '.[dev]'
+
+coverage:
+	$(PYTHON) -m pytest tests/

@@ -64,10 +64,6 @@ jobs:
           path: orquestra-qiskit
           ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-      - uses: ./subtrees/z_quantum_actions/actions/ssh_setup
-        with:
-          ssh_key: ${{ secrets.SSH_PRIVATE_KEY }}
-
       - uses: ./subtrees/z_quantum_actions/actions/coverage
         with:
           codecov_secret: ${{ secrets.CODECOV_TOKEN }}

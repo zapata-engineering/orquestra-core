@@ -1,16 +1,12 @@
 from collections import Counter
-from functools import partial
 
 import networkx as nx
 import numpy as np
 import pytest
 from orquestra.integrations.cirq.simulator import CirqSimulator
-from orquestra.opt.api.functions import FunctionWithGradient
-from orquestra.opt.gradients import finite_differences_gradient
 from orquestra.opt.optimizers import ScipyOptimizer
 from orquestra.opt.problems.maxcut import MaxCut
 from orquestra.quantum.estimation import calculate_exact_expectation_values
-from orquestra.quantum.symbolic_simulator import SymbolicSimulator
 from orquestra.vqa.ansatz.qaoa_farhi import QAOAFarhiAnsatz
 from orquestra.vqa.cost_function.cost_function import (
     create_cost_function,

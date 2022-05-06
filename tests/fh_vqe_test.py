@@ -1,8 +1,6 @@
 from functools import partial
 
 import numpy as np
-import pytest
-import scipy
 from orquestra.integrations.qiskit.simulator import QiskitSimulator
 from orquestra.opt.gradients import finite_differences_gradient
 from orquestra.opt.optimizers import ScipyOptimizer

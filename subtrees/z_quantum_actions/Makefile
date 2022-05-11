@@ -13,10 +13,11 @@ default:
 	       | sed -r 's/-default//g; /default/d ; s/(.*)/\t make \1/g ; s/:.*$$//g'
 
 
-export VENV := venv
-PYTHON := $(shell PATH="venv/bin:${PATH}" python3 -c 'import sys; print(sys.executable)')
+export VENV_NAME := my_little_venv
+PYTHON := $(shell PATH="${VENV_NAME}/bin:${PATH}" python3 -c 'import sys; print(sys.executable)')
 REPO := $(shell git config --get remote.origin.url)
 PYTHON_MOD := $(shell find src -maxdepth 3 -mindepth 3 -type d | sed '/.*cache/d; s/src\/python\/// ; s/\//./')
+PACKAGE_NAME := "foo"
 
 ifeq ($(PYTHON),)
 $(error "PYTHON=$(PYTHON)")
@@ -48,10 +49,19 @@ install-default: clean
 dev-default: clean
 	$(PYTHON) -m pip install -e .[dev]
 
+# Why we want to use `python3` and not `$(PYTHON)` here.
+# In order to enable running make commands both from CICD and locally
+# we need to use virtualenv when running on GitHub Actions, as otherwise 
+# we might get into rare and hard to debug edge cases (as we did in the past).
+# After this action is executed $(PYTHON) will get resolved to the Python version
+# from virtual environment.
+# This make task is used to create new virtual environment so we want to use 
+# `python3` here as it's more explicit, because $(PYTHON) would evaluate to 
+# something else after executing this task, which might be confusing.
 github_actions-default:
-	python3 -m venv ${VENV} && \
-		${VENV}/bin/python3 -m pip install --upgrade pip && \
-		${VENV}/bin/python3 -m pip install -e '.[dev]'
+	python3 -m venv ${VENV_NAME} && \
+		${VENV_NAME}/bin/python3 -m pip install --upgrade pip && \
+		${VENV_NAME}/bin/python3 -m pip install -e '.[dev]'
 
 flake8-default: clean
 	$(PYTHON) -m flake8 --ignore=E203,E266,F401,W503 --max-line-length=88 src tests
@@ -86,6 +96,9 @@ muster-default: style coverage
 
 build-system-deps-default:
 	:
+
+get-next-version-default: github_actions
+	${VENV_NAME}/bin/python3 subtrees/z_quantum_actions/bin/get_next_version.py $(PACKAGE_NAME)
 
 # This is what converts the -default targets into base target names.
 # Do not remove!!!

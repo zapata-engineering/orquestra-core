@@ -7,10 +7,10 @@
 # Reads current project version, bumps "minor", and sets the "next_version" output
 # variable using Github's special stdout syntax.
 
-
+import sys
 import re
-import subprocess
 import typing as t
+from importlib.metadata import version
 
 
 class Semver(t.NamedTuple):
@@ -37,10 +37,6 @@ class Semver(t.NamedTuple):
             patch=0,
             pre=None,
         )
-
-
-def _read_current_version() -> str:
-    return subprocess.check_output(["python3", "setup.py", "--version"]).decode()
 
 
 SEMVER_REGEX = (
@@ -77,7 +73,7 @@ def _set_github_output(name: str, value):
     print(f"::set-output name={name}::{value}")
 
 
-def main():
+def main(package_name):
     """Run the actual script logic.
 
     Args:
@@ -85,7 +81,7 @@ def main():
             as "nil" values. This is because that's how bash passes nils.
     """
 
-    current_version = _read_current_version()
+    current_version = version(package_name)
     print(f"Read current version as: {current_version}")
 
     next_version = parse_version_str(current_version).bump_minor.version_str
@@ -95,4 +91,5 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    package_name = sys.argv[1]
+    main(package_name=package_name)

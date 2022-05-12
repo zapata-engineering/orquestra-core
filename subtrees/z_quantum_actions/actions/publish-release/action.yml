@@ -21,9 +21,12 @@ runs:
     - name: Get next version
       id: get-next-version
       shell: bash
-      # Inputs: none
+      # Note: We assume library name is the same as repository name
       # Outputs: `next_version` - a bumped semver string of form "major.minor.patch"
-      run: python3 subtrees/z_quantum_actions/bin/get_next_version.py
+      run: make get-next-version PACKAGE_NAME="${{ github.event.repository.name }}"
+      # This is needed if we work on the private repositories, doesn't bother us otherwise though
+      env:
+        SSH_AUTH_SOCK: /tmp/ssh_agent.sock
 
     - name: Push new version tag
       id: push-new-version-tag

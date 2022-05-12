@@ -7,3 +7,4 @@ This is a core meta-package containing most commonly used Orquestra Python libra
 - orquestra-vqa
 - orquestra-qiskit
 - orquestra-cirq
+- orquestra-forest

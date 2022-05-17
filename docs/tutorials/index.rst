@@ -3,7 +3,10 @@ Tutorials
 
 
 .. toctree::
-    :maxdepth: 1
-    :glob:
+    :maxdepth: 2
 
-    *
+    install.rst
+    creating_ciruits.rst
+    running_circuits.rst
+    translating_circuits.rst
+    contributing.rst

@@ -1,9 +1,9 @@
-.. Orquestra Core Docs documentation master file, created by
+.. Orquestra Core documentation master file, created by
    sphinx-quickstart on Tue May 17 08:33:32 2022.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Orquestra Core Docs's documentation!
+Welcome to Orquestra Core's documentation!
 ===============================================
 
 .. toctree::

@@ -1,6 +1,6 @@
-=======================
+======================================
 Translating Circuits between Libraries
-================================================================
+======================================
 
 If you haven't done the [running circuits tutorial](INSERT LINK HERE), you should do that tutorial first because we'll use the python file from it in this tutorial
 
@@ -32,7 +32,8 @@ Then, we can re-import the Qiskit version to Orquestra Core and re-export to Cir
 
 Make sure the output now has an X gate at on qubit 1 after the CNOT gate:
 
-.. code-block::
+.. code-block:: text
+
     0: ───H───@───────
               │
     1: ───────X───X───

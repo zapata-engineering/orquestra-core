@@ -1,10 +1,17 @@
-======================= 
+=========================
 Installing orquestra-core
-=======================
+=========================
 
 orquestra-core is a metapackage that installs other orquestra packages for you:
-.. literalinclude:: /README.md
-    :start-at: orquestra-quantum
+
+.. code-block:: markdown
+
+    - orquestra-quantum
+    - orquestra-opt
+    - orquestra-vqa
+    - orquestra-qiskit
+    - orquestra-cirq
+    - orquestra-forest
 
 Installing orquestra-core is as simple as
 ``pip install orquestra-core``

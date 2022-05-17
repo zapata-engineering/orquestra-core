@@ -18,14 +18,14 @@ But we want to do it by editing the circuit in Qiskit, and then visualizing the 
 
 First, we can translate our existing circuit from the current Orquestra Core representation into its Qiskit representation and add an ``X`` gate to the second qubit in Qiskit:
 
-.. literalinclude:: /docs/examples/bell_state.py
+.. literalinclude:: /examples/bell_state.py
     :language: python
     :start-at: qiskit_circuit = export_to_qiskit(bell_circuit)
     :end-at: qiskit_circuit.x(1)
 
 Then, we can re-import the Qiskit version to Orquestra Core and re-export to Cirq:
 
-.. literalinclude:: /docs/examples/bell_state.py
+.. literalinclude:: /examples/bell_state.py
     :language: python
     :start-at: bell_circuit_X = import_from_qiskit(qiskit_circuit)
     :end-at: print(cirq_circuit)
@@ -39,7 +39,7 @@ Make sure the output now has an X gate at on qubit 1 after the CNOT gate:
 
 Lastly, we can use the Qiskit statevector simulator to make sure we've created the state we want:
 
-.. literalinclude:: /docs/examples/bell_state.py
+.. literalinclude:: /examples/bell_state.py
     :language: python
     :start-at: wavefunction = sv_simulator.get_wavefunction(bell_circuit_X)
     :end-at: print(wavefunction.amplitudes)

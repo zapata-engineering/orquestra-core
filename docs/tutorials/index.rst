@@ -10,3 +10,4 @@ Tutorials
     running_circuits.rst
     translating_circuits.rst
     contributing.rst
+    orq_core_structure.rst

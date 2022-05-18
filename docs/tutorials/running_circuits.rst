@@ -2,7 +2,9 @@
 Running Circuits on a Backend
 =============================
 
-If you haven't gone through the [creating circuits](INSERT LINK HERE) tutorial, do that first because we'll be using the circuit from that tutorial in this one.
+.. _running_circuits:
+
+If you haven't gone through the :ref:`creating circuits <creating_circuits>` tutorial, do that first because we'll be using the circuit from that tutorial in this one.
 
 Once we have our circuit, the next step is to select what backend to run on and get our measurements. For this run, let's use Qiskit's aer simulator with 100 shots:
 

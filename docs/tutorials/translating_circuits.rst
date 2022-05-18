@@ -2,7 +2,7 @@
 Translating Circuits between Libraries
 ======================================
 
-If you haven't done the [running circuits tutorial](INSERT LINK HERE), you should do that tutorial first because we'll use the python file from it in this tutorial
+If you haven't done the :ref:`running circuits tutorial <running_circuits>`, you should do that tutorial first because we'll use the python file from it in this tutorial
 
 Now that we've got this bell state, let's say we want to change it a bit so that instead of the state
 

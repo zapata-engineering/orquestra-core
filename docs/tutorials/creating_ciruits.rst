@@ -2,6 +2,8 @@
 Creating basic circuits
 ============================
 
+.. _creating_circuits:
+
 Let's say you want to build a quantum circuit just to build a Bell State and measure it. As a quick reminder, a Bell State is a maximally entangled state with the most well-known form:
 
 .. math::

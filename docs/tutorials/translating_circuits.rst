@@ -45,4 +45,4 @@ Lastly, we can use the Qiskit statevector simulator to make sure we've created t
     :start-at: wavefunction = sv_simulator.get_wavefunction(bell_circuit_X)
     :end-at: ic(wavefunction.amplitudes)
 
-And we should get ``wavefunction.amplitudes: array([0.70710678+0.j, 0.   +0.j, 0.   +0.j, 0.70710678+0.j])`` if everything went to plan
+And we should get ``wavefunction.amplitudes: array([0.70710678+0.j, 0.   +0.j, 0.   +0.j, 0.70710678+0.j])`` if everything went to plan.

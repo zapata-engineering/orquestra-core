@@ -41,7 +41,7 @@ sv_simulator = QiskitSimulator("aer_simulator_statevector")
 wavefunction = sv_simulator.get_wavefunction(bell_circuit)
 ic(wavefunction.amplitudes)
 
-ising = IsingOperator((0, "Z")) * IsingOperator((1, "Z"))
+ising = IsingOperator("[Z0] + [Z1]")
 task = EstimationTask(ising, bell_circuit, num_samples)
 evals = calculate_exact_expectation_values(sym_simulator, [task])
 ic(evals[0].values)

@@ -29,7 +29,7 @@ We can also get an expectation value for the circuit given an operator we want t
 
 .. literalinclude:: /examples/bell_state.py
     :language: python
-    :start-at: ising = IsingOperator((0, "Z")) * IsingOperator((1, "Z"))
+    :start-at: ising = 
     :end-at: ic(evals[0].values)
 
 For a full list of backends you can run your circuits on, check [this](LINK) out (Do we want to do this??)

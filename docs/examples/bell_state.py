@@ -42,7 +42,7 @@ wavefunction = sv_simulator.get_wavefunction(bell_circuit)
 ic(wavefunction.amplitudes)
 
 ising = IsingOperator("[Z0] + [Z1]")
-task = EstimationTask(ising, bell_circuit, num_samples)
+task = EstimationTask(ising, bell_circuit, None)
 evals = calculate_exact_expectation_values(sym_simulator, [task])
 ic(evals[0].values)
 

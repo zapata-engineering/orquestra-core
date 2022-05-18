@@ -11,3 +11,4 @@ Tutorials
     translating_circuits.rst
     contributing.rst
     orq_core_structure.rst
+    basic_qaoa.rst

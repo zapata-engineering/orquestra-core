@@ -29,9 +29,10 @@ Let's start by creating a new python file called ``qaoa_maxcut.py``. The first t
     :start-at: from collections import Counter
     :end-at: from icecream import ic
 
-Just a quick note: ``icecream`` (and ``ic``) is like ``print``, but offers more information about what is being printed. It's great for debugging! Just install it with ``pip install icecream``
+.. note::
+    ``icecream`` (and ``ic``) is like ``print``, but offers more information about what is being printed. It's great for debugging! Just install it with ``pip install icecream``
 
-If you would rather just use ``print``, everything in this tutorial should still work! Just replace ``ic()`` with ``print()`` and all will be well.
+    If you would rather just use ``print``, everything in this tutorial should still work! Just replace ``ic()`` with ``print()`` and all will be well.
 
 Now that the imports are out of the way, we can start by making a function that defines our graph. We use the ``networkx`` / ``nx`` package for this:
 

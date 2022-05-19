@@ -29,9 +29,10 @@ First, we need to import the necessary pieces from Orquestra Core (some of these
     :start-at: from orquestra.quantum.circuits import CNOT, H, Circuit
     :end-at: from icecream import ic
 
-Just a quick note: ``icecream`` (and ``ic``) is like ``print``, but offers more information about what is being printed. It's great for debugging! Just install it with ``pip install icecream``
+.. note::
+    ``icecream`` (and ``ic``) is like ``print``, but offers more information about what is being printed. It's great for debugging! Just install it with ``pip install icecream``
 
-If you would rather just use ``print``, everything in this tutorial should still work! Just replace ``ic()`` with ``print()`` and all will be well.
+    If you would rather just use ``print``, everything in this tutorial should still work! Just replace ``ic()`` with ``print()`` and all will be well.
 
 Now, let's actually build the circuit:
 

@@ -12,3 +12,4 @@ Tutorials
     contributing.rst
     orq_core_structure.rst
     basic_qaoa.rst
+    integrations.rst

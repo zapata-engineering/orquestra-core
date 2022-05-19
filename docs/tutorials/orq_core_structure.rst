@@ -2,6 +2,8 @@
 Orquestra Core's Structure
 ==========================
 
+.. _orq_core_structure:
+
 Orquestra Core is broken into multiple packages, each with a different purpose
 
 * `orquestra-quantum <https://github.com/zapatacomputing/orquestra-quantum>`_ provides

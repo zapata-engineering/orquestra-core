@@ -2,6 +2,8 @@
 Contributing to Orquestra Core
 ==============================
 
+.. _contributing:
+
 Orquestra Core itself doesn't have any source code in it, so the first step is to find which specific package you want to contribute to:
 
 * `orquestra-quantum <https://github.com/zapatacomputing/orquestra-quantum>`_
@@ -19,7 +21,7 @@ Some best practices for when you're editing the code:
 
 * Use flake8 to make sure your code follows our style conventions
 
-  * We use `Google-style <https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html>`_` docstring format. If you'd like to specify types please use `PEP 484 <https://www.python.org/dev/peps/pep-0484/>`_ type hints instead adding them to docstrings.
+  * We use `Google-style <https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html>`_ docstring format. If you'd like to specify types please use `PEP 484 <https://www.python.org/dev/peps/pep-0484/>`_ type hints instead adding them to docstrings.
 
 * When in doubt, add a comment. Better to be over-commented than under-commented
 * Try to keep change sets small and easily reviewable. If you can split changes into multiple pull requests, that's probably better

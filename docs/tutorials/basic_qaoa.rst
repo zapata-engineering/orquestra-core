@@ -44,7 +44,19 @@ Now that the imports are out of the way, we can start by making a function that 
 That code only makes the simpler, box-looking graph from the easy maxcut example. In your own code, go ahead and add the remaining lines of the function to define edges between the new nodes I added in the harder problem.
 
 .. hint::
-    You should add 5 more edges to your graph and end the function with a ``return graph``. If you can't get it to work, check the end of this tutorial for the answer :)
+
+    You should add 5 more edges to your graph and end the function with a ``return graph``.
+
+
+Here's the solution to that little exercise if you want it:
+
+.. hint::
+    :class: dropdown
+
+    .. literalinclude:: /examples/qaoa_maxcut.py
+        :language: python
+        :start-at: graph.add_edge(0, 4, weight=10)
+        :end-at: return graph
 
 Now let's write a function that accepts our graph object and used QAOA to try to solve it. The first step is to get a description of the problem in a language our quantum computer can understand, we call this the Hamiltonian. We also need a quantum ciruit we can train using QAOA, this is called our ansatz.
 
@@ -69,37 +81,51 @@ Now we can select which backend we want to run on and which optimizer we want to
     :start-at: backend = 
     :end-at: optimizer =
 
-If you want to use a different optimizer, you can certainly `do that <https://github.com/zapatacomputing/orquestra-opt/tree/main/src/orquestra/opt/optimizers>`_. And if you want to run on a different backend, you can :ref:`do so easily <running_circuits>`!
+If you want to use a different optimizer, you can certainly `do that <https://github.com/zapatacomputing/orquestra-opt/tree/main/src/orquestra/opt/optimizers>`_. And if you want to run on a different backend, you can :ref:`do so easily <running_circuits>`! In fact, in your own code, try using the Qiskit Aer Statevector simulator. If you don't remember how to do that, take a look at the :ref:`Running Circuits on a Backend <running_circuits>` tutorial again.
 
-The last step before getting and running our circuit is to adjust the parameters for our ansatz to minimize our cost function:
+.. hint::
+    :class: dropdown
+
+    Rememember that you'll need to import the ``QiskitSimulator`` at the top of your file and change ``CirqSimulator()`` to ``QiskitSimulator(aer_simulator_statevector)``
+
+The last steps before running the circuit are to minimize the cost of the parameters for the circuit and get runnable circuit:
 
 .. literalinclude:: /examples/qaoa_maxcut.py
     :language: python
     :start-at: cost_function = 
-    :end-at: opt_results = optimizer.minimize
+    :end-at: circuit = ansatz.get_executable_circuit(opt_results.opt_params)
 
-Now that we have those parameters, we can actually run the circuit!
-
-.. literalinclude:: /examples/qaoa_maxcut.py
-    :language: python
-    :start-at: circuit = ansatz.get_executable_circuit(opt_results.opt_params)
-    :end-at: return most_common_string
-
-Finally, at the end of the file, put a couple lines to call the functions we made and output the result:
-
-.. literalinclude:: /examples/qaoa_maxcut.py
-    :language: python
-    :start-at: test_graph = 
-    :end-at: ic(
-
-The output should be ``most_common_string: (0, 1, 0, 1, 1, 1)`` which corresponds to nodes 0 and 2 being one color, and the remaining nodes being another color. That looks like this graphically:
-
-.. image:: images/harder_graph_cut.excalidraw.png
+Now that we have those parameters, we can actually run the circuit! Write a line in your own code that runs the circuit on the backend 10000 times and stores the results in a variable called ``measurements``.
 
 .. hint::
-    Here's what the rest of the graph should look like:
+    :class: dropdown
+
+    That line should look like this:
 
     .. literalinclude:: /examples/qaoa_maxcut.py
         :language: python
-        :start-at: graph.add_edge(0, 4, weight=10)
-        :end-at: return graph
+        :start-at: measurements = 
+        :end-at: measurements = 
+
+Finally, we can get the most common result from our runs and return that:
+
+.. literalinclude:: /examples/qaoa_maxcut.py
+    :language: python
+    :start-at: counter = Counter(measurements.bitstrings)
+    :end-at: return most_common_string
+
+Finally, at the end of the file, put a couple lines to call the functions we made and output the result. Try writing these lines by yourself, and check them with the answer below:
+
+.. hint::
+    :class: dropdown
+
+    .. literalinclude:: /examples/qaoa_maxcut.py
+        :language: python
+        :start-at: test_graph = 
+        :end-at: ic(
+
+The output should be ``most_common_string: (0, 1, 0, 1, 1, 1)`` or ``most_common_string: (1, 0, 1, 0, 0, 0)`` which corresponds to nodes 0 and 2 being one color, and the remaining nodes being another color. That looks like this graphically:
+
+.. image:: images/harder_graph_cut.excalidraw.png
+
+And there we have it! Instead of having to do that optimization ourselves, we made a quick Orquestra program to do it for us. Now how to tell your boss in your dream you solved it...

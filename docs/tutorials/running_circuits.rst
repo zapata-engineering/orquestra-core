@@ -20,6 +20,8 @@ It's actually very easy to switch out backends thanks to Orquestra Core's interf
     :start-at: sym_simulator = SymbolicSimulator()
     :end-at: ic(measurements3.get_counts())
 
+.. _running_amplitudes:
+
 If we want to get the amplitudes from the wavefunction instead of running measurements, we can do that as well:
 
 .. literalinclude:: /examples/bell_state.py

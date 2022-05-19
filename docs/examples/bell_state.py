@@ -15,6 +15,7 @@ from orquestra.integrations.qiskit.conversions import (
     import_from_qiskit,
 )
 from orquestra.integrations.cirq.conversions._circuit_conversions import export_to_cirq
+from orquestra.integrations.forest.conversions import export_to_pyquil
 
 from icecream import ic
 
@@ -53,6 +54,8 @@ qiskit_circuit.x(1)
 bell_circuit_X = import_from_qiskit(qiskit_circuit)
 cirq_circuit = export_to_cirq(bell_circuit_X)
 print(cirq_circuit)
+
+pyquil_circuit = export_to_pyquil(bell_circuit_X)
 
 wavefunction = sv_simulator.get_wavefunction(bell_circuit_X)
 ic(wavefunction.amplitudes)

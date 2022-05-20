@@ -37,3 +37,15 @@ We can also get an expectation value for the circuit given an operator we want t
     :end-at: ic(evals[0].values)
 
 For a full list of backends you can run your circuits on, check :ref:`this page <backends>`
+
+**Your turn!**
+
+For the :ref:`superdense coding example <superdense_coding>` we made in the last tutorial, run the circuit on a backend of your choosing (our ``SymbolicSimulator`` works well ;) ). When you're done, check how we did it below!
+
+.. hint::
+    :class: dropdown
+
+    .. literalinclude:: /examples/superdense_coding.py
+        :language: python
+        :start-at: # bob runs and measures the qubits
+        :end-at: ic(measurements.get_counts())

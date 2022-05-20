@@ -21,5 +21,5 @@ teleport_circuit += H(0)
 
 # bob runs and measures the qubits
 backend = SymbolicSimulator()
-measurements = backend.run_circuit_and_measure(teleport_circuit, 100)
+measurements = backend.run_circuit_and_measure(teleport_circuit, 1)
 ic(measurements.get_counts())

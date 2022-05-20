@@ -53,3 +53,20 @@ We actually have another option of how to build the circuit by specifying all of
 
 This creates the exact same circuit as appending the gates one-by-one! Now we can run the circuit on the backend of our choosing.
 
+**Your turn!**
+
+`Superdense coding <https://www.qutube.nl/courses-10/fundamentals-11/superdense-coding-326>`_ is one of those incredible results of quantum computing where we're able to transmit two bits of information using just one qubit (as long as that qubit's entangled with another qubit). It also uses a bell state, so let's try to make a circuit that implements superdense coding with Orquestra Core! You might want to make a new file for this and call it something like ``superdense_coding.py``. 
+
+.. hint::
+
+    If you need a refresher on superdense coding, watch `this video <https://www.qutube.nl/courses-10/fundamentals-11/superdense-coding-326>`_ from QuTech Academy
+
+Got your circuit? Compare it with ours:
+
+.. hint::
+    :class: dropdown
+
+    .. literalinclude:: /examples/superdense_coding.py
+        :language: python
+        :start-at: from orquestra.quantum.circuits import
+        :end-before: # bob runs and measures the qubits

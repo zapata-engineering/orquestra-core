@@ -18,6 +18,8 @@ Ansatzes
 * `SingletUCCSDAnsatz <https://github.com/zapatacomputing/orquestra-vqa/blob/main/tests/orquestra/vqa/ansatz/singlet_uccsd_test.py>`_
 
 
+.. _backends:
+
 Backends (including simulators)
 ===============================
 

@@ -36,4 +36,4 @@ We can also get an expectation value for the circuit given an operator we want t
     :start-at: ising = 
     :end-at: ic(evals[0].values)
 
-For a full list of backends you can run your circuits on, check [this](LINK) out (Do we want to do this??)
+For a full list of backends you can run your circuits on, check :ref:`this page <backends>`

@@ -4,7 +4,7 @@ Orquestra Core's Structure
 
 .. _orq_core_structure:
 
-Orquestra Core is broken into multiple packages, each with a different purpose
+Orquestra Core is broken into multiple packages, each with a different purpose. **TODO:** Michał to add a paragraph or two here about why we've chosen to architect it this way.
 
 * `orquestra-quantum <https://github.com/zapatacomputing/orquestra-quantum>`_ provides
 

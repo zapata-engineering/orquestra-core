@@ -34,35 +34,30 @@ jobs:
         with:
           repository: zapatacomputing/orquestra-quantum
           path: orquestra-quantum
-          ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: Get orquestra-opt
         uses: actions/checkout@v2
         with:
           repository: zapatacomputing/orquestra-opt
           path: orquestra-opt
-          ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: Get orquestra-vqa
         uses: actions/checkout@v2
         with:
           repository: zapatacomputing/orquestra-vqa
           path: orquestra-vqa
-          ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: Get orquestra-cirq
         uses: actions/checkout@v2
         with:
           repository: zapatacomputing/orquestra-cirq
           path: orquestra-cirq
-          ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: Get orquestra-qiskit
         uses: actions/checkout@v2
         with:
           repository: zapatacomputing/orquestra-qiskit
           path: orquestra-qiskit
-          ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
       # Installs project, checks codestyle
       - uses: ./subtrees/z_quantum_actions/actions/style

@@ -32,6 +32,7 @@ Backends (including simulators)
   * ``aer_simulator_statevector``
 
 * `QiskitBackend <https://github.com/zapatacomputing/orquestra-qiskit/blob/main/tests/orquestra/integrations/qiskit/backend/backend_test.py>`_
+* `QulacsSimulator <https://github.com/zapatacomputing/orquestra-qulacs/blob/main/tests/orquestra/integrations/qulacs/simulator_test.py>`_
 
 
 Noise Models

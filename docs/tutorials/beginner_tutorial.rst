@@ -17,8 +17,7 @@ orquestra-core is a metapackage that installs other orquestra packages for you:
     - orquestra-cirq
     - orquestra-forest
 
-Installing orquestra-core is as simple as
-``pip install orquestra-core``
+Installing orquestra-core can be done by running ``pip install orquestra-core``
 
 If instead you want to install from source, you can clone `this repo <https://github.com/zapatacomputing/orquestra-core>`_, navigate to it, and do
 ``pip install .``

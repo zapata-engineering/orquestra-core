@@ -27,7 +27,8 @@ Orquestra Core is broken into multiple packages, each with a different purpose. 
 * `orquestra-qiskit <https://github.com/zapatacomputing/orquestra-qiskit>`_ is a `Zapata <https://www.zapatacomputing.com/>`_ library holding modules for integrating qiskit with `Orquestra <https://www.zapatacomputing.com/orquestra/>`_.
 * `orquestra-cirq <https://github.com/zapatacomputing/orquestra-cirq>`_ is a `Zapata <https://www.zapatacomputing.com/>`_ library holding modules for integrating cirq with `Orquestra <https://www.zapatacomputing.com/orquestra/>`_.
 * `orquestra-forest <https://github.com/zapatacomputing/orquestra-forest>`_ is a `Zapata <https://www.zapatacomputing.com/>`_ library holding modules for integrating forest with `Orquestra <https://www.zapatacomputing.com/orquestra/>`_.
+* `orquestra-qulacs <https://github.com/zapatacomputing/orquestra-qulacs>`_ is a `Zapata <https://www.zapatacomputing.com/>`_ library holding modules for integrating forest with `Orquestra <https://www.zapatacomputing.com/orquestra/>`_.
 
-Here is a diagram of which packages import which:
+Here is a diagram of these packages:
 
-.. image:: images/orquestra_core_connection.png
+.. image:: images/orquestra_core_connection.excalidraw.png

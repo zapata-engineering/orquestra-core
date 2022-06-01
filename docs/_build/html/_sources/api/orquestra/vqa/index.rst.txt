@@ -1,0 +1,28 @@
+:py:mod:`orquestra.vqa`
+=======================
+
+.. py:module:: orquestra.vqa
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   ansatz/index.rst
+   grouping/index.rst
+   parameter_initialization/index.rst
+   shot_allocation/index.rst
+   testing/index.rst
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   utils/index.rst
+
+

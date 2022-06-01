@@ -1,0 +1,155 @@
+:py:mod:`quantum.openfermion.ops.representations.interaction_operator`
+======================================================================
+
+.. py:module:: quantum.openfermion.ops.representations.interaction_operator
+
+.. autoapi-nested-parse::
+
+   Class and functions to store interaction operators.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   quantum.openfermion.ops.representations.interaction_operator.InteractionOperator
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   quantum.openfermion.ops.representations.interaction_operator.get_tensors_from_integrals
+   quantum.openfermion.ops.representations.interaction_operator.get_active_space_integrals
+
+
+
+.. py:exception:: InteractionOperatorError
+
+   Bases: :py:obj:`Exception`
+
+   Common base class for all non-exit exceptions.
+
+
+.. py:class:: InteractionOperator(constant, one_body_tensor, two_body_tensor)
+
+   Bases: :py:obj:`orquestra.quantum.openfermion.ops.representations.polynomial_tensor.PolynomialTensor`
+
+   Class for storing 'interaction operators' which are defined to be
+   fermionic operators consisting of one-body and two-body terms which
+   conserve particle number and spin. The most common examples of data that
+   will use this structure are molecular Hamiltonians. In principle,
+   everything stored in this class could also be represented using the more
+   general FermionOperator class. However, this class is able to exploit
+   specific properties of how fermions interact to enable more numerically
+   efficient manipulation of the data. Note that the operators stored in this
+   class take the form:
+
+       $$
+           constant + \sum_{p, q} h_{p, q} a^\dagger_p a_q +
+           \sum_{p, q, r, s} h_{p, q, r, s} a^\dagger_p a^\dagger_q a_r a_s.
+       $$
+
+   .. attribute:: one_body_tensor
+
+      The coefficients of the one-body terms
+
+   .. attribute:: ($h_{p, q}$). This is an n_qubits x n_qubits
+
+      
+
+   .. attribute:: numpy array of floats.
+
+      
+
+   .. attribute:: two_body_tensor
+
+      The coefficients of the two-body terms
+      ($h_{p, q, r, s}$).
+      This is an n_qubits x n_qubits x n_qubits x
+      n_qubits numpy array of floats.
+
+   .. py:method:: one_body_tensor(self)
+      :property:
+
+      The value of the one-body tensor.
+
+
+   .. py:method:: two_body_tensor(self)
+      :property:
+
+      The value of the two-body tensor.
+
+
+   .. py:method:: unique_iter(self, complex_valued=False)
+
+      Iterate all terms that are not in the same symmetry group.
+
+      Four point symmetry:
+          1. pq = qp.
+          2. pqrs = srqp = qpsr = rspq.
+      Eight point symmetry:
+          1. pq = qp.
+          2. pqrs = rqps = psrq = srqp = qpsr = rspq = spqr = qrsp.
+
+      :param complex_valued: Whether the operator has complex coefficients.
+      :type complex_valued: bool
+
+      :Yields: tuple[int]
+
+
+   .. py:method:: zero(cls, n_qubits)
+      :classmethod:
+
+
+   .. py:method:: projected(self, indices, exact=False)
+
+
+   .. py:method:: with_function_applied_elementwise(self, func)
+
+
+
+.. py:function:: get_tensors_from_integrals(one_body_integrals, two_body_integrals)
+
+   Converts one and two-body integrals into tensor form
+
+   :param one_body_integrals [numpy array] -- the one-body integrals: of the given Hamiltonian
+   :param two_body_integrals [numpy array] -- the two-body integrals: of the given Hamiltonian
+
+
+.. py:function:: get_active_space_integrals(one_body_integrals, two_body_integrals, occupied_indices=None, active_indices=None)
+
+   Restricts a molecule at a spatial orbital level to an active space
+
+   This active space may be defined by a list of active indices and
+       doubly occupied indices. Note that one_body_integrals and
+       two_body_integrals must be defined
+       n an orthonormal basis set.
+
+   :param one_body_integrals: One-body integrals of the target Hamiltonian
+   :param two_body_integrals: Two-body integrals of the target Hamiltonian
+   :param occupied_indices: A list of spatial orbital indices
+                            indicating which orbitals should be considered doubly occupied.
+   :param active_indices: A list of spatial orbital indices indicating
+                          which orbitals should be considered active.
+
+   :returns: Tuple with the following entries:
+
+             **core_constant**: Adjustment to constant shift in Hamiltonian
+             from integrating out core orbitals
+
+             **one_body_integrals_new**: one-electron integrals over active
+             space.
+
+             **two_body_integrals_new**: two-electron integrals over active
+             space.
+   :rtype: tuple
+
+

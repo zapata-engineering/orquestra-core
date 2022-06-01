@@ -1,0 +1,67 @@
+:py:mod:`orquestra.quantum.openfermion.ops.operators.ising_operator`
+====================================================================
+
+.. py:module:: orquestra.quantum.openfermion.ops.operators.ising_operator
+
+.. autoapi-nested-parse::
+
+   IsingOperator stores an Ising-type Hamiltonian, i.e. a sum of products of
+   Zs.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.quantum.openfermion.ops.operators.ising_operator.IsingOperator
+
+
+
+
+.. py:class:: IsingOperator(term=None, coefficient=1.0)
+
+   Bases: :py:obj:`orquestra.quantum.openfermion.ops.operators.symbolic_operator.SymbolicOperator`
+
+   The IsingOperator class provides an analytic representation of an
+   Ising-type Hamiltonian, i.e. a sum of product of Zs.
+
+   IsingOperator is a subclass of SymbolicOperator. Importantly, it has
+   attributes set as follows:
+
+       actions = ('Z')
+       action_strings = ('Z')
+       action_before_index = True
+       different_indices_commute = True
+
+   See the documentation of SymbolicOperator for more details.
+
+   .. py:method:: actions(self)
+      :property:
+
+      The allowed actions.
+
+
+   .. py:method:: action_strings(self)
+      :property:
+
+      The string representations of the allowed actions.
+
+
+   .. py:method:: action_before_index(self)
+      :property:
+
+      Whether action comes before index in string representations.
+
+
+   .. py:method:: different_indices_commute(self)
+      :property:
+
+      Whether factors acting on different indices commute.
+
+
+

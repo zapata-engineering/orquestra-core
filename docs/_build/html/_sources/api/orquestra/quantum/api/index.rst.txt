@@ -1,0 +1,121 @@
+:py:mod:`orquestra.quantum.api`
+===============================
+
+.. py:module:: orquestra.quantum.api
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   backend/index.rst
+   backend_test/index.rst
+   estimation/index.rst
+   estimator_contract/index.rst
+
+
+Package Contents
+----------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.quantum.api.QuantumBackend
+   orquestra.quantum.api.EstimationTask
+
+
+
+
+.. py:class:: QuantumBackend
+
+   Bases: :py:obj:`abc.ABC`
+
+   Interface for implementing different quantum backends.
+
+   .. attribute:: supports_batching
+
+      boolean flag indicating whether given backend
+      supports batching circuits.
+
+   .. attribute:: batch_size
+
+      number of circuit runs in a single batch.
+      If `supports_batching` is true should be a positive integer.
+
+   .. attribute:: number_of_circuits_run
+
+      number of circuits executed by this backend
+
+   .. attribute:: number_of_jobs_run
+
+      number of jobs executed by this backend. Will be different
+      from `number_of_circuits_run` if batches are used.
+
+   .. py:attribute:: supports_batching
+      :annotation: :bool = False
+
+      
+
+   .. py:attribute:: batch_size
+      :annotation: :Optional[int]
+
+      
+
+   .. py:method:: run_circuit_and_measure(self, circuit: orquestra.quantum.circuits.Circuit, n_samples: int) -> orquestra.quantum.measurements.Measurements
+      :abstractmethod:
+
+      Method for executing the circuit and measuring the outcome.
+      :param circuit: quantum circuit to be executed.
+      :param n_samples: The number of samples to collect.
+
+
+   .. py:method:: run_circuitset_and_measure(self, circuits: Sequence[orquestra.quantum.circuits.Circuit], n_samples: Sequence[int]) -> List[orquestra.quantum.measurements.Measurements]
+
+      Run a set of circuits and measure a certain number of bitstrings.
+
+      It may be useful to override this method for backends that support
+      batching.
+
+      :param circuits: The circuits to execute.
+      :param n_samples: The number of samples to collect for each circuit.
+
+
+   .. py:method:: get_measurement_outcome_distribution(self, circuit: orquestra.quantum.circuits.Circuit, n_samples: int) -> orquestra.quantum.distributions.MeasurementOutcomeDistribution
+
+      Calculates a measurement outcome distribution.
+
+      :param circuit: quantum circuit to be executed.
+
+      :returns: Probability distribution of getting specific bistrings.
+
+
+
+.. py:class:: EstimationTask
+
+   Data class defining an estimation problem.
+
+   :param operator: Operator for which we want to calculate the expectation values
+   :param circuit: Circuit used for evaluating the operator
+   :param constraints: Define constraints used in the estimation process,
+                       e.g. number of shots or target accuracy.
+
+   .. py:attribute:: operator
+      :annotation: :orquestra.quantum.openfermion.SymbolicOperator
+
+      
+
+   .. py:attribute:: circuit
+      :annotation: :orquestra.quantum.circuits.Circuit
+
+      
+
+   .. py:attribute:: number_of_shots
+      :annotation: :Optional[int]
+
+      
+
+

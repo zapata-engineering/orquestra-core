@@ -1,0 +1,46 @@
+:py:mod:`quantum.openfermion.transforms.opconversions.reverse_jordan_wigner`
+============================================================================
+
+.. py:module:: quantum.openfermion.transforms.opconversions.reverse_jordan_wigner
+
+.. autoapi-nested-parse::
+
+   Reverse Jordan-Wigner transform on QubitOperators.
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   quantum.openfermion.transforms.opconversions.reverse_jordan_wigner.reverse_jordan_wigner
+
+
+
+.. py:function:: reverse_jordan_wigner(qubit_operator, n_qubits=None)
+
+   Transforms a QubitOperator into a FermionOperator using the
+   Jordan-Wigner transform.
+
+   Operators are mapped as follows:
+   Z_j -> I - 2 a^\dagger_j a_j
+   X_j -> (a^\dagger_j + a_j) Z_{j-1} Z_{j-2} .. Z_0
+   Y_j -> i (a^\dagger_j - a_j) Z_{j-1} Z_{j-2} .. Z_0
+
+   :param qubit_operator: the QubitOperator to be transformed.
+   :param n_qubits: the number of qubits term acts on. If not set, defaults
+                    to the maximum qubit number acted on by term.
+
+   :returns: An instance of the FermionOperator class.
+   :rtype: transformed_term
+
+   :raises TypeError: Input must be a QubitOperator.
+   :raises TypeError: Invalid number of qubits specified.
+   :raises TypeError: Pauli operators must be X, Y or Z.
+
+

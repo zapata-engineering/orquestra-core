@@ -1,0 +1,88 @@
+:py:mod:`orquestra.vqa.ansatz.qaoa_farhi`
+=========================================
+
+.. py:module:: orquestra.vqa.ansatz.qaoa_farhi
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.vqa.ansatz.qaoa_farhi.QAOAFarhiAnsatz
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.vqa.ansatz.qaoa_farhi.create_farhi_qaoa_circuits
+   orquestra.vqa.ansatz.qaoa_farhi.create_all_x_mixer_hamiltonian
+
+
+
+.. py:class:: QAOAFarhiAnsatz(number_of_layers: int, cost_hamiltonian: Union[orquestra.quantum.openfermion.QubitOperator, orquestra.quantum.openfermion.IsingOperator], mixer_hamiltonian: Optional[orquestra.quantum.openfermion.QubitOperator] = None)
+
+   Bases: :py:obj:`orquestra.vqa.api.ansatz.Ansatz`
+
+   Helper class that provides a standard way to create an ABC using
+   inheritance.
+
+   .. py:attribute:: supports_parametrized_circuits
+      :annotation: = True
+
+      
+
+   .. py:attribute:: cost_hamiltonian
+      
+
+      
+
+   .. py:attribute:: mixer_hamiltonian
+      
+
+      
+
+   .. py:method:: symbols_sort_key(self) -> orquestra.vqa.api.ansatz.SymbolsSortKey
+      :property:
+
+
+   .. py:method:: number_of_qubits(self)
+      :property:
+
+      Returns number of qubits used for the ansatz circuit.
+
+
+   .. py:method:: number_of_params(self) -> int
+      :property:
+
+      Returns number of parameters in the ansatz.
+
+
+
+.. py:function:: create_farhi_qaoa_circuits(hamiltonians: List[orquestra.quantum.openfermion.QubitOperator], number_of_layers: Union[int, List[int]])
+
+   Creates parameterizable quantum circuits based on the farhi qaoa ansatz for each
+   hamiltonian in the input list using the set number of layers.
+
+   :param hamiltonians: List of hamiltonians for constructing the
+                        circuits
+   :type hamiltonians: List[QubitOperator]
+   :param number_of_layers: The number of layers of the ansatz in
+                            the circuit. If an int is passed in, the same number of layers is used for
+                            every ansatz circuit, however, if a list of ints is passed in, the number
+                            of layers used for the hamiltonian at index i of the hamiltonians list is
+                            the integer at index i of the number_of_layers list.
+   :type number_of_layers: Union[int, List[int]]
+
+   :returns: List of orquestra.quantum.circuit.Circuit
+
+
+.. py:function:: create_all_x_mixer_hamiltonian(number_of_qubits)
+
+

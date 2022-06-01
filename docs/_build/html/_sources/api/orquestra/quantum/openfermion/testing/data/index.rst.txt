@@ -1,0 +1,6 @@
+:py:mod:`orquestra.quantum.openfermion.testing.data`
+====================================================
+
+.. py:module:: orquestra.quantum.openfermion.testing.data
+
+

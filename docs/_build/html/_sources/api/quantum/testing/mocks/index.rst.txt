@@ -1,0 +1,57 @@
+:py:mod:`quantum.testing.mocks`
+===============================
+
+.. py:module:: quantum.testing.mocks
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   quantum.testing.mocks.MockQuantumBackend
+
+
+
+
+.. py:class:: MockQuantumBackend
+
+   Bases: :py:obj:`orquestra.quantum.api.backend.QuantumBackend`
+
+   Interface for implementing different quantum backends.
+
+   .. attribute:: supports_batching
+
+      boolean flag indicating whether given backend
+      supports batching circuits.
+
+   .. attribute:: batch_size
+
+      number of circuit runs in a single batch.
+      If `supports_batching` is true should be a positive integer.
+
+   .. attribute:: number_of_circuits_run
+
+      number of circuits executed by this backend
+
+   .. attribute:: number_of_jobs_run
+
+      number of jobs executed by this backend. Will be different
+      from `number_of_circuits_run` if batches are used.
+
+   .. py:attribute:: supports_batching
+      :annotation: = False
+
+      
+
+   .. py:method:: run_circuit_and_measure(self, circuit: orquestra.quantum.circuits.Circuit, n_samples: int, **kwargs) -> orquestra.quantum.measurements.Measurements
+
+      Method for executing the circuit and measuring the outcome.
+      :param circuit: quantum circuit to be executed.
+      :param n_samples: The number of samples to collect.
+
+
+

@@ -1,0 +1,378 @@
+:py:mod:`quantum.measurements`
+==============================
+
+.. py:module:: quantum.measurements
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   quantum.measurements.ExpectationValues
+   quantum.measurements.Parities
+   quantum.measurements.Measurements
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   quantum.measurements.save_expectation_values
+   quantum.measurements.load_expectation_values
+   quantum.measurements.load_wavefunction
+   quantum.measurements.save_wavefunction
+   quantum.measurements.sample_from_wavefunction
+   quantum.measurements.save_parities
+   quantum.measurements.load_parities
+   quantum.measurements.get_expectation_values_from_parities
+   quantum.measurements.get_parities_from_measurements
+   quantum.measurements.expectation_values_to_real
+   quantum.measurements.convert_bitstring_to_int
+   quantum.measurements.check_parity
+   quantum.measurements.check_parity_of_vector
+   quantum.measurements.get_expectation_value_from_frequencies
+   quantum.measurements.concatenate_expectation_values
+
+
+
+.. py:function:: save_expectation_values(expectation_values: ExpectationValues, filename: orquestra.quantum.typing.AnyPath) -> None
+
+   Save expectation values to a file.
+
+   :param expectation_values: the expectation values to save
+   :type expectation_values: ExpectationValues
+   :param file: the name of the file, or a file-like object
+   :type file: str or file-like object
+
+
+.. py:function:: load_expectation_values(file: orquestra.quantum.typing.LoadSource) -> ExpectationValues
+
+   Load an array from a file.
+
+   :param file: the name of the file, or a file-like object.
+   :type file: str or file-like object
+
+   :returns: the array
+   :rtype: array (numpy.array)
+
+
+.. py:function:: load_wavefunction(file: orquestra.quantum.typing.LoadSource) -> orquestra.quantum.wavefunction.Wavefunction
+
+   Load a qubit wavefunction from a file.
+
+   :param file: the name of the file, or a file-like object.
+   :type file: str or file-like object
+
+   :returns: the wavefunction object
+   :rtype: wavefunction (orquestra.quantum.Wavefunction)
+
+
+.. py:function:: save_wavefunction(wavefunction: orquestra.quantum.wavefunction.Wavefunction, filename: orquestra.quantum.typing.AnyPath) -> None
+
+   Save a wavefunction object to a file.
+
+   :param wavefunction: the wavefunction object
+   :type wavefunction: orquestra.quantum.Wavefunction
+   :param filename: the name of the file
+   :type filename: str
+
+
+.. py:class:: ExpectationValues(values: numpy.ndarray, correlations: Optional[List[numpy.ndarray]] = None, estimator_covariances: Optional[List[numpy.ndarray]] = None)
+
+   A class representing expectation values of operators.
+   For more context on how it is being used, please see the docstring of
+   EstimateExpectationValues Protocol in interfaces/estimation.py.
+
+   :param values: The expectation values of a set of terms in an IsingOperator.
+   :param correlations: The expectation values of pairwise products of operators.
+                        Contains an NxN array for each frame, where N is the number of
+                        operators in that frame.
+   :param estimator_covariances: The (estimated) covariances between estimates of
+                                 expectation values of pairs of operators. Contains an NxN array for
+                                 each frame, where N is the number of operators in that frame. Note
+                                 that for direct sampling, the covariance between estimates of
+                                 expectation values is equal to the population covariance divided by
+                                 the number of samples.
+
+   .. attribute:: values
+
+      See Args.
+
+   .. attribute:: correlations
+
+      See Args.
+
+   .. attribute:: estimator_covariances
+
+      See Args.
+
+   .. py:method:: to_dict(self) -> Dict[str, Any]
+
+      Convert to a dictionary
+
+
+   .. py:method:: from_dict(cls, dictionary: dict) -> ExpectationValues
+      :classmethod:
+
+      Create an ExpectationValues object from a dictionary.
+
+
+
+.. py:function:: sample_from_wavefunction(wavefunction: orquestra.quantum.wavefunction.Wavefunction, n_samples: int, seed: Optional[int] = None) -> List[Tuple[int, Ellipsis]]
+
+   Sample bitstrings from a wavefunction.
+
+   :param wavefunction: the wavefunction to sample from.
+   :param n_samples: the number of samples taken. Needs to be greater than 0.
+   :param seed: the seed of the sampler
+
+   :returns: A list of tuples where the each tuple is a sampled bitstring.
+   :rtype: List[Tuple[int]]
+
+
+.. py:class:: Parities(values: numpy.ndarray, correlations: Optional[List[numpy.ndarray]] = None)
+
+   A class representing counts of parities for Pauli terms.
+
+   :param values: Number of observations of parities. See Attributes.
+   :type values: np.array
+   :param correlations: Number of observations of pairwise products of terms.
+                        See Attributes.
+   :type correlations: list
+
+   .. attribute:: values
+
+      an array of dimension N x 2 indicating how many times
+      each Pauli term was observed with even and odd parity, where N is the
+      number of Pauli terms. Here values[i][0] and values[i][1] correspond
+      to the number of samples with even and odd parities for term P_i,
+      respectively.
+
+      :type: np.array
+
+   .. attribute:: correlations
+
+      a list of 3-dimensional numpy arrays indicating how
+      many times each product of Pauli terms was observed with even and odd
+      parity. Here correlations[i][j][k][0] and correlations[i][j][k][1]
+      correspond to the number of samples with even and odd parities term P_j P_k
+      in frame i, respectively.
+
+      :type: list
+
+   .. py:method:: to_dict(self) -> dict
+
+
+   .. py:method:: from_dict(cls, data: dict)
+      :classmethod:
+
+
+
+.. py:function:: save_parities(parities: Parities, filename: orquestra.quantum.typing.AnyPath) -> None
+
+   Save parities to a file.
+
+   :param parities: the parities
+   :type parities: orquestra.quantum.measurement.Parities
+   :param file: the name of the file, or a file-like object
+   :type file: str or file-like object
+
+
+.. py:function:: load_parities(file: orquestra.quantum.typing.LoadSource) -> Parities
+
+   Load parities from a file.
+
+   :param file: the name of the file, or a file-like object.
+   :type file: str or file-like object
+
+   :returns: the parities
+   :rtype: orquestra.quantum.measurement.Parities
+
+
+.. py:function:: get_expectation_values_from_parities(parities: Parities) -> ExpectationValues
+
+   Get the expectation values of a set of operators (with precisions) from a set of
+   samples (with even/odd parities) for them.
+
+   :param parities: Contains the number of samples with even and odd parities for each
+                    operator.
+
+   :returns: Expectation values of the operators and the associated precisions.
+
+
+.. py:function:: get_parities_from_measurements(measurements: List[Tuple[int]], ising_operator) -> Parities
+
+   Get expectation values from bitstrings.
+
+   :param measurements: the measured bitstrings
+   :type measurements: list
+   :param ising_operator: the operator
+   :type ising_operator: openfermion.ops.IsingOperator
+
+   :returns: parities of each term in the operator
+   :rtype: orquestra.quantum.measurement.Parities
+
+
+.. py:function:: expectation_values_to_real(expectation_values: ExpectationValues) -> ExpectationValues
+
+   Remove the imaginary parts of the expectation values
+
+   :param expectation_values:
+   :type expectation_values: orquestra.quantum.measurement.ExpectationValues object
+
+   :returns: expectation_values (orquestra.quantum.measurement.ExpectationValues object)
+
+
+.. py:function:: convert_bitstring_to_int(bitstring: Sequence[int]) -> int
+
+   Convert a bitstring to an integer.
+
+   :param bitstring: A list of integers.
+   :type bitstring: list
+
+   :returns:
+
+             The value of the bitstring, where the first bit in the least
+                 significant (little endian).
+   :rtype: int
+
+
+.. py:function:: check_parity(bitstring: Union[str, Sequence[int]], marked_qubits: Iterable[int]) -> bool
+
+   Determine if the marked qubits have even parity for the given bitstring.
+
+   :param bitstring: The bitstring, either as a tuple or little endian string.
+   :param marked_qubits: The qubits whose parity is to be determined.
+
+   :returns:
+
+             True if an even number of the marked qubits are in the 1 state, False
+                 otherwise.
+
+
+.. py:function:: check_parity_of_vector(bitstrings_vector: numpy.ndarray, marked_qubits: Iterable[int]) -> numpy.ndarray
+
+   Determine if the marked qubits have even parity for each bitstring in the given
+       vector.
+       NOTE: This performs the same functionality as `check_parity` but is much
+       faster as it uses vectorization to find the parity of multiple bitstrings
+       at once.
+
+   :param bitstring: A 2d array of bitstrings whose size is number of bistrings * number
+                     of qubits
+   :param marked_qubits: The qubits whose parity is to be determined.
+
+   :returns: A 1d array with size equal to number of bitstrings. Each entry is 1 if an even
+             number of the marked qubits of the corresponding bitstring are in the 1 state
+             and 0 if otherwise.
+
+
+.. py:function:: get_expectation_value_from_frequencies(marked_qubits: Iterable[int], bitstring_frequencies: Dict[str, int]) -> float
+
+   Get the expectation value the product of Z operators on selected qubits
+   from bitstring frequencies.
+
+   :param marked_qubits: The qubits that the Z operators act on.
+   :param bitstring_frequences: The frequencies of the bitstrings.
+
+   :returns: The expectation value of the product of Z operators on selected qubits.
+
+
+.. py:class:: Measurements(bitstrings: Optional[List[Tuple[int, Ellipsis]]] = None)
+
+   A class representing measurements from a quantum circuit. The bitstrings variable
+   represents the internal data structure of the Measurements class. It is expressed as
+   a list of tuples wherein each tuple is a measurement and the value of the tuple at a
+   given index is the measured bit-value of the qubit (indexed from 0 -> N-1)
+
+   .. py:method:: from_counts(cls, counts: Dict[str, int])
+      :classmethod:
+
+      Create an instance of the Measurements class from a dictionary
+
+      :param counts: mapping of bitstrings to integers representing the number of times
+                     the bitstring was measured
+
+
+   .. py:method:: get_measurements_representing_distribution(cls, measurement_outcome_distribution: quantum.distributions.MeasurementOutcomeDistribution, number_of_samples: int)
+      :classmethod:
+
+      Create an instance of the Measurements class that exactly (or as closely as
+      possible) resembles the input bitstring distribution.
+
+      :param measurement_outcome_distribution: the bitstring distribution to be sampled
+      :param number_of_samples: the number of measurements
+
+
+   .. py:method:: load_from_file(cls, file: TextIO)
+      :classmethod:
+
+      Load a set of measurements from file
+
+      :param file: the name of the file, or a file-like object
+      :type file: str or file-like object
+
+
+   .. py:method:: save(self, filename: orquestra.quantum.typing.AnyPath)
+
+      Serialize the Measurements object into a file in JSON format.
+
+      :param filename: filename to save the data to
+      :type filename: string
+
+
+   .. py:method:: get_counts(self)
+
+      Get the measurements as a histogram
+
+      :returns: A dictionary mapping bitstrings to integers representing the number of times
+                the bitstring was measured
+
+
+   .. py:method:: add_counts(self, counts: Dict[str, int])
+
+      Add measurements from a histogram
+
+      :param counts: mapping of bitstrings to integers representing the number of times
+                     the bitstring was measured
+                     NOTE: bitstrings are also indexed from 0 -> N-1, where the "001"
+                     bitstring represents a measurement of qubit 2 in the 1 state
+
+
+   .. py:method:: get_distribution(self) -> quantum.distributions.MeasurementOutcomeDistribution
+
+      Get the normalized probability distribution representing the measurements
+
+      :returns: bitstring distribution based on the frequency of measurements
+      :rtype: distribution
+
+
+   .. py:method:: get_expectation_values(self, ising_operator, use_bessel_correction: bool = False) -> ExpectationValues
+
+      Get the expectation values of an operator from the measurements.
+
+      :param ising_operator: the operator
+      :param use_bessel_correction: Whether to use Bessel's correction when
+                                    when estimating the covariance of operators. Using the
+                                    correction provides an unbiased estimate for covariances, but
+                                    diverges when only one sample is taken.
+
+      :returns: expectation values of each term in the operator
+
+
+
+.. py:function:: concatenate_expectation_values(expectation_values_set: Iterable[ExpectationValues]) -> ExpectationValues
+
+   Concatenates a set of expectation values objects.
+
+   :param expectation_values_set: The expectation values objects to be concatenated.
+
+   :returns: The combined expectation values.
+
+

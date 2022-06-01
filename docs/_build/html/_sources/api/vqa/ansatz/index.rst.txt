@@ -1,0 +1,28 @@
+:py:mod:`vqa.ansatz`
+====================
+
+.. py:module:: vqa.ansatz
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   qcbm/index.rst
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   kbody/index.rst
+   qaoa_farhi/index.rst
+   qaoa_warm_start/index.rst
+   quantum_compiling/index.rst
+   singlet_uccsd/index.rst
+
+

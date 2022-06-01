@@ -1,0 +1,48 @@
+:py:mod:`opt.problems.vertex_cover`
+===================================
+
+.. py:module:: opt.problems.vertex_cover
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   opt.problems.vertex_cover.VertexCover
+
+
+
+
+.. py:class:: VertexCover(A: int = 5, B: int = 1)
+
+   Bases: :py:obj:`opt.api.problem.Problem`
+
+   Solves vertex cover problem on an undirected graph using an ising model
+   formulation.
+
+   The solution of a vertex cover problem is the minimal number of colored
+   verticies such that all edges connect to a colored vertex.
+   From "Ising formulations of many NP Problems" by A. Lucas, eq. 33 and 34
+   (https://arxiv.org/pdf/1302.5843.pdf)
+   and
+   https://quantumcomputing.stackexchange.com/questions/16082/vertex-cover-mappings-from-qubo-to-ising-and-vice-versa
+   for corrective translation shifts
+
+   :param A: Cost of having an edge which is not connected to a colored vertex.
+   :param Should be large:
+   :type Should be large: _A = 5
+   :param B: Cost of coloring a particular vertex.
+
+   .. attribute:: _A
+
+      See argument A above.
+
+   .. attribute:: _B
+
+      See argument B above.
+
+

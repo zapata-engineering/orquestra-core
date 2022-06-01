@@ -1,0 +1,158 @@
+:py:mod:`quantum.openfermion.circuits.unitary_cc`
+=================================================
+
+.. py:module:: quantum.openfermion.circuits.unitary_cc
+
+.. autoapi-nested-parse::
+
+   Module to create and manipulate unitary coupled cluster operators.
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   quantum.openfermion.circuits.unitary_cc.uccsd_generator
+   quantum.openfermion.circuits.unitary_cc.uccsd_convert_amplitude_format
+   quantum.openfermion.circuits.unitary_cc.uccsd_singlet_paramsize
+   quantum.openfermion.circuits.unitary_cc.uccsd_singlet_get_packed_amplitudes
+   quantum.openfermion.circuits.unitary_cc.uccsd_singlet_generator
+
+
+
+.. py:function:: uccsd_generator(single_amplitudes, double_amplitudes, anti_hermitian=True)
+
+   Create a fermionic operator that is the generator of uccsd.
+
+   This a the most straight-forward method to generate UCCSD operators,
+   however it is slightly inefficient. In particular, it parameterizes
+   all possible excitations, so it represents a generalized unitary coupled
+   cluster ansatz, but also does not explicitly enforce the uniqueness
+   in parametrization, so it is redundant. For example there will be a linear
+   dependency in the ansatz of single_amplitudes[i,j] and
+   single_amplitudes[j,i].
+
+   :param single_amplitudes: list of lists with each sublist
+                             storing a list of indices followed by single excitation amplitudes
+                             i.e. [[[i,j],t_ij], ...] OR [NxN] array storing single excitation
+                             amplitudes corresponding to
+                             t[i,j] * (a_i^† a_j - H.C.)
+   :type single_amplitudes: list or ndarray
+   :param double_amplitudes: list of lists with each sublist
+                             storing a list of indices followed by double excitation amplitudes
+                             i.e. [[[i,j,k,l],t_ijkl], ...] OR [NxNxNxN] array storing double
+                             excitation amplitudes corresponding to
+                             t[i,j,k,l] * (a_i^† a_j a_k^† a_l - H.C.)
+   :type double_amplitudes: list or ndarray
+   :param anti_hermitian: Flag to generate only normal CCSD operator
+                          rather than unitary variant, primarily for testing
+   :type anti_hermitian: Bool
+
+   :returns: Anti-hermitian fermion operator that
+             is the generator for the uccsd wavefunction.
+   :rtype: uccsd_generator(FermionOperator)
+
+
+.. py:function:: uccsd_convert_amplitude_format(single_amplitudes, double_amplitudes)
+
+   Re-format single_amplitudes and double_amplitudes from ndarrays
+       to lists.
+
+   :param single_amplitudes: [NxN] array storing single excitation
+                             amplitudes corresponding to t[i,j] * (a_i^† a_j - H.C.)
+   :type single_amplitudes: ndarray
+   :param double_amplitudes: [NxNxNxN] array storing double
+                             excitation amplitudes corresponding to
+                             t[i,j,k,l] * (a_i^† a_j a_k^† a_l - H.C.)
+   :type double_amplitudes: ndarray
+
+   :returns:
+
+             list of lists with each sublist storing
+                 a list of indices followed by single excitation amplitudes
+                 i.e. [[[i,j],t_ij], ...]
+             double_amplitudes_list(list): list of lists with each sublist storing
+                 a list of indices followed by double excitation amplitudes
+                 i.e. [[[i,j,k,l],t_ijkl], ...]
+   :rtype: single_amplitudes_list(list)
+
+
+.. py:function:: uccsd_singlet_paramsize(n_qubits, n_electrons)
+
+   Determine number of independent amplitudes for singlet UCCSD
+
+   :param n_qubits: Number of qubits/spin-orbitals in the system
+   :type n_qubits: int
+   :param n_electrons: Number of electrons in the reference state
+   :type n_electrons: int
+
+   :returns: Number of independent parameters for singlet UCCSD with a single
+             reference.
+
+
+.. py:function:: uccsd_singlet_get_packed_amplitudes(single_amplitudes, double_amplitudes, n_qubits, n_electrons)
+
+   Convert amplitudes for use with singlet UCCSD
+
+   The output list contains only those amplitudes that are relevant to
+   singlet UCCSD, in an order suitable for use with the function
+   `uccsd_singlet_generator`.
+
+   :param single_amplitudes: [NxN] array storing single excitation
+                             amplitudes corresponding to t[i,j] * (a_i^† a_j - H.C.)
+   :type single_amplitudes: ndarray
+   :param double_amplitudes: [NxNxNxN] array storing double
+                             excitation amplitudes corresponding to
+                             t[i,j,k,l] * (a_i^† a_j a_k^† a_l - H.C.)
+   :type double_amplitudes: ndarray
+   :param n_qubits: Number of spin-orbitals used to represent the system,
+                    which also corresponds to number of qubits in a non-compact map.
+   :type n_qubits: int
+   :param n_electrons: Number of electrons in the physical system.
+   :type n_electrons: int
+
+   :returns:
+
+             List storing the unique single
+                 and double excitation amplitudes for a singlet UCCSD operator.
+                 The ordering lists unique single excitations before double
+                 excitations.
+   :rtype: packed_amplitudes(list)
+
+
+.. py:function:: uccsd_singlet_generator(packed_amplitudes, n_qubits, n_electrons, anti_hermitian=True)
+
+   Create a singlet UCCSD generator for a system with n_electrons
+
+   This function generates a FermionOperator for a UCCSD generator designed
+       to act on a single reference state consisting of n_qubits spin orbitals
+       and n_electrons electrons, that is a spin singlet operator, meaning it
+       conserves spin.
+
+   :param packed_amplitudes: List storing the unique single
+                             and double excitation amplitudes for a singlet UCCSD operator.
+                             The ordering lists unique single excitations before double
+                             excitations.
+   :type packed_amplitudes: list
+   :param n_qubits: Number of spin-orbitals used to represent the system,
+                    which also corresponds to number of qubits in a non-compact map.
+   :type n_qubits: int
+   :param n_electrons: Number of electrons in the physical system.
+   :type n_electrons: int
+   :param anti_hermitian: Flag to generate only normal CCSD operator
+                          rather than unitary variant, primarily for testing
+   :type anti_hermitian: Bool
+
+   :returns:
+
+             Generator of the UCCSD operator that
+                 builds the UCCSD wavefunction.
+   :rtype: generator(FermionOperator)
+
+

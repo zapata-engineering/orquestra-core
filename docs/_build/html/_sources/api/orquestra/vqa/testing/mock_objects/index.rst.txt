@@ -1,0 +1,43 @@
+:py:mod:`orquestra.vqa.testing.mock_objects`
+============================================
+
+.. py:module:: orquestra.vqa.testing.mock_objects
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.vqa.testing.mock_objects.MockAnsatz
+
+
+
+
+.. py:class:: MockAnsatz(number_of_layers: int, problem_size: int)
+
+   Bases: :py:obj:`orquestra.vqa.api.ansatz.Ansatz`
+
+   Helper class that provides a standard way to create an ABC using
+   inheritance.
+
+   .. py:attribute:: supports_parametrized_circuits
+      :annotation: = True
+
+      
+
+   .. py:attribute:: problem_size
+      
+
+      
+
+   .. py:method:: number_of_qubits(self) -> int
+      :property:
+
+      Returns number of qubits ansatz circuit uses
+
+
+

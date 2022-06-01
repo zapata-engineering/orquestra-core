@@ -1,0 +1,355 @@
+:py:mod:`quantum.utils`
+=======================
+
+.. py:module:: quantum.utils
+
+.. autoapi-nested-parse::
+
+   General-purpose utilities.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   quantum.utils.ValueEstimate
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   quantum.utils.convert_dict_to_array
+   quantum.utils.convert_array_to_dict
+   quantum.utils.dec2bin
+   quantum.utils.bin2dec
+   quantum.utils.is_identity
+   quantum.utils.is_unitary
+   quantum.utils.compare_unitary
+   quantum.utils.sample_from_probability_distribution
+   quantum.utils.convert_bitstrings_to_tuples
+   quantum.utils.convert_tuples_to_bitstrings
+   quantum.utils.load_value_estimate
+   quantum.utils.save_value_estimate
+   quantum.utils.load_list
+   quantum.utils.save_list
+   quantum.utils.save_generic_dict
+   quantum.utils.create_symbols_map
+   quantum.utils.save_timing
+   quantum.utils.save_nmeas_estimate
+   quantum.utils.load_nmeas_estimate
+   quantum.utils.scale_and_discretize
+   quantum.utils.get_ordered_list_of_bitstrings
+   quantum.utils.ensure_open
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   quantum.utils.RNDSEED
+   quantum.utils.pauli_x
+   quantum.utils.pauli_y
+   quantum.utils.pauli_z
+   quantum.utils.identity
+
+
+.. py:data:: RNDSEED
+   :annotation: = 12345
+
+   
+
+.. py:function:: convert_dict_to_array(dictionary: dict) -> numpy.ndarray
+
+   Convert a dictionary to a numpy array.
+
+   :param dictionary: the dict containing the data
+   :type dictionary: dict
+
+   :returns: a numpy array
+   :rtype: array (numpy.array)
+
+
+.. py:function:: convert_array_to_dict(array: numpy.ndarray) -> dict
+
+   Convert a numpy array to a dictionary.
+
+   :param array: a numpy array
+   :type array: numpy.array
+
+   :returns: the dict containing the data
+   :rtype: dictionary (dict)
+
+
+.. py:function:: dec2bin(number: int, length: int) -> List[int]
+
+   Converts a decimal number into a binary representation
+   of fixed number of bits.
+
+   :param number: (int) the input decimal number
+   :param length: (int) number of bits in the output string
+
+   :returns: A list of binary numbers
+
+
+.. py:function:: bin2dec(x: List[int]) -> int
+
+   Converts a binary vector to an integer, with the 0-th
+   element being the most significant digit.
+
+   :param x: (list) a binary vector
+
+   :returns: An integer
+
+
+.. py:data:: pauli_x
+   
+
+   
+
+.. py:data:: pauli_y
+   
+
+   
+
+.. py:data:: pauli_z
+   
+
+   
+
+.. py:data:: identity
+   
+
+   
+
+.. py:function:: is_identity(u: numpy.ndarray, tol=1e-15) -> bool
+
+   Test if a matrix is identity.
+
+   :param u: np.ndarray
+             Matrix to be checked.
+   :param tol: float
+               Threshold below which two matrix elements are considered equal.
+
+
+.. py:function:: is_unitary(u: numpy.ndarray, tol=1e-15) -> bool
+
+   Test if a matrix is unitary.
+
+   :param u: array
+             Matrix to be checked.
+   :param tol: float
+               Threshold below which two matrix elements are considered equal.
+
+
+.. py:function:: compare_unitary(u1: numpy.ndarray, u2: numpy.ndarray, tol: float = 1e-15) -> bool
+
+   Compares two unitary operators to see if they are equal to within a phase.
+
+   :param u1: First unitary operator.
+   :type u1: numpy.ndarray
+   :param u2: Second unitary operator.
+   :type u2: numpy.ndarray
+   :param tol: Threshold below which two matrix elements are considered equal.
+   :type tol: float
+
+   :returns:
+
+             True if the unitaries are equal to within the tolerance, ignoring
+                 differences in global phase.
+   :rtype: bool
+
+
+.. py:function:: sample_from_probability_distribution(probability_distribution: dict, n_samples: int) -> collections.Counter
+
+   Samples events from a discrete probability distribution
+
+   :param probabilty_distribution: The discrete probability distribution to be used
+   :param for sampling. This should be a dictionary:
+   :param n_samples: The number of samples desired
+   :type n_samples: int
+
+   :returns: A dictionary of the outcomes sampled. The key values are the things be sampled
+             and values are how many times those things appeared in the sampling
+
+
+.. py:function:: convert_bitstrings_to_tuples(bitstrings: Iterable[str]) -> List[Tuple[int, Ellipsis]]
+
+   Given the measured bitstrings, convert each bitstring to tuple format
+
+   :param bitstrings: the measured bitstrings
+   :type bitstrings: list of strings
+
+   :returns: A list of tuples
+
+
+.. py:function:: convert_tuples_to_bitstrings(tuples: List[Tuple[int]]) -> List[str]
+
+   Given a set of measurement tuples, convert each to a little endian
+   string.
+
+   :param tuples: the measurement tuples
+   :type tuples: list of tuples
+
+   :returns: A list of bitstrings
+
+
+.. py:class:: ValueEstimate(value, precision: Optional[float] = None)
+
+   Bases: :py:obj:`float`
+
+   A class representing a numerical value and its precision corresponding
+       to an observable or an objective function
+
+   :param value: the numerical value or a value that can be converted to float
+   :type value: np.float
+   :param precision: its precision
+   :type precision: np.float
+
+   .. attribute:: value
+
+      the numerical value
+
+      :type: np.float
+
+   .. attribute:: precision
+
+      its precision
+
+      :type: np.float
+
+   .. py:method:: to_dict(self)
+
+      Convert to a dictionary
+
+
+   .. py:method:: from_dict(cls, dictionary)
+      :classmethod:
+
+      Create an ExpectationValues object from a dictionary.
+
+
+
+.. py:function:: load_value_estimate(file: quantum.typing.LoadSource) -> ValueEstimate
+
+   Loads value estimate from a failed.
+
+   :param file: the name of the file, or a file-like object.
+   :type file: str or file-like object
+
+   :returns: the array
+   :rtype: array (numpy.array)
+
+
+.. py:function:: save_value_estimate(value_estimate: ValueEstimate, filename: quantum.typing.AnyPath)
+
+   Saves value estimate to a file.
+
+   :param value_estimate: the value estimate
+   :type value_estimate: orquestra.quantum.utils.ValueEstimate
+   :param file: the name of the file, or a file-like object
+   :type file: str or file-like object
+
+
+.. py:function:: load_list(file: quantum.typing.LoadSource) -> List
+
+   Load an array from a file.
+
+   :param file: the name of the file, or a file-like object.
+   :type file: str or file-like object
+
+   :returns: the list
+   :rtype: array (list)
+
+
+.. py:function:: save_list(array: List, filename: quantum.typing.AnyPath)
+
+   Save expectation values to a file.
+
+   :param array: the list to be saved
+   :type array: list
+   :param file: the name of the file, or a file-like object
+   :type file: str or file-like object
+
+
+.. py:function:: save_generic_dict(dictionary: Dict, filename: quantum.typing.AnyPath)
+
+   Save dictionary as json
+
+   :param dictionary: the dict containing the data
+   :type dictionary: dict
+
+
+.. py:function:: create_symbols_map(symbols: List[sympy.Symbol], params: numpy.ndarray) -> Dict[sympy.Symbol, float]
+
+   Creates a map to be used for evaluating sympy expressions.
+
+   :param symbols: list of sympy Symbols to be evaluated
+   :param params: numpy array containing numerical value for the symbols
+
+
+.. py:function:: save_timing(walltime: float, filename: quantum.typing.AnyPath) -> None
+
+   Saves timing information.
+
+   :param walltime: The execution time.
+
+
+.. py:function:: save_nmeas_estimate(nmeas: float, nterms: int, filename: quantum.typing.AnyPath, frame_meas: numpy.ndarray = None) -> None
+
+   Save an estimate of the number of measurements to a file
+
+   :param nmeas: total number of measurements for epsilon = 1.0
+   :param nterms: number of terms (groups) in the objective function
+   :param frame_meas: A list of the number of measurements per frame for epsilon = 1.0
+
+
+.. py:function:: load_nmeas_estimate(filename: quantum.typing.AnyPath) -> Tuple[float, int, numpy.ndarray]
+
+   Load an estimate of the number of measurements from a file.
+
+   :param filename: the name of the file
+
+   :returns: number of measurements for epsilon = 1.0
+             nterms: number of terms in the hamiltonian
+             frame_meas: frame measurements (number of measurements per group)
+   :rtype: nmeas
+
+
+.. py:function:: scale_and_discretize(values: Iterable[float], total: int) -> List[int]
+
+   Convert a list of floats to a list of integers such that the total equals
+   a given value and the ratios of elements are approximately preserved.
+
+   :param values: The list of floats to be scaled and discretized.
+   :param total: The desired total which the resulting values should sum to.
+
+   :returns:
+
+             A list of integers whose sum is equal to the given total, where the
+                 ratios of the list elements are approximately equal to the ratios
+                 of the input list elements.
+
+
+.. py:function:: get_ordered_list_of_bitstrings(num_qubits: int) -> List[str]
+
+   Create list of binary strings corresponding to 2^num_qubits integers
+   and save them in ascending order.
+
+   :param num_qubits: number of binary digits in each bitstring
+
+   :returns: The ordered bitstring representations of the integers
+
+
+.. py:function:: ensure_open(path_like: Union[quantum.typing.LoadSource, quantum.typing.DumpTarget], mode='r', encoding='utf-8')
+
+

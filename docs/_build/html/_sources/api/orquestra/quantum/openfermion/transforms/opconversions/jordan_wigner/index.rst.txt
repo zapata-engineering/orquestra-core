@@ -1,0 +1,63 @@
+:py:mod:`orquestra.quantum.openfermion.transforms.opconversions.jordan_wigner`
+==============================================================================
+
+.. py:module:: orquestra.quantum.openfermion.transforms.opconversions.jordan_wigner
+
+.. autoapi-nested-parse::
+
+   Jordan-Wigner transform on fermionic operators.
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.quantum.openfermion.transforms.opconversions.jordan_wigner.jordan_wigner
+   orquestra.quantum.openfermion.transforms.opconversions.jordan_wigner.jordan_wigner_one_body
+   orquestra.quantum.openfermion.transforms.opconversions.jordan_wigner.jordan_wigner_two_body
+
+
+
+.. py:function:: jordan_wigner(operator)
+
+   Apply the Jordan-Wigner transform to a FermionOperator,
+   or InteractionOperator, to convert to a QubitOperator.
+
+   Operators are mapped as follows:
+   a_j^\dagger -> Z_0 .. Z_{j-1} (X_j - iY_j) / 2
+   a_j -> Z_0 .. Z_{j-1} (X_j + iY_j) / 2
+
+   :returns: An instance of the QubitOperator class.
+   :rtype: transformed_operator
+
+   .. warning::
+
+      The runtime of this method is exponential in the maximum locality
+      of the original FermionOperator.
+
+   :raises TypeError: Operator must be a FermionOperator,
+       or InteractionOperator.
+
+
+.. py:function:: jordan_wigner_one_body(p, q, coefficient=1.0)
+
+   Map the term a^\dagger_p a_q + h.c. to QubitOperator.
+
+   Note that the diagonal terms are divided by a factor of 2
+   because they are equal to their own Hermitian conjugate.
+
+
+.. py:function:: jordan_wigner_two_body(p, q, r, s, coefficient=1.0)
+
+   Map the term a^\dagger_p a^\dagger_q a_r a_s + h.c. to QubitOperator.
+
+   Note that the diagonal terms are divided by a factor of two
+   because they are equal to their own Hermitian conjugate.
+
+

@@ -1,0 +1,54 @@
+:py:mod:`quantum.distributions.BAS_dataset`
+===========================================
+
+.. py:module:: quantum.distributions.BAS_dataset
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   quantum.distributions.BAS_dataset.get_bars_and_stripes_target_distribution
+   quantum.distributions.BAS_dataset.bars_and_stripes_zigzag
+   quantum.distributions.BAS_dataset.get_num_bars_and_stripes_patterns
+
+
+
+.. py:function:: get_bars_and_stripes_target_distribution(nrows, ncols, fraction=1.0, method='zigzag')
+
+   Generates bars and stripes (BAS) data in zigzag pattern
+   :param nrows: number of rows in BAS dataset
+   :param ncols: number of columns in BAS dataset
+   :param fraction: maximum fraction of patterns to include
+                    (at least one pattern will always be included)
+   :param method: the method to use to label the qubits
+
+   :returns: Array of list of BAS pattern.
+
+
+.. py:function:: bars_and_stripes_zigzag(nrows, ncols)
+
+   Generates bars and stripes data in zigzag pattern
+   :param nrows: number of rows in BAS dataset
+   :param ncols: number of columns in BAS dataset
+
+   :returns: Array of list of BAS pattern.
+
+
+.. py:function:: get_num_bars_and_stripes_patterns(nrows, ncols) -> int
+
+   Get the number of bars and stripes patters for a 2-dimensional grid.
+   :param nrows: number of rows in BAS dataset
+   :type nrows: int
+   :param ncols: number of columns in BAS dataset
+   :type ncols: int
+
+   :returns: number of bars and stripes patterns
+   :rtype: (int)
+
+

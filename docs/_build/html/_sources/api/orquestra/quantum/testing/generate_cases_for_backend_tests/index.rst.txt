@@ -1,0 +1,197 @@
+:py:mod:`orquestra.quantum.testing.generate_cases_for_backend_tests`
+====================================================================
+
+.. py:module:: orquestra.quantum.testing.generate_cases_for_backend_tests
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.quantum.testing.generate_cases_for_backend_tests.generate_cases_1_qubit_wavefunction
+   orquestra.quantum.testing.generate_cases_for_backend_tests.generate_cases_1_qubit_exp_vals
+   orquestra.quantum.testing.generate_cases_for_backend_tests.generate_cases_1_qubit_exp_vals_with_angles
+   orquestra.quantum.testing.generate_cases_for_backend_tests.generate_cases_2_qubits_wavefunction
+   orquestra.quantum.testing.generate_cases_for_backend_tests.generate_cases_2_qubits_exp_vals
+   orquestra.quantum.testing.generate_cases_for_backend_tests.generate_cases_2_qubits_exp_vals_with_angles
+   orquestra.quantum.testing.generate_cases_for_backend_tests.main
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.quantum.testing.generate_cases_for_backend_tests.I
+   orquestra.quantum.testing.generate_cases_for_backend_tests.H
+   orquestra.quantum.testing.generate_cases_for_backend_tests.X
+   orquestra.quantum.testing.generate_cases_for_backend_tests.Y
+   orquestra.quantum.testing.generate_cases_for_backend_tests.Z
+   orquestra.quantum.testing.generate_cases_for_backend_tests.S
+   orquestra.quantum.testing.generate_cases_for_backend_tests.T
+   orquestra.quantum.testing.generate_cases_for_backend_tests.CNOT
+   orquestra.quantum.testing.generate_cases_for_backend_tests.CZ
+   orquestra.quantum.testing.generate_cases_for_backend_tests.SWAP
+   orquestra.quantum.testing.generate_cases_for_backend_tests.ISWAP
+   orquestra.quantum.testing.generate_cases_for_backend_tests.II
+   orquestra.quantum.testing.generate_cases_for_backend_tests.IH
+   orquestra.quantum.testing.generate_cases_for_backend_tests.HI
+   orquestra.quantum.testing.generate_cases_for_backend_tests.HH
+   orquestra.quantum.testing.generate_cases_for_backend_tests.XX
+   orquestra.quantum.testing.generate_cases_for_backend_tests.YY
+   orquestra.quantum.testing.generate_cases_for_backend_tests.ZZ
+   orquestra.quantum.testing.generate_cases_for_backend_tests.IX
+   orquestra.quantum.testing.generate_cases_for_backend_tests.ZI
+   orquestra.quantum.testing.generate_cases_for_backend_tests.single_qubit_initial_states
+   orquestra.quantum.testing.generate_cases_for_backend_tests.single_qubit_operators
+   orquestra.quantum.testing.generate_cases_for_backend_tests.two_qubit_initial_states
+   orquestra.quantum.testing.generate_cases_for_backend_tests.two_qubit_operators
+
+
+.. py:data:: I
+   
+
+   
+
+.. py:data:: H
+   
+
+   
+
+.. py:data:: X
+   
+
+   
+
+.. py:data:: Y
+   
+
+   
+
+.. py:data:: Z
+   
+
+   
+
+.. py:data:: S
+   
+
+   
+
+.. py:data:: T
+   
+
+   
+
+.. py:data:: CNOT
+   
+
+   
+
+.. py:data:: CZ
+   
+
+   
+
+.. py:data:: SWAP
+   
+
+   
+
+.. py:data:: ISWAP
+   
+
+   
+
+.. py:data:: II
+   
+
+   
+
+.. py:data:: IH
+   
+
+   
+
+.. py:data:: HI
+   
+
+   
+
+.. py:data:: HH
+   
+
+   
+
+.. py:data:: XX
+   
+
+   
+
+.. py:data:: YY
+   
+
+   
+
+.. py:data:: ZZ
+   
+
+   
+
+.. py:data:: IX
+   
+
+   
+
+.. py:data:: ZI
+   
+
+   
+
+.. py:data:: single_qubit_initial_states
+   :annotation: = [None, None]
+
+   
+
+.. py:data:: single_qubit_operators
+   
+
+   
+
+.. py:data:: two_qubit_initial_states
+   :annotation: = [None, None, None, None]
+
+   
+
+.. py:data:: two_qubit_operators
+   :annotation: = [None, None, None, None, None, None]
+
+   
+
+.. py:function:: generate_cases_1_qubit_wavefunction(matrix, matrix_name, angles)
+
+
+.. py:function:: generate_cases_1_qubit_exp_vals(matrix, matrix_name)
+
+
+.. py:function:: generate_cases_1_qubit_exp_vals_with_angles(matrix, matrix_name, angles)
+
+
+.. py:function:: generate_cases_2_qubits_wavefunction(matrix, matrix_name, angles)
+
+
+.. py:function:: generate_cases_2_qubits_exp_vals(matrix, matrix_name)
+
+
+.. py:function:: generate_cases_2_qubits_exp_vals_with_angles(matrix, matrix_name, angles)
+
+
+.. py:function:: main()
+
+

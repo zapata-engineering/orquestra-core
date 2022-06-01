@@ -1,0 +1,337 @@
+:py:mod:`orquestra.quantum.openfermion.ops.representations`
+===========================================================
+
+.. py:module:: orquestra.quantum.openfermion.ops.representations
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   interaction_operator/index.rst
+   interaction_rdm/index.rst
+   polynomial_tensor/index.rst
+
+
+Package Contents
+----------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.quantum.openfermion.ops.representations.PolynomialTensor
+   orquestra.quantum.openfermion.ops.representations.InteractionOperator
+   orquestra.quantum.openfermion.ops.representations.InteractionRDM
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.quantum.openfermion.ops.representations.general_basis_change
+   orquestra.quantum.openfermion.ops.representations.get_active_space_integrals
+   orquestra.quantum.openfermion.ops.representations.get_tensors_from_integrals
+
+
+
+.. py:class:: PolynomialTensor(n_body_tensors)
+
+   Bases: :py:obj:`object`
+
+   Class for storing tensor representations of operators that correspond
+   with multilinear polynomials in the fermionic ladder operators.
+   For instance, in a quadratic Hamiltonian (degree 2 polynomial) which
+   conserves particle number, there are only terms of the form
+   a^\dagger_p a_q, and the coefficients can be stored in an
+   n_qubits x n_qubits matrix. Higher order terms would be described with
+   tensors of higher dimension. Note that each tensor must have an even
+   number of dimensions, since parity is conserved.
+   Much of the functionality of this class is redudant with FermionOperator
+   but enables much more efficient numerical computations in many cases,
+   such as basis rotations.
+
+   .. attribute:: n_qubits
+
+      The number of sites on which the tensor acts.
+
+      :type: int
+
+   .. attribute:: n_body_tensors
+
+      A dictionary storing the tensors describing
+      n-body interactions. The keys are tuples that indicate the
+      type of tensor. For instance, n_body_tensors[(1, 0)] would
+      be an (n_qubits x n_qubits) numpy array,
+      and it could represent the coefficients of terms of the form
+      a^\dagger_i a_j, whereas n_body_tensors[(0, 1)] would be
+      an array of the same shape, but instead representing terms
+      of the form a_i a^\dagger_j.
+
+      :type: dict
+
+   .. py:method:: constant(self)
+      :property:
+
+      The value of the constant term.
+
+
+   .. py:method:: n_body_tensors(self)
+      :property:
+
+
+   .. py:method:: n_qubits(self)
+      :property:
+
+
+   .. py:method:: with_function_applied_elementwise(self, func)
+
+
+   .. py:method:: rotate_basis(self, rotation_matrix)
+
+      Rotate the orbital basis of the PolynomialTensor.
+
+      :param rotation_matrix: A square numpy array or matrix having
+                              dimensions of n_qubits by n_qubits. Assumed to be real and
+                              invertible.
+
+
+   .. py:method:: projected_n_body_tensors(self, selection, exact=False)
+
+      Keep only selected elements.
+
+      :param selection: If int, keeps terms with at
+                        most (exactly, if exact is True) that many unique indices. If
+                        iterable, keeps only terms containing (all of, if exact is
+                        True) the specified indices.
+      :type selection: Union[int, Iterable[int]
+      :param exact: Whether or not the selection is strict.
+      :type exact: bool
+
+
+
+.. py:exception:: PolynomialTensorError
+
+   Bases: :py:obj:`Exception`
+
+   Common base class for all non-exit exceptions.
+
+
+.. py:function:: general_basis_change(general_tensor, rotation_matrix, key)
+
+   Change the basis of an general interaction tensor.
+
+   M'^{p_1p_2...p_n} = R^{p_1}_{a_1} R^{p_2}_{a_2} ...
+                       R^{p_n}_{a_n} M^{a_1a_2...a_n} R^{p_n}_{a_n}^T ...
+                       R^{p_2}_{a_2}^T R_{p_1}_{a_1}^T
+
+   where R is the rotation matrix, M is the general tensor, M' is the
+   transformed general tensor, and a_k and p_k are indices. The formula uses
+   the Einstein notation (implicit sum over repeated indices).
+
+   In case R is complex, the k-th R in the above formula need to be conjugated
+   if key has a 1 in the k-th place (meaning that the corresponding operator
+   is a creation operator).
+
+   :param general_tensor: A square numpy array or matrix containing information
+                          about a general interaction tensor.
+   :param rotation_matrix: A square numpy array or matrix having dimensions of
+                           n_qubits by n_qubits. Assumed to be unitary.
+   :param key: A tuple indicating the type of general_tensor. Assumed to be
+               non-empty. For example, a tensor storing coefficients of
+               $a^\dagger_p a_q$ would have a key of (1, 0) whereas a tensor
+               storing coefficients of $a^\dagger_p a_q a_r a^\dagger_s$
+               would have a key of (1, 0, 0, 1).
+
+   :returns: general_tensor in the rotated basis.
+   :rtype: transformed_general_tensor
+
+
+.. py:class:: InteractionOperator(constant, one_body_tensor, two_body_tensor)
+
+   Bases: :py:obj:`orquestra.quantum.openfermion.ops.representations.polynomial_tensor.PolynomialTensor`
+
+   Class for storing 'interaction operators' which are defined to be
+   fermionic operators consisting of one-body and two-body terms which
+   conserve particle number and spin. The most common examples of data that
+   will use this structure are molecular Hamiltonians. In principle,
+   everything stored in this class could also be represented using the more
+   general FermionOperator class. However, this class is able to exploit
+   specific properties of how fermions interact to enable more numerically
+   efficient manipulation of the data. Note that the operators stored in this
+   class take the form:
+
+       $$
+           constant + \sum_{p, q} h_{p, q} a^\dagger_p a_q +
+           \sum_{p, q, r, s} h_{p, q, r, s} a^\dagger_p a^\dagger_q a_r a_s.
+       $$
+
+   .. attribute:: one_body_tensor
+
+      The coefficients of the one-body terms
+
+   .. attribute:: ($h_{p, q}$). This is an n_qubits x n_qubits
+
+      
+
+   .. attribute:: numpy array of floats.
+
+      
+
+   .. attribute:: two_body_tensor
+
+      The coefficients of the two-body terms
+      ($h_{p, q, r, s}$).
+      This is an n_qubits x n_qubits x n_qubits x
+      n_qubits numpy array of floats.
+
+   .. py:method:: one_body_tensor(self)
+      :property:
+
+      The value of the one-body tensor.
+
+
+   .. py:method:: two_body_tensor(self)
+      :property:
+
+      The value of the two-body tensor.
+
+
+   .. py:method:: unique_iter(self, complex_valued=False)
+
+      Iterate all terms that are not in the same symmetry group.
+
+      Four point symmetry:
+          1. pq = qp.
+          2. pqrs = srqp = qpsr = rspq.
+      Eight point symmetry:
+          1. pq = qp.
+          2. pqrs = rqps = psrq = srqp = qpsr = rspq = spqr = qrsp.
+
+      :param complex_valued: Whether the operator has complex coefficients.
+      :type complex_valued: bool
+
+      :Yields: tuple[int]
+
+
+   .. py:method:: zero(cls, n_qubits)
+      :classmethod:
+
+
+   .. py:method:: projected(self, indices, exact=False)
+
+
+   .. py:method:: with_function_applied_elementwise(self, func)
+
+
+
+.. py:exception:: InteractionOperatorError
+
+   Bases: :py:obj:`Exception`
+
+   Common base class for all non-exit exceptions.
+
+
+.. py:function:: get_active_space_integrals(one_body_integrals, two_body_integrals, occupied_indices=None, active_indices=None)
+
+   Restricts a molecule at a spatial orbital level to an active space
+
+   This active space may be defined by a list of active indices and
+       doubly occupied indices. Note that one_body_integrals and
+       two_body_integrals must be defined
+       n an orthonormal basis set.
+
+   :param one_body_integrals: One-body integrals of the target Hamiltonian
+   :param two_body_integrals: Two-body integrals of the target Hamiltonian
+   :param occupied_indices: A list of spatial orbital indices
+                            indicating which orbitals should be considered doubly occupied.
+   :param active_indices: A list of spatial orbital indices indicating
+                          which orbitals should be considered active.
+
+   :returns: Tuple with the following entries:
+
+             **core_constant**: Adjustment to constant shift in Hamiltonian
+             from integrating out core orbitals
+
+             **one_body_integrals_new**: one-electron integrals over active
+             space.
+
+             **two_body_integrals_new**: two-electron integrals over active
+             space.
+   :rtype: tuple
+
+
+.. py:function:: get_tensors_from_integrals(one_body_integrals, two_body_integrals)
+
+   Converts one and two-body integrals into tensor form
+
+   :param one_body_integrals [numpy array] -- the one-body integrals: of the given Hamiltonian
+   :param two_body_integrals [numpy array] -- the two-body integrals: of the given Hamiltonian
+
+
+.. py:class:: InteractionRDM(one_body_tensor, two_body_tensor)
+
+   Bases: :py:obj:`orquestra.quantum.openfermion.ops.representations.PolynomialTensor`
+
+   Class for storing 1- and 2-body reduced density matrices.
+
+   .. attribute:: one_body_tensor
+
+      The expectation values <a^\dagger_p a_q>.
+
+   .. attribute:: two_body_tensor
+
+      The expectation values
+      <a^\dagger_p a^\dagger_q a_r a_s>.
+
+   .. py:method:: one_body_tensor(self)
+      :property:
+
+      The value of the one-body tensor.
+
+
+   .. py:method:: two_body_tensor(self)
+      :property:
+
+      The value of the two-body tensor.
+
+
+   .. py:method:: expectation(self, operator)
+
+      Return expectation value of an InteractionRDM with an operator.
+
+      :param operator: A QubitOperator or InteractionOperator.
+
+      :returns: Expectation value
+      :rtype: float
+
+      :raises InteractionRDMError: Invalid operator provided.
+
+
+   .. py:method:: get_qubit_expectations(self, qubit_operator)
+
+      Return expectations of QubitOperator in new QubitOperator.
+
+      :param qubit_operator: QubitOperator instance to be evaluated on
+                             this InteractionRDM.
+
+      :returns: QubitOperator with coefficients
+                corresponding to expectation values of those operators.
+      :rtype: QubitOperator
+
+      :raises InteractionRDMError: Observable not contained in 1-RDM or 2-RDM.
+
+
+
+.. py:exception:: InteractionRDMError
+
+   Bases: :py:obj:`Exception`
+
+   Common base class for all non-exit exceptions.
+
+

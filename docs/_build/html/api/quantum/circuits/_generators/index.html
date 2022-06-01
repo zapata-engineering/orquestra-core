@@ -1,0 +1,1581 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>quantum.circuits._generators &#8212; Orquestra Core Documentation</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../../_static/togglebutton.js"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../../_static/orquestra.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Orquestra Core Documentation</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../../tutorials/index.html">
+   Tutorials
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../tutorials/beginner_tutorial.html">
+     Start from the Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../tutorials/basic_qaoa.html">
+     Basic QAOA Tutorial
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../tutorials/orq_core_structure.html">
+     Orquestra Core’s Structure
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../tutorials/integrations.html">
+     Integrations, Modules, and Libraries in Orquestra Core
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../tutorials/contributing.html">
+     Contributing to Orquestra Core
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../index.html">
+   API Reference
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../../integrations/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       integrations
+      </span>
+     </code>
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../../integrations/cirq/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         integrations.cirq
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+      <label for="toctree-checkbox-4">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../integrations/cirq/conversions/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.cirq.conversions
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../integrations/cirq/decompositions/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.cirq.decompositions
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../integrations/cirq/noise/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.cirq.noise
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../integrations/cirq/simulator/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.cirq.simulator
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../../integrations/forest/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         integrations.forest
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+      <label for="toctree-checkbox-5">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../integrations/forest/conversions/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.forest.conversions
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../integrations/forest/simulator/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.forest.simulator
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../../integrations/qiskit/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         integrations.qiskit
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+      <label for="toctree-checkbox-6">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../integrations/qiskit/backend/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.qiskit.backend
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../integrations/qiskit/conversions/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.qiskit.conversions
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../integrations/qiskit/noise/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.qiskit.noise
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../integrations/qiskit/simulator/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.qiskit.simulator
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../../integrations/qulacs/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         integrations.qulacs
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+      <label for="toctree-checkbox-7">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../integrations/qulacs/conversions/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.qulacs.conversions
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../integrations/qulacs/simulator/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.qulacs.simulator
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../../vqa/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       vqa
+      </span>
+     </code>
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+    <label for="toctree-checkbox-8">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../../vqa/ansatz/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         vqa.ansatz
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+      <label for="toctree-checkbox-9">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../vqa/ansatz/qcbm/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           vqa.ansatz.qcbm
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../vqa/ansatz/kbody/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           vqa.ansatz.kbody
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../vqa/ansatz/qaoa_farhi/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           vqa.ansatz.qaoa_farhi
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../vqa/ansatz/qaoa_warm_start/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           vqa.ansatz.qaoa_warm_start
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../vqa/ansatz/quantum_compiling/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           vqa.ansatz.quantum_compiling
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../vqa/ansatz/singlet_uccsd/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           vqa.ansatz.singlet_uccsd
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../vqa/grouping/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         vqa.grouping
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../vqa/parameter_initialization/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         vqa.parameter_initialization
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../vqa/shot_allocation/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         vqa.shot_allocation
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../../vqa/testing/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         vqa.testing
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+      <label for="toctree-checkbox-10">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../vqa/testing/mock_objects/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           vqa.testing.mock_objects
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../vqa/utils/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         vqa.utils
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../../opt/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       opt
+      </span>
+     </code>
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+    <label for="toctree-checkbox-11">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../../opt/api/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         opt.api
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+      <label for="toctree-checkbox-12">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../opt/api/bqm_solver/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.api.bqm_solver
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../opt/api/bqm_solver_test/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.api.bqm_solver_test
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../opt/api/cost_function/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.api.cost_function
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../opt/api/example_functions/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.api.example_functions
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../opt/api/functions/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.api.functions
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../opt/api/optimizer/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.api.optimizer
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../opt/api/optimizer_test/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.api.optimizer_test
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../opt/api/problem/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.api.problem
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../opt/api/save_conditions/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.api.save_conditions
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../../opt/bqm/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         opt.bqm
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+      <label for="toctree-checkbox-13">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../opt/bqm/conversions/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.bqm.conversions
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../opt/bqm/io/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.bqm.io
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../opt/bqm/utils/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.bqm.utils
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../../opt/history/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         opt.history
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+      <label for="toctree-checkbox-14">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../opt/history/recorder/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.history.recorder
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../../opt/optimizers/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         opt.optimizers
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+      <label for="toctree-checkbox-15">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../opt/optimizers/basin_hopping/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.optimizers.basin_hopping
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../opt/optimizers/cma_es_optimizer/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.optimizers.cma_es_optimizer
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../opt/optimizers/qiskit_optimizer/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.optimizers.qiskit_optimizer
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../opt/optimizers/scipy_optimizer/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.optimizers.scipy_optimizer
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../opt/optimizers/search_points_optimizer/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.optimizers.search_points_optimizer
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../opt/optimizers/simple_gradient_descent/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.optimizers.simple_gradient_descent
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../../opt/problems/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         opt.problems
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+      <label for="toctree-checkbox-16">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../opt/problems/generators/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.problems.generators
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../opt/problems/graph/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.problems.graph
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../opt/problems/graph_partition/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.problems.graph_partition
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../opt/problems/max_independent_set/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.problems.max_independent_set
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../opt/problems/maxcut/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.problems.maxcut
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../opt/problems/vertex_cover/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.problems.vertex_cover
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../opt/convex/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         opt.convex
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../opt/cost_function_augmentations/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         opt.cost_function_augmentations
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../opt/gradients/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         opt.gradients
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../opt/mock_objects/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         opt.mock_objects
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       quantum
+      </span>
+     </code>
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
+    <label for="toctree-checkbox-17">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../api/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         quantum.api
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
+      <label for="toctree-checkbox-18">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/backend/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.api.backend
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/backend_test/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.api.backend_test
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/estimation/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.api.estimation
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/estimator_contract/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.api.estimator_contract
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         quantum.circuits
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/>
+      <label for="toctree-checkbox-19">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../symbolic/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.circuits.symbolic
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../layouts/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.circuits.layouts
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../decompositions/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         quantum.decompositions
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../distributions/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         quantum.distributions
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/>
+      <label for="toctree-checkbox-20">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../distributions/BAS_dataset/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.distributions.BAS_dataset
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../distributions/clipped_negative_log_likelihood/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.distributions.clipped_negative_log_likelihood
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../distributions/jensen_shannon_divergence/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.distributions.jensen_shannon_divergence
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../distributions/mmd/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.distributions.mmd
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../distributions/target_thermal_states/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.distributions.target_thermal_states
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../estimation/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         quantum.estimation
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../openfermion/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         quantum.openfermion
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/>
+      <label for="toctree-checkbox-21">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../openfermion/chem/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.openfermion.chem
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../openfermion/circuits/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.openfermion.circuits
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../openfermion/hamiltonians/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.openfermion.hamiltonians
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../openfermion/linalg/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.openfermion.linalg
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../openfermion/measurements/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.openfermion.measurements
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../openfermion/ops/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.openfermion.ops
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../openfermion/testing/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.openfermion.testing
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../openfermion/transforms/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.openfermion.transforms
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../openfermion/utils/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.openfermion.utils
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../openfermion/zapata_utils/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.openfermion.zapata_utils
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../openfermion/config/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.openfermion.config
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../testing/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         quantum.testing
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/>
+      <label for="toctree-checkbox-22">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../testing/generate_cases_for_backend_tests/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.testing.generate_cases_for_backend_tests
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../testing/mocks/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.testing.mocks
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../testing/test_cases_for_backend_tests/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.testing.test_cases_for_backend_tests
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../evolution/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         quantum.evolution
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../measurements/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         quantum.measurements
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../symbolic_simulator/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         quantum.symbolic_simulator
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../trackers/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         quantum.trackers
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../typing/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         quantum.typing
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../utils/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         quantum.utils
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../wavefunction/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         quantum.wavefunction
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../../_sources/api/quantum/circuits/_generators/index.rst.txt"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.rst</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-contents">
+   Module Contents
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#functions">
+     Functions
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.circuits._generators.create_layer_of_gates">
+       create_layer_of_gates
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.circuits._generators.apply_gate_to_qubits">
+       apply_gate_to_qubits
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.circuits._generators.add_ancilla_register">
+       add_ancilla_register
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>quantum.circuits._generators</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-contents">
+   Module Contents
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#functions">
+     Functions
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.circuits._generators.create_layer_of_gates">
+       create_layer_of_gates
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.circuits._generators.apply_gate_to_qubits">
+       apply_gate_to_qubits
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.circuits._generators.add_ancilla_register">
+       add_ancilla_register
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section id="module-quantum.circuits._generators">
+<span id="quantum-circuits-generators"></span><h1><a class="reference internal" href="#module-quantum.circuits._generators" title="quantum.circuits._generators"><code class="xref py py-mod docutils literal notranslate"><span class="pre">quantum.circuits._generators</span></code></a><a class="headerlink" href="#module-quantum.circuits._generators" title="Permalink to this headline">#</a></h1>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">#</a></h2>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">#</a></h3>
+<table class="autosummary longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.circuits._generators.create_layer_of_gates" title="quantum.circuits._generators.create_layer_of_gates"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_layer_of_gates</span></code></a>(number_of_qubits: int, gate_factory: Union[quantum.circuits._builtin_gates.GatePrototype, quantum.circuits._gates.Gate], parameters: Optional[numpy.ndarray] = None) → quantum.circuits._circuit.Circuit</p></td>
+<td><p>Creates a circuit consisting of a layer of single-qubit gates acting on all</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#quantum.circuits._generators.apply_gate_to_qubits" title="quantum.circuits._generators.apply_gate_to_qubits"><code class="xref py py-obj docutils literal notranslate"><span class="pre">apply_gate_to_qubits</span></code></a>(circuit: quantum.circuits._circuit.Circuit, qubit_indices: Collection[int], gate_factory: Union[quantum.circuits._builtin_gates.GatePrototype, quantum.circuits._gates.Gate], parameters: Optional[numpy.ndarray] = None) → quantum.circuits._circuit.Circuit</p></td>
+<td><p>Apply the passed gate to the specified qubits</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.circuits._generators.add_ancilla_register" title="quantum.circuits._generators.add_ancilla_register"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_ancilla_register</span></code></a>(circuit: quantum.circuits._circuit.Circuit, n_ancilla_qubits: int) → quantum.circuits._circuit.Circuit</p></td>
+<td><p>Add a register of ancilla qubits (qubit + identity gate) to an existing circuit.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py function">
+<dt class="sig sig-object py" id="quantum.circuits._generators.create_layer_of_gates">
+<span class="sig-prename descclassname"><span class="pre">quantum.circuits._generators.</span></span><span class="sig-name descname"><span class="pre">create_layer_of_gates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">number_of_qubits</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">gate_factory</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">quantum.circuits._builtin_gates.GatePrototype</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="../_gates/index.html#quantum.circuits._gates.Gate" title="quantum.circuits._gates.Gate"><span class="pre">quantum.circuits._gates.Gate</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../_circuit/index.html#quantum.circuits._circuit.Circuit" title="quantum.circuits._circuit.Circuit"><span class="pre">quantum.circuits._circuit.Circuit</span></a></span></span><a class="headerlink" href="#quantum.circuits._generators.create_layer_of_gates" title="Permalink to this definition">#</a></dt>
+<dd><p>Creates a circuit consisting of a layer of single-qubit gates acting on all
+qubits.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>number_of_qubits</strong> – number of qubits in the circuit</p></li>
+<li><p><strong>gate_factory</strong> – the single qubit gate to be applied to each qubit</p></li>
+<li><p><strong>parameters</strong> – parameters of the single-qubit gates</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Created circuit.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>circuit</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="quantum.circuits._generators.apply_gate_to_qubits">
+<span class="sig-prename descclassname"><span class="pre">quantum.circuits._generators.</span></span><span class="sig-name descname"><span class="pre">apply_gate_to_qubits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">circuit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../_circuit/index.html#quantum.circuits._circuit.Circuit" title="quantum.circuits._circuit.Circuit"><span class="pre">quantum.circuits._circuit.Circuit</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">qubit_indices</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Collection</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gate_factory</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">quantum.circuits._builtin_gates.GatePrototype</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="../_gates/index.html#quantum.circuits._gates.Gate" title="quantum.circuits._gates.Gate"><span class="pre">quantum.circuits._gates.Gate</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../_circuit/index.html#quantum.circuits._circuit.Circuit" title="quantum.circuits._circuit.Circuit"><span class="pre">quantum.circuits._circuit.Circuit</span></a></span></span><a class="headerlink" href="#quantum.circuits._generators.apply_gate_to_qubits" title="Permalink to this definition">#</a></dt>
+<dd><p>Apply the passed gate to the specified qubits</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>circuit</strong> – circuit to add the gate to</p></li>
+<li><p><strong>qubit_indices</strong> – list of qubits that to apply the gate on,
+duplicates will be ignored</p></li>
+<li><p><strong>gate_factory</strong> – the single qubit gate to be applied to each qubit</p></li>
+<li><p><strong>parameters</strong> – parameters of the single-qubit gate, this is a list of size
+dependent on the gate used, e.g. 1 for RY gates, 3 for U3 gates</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>circuit with the gate added to the specified qubits</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="quantum.circuits._generators.add_ancilla_register">
+<span class="sig-prename descclassname"><span class="pre">quantum.circuits._generators.</span></span><span class="sig-name descname"><span class="pre">add_ancilla_register</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">circuit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../_circuit/index.html#quantum.circuits._circuit.Circuit" title="quantum.circuits._circuit.Circuit"><span class="pre">quantum.circuits._circuit.Circuit</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_ancilla_qubits</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../_circuit/index.html#quantum.circuits._circuit.Circuit" title="quantum.circuits._circuit.Circuit"><span class="pre">quantum.circuits._circuit.Circuit</span></a></span></span><a class="headerlink" href="#quantum.circuits._generators.add_ancilla_register" title="Permalink to this definition">#</a></dt>
+<dd><p>Add a register of ancilla qubits (qubit + identity gate) to an existing circuit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>circuit</strong> – circuit to be extended</p></li>
+<li><p><strong>n_ancilla_qubits</strong> – number of ancilla qubits to add</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>extended circuit</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By michal.stechly@zapatacomputing.com<br/>
+  
+      &copy; Copyright 2022, Zapata Computing, Inc.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

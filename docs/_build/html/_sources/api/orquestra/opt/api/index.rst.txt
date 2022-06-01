@@ -1,0 +1,179 @@
+:py:mod:`orquestra.opt.api`
+===========================
+
+.. py:module:: orquestra.opt.api
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   bqm_solver/index.rst
+   bqm_solver_test/index.rst
+   cost_function/index.rst
+   example_functions/index.rst
+   functions/index.rst
+   optimizer/index.rst
+   optimizer_test/index.rst
+   problem/index.rst
+   save_conditions/index.rst
+
+
+Package Contents
+----------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.opt.api.CallableStoringArtifacts
+   orquestra.opt.api.CallableWithGradient
+   orquestra.opt.api.CallableWithGradientStoringArtifacts
+   orquestra.opt.api.FunctionWithGradient
+   orquestra.opt.api.FunctionWithGradientStoringArtifacts
+   orquestra.opt.api.StoreArtifact
+   orquestra.opt.api.SaveCondition
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.opt.api.function_with_gradient
+   orquestra.opt.api.has_store_artifact_param
+   orquestra.opt.api.always
+   orquestra.opt.api.every_nth
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.opt.api.CostFunction
+
+
+.. py:data:: CostFunction
+   
+
+   
+
+.. py:class:: CallableStoringArtifacts
+
+   Bases: :py:obj:`typing_extensions.Protocol`\ [\ :py:obj:`S`\ , :py:obj:`T`\ ]
+
+   A callable that stores artifacts.
+
+
+.. py:class:: CallableWithGradient
+
+   Bases: :py:obj:`typing_extensions.Protocol`
+
+   A callable with gradient.
+
+   .. py:method:: gradient(self, params: numpy.ndarray) -> numpy.ndarray
+
+
+
+.. py:class:: CallableWithGradientStoringArtifacts
+
+   Bases: :py:obj:`CallableStoringArtifacts`\ [\ :py:obj:`numpy.ndarray`\ , :py:obj:`T`\ ], :py:obj:`typing_extensions.Protocol`
+
+   A callable with gradient that stored artifacts.
+
+   .. py:method:: gradient(self, params: numpy.ndarray) -> numpy.ndarray
+
+
+
+.. py:class:: FunctionWithGradient
+
+   Bases: :py:obj:`NamedTuple`
+
+   A callable with gradient.
+
+   .. py:attribute:: function
+      :annotation: :Callable[[numpy.ndarray], float]
+
+      
+
+   .. py:attribute:: gradient
+      :annotation: :Callable[[numpy.ndarray], numpy.ndarray]
+
+      
+
+
+.. py:class:: FunctionWithGradientStoringArtifacts
+
+   Bases: :py:obj:`NamedTuple`
+
+   A callable with gradient that also stores artifacts.
+
+   .. py:attribute:: function
+      :annotation: :CallableStoringArtifacts
+
+      
+
+   .. py:attribute:: gradient
+      :annotation: :Callable[[numpy.ndarray], numpy.ndarray]
+
+      
+
+
+.. py:class:: StoreArtifact
+
+   Bases: :py:obj:`typing_extensions.Protocol`
+
+   A protocol describing how the artifacts are stored.
+
+
+.. py:function:: function_with_gradient(function: Union[Callable[[numpy.ndarray], float], CallableStoringArtifacts], gradient: Callable[[numpy.ndarray], numpy.ndarray]) -> Union[FunctionWithGradient, FunctionWithGradientStoringArtifacts]
+
+   Combine function and gradient into an entity adhering to protocols used by
+   history recorder.
+
+   Note that this is a preferred method for adding gradient to your function,
+   as it should automatically detect whether the function stores artifact or not.
+
+
+.. py:function:: has_store_artifact_param(function) -> bool
+
+   Determine if given callable is capable of storing artifacts.
+
+   :param function: a callable to be checked.
+   :return: True, if `function` has store_artifact parameter and False otherwise.
+
+
+.. py:class:: SaveCondition
+
+   Bases: :py:obj:`typing_extensions.Protocol`
+
+   Protocol of a function determining if given call should should be saved in the
+   history.
+
+
+.. py:function:: always(value: Any, params: Any, call_number: int) -> bool
+
+   Default save condition: save always.
+
+   See parameters in SaveCondition.__call__ for explanation.
+
+
+.. py:function:: every_nth(n: int) -> SaveCondition
+
+   Save condition: every n-th step, counting from zero-th one.
+
+   Note: this is factory function, i.e. it returns the actual save condition
+   for given n.
+
+   :param n: the integer determining which steps should be saved in history.
+
+   :returns: Function `f` implementing the SaveCondition protocol, such that
+             f(y, x, k) is True if and only if k = 0 (mod n).
+
+

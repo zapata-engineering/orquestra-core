@@ -1,0 +1,24 @@
+:py:mod:`opt.optimizers.scipy_optimizer`
+========================================
+
+.. py:module:: opt.optimizers.scipy_optimizer
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   opt.optimizers.scipy_optimizer.ScipyOptimizer
+
+
+
+
+.. py:class:: ScipyOptimizer(method: str, constraints: Optional[Tuple[Dict[str, Callable]]] = None, bounds: Union[scipy.optimize.Bounds, Sequence[Tuple[float, float]], None] = None, options: Optional[Dict] = None, recorder: opt.history.recorder.RecorderFactory = _recorder)
+
+   Bases: :py:obj:`opt.api.Optimizer`
+
+

@@ -1,0 +1,57 @@
+:orphan:
+
+:py:mod:`integrations.qiskit.conversions._qiskit_expressions`
+=============================================================
+
+.. py:module:: integrations.qiskit.conversions._qiskit_expressions
+
+.. autoapi-nested-parse::
+
+   Translations between Qiskit parameter expressions and intermediate expression trees.
+
+   .. attribute:: QISKIT_DIALECT
+
+      Mapping from the intermediate expression tree into atoms
+      used in Qiskit symbolic expressions. Allows translating an expression
+      into the Qiskit dialect. Can be used with
+      `orquestra.quantum.circuits.symbolic.translations.translate_expression`.
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   integrations.qiskit.conversions._qiskit_expressions.expression_from_qiskit
+   integrations.qiskit.conversions._qiskit_expressions.integer_pow
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   integrations.qiskit.conversions._qiskit_expressions.QISKIT_DIALECT
+
+
+.. py:function:: expression_from_qiskit(expression)
+
+   Parse Qiskit expression into intermediate expression tree.
+
+
+.. py:function:: integer_pow(base, exponent: int)
+
+   Exponentiation to the power of an integer exponent.
+
+
+.. py:data:: QISKIT_DIALECT
+   
+
+   
+

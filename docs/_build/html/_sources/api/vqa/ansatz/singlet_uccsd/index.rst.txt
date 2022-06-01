@@ -1,0 +1,89 @@
+:py:mod:`vqa.ansatz.singlet_uccsd`
+==================================
+
+.. py:module:: vqa.ansatz.singlet_uccsd
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   vqa.ansatz.singlet_uccsd.SingletUCCSDAnsatz
+
+
+
+
+.. py:class:: SingletUCCSDAnsatz(number_of_spatial_orbitals: int, number_of_alpha_electrons: int, number_of_layers: int = 1, transformation: str = 'Jordan-Wigner')
+
+   Bases: :py:obj:`orquestra.vqa.api.ansatz.Ansatz`
+
+   Helper class that provides a standard way to create an ABC using
+   inheritance.
+
+   .. py:attribute:: supports_parametrized_circuits
+      :annotation: = True
+
+      
+
+   .. py:attribute:: transformation
+      
+
+      
+
+   .. py:method:: number_of_layers(self)
+      :property:
+
+
+   .. py:method:: number_of_spatial_orbitals(self)
+      :property:
+
+
+   .. py:method:: number_of_qubits(self)
+      :property:
+
+      Returns number of qubits ansatz circuit uses
+
+
+   .. py:method:: number_of_alpha_electrons(self)
+      :property:
+
+
+   .. py:method:: number_of_electrons(self)
+      :property:
+
+
+   .. py:method:: number_of_params(self) -> int
+      :property:
+
+      Returns number of parameters in the ansatz.
+
+
+   .. py:method:: screen_out_operator_terms_below_threshold(threshold: float, fermion_generator: orquestra.quantum.openfermion.FermionOperator, ignore_singles=False) -> Tuple[numpy.ndarray, orquestra.quantum.openfermion.FermionOperator]
+      :staticmethod:
+
+      Screen single and double excitation operators based on a guess
+          for the amplitudes
+      :param threshold: threshold to select excitations. Only those with
+                        absolute amplitudes above the threshold are kept.
+      :type threshold: float
+      :param fermion_generator: Fermion Operator
+                                containing the generators for the UCC ansatz
+      :type fermion_generator: openfermion.FermionOperator
+
+      :returns: screened amplitudes
+                new_fermion_generator (openfermion.FermionOperator): screened
+                    Fermion Operator
+      :rtype: amplitudes (np.array)
+
+
+   .. py:method:: compute_uccsd_vector_from_fermion_generator(self, raw_fermion_generator: orquestra.quantum.openfermion.FermionOperator, screening_threshold: float = 0.0) -> numpy.ndarray
+
+
+   .. py:method:: generate_circuit_from_fermion_generator(self, raw_fermion_generator: orquestra.quantum.openfermion.FermionOperator, screening_threshold: float = 0.0) -> orquestra.quantum.circuits.Circuit
+
+
+

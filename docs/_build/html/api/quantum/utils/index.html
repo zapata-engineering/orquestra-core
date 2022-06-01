@@ -1,0 +1,2373 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>quantum.utils &#8212; Orquestra Core Documentation</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="quantum.wavefunction" href="../wavefunction/index.html" />
+    <link rel="prev" title="quantum.typing" href="../typing/index.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../_static/orquestra.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Orquestra Core Documentation</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../tutorials/index.html">
+   Tutorials
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../tutorials/beginner_tutorial.html">
+     Start from the Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../tutorials/basic_qaoa.html">
+     Basic QAOA Tutorial
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../tutorials/orq_core_structure.html">
+     Orquestra Core’s Structure
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../tutorials/integrations.html">
+     Integrations, Modules, and Libraries in Orquestra Core
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../tutorials/contributing.html">
+     Contributing to Orquestra Core
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../../index.html">
+   API Reference
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../integrations/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       integrations
+      </span>
+     </code>
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../integrations/cirq/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         integrations.cirq
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+      <label for="toctree-checkbox-4">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../integrations/cirq/conversions/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.cirq.conversions
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../integrations/cirq/decompositions/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.cirq.decompositions
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../integrations/cirq/noise/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.cirq.noise
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../integrations/cirq/simulator/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.cirq.simulator
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../integrations/forest/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         integrations.forest
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+      <label for="toctree-checkbox-5">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../integrations/forest/conversions/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.forest.conversions
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../integrations/forest/simulator/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.forest.simulator
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../integrations/qiskit/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         integrations.qiskit
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+      <label for="toctree-checkbox-6">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../integrations/qiskit/backend/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.qiskit.backend
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../integrations/qiskit/conversions/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.qiskit.conversions
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../integrations/qiskit/noise/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.qiskit.noise
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../integrations/qiskit/simulator/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.qiskit.simulator
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../integrations/qulacs/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         integrations.qulacs
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+      <label for="toctree-checkbox-7">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../integrations/qulacs/conversions/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.qulacs.conversions
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../integrations/qulacs/simulator/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.qulacs.simulator
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../vqa/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       vqa
+      </span>
+     </code>
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+    <label for="toctree-checkbox-8">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../vqa/ansatz/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         vqa.ansatz
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+      <label for="toctree-checkbox-9">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../vqa/ansatz/qcbm/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           vqa.ansatz.qcbm
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../vqa/ansatz/kbody/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           vqa.ansatz.kbody
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../vqa/ansatz/qaoa_farhi/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           vqa.ansatz.qaoa_farhi
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../vqa/ansatz/qaoa_warm_start/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           vqa.ansatz.qaoa_warm_start
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../vqa/ansatz/quantum_compiling/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           vqa.ansatz.quantum_compiling
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../vqa/ansatz/singlet_uccsd/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           vqa.ansatz.singlet_uccsd
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../vqa/grouping/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         vqa.grouping
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../vqa/parameter_initialization/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         vqa.parameter_initialization
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../vqa/shot_allocation/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         vqa.shot_allocation
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../vqa/testing/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         vqa.testing
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+      <label for="toctree-checkbox-10">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../vqa/testing/mock_objects/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           vqa.testing.mock_objects
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../vqa/utils/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         vqa.utils
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../opt/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       opt
+      </span>
+     </code>
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+    <label for="toctree-checkbox-11">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../opt/api/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         opt.api
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+      <label for="toctree-checkbox-12">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../opt/api/bqm_solver/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.api.bqm_solver
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../opt/api/bqm_solver_test/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.api.bqm_solver_test
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../opt/api/cost_function/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.api.cost_function
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../opt/api/example_functions/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.api.example_functions
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../opt/api/functions/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.api.functions
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../opt/api/optimizer/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.api.optimizer
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../opt/api/optimizer_test/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.api.optimizer_test
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../opt/api/problem/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.api.problem
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../opt/api/save_conditions/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.api.save_conditions
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../opt/bqm/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         opt.bqm
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+      <label for="toctree-checkbox-13">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../opt/bqm/conversions/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.bqm.conversions
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../opt/bqm/io/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.bqm.io
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../opt/bqm/utils/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.bqm.utils
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../opt/history/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         opt.history
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+      <label for="toctree-checkbox-14">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../opt/history/recorder/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.history.recorder
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../opt/optimizers/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         opt.optimizers
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+      <label for="toctree-checkbox-15">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../opt/optimizers/basin_hopping/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.optimizers.basin_hopping
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../opt/optimizers/cma_es_optimizer/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.optimizers.cma_es_optimizer
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../opt/optimizers/qiskit_optimizer/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.optimizers.qiskit_optimizer
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../opt/optimizers/scipy_optimizer/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.optimizers.scipy_optimizer
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../opt/optimizers/search_points_optimizer/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.optimizers.search_points_optimizer
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../opt/optimizers/simple_gradient_descent/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.optimizers.simple_gradient_descent
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../opt/problems/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         opt.problems
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+      <label for="toctree-checkbox-16">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../opt/problems/generators/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.problems.generators
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../opt/problems/graph/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.problems.graph
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../opt/problems/graph_partition/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.problems.graph_partition
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../opt/problems/max_independent_set/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.problems.max_independent_set
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../opt/problems/maxcut/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.problems.maxcut
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../opt/problems/vertex_cover/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.problems.vertex_cover
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../opt/convex/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         opt.convex
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../opt/cost_function_augmentations/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         opt.cost_function_augmentations
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../opt/gradients/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         opt.gradients
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../opt/mock_objects/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         opt.mock_objects
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 current active has-children">
+    <a class="reference internal" href="../index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       quantum
+      </span>
+     </code>
+    </a>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
+    <label for="toctree-checkbox-17">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul class="current">
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../api/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         quantum.api
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
+      <label for="toctree-checkbox-18">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../api/backend/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.api.backend
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../api/backend_test/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.api.backend_test
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../api/estimation/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.api.estimation
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../api/estimator_contract/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.api.estimator_contract
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../circuits/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         quantum.circuits
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/>
+      <label for="toctree-checkbox-19">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../circuits/symbolic/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.circuits.symbolic
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../circuits/layouts/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.circuits.layouts
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../decompositions/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         quantum.decompositions
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../distributions/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         quantum.distributions
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/>
+      <label for="toctree-checkbox-20">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../distributions/BAS_dataset/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.distributions.BAS_dataset
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../distributions/clipped_negative_log_likelihood/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.distributions.clipped_negative_log_likelihood
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../distributions/jensen_shannon_divergence/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.distributions.jensen_shannon_divergence
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../distributions/mmd/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.distributions.mmd
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../distributions/target_thermal_states/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.distributions.target_thermal_states
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../estimation/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         quantum.estimation
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../openfermion/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         quantum.openfermion
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/>
+      <label for="toctree-checkbox-21">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../openfermion/chem/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.openfermion.chem
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../openfermion/circuits/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.openfermion.circuits
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../openfermion/hamiltonians/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.openfermion.hamiltonians
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../openfermion/linalg/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.openfermion.linalg
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../openfermion/measurements/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.openfermion.measurements
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../openfermion/ops/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.openfermion.ops
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../openfermion/testing/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.openfermion.testing
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../openfermion/transforms/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.openfermion.transforms
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../openfermion/utils/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.openfermion.utils
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../openfermion/zapata_utils/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.openfermion.zapata_utils
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../openfermion/config/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.openfermion.config
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../testing/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         quantum.testing
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/>
+      <label for="toctree-checkbox-22">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../testing/generate_cases_for_backend_tests/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.testing.generate_cases_for_backend_tests
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../testing/mocks/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.testing.mocks
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../testing/test_cases_for_backend_tests/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.testing.test_cases_for_backend_tests
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../evolution/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         quantum.evolution
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../measurements/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         quantum.measurements
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../symbolic_simulator/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         quantum.symbolic_simulator
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../trackers/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         quantum.trackers
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../typing/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         quantum.typing
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         quantum.utils
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../wavefunction/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         quantum.wavefunction
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../_sources/api/quantum/utils/index.rst.txt"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.rst</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-contents">
+   Module Contents
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#classes">
+     Classes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#functions">
+     Functions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#attributes">
+     Attributes
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.utils.RNDSEED">
+       RNDSEED
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.utils.convert_dict_to_array">
+       convert_dict_to_array
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.utils.convert_array_to_dict">
+       convert_array_to_dict
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.utils.dec2bin">
+       dec2bin
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.utils.bin2dec">
+       bin2dec
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.utils.pauli_x">
+       pauli_x
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.utils.pauli_y">
+       pauli_y
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.utils.pauli_z">
+       pauli_z
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.utils.identity">
+       identity
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.utils.is_identity">
+       is_identity
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.utils.is_unitary">
+       is_unitary
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.utils.compare_unitary">
+       compare_unitary
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.utils.sample_from_probability_distribution">
+       sample_from_probability_distribution
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.utils.convert_bitstrings_to_tuples">
+       convert_bitstrings_to_tuples
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.utils.convert_tuples_to_bitstrings">
+       convert_tuples_to_bitstrings
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.utils.ValueEstimate">
+       ValueEstimate
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.utils.ValueEstimate.value">
+         value
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.utils.ValueEstimate.precision">
+         precision
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.utils.ValueEstimate.to_dict">
+         to_dict
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.utils.ValueEstimate.from_dict">
+         from_dict
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.utils.load_value_estimate">
+       load_value_estimate
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.utils.save_value_estimate">
+       save_value_estimate
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.utils.load_list">
+       load_list
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.utils.save_list">
+       save_list
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.utils.save_generic_dict">
+       save_generic_dict
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.utils.create_symbols_map">
+       create_symbols_map
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.utils.save_timing">
+       save_timing
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.utils.save_nmeas_estimate">
+       save_nmeas_estimate
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.utils.load_nmeas_estimate">
+       load_nmeas_estimate
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.utils.scale_and_discretize">
+       scale_and_discretize
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.utils.get_ordered_list_of_bitstrings">
+       get_ordered_list_of_bitstrings
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.utils.ensure_open">
+       ensure_open
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>quantum.utils</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-contents">
+   Module Contents
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#classes">
+     Classes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#functions">
+     Functions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#attributes">
+     Attributes
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.utils.RNDSEED">
+       RNDSEED
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.utils.convert_dict_to_array">
+       convert_dict_to_array
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.utils.convert_array_to_dict">
+       convert_array_to_dict
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.utils.dec2bin">
+       dec2bin
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.utils.bin2dec">
+       bin2dec
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.utils.pauli_x">
+       pauli_x
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.utils.pauli_y">
+       pauli_y
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.utils.pauli_z">
+       pauli_z
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.utils.identity">
+       identity
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.utils.is_identity">
+       is_identity
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.utils.is_unitary">
+       is_unitary
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.utils.compare_unitary">
+       compare_unitary
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.utils.sample_from_probability_distribution">
+       sample_from_probability_distribution
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.utils.convert_bitstrings_to_tuples">
+       convert_bitstrings_to_tuples
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.utils.convert_tuples_to_bitstrings">
+       convert_tuples_to_bitstrings
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.utils.ValueEstimate">
+       ValueEstimate
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.utils.ValueEstimate.value">
+         value
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.utils.ValueEstimate.precision">
+         precision
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.utils.ValueEstimate.to_dict">
+         to_dict
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.utils.ValueEstimate.from_dict">
+         from_dict
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.utils.load_value_estimate">
+       load_value_estimate
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.utils.save_value_estimate">
+       save_value_estimate
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.utils.load_list">
+       load_list
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.utils.save_list">
+       save_list
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.utils.save_generic_dict">
+       save_generic_dict
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.utils.create_symbols_map">
+       create_symbols_map
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.utils.save_timing">
+       save_timing
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.utils.save_nmeas_estimate">
+       save_nmeas_estimate
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.utils.load_nmeas_estimate">
+       load_nmeas_estimate
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.utils.scale_and_discretize">
+       scale_and_discretize
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.utils.get_ordered_list_of_bitstrings">
+       get_ordered_list_of_bitstrings
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.utils.ensure_open">
+       ensure_open
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section id="module-quantum.utils">
+<span id="quantum-utils"></span><h1><a class="reference internal" href="#module-quantum.utils" title="quantum.utils"><code class="xref py py-mod docutils literal notranslate"><span class="pre">quantum.utils</span></code></a><a class="headerlink" href="#module-quantum.utils" title="Permalink to this headline">#</a></h1>
+<p>General-purpose utilities.</p>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">#</a></h2>
+<section id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">#</a></h3>
+<table class="autosummary longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.utils.ValueEstimate" title="quantum.utils.ValueEstimate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ValueEstimate</span></code></a></p></td>
+<td><p>A class representing a numerical value and its precision corresponding</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">#</a></h3>
+<table class="autosummary longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.utils.convert_dict_to_array" title="quantum.utils.convert_dict_to_array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">convert_dict_to_array</span></code></a>(dictionary: dict) → numpy.ndarray</p></td>
+<td><p>Convert a dictionary to a numpy array.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#quantum.utils.convert_array_to_dict" title="quantum.utils.convert_array_to_dict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">convert_array_to_dict</span></code></a>(array: numpy.ndarray) → dict</p></td>
+<td><p>Convert a numpy array to a dictionary.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.utils.dec2bin" title="quantum.utils.dec2bin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dec2bin</span></code></a>(number: int, length: int) → List[int]</p></td>
+<td><p>Converts a decimal number into a binary representation</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#quantum.utils.bin2dec" title="quantum.utils.bin2dec"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bin2dec</span></code></a>(x: List[int]) → int</p></td>
+<td><p>Converts a binary vector to an integer, with the 0-th</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.utils.is_identity" title="quantum.utils.is_identity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_identity</span></code></a>(u: numpy.ndarray, tol=1e-15) → bool</p></td>
+<td><p>Test if a matrix is identity.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#quantum.utils.is_unitary" title="quantum.utils.is_unitary"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_unitary</span></code></a>(u: numpy.ndarray, tol=1e-15) → bool</p></td>
+<td><p>Test if a matrix is unitary.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.utils.compare_unitary" title="quantum.utils.compare_unitary"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compare_unitary</span></code></a>(u1: numpy.ndarray, u2: numpy.ndarray, tol: float = 1e-15) → bool</p></td>
+<td><p>Compares two unitary operators to see if they are equal to within a phase.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#quantum.utils.sample_from_probability_distribution" title="quantum.utils.sample_from_probability_distribution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sample_from_probability_distribution</span></code></a>(probability_distribution: dict, n_samples: int) → collections.Counter</p></td>
+<td><p>Samples events from a discrete probability distribution</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.utils.convert_bitstrings_to_tuples" title="quantum.utils.convert_bitstrings_to_tuples"><code class="xref py py-obj docutils literal notranslate"><span class="pre">convert_bitstrings_to_tuples</span></code></a>(bitstrings: Iterable[str]) → List[Tuple[int, Ellipsis]]</p></td>
+<td><p>Given the measured bitstrings, convert each bitstring to tuple format</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#quantum.utils.convert_tuples_to_bitstrings" title="quantum.utils.convert_tuples_to_bitstrings"><code class="xref py py-obj docutils literal notranslate"><span class="pre">convert_tuples_to_bitstrings</span></code></a>(tuples: List[Tuple[int]]) → List[str]</p></td>
+<td><p>Given a set of measurement tuples, convert each to a little endian</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.utils.load_value_estimate" title="quantum.utils.load_value_estimate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_value_estimate</span></code></a>(file: quantum.typing.LoadSource) → ValueEstimate</p></td>
+<td><p>Loads value estimate from a failed.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#quantum.utils.save_value_estimate" title="quantum.utils.save_value_estimate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_value_estimate</span></code></a>(value_estimate: ValueEstimate, filename: quantum.typing.AnyPath)</p></td>
+<td><p>Saves value estimate to a file.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.utils.load_list" title="quantum.utils.load_list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_list</span></code></a>(file: quantum.typing.LoadSource) → List</p></td>
+<td><p>Load an array from a file.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#quantum.utils.save_list" title="quantum.utils.save_list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_list</span></code></a>(array: List, filename: quantum.typing.AnyPath)</p></td>
+<td><p>Save expectation values to a file.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.utils.save_generic_dict" title="quantum.utils.save_generic_dict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_generic_dict</span></code></a>(dictionary: Dict, filename: quantum.typing.AnyPath)</p></td>
+<td><p>Save dictionary as json</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#quantum.utils.create_symbols_map" title="quantum.utils.create_symbols_map"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_symbols_map</span></code></a>(symbols: List[sympy.Symbol], params: numpy.ndarray) → Dict[sympy.Symbol, float]</p></td>
+<td><p>Creates a map to be used for evaluating sympy expressions.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.utils.save_timing" title="quantum.utils.save_timing"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_timing</span></code></a>(walltime: float, filename: quantum.typing.AnyPath) → None</p></td>
+<td><p>Saves timing information.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#quantum.utils.save_nmeas_estimate" title="quantum.utils.save_nmeas_estimate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_nmeas_estimate</span></code></a>(nmeas: float, nterms: int, filename: quantum.typing.AnyPath, frame_meas: numpy.ndarray = None) → None</p></td>
+<td><p>Save an estimate of the number of measurements to a file</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.utils.load_nmeas_estimate" title="quantum.utils.load_nmeas_estimate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_nmeas_estimate</span></code></a>(filename: quantum.typing.AnyPath) → Tuple[float, int, numpy.ndarray]</p></td>
+<td><p>Load an estimate of the number of measurements from a file.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#quantum.utils.scale_and_discretize" title="quantum.utils.scale_and_discretize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scale_and_discretize</span></code></a>(values: Iterable[float], total: int) → List[int]</p></td>
+<td><p>Convert a list of floats to a list of integers such that the total equals</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.utils.get_ordered_list_of_bitstrings" title="quantum.utils.get_ordered_list_of_bitstrings"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_ordered_list_of_bitstrings</span></code></a>(num_qubits: int) → List[str]</p></td>
+<td><p>Create list of binary strings corresponding to 2^num_qubits integers</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#quantum.utils.ensure_open" title="quantum.utils.ensure_open"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ensure_open</span></code></a>(path_like: Union[quantum.typing.LoadSource, quantum.typing.DumpTarget], mode='r', encoding='utf-8')</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">#</a></h3>
+<table class="autosummary longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.utils.RNDSEED" title="quantum.utils.RNDSEED"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RNDSEED</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#quantum.utils.pauli_x" title="quantum.utils.pauli_x"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pauli_x</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.utils.pauli_y" title="quantum.utils.pauli_y"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pauli_y</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#quantum.utils.pauli_z" title="quantum.utils.pauli_z"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pauli_z</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.utils.identity" title="quantum.utils.identity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">identity</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py data">
+<dt class="sig sig-object py" id="quantum.utils.RNDSEED">
+<span class="sig-prename descclassname"><span class="pre">quantum.utils.</span></span><span class="sig-name descname"><span class="pre">RNDSEED</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">12345</span></em><a class="headerlink" href="#quantum.utils.RNDSEED" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="quantum.utils.convert_dict_to_array">
+<span class="sig-prename descclassname"><span class="pre">quantum.utils.</span></span><span class="sig-name descname"><span class="pre">convert_dict_to_array</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dictionary</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><span class="pre">dict</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.ndarray</span></span></span><a class="headerlink" href="#quantum.utils.convert_dict_to_array" title="Permalink to this definition">#</a></dt>
+<dd><p>Convert a dictionary to a numpy array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>dictionary</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a>) – the dict containing the data</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a numpy array</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>array (numpy.array)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="quantum.utils.convert_array_to_dict">
+<span class="sig-prename descclassname"><span class="pre">quantum.utils.</span></span><span class="sig-name descname"><span class="pre">convert_array_to_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">array</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><span class="pre">dict</span></a></span></span><a class="headerlink" href="#quantum.utils.convert_array_to_dict" title="Permalink to this definition">#</a></dt>
+<dd><p>Convert a numpy array to a dictionary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>array</strong> (<em>numpy.array</em>) – a numpy array</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the dict containing the data</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dictionary (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)">dict</a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="quantum.utils.dec2bin">
+<span class="sig-prename descclassname"><span class="pre">quantum.utils.</span></span><span class="sig-name descname"><span class="pre">dec2bin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">number</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#quantum.utils.dec2bin" title="Permalink to this definition">#</a></dt>
+<dd><p>Converts a decimal number into a binary representation
+of fixed number of bits.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>number</strong> – (int) the input decimal number</p></li>
+<li><p><strong>length</strong> – (int) number of bits in the output string</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A list of binary numbers</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="quantum.utils.bin2dec">
+<span class="sig-prename descclassname"><span class="pre">quantum.utils.</span></span><span class="sig-name descname"><span class="pre">bin2dec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></span><a class="headerlink" href="#quantum.utils.bin2dec" title="Permalink to this definition">#</a></dt>
+<dd><p>Converts a binary vector to an integer, with the 0-th
+element being the most significant digit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x</strong> – (list) a binary vector</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>An integer</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="quantum.utils.pauli_x">
+<span class="sig-prename descclassname"><span class="pre">quantum.utils.</span></span><span class="sig-name descname"><span class="pre">pauli_x</span></span><a class="headerlink" href="#quantum.utils.pauli_x" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="quantum.utils.pauli_y">
+<span class="sig-prename descclassname"><span class="pre">quantum.utils.</span></span><span class="sig-name descname"><span class="pre">pauli_y</span></span><a class="headerlink" href="#quantum.utils.pauli_y" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="quantum.utils.pauli_z">
+<span class="sig-prename descclassname"><span class="pre">quantum.utils.</span></span><span class="sig-name descname"><span class="pre">pauli_z</span></span><a class="headerlink" href="#quantum.utils.pauli_z" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="quantum.utils.identity">
+<span class="sig-prename descclassname"><span class="pre">quantum.utils.</span></span><span class="sig-name descname"><span class="pre">identity</span></span><a class="headerlink" href="#quantum.utils.identity" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="quantum.utils.is_identity">
+<span class="sig-prename descclassname"><span class="pre">quantum.utils.</span></span><span class="sig-name descname"><span class="pre">is_identity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">u</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-15</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span></span><a class="headerlink" href="#quantum.utils.is_identity" title="Permalink to this definition">#</a></dt>
+<dd><p>Test if a matrix is identity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>u</strong> – np.ndarray
+Matrix to be checked.</p></li>
+<li><p><strong>tol</strong> – float
+Threshold below which two matrix elements are considered equal.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="quantum.utils.is_unitary">
+<span class="sig-prename descclassname"><span class="pre">quantum.utils.</span></span><span class="sig-name descname"><span class="pre">is_unitary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">u</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-15</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span></span><a class="headerlink" href="#quantum.utils.is_unitary" title="Permalink to this definition">#</a></dt>
+<dd><p>Test if a matrix is unitary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>u</strong> – array
+Matrix to be checked.</p></li>
+<li><p><strong>tol</strong> – float
+Threshold below which two matrix elements are considered equal.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="quantum.utils.compare_unitary">
+<span class="sig-prename descclassname"><span class="pre">quantum.utils.</span></span><span class="sig-name descname"><span class="pre">compare_unitary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">u1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">u2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1e-15</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span></span><a class="headerlink" href="#quantum.utils.compare_unitary" title="Permalink to this definition">#</a></dt>
+<dd><p>Compares two unitary operators to see if they are equal to within a phase.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>u1</strong> (<em>numpy.ndarray</em>) – First unitary operator.</p></li>
+<li><p><strong>u2</strong> (<em>numpy.ndarray</em>) – Second unitary operator.</p></li>
+<li><p><strong>tol</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – Threshold below which two matrix elements are considered equal.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>True if the unitaries are equal to within the tolerance, ignoring</dt><dd><p>differences in global phase.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="quantum.utils.sample_from_probability_distribution">
+<span class="sig-prename descclassname"><span class="pre">quantum.utils.</span></span><span class="sig-name descname"><span class="pre">sample_from_probability_distribution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">probability_distribution</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><span class="pre">dict</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_samples</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.Counter" title="(in Python v3.10)"><span class="pre">collections.Counter</span></a></span></span><a class="headerlink" href="#quantum.utils.sample_from_probability_distribution" title="Permalink to this definition">#</a></dt>
+<dd><p>Samples events from a discrete probability distribution</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>probabilty_distribution</strong> – The discrete probability distribution to be used</p></li>
+<li><p><strong>dictionary</strong> (<em>for sampling. This should be a</em>) – </p></li>
+<li><p><strong>n_samples</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The number of samples desired</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A dictionary of the outcomes sampled. The key values are the things be sampled
+and values are how many times those things appeared in the sampling</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="quantum.utils.convert_bitstrings_to_tuples">
+<span class="sig-prename descclassname"><span class="pre">quantum.utils.</span></span><span class="sig-name descname"><span class="pre">convert_bitstrings_to_tuples</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bitstrings</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Ellipsis</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#quantum.utils.convert_bitstrings_to_tuples" title="Permalink to this definition">#</a></dt>
+<dd><p>Given the measured bitstrings, convert each bitstring to tuple format</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>bitstrings</strong> (<em>list of strings</em>) – the measured bitstrings</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A list of tuples</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="quantum.utils.convert_tuples_to_bitstrings">
+<span class="sig-prename descclassname"><span class="pre">quantum.utils.</span></span><span class="sig-name descname"><span class="pre">convert_tuples_to_bitstrings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tuples</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#quantum.utils.convert_tuples_to_bitstrings" title="Permalink to this definition">#</a></dt>
+<dd><p>Given a set of measurement tuples, convert each to a little endian
+string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>tuples</strong> (<em>list of tuples</em>) – the measurement tuples</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A list of bitstrings</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="quantum.utils.ValueEstimate">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">quantum.utils.</span></span><span class="sig-name descname"><span class="pre">ValueEstimate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">precision</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quantum.utils.ValueEstimate" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code></a></p>
+<dl class="simple">
+<dt>A class representing a numerical value and its precision corresponding</dt><dd><p>to an observable or an objective function</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> (<em>np.float</em>) – the numerical value or a value that can be converted to float</p></li>
+<li><p><strong>precision</strong> (<em>np.float</em>) – its precision</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="quantum.utils.ValueEstimate.value">
+<span class="sig-name descname"><span class="pre">value</span></span><a class="headerlink" href="#quantum.utils.ValueEstimate.value" title="Permalink to this definition">#</a></dt>
+<dd><p>the numerical value</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>np.float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="quantum.utils.ValueEstimate.precision">
+<span class="sig-name descname"><span class="pre">precision</span></span><a class="headerlink" href="#quantum.utils.ValueEstimate.precision" title="Permalink to this definition">#</a></dt>
+<dd><p>its precision</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>np.float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum.utils.ValueEstimate.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quantum.utils.ValueEstimate.to_dict" title="Permalink to this definition">#</a></dt>
+<dd><p>Convert to a dictionary</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum.utils.ValueEstimate.from_dict">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dictionary</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quantum.utils.ValueEstimate.from_dict" title="Permalink to this definition">#</a></dt>
+<dd><p>Create an ExpectationValues object from a dictionary.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="quantum.utils.load_value_estimate">
+<span class="sig-prename descclassname"><span class="pre">quantum.utils.</span></span><span class="sig-name descname"><span class="pre">load_value_estimate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">quantum.typing.LoadSource</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#quantum.utils.ValueEstimate" title="quantum.utils.ValueEstimate"><span class="pre">ValueEstimate</span></a></span></span><a class="headerlink" href="#quantum.utils.load_value_estimate" title="Permalink to this definition">#</a></dt>
+<dd><p>Loads value estimate from a failed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em> or </em><em>file-like object</em>) – the name of the file, or a file-like object.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the array</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>array (numpy.array)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="quantum.utils.save_value_estimate">
+<span class="sig-prename descclassname"><span class="pre">quantum.utils.</span></span><span class="sig-name descname"><span class="pre">save_value_estimate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value_estimate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#quantum.utils.ValueEstimate" title="quantum.utils.ValueEstimate"><span class="pre">ValueEstimate</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">quantum.typing.AnyPath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quantum.utils.save_value_estimate" title="Permalink to this definition">#</a></dt>
+<dd><p>Saves value estimate to a file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value_estimate</strong> (<a class="reference internal" href="../../orquestra/quantum/utils/index.html#orquestra.quantum.utils.ValueEstimate" title="orquestra.quantum.utils.ValueEstimate"><em>orquestra.quantum.utils.ValueEstimate</em></a>) – the value estimate</p></li>
+<li><p><strong>file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em> or </em><em>file-like object</em>) – the name of the file, or a file-like object</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="quantum.utils.load_list">
+<span class="sig-prename descclassname"><span class="pre">quantum.utils.</span></span><span class="sig-name descname"><span class="pre">load_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">quantum.typing.LoadSource</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span></span></span><a class="headerlink" href="#quantum.utils.load_list" title="Permalink to this definition">#</a></dt>
+<dd><p>Load an array from a file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em> or </em><em>file-like object</em>) – the name of the file, or a file-like object.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the list</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>array (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)">list</a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="quantum.utils.save_list">
+<span class="sig-prename descclassname"><span class="pre">quantum.utils.</span></span><span class="sig-name descname"><span class="pre">save_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">array</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">quantum.typing.AnyPath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quantum.utils.save_list" title="Permalink to this definition">#</a></dt>
+<dd><p>Save expectation values to a file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>array</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a>) – the list to be saved</p></li>
+<li><p><strong>file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em> or </em><em>file-like object</em>) – the name of the file, or a file-like object</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="quantum.utils.save_generic_dict">
+<span class="sig-prename descclassname"><span class="pre">quantum.utils.</span></span><span class="sig-name descname"><span class="pre">save_generic_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dictionary</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">quantum.typing.AnyPath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quantum.utils.save_generic_dict" title="Permalink to this definition">#</a></dt>
+<dd><p>Save dictionary as json</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>dictionary</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a>) – the dict containing the data</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="quantum.utils.create_symbols_map">
+<span class="sig-prename descclassname"><span class="pre">quantum.utils.</span></span><span class="sig-name descname"><span class="pre">create_symbols_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">symbols</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">sympy.Symbol</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">sympy.Symbol</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#quantum.utils.create_symbols_map" title="Permalink to this definition">#</a></dt>
+<dd><p>Creates a map to be used for evaluating sympy expressions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>symbols</strong> – list of sympy Symbols to be evaluated</p></li>
+<li><p><strong>params</strong> – numpy array containing numerical value for the symbols</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="quantum.utils.save_timing">
+<span class="sig-prename descclassname"><span class="pre">quantum.utils.</span></span><span class="sig-name descname"><span class="pre">save_timing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">walltime</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">quantum.typing.AnyPath</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#quantum.utils.save_timing" title="Permalink to this definition">#</a></dt>
+<dd><p>Saves timing information.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>walltime</strong> – The execution time.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="quantum.utils.save_nmeas_estimate">
+<span class="sig-prename descclassname"><span class="pre">quantum.utils.</span></span><span class="sig-name descname"><span class="pre">save_nmeas_estimate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nmeas</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">nterms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">quantum.typing.AnyPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame_meas</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#quantum.utils.save_nmeas_estimate" title="Permalink to this definition">#</a></dt>
+<dd><p>Save an estimate of the number of measurements to a file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nmeas</strong> – total number of measurements for epsilon = 1.0</p></li>
+<li><p><strong>nterms</strong> – number of terms (groups) in the objective function</p></li>
+<li><p><strong>frame_meas</strong> – A list of the number of measurements per frame for epsilon = 1.0</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="quantum.utils.load_nmeas_estimate">
+<span class="sig-prename descclassname"><span class="pre">quantum.utils.</span></span><span class="sig-name descname"><span class="pre">load_nmeas_estimate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">quantum.typing.AnyPath</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><span class="pre">float</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#quantum.utils.load_nmeas_estimate" title="Permalink to this definition">#</a></dt>
+<dd><p>Load an estimate of the number of measurements from a file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>filename</strong> – the name of the file</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>number of measurements for epsilon = 1.0
+nterms: number of terms in the hamiltonian
+frame_meas: frame measurements (number of measurements per group)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>nmeas</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="quantum.utils.scale_and_discretize">
+<span class="sig-prename descclassname"><span class="pre">quantum.utils.</span></span><span class="sig-name descname"><span class="pre">scale_and_discretize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#quantum.utils.scale_and_discretize" title="Permalink to this definition">#</a></dt>
+<dd><p>Convert a list of floats to a list of integers such that the total equals
+a given value and the ratios of elements are approximately preserved.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>values</strong> – The list of floats to be scaled and discretized.</p></li>
+<li><p><strong>total</strong> – The desired total which the resulting values should sum to.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>A list of integers whose sum is equal to the given total, where the</dt><dd><p>ratios of the list elements are approximately equal to the ratios
+of the input list elements.</p>
+</dd>
+</dl>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="quantum.utils.get_ordered_list_of_bitstrings">
+<span class="sig-prename descclassname"><span class="pre">quantum.utils.</span></span><span class="sig-name descname"><span class="pre">get_ordered_list_of_bitstrings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_qubits</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#quantum.utils.get_ordered_list_of_bitstrings" title="Permalink to this definition">#</a></dt>
+<dd><p>Create list of binary strings corresponding to 2^num_qubits integers
+and save them in ascending order.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>num_qubits</strong> – number of binary digits in each bitstring</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The ordered bitstring representations of the integers</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="quantum.utils.ensure_open">
+<span class="sig-prename descclassname"><span class="pre">quantum.utils.</span></span><span class="sig-name descname"><span class="pre">ensure_open</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_like</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">quantum.typing.LoadSource</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">quantum.typing.DumpTarget</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'r'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'utf-8'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quantum.utils.ensure_open" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+</section>
+
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../typing/index.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><code class="xref py py-mod docutils literal notranslate"><span class="pre">quantum.typing</span></code></p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../wavefunction/index.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><code class="xref py py-mod docutils literal notranslate"><span class="pre">quantum.wavefunction</span></code></p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By michal.stechly@zapatacomputing.com<br/>
+  
+      &copy; Copyright 2022, Zapata Computing, Inc.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

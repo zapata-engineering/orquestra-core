@@ -1,0 +1,225 @@
+:orphan:
+
+:py:mod:`orquestra.quantum.openfermion.zapata_utils._io`
+========================================================
+
+.. py:module:: orquestra.quantum.openfermion.zapata_utils._io
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.quantum.openfermion.zapata_utils._io.convert_interaction_op_to_dict
+   orquestra.quantum.openfermion.zapata_utils._io.convert_dict_to_interaction_op
+   orquestra.quantum.openfermion.zapata_utils._io.load_interaction_operator
+   orquestra.quantum.openfermion.zapata_utils._io.save_interaction_operator
+   orquestra.quantum.openfermion.zapata_utils._io.convert_dict_to_qubitop
+   orquestra.quantum.openfermion.zapata_utils._io.convert_qubitop_to_dict
+   orquestra.quantum.openfermion.zapata_utils._io.convert_dict_to_operator
+   orquestra.quantum.openfermion.zapata_utils._io.save_qubit_operator
+   orquestra.quantum.openfermion.zapata_utils._io.load_qubit_operator
+   orquestra.quantum.openfermion.zapata_utils._io.save_qubit_operator_set
+   orquestra.quantum.openfermion.zapata_utils._io.load_qubit_operator_set
+   orquestra.quantum.openfermion.zapata_utils._io.get_pauli_strings
+   orquestra.quantum.openfermion.zapata_utils._io.convert_isingop_to_dict
+   orquestra.quantum.openfermion.zapata_utils._io.convert_dict_to_isingop
+   orquestra.quantum.openfermion.zapata_utils._io.load_ising_operator
+   orquestra.quantum.openfermion.zapata_utils._io.save_ising_operator
+   orquestra.quantum.openfermion.zapata_utils._io.save_parameter_grid_evaluation
+   orquestra.quantum.openfermion.zapata_utils._io.convert_interaction_rdm_to_dict
+   orquestra.quantum.openfermion.zapata_utils._io.convert_dict_to_interaction_rdm
+   orquestra.quantum.openfermion.zapata_utils._io.load_interaction_rdm
+   orquestra.quantum.openfermion.zapata_utils._io.save_interaction_rdm
+
+
+
+.. py:function:: convert_interaction_op_to_dict(op: orquestra.quantum.openfermion.InteractionOperator) -> Dict[str, Any]
+
+   Convert an InteractionOperator to a dictionary.
+   :param op: the operator
+
+   :returns: the dictionary representation
+   :rtype: dictionary
+
+
+.. py:function:: convert_dict_to_interaction_op(dictionary: dict) -> orquestra.quantum.openfermion.InteractionOperator
+
+   Get an InteractionOperator from a dictionary.
+   :param dictionary: the dictionary representation
+
+   :returns: the operator
+   :rtype: op
+
+
+.. py:function:: load_interaction_operator(file: orquestra.quantum.typing.LoadSource) -> orquestra.quantum.openfermion.InteractionOperator
+
+   Load an interaction operator object from a file.
+   :param file: the name of the file, or a file-like object.
+   :type file: str or file-like object
+
+   :returns: the operator.
+   :rtype: op
+
+
+.. py:function:: save_interaction_operator(interaction_operator: orquestra.quantum.openfermion.InteractionOperator, filename: orquestra.quantum.typing.AnyPath) -> None
+
+   Save an interaction operator to file.
+   :param interaction_operator: the operator to be saved
+   :param filename: the name of the file
+
+
+.. py:function:: convert_dict_to_qubitop(dictionary: dict) -> orquestra.quantum.openfermion.QubitOperator
+
+   Get a QubitOperator from a dictionary.
+   :param dictionary: the dictionary representation
+
+   :returns: the operator
+   :rtype: op
+
+
+.. py:function:: convert_qubitop_to_dict(op: orquestra.quantum.openfermion.QubitOperator) -> Dict[str, Any]
+
+   Convert a QubitOperator to a dictionary.
+   :param op: the operator
+
+   :returns: the dictionary representation
+   :rtype: dictionary
+
+
+.. py:function:: convert_dict_to_operator(dictionary: dict, constructor: Callable) -> orquestra.quantum.openfermion.SymbolicOperator
+
+
+.. py:function:: save_qubit_operator(qubit_operator: orquestra.quantum.openfermion.QubitOperator, filename: orquestra.quantum.typing.AnyPath) -> None
+
+   Save a qubit operator to file.
+   :param qubit_operator: the operator to be saved
+   :param filename: the name of the file
+
+
+.. py:function:: load_qubit_operator(file: orquestra.quantum.typing.LoadSource) -> orquestra.quantum.openfermion.QubitOperator
+
+   Load an operator object from a file.
+   :param file: the name of the file, or a file-like object.
+
+   :returns: the operator.
+   :rtype: op
+
+
+.. py:function:: save_qubit_operator_set(qubit_operator_set: List[orquestra.quantum.openfermion.QubitOperator], filename: orquestra.quantum.typing.AnyPath) -> None
+
+   Save a set of qubit operators to a file.
+
+   :param qubit_operator_set: a list of QubitOperator to be saved
+   :param file: the name of the file
+
+
+.. py:function:: load_qubit_operator_set(file: orquestra.quantum.typing.LoadSource) -> List[orquestra.quantum.openfermion.QubitOperator]
+
+   Load a set of qubit operators from a file.
+
+   :param file: the name of the file, or a file-like object.
+
+   :returns: a list of QubitOperator objects
+   :rtype: qubit_operator_set
+
+
+.. py:function:: get_pauli_strings(qubit_operator: orquestra.quantum.openfermion.QubitOperator) -> List[str]
+
+   Convert a qubit operator into a list of Pauli strings.
+
+   :param qubit_operator: a QubitOperator to be converted
+
+   :returns: list of Pauli strings
+   :rtype: pauli_strings
+
+
+.. py:function:: convert_isingop_to_dict(op: orquestra.quantum.openfermion.IsingOperator) -> dict
+
+   Convert an IsingOperator to a dictionary.
+
+   :param op: the operator
+
+   :returns: the dictionary representation
+   :rtype: dictionary
+
+
+.. py:function:: convert_dict_to_isingop(dictionary: dict) -> orquestra.quantum.openfermion.IsingOperator
+
+   Get a IsingOperator from a dictionary.
+
+   :param dictionary: the dictionary representation
+
+   :returns: the operator
+   :rtype: op
+
+
+.. py:function:: load_ising_operator(file: orquestra.quantum.typing.LoadSource) -> orquestra.quantum.openfermion.IsingOperator
+
+   Load an Ising operator object from a file.
+
+   :param file: the name of the file, or a file-like object.
+
+   :returns: the operator.
+   :rtype: op
+
+
+.. py:function:: save_ising_operator(ising_operator: orquestra.quantum.openfermion.IsingOperator, filename: orquestra.quantum.typing.AnyPath) -> None
+
+   Save an Ising operator to file.
+
+   :param op: the operator to be saved
+   :param filename: the name of the file
+
+
+.. py:function:: save_parameter_grid_evaluation(parameter_grid_evaluation, filename)
+
+   Save a list of parameter grid evaluations to file
+
+   :param parameter_grid_evaluation: List of dicts with a value estimate object
+                                     under the "value" field
+   :type parameter_grid_evaluation: list
+   :param file: the name of the file, or a file-like object
+   :type file: str or file-like object
+
+
+.. py:function:: convert_interaction_rdm_to_dict(op)
+
+   Convert an InteractionRDM to a dictionary.
+   :param op: the operator
+   :type op: openfermion.ops.InteractionRDM
+
+   :returns: the dictionary representation
+   :rtype: dictionary (dict)
+
+
+.. py:function:: convert_dict_to_interaction_rdm(dictionary)
+
+   Get an InteractionRDM from a dictionary.
+   :param dictionary: the dictionary representation
+   :type dictionary: dict
+
+   :returns: the operator
+   :rtype: op (openfermion.ops.InteractionRDM)
+
+
+.. py:function:: load_interaction_rdm(file: orquestra.quantum.typing.LoadSource) -> orquestra.quantum.openfermion.InteractionRDM
+
+   Load an interaction RDM object from a file.
+   :param file: a file-like object to load the interaction RDM from.
+
+   :returns: The interaction RDM.
+
+
+.. py:function:: save_interaction_rdm(interaction_rdm: orquestra.quantum.openfermion.InteractionRDM, filename: orquestra.quantum.typing.AnyPath) -> None
+
+   Save an interaction operator to file.
+   :param interaction_operator: the operator to be saved
+   :param filename: the name of the file
+
+

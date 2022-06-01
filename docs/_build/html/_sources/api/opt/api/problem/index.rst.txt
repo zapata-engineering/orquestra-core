@@ -1,0 +1,36 @@
+:py:mod:`opt.api.problem`
+=========================
+
+.. py:module:: opt.api.problem
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   opt.api.problem.Problem
+
+
+
+
+.. py:class:: Problem
+
+   Bases: :py:obj:`abc.ABC`
+
+   Helper class that provides a standard way to create an ABC using
+   inheritance.
+
+   .. py:method:: get_hamiltonian(self, graph: networkx.Graph, scale_factor: float = 1.0, offset: float = 0.0) -> orquestra.quantum.openfermion.QubitOperator
+
+
+   .. py:method:: evaluate_solution(self, solution: Tuple[int], graph: networkx.Graph) -> float
+
+
+   .. py:method:: solve_by_exhaustive_search(self, graph: networkx.Graph) -> Tuple[float, List[Tuple[int, Ellipsis]]]
+
+
+

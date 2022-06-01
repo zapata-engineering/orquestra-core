@@ -1,0 +1,18 @@
+:py:mod:`integrations.qiskit`
+=============================
+
+.. py:module:: integrations.qiskit
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   backend/index.rst
+   conversions/index.rst
+   noise/index.rst
+   simulator/index.rst
+
+

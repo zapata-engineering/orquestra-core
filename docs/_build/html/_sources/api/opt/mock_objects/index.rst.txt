@@ -1,0 +1,53 @@
+:py:mod:`opt.mock_objects`
+==========================
+
+.. py:module:: opt.mock_objects
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   opt.mock_objects.MockOptimizer
+   opt.mock_objects.MockNestedOptimizer
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   opt.mock_objects.mock_cost_function
+
+
+
+.. py:class:: MockOptimizer
+
+   Bases: :py:obj:`opt.api.Optimizer`
+
+
+.. py:function:: mock_cost_function(parameters: numpy.ndarray)
+
+
+.. py:class:: MockNestedOptimizer(inner_optimizer: opt.api.Optimizer, n_iters: int, recorder: opt.history.recorder.RecorderFactory = _recorder)
+
+   Bases: :py:obj:`opt.api.NestedOptimizer`
+
+   As most mock objects this implementation does not make much sense in itself,
+   however it's an example of how a NestedOptimizer could be implemented.
+
+
+   .. py:method:: inner_optimizer(self) -> opt.api.Optimizer
+      :property:
+
+
+   .. py:method:: recorder(self) -> opt.history.recorder.RecorderFactory
+      :property:
+
+
+

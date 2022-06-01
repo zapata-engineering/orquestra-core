@@ -1,0 +1,2564 @@
+:py:mod:`orquestra.quantum.openfermion`
+=======================================
+
+.. py:module:: orquestra.quantum.openfermion
+
+.. autoapi-nested-parse::
+
+   OpenFermion
+
+   For more information, examples, or tutorials visit our website:
+
+   www.openfermion.org
+
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   chem/index.rst
+   circuits/index.rst
+   hamiltonians/index.rst
+   linalg/index.rst
+   measurements/index.rst
+   ops/index.rst
+   testing/index.rst
+   transforms/index.rst
+   utils/index.rst
+   zapata_utils/index.rst
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   config/index.rst
+
+
+Package Contents
+----------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.quantum.openfermion.MolecularData
+   orquestra.quantum.openfermion.FermionOperator
+   orquestra.quantum.openfermion.InteractionOperator
+   orquestra.quantum.openfermion.InteractionRDM
+   orquestra.quantum.openfermion.IsingOperator
+   orquestra.quantum.openfermion.PolynomialTensor
+   orquestra.quantum.openfermion.QubitOperator
+   orquestra.quantum.openfermion.SymbolicOperator
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.quantum.openfermion.angstroms_to_bohr
+   orquestra.quantum.openfermion.bohr_to_angstroms
+   orquestra.quantum.openfermion.geometry_from_file
+   orquestra.quantum.openfermion.load_molecular_hamiltonian
+   orquestra.quantum.openfermion.make_reduced_hamiltonian
+   orquestra.quantum.openfermion.name_molecule
+   orquestra.quantum.openfermion.fermi_hubbard
+   orquestra.quantum.openfermion.interaction_operator
+   orquestra.quantum.openfermion.sparse_eigenspectrum
+   orquestra.quantum.openfermion.kronecker_operators
+   orquestra.quantum.openfermion.jw_number_restrict_operator
+   orquestra.quantum.openfermion.jw_number_indices
+   orquestra.quantum.openfermion.jw_hartree_fock_state
+   orquestra.quantum.openfermion.jw_configuration_state
+   orquestra.quantum.openfermion.jordan_wigner_sparse
+   orquestra.quantum.openfermion.wrapped_kronecker
+   orquestra.quantum.openfermion.jordan_wigner_ladder_sparse
+   orquestra.quantum.openfermion.eigenspectrum
+   orquestra.quantum.openfermion.expectation
+   orquestra.quantum.openfermion.get_density_matrix
+   orquestra.quantum.openfermion.get_ground_state
+   orquestra.quantum.openfermion.get_number_preserving_sparse_operator
+   orquestra.quantum.openfermion.get_sparse_operator
+   orquestra.quantum.openfermion.inner_product
+   orquestra.quantum.openfermion.jw_get_ground_state_at_particle_number
+   orquestra.quantum.openfermion.qubit_operator_sparse
+   orquestra.quantum.openfermion.general_basis_change
+   orquestra.quantum.openfermion.uccsd_convert_amplitude_format
+   orquestra.quantum.openfermion.uccsd_generator
+   orquestra.quantum.openfermion.uccsd_singlet_generator
+   orquestra.quantum.openfermion.uccsd_singlet_get_packed_amplitudes
+   orquestra.quantum.openfermion.uccsd_singlet_paramsize
+   orquestra.quantum.openfermion.jordan_wigner_one_body
+   orquestra.quantum.openfermion.jordan_wigner_two_body
+   orquestra.quantum.openfermion.check_no_sympy
+   orquestra.quantum.openfermion.chemist_ordered
+   orquestra.quantum.openfermion.freeze_orbitals
+   orquestra.quantum.openfermion.get_fermion_operator
+   orquestra.quantum.openfermion.get_interaction_operator
+   orquestra.quantum.openfermion.get_molecular_data
+   orquestra.quantum.openfermion.normal_ordered
+   orquestra.quantum.openfermion.normal_ordered_ladder_term
+   orquestra.quantum.openfermion.prune_unused_indices
+   orquestra.quantum.openfermion.reorder
+   orquestra.quantum.openfermion.anticommutator
+   orquestra.quantum.openfermion.commutator
+   orquestra.quantum.openfermion.count_qubits
+   orquestra.quantum.openfermion.double_commutator
+   orquestra.quantum.openfermion.down_index
+   orquestra.quantum.openfermion.get_file_path
+   orquestra.quantum.openfermion.hermitian_conjugated
+   orquestra.quantum.openfermion.is_hermitian
+   orquestra.quantum.openfermion.is_identity
+   orquestra.quantum.openfermion.load_operator
+   orquestra.quantum.openfermion.save_operator
+   orquestra.quantum.openfermion.up_index
+   orquestra.quantum.openfermion.up_then_down
+   orquestra.quantum.openfermion.get_qubitop_from_matrix
+   orquestra.quantum.openfermion.get_qubitop_from_coeffs_and_labels
+   orquestra.quantum.openfermion.generate_random_qubitop
+   orquestra.quantum.openfermion.evaluate_qubit_operator
+   orquestra.quantum.openfermion.evaluate_qubit_operator_list
+   orquestra.quantum.openfermion.reverse_qubit_order
+   orquestra.quantum.openfermion.get_expectation_value
+   orquestra.quantum.openfermion.change_operator_type
+   orquestra.quantum.openfermion.get_fermion_number_operator
+   orquestra.quantum.openfermion.get_diagonal_component
+   orquestra.quantum.openfermion.get_polynomial_tensor
+   orquestra.quantum.openfermion.create_circuits_from_qubit_operator
+   orquestra.quantum.openfermion.get_ground_state_rdm_from_qubit_op
+   orquestra.quantum.openfermion.remove_inactive_orbitals
+   orquestra.quantum.openfermion.hf_rdm
+   orquestra.quantum.openfermion.convert_interaction_op_to_dict
+   orquestra.quantum.openfermion.convert_dict_to_interaction_op
+   orquestra.quantum.openfermion.load_interaction_operator
+   orquestra.quantum.openfermion.save_interaction_operator
+   orquestra.quantum.openfermion.convert_dict_to_qubitop
+   orquestra.quantum.openfermion.convert_qubitop_to_dict
+   orquestra.quantum.openfermion.convert_dict_to_operator
+   orquestra.quantum.openfermion.save_qubit_operator
+   orquestra.quantum.openfermion.load_qubit_operator
+   orquestra.quantum.openfermion.save_qubit_operator_set
+   orquestra.quantum.openfermion.load_qubit_operator_set
+   orquestra.quantum.openfermion.get_pauli_strings
+   orquestra.quantum.openfermion.convert_isingop_to_dict
+   orquestra.quantum.openfermion.convert_dict_to_isingop
+   orquestra.quantum.openfermion.load_ising_operator
+   orquestra.quantum.openfermion.save_ising_operator
+   orquestra.quantum.openfermion.save_parameter_grid_evaluation
+   orquestra.quantum.openfermion.convert_interaction_rdm_to_dict
+   orquestra.quantum.openfermion.convert_dict_to_interaction_rdm
+   orquestra.quantum.openfermion.load_interaction_rdm
+   orquestra.quantum.openfermion.save_interaction_rdm
+
+
+
+.. py:class:: MolecularData(geometry=None, basis=None, multiplicity=None, charge=0, description='', filename='', data_directory=None)
+
+   Bases: :py:obj:`object`
+
+   Class for storing molecule data from a fixed basis set at a fixed
+   geometry that is obtained from classical electronic structure
+   packages. Not every field is filled in every calculation. All data
+   that can (for some instance) exceed 10 MB should be saved
+   separately. Data saved in HDF5 format.
+
+   .. attribute:: geometry
+
+      A list of tuples giving the coordinates of each atom. An
+      example is [('H', (0, 0, 0)), ('H', (0, 0, 0.7414))]. Distances
+      in angstrom. Use atomic symbols to specify atoms.
+
+   .. attribute:: basis
+
+      A string giving the basis set. An example is 'cc-pvtz'.
+
+   .. attribute:: charge
+
+      An integer giving the total molecular charge. Defaults to 0.
+
+   .. attribute:: multiplicity
+
+      An integer giving the spin multiplicity.
+
+   .. attribute:: description
+
+      An optional string giving a description. As an example,
+      for dimers a likely description is the bond length (e.g. 0.7414).
+
+   .. attribute:: name
+
+      A string giving a characteristic name for the instance.
+
+   .. attribute:: filename
+
+      The name of the file where the molecule data is saved.
+
+   .. attribute:: n_atoms
+
+      Integer giving the number of atoms in the molecule.
+
+   .. attribute:: n_electrons
+
+      Integer giving the number of electrons in the molecule.
+
+   .. attribute:: atoms
+
+      List of the atoms in molecule sorted by atomic number.
+
+   .. attribute:: protons
+
+      List of atomic charges in molecule sorted by atomic number.
+
+   .. attribute:: hf_energy
+
+      Energy from open or closed shell Hartree-Fock.
+
+   .. attribute:: nuclear_repulsion
+
+      Energy from nuclei-nuclei interaction.
+
+   .. attribute:: canonical_orbitals
+
+      numpy array giving canonical orbital coefficients.
+
+   .. attribute:: n_orbitals
+
+      Integer giving total number of spatial orbitals.
+
+   .. attribute:: n_qubits
+
+      Integer giving total number of qubits that would be needed.
+
+   .. attribute:: orbital_energies
+
+      Numpy array giving the canonical orbital energies.
+
+   .. attribute:: fock_matrix
+
+      Numpy array giving the Fock matrix.
+
+   .. attribute:: overlap_integrals
+
+      Numpy array of AO overlap integrals
+
+   .. attribute:: one_body_integrals
+
+      Numpy array of one-electron integrals
+
+   .. attribute:: two_body_integrals
+
+      Numpy array of two-electron integrals
+
+   .. attribute:: mp2_energy
+
+      Energy from MP2 perturbation theory.
+
+   .. attribute:: cisd_energy
+
+      Energy from configuration interaction singles + doubles.
+
+   .. attribute:: cisd_one_rdm
+
+      Numpy array giving 1-RDM from CISD calculation.
+
+   .. attribute:: cisd_two_rdm
+
+      Numpy array giving 2-RDM from CISD calculation.
+
+   .. attribute:: fci_energy
+
+      Exact energy of molecule within given basis.
+
+   .. attribute:: fci_one_rdm
+
+      Numpy array giving 1-RDM from FCI calculation.
+
+   .. attribute:: fci_two_rdm
+
+      Numpy array giving 2-RDM from FCI calculation.
+
+   .. attribute:: ccsd_energy
+
+      Energy from coupled cluster singles + doubles.
+
+   .. attribute:: ccsd_single_amps
+
+      Numpy array holding single amplitudes
+
+   .. attribute:: ccsd_double_amps
+
+      Numpy array holding double amplitudes
+
+   .. attribute:: general_calculations
+
+      A dictionary storing general calculation results
+      for this system annotated by the key.
+
+   .. py:method:: init_lazy_properties(self)
+
+      Initializes properties loaded on demand to None
+
+
+   .. py:method:: canonical_orbitals(self)
+      :property:
+
+
+   .. py:method:: overlap_integrals(self)
+      :property:
+
+
+   .. py:method:: one_body_integrals(self)
+      :property:
+
+
+   .. py:method:: two_body_integrals(self)
+      :property:
+
+
+   .. py:method:: cisd_one_rdm(self)
+      :property:
+
+
+   .. py:method:: cisd_two_rdm(self)
+      :property:
+
+
+   .. py:method:: fci_one_rdm(self)
+      :property:
+
+
+   .. py:method:: fci_two_rdm(self)
+      :property:
+
+
+   .. py:method:: ccsd_single_amps(self)
+      :property:
+
+
+   .. py:method:: ccsd_double_amps(self)
+      :property:
+
+
+   .. py:method:: save(self)
+
+      Method to save the class under a systematic name.
+
+
+   .. py:method:: load(self)
+
+
+   .. py:method:: get_from_file(self, property_name)
+
+      Helper routine to re-open HDF5 file and pull out single property
+
+      :param property_name: Property name to load from self.filename
+
+      :returns:
+
+                The data located at file[property_name] for the HDF5 file at
+                    self.filename. Returns None if the key is not found in the
+                    file.
+
+
+   .. py:method:: get_n_alpha_electrons(self)
+
+      Return number of alpha electrons.
+
+
+   .. py:method:: get_n_beta_electrons(self)
+
+      Return number of beta electrons.
+
+
+   .. py:method:: get_integrals(self)
+
+      Method to return 1-electron and 2-electron integrals in MO basis.
+
+      :returns:
+
+                An array of the one-electron integrals having
+                    shape of (n_orbitals, n_orbitals).
+                two_body_integrals: An array of the two-electron integrals having
+                    shape of (n_orbitals, n_orbitals, n_orbitals, n_orbitals).
+      :rtype: one_body_integrals
+
+      :raises MissingCalculationError: If integrals are not calculated.
+
+
+   .. py:method:: get_active_space_integrals(self, occupied_indices=None, active_indices=None)
+
+      Restricts a molecule at a spatial orbital level to an active space
+
+      This active space may be defined by a list of active indices and
+          doubly occupied indices. Note that one_body_integrals and
+          two_body_integrals must be defined
+          n an orthonormal basis set.
+
+      :param occupied_indices: A list of spatial orbital indices
+                               indicating which orbitals should be considered doubly occupied.
+      :param active_indices: A list of spatial orbital indices indicating
+                             which orbitals should be considered active.
+
+      :returns: Tuple with the following entries:
+
+                **core_constant**: Adjustment to constant shift in Hamiltonian
+                from integrating out core orbitals
+
+                **one_body_integrals_new**: one-electron integrals over active
+                space.
+
+                **two_body_integrals_new**: two-electron integrals over active
+                space.
+      :rtype: tuple
+
+
+   .. py:method:: get_molecular_hamiltonian(self, occupied_indices=None, active_indices=None)
+
+      Output arrays of the second quantized Hamiltonian coefficients.
+
+      :param occupied_indices: A list of spatial orbital indices
+                               indicating which orbitals should be considered doubly occupied.
+      :type occupied_indices: list
+      :param active_indices: A list of spatial orbital indices indicating
+                             which orbitals should be considered active.
+      :type active_indices: list
+
+      :returns: An instance of the MolecularOperator class.
+      :rtype: molecular_hamiltonian
+
+      .. note::
+
+         The indexing convention used is that even indices correspond to
+         spin-up (alpha) modes and odd indices correspond to spin-down
+         (beta) modes.
+
+
+   .. py:method:: get_molecular_rdm(self, use_fci=False)
+
+      Method to return 1-RDM and 2-RDMs from CISD or FCI.
+
+      :param use_fci: Boolean indicating whether to use RDM from FCI
+                      calculation.
+
+      :returns: An instance of the MolecularRDM class.
+      :rtype: rdm
+
+      :raises MisissingCalculationError: If the CI calculation has not been
+          performed.
+
+
+   .. py:method:: get_j(self)
+
+      Method to return coulomb matrix.
+
+      :returns:
+
+                Numpy array of the coulomb integrals J_{p,q} = (pp|qq)
+                  (in chemist notation).
+      :rtype: k_matr
+
+      :raises MissingCalculationError: If integrals are not calculated.
+
+
+   .. py:method:: get_k(self)
+
+      Method to return exchange matrix.
+
+      :returns:
+
+                Numpy array of the coulomb integrals K_{p,q} = (pq|qp)
+                  (in chemist notation).
+      :rtype: k_matr
+
+      :raises MissingCalculationError: If integrals are not calculated.
+
+
+   .. py:method:: get_antisym(self)
+
+      Method to return anti-symmetrized integrals in spin-orbital basis.
+
+      :returns:
+
+                Numpy array of anti-symmetrized integrals in spin-
+                  orbital basis <ij||kl> = <ij|kl> - <ij|lk> (physicist ordering)
+      :rtype: antisymints
+
+      :raises MissingCalculationError: If integrals are not calculated.
+
+
+
+.. py:function:: angstroms_to_bohr(distance)
+
+
+.. py:function:: bohr_to_angstroms(distance)
+
+
+.. py:function:: geometry_from_file(file_name)
+
+   Function to create molecular geometry from text file.
+
+   :param file_name: a string giving the location of the geometry file.
+                     It is assumed that geometry is given for each atom on line, e.g.:
+                     H 0. 0. 0.
+                     H 0. 0. 0.7414
+
+   :returns:
+
+             A list of tuples giving the coordinates of each atom.
+                 example is [('H', (0, 0, 0)), ('H', (0, 0, 0.7414))].
+                 Distances in angstrom. Use atomic symbols to specify atoms.
+   :rtype: geometry
+
+
+.. py:function:: load_molecular_hamiltonian(geometry, basis, multiplicity, description, n_active_electrons=None, n_active_orbitals=None)
+
+   Attempt to load a molecular Hamiltonian with the given properties.
+
+   :param geometry: A list of tuples giving the coordinates of each atom.
+                    An example is [('H', (0, 0, 0)), ('H', (0, 0, 0.7414))].
+                    Distances in angstrom. Use atomic symbols to
+                    specify atoms.
+   :param basis: A string giving the basis set. An example is 'cc-pvtz'.
+                 Only optional if loading from file.
+   :param multiplicity: An integer giving the spin multiplicity.
+   :param description: A string giving a description.
+   :param n_active_electrons: An optional integer specifying the number of
+                              electrons desired in the active space.
+   :param n_active_orbitals: An optional integer specifying the number of
+                             spatial orbitals desired in the active space.
+
+   :returns: The Hamiltonian as an InteractionOperator.
+
+
+.. py:function:: make_reduced_hamiltonian(molecular_hamiltonian: orquestra.quantum.openfermion.ops.representations.InteractionOperator, n_electrons: int) -> orquestra.quantum.openfermion.ops.representations.InteractionOperator
+
+   Construct the reduced Hamiltonian.
+
+   This Hamiltonian is equivalent to the electronic structure Hamiltonian
+   but contains only two-body terms.  To do this, the operator now depends
+   on the number of particles being simulated.  We use the RDM sum rule to
+   lift the 1-body terms to the two-body space.
+
+   Derivation:
+       use the fact that i^l = (1/(n -1)) sum_{jk}\delta_{jk}i^ j^ k l
+                         i^l = (-1/(n -1)) sum_{jk}\delta_{jk}j^ i^ k l
+                         i^l = (-1/(n -1)) sum_{jk}\delta_{jk}i^ j^ l k
+                         i^l = (1/(n -1)) sum_{jk}\delta_{jk}j^ i^ l k
+
+       Rewrite each one-body term as an even weighting of all four 2-RDM
+       elements with delta functions. Then rearrange terms so that each ijkl
+       term gets a sum of permuted one-body terms multiplied by delta
+       function. One should notice that this results in the same formula
+       if one was to apply the wedge product!
+
+   :param molecular_hamiltonian: operator to write reduced hamiltonian for
+   :param n_electrons: number of electrons in the system
+
+   :returns: InteractionOperator with a zero one-body component.
+
+
+.. py:function:: name_molecule(geometry, basis, multiplicity, charge, description)
+
+   Function to name molecules.
+
+   :param geometry: A list of tuples giving the coordinates of each atom.
+                    example is [('H', (0, 0, 0)), ('H', (0, 0, 0.7414))].
+                    Distances in angstrom. Use atomic symbols to specify atoms.
+   :param basis: A string giving the basis set. An example is 'cc-pvtz'.
+   :param multiplicity: An integer giving the spin multiplicity.
+   :param charge: An integer giving the total molecular charge.
+   :param description: A string giving a description. As an example,
+                       for dimers a likely description is the bond length (e.g. 0.7414).
+
+   :returns: A string giving the name of the instance.
+   :rtype: name
+
+   :raises MoleculeNameError: If spin multiplicity is not valid.
+
+
+.. py:function:: fermi_hubbard(x_dimension, y_dimension, tunneling, coulomb, chemical_potential=0.0, magnetic_field=0.0, periodic=True, spinless=False, particle_hole_symmetry=False)
+
+   Return symbolic representation of a Fermi-Hubbard Hamiltonian.
+
+   The idea of this model is that some fermions move around on a grid and the
+   energy of the model depends on where the fermions are.
+   The Hamiltonians of this model live on a grid of dimensions
+   `x_dimension` x `y_dimension`.
+   The grid can have periodic boundary conditions or not.
+   In the standard Fermi-Hubbard model (which we call the "spinful" model),
+   there is room for an "up" fermion and a "down" fermion at each site on the
+   grid. In this model, there are a total of `2N` spin-orbitals,
+   where `N = x_dimension * y_dimension` is the number of sites.
+   In the spinless model, there is only one spin-orbital per site
+   for a total of `N`.
+
+   The Hamiltonian for the spinful model has the form
+
+   $$
+       \begin{align}
+       H = &- t \sum_{\langle i,j \rangle} \sum_{\sigma}
+                    (a^\dagger_{i, \sigma} a_{j, \sigma} +
+                     a^\dagger_{j, \sigma} a_{i, \sigma})
+            + U \sum_{i} a^\dagger_{i, \uparrow} a_{i, \uparrow}
+                        a^\dagger_{i, \downarrow} a_{i, \downarrow}
+           \\
+           &- \mu \sum_i \sum_{\sigma} a^\dagger_{i, \sigma} a_{i, \sigma}
+            - h \sum_i (a^\dagger_{i, \uparrow} a_{i, \uparrow} -
+                      a^\dagger_{i, \downarrow} a_{i, \downarrow})
+       \end{align}
+   $$
+
+   where
+
+       - The indices $\langle i, j \rangle$ run over pairs
+         $i$ and $j$ of sites that are connected to each other
+         in the grid
+       - $\sigma \in \{\uparrow, \downarrow\}$ is the spin
+       - $t$ is the tunneling amplitude
+       - $U$ is the Coulomb potential
+       - $\mu$ is the chemical potential
+       - $h$ is the magnetic field
+
+   One can also construct the Hamiltonian for the spinless model, which
+   has the form
+
+   $$
+       H = - t \sum_{\langle i, j \rangle} (a^\dagger_i a_j + a^\dagger_j a_i)
+           + U \sum_{\langle i, j \rangle} a^\dagger_i a_i a^\dagger_j a_j
+           - \mu \sum_i a_i^\dagger a_i.
+   $$
+
+   :param x_dimension: The width of the grid.
+   :type x_dimension: int
+   :param y_dimension: The height of the grid.
+   :type y_dimension: int
+   :param tunneling: The tunneling amplitude $t$.
+   :type tunneling: float
+   :param coulomb: The attractive local interaction strength $U$.
+   :type coulomb: float
+   :param chemical_potential: The chemical potential
+                              $\mu$ at each site. Default value is 0.
+   :type chemical_potential: float, optional
+   :param magnetic_field: The magnetic field $h$
+                          at each site. Default value is 0. Ignored for the spinless case.
+   :type magnetic_field: float, optional
+   :param periodic: If True, add periodic boundary conditions.
+                    Default is True.
+   :type periodic: bool, optional
+   :param spinless: If True, return a spinless Fermi-Hubbard
+                    model. Default is False.
+   :type spinless: bool, optional
+   :param particle_hole_symmetry: If False, the repulsion
+                                  term corresponds to:
+
+                                  $$
+                                      U \sum_{k=1}^{N-1} a_k^\dagger a_k a_{k+1}^\dagger a_{k+1}
+                                  $$
+
+                                  If True, the repulsion term is replaced by:
+
+                                  $$
+                                      U \sum_{k=1}^{N-1} (a_k^\dagger a_k - \frac12)
+                                                         (a_{k+1}^\dagger a_{k+1} - \frac12)
+                                  $$
+
+                                  which is unchanged under a particle-hole transformation.
+                                  Default is False
+   :type particle_hole_symmetry: bool, optional
+
+   :returns: An instance of the FermionOperator class.
+   :rtype: hubbard_model
+
+
+.. py:function:: interaction_operator(i, j, coefficient=1.0, particle_hole_symmetry=False)
+
+
+.. py:function:: sparse_eigenspectrum(sparse_operator)
+
+   Perform a dense diagonalization.
+
+   :returns: The lowest eigenvalues in a numpy array.
+   :rtype: eigenspectrum
+
+
+.. py:function:: kronecker_operators(*args)
+
+   Return the Kronecker product of multiple sparse.csc_matrix operators.
+
+
+.. py:function:: jw_number_restrict_operator(operator, n_electrons, n_qubits=None)
+
+   Restrict a Jordan-Wigner encoded operator to a given particle number
+
+   :param sparse_operator: Numpy operator acting on
+                           the space of n_qubits.
+   :type sparse_operator: ndarray or sparse
+   :param n_electrons: Number of particles to restrict the operator to
+   :type n_electrons: int
+   :param n_qubits: Number of qubits defining the total state
+   :type n_qubits: int
+
+   :returns:
+
+             Numpy operator restricted to
+                 acting on states with the same particle number.
+   :rtype: new_operator(ndarray or sparse)
+
+
+.. py:function:: jw_number_indices(n_electrons, n_qubits)
+
+   Return the indices for n_electrons in n_qubits under JW encoding
+
+   Calculates the indices for all possible arrangements of n-electrons
+       within n-qubit orbitals when a Jordan-Wigner encoding is used.
+       Useful for restricting generic operators or vectors to a particular
+       particle number space when desired
+
+   :param n_electrons: Number of particles to restrict the operator to
+   :type n_electrons: int
+   :param n_qubits: Number of qubits defining the total state
+   :type n_qubits: int
+
+   :returns:
+
+             List of indices in a 2^n length array that indicate
+                 the indices of constant particle number within n_qubits
+                 in a Jordan-Wigner encoding.
+   :rtype: indices(list)
+
+
+.. py:function:: jw_hartree_fock_state(n_electrons, n_orbitals)
+
+   Function to produce Hartree-Fock state in JW representation.
+
+
+.. py:function:: jw_configuration_state(occupied_orbitals, n_qubits)
+
+   Function to produce a basis state in the occupation number basis.
+
+   :param occupied_orbitals: A list of integers representing the indices
+                             of the occupied orbitals in the desired basis state
+   :type occupied_orbitals: list
+   :param n_qubits: The total number of qubits
+   :type n_qubits: int
+
+   :returns: The basis state as a sparse matrix
+   :rtype: basis_vector(sparse)
+
+
+.. py:function:: jordan_wigner_sparse(fermion_operator, n_qubits=None)
+
+   Initialize a Scipy sparse matrix from a FermionOperator.
+
+   Operators are mapped as follows:
+   a_j^\dagger -> Z_0 .. Z_{j-1} (X_j - iY_j) / 2
+   a_j -> Z_0 .. Z_{j-1} (X_j + iY_j) / 2
+
+   :param fermion_operator: instance of the FermionOperator
+                            class.
+   :type fermion_operator: FermionOperator
+   :param n_qubits: Number of qubits.
+   :type n_qubits: int
+
+   :returns: The corresponding Scipy sparse matrix.
+
+
+.. py:function:: wrapped_kronecker(operator_1, operator_2)
+
+   Return the Kronecker product of two sparse.csc_matrix operators.
+
+
+.. py:function:: jordan_wigner_ladder_sparse(n_qubits, tensor_factor, ladder_type)
+
+   Make a matrix representation of a fermion ladder operator.
+
+   Operators are mapped as follows:
+   a_j^\dagger -> Z_0 .. Z_{j-1} (X_j - iY_j) / 2
+   a_j -> Z_0 .. Z_{j-1} (X_j + iY_j) / 2
+
+   :param index: This is a nonzero integer. The integer indicates the tensor
+                 factor and the sign indicates raising or lowering.
+   :param n_qubits: Number qubits in the system Hilbert space.
+   :type n_qubits: int
+
+   :returns: The corresponding Scipy sparse matrix.
+
+
+.. py:function:: eigenspectrum(operator, n_qubits=None)
+
+   Compute the eigenspectrum of an operator.
+
+   WARNING: This function has cubic runtime in dimension of
+       Hilbert space operator, which might be exponential.
+
+   NOTE: This function does not currently support
+       QuadOperator and BosonOperator.
+
+   :param operator: QubitOperator, InteractionOperator, FermionOperator,
+                    PolynomialTensor, or InteractionRDM.
+   :param n_qubits: number of qubits/modes in operator. if None, will
+                    be counted.
+   :type n_qubits: int
+
+   :returns: dense numpy array of floats giving eigenspectrum.
+   :rtype: spectrum
+
+
+.. py:function:: expectation(operator, state)
+
+   Compute the expectation value of an operator with a state.
+
+   :param operator: The operator whose expectation value is desired.
+   :type operator: scipy.sparse.spmatrix or scipy.sparse.linalg.LinearOperator
+   :param state: A numpy array
+                 representing a pure state or a sparse matrix representing a density
+                 matrix. If `operator` is a LinearOperator, then this must be a
+                 numpy array.
+   :type state: numpy.ndarray or scipy.sparse.spmatrix
+
+   :returns: A complex number giving the expectation value.
+
+   :raises ValueError: Input state has invalid format.
+
+
+.. py:function:: get_density_matrix(states, probabilities)
+
+
+.. py:function:: get_ground_state(sparse_operator, initial_guess=None)
+
+   Compute lowest eigenvalue and eigenstate.
+
+   :param sparse_operator: Operator to find the ground state of.
+   :type sparse_operator: LinearOperator
+   :param initial_guess: Initial guess for ground state.  A good
+                         guess dramatically reduces the cost required to converge.
+   :type initial_guess: ndarray
+
+   :returns: * *eigenvalue* -- The lowest eigenvalue, a float.
+             * *eigenstate* -- The lowest eigenstate in scipy.sparse csc format.
+
+
+.. py:function:: get_number_preserving_sparse_operator(fermion_op, num_qubits, num_electrons, spin_preserving=False, reference_determinant=None, excitation_level=None)
+
+   Initialize a Scipy sparse matrix in a specific symmetry sector.
+
+   This method initializes a Scipy sparse matrix from a FermionOperator,
+   explicitly working in a particular particle number sector. Optionally, it
+   can also restrict the space to contain only states with a particular Sz.
+
+   Finally, the Hilbert space can also be restricted to only those states
+   which are reachable by excitations up to a fixed rank from an initial
+   reference determinant.
+
+   :param fermion_op: An instance of the FermionOperator class.
+                      It should not contain terms which do not preserve particle number.
+                      If spin_preserving is set to True it should also not contain terms
+                      which do not preserve the Sz (it is assumed that the ordering of
+                      the indices goes alpha, beta, alpha, beta, ...).
+   :type fermion_op: FermionOperator
+   :param num_qubits: The total number of qubits / spin-orbitals in the
+                      system.
+   :type num_qubits: int
+   :param num_electrons: The number of particles in the desired Hilbert
+                         space.
+   :type num_electrons: int
+   :param spin_preserving: Whether or not the constructed operator should
+                           be defined in a space which has support only on states with the
+                           same Sz value as the reference_determinant.
+   :type spin_preserving: bool
+   :param reference_determinant: A list, whose length is equal to
+                                 num_qubits, which specifies which orbitals should be occupied in
+                                 the reference state. If spin_preserving is set to True then the Sz
+                                 value of this reference state determines the Sz value of the
+                                 symmetry sector in which the generated operator acts. If a value
+                                 for excitation_level is provided then the excitations are generated
+                                 with respect to the reference state. In any case, the ordering of
+                                 the states in the matrix representation of the operator depends on
+                                 reference_determinant and the state corresponding to
+                                 reference_determinant is the vector [1.0, 0.0, 0.0 ... 0.0]. Can be
+                                 set to None in order to take the first num_electrons orbitals to be
+                                 the occupied orbitals.
+   :type reference_determinant: list(bool)
+   :param excitation_level: The number of excitations from the reference
+                            state which should be included in the generated operator's matrix
+                            representation. Can be set to None to include all levels of
+                            excitation.
+   :type excitation_level: int
+
+   :returns:
+
+             A sparse matrix representation of
+                 fermion_op in the basis set by the arguments.
+   :rtype: sparse_op(scipy.sparse.csc_matrix)
+
+
+.. py:function:: get_sparse_operator(operator, n_qubits=None, trunc=None, hbar=1.0)
+
+   Map an operator to a sparse matrix.
+
+   If the input is not a QubitOperator, the Jordan-Wigner Transform is used.
+
+   :param operator: Currently supported operators include:
+                    FermionOperator, QubitOperator, PolynomialTensor.
+   :param n_qubits: Number qubits in the system Hilbert space.
+                    Applicable only to fermionic systems.
+   :type n_qubits: int
+   :param trunc: The size at which the Fock space should be truncated.
+                 Applicable only to bosonic systems.
+   :type trunc: int
+   :param hbar: the value of hbar to use in the definition of the
+                canonical commutation relation [q_i, p_j] = \delta_{ij} i hbar.
+                Applicable only to the QuadOperator.
+   :type hbar: float
+
+
+.. py:function:: inner_product(state_1, state_2)
+
+   Compute inner product of two states.
+
+
+.. py:function:: jw_get_ground_state_at_particle_number(sparse_operator, particle_number)
+
+   Compute ground energy and state at a specified particle number.
+
+   Assumes the Jordan-Wigner transform. The input operator should be Hermitian
+   and particle-number-conserving.
+
+   :param sparse_operator: A Jordan-Wigner encoded sparse matrix.
+   :type sparse_operator: sparse
+   :param particle_number: The particle number at which to compute the ground
+                           energy and states
+   :type particle_number: int
+
+   :returns:
+
+             The lowest eigenvalue of sparse_operator within
+                 the eigenspace of the number operator corresponding to
+                 particle_number.
+             ground_state(ndarray): The ground state at the particle number
+   :rtype: ground_energy(float)
+
+
+.. py:function:: qubit_operator_sparse(qubit_operator, n_qubits=None)
+
+   Initialize a Scipy sparse matrix from a QubitOperator.
+
+   :param qubit_operator: instance of the QubitOperator class.
+   :type qubit_operator: QubitOperator
+   :param n_qubits: Number of qubits.
+   :type n_qubits: int
+
+   :returns: The corresponding Scipy sparse matrix.
+
+
+.. py:class:: FermionOperator(term=None, coefficient=1.0)
+
+   Bases: :py:obj:`orquestra.quantum.openfermion.ops.operators.symbolic_operator.SymbolicOperator`
+
+   FermionOperator stores a sum of products of fermionic ladder operators.
+
+   In OpenFermion, we describe fermionic ladder operators using the shorthand:
+   'q^' = a^\dagger_q
+   'q' = a_q
+   where {'p^', 'q'} = delta_pq
+
+   One can multiply together these fermionic ladder operators to obtain a
+   fermionic term. For instance, '2^ 1' is a fermion term which
+   creates at orbital 2 and destroys at orbital 1. The FermionOperator class
+   also stores a coefficient for the term, e.g. '3.17 * 2^ 1'.
+
+   The FermionOperator class is designed (in general) to store sums of these
+   terms. For instance, an instance of FermionOperator might represent
+   3.17 2^ 1 - 66.2 * 8^ 7 6^ 2
+   The Fermion Operator class overloads operations for manipulation of
+   these objects by the user.
+
+   FermionOperator is a subclass of SymbolicOperator. Importantly, it has
+   attributes set as follows::
+
+       actions = (1, 0)
+       action_strings = ('^', '')
+       action_before_index = False
+       different_indices_commute = False
+
+   See the documentation of SymbolicOperator for more details.
+
+   .. rubric:: Example
+
+   .. code-block:: python
+
+       ham = (FermionOperator('0^ 3', .5)
+              + .5 * FermionOperator('3^ 0'))
+       # Equivalently
+       ham2 = FermionOperator('0^ 3', 0.5)
+       ham2 += FermionOperator('3^ 0', 0.5)
+
+   .. note::
+
+      Adding FermionOperators is faster using += (as this
+      is done by in-place addition). Specifying the coefficient
+      during initialization is faster than multiplying a FermionOperator
+      with a scalar.
+
+   .. py:method:: actions(self)
+      :property:
+
+      The allowed actions.
+
+
+   .. py:method:: action_strings(self)
+      :property:
+
+      The string representations of the allowed actions.
+
+
+   .. py:method:: action_before_index(self)
+      :property:
+
+      Whether action comes before index in string representations.
+
+
+   .. py:method:: different_indices_commute(self)
+      :property:
+
+      Whether factors acting on different indices commute.
+
+
+   .. py:method:: is_normal_ordered(self)
+
+      Return whether or not term is in normal order.
+
+      In our convention, normal ordering implies terms are ordered
+      from highest tensor factor (on left) to lowest (on right). Also,
+      ladder operators come first.
+
+
+   .. py:method:: is_two_body_number_conserving(self, check_spin_symmetry=False)
+
+      Query whether operator has correct form to be from a molecule.
+
+      Require that term is particle-number conserving (same number of
+      raising and lowering operators). Require that term has 0, 2 or 4
+      ladder operators. Require that term conserves spin (parity of
+      raising operators equals parity of lowering operators).
+
+      :param check_spin_symmetry: Whether to check if
+                                  operator conserves spin.
+      :type check_spin_symmetry: bool
+
+
+
+.. py:class:: InteractionOperator(constant, one_body_tensor, two_body_tensor)
+
+   Bases: :py:obj:`orquestra.quantum.openfermion.ops.representations.polynomial_tensor.PolynomialTensor`
+
+   Class for storing 'interaction operators' which are defined to be
+   fermionic operators consisting of one-body and two-body terms which
+   conserve particle number and spin. The most common examples of data that
+   will use this structure are molecular Hamiltonians. In principle,
+   everything stored in this class could also be represented using the more
+   general FermionOperator class. However, this class is able to exploit
+   specific properties of how fermions interact to enable more numerically
+   efficient manipulation of the data. Note that the operators stored in this
+   class take the form:
+
+       $$
+           constant + \sum_{p, q} h_{p, q} a^\dagger_p a_q +
+           \sum_{p, q, r, s} h_{p, q, r, s} a^\dagger_p a^\dagger_q a_r a_s.
+       $$
+
+   .. attribute:: one_body_tensor
+
+      The coefficients of the one-body terms
+
+   .. attribute:: ($h_{p, q}$). This is an n_qubits x n_qubits
+
+      
+
+   .. attribute:: numpy array of floats.
+
+      
+
+   .. attribute:: two_body_tensor
+
+      The coefficients of the two-body terms
+      ($h_{p, q, r, s}$).
+      This is an n_qubits x n_qubits x n_qubits x
+      n_qubits numpy array of floats.
+
+   .. py:method:: one_body_tensor(self)
+      :property:
+
+      The value of the one-body tensor.
+
+
+   .. py:method:: two_body_tensor(self)
+      :property:
+
+      The value of the two-body tensor.
+
+
+   .. py:method:: unique_iter(self, complex_valued=False)
+
+      Iterate all terms that are not in the same symmetry group.
+
+      Four point symmetry:
+          1. pq = qp.
+          2. pqrs = srqp = qpsr = rspq.
+      Eight point symmetry:
+          1. pq = qp.
+          2. pqrs = rqps = psrq = srqp = qpsr = rspq = spqr = qrsp.
+
+      :param complex_valued: Whether the operator has complex coefficients.
+      :type complex_valued: bool
+
+      :Yields: tuple[int]
+
+
+   .. py:method:: zero(cls, n_qubits)
+      :classmethod:
+
+
+   .. py:method:: projected(self, indices, exact=False)
+
+
+   .. py:method:: with_function_applied_elementwise(self, func)
+
+
+
+.. py:exception:: InteractionOperatorError
+
+   Bases: :py:obj:`Exception`
+
+   Common base class for all non-exit exceptions.
+
+
+.. py:class:: InteractionRDM(one_body_tensor, two_body_tensor)
+
+   Bases: :py:obj:`orquestra.quantum.openfermion.ops.representations.PolynomialTensor`
+
+   Class for storing 1- and 2-body reduced density matrices.
+
+   .. attribute:: one_body_tensor
+
+      The expectation values <a^\dagger_p a_q>.
+
+   .. attribute:: two_body_tensor
+
+      The expectation values
+      <a^\dagger_p a^\dagger_q a_r a_s>.
+
+   .. py:method:: one_body_tensor(self)
+      :property:
+
+      The value of the one-body tensor.
+
+
+   .. py:method:: two_body_tensor(self)
+      :property:
+
+      The value of the two-body tensor.
+
+
+   .. py:method:: expectation(self, operator)
+
+      Return expectation value of an InteractionRDM with an operator.
+
+      :param operator: A QubitOperator or InteractionOperator.
+
+      :returns: Expectation value
+      :rtype: float
+
+      :raises InteractionRDMError: Invalid operator provided.
+
+
+   .. py:method:: get_qubit_expectations(self, qubit_operator)
+
+      Return expectations of QubitOperator in new QubitOperator.
+
+      :param qubit_operator: QubitOperator instance to be evaluated on
+                             this InteractionRDM.
+
+      :returns: QubitOperator with coefficients
+                corresponding to expectation values of those operators.
+      :rtype: QubitOperator
+
+      :raises InteractionRDMError: Observable not contained in 1-RDM or 2-RDM.
+
+
+
+.. py:exception:: InteractionRDMError
+
+   Bases: :py:obj:`Exception`
+
+   Common base class for all non-exit exceptions.
+
+
+.. py:class:: IsingOperator(term=None, coefficient=1.0)
+
+   Bases: :py:obj:`orquestra.quantum.openfermion.ops.operators.symbolic_operator.SymbolicOperator`
+
+   The IsingOperator class provides an analytic representation of an
+   Ising-type Hamiltonian, i.e. a sum of product of Zs.
+
+   IsingOperator is a subclass of SymbolicOperator. Importantly, it has
+   attributes set as follows:
+
+       actions = ('Z')
+       action_strings = ('Z')
+       action_before_index = True
+       different_indices_commute = True
+
+   See the documentation of SymbolicOperator for more details.
+
+   .. py:method:: actions(self)
+      :property:
+
+      The allowed actions.
+
+
+   .. py:method:: action_strings(self)
+      :property:
+
+      The string representations of the allowed actions.
+
+
+   .. py:method:: action_before_index(self)
+      :property:
+
+      Whether action comes before index in string representations.
+
+
+   .. py:method:: different_indices_commute(self)
+      :property:
+
+      Whether factors acting on different indices commute.
+
+
+
+.. py:class:: PolynomialTensor(n_body_tensors)
+
+   Bases: :py:obj:`object`
+
+   Class for storing tensor representations of operators that correspond
+   with multilinear polynomials in the fermionic ladder operators.
+   For instance, in a quadratic Hamiltonian (degree 2 polynomial) which
+   conserves particle number, there are only terms of the form
+   a^\dagger_p a_q, and the coefficients can be stored in an
+   n_qubits x n_qubits matrix. Higher order terms would be described with
+   tensors of higher dimension. Note that each tensor must have an even
+   number of dimensions, since parity is conserved.
+   Much of the functionality of this class is redudant with FermionOperator
+   but enables much more efficient numerical computations in many cases,
+   such as basis rotations.
+
+   .. attribute:: n_qubits
+
+      The number of sites on which the tensor acts.
+
+      :type: int
+
+   .. attribute:: n_body_tensors
+
+      A dictionary storing the tensors describing
+      n-body interactions. The keys are tuples that indicate the
+      type of tensor. For instance, n_body_tensors[(1, 0)] would
+      be an (n_qubits x n_qubits) numpy array,
+      and it could represent the coefficients of terms of the form
+      a^\dagger_i a_j, whereas n_body_tensors[(0, 1)] would be
+      an array of the same shape, but instead representing terms
+      of the form a_i a^\dagger_j.
+
+      :type: dict
+
+   .. py:method:: constant(self)
+      :property:
+
+      The value of the constant term.
+
+
+   .. py:method:: n_body_tensors(self)
+      :property:
+
+
+   .. py:method:: n_qubits(self)
+      :property:
+
+
+   .. py:method:: with_function_applied_elementwise(self, func)
+
+
+   .. py:method:: rotate_basis(self, rotation_matrix)
+
+      Rotate the orbital basis of the PolynomialTensor.
+
+      :param rotation_matrix: A square numpy array or matrix having
+                              dimensions of n_qubits by n_qubits. Assumed to be real and
+                              invertible.
+
+
+   .. py:method:: projected_n_body_tensors(self, selection, exact=False)
+
+      Keep only selected elements.
+
+      :param selection: If int, keeps terms with at
+                        most (exactly, if exact is True) that many unique indices. If
+                        iterable, keeps only terms containing (all of, if exact is
+                        True) the specified indices.
+      :type selection: Union[int, Iterable[int]
+      :param exact: Whether or not the selection is strict.
+      :type exact: bool
+
+
+
+.. py:exception:: PolynomialTensorError
+
+   Bases: :py:obj:`Exception`
+
+   Common base class for all non-exit exceptions.
+
+
+.. py:class:: QubitOperator(term=None, coefficient=1.0)
+
+   Bases: :py:obj:`orquestra.quantum.openfermion.ops.operators.symbolic_operator.SymbolicOperator`
+
+   A sum of terms acting on qubits, e.g., 0.5 * 'X0 X5' + 0.3 * 'Z1 Z2'.
+
+   A term is an operator acting on n qubits and can be represented as:
+
+   coefficient * local_operator[0] x ... x local_operator[n-1]
+
+   where x is the tensor product. A local operator is a Pauli operator
+   ('I', 'X', 'Y', or 'Z') which acts on one qubit. In math notation a term
+   is, for example, 0.5 * 'X0 X5', which means that a Pauli X operator acts
+   on qubit 0 and 5, while the identity operator acts on all other qubits.
+
+   A QubitOperator represents a sum of terms acting on qubits and overloads
+   operations for easy manipulation of these objects by the user.
+
+   Note for a QubitOperator to be a Hamiltonian which is a hermitian
+   operator, the coefficients of all terms must be real.
+
+   .. code-block:: python
+
+       hamiltonian = 0.5 * QubitOperator('X0 X5') + 0.3 * QubitOperator('Z0')
+
+   QubitOperator is a subclass of SymbolicOperator. Importantly, it has
+   attributes set as follows::
+
+       actions = ('X', 'Y', 'Z')
+       action_strings = ('X', 'Y', 'Z')
+       action_before_index = True
+       different_indices_commute = True
+
+   See the documentation of SymbolicOperator for more details.
+
+   .. rubric:: Example
+
+   .. code-block:: python
+
+       ham = ((QubitOperator('X0 Y3', 0.5)
+               + 0.6 * QubitOperator('X0 Y3')))
+       # Equivalently
+       ham2 = QubitOperator('X0 Y3', 0.5)
+       ham2 += 0.6 * QubitOperator('X0 Y3')
+
+   .. note::
+
+      Adding QubitOperators is faster using += (as this
+      is done by in-place addition). Specifying the coefficient
+      during initialization is faster than multiplying a QubitOperator
+      with a scalar.
+
+   .. py:method:: actions(self)
+      :property:
+
+      The allowed actions.
+
+
+   .. py:method:: action_strings(self)
+      :property:
+
+      The string representations of the allowed actions.
+
+
+   .. py:method:: action_before_index(self)
+      :property:
+
+      Whether action comes before index in string representations.
+
+
+   .. py:method:: different_indices_commute(self)
+      :property:
+
+      Whether factors acting on different indices commute.
+
+
+   .. py:method:: renormalize(self)
+
+      Fix the trace norm of an operator to 1
+
+
+
+.. py:class:: SymbolicOperator(term=None, coefficient=1.0)
+
+   Base class for FermionOperator and QubitOperator.
+
+   A SymbolicOperator stores an object which represents a weighted
+   sum of terms; each term is a product of individual factors
+   of the form (`index`, `action`), where `index` is a nonnegative integer
+   and the possible values for `action` are determined by the subclass.
+   For instance, for the subclass FermionOperator, `action` can be 1 or 0,
+   indicating raising or lowering, and for QubitOperator, `action` is from
+   the set {'X', 'Y', 'Z'}.
+   The coefficients of the terms are stored in a dictionary whose
+   keys are the terms.
+   SymbolicOperators of the same type can be added or multiplied together.
+
+   .. note::
+
+      Adding SymbolicOperators is faster using += (as this
+      is done by in-place addition). Specifying the coefficient
+      during initialization is faster than multiplying a SymbolicOperator
+      with a scalar.
+
+   .. attribute:: actions
+
+      A tuple of objects representing the possible actions.
+      e.g. for FermionOperator, this is (1, 0).
+
+      :type: tuple
+
+   .. attribute:: action_strings
+
+      A tuple of string representations of actions.
+      These should be in one-to-one correspondence with actions and
+      listed in the same order.
+      e.g. for FermionOperator, this is ('^', '').
+
+      :type: tuple
+
+   .. attribute:: action_before_index
+
+      A boolean indicating whether in string
+      representations, the action should come before the index.
+
+      :type: bool
+
+   .. attribute:: different_indices_commute
+
+      A boolean indicating whether
+      factors acting on different indices commute.
+
+      :type: bool
+
+   .. attribute:: terms
+
+      **key** (tuple of tuples): A dictionary storing the coefficients
+      of the terms in the operator. The keys are the terms.
+      A term is a product of individual factors; each factor is
+      represented by a tuple of the form (`index`, `action`), and
+      these tuples are collected into a larger tuple which represents
+      the term as the product of its factors.
+
+      :type: dict
+
+   .. py:method:: actions(self)
+      :abstractmethod:
+
+      The allowed actions.
+
+      Returns a tuple of objects representing the possible actions.
+
+
+   .. py:method:: action_strings(self)
+      :abstractmethod:
+
+      The string representations of the allowed actions.
+
+      Returns a tuple containing string representations of the possible
+      actions, in the same order as the `actions` property.
+
+
+   .. py:method:: action_before_index(self)
+      :abstractmethod:
+
+      Whether action comes before index in string representations.
+
+      Example: For QubitOperator, the actions are ('X', 'Y', 'Z') and
+      the string representations look something like 'X0 Z2 Y3'. So the
+      action comes before the index, and this function should return True.
+      For FermionOperator, the string representations look like
+      '0^ 1 2^ 3'. The action comes after the index, so this function
+      should return False.
+
+
+   .. py:method:: different_indices_commute(self)
+      :abstractmethod:
+
+      Whether factors acting on different indices commute.
+
+
+   .. py:method:: constant(self)
+      :property:
+
+      The value of the constant term.
+
+
+   .. py:method:: zero(cls)
+      :classmethod:
+
+      :returns:     A symbolic operator o with the property that o+x = x+o = x for
+                    all operators x of the same class.
+      :rtype: additive_identity (SymbolicOperator)
+
+
+   .. py:method:: identity(cls)
+      :classmethod:
+
+      :returns:     A symbolic operator u with the property that u*x = x*u = x for
+                    all operators x of the same class.
+      :rtype: multiplicative_identity (SymbolicOperator)
+
+
+   .. py:method:: isclose(self, other, tol=EQ_TOLERANCE)
+
+      Check if other (SymbolicOperator) is close to self.
+
+      Comparison is done for each term individually. Return True
+      if the difference between each term in self and other is
+      less than EQ_TOLERANCE
+
+      :param other: SymbolicOperator to compare against.
+      :type other: SymbolicOperator
+
+
+   .. py:method:: compress(self, abs_tol=EQ_TOLERANCE)
+
+      Eliminates all terms with coefficients close to zero and removes
+      small imaginary and real parts.
+
+      :param abs_tol: Absolute tolerance, must be at least 0.0
+      :type abs_tol: float
+
+
+   .. py:method:: induced_norm(self, order=1)
+
+      Compute the induced p-norm of the operator.
+
+      If we represent an operator as
+      $\sum_{j} w_j H_j$
+      where $w_j$ are scalar coefficients then this norm is
+      $\left(\sum_{j} \| w_j \|^p \right)^{\frac{1}{p}}$
+      where $p$ is the order of the induced norm
+
+      :param order: the order of the induced norm.
+      :type order: int
+
+
+   .. py:method:: many_body_order(self)
+
+      Compute the many-body order of a SymbolicOperator.
+
+      The many-body order of a SymbolicOperator is the maximum length of
+      a term with nonzero coefficient.
+
+      :returns: int
+
+
+   .. py:method:: accumulate(cls, operators, start=None)
+      :classmethod:
+
+      Sums over SymbolicOperators.
+
+
+   .. py:method:: get_operators(self)
+
+      Gets a list of operators with a single term.
+
+      :returns: A generator of the operators in self.
+      :rtype: operators([self.__class__])
+
+
+   .. py:method:: get_operator_groups(self, num_groups)
+
+      Gets a list of operators with a few terms.
+      :param num_groups: How many operators to get in the end.
+      :type num_groups: int
+
+      :returns:
+
+                A list of operators summing up to
+                    self.
+      :rtype: operators([self.__class__])
+
+
+
+.. py:function:: general_basis_change(general_tensor, rotation_matrix, key)
+
+   Change the basis of an general interaction tensor.
+
+   M'^{p_1p_2...p_n} = R^{p_1}_{a_1} R^{p_2}_{a_2} ...
+                       R^{p_n}_{a_n} M^{a_1a_2...a_n} R^{p_n}_{a_n}^T ...
+                       R^{p_2}_{a_2}^T R_{p_1}_{a_1}^T
+
+   where R is the rotation matrix, M is the general tensor, M' is the
+   transformed general tensor, and a_k and p_k are indices. The formula uses
+   the Einstein notation (implicit sum over repeated indices).
+
+   In case R is complex, the k-th R in the above formula need to be conjugated
+   if key has a 1 in the k-th place (meaning that the corresponding operator
+   is a creation operator).
+
+   :param general_tensor: A square numpy array or matrix containing information
+                          about a general interaction tensor.
+   :param rotation_matrix: A square numpy array or matrix having dimensions of
+                           n_qubits by n_qubits. Assumed to be unitary.
+   :param key: A tuple indicating the type of general_tensor. Assumed to be
+               non-empty. For example, a tensor storing coefficients of
+               $a^\dagger_p a_q$ would have a key of (1, 0) whereas a tensor
+               storing coefficients of $a^\dagger_p a_q a_r a^\dagger_s$
+               would have a key of (1, 0, 0, 1).
+
+   :returns: general_tensor in the rotated basis.
+   :rtype: transformed_general_tensor
+
+
+.. py:function:: uccsd_convert_amplitude_format(single_amplitudes, double_amplitudes)
+
+   Re-format single_amplitudes and double_amplitudes from ndarrays
+       to lists.
+
+   :param single_amplitudes: [NxN] array storing single excitation
+                             amplitudes corresponding to t[i,j] * (a_i^† a_j - H.C.)
+   :type single_amplitudes: ndarray
+   :param double_amplitudes: [NxNxNxN] array storing double
+                             excitation amplitudes corresponding to
+                             t[i,j,k,l] * (a_i^† a_j a_k^† a_l - H.C.)
+   :type double_amplitudes: ndarray
+
+   :returns:
+
+             list of lists with each sublist storing
+                 a list of indices followed by single excitation amplitudes
+                 i.e. [[[i,j],t_ij], ...]
+             double_amplitudes_list(list): list of lists with each sublist storing
+                 a list of indices followed by double excitation amplitudes
+                 i.e. [[[i,j,k,l],t_ijkl], ...]
+   :rtype: single_amplitudes_list(list)
+
+
+.. py:function:: uccsd_generator(single_amplitudes, double_amplitudes, anti_hermitian=True)
+
+   Create a fermionic operator that is the generator of uccsd.
+
+   This a the most straight-forward method to generate UCCSD operators,
+   however it is slightly inefficient. In particular, it parameterizes
+   all possible excitations, so it represents a generalized unitary coupled
+   cluster ansatz, but also does not explicitly enforce the uniqueness
+   in parametrization, so it is redundant. For example there will be a linear
+   dependency in the ansatz of single_amplitudes[i,j] and
+   single_amplitudes[j,i].
+
+   :param single_amplitudes: list of lists with each sublist
+                             storing a list of indices followed by single excitation amplitudes
+                             i.e. [[[i,j],t_ij], ...] OR [NxN] array storing single excitation
+                             amplitudes corresponding to
+                             t[i,j] * (a_i^† a_j - H.C.)
+   :type single_amplitudes: list or ndarray
+   :param double_amplitudes: list of lists with each sublist
+                             storing a list of indices followed by double excitation amplitudes
+                             i.e. [[[i,j,k,l],t_ijkl], ...] OR [NxNxNxN] array storing double
+                             excitation amplitudes corresponding to
+                             t[i,j,k,l] * (a_i^† a_j a_k^† a_l - H.C.)
+   :type double_amplitudes: list or ndarray
+   :param anti_hermitian: Flag to generate only normal CCSD operator
+                          rather than unitary variant, primarily for testing
+   :type anti_hermitian: Bool
+
+   :returns: Anti-hermitian fermion operator that
+             is the generator for the uccsd wavefunction.
+   :rtype: uccsd_generator(FermionOperator)
+
+
+.. py:function:: uccsd_singlet_generator(packed_amplitudes, n_qubits, n_electrons, anti_hermitian=True)
+
+   Create a singlet UCCSD generator for a system with n_electrons
+
+   This function generates a FermionOperator for a UCCSD generator designed
+       to act on a single reference state consisting of n_qubits spin orbitals
+       and n_electrons electrons, that is a spin singlet operator, meaning it
+       conserves spin.
+
+   :param packed_amplitudes: List storing the unique single
+                             and double excitation amplitudes for a singlet UCCSD operator.
+                             The ordering lists unique single excitations before double
+                             excitations.
+   :type packed_amplitudes: list
+   :param n_qubits: Number of spin-orbitals used to represent the system,
+                    which also corresponds to number of qubits in a non-compact map.
+   :type n_qubits: int
+   :param n_electrons: Number of electrons in the physical system.
+   :type n_electrons: int
+   :param anti_hermitian: Flag to generate only normal CCSD operator
+                          rather than unitary variant, primarily for testing
+   :type anti_hermitian: Bool
+
+   :returns:
+
+             Generator of the UCCSD operator that
+                 builds the UCCSD wavefunction.
+   :rtype: generator(FermionOperator)
+
+
+.. py:function:: uccsd_singlet_get_packed_amplitudes(single_amplitudes, double_amplitudes, n_qubits, n_electrons)
+
+   Convert amplitudes for use with singlet UCCSD
+
+   The output list contains only those amplitudes that are relevant to
+   singlet UCCSD, in an order suitable for use with the function
+   `uccsd_singlet_generator`.
+
+   :param single_amplitudes: [NxN] array storing single excitation
+                             amplitudes corresponding to t[i,j] * (a_i^† a_j - H.C.)
+   :type single_amplitudes: ndarray
+   :param double_amplitudes: [NxNxNxN] array storing double
+                             excitation amplitudes corresponding to
+                             t[i,j,k,l] * (a_i^† a_j a_k^† a_l - H.C.)
+   :type double_amplitudes: ndarray
+   :param n_qubits: Number of spin-orbitals used to represent the system,
+                    which also corresponds to number of qubits in a non-compact map.
+   :type n_qubits: int
+   :param n_electrons: Number of electrons in the physical system.
+   :type n_electrons: int
+
+   :returns:
+
+             List storing the unique single
+                 and double excitation amplitudes for a singlet UCCSD operator.
+                 The ordering lists unique single excitations before double
+                 excitations.
+   :rtype: packed_amplitudes(list)
+
+
+.. py:function:: uccsd_singlet_paramsize(n_qubits, n_electrons)
+
+   Determine number of independent amplitudes for singlet UCCSD
+
+   :param n_qubits: Number of qubits/spin-orbitals in the system
+   :type n_qubits: int
+   :param n_electrons: Number of electrons in the reference state
+   :type n_electrons: int
+
+   :returns: Number of independent parameters for singlet UCCSD with a single
+             reference.
+
+
+.. py:function:: jordan_wigner_one_body(p, q, coefficient=1.0)
+
+   Map the term a^\dagger_p a_q + h.c. to QubitOperator.
+
+   Note that the diagonal terms are divided by a factor of 2
+   because they are equal to their own Hermitian conjugate.
+
+
+.. py:function:: jordan_wigner_two_body(p, q, r, s, coefficient=1.0)
+
+   Map the term a^\dagger_p a^\dagger_q a_r a_s + h.c. to QubitOperator.
+
+   Note that the diagonal terms are divided by a factor of two
+   because they are equal to their own Hermitian conjugate.
+
+
+.. py:function:: check_no_sympy(operator)
+
+   Checks whether a SymbolicOperator contains any
+   sympy expressions, which will prevent it being converted
+   to a PolynomialTensor
+
+   :param operator: the operator to be tested
+   :type operator: SymbolicOperator
+
+
+.. py:function:: chemist_ordered(fermion_operator)
+
+   Puts a two-body fermion operator in chemist ordering.
+
+   The normal ordering convention for chemists is different.
+   Rather than ordering the two-body term as physicists do, as
+   $a^\dagger a^\dagger a a$
+   the chemist ordering of the two-body term is
+   $a^\dagger a a^\dagger a$
+
+   TODO: This routine can be made more efficient.
+
+   :param fermion_operator: a fermion operator guarenteed to
+                            have number conserving one- and two-body fermion terms only.
+   :type fermion_operator: FermionOperator
+
+   :returns:
+
+             the input operator
+                 ordered in the chemistry convention.
+   :rtype: chemist_ordered_operator (FermionOperator)
+
+   :raises OperatorSpecificationError: Operator is not two-body number conserving.
+
+
+.. py:function:: freeze_orbitals(fermion_operator, occupied, unoccupied=None, prune=True)
+
+   Fix some orbitals to be occupied and others unoccupied.
+
+   Removes all operators acting on the specified orbitals, and renumbers the
+   remaining orbitals to eliminate unused indices. The sign of each term
+   is modified according to the ladder uperator anti-commutation relations in
+   order to preserve the expectation value of the operator.
+
+   :param occupied: A list containing the indices of the orbitals that are to be
+                    assumed to be occupied.
+   :param unoccupied: A list containing the indices of the orbitals that are to
+                      be assumed to be unoccupied.
+
+
+.. py:function:: get_fermion_operator(operator)
+
+   Convert to FermionOperator.
+
+   :returns: An instance of the FermionOperator class.
+   :rtype: fermion_operator
+
+
+.. py:function:: get_interaction_operator(fermion_operator, n_qubits=None)
+
+   Convert a 2-body fermionic operator to InteractionOperator.
+
+   This function should only be called on fermionic operators which
+   consist of only a_p^\dagger a_q and a_p^\dagger a_q^\dagger a_r a_s
+   terms. The one-body terms are stored in a matrix, one_body[p, q], and
+   the two-body terms are stored in a tensor, two_body[p, q, r, s].
+
+   :returns: An instance of the InteractionOperator class.
+   :rtype: interaction_operator
+
+   :raises TypeError: Input must be a FermionOperator.
+   :raises TypeError: FermionOperator does not map to InteractionOperator.
+
+   .. warning::
+
+      Even assuming that each creation or annihilation operator appears
+      at most a constant number of times in the original operator, the
+      runtime of this method is exponential in the number of qubits.
+
+
+.. py:function:: get_molecular_data(interaction_operator, geometry=None, basis=None, multiplicity=None, n_electrons=None, reduce_spin=True, data_directory=None)
+
+   Output a MolecularData object generated from an InteractionOperator
+
+   :param interaction_operator: two-body interaction
+                                operator defining the "molecular interaction" to be simulated.
+   :type interaction_operator: InteractionOperator
+   :param geometry:
+   :type geometry: string or list of atoms
+   :param basis: String denoting the basis set used to discretize the
+                 system.
+   :type basis: string
+   :param multiplicity: Spin multiplicity desired in the system.
+   :type multiplicity: int
+   :param n_electrons: Number of electrons in the system
+   :type n_electrons: int
+   :param reduce_spin: True if one wishes to perform spin reduction on
+                       integrals that are given in interaction operator.  Assumes
+                       spatial (x) spin structure generically.
+   :type reduce_spin: bool
+
+   :returns:     Instance that captures the
+                 interaction_operator converted into the format that would come
+                 from an electronic structure package adorned with some meta-data
+                 that may be useful.
+   :rtype: molecule(MolecularData)
+
+
+.. py:function:: normal_ordered(operator, hbar=1.0)
+
+   Compute and return the normal ordered form of a FermionOperator,
+   or InteractionOperator.
+
+   Due to the canonical commutation/anticommutation relations satisfied
+   by these operators, there are multiple forms that the same operator
+   can take. Here, we define the normal ordered form of each operator,
+   providing a distinct representation for distinct operators.
+
+   In our convention, normal ordering implies terms are ordered
+   from highest tensor factor (on left) to lowest (on right). In
+   addition:
+
+   * FermionOperators: a^\dagger comes before a
+
+   :param operator: an instance of the FermionOperator, or InteractionOperator classes.
+   :param hbar: the value of hbar used in the definition of the
+                commutator [q_i, p_j] = i hbar delta_ij. By default hbar=1.
+   :type hbar: float
+
+
+.. py:function:: normal_ordered_ladder_term(term, coefficient, parity=-1)
+
+   Return a normal ordered FermionOperator corresponding
+   to single term.
+
+   :param term: A sequence of tuples. The first element of each
+                tuple is an integer indicating the mode on which a fermion ladder
+                operator acts, starting from zero. The second element of each
+                tuple is an integer, either 1 or 0, indicating whether creation
+                or annihilation acts on that mode.
+   :type term: list or tuple
+   :param coefficient: The coefficient of the term.
+   :type coefficient: complex or float
+   :param parity: parity=-1 corresponds to a Fermionic term that should be
+                  ordered based on the canonical anti-commutation relations.
+                  parity=1 corresponds to a Bosonic term that should be ordered based
+                  on the canonical commutation relations.
+   :type parity: int
+
+   :returns:
+
+             a FermionOperator instance.
+                 The normal ordered form of the input.
+                 Note that this might have more terms.
+   :rtype: ordered_term
+
+   In our convention, normal ordering implies terms are ordered
+   from highest tensor factor (on left) to lowest (on right).
+   Also, ladder operators come first.
+
+   .. warning::
+
+      Even assuming that each creation or annihilation operator appears
+      at most a constant number of times in the original term, the
+      runtime of this method is exponential in the number of qubits.
+
+
+.. py:function:: prune_unused_indices(symbolic_operator)
+
+   Remove indices that do not appear in any terms.
+
+   Indices will be renumbered such that if an index i does not appear in
+   any terms, then the next largest index that appears in at least one
+   term will be renumbered to i.
+
+
+.. py:function:: reorder(operator, order_function, num_modes=None, reverse=False)
+
+   Changes the ladder operator order of the Hamiltonian based on the
+   provided order_function per mode index.
+
+   :param operator: the operator that will be reordered. must
+                    be a SymbolicOperator or any type of operator that inherits from
+                    SymbolicOperator.
+   :type operator: SymbolicOperator
+   :param order_function: a function per mode that is used to map the
+                          indexing. must have arguments mode index and num_modes.
+   :type order_function: func
+   :param num_modes: default None. User can provide the number of modes
+                     assumed for the system. if None, the number of modes will be
+                     calculated based on the Operator.
+   :type num_modes: int
+   :param reverse: default False. if set to True, the mode mapping is
+                   reversed. reverse = True will not revert back to original if
+                   num_modes calculated differs from original and reverted.
+   :type reverse: bool
+
+   Note: Every order function must take in a mode_idx and num_modes.
+
+
+.. py:exception:: OperatorSpecificationError
+
+   Bases: :py:obj:`Exception`
+
+   Common base class for all non-exit exceptions.
+
+
+.. py:exception:: OperatorUtilsError
+
+   Bases: :py:obj:`Exception`
+
+   Common base class for all non-exit exceptions.
+
+
+.. py:function:: anticommutator(operator_a, operator_b)
+
+   Compute the anticommutator of two operators.
+
+   :param operator_a: Operators in anticommutator. Any operators
+                      are accepted so long as implicit addition and multiplication are
+                      supported; e.g. QubitOperators, FermionOperators, BosonOperators,
+                      or Scipy sparse matrices. 2D Numpy arrays are also supported.
+   :param operator_b: Operators in anticommutator. Any operators
+                      are accepted so long as implicit addition and multiplication are
+                      supported; e.g. QubitOperators, FermionOperators, BosonOperators,
+                      or Scipy sparse matrices. 2D Numpy arrays are also supported.
+
+   :raises TypeError: operator_a and operator_b are not of the same type.
+
+
+.. py:function:: commutator(operator_a, operator_b)
+
+   Compute the commutator of two operators.
+
+   :param operator_a: Operators in commutator. Any operators
+                      are accepted so long as implicit subtraction and multiplication are
+                      supported; e.g. QubitOperators, FermionOperators, BosonOperators,
+                      or Scipy sparse matrices. 2D Numpy arrays are also supported.
+   :param operator_b: Operators in commutator. Any operators
+                      are accepted so long as implicit subtraction and multiplication are
+                      supported; e.g. QubitOperators, FermionOperators, BosonOperators,
+                      or Scipy sparse matrices. 2D Numpy arrays are also supported.
+
+   :raises TypeError: operator_a and operator_b are not of the same type.
+
+
+.. py:function:: count_qubits(operator)
+
+   Compute the minimum number of qubits on which operator acts.
+
+   :param operator: FermionOperator, QubitOperator, or PolynomialTensor.
+
+   :returns: The minimum number of qubits on which operator acts.
+   :rtype: num_qubits (int)
+
+   :raises TypeError: Operator of invalid type.
+
+
+.. py:function:: double_commutator(op1, op2, op3, indices2=None, indices3=None, is_hopping_operator2=None, is_hopping_operator3=None)
+
+   Return the double commutator [op1, [op2, op3]].
+
+   :param op1: operators for
+               the commutator. All three operators must be of the same type.
+   :type op1: FermionOperators or BosonOperators
+   :param op2: operators for
+               the commutator. All three operators must be of the same type.
+   :type op2: FermionOperators or BosonOperators
+   :param op3: operators for
+               the commutator. All three operators must be of the same type.
+   :type op3: FermionOperators or BosonOperators
+   :param indices2: The indices op2 and op3 act on.
+   :type indices2: set
+   :param indices3: The indices op2 and op3 act on.
+   :type indices3: set
+   :param is_hopping_operator2: Whether op2 is a hopping operator.
+   :type is_hopping_operator2: bool
+   :param is_hopping_operator3: Whether op3 is a hopping operator.
+   :type is_hopping_operator3: bool
+
+   :returns: The double commutator of the given operators.
+
+
+.. py:function:: down_index(index)
+
+   Function to return down-orbital index given a spatial orbital index.
+
+   :param index: spatial orbital index
+   :type index: int
+
+   :returns: An integer representing the index of the associated spin-down orbital
+
+
+.. py:function:: get_file_path(file_name, data_directory)
+
+   Compute file_path for the file that stores operator.
+
+   :param file_name: The name of the saved file.
+   :param data_directory: Optional data directory to change from default data
+                          directory specified in config file.
+
+   :returns: File path.
+   :rtype: file_path (string)
+
+   :raises OperatorUtilsError: File name is not provided.
+
+
+.. py:function:: hermitian_conjugated(operator)
+
+   Return Hermitian conjugate of operator.
+
+
+.. py:function:: is_hermitian(operator)
+
+   Test if operator is Hermitian.
+
+
+.. py:function:: is_identity(operator)
+
+   Check whether QubitOperator of FermionOperator is identity.
+
+   :param operator: QubitOperator, FermionOperator,
+                    BosonOperator, or QuadOperator.
+
+   :raises TypeError: Operator of invalid type.
+
+
+.. py:function:: load_operator(file_name=None, data_directory=None, plain_text=False)
+
+   Load FermionOperator or QubitOperator from file.
+
+   :param file_name: The name of the saved file.
+   :param data_directory: Optional data directory to change from default data
+                          directory specified in config file.
+   :param plain_text: Whether the input file is plain text
+
+   :returns:
+
+             The stored FermionOperator, BosonOperator,
+                 QuadOperator, or QubitOperator
+   :rtype: operator
+
+   :raises TypeError: Operator of invalid type.
+
+
+.. py:function:: save_operator(operator, file_name=None, data_directory=None, allow_overwrite=False, plain_text=False)
+
+   Save FermionOperator or QubitOperator to file.
+
+   :param operator: An instance of FermionOperator, BosonOperator,
+                    or QubitOperator.
+   :param file_name: The name of the saved file.
+   :param data_directory: Optional data directory to change from default data
+                          directory specified in config file.
+   :param allow_overwrite: Whether to allow files to be overwritten.
+   :param plain_text: Whether the operator should be saved to a
+                      plain-text format for manual analysis
+
+   :raises OperatorUtilsError: Not saved, file already exists.
+   :raises TypeError: Operator of invalid type.
+   :raises TypeError: Coefficients in Operator sympy expressions.
+
+
+.. py:function:: up_index(index)
+
+   Function to return up-orbital index given a spatial orbital index.
+
+   :param index: spatial orbital index
+   :type index: int
+
+   :returns: An integer representing the index of the associated spin-up orbital
+
+
+.. py:function:: up_then_down(mode_idx, num_modes)
+
+   up then down reordering, given the operator has the default even-odd
+    ordering. Otherwise this function will reorder indices where all even
+    indices now come before odd indices.
+
+    Example:
+        0,1,2,3,4,5 -> 0,2,4,1,3,5
+
+   The function takes in the index of the mode that will be relabeled and
+   the total number modes.
+
+   :param mode_idx: the mode index that is being reordered
+   :type mode_idx: int
+   :param num_modes: the total number of modes of the operator.
+   :type num_modes: int
+
+   Returns (int): reordered index of the mode.
+
+
+.. py:function:: get_qubitop_from_matrix(operator: List[List]) -> orquestra.quantum.openfermion.QubitOperator
+
+   Expands a 2^n by 2^n matrix into n-qubit Pauli basis. The runtime of
+   this function is O(2^2n).
+
+   :param operator: a list of lists (rows) representing a 2^n by 2^n
+                    matrix.
+
+   :returns: A QubitOperator instance corresponding to the expansion of
+             the input operator as a sum of Pauli strings:
+
+             O = 2^-n \sum_P tr(O*P) P
+
+
+.. py:function:: get_qubitop_from_coeffs_and_labels(coeffs: List[float], labels: List[List[int]]) -> orquestra.quantum.openfermion.QubitOperator
+
+   Generates a QubitOperator based on a coefficient vector and
+   a label matrix.
+
+   :param coeffs: a list of floats representing the coefficients
+                  for the terms in the Hamiltonian
+   :param labels: a list of lists (a matrix) where each list
+                  is a vector of integers representing the Pauli
+                  string. See pauliutil.py for details.
+
+   .. rubric:: Example
+
+   The Hamiltonian H = 0.1 X1 X2 - 0.4 Y1 Y2 Z3 Z4 can be
+   initiated by calling
+
+   H = QubitOperator([0.1, -0.4],  # coefficients
+       [[1 1 0 0],  # label matrix
+       [2 2 3 3]])
+
+
+.. py:function:: generate_random_qubitop(nqubits: int, nterms: int, nlocality: int, max_coeff: float, fixed_coeff: bool = False) -> orquestra.quantum.openfermion.QubitOperator
+
+   Generates a Hamiltonian with term coefficients uniformly distributed
+   in [-max_coeff, max_coeff].
+
+   :param nqubits - number of qubits:
+   :param nterms    - number of terms in the Hamiltonian:
+   :param nlocality - locality of the Hamiltonian:
+   :param max_coeff - bound for generating the term coefficients:
+   :param fixed_coeff: max_coeff as coefficient.
+   :type fixed_coeff: bool
+
+   :returns: A QubitOperator with the appropriate coefficient vector
+             and label matrix.
+
+
+.. py:function:: evaluate_qubit_operator(qubit_operator: orquestra.quantum.openfermion.QubitOperator, expectation_values: orquestra.quantum.measurements.ExpectationValues) -> orquestra.quantum.utils.ValueEstimate
+
+   Evaluate the expectation value of a qubit operator using expectation values for
+   the terms.
+
+   :param qubit_operator: the operator
+   :param expectation_values: the expectation values
+
+   :returns: stores the value of the expectation and its precision
+   :rtype: value_estimate
+
+
+.. py:function:: evaluate_qubit_operator_list(qubit_operator_list: List[orquestra.quantum.openfermion.QubitOperator], expectation_values: orquestra.quantum.measurements.ExpectationValues) -> orquestra.quantum.utils.ValueEstimate
+
+   Evaluate the expectation value of a qubit operator list using expectation values
+   for the terms. The expectation values should be in the order given by the qubit
+   operator list, and the value returned is the sum of all terms in the qubit operator
+   list.
+
+   :param qubit_operator_list: the operator list
+   :param expectation_values: the expectation values
+
+   :returns: stores the value of the expectation and its precision
+   :rtype: value_estimate
+
+
+.. py:function:: reverse_qubit_order(qubit_operator: orquestra.quantum.openfermion.QubitOperator, n_qubits: Optional[int] = None)
+
+   Reverse the order of qubit indices in a qubit operator.
+
+   :param qubit_operator: the operator
+   :type qubit_operator: openfermion.QubitOperator
+   :param n_qubits: total number of qubits. Needs to be provided when
+                    the size of the system of interest is greater than the size of qubit
+                    operator (optional)
+   :type n_qubits: int
+
+   :returns: reversed_op (openfermion.ops.QubitOperator)
+
+
+.. py:function:: get_expectation_value(qubit_op: orquestra.quantum.openfermion.QubitOperator, wavefunction: orquestra.quantum.wavefunction.Wavefunction, reverse_operator: bool = False) -> complex
+
+   Get the expectation value of a qubit operator with respect to a wavefunction.
+   :param qubit_op: the operator
+   :param wavefunction: the wavefunction
+   :param reverse_operator: whether to reverse order of qubit operator
+                            before computing expectation value. This should be True if the convention
+                            of the basis states used for the wavefunction is the opposite of the one in
+                            the qubit operator. This is the case when the wavefunction uses
+                            Rigetti convention (https://arxiv.org/abs/1711.02086) of ordering qubits.
+
+   :returns: the expectation value
+
+
+.. py:function:: change_operator_type(operator, operatorType)
+
+   Take an operator and attempt to cast it to an operator of a different type
+
+   :param operator: The operator
+   :param operatorType: The type of the operator that the original operator is
+                        cast to
+
+   :returns: An operator with type operatorType
+
+
+.. py:function:: get_fermion_number_operator(n_qubits, n_particles=None)
+
+   Return a FermionOperator representing the number operator for n qubits.
+   If `n_particles` is specified, it can be used for creating constraint on the number
+   of particles.
+
+   :param n_qubits: number of qubits in the system
+   :type n_qubits: int
+   :param n_particles: number of particles in the system.
+                       If specified, it is subtracted from the number
+                       operator such as expectation value is zero.
+   :type n_particles: int
+
+   :returns: the number operator
+   :rtype: (openfermion.ops.FermionOperator)
+
+
+.. py:function:: get_diagonal_component(operator)
+
+
+.. py:function:: get_polynomial_tensor(fermion_operator, n_qubits=None)
+
+   Convert a fermionic operator to a Polynomial Tensor.
+
+   :param fermion_operator: The operator.
+   :type fermion_operator: openferion.ops.FermionOperator
+   :param n_qubits: The number of qubits to be included in the
+                    PolynomialTensor. Must be at least equal to the number of qubits
+                    that are acted on by fermion_operator. If None, then the number of
+                    qubits is inferred from fermion_operator.
+   :type n_qubits: int
+
+   :returns:
+
+             The tensor representation of the
+                 operator.
+   :rtype: openfermion.ops.PolynomialTensor
+
+
+.. py:function:: create_circuits_from_qubit_operator(qubit_operator: orquestra.quantum.openfermion.QubitOperator) -> List[orquestra.quantum.circuits.Circuit]
+
+   Creates a list of circuit objects from the Pauli terms of a QubitOperator
+   :param qubit_operator: operator for which the Pauli terms are converted into circuits
+
+   :returns: a list of Pauli string gate circuits
+   :rtype: circuit_set
+
+
+.. py:function:: get_ground_state_rdm_from_qubit_op(qubit_operator: orquestra.quantum.openfermion.QubitOperator, n_particles: int) -> orquestra.quantum.openfermion.InteractionRDM
+
+   Diagonalize operator and compute the ground state 1- and 2-RDM
+
+   :param qubit_operator: The openfermion operator to diagonalize
+   :param n_particles: number of particles in the target ground state
+
+   :returns: interaction RDM of the ground state with the particle number n_particles
+   :rtype: rdm
+
+
+.. py:function:: remove_inactive_orbitals(interaction_op: orquestra.quantum.openfermion.InteractionOperator, n_active: int = None, n_core: int = 0) -> orquestra.quantum.openfermion.InteractionOperator
+
+   Remove orbitals not in the active space from an interaction operator.
+
+   :param interaction_op: the operator, assumed to be ordered with alternating spin-up and
+                          spin-down spin orbitals.
+   :param n_active: the number of active molecular orbitals. If None, include all orbitals
+                    beyond n_core. Note that the number of active spin orbitals will be twice
+                    the number of active molecular orbitals.
+   :param n_core: the number of core molecular orbitals to be frozen.
+
+   :returns:
+
+             The interaction operator with inactive orbitals removed, and the Hartree-Fock
+                 energy of the core orbitals added to the constant.
+
+
+.. py:function:: hf_rdm(n_alpha: int, n_beta: int, n_orbitals: int) -> orquestra.quantum.openfermion.InteractionRDM
+
+   Construct the RDM corresponding to a Hartree-Fock state.
+
+   :param n_alpha: number of spin-up electrons
+   :type n_alpha: int
+   :param n_beta: number of spin-down electrons
+   :type n_beta: int
+   :param n_orbitals: number of spatial orbitals (not spin orbitals)
+   :type n_orbitals: int
+
+   :returns: the reduced density matrix
+   :rtype: openfermion.ops.InteractionRDM
+
+
+.. py:function:: convert_interaction_op_to_dict(op: orquestra.quantum.openfermion.InteractionOperator) -> Dict[str, Any]
+
+   Convert an InteractionOperator to a dictionary.
+   :param op: the operator
+
+   :returns: the dictionary representation
+   :rtype: dictionary
+
+
+.. py:function:: convert_dict_to_interaction_op(dictionary: dict) -> orquestra.quantum.openfermion.InteractionOperator
+
+   Get an InteractionOperator from a dictionary.
+   :param dictionary: the dictionary representation
+
+   :returns: the operator
+   :rtype: op
+
+
+.. py:function:: load_interaction_operator(file: orquestra.quantum.typing.LoadSource) -> orquestra.quantum.openfermion.InteractionOperator
+
+   Load an interaction operator object from a file.
+   :param file: the name of the file, or a file-like object.
+   :type file: str or file-like object
+
+   :returns: the operator.
+   :rtype: op
+
+
+.. py:function:: save_interaction_operator(interaction_operator: orquestra.quantum.openfermion.InteractionOperator, filename: orquestra.quantum.typing.AnyPath) -> None
+
+   Save an interaction operator to file.
+   :param interaction_operator: the operator to be saved
+   :param filename: the name of the file
+
+
+.. py:function:: convert_dict_to_qubitop(dictionary: dict) -> orquestra.quantum.openfermion.QubitOperator
+
+   Get a QubitOperator from a dictionary.
+   :param dictionary: the dictionary representation
+
+   :returns: the operator
+   :rtype: op
+
+
+.. py:function:: convert_qubitop_to_dict(op: orquestra.quantum.openfermion.QubitOperator) -> Dict[str, Any]
+
+   Convert a QubitOperator to a dictionary.
+   :param op: the operator
+
+   :returns: the dictionary representation
+   :rtype: dictionary
+
+
+.. py:function:: convert_dict_to_operator(dictionary: dict, constructor: Callable) -> orquestra.quantum.openfermion.SymbolicOperator
+
+
+.. py:function:: save_qubit_operator(qubit_operator: orquestra.quantum.openfermion.QubitOperator, filename: orquestra.quantum.typing.AnyPath) -> None
+
+   Save a qubit operator to file.
+   :param qubit_operator: the operator to be saved
+   :param filename: the name of the file
+
+
+.. py:function:: load_qubit_operator(file: orquestra.quantum.typing.LoadSource) -> orquestra.quantum.openfermion.QubitOperator
+
+   Load an operator object from a file.
+   :param file: the name of the file, or a file-like object.
+
+   :returns: the operator.
+   :rtype: op
+
+
+.. py:function:: save_qubit_operator_set(qubit_operator_set: List[orquestra.quantum.openfermion.QubitOperator], filename: orquestra.quantum.typing.AnyPath) -> None
+
+   Save a set of qubit operators to a file.
+
+   :param qubit_operator_set: a list of QubitOperator to be saved
+   :param file: the name of the file
+
+
+.. py:function:: load_qubit_operator_set(file: orquestra.quantum.typing.LoadSource) -> List[orquestra.quantum.openfermion.QubitOperator]
+
+   Load a set of qubit operators from a file.
+
+   :param file: the name of the file, or a file-like object.
+
+   :returns: a list of QubitOperator objects
+   :rtype: qubit_operator_set
+
+
+.. py:function:: get_pauli_strings(qubit_operator: orquestra.quantum.openfermion.QubitOperator) -> List[str]
+
+   Convert a qubit operator into a list of Pauli strings.
+
+   :param qubit_operator: a QubitOperator to be converted
+
+   :returns: list of Pauli strings
+   :rtype: pauli_strings
+
+
+.. py:function:: convert_isingop_to_dict(op: orquestra.quantum.openfermion.IsingOperator) -> dict
+
+   Convert an IsingOperator to a dictionary.
+
+   :param op: the operator
+
+   :returns: the dictionary representation
+   :rtype: dictionary
+
+
+.. py:function:: convert_dict_to_isingop(dictionary: dict) -> orquestra.quantum.openfermion.IsingOperator
+
+   Get a IsingOperator from a dictionary.
+
+   :param dictionary: the dictionary representation
+
+   :returns: the operator
+   :rtype: op
+
+
+.. py:function:: load_ising_operator(file: orquestra.quantum.typing.LoadSource) -> orquestra.quantum.openfermion.IsingOperator
+
+   Load an Ising operator object from a file.
+
+   :param file: the name of the file, or a file-like object.
+
+   :returns: the operator.
+   :rtype: op
+
+
+.. py:function:: save_ising_operator(ising_operator: orquestra.quantum.openfermion.IsingOperator, filename: orquestra.quantum.typing.AnyPath) -> None
+
+   Save an Ising operator to file.
+
+   :param op: the operator to be saved
+   :param filename: the name of the file
+
+
+.. py:function:: save_parameter_grid_evaluation(parameter_grid_evaluation, filename)
+
+   Save a list of parameter grid evaluations to file
+
+   :param parameter_grid_evaluation: List of dicts with a value estimate object
+                                     under the "value" field
+   :type parameter_grid_evaluation: list
+   :param file: the name of the file, or a file-like object
+   :type file: str or file-like object
+
+
+.. py:function:: convert_interaction_rdm_to_dict(op)
+
+   Convert an InteractionRDM to a dictionary.
+   :param op: the operator
+   :type op: openfermion.ops.InteractionRDM
+
+   :returns: the dictionary representation
+   :rtype: dictionary (dict)
+
+
+.. py:function:: convert_dict_to_interaction_rdm(dictionary)
+
+   Get an InteractionRDM from a dictionary.
+   :param dictionary: the dictionary representation
+   :type dictionary: dict
+
+   :returns: the operator
+   :rtype: op (openfermion.ops.InteractionRDM)
+
+
+.. py:function:: load_interaction_rdm(file: orquestra.quantum.typing.LoadSource) -> orquestra.quantum.openfermion.InteractionRDM
+
+   Load an interaction RDM object from a file.
+   :param file: a file-like object to load the interaction RDM from.
+
+   :returns: The interaction RDM.
+
+
+.. py:function:: save_interaction_rdm(interaction_rdm: orquestra.quantum.openfermion.InteractionRDM, filename: orquestra.quantum.typing.AnyPath) -> None
+
+   Save an interaction operator to file.
+   :param interaction_operator: the operator to be saved
+   :param filename: the name of the file
+
+

@@ -1,0 +1,26 @@
+:py:mod:`quantum.openfermion.measurements.get_interaction_rdm`
+==============================================================
+
+.. py:module:: quantum.openfermion.measurements.get_interaction_rdm
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   quantum.openfermion.measurements.get_interaction_rdm.get_interaction_rdm
+
+
+
+.. py:function:: get_interaction_rdm(qubit_operator, n_qubits=None)
+
+   Build an InteractionRDM from measured qubit operators.
+
+   Returns: An InteractionRDM object.
+
+

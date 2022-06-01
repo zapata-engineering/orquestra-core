@@ -1,0 +1,93 @@
+:py:mod:`integrations.qiskit.noise`
+===================================
+
+.. py:module:: integrations.qiskit.noise
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   basic/index.rst
+
+
+Package Contents
+----------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   integrations.qiskit.noise.create_amplitude_damping_noise
+   integrations.qiskit.noise.create_phase_and_amplitude_damping_error
+   integrations.qiskit.noise.create_phase_damping_noise
+   integrations.qiskit.noise.create_pta_channel
+   integrations.qiskit.noise.get_kraus_matrices_from_ibm_noise_model
+   integrations.qiskit.noise.get_qiskit_noise_model
+
+
+
+.. py:function:: create_amplitude_damping_noise(T_1: float, t_step: float = 1e-08) -> qiskit.providers.aer.noise.NoiseModel
+
+   Creates an amplitude damping noise model
+
+   :param T_1: Relaxation time (seconds)
+   :param t_step: Discretized time step over which the relaxation occurs over (seconds)
+
+
+.. py:function:: create_phase_and_amplitude_damping_error(T_1: float, T_2: float, t_step: float = 1e-08) -> qiskit.providers.aer.noise.NoiseModel
+
+   Creates a noise model that does both phase and amplitude damping
+
+   :param T_1: Relaxation time (seconds)
+   :param T_2: dephasing time  (seonds)
+   :param t_step: Discretized time step over which the relaxation occurs over (seconds)
+
+
+.. py:function:: create_phase_damping_noise(T_2: float, t_step: float = 1e-08) -> qiskit.providers.aer.noise.NoiseModel
+
+   Creates a dephasing noise model
+
+   :param T_2: dephasing time (seconds)
+   :param t_step: Discretized time step over which the relaxation occurs over (seconds)
+
+
+.. py:function:: create_pta_channel(T_1: float, T_2: float, t_step: float = 1e-08) -> qiskit.providers.aer.noise.NoiseModel
+
+   Creates a noise model that does both phase and amplitude damping but in the
+       Pauli Twirling Approximation discussed the following reference
+       https://arxiv.org/pdf/1305.2021.pdf
+
+
+   :param T_1: Relaxation time (seconds)
+   :param T_2: dephasing time (seconds)
+   :param t_step: Discretized time step over which the relaxation occurs over (seconds)
+
+
+.. py:function:: get_kraus_matrices_from_ibm_noise_model(noise_model: qiskit.providers.aer.noise.NoiseModel) -> Dict
+
+   Gets the kraus operators from a pre defined noise model
+
+   :param noise_model: Noise model for circuit
+
+   Return
+       dict_of_kraus_operators: A dictionary labelled by keys which are
+           the basis gates and values are the list of kraus operators
+
+
+
+.. py:function:: get_qiskit_noise_model(device_name: str, hub: str = 'ibm-q', group: str = 'open', project: str = 'main', api_token: Optional[str] = None) -> Tuple[qiskit.providers.aer.noise.NoiseModel, orquestra.quantum.circuits.layouts.CircuitConnectivity]
+
+   Get a qiskit noise model to use noisy simulations with a qiskit simulator
+
+   :param device_name: The name of the device trying to be emulated
+   :param hub: The ibmq hub (see qiskit documentation)
+   :param group: The ibmq group (see qiskit documentation)
+   :param project: The ibmq project (see qiskit documentation)
+   :param api_token: The ibmq api token (see qiskit documentation)
+
+

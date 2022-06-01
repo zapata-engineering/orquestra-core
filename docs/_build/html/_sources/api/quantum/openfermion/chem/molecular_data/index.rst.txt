@@ -1,0 +1,518 @@
+:py:mod:`quantum.openfermion.chem.molecular_data`
+=================================================
+
+.. py:module:: quantum.openfermion.chem.molecular_data
+
+.. autoapi-nested-parse::
+
+   Class and functions to store quantum chemistry data.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   quantum.openfermion.chem.molecular_data.MolecularData
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   quantum.openfermion.chem.molecular_data.bohr_to_angstroms
+   quantum.openfermion.chem.molecular_data.angstroms_to_bohr
+   quantum.openfermion.chem.molecular_data.name_molecule
+   quantum.openfermion.chem.molecular_data.geometry_from_file
+   quantum.openfermion.chem.molecular_data.antisymtei
+   quantum.openfermion.chem.molecular_data.j_mat
+   quantum.openfermion.chem.molecular_data.k_mat
+   quantum.openfermion.chem.molecular_data.spinorb_from_spatial
+   quantum.openfermion.chem.molecular_data.load_molecular_hamiltonian
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   quantum.openfermion.chem.molecular_data.basestring
+   quantum.openfermion.chem.molecular_data.periodic_table
+   quantum.openfermion.chem.molecular_data.periodic_hash_table
+   quantum.openfermion.chem.molecular_data.periodic_polarization
+
+
+.. py:data:: basestring
+   
+
+   
+
+.. py:exception:: MoleculeNameError
+
+   Bases: :py:obj:`Exception`
+
+   Common base class for all non-exit exceptions.
+
+
+.. py:exception:: MissingCalculationError
+
+   Bases: :py:obj:`Exception`
+
+   Common base class for all non-exit exceptions.
+
+
+.. py:function:: bohr_to_angstroms(distance)
+
+
+.. py:function:: angstroms_to_bohr(distance)
+
+
+.. py:data:: periodic_table
+   :annotation: = ['?', 'H', 'He', 'Li', 'Be', 'B', 'C', 'N', 'O', 'F', 'Ne', 'Na', 'Mg', 'Al', 'Si', 'P', 'S',...
+
+   
+
+.. py:data:: periodic_hash_table
+   
+
+   
+
+.. py:data:: periodic_polarization
+   
+
+   
+
+.. py:function:: name_molecule(geometry, basis, multiplicity, charge, description)
+
+   Function to name molecules.
+
+   :param geometry: A list of tuples giving the coordinates of each atom.
+                    example is [('H', (0, 0, 0)), ('H', (0, 0, 0.7414))].
+                    Distances in angstrom. Use atomic symbols to specify atoms.
+   :param basis: A string giving the basis set. An example is 'cc-pvtz'.
+   :param multiplicity: An integer giving the spin multiplicity.
+   :param charge: An integer giving the total molecular charge.
+   :param description: A string giving a description. As an example,
+                       for dimers a likely description is the bond length (e.g. 0.7414).
+
+   :returns: A string giving the name of the instance.
+   :rtype: name
+
+   :raises MoleculeNameError: If spin multiplicity is not valid.
+
+
+.. py:function:: geometry_from_file(file_name)
+
+   Function to create molecular geometry from text file.
+
+   :param file_name: a string giving the location of the geometry file.
+                     It is assumed that geometry is given for each atom on line, e.g.:
+                     H 0. 0. 0.
+                     H 0. 0. 0.7414
+
+   :returns:
+
+             A list of tuples giving the coordinates of each atom.
+                 example is [('H', (0, 0, 0)), ('H', (0, 0, 0.7414))].
+                 Distances in angstrom. Use atomic symbols to specify atoms.
+   :rtype: geometry
+
+
+.. py:function:: antisymtei(two_body_integrals)
+
+   Args:
+   two_body_integrals : Numpy array of two-electron integrals with OpenFermion
+       Ordering.
+
+   Returns:
+   antisymints : Numpy array of anti-symmetrized integrals
+       <ij||kl> = <ij|kl> - <ij|lk> (physicist ordering).
+
+
+.. py:function:: j_mat(two_body_integrals)
+
+   Args:
+   two_body_integrals : Numpy array of two-electron integrals with OpenFermion
+       Ordering.
+
+   Returns:
+   j_matr : Numpy array of the coulomb integrals J_{p,q} = (pp|qq)
+       (in chemist notation).
+
+
+.. py:function:: k_mat(two_body_integrals)
+
+   Args:
+   two_body_integrals : Numpy array of two-electron integrals with OpenFermion
+       Ordering.
+
+   Returns:
+   k_matr : Numpy array of the exchange integrals K_{p,q} = (pq|qp)
+       (in chemist notation).
+
+
+.. py:function:: spinorb_from_spatial(one_body_integrals, two_body_integrals)
+
+
+.. py:class:: MolecularData(geometry=None, basis=None, multiplicity=None, charge=0, description='', filename='', data_directory=None)
+
+   Bases: :py:obj:`object`
+
+   Class for storing molecule data from a fixed basis set at a fixed
+   geometry that is obtained from classical electronic structure
+   packages. Not every field is filled in every calculation. All data
+   that can (for some instance) exceed 10 MB should be saved
+   separately. Data saved in HDF5 format.
+
+   .. attribute:: geometry
+
+      A list of tuples giving the coordinates of each atom. An
+      example is [('H', (0, 0, 0)), ('H', (0, 0, 0.7414))]. Distances
+      in angstrom. Use atomic symbols to specify atoms.
+
+   .. attribute:: basis
+
+      A string giving the basis set. An example is 'cc-pvtz'.
+
+   .. attribute:: charge
+
+      An integer giving the total molecular charge. Defaults to 0.
+
+   .. attribute:: multiplicity
+
+      An integer giving the spin multiplicity.
+
+   .. attribute:: description
+
+      An optional string giving a description. As an example,
+      for dimers a likely description is the bond length (e.g. 0.7414).
+
+   .. attribute:: name
+
+      A string giving a characteristic name for the instance.
+
+   .. attribute:: filename
+
+      The name of the file where the molecule data is saved.
+
+   .. attribute:: n_atoms
+
+      Integer giving the number of atoms in the molecule.
+
+   .. attribute:: n_electrons
+
+      Integer giving the number of electrons in the molecule.
+
+   .. attribute:: atoms
+
+      List of the atoms in molecule sorted by atomic number.
+
+   .. attribute:: protons
+
+      List of atomic charges in molecule sorted by atomic number.
+
+   .. attribute:: hf_energy
+
+      Energy from open or closed shell Hartree-Fock.
+
+   .. attribute:: nuclear_repulsion
+
+      Energy from nuclei-nuclei interaction.
+
+   .. attribute:: canonical_orbitals
+
+      numpy array giving canonical orbital coefficients.
+
+   .. attribute:: n_orbitals
+
+      Integer giving total number of spatial orbitals.
+
+   .. attribute:: n_qubits
+
+      Integer giving total number of qubits that would be needed.
+
+   .. attribute:: orbital_energies
+
+      Numpy array giving the canonical orbital energies.
+
+   .. attribute:: fock_matrix
+
+      Numpy array giving the Fock matrix.
+
+   .. attribute:: overlap_integrals
+
+      Numpy array of AO overlap integrals
+
+   .. attribute:: one_body_integrals
+
+      Numpy array of one-electron integrals
+
+   .. attribute:: two_body_integrals
+
+      Numpy array of two-electron integrals
+
+   .. attribute:: mp2_energy
+
+      Energy from MP2 perturbation theory.
+
+   .. attribute:: cisd_energy
+
+      Energy from configuration interaction singles + doubles.
+
+   .. attribute:: cisd_one_rdm
+
+      Numpy array giving 1-RDM from CISD calculation.
+
+   .. attribute:: cisd_two_rdm
+
+      Numpy array giving 2-RDM from CISD calculation.
+
+   .. attribute:: fci_energy
+
+      Exact energy of molecule within given basis.
+
+   .. attribute:: fci_one_rdm
+
+      Numpy array giving 1-RDM from FCI calculation.
+
+   .. attribute:: fci_two_rdm
+
+      Numpy array giving 2-RDM from FCI calculation.
+
+   .. attribute:: ccsd_energy
+
+      Energy from coupled cluster singles + doubles.
+
+   .. attribute:: ccsd_single_amps
+
+      Numpy array holding single amplitudes
+
+   .. attribute:: ccsd_double_amps
+
+      Numpy array holding double amplitudes
+
+   .. attribute:: general_calculations
+
+      A dictionary storing general calculation results
+      for this system annotated by the key.
+
+   .. py:method:: init_lazy_properties(self)
+
+      Initializes properties loaded on demand to None
+
+
+   .. py:method:: canonical_orbitals(self)
+      :property:
+
+
+   .. py:method:: overlap_integrals(self)
+      :property:
+
+
+   .. py:method:: one_body_integrals(self)
+      :property:
+
+
+   .. py:method:: two_body_integrals(self)
+      :property:
+
+
+   .. py:method:: cisd_one_rdm(self)
+      :property:
+
+
+   .. py:method:: cisd_two_rdm(self)
+      :property:
+
+
+   .. py:method:: fci_one_rdm(self)
+      :property:
+
+
+   .. py:method:: fci_two_rdm(self)
+      :property:
+
+
+   .. py:method:: ccsd_single_amps(self)
+      :property:
+
+
+   .. py:method:: ccsd_double_amps(self)
+      :property:
+
+
+   .. py:method:: save(self)
+
+      Method to save the class under a systematic name.
+
+
+   .. py:method:: load(self)
+
+
+   .. py:method:: get_from_file(self, property_name)
+
+      Helper routine to re-open HDF5 file and pull out single property
+
+      :param property_name: Property name to load from self.filename
+
+      :returns:
+
+                The data located at file[property_name] for the HDF5 file at
+                    self.filename. Returns None if the key is not found in the
+                    file.
+
+
+   .. py:method:: get_n_alpha_electrons(self)
+
+      Return number of alpha electrons.
+
+
+   .. py:method:: get_n_beta_electrons(self)
+
+      Return number of beta electrons.
+
+
+   .. py:method:: get_integrals(self)
+
+      Method to return 1-electron and 2-electron integrals in MO basis.
+
+      :returns:
+
+                An array of the one-electron integrals having
+                    shape of (n_orbitals, n_orbitals).
+                two_body_integrals: An array of the two-electron integrals having
+                    shape of (n_orbitals, n_orbitals, n_orbitals, n_orbitals).
+      :rtype: one_body_integrals
+
+      :raises MissingCalculationError: If integrals are not calculated.
+
+
+   .. py:method:: get_active_space_integrals(self, occupied_indices=None, active_indices=None)
+
+      Restricts a molecule at a spatial orbital level to an active space
+
+      This active space may be defined by a list of active indices and
+          doubly occupied indices. Note that one_body_integrals and
+          two_body_integrals must be defined
+          n an orthonormal basis set.
+
+      :param occupied_indices: A list of spatial orbital indices
+                               indicating which orbitals should be considered doubly occupied.
+      :param active_indices: A list of spatial orbital indices indicating
+                             which orbitals should be considered active.
+
+      :returns: Tuple with the following entries:
+
+                **core_constant**: Adjustment to constant shift in Hamiltonian
+                from integrating out core orbitals
+
+                **one_body_integrals_new**: one-electron integrals over active
+                space.
+
+                **two_body_integrals_new**: two-electron integrals over active
+                space.
+      :rtype: tuple
+
+
+   .. py:method:: get_molecular_hamiltonian(self, occupied_indices=None, active_indices=None)
+
+      Output arrays of the second quantized Hamiltonian coefficients.
+
+      :param occupied_indices: A list of spatial orbital indices
+                               indicating which orbitals should be considered doubly occupied.
+      :type occupied_indices: list
+      :param active_indices: A list of spatial orbital indices indicating
+                             which orbitals should be considered active.
+      :type active_indices: list
+
+      :returns: An instance of the MolecularOperator class.
+      :rtype: molecular_hamiltonian
+
+      .. note::
+
+         The indexing convention used is that even indices correspond to
+         spin-up (alpha) modes and odd indices correspond to spin-down
+         (beta) modes.
+
+
+   .. py:method:: get_molecular_rdm(self, use_fci=False)
+
+      Method to return 1-RDM and 2-RDMs from CISD or FCI.
+
+      :param use_fci: Boolean indicating whether to use RDM from FCI
+                      calculation.
+
+      :returns: An instance of the MolecularRDM class.
+      :rtype: rdm
+
+      :raises MisissingCalculationError: If the CI calculation has not been
+          performed.
+
+
+   .. py:method:: get_j(self)
+
+      Method to return coulomb matrix.
+
+      :returns:
+
+                Numpy array of the coulomb integrals J_{p,q} = (pp|qq)
+                  (in chemist notation).
+      :rtype: k_matr
+
+      :raises MissingCalculationError: If integrals are not calculated.
+
+
+   .. py:method:: get_k(self)
+
+      Method to return exchange matrix.
+
+      :returns:
+
+                Numpy array of the coulomb integrals K_{p,q} = (pq|qp)
+                  (in chemist notation).
+      :rtype: k_matr
+
+      :raises MissingCalculationError: If integrals are not calculated.
+
+
+   .. py:method:: get_antisym(self)
+
+      Method to return anti-symmetrized integrals in spin-orbital basis.
+
+      :returns:
+
+                Numpy array of anti-symmetrized integrals in spin-
+                  orbital basis <ij||kl> = <ij|kl> - <ij|lk> (physicist ordering)
+      :rtype: antisymints
+
+      :raises MissingCalculationError: If integrals are not calculated.
+
+
+
+.. py:function:: load_molecular_hamiltonian(geometry, basis, multiplicity, description, n_active_electrons=None, n_active_orbitals=None)
+
+   Attempt to load a molecular Hamiltonian with the given properties.
+
+   :param geometry: A list of tuples giving the coordinates of each atom.
+                    An example is [('H', (0, 0, 0)), ('H', (0, 0, 0.7414))].
+                    Distances in angstrom. Use atomic symbols to
+                    specify atoms.
+   :param basis: A string giving the basis set. An example is 'cc-pvtz'.
+                 Only optional if loading from file.
+   :param multiplicity: An integer giving the spin multiplicity.
+   :param description: A string giving a description.
+   :param n_active_electrons: An optional integer specifying the number of
+                              electrons desired in the active space.
+   :param n_active_orbitals: An optional integer specifying the number of
+                             spatial orbitals desired in the active space.
+
+   :returns: The Hamiltonian as an InteractionOperator.
+
+

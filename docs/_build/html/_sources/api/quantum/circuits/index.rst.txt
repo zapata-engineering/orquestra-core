@@ -1,0 +1,971 @@
+:py:mod:`quantum.circuits`
+==========================
+
+.. py:module:: quantum.circuits
+
+.. autoapi-nested-parse::
+
+   Public API for the orquestra circuits.
+
+   Allows:
+
+   - defining quantum circuits with gates applied to qubits
+   - set of built-in gates (see imports in this `__init__`)
+   - circuit (de)serialization to/from JSON-compatible dicts
+
+   .. rubric:: Examples
+
+   Defining a circuit with a NOT gate on qubit 0 & Hadamard gate on qubit 1::
+       circuit = Circuit()
+       circuit += X(0)
+       circuit += H(1)
+
+   Adding 2-qubit gates::
+       circuit += CNOT(0, 4)
+
+   Adding parametrized gates::
+       circuit += RX(np.pi / 2)(0)
+       circuit += RX(sympy.sympify("theta / 2"))(1)
+
+   Adding 2-qubit parametrized gates::
+       circuit += CPHASE(0.314)(3, 2)
+
+   Adding a built-in gate by its name::
+       circuit += builtin_gate_by_name("X")(0)
+       circuit += builtin_gate_by_name("RX")(np.pi * 1.5)(1)
+
+   Binding parameters::
+       circuit = circuit.bind({sympy.Symbol("theta"): -np.pi / 5})
+
+   Iterating over circuit contents::
+       for gate_op in circuit.operations:
+           name = gate_op.gate.name
+           params = gate_op.gate.params
+           qubits = gate_op.qubit_indices
+           print(f"{name} with params {params} applied to {qubits}")
+
+   Making a different circuit (e.g. shifting gates by 1 qubit)::
+       new_circuit = Circuit(
+           operations=[
+               gate_op.gate(*[qubit + 1 for qubit in gate_op.qubits])
+               for gate_op in circuit.operations
+           ],
+           n_qubits=circuit.n_qubits
+       )
+
+   (De)serialization::
+       to_dict(circuit)
+       circuit5 = circuit_from_dict(dict5)
+
+   Defining new gates
+   ------------------
+
+   To use a gate that isn't already covered by built-in ones you can define a custom gate
+   or extend the set of the built-in ones and file a PR to orquestra-quantum.
+
+   Using custom gates::
+       custom_a = circuits.CustomGateDefinition(
+           gate_name="custom_a",  # names need to be unique
+           matrix=sympy.Matrix(
+               [
+                   [-1, 0],
+                   [0, 1],
+               ]
+           ),
+           params_ordering=(),
+       )
+
+       custom_b = circuits.CustomGateDefinition(
+           gate_name="custom_b",
+           matrix=sympy.Matrix(
+               [
+                   [0, sympy.Symbol("theta") * 2],
+                   [sympy.Symbol("gamma") + 3, 1],
+               ]
+           ),
+           params_ordering=(sympy.Symbol("gamma"), sympy.Symbol("theta")),
+       )
+
+       circuit = Circuit()
+       circuit += custom_a()(0)
+       circuit += custom_b(np.pi, np.pi / 2)(0)
+
+
+   Extending built-in gates requires:
+
+   - Adding its definition to `orquestra.quantum.circuits._builtin_gates`. Refer to other
+       1- or multi-qubit, parametric/nonparametric gates there to see how it's been done
+       for other gates.
+
+   - Adding its matrix to `orquestra.quantum.circuits._matrices`.
+
+   - Adding tests for conversion to other frameworks in:
+       - `qeqiskit.conversions.circuit_conversions_test`
+       - `qecirq.conversions.circuit_conversions_test`
+       - `qeforest.conversions.circuit_conversions_test`
+
+   - Implement conversions. Some might work out of the box, e.g. if there's a gate with the
+       same name defined in PyQuil our converters will use it by default without need for
+       explicit mappings.
+
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   symbolic/index.rst
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   layouts/index.rst
+
+
+Package Contents
+----------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   quantum.circuits.Circuit
+   quantum.circuits.ControlledGate
+   quantum.circuits.CustomGateDefinition
+   quantum.circuits.Dagger
+   quantum.circuits.Gate
+   quantum.circuits.GateOperation
+   quantum.circuits.MatrixFactoryGate
+   quantum.circuits.Operation
+   quantum.circuits.MultiPhaseOperation
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   quantum.circuits.builtin_gate_by_name
+   quantum.circuits.split_circuit
+   quantum.circuits.add_ancilla_register
+   quantum.circuits.apply_gate_to_qubits
+   quantum.circuits.create_layer_of_gates
+   quantum.circuits.circuit_from_dict
+   quantum.circuits.circuitset_from_dict
+   quantum.circuits.load_circuit
+   quantum.circuits.load_circuitset
+   quantum.circuits.save_circuit
+   quantum.circuits.save_circuitset
+   quantum.circuits.to_dict
+   quantum.circuits.create_random_circuit
+   quantum.circuits.natural_key
+   quantum.circuits.natural_key_revlex
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   quantum.circuits.CNOT
+   quantum.circuits.CPHASE
+   quantum.circuits.CZ
+   quantum.circuits.ISWAP
+   quantum.circuits.PHASE
+   quantum.circuits.RH
+   quantum.circuits.RX
+   quantum.circuits.RY
+   quantum.circuits.RZ
+   quantum.circuits.SWAP
+   quantum.circuits.U3
+   quantum.circuits.XX
+   quantum.circuits.XY
+   quantum.circuits.YY
+   quantum.circuits.ZZ
+   quantum.circuits.GatePrototype
+   quantum.circuits.H
+   quantum.circuits.I
+   quantum.circuits.S
+   quantum.circuits.T
+   quantum.circuits.X
+   quantum.circuits.Y
+   quantum.circuits.Z
+
+
+.. py:data:: CNOT
+   
+
+   
+
+.. py:data:: CPHASE
+   
+
+   
+
+.. py:data:: CZ
+   
+
+   
+
+.. py:data:: ISWAP
+   
+
+   
+
+.. py:data:: PHASE
+   
+
+   
+
+.. py:data:: RH
+   
+
+   
+
+.. py:data:: RX
+   
+
+   
+
+.. py:data:: RY
+   
+
+   
+
+.. py:data:: RZ
+   
+
+   
+
+.. py:data:: SWAP
+   
+
+   
+
+.. py:data:: U3
+   
+
+   
+
+.. py:data:: XX
+   
+
+   
+
+.. py:data:: XY
+   
+
+   
+
+.. py:data:: YY
+   
+
+   
+
+.. py:data:: ZZ
+   
+
+   
+
+.. py:data:: GatePrototype
+   
+
+   
+
+.. py:data:: H
+   
+
+   
+
+.. py:data:: I
+   
+
+   
+
+.. py:data:: S
+   
+
+   
+
+.. py:data:: T
+   
+
+   
+
+.. py:data:: X
+   
+
+   
+
+.. py:data:: Y
+   
+
+   
+
+.. py:data:: Z
+   
+
+   
+
+.. py:function:: builtin_gate_by_name(name) -> GateRef
+
+   Retrieves gate factory by its name.
+
+   :raises KeyError: when there's no built-in gate for this name.
+
+
+.. py:class:: Circuit(operations: Optional[Iterable[quantum.circuits._operations.Operation]] = None, n_qubits: Optional[int] = None)
+
+   orquestra representation of a quantum circuit.
+
+   See `help(orquestra.quantum.circuits)` for usage guide.
+
+   .. py:method:: operations(self)
+      :property:
+
+      Sequence of quantum gates to apply to qubits in this circuit.
+
+
+   .. py:method:: n_qubits(self) -> int
+      :property:
+
+      Number of qubits in this circuit.
+      Not every qubit has to be used by a gate.
+
+
+   .. py:method:: free_symbols(self) -> List[sympy.Symbol]
+      :property:
+
+      Set of all the sympy symbols used as params of gates in the circuit.
+      The output list is sorted based on the order of appearance
+      in `self._operations`.
+
+
+   .. py:method:: collect_custom_gate_definitions(self) -> Iterable[quantum.circuits._gates.CustomGateDefinition]
+
+
+   .. py:method:: to_unitary(self) -> Union[numpy.ndarray, sympy.Matrix]
+
+      Create a unitary matrix describing Circuit's action.
+
+      For performance reasons, this method will construct numpy matrix if circuit does
+      not have free parameters, and a sympy matrix otherwise.
+
+
+   .. py:method:: bind(self, symbols_map: Dict[sympy.Symbol, Any])
+
+      Create a copy of the current circuit with the parameters of each gate bound
+      to the values provided in the input symbols map.
+
+      :param symbols_map: A map of the symbols/gate parameters to new values
+
+
+
+.. py:function:: split_circuit(circuit: Circuit, predicate: Callable[[quantum.circuits._operations.Operation], bool]) -> Iterable[Tuple[bool, Circuit]]
+
+   Split circuit into subcircuits for which predicate on all operation is constant.
+
+   :param circuit: a circuit to be split
+   :param predicate: function assigning boolean value to each operation, its values
+                     are used for grouping operations belonging to the same subcircuits.
+
+   :returns:
+
+             - predicate(operation) == x for every operation in subcircuit.operations
+             - for two consecutive tuples (x1, subcircuit1), (x2, subcircuit2)
+               x1 != x2 (i.e. consecutive chunks differ in the predicate value),
+             - operations in subcircuits follow the same order as in original circuit
+             - all subcircuits have the same number of qubits equal to `circuit.n_qubits`.
+   :rtype: An iterable of tuples of the form (x, subcircuit) s.t.
+
+
+.. py:class:: ControlledGate
+
+   Bases: :py:obj:`Gate`
+
+   Interface of a quantum gate representable by a matrix, translatable to other
+   frameworks and backends.
+
+   See `orquestra.quantum.circuits` for a list of built-in gates and usage guide.
+
+   .. py:attribute:: wrapped_gate
+      :annotation: :Gate
+
+      
+
+   .. py:attribute:: num_control_qubits
+      :annotation: :int
+
+      
+
+   .. py:method:: name(self)
+      :property:
+
+      Globally unique name of the gate.
+
+      Name is used in textual representation and dispatching in conversion between
+      frameworks. Defining different gates with the same name as built-in ones
+      is discouraged.
+
+
+   .. py:method:: num_qubits(self)
+      :property:
+
+      Number of qubits this gate acts on.
+      We need it because matrix is computed lazily, and we don't want to create matrix
+      just to know the number of qubits.
+
+
+   .. py:method:: matrix(self)
+      :property:
+
+      Unitary matrix describing gate's action on state vector.
+
+      We need it to be able to implement .propagate() on the operation class.
+
+
+   .. py:method:: params(self)
+      :property:
+
+      Value of parameters bound to this gate.
+
+      Length of `params` should be equal to number of parameters in gate initializer.
+      In particular, nonparametric gates should always return ().
+
+      Examples:
+      - an `H` gate has no params
+      - a `RX(np.pi)` gate has a single param with value of `np.pi`
+      - a `RX(sympy.Symbol("theta"))` gate has a single symbolic param `theta`
+      - a `RX(sympy.sympify("theta * alpha"))` gate has a single symbolic expression
+          param `theta*alpha`
+
+      We need it for translations to other frameworks and for serialization.
+
+
+   .. py:method:: controlled(self, num_control_qubits: int) -> ControlledGate
+
+
+   .. py:method:: dagger(self) -> ControlledGate
+      :property:
+
+
+   .. py:method:: bind(self, symbols_map) -> Gate
+
+
+   .. py:method:: replace_params(self, new_params: Tuple[quantum.circuits._operations.Parameter, Ellipsis]) -> Gate
+
+
+
+.. py:class:: CustomGateDefinition
+
+   Use this class to define a non-built-in gate.
+
+   See "Defining new gates" section in `help(orquestra.quantum.circuits)` for
+   usage guide.
+
+   User-defined gates are treated differently than the built-in ones,
+   because the built-in ones are defined in `orquestra.quantum` library, and so
+   we can assume that the definitions will be available during circuit deserialization.
+
+   User-provided gates can be defined in one repo (e.g. Orquestra step), serialized,
+   and passed to another project for deserialization. The other project must have
+   access to gate details, e.g. the gate matrix. This class is designed to keep track
+   of the gate details needed for deserialization.
+
+   Instances of this class are serialized by the Circuit objects, additionally to
+   Circuit operations.
+
+   .. py:attribute:: gate_name
+      :annotation: :str
+
+      
+
+   .. py:attribute:: matrix
+      :annotation: :sympy.Matrix
+
+      
+
+   .. py:attribute:: params_ordering
+      :annotation: :Tuple[sympy.Symbol, Ellipsis]
+
+      
+
+
+.. py:class:: Dagger
+
+   Bases: :py:obj:`Gate`
+
+   Interface of a quantum gate representable by a matrix, translatable to other
+   frameworks and backends.
+
+   See `orquestra.quantum.circuits` for a list of built-in gates and usage guide.
+
+   .. py:attribute:: wrapped_gate
+      :annotation: :Gate
+
+      
+
+   .. py:method:: matrix(self) -> sympy.Matrix
+      :property:
+
+      Unitary matrix describing gate's action on state vector.
+
+      We need it to be able to implement .propagate() on the operation class.
+
+
+   .. py:method:: params(self) -> Tuple[quantum.circuits._operations.Parameter, Ellipsis]
+      :property:
+
+      Value of parameters bound to this gate.
+
+      Length of `params` should be equal to number of parameters in gate initializer.
+      In particular, nonparametric gates should always return ().
+
+      Examples:
+      - an `H` gate has no params
+      - a `RX(np.pi)` gate has a single param with value of `np.pi`
+      - a `RX(sympy.Symbol("theta"))` gate has a single symbolic param `theta`
+      - a `RX(sympy.sympify("theta * alpha"))` gate has a single symbolic expression
+          param `theta*alpha`
+
+      We need it for translations to other frameworks and for serialization.
+
+
+   .. py:method:: num_qubits(self) -> int
+      :property:
+
+      Number of qubits this gate acts on.
+      We need it because matrix is computed lazily, and we don't want to create matrix
+      just to know the number of qubits.
+
+
+   .. py:method:: name(self)
+      :property:
+
+      Globally unique name of the gate.
+
+      Name is used in textual representation and dispatching in conversion between
+      frameworks. Defining different gates with the same name as built-in ones
+      is discouraged.
+
+
+   .. py:method:: controlled(self, num_control_qubits: int) -> Gate
+
+
+   .. py:method:: bind(self, symbols_map) -> Gate
+
+
+   .. py:method:: replace_params(self, new_params: Tuple[quantum.circuits._operations.Parameter, Ellipsis]) -> Gate
+
+
+   .. py:method:: dagger(self) -> Gate
+      :property:
+
+
+
+.. py:class:: Gate
+
+   Bases: :py:obj:`typing_extensions.Protocol`
+
+   Interface of a quantum gate representable by a matrix, translatable to other
+   frameworks and backends.
+
+   See `orquestra.quantum.circuits` for a list of built-in gates and usage guide.
+
+   .. py:method:: name(self) -> str
+      :property:
+
+      Globally unique name of the gate.
+
+      Name is used in textual representation and dispatching in conversion between
+      frameworks. Defining different gates with the same name as built-in ones
+      is discouraged.
+
+
+   .. py:method:: params(self) -> Tuple[quantum.circuits._operations.Parameter, Ellipsis]
+      :property:
+
+      Value of parameters bound to this gate.
+
+      Length of `params` should be equal to number of parameters in gate initializer.
+      In particular, nonparametric gates should always return ().
+
+      Examples:
+      - an `H` gate has no params
+      - a `RX(np.pi)` gate has a single param with value of `np.pi`
+      - a `RX(sympy.Symbol("theta"))` gate has a single symbolic param `theta`
+      - a `RX(sympy.sympify("theta * alpha"))` gate has a single symbolic expression
+          param `theta*alpha`
+
+      We need it for translations to other frameworks and for serialization.
+
+
+   .. py:method:: free_symbols(self) -> Iterable[sympy.Symbol]
+      :property:
+
+      Unbound symbols in the gate matrix.
+
+      Examples:
+      - an `H` gate has no free symbols
+      - a `RX(np.pi)` gate has no free symbols
+      - a `RX(sympy.Symbol("theta"))` gate has a single free symbol `theta`
+      - a `RX(sympy.sympify("theta * alpha"))` gate has two free symbols, `alpha` and
+          `theta`
+      - a `RX(sympy.sympify("theta * alpha")).bind({sympy.Symbol("theta"): 0.42})`
+          gate has one free symbol, `alpha`
+
+
+   .. py:method:: num_qubits(self) -> int
+      :property:
+
+      Number of qubits this gate acts on.
+      We need it because matrix is computed lazily, and we don't want to create matrix
+      just to know the number of qubits.
+
+
+   .. py:method:: matrix(self) -> sympy.Matrix
+      :property:
+
+      Unitary matrix describing gate's action on state vector.
+
+      We need it to be able to implement .propagate() on the operation class.
+
+
+   .. py:method:: controlled(self, num_control_qubits: int) -> Gate
+      :abstractmethod:
+
+
+   .. py:method:: dagger(self) -> Gate
+      :property:
+
+
+   .. py:method:: bind(self, symbols_map: Dict[sympy.Symbol, quantum.circuits._operations.Parameter]) -> Gate
+      :abstractmethod:
+
+
+   .. py:method:: replace_params(self, new_params: Tuple[quantum.circuits._operations.Parameter, Ellipsis]) -> Gate
+      :abstractmethod:
+
+
+
+.. py:class:: GateOperation
+
+   Represents applying a `Gate` to 1 or more qubits in a circuit.
+
+   .. py:attribute:: gate
+      :annotation: :Gate
+
+      
+
+   .. py:attribute:: qubit_indices
+      :annotation: :Tuple[int, Ellipsis]
+
+      
+
+   .. py:method:: params(self) -> Tuple[quantum.circuits._operations.Parameter, Ellipsis]
+      :property:
+
+
+   .. py:method:: bind(self, symbols_map: Dict[sympy.Symbol, quantum.circuits._operations.Parameter]) -> GateOperation
+
+
+   .. py:method:: replace_params(self, new_params: Tuple[quantum.circuits._operations.Parameter, Ellipsis]) -> GateOperation
+
+
+   .. py:method:: lifted_matrix(self, num_qubits)
+
+
+   .. py:method:: apply(self, amplitude_vector: orquestra.quantum.typing.ParameterizedVector) -> orquestra.quantum.typing.ParameterizedVector
+
+
+   .. py:method:: free_symbols(self) -> Iterable[sympy.Symbol]
+      :property:
+
+
+
+.. py:class:: MatrixFactoryGate
+
+   Data structure for a `Gate` with deferred matrix construction.
+
+   Most built-in gates are instances of this class.
+   See `orquestra.quantum.circuits` for built-in gates and usage guide.
+
+   This class requires the gate definition to be present during deserialization, so
+   it's not easily applicable for gates defined in Orquestra steps. If you want to
+   define a new gate, check out `CustomGateDefinition` first.
+
+   Keeping a `matrix_factory` instead of a plain gate matrix allows us to defer matrix
+   construction to _after_ parameter binding. This saves unnecessary work in scenarios
+   where we construct a quantum circuit and immediately bind parameter values. When
+   done multiple times, e.g. for every gate in each optimization step, this can lead
+   to major performance issues.
+
+   :param name: Name of this gate. Implementers of new gates should make sure that the
+                names are unique.
+   :param matrix_factory: a callable mapping arbitrary number of parameters into gate
+                          matrix. Implementers of new gates should make sure the returned matrices are
+                          square and of dimension being 2 ** `num_qubits`.
+   :param params: gate parameters - either concrete values or opaque symbols.
+                  Will be passed to `matrix_factory` when `matrix` property is requested.
+   :param num_qubits: number of qubits this gate acts on.
+
+   .. py:attribute:: name
+      :annotation: :str
+
+      
+
+   .. py:attribute:: matrix_factory
+      :annotation: :Callable[Ellipsis, sympy.Matrix]
+
+      
+
+   .. py:attribute:: params
+      :annotation: :Tuple[quantum.circuits._operations.Parameter, Ellipsis]
+
+      
+
+   .. py:attribute:: num_qubits
+      :annotation: :int
+
+      
+
+   .. py:attribute:: is_hermitian
+      :annotation: :bool = False
+
+      
+
+   .. py:method:: matrix(self) -> sympy.Matrix
+      :property:
+
+      Unitary matrix defining action of this gate.
+
+      This is a computed property using `self.matrix_factory` called with parameters
+          bound to this gate.
+
+
+   .. py:method:: bind(self, symbols_map) -> MatrixFactoryGate
+
+
+   .. py:method:: replace_params(self, new_params: Tuple[quantum.circuits._operations.Parameter, Ellipsis]) -> MatrixFactoryGate
+
+
+   .. py:method:: controlled(self, num_controlled_qubits: int) -> Gate
+
+
+   .. py:method:: dagger(self) -> Union[MatrixFactoryGate, Gate]
+      :property:
+
+
+   .. py:method:: free_symbols(self) -> Iterable[sympy.Symbol]
+      :property:
+
+      Unbound symbols in the gate matrix. See Gate.free_symbols for details.
+
+
+
+.. py:function:: add_ancilla_register(circuit: quantum.circuits._circuit.Circuit, n_ancilla_qubits: int) -> quantum.circuits._circuit.Circuit
+
+   Add a register of ancilla qubits (qubit + identity gate) to an existing circuit.
+
+   :param circuit: circuit to be extended
+   :param n_ancilla_qubits: number of ancilla qubits to add
+
+   :returns: extended circuit
+
+
+.. py:function:: apply_gate_to_qubits(circuit: quantum.circuits._circuit.Circuit, qubit_indices: Collection[int], gate_factory: Union[quantum.circuits._builtin_gates.GatePrototype, quantum.circuits._gates.Gate], parameters: Optional[numpy.ndarray] = None) -> quantum.circuits._circuit.Circuit
+
+   Apply the passed gate to the specified qubits
+
+   :param circuit: circuit to add the gate to
+   :param qubit_indices: list of qubits that to apply the gate on,
+                         duplicates will be ignored
+   :param gate_factory: the single qubit gate to be applied to each qubit
+   :param parameters: parameters of the single-qubit gate, this is a list of size
+                      dependent on the gate used, e.g. 1 for RY gates, 3 for U3 gates
+
+   :returns: circuit with the gate added to the specified qubits
+
+
+.. py:function:: create_layer_of_gates(number_of_qubits: int, gate_factory: Union[quantum.circuits._builtin_gates.GatePrototype, quantum.circuits._gates.Gate], parameters: Optional[numpy.ndarray] = None) -> quantum.circuits._circuit.Circuit
+
+   Creates a circuit consisting of a layer of single-qubit gates acting on all
+   qubits.
+
+   :param number_of_qubits: number of qubits in the circuit
+   :param gate_factory: the single qubit gate to be applied to each qubit
+   :param parameters: parameters of the single-qubit gates
+
+   :returns: Created circuit.
+   :rtype: circuit
+
+
+.. py:class:: Operation
+
+   Bases: :py:obj:`typing_extensions.Protocol`
+
+   Represents arbitrary operation applicable to a circuit or wavefunction.
+
+   .. py:method:: params(self) -> Tuple[orquestra.quantum.typing.Parameter, Ellipsis]
+      :property:
+
+      Parameters of this operation.
+
+
+   .. py:method:: bind(self: T, symbols_map: Dict[sympy.Symbol, orquestra.quantum.typing.Parameter]) -> T
+      :abstractmethod:
+
+      Create new operation by replacing free symbols in operation params.
+
+      The operation returned by this method should be of the same type
+      as self, e.g. binding parameters to GateOperation should produce
+      GateOperation.
+
+
+   .. py:method:: replace_params(self: T, new_params: Tuple[orquestra.quantum.typing.Parameter, Ellipsis]) -> T
+      :abstractmethod:
+
+      Create new operation by replacing params.
+
+      The difference between bind and replace params is that it bind performs
+      parameter substitution - in particular, parameters without free symbols
+      are unaffected by bind, whereas replace_params replaces *all* params.
+
+
+   .. py:method:: apply(self: T, amplitude_vector: orquestra.quantum.typing.ParameterizedVector) -> orquestra.quantum.typing.ParameterizedVector
+      :abstractmethod:
+
+      Apply this operation to given wavefunction.
+
+      Operations that cannot be applied deterministically should raise
+      NotImplementedError.
+
+
+   .. py:method:: free_symbols(self) -> Iterable[sympy.Symbol]
+      :property:
+
+      Free symbols parameterizing this operation.
+
+      Note that number of free_symbols is unrelated to number of params.
+      Some params can be expressions with multiple free symbols, while other params
+      might not comprise free symbols at all.
+
+
+
+.. py:function:: circuit_from_dict(dict_)
+
+
+.. py:function:: circuitset_from_dict(dict_) -> List[quantum.circuits._circuit.Circuit]
+
+
+.. py:function:: load_circuit(load_src: orquestra.quantum.typing.LoadSource)
+
+
+.. py:function:: load_circuitset(load_src: orquestra.quantum.typing.LoadSource)
+
+
+.. py:function:: save_circuit(circuit: quantum.circuits._circuit.Circuit, dump_target: orquestra.quantum.typing.DumpTarget)
+
+
+.. py:function:: save_circuitset(circuitset: List[quantum.circuits._circuit.Circuit], dump_target: orquestra.quantum.typing.DumpTarget)
+
+
+.. py:function:: to_dict(obj)
+
+
+.. py:function:: create_random_circuit(n_qubits: int, n_gates: int, rng: numpy.random.Generator) -> quantum.circuits._circuit.Circuit
+
+   Generates random circuit acting on nqubits with ngates for testing purposes.
+   The resulting circuit it saved to file in JSON format under 'circuit.json'.
+
+   :param n_qubits: The number of qubits in the circuit
+   :param n_gates: The number of gates in the circuit
+   :param rng: Numpy random generator
+
+   :returns: Generated circuit.
+
+
+.. py:class:: MultiPhaseOperation
+
+   Operation applying distinct phase to each wavefunction component.
+
+   MultiPhaseOperation with parameters theta_1, theta_2, .... theta_2^N,
+   transforms a N qubit wavefunction (psi_1, psi_2, ..., psi_2^N)
+   into (exp(i theta_1)psi_1, exp(i theta_2) psi_2, ..., exp(i theta_2^N) psi_2^N).
+
+   .. py:attribute:: params
+      :annotation: :Tuple[quantum.circuits._operations.Parameter, Ellipsis]
+
+      
+
+   .. py:method:: qubit_indices(self) -> Tuple[int, Ellipsis]
+      :property:
+
+
+   .. py:method:: bind(self, symbols_map) -> MultiPhaseOperation
+
+
+   .. py:method:: replace_params(self, new_params: Tuple[quantum.circuits._operations.Parameter, Ellipsis]) -> MultiPhaseOperation
+
+
+   .. py:method:: apply(self, amplitude_vector: orquestra.quantum.typing.ParameterizedVector) -> orquestra.quantum.typing.ParameterizedVector
+
+
+   .. py:method:: free_symbols(self) -> Iterable[sympy.Symbol]
+      :property:
+
+      Unbound symbols in the gate matrix.
+
+      Examples:
+      - an `H` gate has no free symbols
+      - a `RX(np.pi)` gate has no free symbols
+      - a `RX(sympy.Symbol("theta"))` gate has a single free symbol `theta`
+      - a `RX(sympy.sympify("theta * alpha"))` gate has two free symbols, `alpha` and
+          `theta`
+      - a `RX(sympy.sympify("theta * alpha")).bind({sympy.Symbol("theta"): 0.42})`
+          gate has one free symbol, `alpha`
+
+
+
+.. py:function:: natural_key(symbol)
+
+   Convert symbol to a natural-ordering key.
+
+   The natural ordering of symbols works as follows:
+   1. Split a symbol on each group of digits.
+   2. For each group in this split, convert all-digit groups to integers.
+
+   Comparing such groups using lexicographical ordering gives natural ordering
+   of symbols.
+
+   In contrast to usual ordering obtained by casting symbol to string, natural
+   ordering treats variable indices as integers. Thus, in this ordering,
+   symbols beta_10, theta_2, beta_2, theta_1 would be ordered as follows:
+   beta_2 < beta_10 < theta_1 < theta_2.
+
+   The original idea behind this implementation was found byMSRudolph here:
+   http://nedbatchelder.com/blog/200712/human_sorting.html
+
+
+.. py:function:: natural_key_revlex(symbol)
+
+   Convert symbol to lexically reversed natural-ordering key.
+
+   This returns reversed key produced by `natural_key`. The main usage is for list
+   of symbols with names of the form <symbol_name>_<number> where <symbol_name>
+   can take one of several predefined values, and orders should consider <number>
+   before <symbol_name>.
+
+   For instance, given symbols beta_1, beta_2, theta_1, theta_2, sorting them
+   using natural_key_revlex will give beta_1 < theta_1 < beta_2 < theta_2.
+
+

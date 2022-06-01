@@ -1,0 +1,48 @@
+:py:mod:`integrations.forest.conversions`
+=========================================
+
+.. py:module:: integrations.forest.conversions
+
+
+Package Contents
+----------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   integrations.forest.conversions.export_to_pyquil
+   integrations.forest.conversions.import_from_pyquil
+   integrations.forest.conversions.pyquilpauli_to_qubitop
+   integrations.forest.conversions.qubitop_to_pyquilpauli
+
+
+
+.. py:function:: export_to_pyquil(circuit: orquestra.quantum.circuits._circuit.Circuit) -> pyquil.Program
+
+
+.. py:function:: import_from_pyquil(program: pyquil.Program)
+
+
+.. py:function:: pyquilpauli_to_qubitop(pyquil_pauli: Union[pyquil.paulis.PauliTerm, pyquil.paulis.PauliSum]) -> orquestra.quantum.openfermion.ops.QubitOperator
+
+   Convert a pyQuil PauliSum to a OpenFermion QubitOperator.
+
+   :param pyquil_pauli: pyQuil PauliTerm or PauliSum to convert to an
+
+   OpenFermion QubitOperator
+
+   :returns: QubitOperator representing the PauliSum or PauliTerm
+
+
+.. py:function:: qubitop_to_pyquilpauli(qubit_operator: orquestra.quantum.openfermion.ops.QubitOperator) -> pyquil.paulis.PauliSum
+
+   Convert a OpenFermion QubitOperator to a PauliSum.
+
+   :param qubit_operator: OpenFermion QubitOperator to convert to a pyquil.PauliSum
+
+   :returns: PauliSum representing the qubit operator
+
+

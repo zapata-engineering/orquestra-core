@@ -1,0 +1,47 @@
+:orphan:
+
+:py:mod:`orquestra.integrations.forest.conversions._openfermion_conversions`
+============================================================================
+
+.. py:module:: orquestra.integrations.forest.conversions._openfermion_conversions
+
+.. autoapi-nested-parse::
+
+   Translates OpenFermion Objects to pyQuil objects
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.integrations.forest.conversions._openfermion_conversions.qubitop_to_pyquilpauli
+   orquestra.integrations.forest.conversions._openfermion_conversions.pyquilpauli_to_qubitop
+
+
+
+.. py:function:: qubitop_to_pyquilpauli(qubit_operator: orquestra.quantum.openfermion.ops.QubitOperator) -> pyquil.paulis.PauliSum
+
+   Convert a OpenFermion QubitOperator to a PauliSum.
+
+   :param qubit_operator: OpenFermion QubitOperator to convert to a pyquil.PauliSum
+
+   :returns: PauliSum representing the qubit operator
+
+
+.. py:function:: pyquilpauli_to_qubitop(pyquil_pauli: Union[pyquil.paulis.PauliTerm, pyquil.paulis.PauliSum]) -> orquestra.quantum.openfermion.ops.QubitOperator
+
+   Convert a pyQuil PauliSum to a OpenFermion QubitOperator.
+
+   :param pyquil_pauli: pyQuil PauliTerm or PauliSum to convert to an
+
+   OpenFermion QubitOperator
+
+   :returns: QubitOperator representing the PauliSum or PauliTerm
+
+

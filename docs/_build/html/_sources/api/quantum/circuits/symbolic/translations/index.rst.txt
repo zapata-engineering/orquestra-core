@@ -1,0 +1,43 @@
+:py:mod:`quantum.circuits.symbolic.translations`
+================================================
+
+.. py:module:: quantum.circuits.symbolic.translations
+
+.. autoapi-nested-parse::
+
+   Utilities related to translation of symbolic expressions.
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   quantum.circuits.symbolic.translations.translate_expression
+   quantum.circuits.symbolic.translations.translate_number
+   quantum.circuits.symbolic.translations.translate_symbol
+   quantum.circuits.symbolic.translations.translate_function_call
+   quantum.circuits.symbolic.translations.translate_tuple
+
+
+
+.. py:function:: translate_expression(expression: Union[quantum.circuits.symbolic.expressions.Expression, Tuple[quantum.circuits.symbolic.expressions.Expression, Ellipsis]], dialect: quantum.circuits.symbolic.expressions.ExpressionDialect)
+
+
+.. py:function:: translate_number(number: numbers.Number, dialect: quantum.circuits.symbolic.expressions.ExpressionDialect)
+
+
+.. py:function:: translate_symbol(symbol: quantum.circuits.symbolic.expressions.Symbol, dialect: quantum.circuits.symbolic.expressions.ExpressionDialect)
+
+
+.. py:function:: translate_function_call(function_call: quantum.circuits.symbolic.expressions.FunctionCall, dialect: quantum.circuits.symbolic.expressions.ExpressionDialect)
+
+
+.. py:function:: translate_tuple(expression_tuple: Iterable[quantum.circuits.symbolic.expressions.Expression], dialect: quantum.circuits.symbolic.expressions.ExpressionDialect)
+
+

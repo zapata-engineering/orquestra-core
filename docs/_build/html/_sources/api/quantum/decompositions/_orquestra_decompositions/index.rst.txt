@@ -1,0 +1,55 @@
+:orphan:
+
+:py:mod:`quantum.decompositions._orquestra_decompositions`
+==========================================================
+
+.. py:module:: quantum.decompositions._orquestra_decompositions
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   quantum.decompositions._orquestra_decompositions.U3GateToRotation
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   quantum.decompositions._orquestra_decompositions.decompose_orquestra_circuit
+
+
+
+.. py:class:: U3GateToRotation
+
+   Bases: :py:obj:`orquestra.quantum.decompositions._decomposition.DecompositionRule`\ [\ :py:obj:`orquestra.quantum.circuits._gates.GateOperation`\ ]
+
+   Decomposition of Orquestra's U3 gate.
+
+   Note that this gets rid of global phase.
+
+   .. py:method:: predicate(self, operation: orquestra.quantum.circuits._gates.GateOperation) -> bool
+
+      Determine if this rule should be applied to given operation.
+
+
+   .. py:method:: production(self, operation: orquestra.quantum.circuits._gates.GateOperation) -> Iterable[orquestra.quantum.circuits._gates.GateOperation]
+
+      Decompose given operation.
+
+      Implementers should make sure that the result of applying the decomposed
+      sequence to any wavefunction is the same as after applying the original
+      operation.
+
+
+
+.. py:function:: decompose_orquestra_circuit(circuit: orquestra.quantum.circuits._circuit.Circuit, decomposition_rules: Sequence[orquestra.quantum.decompositions._decomposition.DecompositionRule[orquestra.quantum.circuits._gates.GateOperation]])
+
+

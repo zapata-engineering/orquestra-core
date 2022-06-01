@@ -1,0 +1,35 @@
+:py:mod:`opt.problems.max_independent_set`
+==========================================
+
+.. py:module:: opt.problems.max_independent_set
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   opt.problems.max_independent_set.MaxIndependentSet
+
+
+
+
+.. py:class:: MaxIndependentSet
+
+   Bases: :py:obj:`opt.api.problem.Problem`
+
+   Solves maximum independent set problem on an undirected graph using an
+   ising model formulation.
+
+   The solution to a maximum independent set is the largest set of nodes
+   which do not share an edge.
+   Based on "Efficient Combinatorial Optimization Using Quantum Annealing" p. 8
+   (https://arxiv.org/pdf/1801.08653.pdf)
+   and also mentioned briefly in
+   "Ising formulations of many NP problems" by A. Lucas, page 11 section 4.2
+   (https://arxiv.org/pdf/1302.5843.pdf).
+
+

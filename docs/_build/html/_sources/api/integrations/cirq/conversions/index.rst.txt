@@ -1,0 +1,60 @@
+:py:mod:`integrations.cirq.conversions`
+=======================================
+
+.. py:module:: integrations.cirq.conversions
+
+
+Package Contents
+----------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   integrations.cirq.conversions.export_to_cirq
+   integrations.cirq.conversions.import_from_cirq
+   integrations.cirq.conversions.qubitop_to_paulisum
+
+
+
+.. py:function:: export_to_cirq(gate: orquestra.quantum.circuits._gates.Gate) -> cirq.Gate
+              export_to_cirq(gate_operation: orquestra.quantum.circuits._gates.GateOperation) -> cirq.GateOperation
+              export_to_cirq(circuit: orquestra.quantum.circuits._circuit.Circuit) -> cirq.Circuit
+
+   Export given native Orquestra object to its Cirq equivalent.
+
+   This should be primarily used with Circuit objects, but
+   also works for builtin gates and gate operations.
+
+   Exporting of user-defined gates is atm not supported.
+
+
+.. py:function:: import_from_cirq(obj)
+
+   Import given Cirq object, converting it to its Orquestra counterpart.
+
+   Gates corresponding to Orquestra built-in gates, operations on such gates and
+   circuits composed of such gates will use the native definitions, e.g. `cirq.X` will
+   become `circuits.X`.
+
+   Importing gates from Cirq that don't have built-in counterparts in Orquestra will
+   result in custom gates. See `help(orquestra.quantum.circuits)` for examples of
+   custom gates.
+
+   Also note that only objects using only LineQubits are supported, as currently there
+   is no notion of GridQubit in Orquestra circuits.
+
+
+.. py:function:: qubitop_to_paulisum(qubit_operator: orquestra.quantum.openfermion.QubitOperator, qubits: Union[List[cirq.GridQubit], List[cirq.LineQubit]] = None) -> cirq.PauliSum
+
+   Convert and openfermion QubitOperator to a cirq PauliSum
+
+   :param qubit_operator: The openfermion operator to convert
+   :type qubit_operator: openfermion.QubitOperator
+   :param qubits():
+
+   :returns: cirq.PauliSum
+
+

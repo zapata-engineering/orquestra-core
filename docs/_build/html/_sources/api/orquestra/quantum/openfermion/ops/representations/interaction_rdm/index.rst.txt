@@ -1,0 +1,85 @@
+:py:mod:`orquestra.quantum.openfermion.ops.representations.interaction_rdm`
+===========================================================================
+
+.. py:module:: orquestra.quantum.openfermion.ops.representations.interaction_rdm
+
+.. autoapi-nested-parse::
+
+   Class and functions to store reduced density matrices.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.quantum.openfermion.ops.representations.interaction_rdm.InteractionRDM
+
+
+
+
+.. py:exception:: InteractionRDMError
+
+   Bases: :py:obj:`Exception`
+
+   Common base class for all non-exit exceptions.
+
+
+.. py:class:: InteractionRDM(one_body_tensor, two_body_tensor)
+
+   Bases: :py:obj:`orquestra.quantum.openfermion.ops.representations.PolynomialTensor`
+
+   Class for storing 1- and 2-body reduced density matrices.
+
+   .. attribute:: one_body_tensor
+
+      The expectation values <a^\dagger_p a_q>.
+
+   .. attribute:: two_body_tensor
+
+      The expectation values
+      <a^\dagger_p a^\dagger_q a_r a_s>.
+
+   .. py:method:: one_body_tensor(self)
+      :property:
+
+      The value of the one-body tensor.
+
+
+   .. py:method:: two_body_tensor(self)
+      :property:
+
+      The value of the two-body tensor.
+
+
+   .. py:method:: expectation(self, operator)
+
+      Return expectation value of an InteractionRDM with an operator.
+
+      :param operator: A QubitOperator or InteractionOperator.
+
+      :returns: Expectation value
+      :rtype: float
+
+      :raises InteractionRDMError: Invalid operator provided.
+
+
+   .. py:method:: get_qubit_expectations(self, qubit_operator)
+
+      Return expectations of QubitOperator in new QubitOperator.
+
+      :param qubit_operator: QubitOperator instance to be evaluated on
+                             this InteractionRDM.
+
+      :returns: QubitOperator with coefficients
+                corresponding to expectation values of those operators.
+      :rtype: QubitOperator
+
+      :raises InteractionRDMError: Observable not contained in 1-RDM or 2-RDM.
+
+
+

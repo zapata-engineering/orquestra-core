@@ -1,0 +1,24 @@
+:py:mod:`quantum.openfermion.config`
+====================================
+
+.. py:module:: quantum.openfermion.config
+
+
+Module Contents
+---------------
+
+.. py:data:: EQ_TOLERANCE
+   :annotation: = 1e-08
+
+   
+
+.. py:data:: THIS_DIRECTORY
+   
+
+   
+
+.. py:data:: DATA_DIRECTORY
+   
+
+   
+

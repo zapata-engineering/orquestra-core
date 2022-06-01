@@ -1,0 +1,98 @@
+:orphan:
+
+:py:mod:`orquestra.quantum.estimation._estimation`
+==================================================
+
+.. py:module:: orquestra.quantum.estimation._estimation
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.quantum.estimation._estimation.evaluate_estimation_circuits
+   orquestra.quantum.estimation._estimation.split_estimation_tasks_to_measure
+   orquestra.quantum.estimation._estimation.evaluate_non_measured_estimation_tasks
+   orquestra.quantum.estimation._estimation.estimate_expectation_values_by_averaging
+   orquestra.quantum.estimation._estimation.calculate_exact_expectation_values
+
+
+
+.. py:function:: evaluate_estimation_circuits(estimation_tasks: List[orquestra.quantum.api.estimation.EstimationTask], symbols_maps: List[Dict[sympy.Symbol, float]]) -> List[orquestra.quantum.api.estimation.EstimationTask]
+
+   Evaluates circuits given in all estimation tasks using the given symbols_maps.
+
+   If one symbols map is given, it is used to evaluate all circuits. Otherwise, the
+   symbols map at index i will be used for the estimation task at index i.
+
+   :param estimation_tasks: the estimation tasks which contain the circuits to be
+                            evaluated
+   :param symbols_maps: a list of dictionaries (or singular dictionary) that map the
+                        symbolic symbols used in the parametrized circuits to the associated values
+
+
+.. py:function:: split_estimation_tasks_to_measure(estimation_tasks: List[orquestra.quantum.api.estimation.EstimationTask]) -> Tuple[List[orquestra.quantum.api.estimation.EstimationTask], List[orquestra.quantum.api.estimation.EstimationTask], List[int], List[int]]
+
+   This function splits a given list of EstimationTask into two: one that
+   contains EstimationTasks that should be measured, and one that contains
+   EstimationTasks with constants or with 0 shots.
+
+   :param estimation_tasks: The list of estimation tasks for which
+                            Expectation Values are wanted.
+
+   :returns:
+
+             A new list of estimation tasks that only
+                 contains the ones that should actually be submitted to the backend
+             estimation_tasks_not_to_measure: A new list of estimation tasks that
+                 contains the EstimationTasks with only constant terms or with
+                 0 shot
+             indices_to_measure: A list containing the indices of the EstimationTasks we will
+                 actually measure, i.e. the ith estimation_tasks_to_measure expectation
+                 value will go into the indices_to_measure[i] position.
+             indices_not_to_measure: A list containing the indices of the EstimationTasks for
+                 constant terms or with 0 shot.
+   :rtype: estimation_tasks_to_measure
+
+
+.. py:function:: evaluate_non_measured_estimation_tasks(estimation_tasks: List[orquestra.quantum.api.estimation.EstimationTask]) -> List[orquestra.quantum.measurements.ExpectationValues]
+
+   This function evaluates a list of EstimationTask that are not
+   measured, and either contain only a constant term or require 0 shot.
+   Non-constant EstimationTask with 0 shot return 0.0 as their
+   ExpectationValue, with a precision of 0.0 as well.
+
+   :param estimation_tasks: The list of estimation tasks for which
+                            Expectation Values are wanted.
+
+   :returns:
+
+             the expectation values over non-measured terms,
+                 with their correlations and estimator_covariances.
+   :rtype: expectation_values
+
+
+.. py:function:: estimate_expectation_values_by_averaging(backend: orquestra.quantum.api.backend.QuantumBackend, estimation_tasks: List[orquestra.quantum.api.estimation.EstimationTask]) -> List[orquestra.quantum.measurements.ExpectationValues]
+
+   Basic method for estimating expectation values for list of estimation tasks.
+
+   It executes specified circuit and calculates expectation values based on the
+   measurements.
+
+   :param backend: backend used for executing circuits
+   :param estimation_tasks: list of estimation tasks
+
+
+.. py:function:: calculate_exact_expectation_values(backend: orquestra.quantum.api.backend.QuantumSimulator, estimation_tasks: List[orquestra.quantum.api.estimation.EstimationTask]) -> List[orquestra.quantum.measurements.ExpectationValues]
+
+   Calculates exact expectation values using built-in method of a provided backend.
+
+   :param backend: backend used for executing circuits
+   :param estimation_tasks: list of estimation tasks
+
+

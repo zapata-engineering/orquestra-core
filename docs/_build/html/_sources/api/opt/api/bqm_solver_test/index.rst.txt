@@ -1,0 +1,24 @@
+:py:mod:`opt.api.bqm_solver_test`
+=================================
+
+.. py:module:: opt.api.bqm_solver_test
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   opt.api.bqm_solver_test.BQMSolverTests
+
+
+
+
+.. py:class:: BQMSolverTests
+
+   Bases: :py:obj:`dimod.Sampler`
+
+

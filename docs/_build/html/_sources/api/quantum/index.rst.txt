@@ -1,0 +1,36 @@
+:py:mod:`quantum`
+=================
+
+.. py:module:: quantum
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   api/index.rst
+   circuits/index.rst
+   decompositions/index.rst
+   distributions/index.rst
+   estimation/index.rst
+   openfermion/index.rst
+   testing/index.rst
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   evolution/index.rst
+   measurements/index.rst
+   symbolic_simulator/index.rst
+   trackers/index.rst
+   typing/index.rst
+   utils/index.rst
+   wavefunction/index.rst
+
+

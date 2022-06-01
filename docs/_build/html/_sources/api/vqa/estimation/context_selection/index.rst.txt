@@ -1,0 +1,35 @@
+:py:mod:`vqa.estimation.context_selection`
+==========================================
+
+.. py:module:: vqa.estimation.context_selection
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   vqa.estimation.context_selection.get_context_selection_circuit_for_group
+   vqa.estimation.context_selection.perform_context_selection
+
+
+
+.. py:function:: get_context_selection_circuit_for_group(qubit_operator: orquestra.quantum.openfermion.QubitOperator) -> Tuple[orquestra.quantum.circuits.Circuit, orquestra.quantum.openfermion.IsingOperator]
+
+   Get the context selection circuit for measuring the expectation value
+   of a group of co-measurable Pauli terms.
+
+   :param qubit_operator: operator representing group of co-measurable Pauli term
+
+
+.. py:function:: perform_context_selection(estimation_tasks: List[orquestra.quantum.api.estimation.EstimationTask]) -> List[orquestra.quantum.api.estimation.EstimationTask]
+
+   Changes the circuits in estimation tasks to involve context selection.
+
+   :param estimation_tasks: list of estimation tasks
+
+

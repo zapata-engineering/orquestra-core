@@ -1,0 +1,104 @@
+:py:mod:`orquestra.quantum.circuits.symbolic.sympy_expressions`
+===============================================================
+
+.. py:module:: orquestra.quantum.circuits.symbolic.sympy_expressions
+
+.. autoapi-nested-parse::
+
+   Utilities for converting sympy expressions to our native Expression format.
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.quantum.circuits.symbolic.sympy_expressions.is_multiplication_by_reciprocal
+   orquestra.quantum.circuits.symbolic.sympy_expressions.is_addition_of_negation
+   orquestra.quantum.circuits.symbolic.sympy_expressions.expression_from_sympy
+   orquestra.quantum.circuits.symbolic.sympy_expressions.identity
+   orquestra.quantum.circuits.symbolic.sympy_expressions.symbol_from_sympy
+   orquestra.quantum.circuits.symbolic.sympy_expressions.native_integer_from_sympy_integer
+   orquestra.quantum.circuits.symbolic.sympy_expressions.native_float_from_sympy_float
+   orquestra.quantum.circuits.symbolic.sympy_expressions.native_float_from_sympy_rational
+   orquestra.quantum.circuits.symbolic.sympy_expressions.native_imaginary_unit_from_sympy_imaginary_unit
+   orquestra.quantum.circuits.symbolic.sympy_expressions.addition_from_sympy_add
+   orquestra.quantum.circuits.symbolic.sympy_expressions.multiplication_from_sympy_mul
+   orquestra.quantum.circuits.symbolic.sympy_expressions.power_from_sympy_pow
+   orquestra.quantum.circuits.symbolic.sympy_expressions.function_call_from_sympy_function
+   orquestra.quantum.circuits.symbolic.sympy_expressions.expression_tuple_from_tuple_of_sympy_args
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.quantum.circuits.symbolic.sympy_expressions.sympy_numbers
+   orquestra.quantum.circuits.symbolic.sympy_expressions.SYMPY_DIALECT
+
+
+.. py:data:: sympy_numbers
+   
+
+   
+
+.. py:function:: is_multiplication_by_reciprocal(sympy_mul: sympy.Mul) -> bool
+
+   Check if given sympy multiplication is of the form x * (1 / y).
+
+
+.. py:function:: is_addition_of_negation(sympy_add: sympy.Add) -> bool
+
+   Check if given sympy addition is of the form x + (-y).
+
+
+.. py:function:: expression_from_sympy(expression)
+
+   Parse Sympy expression into intermediate expression tree.
+
+
+.. py:function:: identity(number: numbers.Number)
+
+
+.. py:function:: symbol_from_sympy(symbol: sympy.Symbol)
+
+
+.. py:function:: native_integer_from_sympy_integer(number: sympy.Integer)
+
+
+.. py:function:: native_float_from_sympy_float(number: sympy.Float)
+
+
+.. py:function:: native_float_from_sympy_rational(number: sympy.Rational)
+
+
+.. py:function:: native_imaginary_unit_from_sympy_imaginary_unit(_unit: sympy.core.numbers.ImaginaryUnit)
+
+
+.. py:function:: addition_from_sympy_add(add: sympy.Add)
+
+
+.. py:function:: multiplication_from_sympy_mul(mul: sympy.Mul)
+
+
+.. py:function:: power_from_sympy_pow(power: sympy.Pow)
+
+
+.. py:function:: function_call_from_sympy_function(function: sympy.Function)
+
+
+.. py:function:: expression_tuple_from_tuple_of_sympy_args(args: tuple)
+
+
+.. py:data:: SYMPY_DIALECT
+   
+
+   
+

@@ -1,0 +1,41 @@
+:py:mod:`orquestra.integrations.qulacs.conversions`
+===================================================
+
+.. py:module:: orquestra.integrations.qulacs.conversions
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.integrations.qulacs.conversions.convert_to_qulacs
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.integrations.qulacs.conversions.ZQUANTUM_TO_QULACS_GATES
+   orquestra.integrations.qulacs.conversions.GATE_SPECIAL_CASES
+
+
+.. py:data:: ZQUANTUM_TO_QULACS_GATES
+   
+
+   
+
+.. py:data:: GATE_SPECIAL_CASES
+   
+
+   
+
+.. py:function:: convert_to_qulacs(circuit: orquestra.quantum.circuits.Circuit)
+
+

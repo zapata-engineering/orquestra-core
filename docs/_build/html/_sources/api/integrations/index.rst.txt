@@ -1,0 +1,18 @@
+:py:mod:`integrations`
+======================
+
+.. py:module:: integrations
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   cirq/index.rst
+   forest/index.rst
+   qiskit/index.rst
+   qulacs/index.rst
+
+

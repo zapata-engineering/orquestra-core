@@ -1,0 +1,32 @@
+:orphan:
+
+:py:mod:`integrations.cirq.conversions._openfermion_conversions`
+================================================================
+
+.. py:module:: integrations.cirq.conversions._openfermion_conversions
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   integrations.cirq.conversions._openfermion_conversions.qubitop_to_paulisum
+
+
+
+.. py:function:: qubitop_to_paulisum(qubit_operator: orquestra.quantum.openfermion.QubitOperator, qubits: Union[List[cirq.GridQubit], List[cirq.LineQubit]] = None) -> cirq.PauliSum
+
+   Convert and openfermion QubitOperator to a cirq PauliSum
+
+   :param qubit_operator: The openfermion operator to convert
+   :type qubit_operator: openfermion.QubitOperator
+   :param qubits():
+
+   :returns: cirq.PauliSum
+
+

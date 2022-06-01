@@ -1,0 +1,2240 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>quantum.openfermion.linalg.sparse_tools &#8212; Orquestra Core Documentation</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/togglebutton.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js"></script>
+    <script src="../../../../../_static/jquery.js"></script>
+    <script src="../../../../../_static/underscore.js"></script>
+    <script src="../../../../../_static/doctools.js"></script>
+    <script src="../../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../../../_static/togglebutton.js"></script>
+    <script src="../../../../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <link rel="shortcut icon" href="../../../../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" />
+    <link rel="next" title="quantum.openfermion.measurements" href="../../measurements/index.html" />
+    <link rel="prev" title="quantum.openfermion.linalg" href="../index.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../../../_static/orquestra.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Orquestra Core Documentation</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../../../tutorials/index.html">
+   Tutorials
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../../tutorials/beginner_tutorial.html">
+     Start from the Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../../tutorials/basic_qaoa.html">
+     Basic QAOA Tutorial
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../../tutorials/orq_core_structure.html">
+     Orquestra Core’s Structure
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../../tutorials/integrations.html">
+     Integrations, Modules, and Libraries in Orquestra Core
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../../tutorials/contributing.html">
+     Contributing to Orquestra Core
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../../../../index.html">
+   API Reference
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../../../integrations/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       integrations
+      </span>
+     </code>
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../../../integrations/cirq/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         integrations.cirq
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+      <label for="toctree-checkbox-4">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../integrations/cirq/conversions/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.cirq.conversions
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../integrations/cirq/decompositions/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.cirq.decompositions
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../integrations/cirq/noise/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.cirq.noise
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../integrations/cirq/simulator/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.cirq.simulator
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../../../integrations/forest/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         integrations.forest
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+      <label for="toctree-checkbox-5">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../integrations/forest/conversions/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.forest.conversions
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../integrations/forest/simulator/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.forest.simulator
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../../../integrations/qiskit/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         integrations.qiskit
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+      <label for="toctree-checkbox-6">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../integrations/qiskit/backend/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.qiskit.backend
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../integrations/qiskit/conversions/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.qiskit.conversions
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../integrations/qiskit/noise/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.qiskit.noise
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../integrations/qiskit/simulator/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.qiskit.simulator
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../../../integrations/qulacs/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         integrations.qulacs
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+      <label for="toctree-checkbox-7">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../integrations/qulacs/conversions/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.qulacs.conversions
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../integrations/qulacs/simulator/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.qulacs.simulator
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../../../vqa/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       vqa
+      </span>
+     </code>
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+    <label for="toctree-checkbox-8">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../../../vqa/ansatz/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         vqa.ansatz
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+      <label for="toctree-checkbox-9">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../vqa/ansatz/qcbm/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           vqa.ansatz.qcbm
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../vqa/ansatz/kbody/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           vqa.ansatz.kbody
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../vqa/ansatz/qaoa_farhi/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           vqa.ansatz.qaoa_farhi
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../vqa/ansatz/qaoa_warm_start/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           vqa.ansatz.qaoa_warm_start
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../vqa/ansatz/quantum_compiling/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           vqa.ansatz.quantum_compiling
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../vqa/ansatz/singlet_uccsd/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           vqa.ansatz.singlet_uccsd
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../vqa/grouping/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         vqa.grouping
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../vqa/parameter_initialization/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         vqa.parameter_initialization
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../vqa/shot_allocation/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         vqa.shot_allocation
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../../../vqa/testing/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         vqa.testing
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+      <label for="toctree-checkbox-10">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../vqa/testing/mock_objects/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           vqa.testing.mock_objects
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../vqa/utils/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         vqa.utils
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../../../opt/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       opt
+      </span>
+     </code>
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+    <label for="toctree-checkbox-11">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../../../opt/api/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         opt.api
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+      <label for="toctree-checkbox-12">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../opt/api/bqm_solver/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.api.bqm_solver
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../opt/api/bqm_solver_test/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.api.bqm_solver_test
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../opt/api/cost_function/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.api.cost_function
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../opt/api/example_functions/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.api.example_functions
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../opt/api/functions/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.api.functions
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../opt/api/optimizer/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.api.optimizer
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../opt/api/optimizer_test/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.api.optimizer_test
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../opt/api/problem/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.api.problem
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../opt/api/save_conditions/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.api.save_conditions
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../../../opt/bqm/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         opt.bqm
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+      <label for="toctree-checkbox-13">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../opt/bqm/conversions/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.bqm.conversions
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../opt/bqm/io/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.bqm.io
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../opt/bqm/utils/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.bqm.utils
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../../../opt/history/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         opt.history
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+      <label for="toctree-checkbox-14">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../opt/history/recorder/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.history.recorder
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../../../opt/optimizers/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         opt.optimizers
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+      <label for="toctree-checkbox-15">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../opt/optimizers/basin_hopping/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.optimizers.basin_hopping
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../opt/optimizers/cma_es_optimizer/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.optimizers.cma_es_optimizer
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../opt/optimizers/qiskit_optimizer/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.optimizers.qiskit_optimizer
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../opt/optimizers/scipy_optimizer/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.optimizers.scipy_optimizer
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../opt/optimizers/search_points_optimizer/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.optimizers.search_points_optimizer
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../opt/optimizers/simple_gradient_descent/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.optimizers.simple_gradient_descent
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../../../opt/problems/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         opt.problems
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+      <label for="toctree-checkbox-16">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../opt/problems/generators/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.problems.generators
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../opt/problems/graph/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.problems.graph
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../opt/problems/graph_partition/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.problems.graph_partition
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../opt/problems/max_independent_set/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.problems.max_independent_set
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../opt/problems/maxcut/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.problems.maxcut
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../opt/problems/vertex_cover/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.problems.vertex_cover
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../opt/convex/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         opt.convex
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../opt/cost_function_augmentations/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         opt.cost_function_augmentations
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../opt/gradients/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         opt.gradients
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../opt/mock_objects/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         opt.mock_objects
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 current active has-children">
+    <a class="reference internal" href="../../../index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       quantum
+      </span>
+     </code>
+    </a>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
+    <label for="toctree-checkbox-17">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul class="current">
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../../api/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         quantum.api
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
+      <label for="toctree-checkbox-18">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../api/backend/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.api.backend
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../api/backend_test/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.api.backend_test
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../api/estimation/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.api.estimation
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../api/estimator_contract/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.api.estimator_contract
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../../circuits/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         quantum.circuits
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/>
+      <label for="toctree-checkbox-19">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../circuits/symbolic/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.circuits.symbolic
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../circuits/layouts/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.circuits.layouts
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../decompositions/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         quantum.decompositions
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../../distributions/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         quantum.distributions
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/>
+      <label for="toctree-checkbox-20">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../distributions/BAS_dataset/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.distributions.BAS_dataset
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../distributions/clipped_negative_log_likelihood/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.distributions.clipped_negative_log_likelihood
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../distributions/jensen_shannon_divergence/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.distributions.jensen_shannon_divergence
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../distributions/mmd/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.distributions.mmd
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../distributions/target_thermal_states/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.distributions.target_thermal_states
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../estimation/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         quantum.estimation
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3 current active has-children">
+      <a class="reference internal" href="../../index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         quantum.openfermion
+        </span>
+       </code>
+      </a>
+      <input checked="" class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/>
+      <label for="toctree-checkbox-21">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul class="current">
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../chem/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.openfermion.chem
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../circuits/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.openfermion.circuits
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../hamiltonians/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.openfermion.hamiltonians
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4 current active">
+        <a class="reference internal" href="../index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.openfermion.linalg
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../measurements/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.openfermion.measurements
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../ops/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.openfermion.ops
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../testing/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.openfermion.testing
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../transforms/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.openfermion.transforms
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../utils/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.openfermion.utils
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../zapata_utils/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.openfermion.zapata_utils
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../config/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.openfermion.config
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../../testing/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         quantum.testing
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/>
+      <label for="toctree-checkbox-22">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../testing/generate_cases_for_backend_tests/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.testing.generate_cases_for_backend_tests
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../testing/mocks/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.testing.mocks
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../testing/test_cases_for_backend_tests/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.testing.test_cases_for_backend_tests
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../evolution/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         quantum.evolution
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../measurements/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         quantum.measurements
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../symbolic_simulator/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         quantum.symbolic_simulator
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../trackers/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         quantum.trackers
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../typing/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         quantum.typing
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../utils/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         quantum.utils
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../wavefunction/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         quantum.wavefunction
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../../../_sources/api/quantum/openfermion/linalg/sparse_tools/index.rst.txt"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.rst</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-contents">
+   Module Contents
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#functions">
+     Functions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#attributes">
+     Attributes
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.openfermion.linalg.sparse_tools.identity_csc">
+       identity_csc
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.openfermion.linalg.sparse_tools.pauli_x_csc">
+       pauli_x_csc
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.openfermion.linalg.sparse_tools.pauli_y_csc">
+       pauli_y_csc
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.openfermion.linalg.sparse_tools.pauli_z_csc">
+       pauli_z_csc
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.openfermion.linalg.sparse_tools.q_raise_csc">
+       q_raise_csc
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.openfermion.linalg.sparse_tools.q_lower_csc">
+       q_lower_csc
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.openfermion.linalg.sparse_tools.pauli_matrix_map">
+       pauli_matrix_map
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.openfermion.linalg.sparse_tools.wrapped_kronecker">
+       wrapped_kronecker
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.openfermion.linalg.sparse_tools.kronecker_operators">
+       kronecker_operators
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.openfermion.linalg.sparse_tools.jordan_wigner_ladder_sparse">
+       jordan_wigner_ladder_sparse
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.openfermion.linalg.sparse_tools.jordan_wigner_sparse">
+       jordan_wigner_sparse
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.openfermion.linalg.sparse_tools.qubit_operator_sparse">
+       qubit_operator_sparse
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.openfermion.linalg.sparse_tools.jw_configuration_state">
+       jw_configuration_state
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.openfermion.linalg.sparse_tools.jw_hartree_fock_state">
+       jw_hartree_fock_state
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.openfermion.linalg.sparse_tools.jw_number_indices">
+       jw_number_indices
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.openfermion.linalg.sparse_tools.jw_number_restrict_operator">
+       jw_number_restrict_operator
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.openfermion.linalg.sparse_tools.jw_get_ground_state_at_particle_number">
+       jw_get_ground_state_at_particle_number
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.openfermion.linalg.sparse_tools.get_density_matrix">
+       get_density_matrix
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.openfermion.linalg.sparse_tools.get_ground_state">
+       get_ground_state
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.openfermion.linalg.sparse_tools.eigenspectrum">
+       eigenspectrum
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.openfermion.linalg.sparse_tools.sparse_eigenspectrum">
+       sparse_eigenspectrum
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.openfermion.linalg.sparse_tools.expectation">
+       expectation
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.openfermion.linalg.sparse_tools.inner_product">
+       inner_product
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.openfermion.linalg.sparse_tools.get_sparse_operator">
+       get_sparse_operator
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.openfermion.linalg.sparse_tools.get_number_preserving_sparse_operator">
+       get_number_preserving_sparse_operator
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>quantum.openfermion.linalg.sparse_tools</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-contents">
+   Module Contents
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#functions">
+     Functions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#attributes">
+     Attributes
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.openfermion.linalg.sparse_tools.identity_csc">
+       identity_csc
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.openfermion.linalg.sparse_tools.pauli_x_csc">
+       pauli_x_csc
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.openfermion.linalg.sparse_tools.pauli_y_csc">
+       pauli_y_csc
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.openfermion.linalg.sparse_tools.pauli_z_csc">
+       pauli_z_csc
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.openfermion.linalg.sparse_tools.q_raise_csc">
+       q_raise_csc
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.openfermion.linalg.sparse_tools.q_lower_csc">
+       q_lower_csc
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.openfermion.linalg.sparse_tools.pauli_matrix_map">
+       pauli_matrix_map
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.openfermion.linalg.sparse_tools.wrapped_kronecker">
+       wrapped_kronecker
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.openfermion.linalg.sparse_tools.kronecker_operators">
+       kronecker_operators
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.openfermion.linalg.sparse_tools.jordan_wigner_ladder_sparse">
+       jordan_wigner_ladder_sparse
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.openfermion.linalg.sparse_tools.jordan_wigner_sparse">
+       jordan_wigner_sparse
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.openfermion.linalg.sparse_tools.qubit_operator_sparse">
+       qubit_operator_sparse
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.openfermion.linalg.sparse_tools.jw_configuration_state">
+       jw_configuration_state
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.openfermion.linalg.sparse_tools.jw_hartree_fock_state">
+       jw_hartree_fock_state
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.openfermion.linalg.sparse_tools.jw_number_indices">
+       jw_number_indices
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.openfermion.linalg.sparse_tools.jw_number_restrict_operator">
+       jw_number_restrict_operator
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.openfermion.linalg.sparse_tools.jw_get_ground_state_at_particle_number">
+       jw_get_ground_state_at_particle_number
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.openfermion.linalg.sparse_tools.get_density_matrix">
+       get_density_matrix
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.openfermion.linalg.sparse_tools.get_ground_state">
+       get_ground_state
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.openfermion.linalg.sparse_tools.eigenspectrum">
+       eigenspectrum
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.openfermion.linalg.sparse_tools.sparse_eigenspectrum">
+       sparse_eigenspectrum
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.openfermion.linalg.sparse_tools.expectation">
+       expectation
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.openfermion.linalg.sparse_tools.inner_product">
+       inner_product
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.openfermion.linalg.sparse_tools.get_sparse_operator">
+       get_sparse_operator
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.openfermion.linalg.sparse_tools.get_number_preserving_sparse_operator">
+       get_number_preserving_sparse_operator
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section id="module-quantum.openfermion.linalg.sparse_tools">
+<span id="quantum-openfermion-linalg-sparse-tools"></span><h1><a class="reference internal" href="#module-quantum.openfermion.linalg.sparse_tools" title="quantum.openfermion.linalg.sparse_tools"><code class="xref py py-mod docutils literal notranslate"><span class="pre">quantum.openfermion.linalg.sparse_tools</span></code></a><a class="headerlink" href="#module-quantum.openfermion.linalg.sparse_tools" title="Permalink to this headline">#</a></h1>
+<p>This module provides functions to interface with scipy.sparse.</p>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">#</a></h2>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">#</a></h3>
+<table class="autosummary longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.openfermion.linalg.sparse_tools.wrapped_kronecker" title="quantum.openfermion.linalg.sparse_tools.wrapped_kronecker"><code class="xref py py-obj docutils literal notranslate"><span class="pre">wrapped_kronecker</span></code></a>(operator_1, operator_2)</p></td>
+<td><p>Return the Kronecker product of two sparse.csc_matrix operators.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#quantum.openfermion.linalg.sparse_tools.kronecker_operators" title="quantum.openfermion.linalg.sparse_tools.kronecker_operators"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kronecker_operators</span></code></a>(*args)</p></td>
+<td><p>Return the Kronecker product of multiple sparse.csc_matrix operators.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.openfermion.linalg.sparse_tools.jordan_wigner_ladder_sparse" title="quantum.openfermion.linalg.sparse_tools.jordan_wigner_ladder_sparse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jordan_wigner_ladder_sparse</span></code></a>(n_qubits, tensor_factor, ladder_type)</p></td>
+<td><p>Make a matrix representation of a fermion ladder operator.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#quantum.openfermion.linalg.sparse_tools.jordan_wigner_sparse" title="quantum.openfermion.linalg.sparse_tools.jordan_wigner_sparse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jordan_wigner_sparse</span></code></a>(fermion_operator, n_qubits=None)</p></td>
+<td><p>Initialize a Scipy sparse matrix from a FermionOperator.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.openfermion.linalg.sparse_tools.qubit_operator_sparse" title="quantum.openfermion.linalg.sparse_tools.qubit_operator_sparse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">qubit_operator_sparse</span></code></a>(qubit_operator, n_qubits=None)</p></td>
+<td><p>Initialize a Scipy sparse matrix from a QubitOperator.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#quantum.openfermion.linalg.sparse_tools.jw_configuration_state" title="quantum.openfermion.linalg.sparse_tools.jw_configuration_state"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jw_configuration_state</span></code></a>(occupied_orbitals, n_qubits)</p></td>
+<td><p>Function to produce a basis state in the occupation number basis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.openfermion.linalg.sparse_tools.jw_hartree_fock_state" title="quantum.openfermion.linalg.sparse_tools.jw_hartree_fock_state"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jw_hartree_fock_state</span></code></a>(n_electrons, n_orbitals)</p></td>
+<td><p>Function to produce Hartree-Fock state in JW representation.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#quantum.openfermion.linalg.sparse_tools.jw_number_indices" title="quantum.openfermion.linalg.sparse_tools.jw_number_indices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jw_number_indices</span></code></a>(n_electrons, n_qubits)</p></td>
+<td><p>Return the indices for n_electrons in n_qubits under JW encoding</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.openfermion.linalg.sparse_tools.jw_number_restrict_operator" title="quantum.openfermion.linalg.sparse_tools.jw_number_restrict_operator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jw_number_restrict_operator</span></code></a>(operator, n_electrons, n_qubits=None)</p></td>
+<td><p>Restrict a Jordan-Wigner encoded operator to a given particle number</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#quantum.openfermion.linalg.sparse_tools.jw_get_ground_state_at_particle_number" title="quantum.openfermion.linalg.sparse_tools.jw_get_ground_state_at_particle_number"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jw_get_ground_state_at_particle_number</span></code></a>(sparse_operator, particle_number)</p></td>
+<td><p>Compute ground energy and state at a specified particle number.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.openfermion.linalg.sparse_tools.get_density_matrix" title="quantum.openfermion.linalg.sparse_tools.get_density_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_density_matrix</span></code></a>(states, probabilities)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#quantum.openfermion.linalg.sparse_tools.get_ground_state" title="quantum.openfermion.linalg.sparse_tools.get_ground_state"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_ground_state</span></code></a>(sparse_operator, initial_guess=None)</p></td>
+<td><p>Compute lowest eigenvalue and eigenstate.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.openfermion.linalg.sparse_tools.eigenspectrum" title="quantum.openfermion.linalg.sparse_tools.eigenspectrum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">eigenspectrum</span></code></a>(operator, n_qubits=None)</p></td>
+<td><p>Compute the eigenspectrum of an operator.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#quantum.openfermion.linalg.sparse_tools.sparse_eigenspectrum" title="quantum.openfermion.linalg.sparse_tools.sparse_eigenspectrum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sparse_eigenspectrum</span></code></a>(sparse_operator)</p></td>
+<td><p>Perform a dense diagonalization.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.openfermion.linalg.sparse_tools.expectation" title="quantum.openfermion.linalg.sparse_tools.expectation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">expectation</span></code></a>(operator, state)</p></td>
+<td><p>Compute the expectation value of an operator with a state.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#quantum.openfermion.linalg.sparse_tools.inner_product" title="quantum.openfermion.linalg.sparse_tools.inner_product"><code class="xref py py-obj docutils literal notranslate"><span class="pre">inner_product</span></code></a>(state_1, state_2)</p></td>
+<td><p>Compute inner product of two states.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.openfermion.linalg.sparse_tools.get_sparse_operator" title="quantum.openfermion.linalg.sparse_tools.get_sparse_operator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_sparse_operator</span></code></a>(operator, n_qubits=None, trunc=None, hbar=1.0)</p></td>
+<td><p>Map an operator to a sparse matrix.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#quantum.openfermion.linalg.sparse_tools.get_number_preserving_sparse_operator" title="quantum.openfermion.linalg.sparse_tools.get_number_preserving_sparse_operator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_number_preserving_sparse_operator</span></code></a>(fermion_op, num_qubits, num_electrons, spin_preserving=False, reference_determinant=None, excitation_level=None)</p></td>
+<td><p>Initialize a Scipy sparse matrix in a specific symmetry sector.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">#</a></h3>
+<table class="autosummary longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.openfermion.linalg.sparse_tools.identity_csc" title="quantum.openfermion.linalg.sparse_tools.identity_csc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">identity_csc</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#quantum.openfermion.linalg.sparse_tools.pauli_x_csc" title="quantum.openfermion.linalg.sparse_tools.pauli_x_csc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pauli_x_csc</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.openfermion.linalg.sparse_tools.pauli_y_csc" title="quantum.openfermion.linalg.sparse_tools.pauli_y_csc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pauli_y_csc</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#quantum.openfermion.linalg.sparse_tools.pauli_z_csc" title="quantum.openfermion.linalg.sparse_tools.pauli_z_csc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pauli_z_csc</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.openfermion.linalg.sparse_tools.q_raise_csc" title="quantum.openfermion.linalg.sparse_tools.q_raise_csc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_raise_csc</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#quantum.openfermion.linalg.sparse_tools.q_lower_csc" title="quantum.openfermion.linalg.sparse_tools.q_lower_csc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_lower_csc</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.openfermion.linalg.sparse_tools.pauli_matrix_map" title="quantum.openfermion.linalg.sparse_tools.pauli_matrix_map"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pauli_matrix_map</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py data">
+<dt class="sig sig-object py" id="quantum.openfermion.linalg.sparse_tools.identity_csc">
+<span class="sig-prename descclassname"><span class="pre">quantum.openfermion.linalg.sparse_tools.</span></span><span class="sig-name descname"><span class="pre">identity_csc</span></span><a class="headerlink" href="#quantum.openfermion.linalg.sparse_tools.identity_csc" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="quantum.openfermion.linalg.sparse_tools.pauli_x_csc">
+<span class="sig-prename descclassname"><span class="pre">quantum.openfermion.linalg.sparse_tools.</span></span><span class="sig-name descname"><span class="pre">pauli_x_csc</span></span><a class="headerlink" href="#quantum.openfermion.linalg.sparse_tools.pauli_x_csc" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="quantum.openfermion.linalg.sparse_tools.pauli_y_csc">
+<span class="sig-prename descclassname"><span class="pre">quantum.openfermion.linalg.sparse_tools.</span></span><span class="sig-name descname"><span class="pre">pauli_y_csc</span></span><a class="headerlink" href="#quantum.openfermion.linalg.sparse_tools.pauli_y_csc" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="quantum.openfermion.linalg.sparse_tools.pauli_z_csc">
+<span class="sig-prename descclassname"><span class="pre">quantum.openfermion.linalg.sparse_tools.</span></span><span class="sig-name descname"><span class="pre">pauli_z_csc</span></span><a class="headerlink" href="#quantum.openfermion.linalg.sparse_tools.pauli_z_csc" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="quantum.openfermion.linalg.sparse_tools.q_raise_csc">
+<span class="sig-prename descclassname"><span class="pre">quantum.openfermion.linalg.sparse_tools.</span></span><span class="sig-name descname"><span class="pre">q_raise_csc</span></span><a class="headerlink" href="#quantum.openfermion.linalg.sparse_tools.q_raise_csc" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="quantum.openfermion.linalg.sparse_tools.q_lower_csc">
+<span class="sig-prename descclassname"><span class="pre">quantum.openfermion.linalg.sparse_tools.</span></span><span class="sig-name descname"><span class="pre">q_lower_csc</span></span><a class="headerlink" href="#quantum.openfermion.linalg.sparse_tools.q_lower_csc" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="quantum.openfermion.linalg.sparse_tools.pauli_matrix_map">
+<span class="sig-prename descclassname"><span class="pre">quantum.openfermion.linalg.sparse_tools.</span></span><span class="sig-name descname"><span class="pre">pauli_matrix_map</span></span><a class="headerlink" href="#quantum.openfermion.linalg.sparse_tools.pauli_matrix_map" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="quantum.openfermion.linalg.sparse_tools.wrapped_kronecker">
+<span class="sig-prename descclassname"><span class="pre">quantum.openfermion.linalg.sparse_tools.</span></span><span class="sig-name descname"><span class="pre">wrapped_kronecker</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">operator_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">operator_2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quantum.openfermion.linalg.sparse_tools.wrapped_kronecker" title="Permalink to this definition">#</a></dt>
+<dd><p>Return the Kronecker product of two sparse.csc_matrix operators.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="quantum.openfermion.linalg.sparse_tools.kronecker_operators">
+<span class="sig-prename descclassname"><span class="pre">quantum.openfermion.linalg.sparse_tools.</span></span><span class="sig-name descname"><span class="pre">kronecker_operators</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quantum.openfermion.linalg.sparse_tools.kronecker_operators" title="Permalink to this definition">#</a></dt>
+<dd><p>Return the Kronecker product of multiple sparse.csc_matrix operators.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="quantum.openfermion.linalg.sparse_tools.jordan_wigner_ladder_sparse">
+<span class="sig-prename descclassname"><span class="pre">quantum.openfermion.linalg.sparse_tools.</span></span><span class="sig-name descname"><span class="pre">jordan_wigner_ladder_sparse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_qubits</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tensor_factor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ladder_type</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quantum.openfermion.linalg.sparse_tools.jordan_wigner_ladder_sparse" title="Permalink to this definition">#</a></dt>
+<dd><p>Make a matrix representation of a fermion ladder operator.</p>
+<p>Operators are mapped as follows:
+a_j^dagger -&gt; Z_0 .. Z_{j-1} (X_j - iY_j) / 2
+a_j -&gt; Z_0 .. Z_{j-1} (X_j + iY_j) / 2</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>index</strong> – This is a nonzero integer. The integer indicates the tensor
+factor and the sign indicates raising or lowering.</p></li>
+<li><p><strong>n_qubits</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – Number qubits in the system Hilbert space.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The corresponding Scipy sparse matrix.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="quantum.openfermion.linalg.sparse_tools.jordan_wigner_sparse">
+<span class="sig-prename descclassname"><span class="pre">quantum.openfermion.linalg.sparse_tools.</span></span><span class="sig-name descname"><span class="pre">jordan_wigner_sparse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fermion_operator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_qubits</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quantum.openfermion.linalg.sparse_tools.jordan_wigner_sparse" title="Permalink to this definition">#</a></dt>
+<dd><p>Initialize a Scipy sparse matrix from a FermionOperator.</p>
+<p>Operators are mapped as follows:
+a_j^dagger -&gt; Z_0 .. Z_{j-1} (X_j - iY_j) / 2
+a_j -&gt; Z_0 .. Z_{j-1} (X_j + iY_j) / 2</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fermion_operator</strong> (<a class="reference internal" href="../../../../orquestra/quantum/openfermion/index.html#orquestra.quantum.openfermion.FermionOperator" title="orquestra.quantum.openfermion.FermionOperator"><em>FermionOperator</em></a>) – instance of the FermionOperator
+class.</p></li>
+<li><p><strong>n_qubits</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – Number of qubits.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The corresponding Scipy sparse matrix.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="quantum.openfermion.linalg.sparse_tools.qubit_operator_sparse">
+<span class="sig-prename descclassname"><span class="pre">quantum.openfermion.linalg.sparse_tools.</span></span><span class="sig-name descname"><span class="pre">qubit_operator_sparse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qubit_operator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_qubits</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quantum.openfermion.linalg.sparse_tools.qubit_operator_sparse" title="Permalink to this definition">#</a></dt>
+<dd><p>Initialize a Scipy sparse matrix from a QubitOperator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qubit_operator</strong> (<a class="reference internal" href="../../../../orquestra/quantum/openfermion/index.html#orquestra.quantum.openfermion.QubitOperator" title="orquestra.quantum.openfermion.QubitOperator"><em>QubitOperator</em></a>) – instance of the QubitOperator class.</p></li>
+<li><p><strong>n_qubits</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – Number of qubits.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The corresponding Scipy sparse matrix.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="quantum.openfermion.linalg.sparse_tools.jw_configuration_state">
+<span class="sig-prename descclassname"><span class="pre">quantum.openfermion.linalg.sparse_tools.</span></span><span class="sig-name descname"><span class="pre">jw_configuration_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">occupied_orbitals</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_qubits</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quantum.openfermion.linalg.sparse_tools.jw_configuration_state" title="Permalink to this definition">#</a></dt>
+<dd><p>Function to produce a basis state in the occupation number basis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>occupied_orbitals</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a>) – A list of integers representing the indices
+of the occupied orbitals in the desired basis state</p></li>
+<li><p><strong>n_qubits</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The total number of qubits</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The basis state as a sparse matrix</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>basis_vector(sparse)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="quantum.openfermion.linalg.sparse_tools.jw_hartree_fock_state">
+<span class="sig-prename descclassname"><span class="pre">quantum.openfermion.linalg.sparse_tools.</span></span><span class="sig-name descname"><span class="pre">jw_hartree_fock_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_electrons</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_orbitals</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quantum.openfermion.linalg.sparse_tools.jw_hartree_fock_state" title="Permalink to this definition">#</a></dt>
+<dd><p>Function to produce Hartree-Fock state in JW representation.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="quantum.openfermion.linalg.sparse_tools.jw_number_indices">
+<span class="sig-prename descclassname"><span class="pre">quantum.openfermion.linalg.sparse_tools.</span></span><span class="sig-name descname"><span class="pre">jw_number_indices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_electrons</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_qubits</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quantum.openfermion.linalg.sparse_tools.jw_number_indices" title="Permalink to this definition">#</a></dt>
+<dd><p>Return the indices for n_electrons in n_qubits under JW encoding</p>
+<dl class="simple">
+<dt>Calculates the indices for all possible arrangements of n-electrons</dt><dd><p>within n-qubit orbitals when a Jordan-Wigner encoding is used.
+Useful for restricting generic operators or vectors to a particular
+particle number space when desired</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n_electrons</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – Number of particles to restrict the operator to</p></li>
+<li><p><strong>n_qubits</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – Number of qubits defining the total state</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>List of indices in a 2^n length array that indicate</dt><dd><p>the indices of constant particle number within n_qubits
+in a Jordan-Wigner encoding.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>indices(<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)">list</a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="quantum.openfermion.linalg.sparse_tools.jw_number_restrict_operator">
+<span class="sig-prename descclassname"><span class="pre">quantum.openfermion.linalg.sparse_tools.</span></span><span class="sig-name descname"><span class="pre">jw_number_restrict_operator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">operator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_electrons</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_qubits</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quantum.openfermion.linalg.sparse_tools.jw_number_restrict_operator" title="Permalink to this definition">#</a></dt>
+<dd><p>Restrict a Jordan-Wigner encoded operator to a given particle number</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sparse_operator</strong> (<em>ndarray</em><em> or </em><em>sparse</em>) – Numpy operator acting on
+the space of n_qubits.</p></li>
+<li><p><strong>n_electrons</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – Number of particles to restrict the operator to</p></li>
+<li><p><strong>n_qubits</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – Number of qubits defining the total state</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>Numpy operator restricted to</dt><dd><p>acting on states with the same particle number.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>new_operator(ndarray or sparse)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="quantum.openfermion.linalg.sparse_tools.jw_get_ground_state_at_particle_number">
+<span class="sig-prename descclassname"><span class="pre">quantum.openfermion.linalg.sparse_tools.</span></span><span class="sig-name descname"><span class="pre">jw_get_ground_state_at_particle_number</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sparse_operator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">particle_number</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quantum.openfermion.linalg.sparse_tools.jw_get_ground_state_at_particle_number" title="Permalink to this definition">#</a></dt>
+<dd><p>Compute ground energy and state at a specified particle number.</p>
+<p>Assumes the Jordan-Wigner transform. The input operator should be Hermitian
+and particle-number-conserving.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sparse_operator</strong> (<em>sparse</em>) – A Jordan-Wigner encoded sparse matrix.</p></li>
+<li><p><strong>particle_number</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The particle number at which to compute the ground
+energy and states</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>The lowest eigenvalue of sparse_operator within</dt><dd><p>the eigenspace of the number operator corresponding to
+particle_number.</p>
+</dd>
+</dl>
+<p>ground_state(ndarray): The ground state at the particle number</p>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ground_energy(<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)">float</a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="quantum.openfermion.linalg.sparse_tools.get_density_matrix">
+<span class="sig-prename descclassname"><span class="pre">quantum.openfermion.linalg.sparse_tools.</span></span><span class="sig-name descname"><span class="pre">get_density_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">states</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">probabilities</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quantum.openfermion.linalg.sparse_tools.get_density_matrix" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="quantum.openfermion.linalg.sparse_tools.get_ground_state">
+<span class="sig-prename descclassname"><span class="pre">quantum.openfermion.linalg.sparse_tools.</span></span><span class="sig-name descname"><span class="pre">get_ground_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sparse_operator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_guess</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quantum.openfermion.linalg.sparse_tools.get_ground_state" title="Permalink to this definition">#</a></dt>
+<dd><p>Compute lowest eigenvalue and eigenstate.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sparse_operator</strong> (<em>LinearOperator</em>) – Operator to find the ground state of.</p></li>
+<li><p><strong>initial_guess</strong> (<em>ndarray</em>) – Initial guess for ground state.  A good
+guess dramatically reduces the cost required to converge.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>eigenvalue</em> – The lowest eigenvalue, a float.</p></li>
+<li><p><em>eigenstate</em> – The lowest eigenstate in scipy.sparse csc format.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="quantum.openfermion.linalg.sparse_tools.eigenspectrum">
+<span class="sig-prename descclassname"><span class="pre">quantum.openfermion.linalg.sparse_tools.</span></span><span class="sig-name descname"><span class="pre">eigenspectrum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">operator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_qubits</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quantum.openfermion.linalg.sparse_tools.eigenspectrum" title="Permalink to this definition">#</a></dt>
+<dd><p>Compute the eigenspectrum of an operator.</p>
+<dl class="simple">
+<dt>WARNING: This function has cubic runtime in dimension of</dt><dd><p>Hilbert space operator, which might be exponential.</p>
+</dd>
+<dt>NOTE: This function does not currently support</dt><dd><p>QuadOperator and BosonOperator.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>operator</strong> – QubitOperator, InteractionOperator, FermionOperator,
+PolynomialTensor, or InteractionRDM.</p></li>
+<li><p><strong>n_qubits</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – number of qubits/modes in operator. if None, will
+be counted.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>dense numpy array of floats giving eigenspectrum.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>spectrum</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="quantum.openfermion.linalg.sparse_tools.sparse_eigenspectrum">
+<span class="sig-prename descclassname"><span class="pre">quantum.openfermion.linalg.sparse_tools.</span></span><span class="sig-name descname"><span class="pre">sparse_eigenspectrum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sparse_operator</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quantum.openfermion.linalg.sparse_tools.sparse_eigenspectrum" title="Permalink to this definition">#</a></dt>
+<dd><p>Perform a dense diagonalization.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The lowest eigenvalues in a numpy array.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>eigenspectrum</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="quantum.openfermion.linalg.sparse_tools.expectation">
+<span class="sig-prename descclassname"><span class="pre">quantum.openfermion.linalg.sparse_tools.</span></span><span class="sig-name descname"><span class="pre">expectation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">operator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quantum.openfermion.linalg.sparse_tools.expectation" title="Permalink to this definition">#</a></dt>
+<dd><p>Compute the expectation value of an operator with a state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>operator</strong> (<em>scipy.sparse.spmatrix</em><em> or </em><em>scipy.sparse.linalg.LinearOperator</em>) – The operator whose expectation value is desired.</p></li>
+<li><p><strong>state</strong> (<em>numpy.ndarray</em><em> or </em><em>scipy.sparse.spmatrix</em>) – A numpy array
+representing a pure state or a sparse matrix representing a density
+matrix. If <cite>operator</cite> is a LinearOperator, then this must be a
+numpy array.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A complex number giving the expectation value.</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.10)"><strong>ValueError</strong></a> – Input state has invalid format.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="quantum.openfermion.linalg.sparse_tools.inner_product">
+<span class="sig-prename descclassname"><span class="pre">quantum.openfermion.linalg.sparse_tools.</span></span><span class="sig-name descname"><span class="pre">inner_product</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state_2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quantum.openfermion.linalg.sparse_tools.inner_product" title="Permalink to this definition">#</a></dt>
+<dd><p>Compute inner product of two states.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="quantum.openfermion.linalg.sparse_tools.get_sparse_operator">
+<span class="sig-prename descclassname"><span class="pre">quantum.openfermion.linalg.sparse_tools.</span></span><span class="sig-name descname"><span class="pre">get_sparse_operator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">operator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_qubits</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trunc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hbar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quantum.openfermion.linalg.sparse_tools.get_sparse_operator" title="Permalink to this definition">#</a></dt>
+<dd><p>Map an operator to a sparse matrix.</p>
+<p>If the input is not a QubitOperator, the Jordan-Wigner Transform is used.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>operator</strong> – Currently supported operators include:
+FermionOperator, QubitOperator, PolynomialTensor.</p></li>
+<li><p><strong>n_qubits</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – Number qubits in the system Hilbert space.
+Applicable only to fermionic systems.</p></li>
+<li><p><strong>trunc</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The size at which the Fock space should be truncated.
+Applicable only to bosonic systems.</p></li>
+<li><p><strong>hbar</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – the value of hbar to use in the definition of the
+canonical commutation relation [q_i, p_j] = delta_{ij} i hbar.
+Applicable only to the QuadOperator.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="quantum.openfermion.linalg.sparse_tools.get_number_preserving_sparse_operator">
+<span class="sig-prename descclassname"><span class="pre">quantum.openfermion.linalg.sparse_tools.</span></span><span class="sig-name descname"><span class="pre">get_number_preserving_sparse_operator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fermion_op</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_qubits</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_electrons</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin_preserving</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference_determinant</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">excitation_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quantum.openfermion.linalg.sparse_tools.get_number_preserving_sparse_operator" title="Permalink to this definition">#</a></dt>
+<dd><p>Initialize a Scipy sparse matrix in a specific symmetry sector.</p>
+<p>This method initializes a Scipy sparse matrix from a FermionOperator,
+explicitly working in a particular particle number sector. Optionally, it
+can also restrict the space to contain only states with a particular Sz.</p>
+<p>Finally, the Hilbert space can also be restricted to only those states
+which are reachable by excitations up to a fixed rank from an initial
+reference determinant.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fermion_op</strong> (<a class="reference internal" href="../../../../orquestra/quantum/openfermion/index.html#orquestra.quantum.openfermion.FermionOperator" title="orquestra.quantum.openfermion.FermionOperator"><em>FermionOperator</em></a>) – An instance of the FermionOperator class.
+It should not contain terms which do not preserve particle number.
+If spin_preserving is set to True it should also not contain terms
+which do not preserve the Sz (it is assumed that the ordering of
+the indices goes alpha, beta, alpha, beta, …).</p></li>
+<li><p><strong>num_qubits</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The total number of qubits / spin-orbitals in the
+system.</p></li>
+<li><p><strong>num_electrons</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The number of particles in the desired Hilbert
+space.</p></li>
+<li><p><strong>spin_preserving</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – Whether or not the constructed operator should
+be defined in a space which has support only on states with the
+same Sz value as the reference_determinant.</p></li>
+<li><p><strong>reference_determinant</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a><em>(</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>)</em>) – A list, whose length is equal to
+num_qubits, which specifies which orbitals should be occupied in
+the reference state. If spin_preserving is set to True then the Sz
+value of this reference state determines the Sz value of the
+symmetry sector in which the generated operator acts. If a value
+for excitation_level is provided then the excitations are generated
+with respect to the reference state. In any case, the ordering of
+the states in the matrix representation of the operator depends on
+reference_determinant and the state corresponding to
+reference_determinant is the vector [1.0, 0.0, 0.0 … 0.0]. Can be
+set to None in order to take the first num_electrons orbitals to be
+the occupied orbitals.</p></li>
+<li><p><strong>excitation_level</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The number of excitations from the reference
+state which should be included in the generated operator’s matrix
+representation. Can be set to None to include all levels of
+excitation.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>A sparse matrix representation of</dt><dd><p>fermion_op in the basis set by the arguments.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>sparse_op(scipy.sparse.csc_matrix)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../index.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><code class="xref py py-mod docutils literal notranslate"><span class="pre">quantum.openfermion.linalg</span></code></p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../../measurements/index.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><code class="xref py py-mod docutils literal notranslate"><span class="pre">quantum.openfermion.measurements</span></code></p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By michal.stechly@zapatacomputing.com<br/>
+  
+      &copy; Copyright 2022, Zapata Computing, Inc.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

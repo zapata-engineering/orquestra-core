@@ -1,0 +1,70 @@
+:py:mod:`orquestra.opt.convex`
+==============================
+
+.. py:module:: orquestra.opt.convex
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.opt.convex.solve_qp_problem_for_psd_matrix
+   orquestra.opt.convex.solve_qp_problem_with_optimizer
+   orquestra.opt.convex.is_matrix_positive_semidefinite
+
+
+
+.. py:function:: solve_qp_problem_for_psd_matrix(matrix: numpy.ndarray, symmetrize: bool = True) -> Tuple[numpy.ndarray, float]
+
+   Solves a quadratic programming (QP) optimization problem. The matrix should
+   be positive semi-definite. This implementation assumes that the domain of
+   the solution are variables between 0 and 1. If matrix is not positive
+   semi-definite, `solve_qp_problem_with_optimizer` method should be used.
+
+   .. rubric:: Notes
+
+   We are aware of the fact that in the specified domain the solution is
+   always a vector of zeros, but decided to leave the implementation as it is
+   in case the domain changes in future.
+
+   :param matrix: a matrix representing the problem.
+   :param symmetrize: a flag indicating whether the matrix should be symmetrized.
+
+   :returns: vector representing solution to the problem.
+             float: optimal value of the solution.
+   :rtype: np.ndarray
+
+
+.. py:function:: solve_qp_problem_with_optimizer(matrix: numpy.ndarray, optimizer: api.Optimizer, number_of_trials: int = 1, symmetrize: bool = True) -> Tuple[numpy.ndarray, float]
+
+   Solves a quadratic programming (QP) optimization problem.
+   This implementation assumes that the domain of the solution are variables
+   between 0 and 1.
+
+   :param matrix: a matrix representing the problem.
+   :param optimizer: an optimizer to be used to solve the problem. Optimizer should
+                     support constraints.
+   :param number_of_trials: specifies the number of times problem will be solved.
+                            Only the best solution will be returned.
+   :param symmetrize: a flag indicating whether the matrix should be symmetrized.
+
+   :returns: vector representing solution to the problem
+             float: optimal value of the solution
+   :rtype: np.ndarray
+
+
+.. py:function:: is_matrix_positive_semidefinite(matrix: numpy.ndarray) -> bool
+
+   Checks whether matrix is positive semi-definite.
+
+   :param matrix: a matrix that should be checked.
+
+   :returns: True if matrix is positive semi-definite, False otherwise.
+   :rtype: bool
+
+

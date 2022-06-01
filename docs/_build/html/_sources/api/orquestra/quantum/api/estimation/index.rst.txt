@@ -1,0 +1,81 @@
+:py:mod:`orquestra.quantum.api.estimation`
+==========================================
+
+.. py:module:: orquestra.quantum.api.estimation
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.quantum.api.estimation.EstimationTask
+   orquestra.quantum.api.estimation.EstimationPreprocessor
+   orquestra.quantum.api.estimation.EstimateExpectationValues
+   orquestra.quantum.api.estimation.EstimationTasksFactory
+
+
+
+
+.. py:class:: EstimationTask
+
+   Data class defining an estimation problem.
+
+   :param operator: Operator for which we want to calculate the expectation values
+   :param circuit: Circuit used for evaluating the operator
+   :param constraints: Define constraints used in the estimation process,
+                       e.g. number of shots or target accuracy.
+
+   .. py:attribute:: operator
+      :annotation: :orquestra.quantum.openfermion.SymbolicOperator
+
+      
+
+   .. py:attribute:: circuit
+      :annotation: :orquestra.quantum.circuits.Circuit
+
+      
+
+   .. py:attribute:: number_of_shots
+      :annotation: :Optional[int]
+
+      
+
+
+.. py:class:: EstimationPreprocessor
+
+   Bases: :py:obj:`typing_extensions.Protocol`
+
+   Protocol defining function which transforms a list of EstimationTasks
+   into another list of EstimationTasks.
+
+
+.. py:class:: EstimateExpectationValues
+
+   Bases: :py:obj:`typing_extensions.Protocol`
+
+   Protocol defining a function that estimates expectation values for a list of
+   estimation tasks. Implementations of this protocol should obey the following rules:
+   1. Return one ExpectationValue for each EstimationTask.
+   2. The order in which ExpectationValues are returned should match the order
+      in which EstimationTasks were provided.
+   3. Number of entries in each ExpectationValue is not restricted.
+   4. Output ExpectationValue should include coefficients of the terms/operators.
+   5. estimation_tasks can include tasks where operator consists of a constant term or
+       contains a constant term. The implemented method should include the
+       contributions of such constant terms in the return value.
+
+
+.. py:class:: EstimationTasksFactory
+
+   Bases: :py:obj:`typing_extensions.Protocol`
+
+   Factory from producing estimation tasks from R^n vectors.
+
+   For instance, this can be used with ansatzes where produced estimation tasks
+   are evaluating circuit.
+
+

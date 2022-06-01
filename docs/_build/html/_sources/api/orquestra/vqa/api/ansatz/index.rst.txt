@@ -1,0 +1,78 @@
+:py:mod:`orquestra.vqa.api.ansatz`
+==================================
+
+.. py:module:: orquestra.vqa.api.ansatz
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.vqa.api.ansatz.Ansatz
+
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.vqa.api.ansatz.SymbolsSortKey
+
+
+.. py:data:: SymbolsSortKey
+   
+
+   
+
+.. py:class:: Ansatz(number_of_layers: int)
+
+   Bases: :py:obj:`abc.ABC`, :py:obj:`overrides.EnforceOverrides`
+
+   Helper class that provides a standard way to create an ABC using
+   inheritance.
+
+   .. py:attribute:: supports_parametrized_circuits
+      :annotation: :Optional[bool]
+
+      
+
+   .. py:attribute:: number_of_layers
+      
+
+      
+
+   .. py:method:: parametrized_circuit(self) -> orquestra.quantum.circuits.Circuit
+      :property:
+
+      Returns a parametrized circuit if given ansatz supports it.
+
+
+   .. py:method:: number_of_qubits(self) -> int
+      :property:
+
+      Returns number of qubits ansatz circuit uses
+
+
+   .. py:method:: number_of_params(self) -> int
+      :property:
+
+      Returns number of parameters in the ansatz.
+
+
+   .. py:method:: get_executable_circuit(self, params: numpy.ndarray) -> orquestra.quantum.circuits.Circuit
+
+      Returns an executable circuit representing the ansatz.
+      :param params: circuit parameters
+
+
+   .. py:method:: symbols_sort_key(self) -> SymbolsSortKey
+      :property:
+
+
+

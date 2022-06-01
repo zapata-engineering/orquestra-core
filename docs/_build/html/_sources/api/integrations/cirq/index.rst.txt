@@ -1,0 +1,18 @@
+:py:mod:`integrations.cirq`
+===========================
+
+.. py:module:: integrations.cirq
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   conversions/index.rst
+   decompositions/index.rst
+   noise/index.rst
+   simulator/index.rst
+
+

@@ -1,0 +1,48 @@
+:py:mod:`opt.api.cost_function`
+===============================
+
+.. py:module:: opt.api.cost_function
+
+.. autoapi-nested-parse::
+
+   Interfaces related to cost functions.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   opt.api.cost_function.ParameterPreprocessor
+
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   opt.api.cost_function.CostFunction
+
+
+.. py:data:: CostFunction
+   
+
+   
+
+.. py:class:: ParameterPreprocessor
+
+   Bases: :py:obj:`typing_extensions.Protocol`
+
+   Parameter preprocessor.
+
+   Implementer of this protocol should create new array instead of
+   modifying passed parameters in place, which can have unpredictable
+   side effects.
+
+

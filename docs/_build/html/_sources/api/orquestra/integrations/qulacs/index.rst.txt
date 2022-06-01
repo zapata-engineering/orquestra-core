@@ -1,0 +1,71 @@
+:py:mod:`orquestra.integrations.qulacs`
+=======================================
+
+.. py:module:: orquestra.integrations.qulacs
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   conversions/index.rst
+   simulator/index.rst
+
+
+Package Contents
+----------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.integrations.qulacs.QulacsSimulator
+
+
+
+
+.. py:class:: QulacsSimulator
+
+   Bases: :py:obj:`orquestra.quantum.api.backend.QuantumSimulator`
+
+   Simulator capable of computing exact wavefunction.
+
+   Note that in contrast to non-simulator QuantumBackends, simulators
+   are capable of simulating operations that are not natively supported
+   by libraries/services they wrap. Therefore, simulation of a circuit may
+   get broken into several smaller circuits. Each native circuit run
+   using the wrapped library or service counts towards number_of_circuits
+   run and number_of_jobs_run. However, if simulated circuit comprises only
+   natively supported operation AND concrete implementation does not change
+   counting methodology, each simulated circuit corresponds to an increase
+   of both those numbers by one.
+
+   .. py:attribute:: supports_batching
+      :annotation: = False
+
+      
+
+   .. py:method:: run_circuit_and_measure(self, circuit: orquestra.quantum.circuits.Circuit, n_samples: int) -> orquestra.quantum.measurements.Measurements
+
+      Run a circuit and measure a certain number of bitstrings
+
+      :param circuit: the circuit to prepare the state
+      :param n_samples: the number of bitstrings to sample
+
+
+   .. py:method:: get_exact_expectation_values(self, circuit: orquestra.quantum.circuits.Circuit, qubit_operator: orquestra.quantum.openfermion.SymbolicOperator) -> orquestra.quantum.measurements.ExpectationValues
+
+      Calculates the expectation values for given operator, based on the exact
+      quantum state produced by circuit.
+
+      :param circuit: quantum circuit to be executed.
+      :param operator: Operator for which we calculate the expectation value.
+
+
+   .. py:method:: can_be_executed_natively(self, operation: Any) -> bool
+
+
+

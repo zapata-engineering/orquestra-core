@@ -1,0 +1,31 @@
+:py:mod:`opt`
+=============
+
+.. py:module:: opt
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   api/index.rst
+   bqm/index.rst
+   history/index.rst
+   optimizers/index.rst
+   problems/index.rst
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   convex/index.rst
+   cost_function_augmentations/index.rst
+   gradients/index.rst
+   mock_objects/index.rst
+
+

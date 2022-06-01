@@ -1,0 +1,126 @@
+:py:mod:`opt.api.example_functions`
+===================================
+
+.. py:module:: opt.api.example_functions
+
+.. autoapi-nested-parse::
+
+   Examples of functions for which recorder works.
+
+   Note that none of this use ValueEstimate as a return value. This is because
+   recorders can work with callable objects of any return type.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   opt.api.example_functions.Function2
+   opt.api.example_functions.Function5
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   opt.api.example_functions.sum_of_squares
+   opt.api.example_functions.function_3
+   opt.api.example_functions.function_4
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   opt.api.example_functions.function_1
+   opt.api.example_functions.function_6
+
+
+.. py:function:: sum_of_squares(params)
+
+   Multidimensional sum of squares.
+
+   :param params: numbers to be squared and summed.
+
+   :returns: Sum of squares of numbers in params.
+
+
+.. py:data:: function_1
+   
+
+   
+
+.. py:class:: Function2(multiplier)
+
+   Example of function with gradient, this time implemented as a class.
+
+   This function is f((x, y, z)) = multiplier * (x - xy + z ** 2),
+   where multiplier is fixed.
+
+   :param multiplier: fixed multiplier, see equation above.
+
+   .. py:method:: gradient(self, params)
+
+      Compute value of gradient of this function for given params.
+
+      :param params: parameters of the gradient. The expected length is 3.
+
+      :returns: self.multiplier * [1 - y, -x, 2z] where x, y, z = params.
+
+
+
+.. py:function:: function_3(params: int, store_artifact=None)
+
+   An example of function that stores artifacts.
+
+   :param params: parameters for the function. Note that the name `params` is
+                  to follow the general conversion, but the function expects
+                  integer.
+   :param store_artifact: callback for storing artifacts. See StoreArtifact
+                          protocol for explanation.
+
+   :returns: The input argument multiplied by 2. As a side effect, binary
+             representation of the input argument is stored as "bitstring"
+             artifact.
+
+
+.. py:function:: function_4(params: int, store_artifact: Optional[opt.api.functions.StoreArtifact] = None) -> int
+
+   Another example of function that stores artifacts, but occasionally forces store.
+
+   This function is identical to function_3, except the artifact is forcefully
+   stored if input parameter is divisible by 2.
+
+
+.. py:class:: Function5(alpha)
+
+   Example of a function that stores artifacts and has gradient. Full service.
+
+   This function is f((x, y, z)) = alpha * xyz, where alpha is fixed.
+
+   :param alpha: parameter for this function, see equation above.
+
+   .. py:method:: gradient(self, params)
+
+      Compute value of gradient of this function for given params.
+
+      :param params: parameters of the gradient. The expected length is 3.
+
+      :returns: self.alpha * [yz, xz, xy] where x, y, z = params.
+
+
+
+.. py:data:: function_6
+   
+
+   
+

@@ -1,0 +1,277 @@
+:py:mod:`quantum.openfermion.transforms.opconversions`
+======================================================
+
+.. py:module:: quantum.openfermion.transforms.opconversions
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   bravyi_kitaev/index.rst
+   conversions/index.rst
+   jordan_wigner/index.rst
+   reverse_jordan_wigner/index.rst
+   term_reordering/index.rst
+
+
+Package Contents
+----------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   quantum.openfermion.transforms.opconversions.bravyi_kitaev
+   quantum.openfermion.transforms.opconversions.inline_product
+   quantum.openfermion.transforms.opconversions.inline_sum
+   quantum.openfermion.transforms.opconversions.check_no_sympy
+   quantum.openfermion.transforms.opconversions.get_fermion_operator
+   quantum.openfermion.transforms.opconversions.jordan_wigner
+   quantum.openfermion.transforms.opconversions.jordan_wigner_one_body
+   quantum.openfermion.transforms.opconversions.jordan_wigner_two_body
+   quantum.openfermion.transforms.opconversions.reverse_jordan_wigner
+   quantum.openfermion.transforms.opconversions.chemist_ordered
+   quantum.openfermion.transforms.opconversions.normal_ordered
+   quantum.openfermion.transforms.opconversions.normal_ordered_ladder_term
+   quantum.openfermion.transforms.opconversions.reorder
+
+
+
+.. py:function:: bravyi_kitaev(operator, n_qubits=None)
+
+   Apply the Bravyi-Kitaev transform.
+
+   Implementation from arXiv:quant-ph/0003137 and
+   "A New Data Structure for Cumulative Frequency Tables" by Peter M. Fenwick.
+
+   Note that this implementation is equivalent to the one described in
+   arXiv:1208.5986, and is different from the one described in
+   arXiv:1701.07072. The one described in arXiv:1701.07072 is implemented
+   in OpenFermion as `bravyi_kitaev_tree`.
+
+   :param operator: A FermionOperator to transform.
+   :type operator: openfermion.ops.FermionOperator
+   :param n_qubits: Can force the number of qubits in the resulting operator above the
+                    number that appear in the input operator.
+   :type n_qubits: int|None
+
+   :returns: An instance of the QubitOperator class.
+   :rtype: transformed_operator
+
+   :raises ValueError: Invalid number of qubits specified.
+
+
+.. py:function:: inline_product(factors, seed)
+
+   Computes a product, using the __imul__ operator.
+   :param seed: The starting total. The unit value.
+   :type seed: T
+   :param factors: Values to multiply (with *=) into the total.
+   :type factors: iterable[T]
+
+   :returns: The result of multiplying all the factors into the unit value.
+   :rtype: T
+
+
+.. py:function:: inline_sum(summands, seed)
+
+   Computes a sum, using the __iadd__ operator.
+   :param seed: The starting total. The zero value.
+   :type seed: T
+   :param summands: Values to add (with +=) into the total.
+   :type summands: iterable[T]
+
+   :returns: The result of adding all the factors into the zero value.
+   :rtype: T
+
+
+.. py:function:: check_no_sympy(operator)
+
+   Checks whether a SymbolicOperator contains any
+   sympy expressions, which will prevent it being converted
+   to a PolynomialTensor
+
+   :param operator: the operator to be tested
+   :type operator: SymbolicOperator
+
+
+.. py:function:: get_fermion_operator(operator)
+
+   Convert to FermionOperator.
+
+   :returns: An instance of the FermionOperator class.
+   :rtype: fermion_operator
+
+
+.. py:function:: jordan_wigner(operator)
+
+   Apply the Jordan-Wigner transform to a FermionOperator,
+   or InteractionOperator, to convert to a QubitOperator.
+
+   Operators are mapped as follows:
+   a_j^\dagger -> Z_0 .. Z_{j-1} (X_j - iY_j) / 2
+   a_j -> Z_0 .. Z_{j-1} (X_j + iY_j) / 2
+
+   :returns: An instance of the QubitOperator class.
+   :rtype: transformed_operator
+
+   .. warning::
+
+      The runtime of this method is exponential in the maximum locality
+      of the original FermionOperator.
+
+   :raises TypeError: Operator must be a FermionOperator,
+       or InteractionOperator.
+
+
+.. py:function:: jordan_wigner_one_body(p, q, coefficient=1.0)
+
+   Map the term a^\dagger_p a_q + h.c. to QubitOperator.
+
+   Note that the diagonal terms are divided by a factor of 2
+   because they are equal to their own Hermitian conjugate.
+
+
+.. py:function:: jordan_wigner_two_body(p, q, r, s, coefficient=1.0)
+
+   Map the term a^\dagger_p a^\dagger_q a_r a_s + h.c. to QubitOperator.
+
+   Note that the diagonal terms are divided by a factor of two
+   because they are equal to their own Hermitian conjugate.
+
+
+.. py:function:: reverse_jordan_wigner(qubit_operator, n_qubits=None)
+
+   Transforms a QubitOperator into a FermionOperator using the
+   Jordan-Wigner transform.
+
+   Operators are mapped as follows:
+   Z_j -> I - 2 a^\dagger_j a_j
+   X_j -> (a^\dagger_j + a_j) Z_{j-1} Z_{j-2} .. Z_0
+   Y_j -> i (a^\dagger_j - a_j) Z_{j-1} Z_{j-2} .. Z_0
+
+   :param qubit_operator: the QubitOperator to be transformed.
+   :param n_qubits: the number of qubits term acts on. If not set, defaults
+                    to the maximum qubit number acted on by term.
+
+   :returns: An instance of the FermionOperator class.
+   :rtype: transformed_term
+
+   :raises TypeError: Input must be a QubitOperator.
+   :raises TypeError: Invalid number of qubits specified.
+   :raises TypeError: Pauli operators must be X, Y or Z.
+
+
+.. py:function:: chemist_ordered(fermion_operator)
+
+   Puts a two-body fermion operator in chemist ordering.
+
+   The normal ordering convention for chemists is different.
+   Rather than ordering the two-body term as physicists do, as
+   $a^\dagger a^\dagger a a$
+   the chemist ordering of the two-body term is
+   $a^\dagger a a^\dagger a$
+
+   TODO: This routine can be made more efficient.
+
+   :param fermion_operator: a fermion operator guarenteed to
+                            have number conserving one- and two-body fermion terms only.
+   :type fermion_operator: FermionOperator
+
+   :returns:
+
+             the input operator
+                 ordered in the chemistry convention.
+   :rtype: chemist_ordered_operator (FermionOperator)
+
+   :raises OperatorSpecificationError: Operator is not two-body number conserving.
+
+
+.. py:function:: normal_ordered(operator, hbar=1.0)
+
+   Compute and return the normal ordered form of a FermionOperator,
+   or InteractionOperator.
+
+   Due to the canonical commutation/anticommutation relations satisfied
+   by these operators, there are multiple forms that the same operator
+   can take. Here, we define the normal ordered form of each operator,
+   providing a distinct representation for distinct operators.
+
+   In our convention, normal ordering implies terms are ordered
+   from highest tensor factor (on left) to lowest (on right). In
+   addition:
+
+   * FermionOperators: a^\dagger comes before a
+
+   :param operator: an instance of the FermionOperator, or InteractionOperator classes.
+   :param hbar: the value of hbar used in the definition of the
+                commutator [q_i, p_j] = i hbar delta_ij. By default hbar=1.
+   :type hbar: float
+
+
+.. py:function:: normal_ordered_ladder_term(term, coefficient, parity=-1)
+
+   Return a normal ordered FermionOperator corresponding
+   to single term.
+
+   :param term: A sequence of tuples. The first element of each
+                tuple is an integer indicating the mode on which a fermion ladder
+                operator acts, starting from zero. The second element of each
+                tuple is an integer, either 1 or 0, indicating whether creation
+                or annihilation acts on that mode.
+   :type term: list or tuple
+   :param coefficient: The coefficient of the term.
+   :type coefficient: complex or float
+   :param parity: parity=-1 corresponds to a Fermionic term that should be
+                  ordered based on the canonical anti-commutation relations.
+                  parity=1 corresponds to a Bosonic term that should be ordered based
+                  on the canonical commutation relations.
+   :type parity: int
+
+   :returns:
+
+             a FermionOperator instance.
+                 The normal ordered form of the input.
+                 Note that this might have more terms.
+   :rtype: ordered_term
+
+   In our convention, normal ordering implies terms are ordered
+   from highest tensor factor (on left) to lowest (on right).
+   Also, ladder operators come first.
+
+   .. warning::
+
+      Even assuming that each creation or annihilation operator appears
+      at most a constant number of times in the original term, the
+      runtime of this method is exponential in the number of qubits.
+
+
+.. py:function:: reorder(operator, order_function, num_modes=None, reverse=False)
+
+   Changes the ladder operator order of the Hamiltonian based on the
+   provided order_function per mode index.
+
+   :param operator: the operator that will be reordered. must
+                    be a SymbolicOperator or any type of operator that inherits from
+                    SymbolicOperator.
+   :type operator: SymbolicOperator
+   :param order_function: a function per mode that is used to map the
+                          indexing. must have arguments mode index and num_modes.
+   :type order_function: func
+   :param num_modes: default None. User can provide the number of modes
+                     assumed for the system. if None, the number of modes will be
+                     calculated based on the Operator.
+   :type num_modes: int
+   :param reverse: default False. if set to True, the mode mapping is
+                   reversed. reverse = True will not revert back to original if
+                   num_modes calculated differs from original and reverted.
+   :type reverse: bool
+
+   Note: Every order function must take in a mode_idx and num_modes.
+
+

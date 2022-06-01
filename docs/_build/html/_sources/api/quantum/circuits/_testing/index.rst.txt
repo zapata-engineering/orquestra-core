@@ -1,0 +1,64 @@
+:orphan:
+
+:py:mod:`quantum.circuits._testing`
+===================================
+
+.. py:module:: quantum.circuits._testing
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   quantum.circuits._testing.create_random_circuit
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   quantum.circuits._testing.ONE_QUBIT_NO_PARAMS_GATES
+   quantum.circuits._testing.ONE_QUBIT_ONE_PARAM_GATES
+   quantum.circuits._testing.TWO_QUBITS_NO_PARAMS_GATES
+   quantum.circuits._testing.TWO_QUBITS_ONE_PARAM_GATES
+
+
+.. py:data:: ONE_QUBIT_NO_PARAMS_GATES
+   
+
+   
+
+.. py:data:: ONE_QUBIT_ONE_PARAM_GATES
+   
+
+   
+
+.. py:data:: TWO_QUBITS_NO_PARAMS_GATES
+   
+
+   
+
+.. py:data:: TWO_QUBITS_ONE_PARAM_GATES
+   
+
+   
+
+.. py:function:: create_random_circuit(n_qubits: int, n_gates: int, rng: numpy.random.Generator) -> quantum.circuits._circuit.Circuit
+
+   Generates random circuit acting on nqubits with ngates for testing purposes.
+   The resulting circuit it saved to file in JSON format under 'circuit.json'.
+
+   :param n_qubits: The number of qubits in the circuit
+   :param n_gates: The number of gates in the circuit
+   :param rng: Numpy random generator
+
+   :returns: Generated circuit.
+
+

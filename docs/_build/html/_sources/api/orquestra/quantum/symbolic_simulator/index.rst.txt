@@ -1,0 +1,43 @@
+:py:mod:`orquestra.quantum.symbolic_simulator`
+==============================================
+
+.. py:module:: orquestra.quantum.symbolic_simulator
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.quantum.symbolic_simulator.SymbolicSimulator
+
+
+
+
+.. py:class:: SymbolicSimulator(noise_model: Optional[Any] = None, device_connectivity: Optional[orquestra.quantum.circuits.layouts.CircuitConnectivity] = None, seed: Optional[int] = None)
+
+   Bases: :py:obj:`orquestra.quantum.api.backend.QuantumSimulator`
+
+   A simulator computing wavefunction by consecutive gate matrix multiplication.
+
+   :param seed: the seed of the sampler
+
+   .. py:method:: run_circuit_and_measure(self, circuit: orquestra.quantum.circuits.Circuit, n_samples: int, symbol_map: Optional[Dict[sympy.Symbol, Any]] = None) -> orquestra.quantum.measurements.Measurements
+
+      Run a circuit and measure a certain number of bitstrings
+
+      :param circuit: the circuit to prepare the state
+      :param n_samples: the number of bitstrings to sample
+
+
+   .. py:method:: is_natively_supported(self, operation: orquestra.quantum.circuits.Operation) -> bool
+
+      Determine if given operation is natively supported by this Simulator.
+
+      This method can be as a predicate in split_circuit function.
+
+
+

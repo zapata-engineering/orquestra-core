@@ -1,0 +1,57 @@
+:py:mod:`orquestra.vqa.opt.recursive_qaoa`
+==========================================
+
+.. py:module:: orquestra.vqa.opt.recursive_qaoa
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.vqa.opt.recursive_qaoa.RecursiveQAOA
+
+
+
+
+.. py:class:: RecursiveQAOA(n_c: int, cost_hamiltonian: orquestra.quantum.openfermion.IsingOperator, ansatz: orquestra.vqa.api.ansatz.Ansatz, inner_optimizer: orquestra.opt.api.optimizer.Optimizer, recorder: orquestra.opt.history.recorder.RecorderFactory = _recorder)
+
+   Bases: :py:obj:`orquestra.opt.api.optimizer.NestedOptimizer`
+
+   Optimizers that modify cost function throughout optimization.
+   An example of such optimizer could be on that freezes certain
+   parameters during every iteration or adds new layers of
+   the underlying circuit (so called layer-by-layer optimization).
+
+   See MockNestedOptimizer in orquestra.opt.mock_objects for an example.
+
+   :param inner_optimizer: Optimizer object used in the inner optimization loop.
+   :param recorder: recorder object which defines how to store the optimization history.
+
+   :returns:     opt_value,
+                 opt_params,
+                 nit: total number of iterations of inner_optimizer,
+                 nfev: total number of calls to cost function,
+                 history: a list of HistoryEntrys.
+                     If keep_history is False this should be an empty list.
+                 gradient_history: if the cost function is a FunctionWithGradient,
+                     this should be a list of HistoryEntrys representing
+                     previous calls to the gradient.
+   :rtype: An instance of OptimizeResult containing
+
+   .. py:method:: inner_optimizer(self) -> orquestra.opt.api.optimizer.Optimizer
+      :property:
+
+      Inner optimizer used by this optimizer.
+
+
+   .. py:method:: recorder(self) -> orquestra.opt.history.recorder.RecorderFactory
+      :property:
+
+      Factory for creating recorders of functions being minimized.
+
+
+

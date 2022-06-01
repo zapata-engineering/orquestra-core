@@ -1,0 +1,35 @@
+:py:mod:`orquestra.vqa.estimation.gibbs_objective`
+==================================================
+
+.. py:module:: orquestra.vqa.estimation.gibbs_objective
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.vqa.estimation.gibbs_objective.GibbsObjectiveEstimator
+
+
+
+
+.. py:class:: GibbsObjectiveEstimator(alpha: float)
+
+   Bases: :py:obj:`orquestra.quantum.api.estimation.EstimateExpectationValues`
+
+   Estimator calculating expectation value using Gibbs objective function method.
+
+   The main idea is that we exponentiate the negative expectation value of each
+   sample, which amplifies bitstrings with low energies while reducing the role
+   that high energy bitstrings play in determining the cost.
+
+   Reference:
+   https://arxiv.org/abs/1909.07621 Section III
+   "Quantum Optimization with a Novel Gibbs Objective Function and Ansatz Architecture Search"
+   L. Li, M. Fan, M. Coram, P. Riley, and S. Leichenauer
+
+

@@ -1,0 +1,118 @@
+:py:mod:`quantum.openfermion.hamiltonians.hubbard`
+==================================================
+
+.. py:module:: quantum.openfermion.hamiltonians.hubbard
+
+.. autoapi-nested-parse::
+
+   This module constructs Hamiltonians for the Fermi- and Bose-Hubbard models.
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   quantum.openfermion.hamiltonians.hubbard.fermi_hubbard
+
+
+
+.. py:function:: fermi_hubbard(x_dimension, y_dimension, tunneling, coulomb, chemical_potential=0.0, magnetic_field=0.0, periodic=True, spinless=False, particle_hole_symmetry=False)
+
+   Return symbolic representation of a Fermi-Hubbard Hamiltonian.
+
+   The idea of this model is that some fermions move around on a grid and the
+   energy of the model depends on where the fermions are.
+   The Hamiltonians of this model live on a grid of dimensions
+   `x_dimension` x `y_dimension`.
+   The grid can have periodic boundary conditions or not.
+   In the standard Fermi-Hubbard model (which we call the "spinful" model),
+   there is room for an "up" fermion and a "down" fermion at each site on the
+   grid. In this model, there are a total of `2N` spin-orbitals,
+   where `N = x_dimension * y_dimension` is the number of sites.
+   In the spinless model, there is only one spin-orbital per site
+   for a total of `N`.
+
+   The Hamiltonian for the spinful model has the form
+
+   $$
+       \begin{align}
+       H = &- t \sum_{\langle i,j \rangle} \sum_{\sigma}
+                    (a^\dagger_{i, \sigma} a_{j, \sigma} +
+                     a^\dagger_{j, \sigma} a_{i, \sigma})
+            + U \sum_{i} a^\dagger_{i, \uparrow} a_{i, \uparrow}
+                        a^\dagger_{i, \downarrow} a_{i, \downarrow}
+           \\
+           &- \mu \sum_i \sum_{\sigma} a^\dagger_{i, \sigma} a_{i, \sigma}
+            - h \sum_i (a^\dagger_{i, \uparrow} a_{i, \uparrow} -
+                      a^\dagger_{i, \downarrow} a_{i, \downarrow})
+       \end{align}
+   $$
+
+   where
+
+       - The indices $\langle i, j \rangle$ run over pairs
+         $i$ and $j$ of sites that are connected to each other
+         in the grid
+       - $\sigma \in \{\uparrow, \downarrow\}$ is the spin
+       - $t$ is the tunneling amplitude
+       - $U$ is the Coulomb potential
+       - $\mu$ is the chemical potential
+       - $h$ is the magnetic field
+
+   One can also construct the Hamiltonian for the spinless model, which
+   has the form
+
+   $$
+       H = - t \sum_{\langle i, j \rangle} (a^\dagger_i a_j + a^\dagger_j a_i)
+           + U \sum_{\langle i, j \rangle} a^\dagger_i a_i a^\dagger_j a_j
+           - \mu \sum_i a_i^\dagger a_i.
+   $$
+
+   :param x_dimension: The width of the grid.
+   :type x_dimension: int
+   :param y_dimension: The height of the grid.
+   :type y_dimension: int
+   :param tunneling: The tunneling amplitude $t$.
+   :type tunneling: float
+   :param coulomb: The attractive local interaction strength $U$.
+   :type coulomb: float
+   :param chemical_potential: The chemical potential
+                              $\mu$ at each site. Default value is 0.
+   :type chemical_potential: float, optional
+   :param magnetic_field: The magnetic field $h$
+                          at each site. Default value is 0. Ignored for the spinless case.
+   :type magnetic_field: float, optional
+   :param periodic: If True, add periodic boundary conditions.
+                    Default is True.
+   :type periodic: bool, optional
+   :param spinless: If True, return a spinless Fermi-Hubbard
+                    model. Default is False.
+   :type spinless: bool, optional
+   :param particle_hole_symmetry: If False, the repulsion
+                                  term corresponds to:
+
+                                  $$
+                                      U \sum_{k=1}^{N-1} a_k^\dagger a_k a_{k+1}^\dagger a_{k+1}
+                                  $$
+
+                                  If True, the repulsion term is replaced by:
+
+                                  $$
+                                      U \sum_{k=1}^{N-1} (a_k^\dagger a_k - \frac12)
+                                                         (a_{k+1}^\dagger a_{k+1} - \frac12)
+                                  $$
+
+                                  which is unchanged under a particle-hole transformation.
+                                  Default is False
+   :type particle_hole_symmetry: bool, optional
+
+   :returns: An instance of the FermionOperator class.
+   :rtype: hubbard_model
+
+

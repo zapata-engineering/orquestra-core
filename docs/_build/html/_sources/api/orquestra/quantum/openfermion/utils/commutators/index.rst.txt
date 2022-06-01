@@ -1,0 +1,83 @@
+:py:mod:`orquestra.quantum.openfermion.utils.commutators`
+=========================================================
+
+.. py:module:: orquestra.quantum.openfermion.utils.commutators
+
+.. autoapi-nested-parse::
+
+   Module to compute commutators, with optimizations for specific systems.
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.quantum.openfermion.utils.commutators.commutator
+   orquestra.quantum.openfermion.utils.commutators.anticommutator
+   orquestra.quantum.openfermion.utils.commutators.double_commutator
+
+
+
+.. py:function:: commutator(operator_a, operator_b)
+
+   Compute the commutator of two operators.
+
+   :param operator_a: Operators in commutator. Any operators
+                      are accepted so long as implicit subtraction and multiplication are
+                      supported; e.g. QubitOperators, FermionOperators, BosonOperators,
+                      or Scipy sparse matrices. 2D Numpy arrays are also supported.
+   :param operator_b: Operators in commutator. Any operators
+                      are accepted so long as implicit subtraction and multiplication are
+                      supported; e.g. QubitOperators, FermionOperators, BosonOperators,
+                      or Scipy sparse matrices. 2D Numpy arrays are also supported.
+
+   :raises TypeError: operator_a and operator_b are not of the same type.
+
+
+.. py:function:: anticommutator(operator_a, operator_b)
+
+   Compute the anticommutator of two operators.
+
+   :param operator_a: Operators in anticommutator. Any operators
+                      are accepted so long as implicit addition and multiplication are
+                      supported; e.g. QubitOperators, FermionOperators, BosonOperators,
+                      or Scipy sparse matrices. 2D Numpy arrays are also supported.
+   :param operator_b: Operators in anticommutator. Any operators
+                      are accepted so long as implicit addition and multiplication are
+                      supported; e.g. QubitOperators, FermionOperators, BosonOperators,
+                      or Scipy sparse matrices. 2D Numpy arrays are also supported.
+
+   :raises TypeError: operator_a and operator_b are not of the same type.
+
+
+.. py:function:: double_commutator(op1, op2, op3, indices2=None, indices3=None, is_hopping_operator2=None, is_hopping_operator3=None)
+
+   Return the double commutator [op1, [op2, op3]].
+
+   :param op1: operators for
+               the commutator. All three operators must be of the same type.
+   :type op1: FermionOperators or BosonOperators
+   :param op2: operators for
+               the commutator. All three operators must be of the same type.
+   :type op2: FermionOperators or BosonOperators
+   :param op3: operators for
+               the commutator. All three operators must be of the same type.
+   :type op3: FermionOperators or BosonOperators
+   :param indices2: The indices op2 and op3 act on.
+   :type indices2: set
+   :param indices3: The indices op2 and op3 act on.
+   :type indices3: set
+   :param is_hopping_operator2: Whether op2 is a hopping operator.
+   :type is_hopping_operator2: bool
+   :param is_hopping_operator3: Whether op3 is a hopping operator.
+   :type is_hopping_operator3: bool
+
+   :returns: The double commutator of the given operators.
+
+

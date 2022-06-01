@@ -1,0 +1,115 @@
+:py:mod:`orquestra.quantum.openfermion.testing.testing_utils`
+=============================================================
+
+.. py:module:: orquestra.quantum.openfermion.testing.testing_utils
+
+.. autoapi-nested-parse::
+
+   Functions useful for tests.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.quantum.openfermion.testing.testing_utils.EqualsTester
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.quantum.openfermion.testing.testing_utils.random_antisymmetric_matrix
+   orquestra.quantum.openfermion.testing.testing_utils.random_hermitian_matrix
+   orquestra.quantum.openfermion.testing.testing_utils.random_unitary_matrix
+   orquestra.quantum.openfermion.testing.testing_utils.random_qubit_operator
+   orquestra.quantum.openfermion.testing.testing_utils.random_interaction_operator
+   orquestra.quantum.openfermion.testing.testing_utils.module_importable
+
+
+
+.. py:function:: random_antisymmetric_matrix(n, real=False, seed=None)
+
+   Generate a random n x n antisymmetric matrix.
+
+
+.. py:function:: random_hermitian_matrix(n, real=False, seed=None)
+
+   Generate a random n x n Hermitian matrix.
+
+
+.. py:function:: random_unitary_matrix(n, real=False, seed=None)
+
+   Obtain a random n x n unitary matrix.
+
+
+.. py:function:: random_qubit_operator(n_qubits=16, max_num_terms=16, max_many_body_order=16, seed=None)
+
+
+.. py:function:: random_interaction_operator(n_orbitals, expand_spin=False, real=True, seed=None)
+
+   Generate a random instance of InteractionOperator.
+
+   :param n_orbitals: The number of orbitals.
+   :param expand_spin: Whether to expand each orbital symmetrically into two
+                       spin orbitals. Note that if this option is set to True, then
+                       the total number of orbitals will be doubled.
+   :param real: Whether to use only real numbers.
+   :param seed: A random number generator seed.
+
+
+.. py:class:: EqualsTester(test_case)
+
+   Bases: :py:obj:`object`
+
+   Tests equality against user-provided disjoint equivalence groups.
+
+   .. py:method:: add_equality_group(self, *group_items)
+
+      Tries to add a disjoint equivalence group to the equality tester.
+      This methods asserts that items within the group must all be equal to
+      each other, but not equal to any items in other groups that have been
+      or will be added.
+
+      :param \*group_items: The items making up the equivalence group.
+
+      :raises AssertError: Items within the group are not equal to each other, or
+          items in another group are equal to items within the new group,
+          or the items violate the equals-implies-same-hash rule.
+
+
+   .. py:method:: make_equality_pair(self, factory)
+
+      Tries to add a disjoint (item, item) group to the equality tester.
+      Uses the factory method to produce two different objects containing
+      equal items. Asserts that the two object are equal, but not equal to
+      any items in other groups that have been or will be added. Adds the
+      pair as a group.
+
+      :param factory: A method for producing independent
+                      copies of an item.
+      :type factory: Callable[[], Any]
+
+      :raises AssertError: The factory produces items not equal to each other, or
+          items in another group are equal to items from the factory, or
+          the items violate the equal-implies-same-hash rule.
+
+
+
+.. py:function:: module_importable(module)
+
+   Without importing it, returns whether python module is importable.
+
+   :param module: Name of module.
+   :type module: string
+
+   :returns: bool
+
+

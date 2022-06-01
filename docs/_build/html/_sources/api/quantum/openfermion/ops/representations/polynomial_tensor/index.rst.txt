@@ -1,0 +1,158 @@
+:py:mod:`quantum.openfermion.ops.representations.polynomial_tensor`
+===================================================================
+
+.. py:module:: quantum.openfermion.ops.representations.polynomial_tensor
+
+.. autoapi-nested-parse::
+
+   Base class for representating operators that are polynomials in the
+   fermionic ladder operators.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   quantum.openfermion.ops.representations.polynomial_tensor.PolynomialTensor
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   quantum.openfermion.ops.representations.polynomial_tensor.general_basis_change
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   quantum.openfermion.ops.representations.polynomial_tensor.COEFFICIENT_TYPES
+
+
+.. py:data:: COEFFICIENT_TYPES
+   
+
+   
+
+.. py:exception:: PolynomialTensorError
+
+   Bases: :py:obj:`Exception`
+
+   Common base class for all non-exit exceptions.
+
+
+.. py:function:: general_basis_change(general_tensor, rotation_matrix, key)
+
+   Change the basis of an general interaction tensor.
+
+   M'^{p_1p_2...p_n} = R^{p_1}_{a_1} R^{p_2}_{a_2} ...
+                       R^{p_n}_{a_n} M^{a_1a_2...a_n} R^{p_n}_{a_n}^T ...
+                       R^{p_2}_{a_2}^T R_{p_1}_{a_1}^T
+
+   where R is the rotation matrix, M is the general tensor, M' is the
+   transformed general tensor, and a_k and p_k are indices. The formula uses
+   the Einstein notation (implicit sum over repeated indices).
+
+   In case R is complex, the k-th R in the above formula need to be conjugated
+   if key has a 1 in the k-th place (meaning that the corresponding operator
+   is a creation operator).
+
+   :param general_tensor: A square numpy array or matrix containing information
+                          about a general interaction tensor.
+   :param rotation_matrix: A square numpy array or matrix having dimensions of
+                           n_qubits by n_qubits. Assumed to be unitary.
+   :param key: A tuple indicating the type of general_tensor. Assumed to be
+               non-empty. For example, a tensor storing coefficients of
+               $a^\dagger_p a_q$ would have a key of (1, 0) whereas a tensor
+               storing coefficients of $a^\dagger_p a_q a_r a^\dagger_s$
+               would have a key of (1, 0, 0, 1).
+
+   :returns: general_tensor in the rotated basis.
+   :rtype: transformed_general_tensor
+
+
+.. py:class:: PolynomialTensor(n_body_tensors)
+
+   Bases: :py:obj:`object`
+
+   Class for storing tensor representations of operators that correspond
+   with multilinear polynomials in the fermionic ladder operators.
+   For instance, in a quadratic Hamiltonian (degree 2 polynomial) which
+   conserves particle number, there are only terms of the form
+   a^\dagger_p a_q, and the coefficients can be stored in an
+   n_qubits x n_qubits matrix. Higher order terms would be described with
+   tensors of higher dimension. Note that each tensor must have an even
+   number of dimensions, since parity is conserved.
+   Much of the functionality of this class is redudant with FermionOperator
+   but enables much more efficient numerical computations in many cases,
+   such as basis rotations.
+
+   .. attribute:: n_qubits
+
+      The number of sites on which the tensor acts.
+
+      :type: int
+
+   .. attribute:: n_body_tensors
+
+      A dictionary storing the tensors describing
+      n-body interactions. The keys are tuples that indicate the
+      type of tensor. For instance, n_body_tensors[(1, 0)] would
+      be an (n_qubits x n_qubits) numpy array,
+      and it could represent the coefficients of terms of the form
+      a^\dagger_i a_j, whereas n_body_tensors[(0, 1)] would be
+      an array of the same shape, but instead representing terms
+      of the form a_i a^\dagger_j.
+
+      :type: dict
+
+   .. py:method:: constant(self)
+      :property:
+
+      The value of the constant term.
+
+
+   .. py:method:: n_body_tensors(self)
+      :property:
+
+
+   .. py:method:: n_qubits(self)
+      :property:
+
+
+   .. py:method:: with_function_applied_elementwise(self, func)
+
+
+   .. py:method:: rotate_basis(self, rotation_matrix)
+
+      Rotate the orbital basis of the PolynomialTensor.
+
+      :param rotation_matrix: A square numpy array or matrix having
+                              dimensions of n_qubits by n_qubits. Assumed to be real and
+                              invertible.
+
+
+   .. py:method:: projected_n_body_tensors(self, selection, exact=False)
+
+      Keep only selected elements.
+
+      :param selection: If int, keeps terms with at
+                        most (exactly, if exact is True) that many unique indices. If
+                        iterable, keeps only terms containing (all of, if exact is
+                        True) the specified indices.
+      :type selection: Union[int, Iterable[int]
+      :param exact: Whether or not the selection is strict.
+      :type exact: bool
+
+
+

@@ -1,0 +1,73 @@
+:py:mod:`orquestra.vqa.shot_allocation`
+=======================================
+
+.. py:module:: orquestra.vqa.shot_allocation
+
+
+Package Contents
+----------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.vqa.shot_allocation.allocate_shots_proportionally
+   orquestra.vqa.shot_allocation.allocate_shots_uniformly
+   orquestra.vqa.shot_allocation.estimate_nmeas_for_frames
+
+
+
+.. py:function:: allocate_shots_proportionally(estimation_tasks: List[orquestra.quantum.api.estimation.EstimationTask], total_n_shots: int, prior_expectation_values: Optional[orquestra.quantum.measurements.ExpectationValues] = None) -> List[orquestra.quantum.api.estimation.EstimationTask]
+
+   Allocates specified number of shots proportionally to the variance associated
+   with each operator in a list of estimation tasks. For more details please refer to
+   the documentation of `orquestra.vqa.shot_allocation._shot_allocation`.
+
+   :param total_n_shots: total number of shots to be allocated
+   :param prior_expectation_values: object containing the expectation
+                                    values of all operators in frame_operators
+
+
+.. py:function:: allocate_shots_uniformly(estimation_tasks: List[orquestra.quantum.api.estimation.EstimationTask], number_of_shots: int) -> List[orquestra.quantum.api.estimation.EstimationTask]
+
+   Allocates the same number of shots to each task.
+
+   :param number_of_shots: number of shots to be assigned to each EstimationTask
+
+
+.. py:function:: estimate_nmeas_for_frames(frame_operators: List[orquestra.quantum.openfermion.QubitOperator], expecval: Optional[orquestra.quantum.measurements.ExpectationValues] = None) -> Tuple[float, int, numpy.ndarray]
+
+   Calculates the number of measurements required for computing
+   the expectation value of a qubit hamiltonian, where co-measurable terms
+   are grouped in a single QubitOperator, and different groups are different
+   members of the list.
+
+   We are assuming the exact expectation values are provided
+   (i.e. infinite number of measurements or simulations without noise)
+   M ~ (sum_{i} prec(H_i)) ** 2.0 / (epsilon ** 2.0)
+   where prec(H_i) is the precision (square root of the variance)
+   for each group of co-measurable terms H_{i}. It is computed as
+   prec(H_{i}) = sum{ab} |h_{a}^{i}||h_{b}^{i}| cov(O_{a}^{i}, O_{b}^{i})
+   where h_{a}^{i} is the coefficient of the a-th operator, O_{a}^{i}, in the
+   i-th group. Covariances are assumed to be zero for a != b:
+   cov(O_{a}^{i}, O_{b}^{i}) = <O_{a}^{i} O_{b}^{i}> - <O_{a}^{i}> <O_{b}^{i}> = 0
+
+   :param frame_operators: A list of QubitOperator objects, where
+                           each element in the list is a group of co-measurable terms.
+   :type frame_operators: List[QubitOperator]
+   :param expecval: An ExpectationValues object containing
+                    the expectation values of all operators in frame_operators. If absent,
+                    variances are assumed to be maximal, i.e. 1.
+                    NOTE: YOU HAVE TO MAKE SURE THAT THE ORDER OF EXPECTATION VALUES MATCHES
+                    THE ORDER OF THE TERMS IN THE *GROUPED* TARGET QUBIT OPERATOR, OTHERWISE
+                    THIS FUNCTION WILL NOT RETURN THE CORRECT RESULT.
+   :type expecval: Optional[ExpectationValues]
+
+   :returns: number of measurements for epsilon = 1.0
+             nterms (int): number of groups in frame_operators
+             frame_meas (np.array): Number of optimal measurements per group
+   :rtype: K2 (float)
+
+

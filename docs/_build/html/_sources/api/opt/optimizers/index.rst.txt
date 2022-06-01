@@ -1,0 +1,68 @@
+:py:mod:`opt.optimizers`
+========================
+
+.. py:module:: opt.optimizers
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   basin_hopping/index.rst
+   cma_es_optimizer/index.rst
+   qiskit_optimizer/index.rst
+   scipy_optimizer/index.rst
+   search_points_optimizer/index.rst
+   simple_gradient_descent/index.rst
+
+
+Package Contents
+----------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   opt.optimizers.BasinHoppingOptimizer
+   opt.optimizers.CMAESOptimizer
+   opt.optimizers.QiskitOptimizer
+   opt.optimizers.ScipyOptimizer
+   opt.optimizers.SearchPointsOptimizer
+   opt.optimizers.SimpleGradientDescent
+
+
+
+
+.. py:class:: BasinHoppingOptimizer(niter: int = 100, T: float = 1.0, stepsize: float = 0.5, minimizer_kwargs: Union[dict, None] = None, take_step: Union[Callable, None] = None, accept_test: Union[Callable, None] = None, interval: int = 50, disp: bool = False, niter_success: Union[int, None] = None, recorder: opt.history.recorder.RecorderFactory = _recorder)
+
+   Bases: :py:obj:`opt.api.Optimizer`
+
+
+.. py:class:: CMAESOptimizer(sigma_0: float, options: Optional[Dict] = None, recorder: opt.history.recorder.RecorderFactory = _recorder)
+
+   Bases: :py:obj:`opt.api.Optimizer`
+
+
+.. py:class:: QiskitOptimizer(method: str, optimizer_kwargs: Optional[Dict] = None, recorder: opt.history.recorder.RecorderFactory = _recorder)
+
+   Bases: :py:obj:`opt.api.Optimizer`
+
+
+.. py:class:: ScipyOptimizer(method: str, constraints: Optional[Tuple[Dict[str, Callable]]] = None, bounds: Union[scipy.optimize.Bounds, Sequence[Tuple[float, float]], None] = None, options: Optional[Dict] = None, recorder: opt.history.recorder.RecorderFactory = _recorder)
+
+   Bases: :py:obj:`opt.api.Optimizer`
+
+
+.. py:class:: SearchPointsOptimizer(parameter_values_list: List[numpy.ndarray], recorder: opt.history.recorder.RecorderFactory = _recorder)
+
+   Bases: :py:obj:`opt.api.Optimizer`
+
+
+.. py:class:: SimpleGradientDescent(learning_rate: float, number_of_iterations: int, recorder: opt.history.recorder.RecorderFactory = _recorder)
+
+   Bases: :py:obj:`opt.api.Optimizer`
+
+

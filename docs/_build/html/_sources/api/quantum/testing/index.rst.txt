@@ -1,0 +1,118 @@
+:py:mod:`quantum.testing`
+=========================
+
+.. py:module:: quantum.testing
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   generate_cases_for_backend_tests/index.rst
+   mocks/index.rst
+   test_cases_for_backend_tests/index.rst
+
+
+Package Contents
+----------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   quantum.testing.MockQuantumBackend
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   quantum.testing.create_random_qubitop
+   quantum.testing.create_random_isingop
+   quantum.testing.create_random_wavefunction
+
+
+
+.. py:function:: create_random_qubitop(nqubits, nterms, seed=None)
+
+   Generates random qubit operator acting on nqubits with nterms for testing
+   purposes.
+
+   The resulting qubit operator it saved to file in JSON format under 'qubitop.json'.
+
+   :param nqubits: integer
+                   The number of qubits in the qubit operator
+   :param nterms: integer
+                  The number of terms in the qubit operator
+   :param \*\** OPTIONAL ***:
+   :param seed: integer
+                The see for the random number generator
+
+   :returns:
+
+             None, a Qubit Operator (openfermion.QubitOperator) object is saved under
+                 'qubitop.json'
+
+
+.. py:function:: create_random_isingop(nqubits, nterms, seed=None)
+
+   Generates random ising operator acting on nqubits with nterms for testing
+       purposes.
+
+   :param nqubits: integer
+                   The number of qubits in the qubit operator
+   :param nterms: integer
+                  The number of terms in the qubit operator
+   :param \*\** OPTIONAL ***:
+   :param seed: integer
+                The see for the random number generator
+
+   :returns: an Ising Operator (openfermion.IsingOperator) object
+
+
+.. py:function:: create_random_wavefunction(n_qubits, seed=None)
+
+
+.. py:class:: MockQuantumBackend
+
+   Bases: :py:obj:`orquestra.quantum.api.backend.QuantumBackend`
+
+   Interface for implementing different quantum backends.
+
+   .. attribute:: supports_batching
+
+      boolean flag indicating whether given backend
+      supports batching circuits.
+
+   .. attribute:: batch_size
+
+      number of circuit runs in a single batch.
+      If `supports_batching` is true should be a positive integer.
+
+   .. attribute:: number_of_circuits_run
+
+      number of circuits executed by this backend
+
+   .. attribute:: number_of_jobs_run
+
+      number of jobs executed by this backend. Will be different
+      from `number_of_circuits_run` if batches are used.
+
+   .. py:attribute:: supports_batching
+      :annotation: = False
+
+      
+
+   .. py:method:: run_circuit_and_measure(self, circuit: orquestra.quantum.circuits.Circuit, n_samples: int, **kwargs) -> orquestra.quantum.measurements.Measurements
+
+      Method for executing the circuit and measuring the outcome.
+      :param circuit: quantum circuit to be executed.
+      :param n_samples: The number of samples to collect.
+
+
+

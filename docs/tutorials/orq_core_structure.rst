@@ -4,7 +4,7 @@ Orquestra Core's Structure
 
 .. _orq_core_structure:
 
-Orquestra Core is broken into multiple packages, each with a different purpose. **TODO:** Michał to add a paragraph or two here about why we've chosen to architect it this way.
+Orquestra Core is broken into multiple packages, each with a different purpose.
 
 * `orquestra-quantum <https://github.com/zapatacomputing/orquestra-quantum>`_ provides
 
@@ -32,3 +32,13 @@ Orquestra Core is broken into multiple packages, each with a different purpose. 
 Here is a diagram of these packages:
 
 .. image:: images/orquestra_core_connection.excalidraw.png
+
+We decided to do it this way, rather than having a single monorepo due to multiple reasons:
+
+* It makes the code more modular and helps creating clear boundaries between the libraries.
+* A lot of packages that we rely on are unstable - by dividing code into multiple separate packages, we reduce the risk of one unstable dependency breaking all of them.
+* User have more control over what they want and need to install.
+* Both points above reduce the risk that the user will end up with conflicting dependencies with some other packages they might be using..
+* It is easier to develop them separately.
+
+However, we acknowledge the fact that it comes with certain challenges for the users, such as the fact that the overall structure and scope of the libraries is less obvious. We do our best to alleviate these.

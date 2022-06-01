@@ -1,0 +1,437 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Basic QAOA Tutorial &#8212; Orquestra Core  documentation</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Orquestra Core’s Structure" href="orq_core_structure.html" />
+    <link rel="prev" title="Start from the Basics" href="beginner_tutorial.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Orquestra Core  documentation</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="index.html">
+   Tutorials
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="beginner_tutorial.html">
+     Start from the Basics
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Basic QAOA Tutorial
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="orq_core_structure.html">
+     Orquestra Core’s Structure
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="integrations.html">
+     Integrations, Modules, and Libraries in Orquestra Core
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="contributing.html">
+     Contributing to Orquestra Core
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/tutorials/basic_qaoa.rst.txt"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.rst</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Basic QAOA Tutorial</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section id="basic-qaoa-tutorial">
+<h1>Basic QAOA Tutorial<a class="headerlink" href="#basic-qaoa-tutorial" title="Permalink to this headline">#</a></h1>
+<p>It’s 3 in the morning and your boss calls you, waking you up from your sleep: “I got a problem I need you to solve.” Okay, what could this be? “I need to cut a graph in a way that maximizes the value of the edges cut” Ahhhh this dream again.</p>
+<p>In all seriousness, what I’m describing here is called the MaxCut problem. Given some graph, we want to cut it into two parts so that the value of the “cut” edges is maximized. For instance, let’s take this graph:</p>
+<a class="reference internal image-reference" href="../_images/uncut_graph.excalidraw.png"><img alt="../_images/uncut_graph.excalidraw.png" class="align-center" src="../_images/uncut_graph.excalidraw.png" style="width: 75%;" /></a>
+<p>How could you split each of the nodes into one of two categories such that the line that circles one category (but not the other) cuts edges in such a way that the sum of the edges is maximized?</p>
+<p>Maybe you saw the answer right away: if we circle the nodes on the top right and bottom left of the graph, we cut through all of the edges!</p>
+<a class="reference internal image-reference" href="../_images/cut_graph.excalidraw.png"><img alt="../_images/cut_graph.excalidraw.png" class="align-center" src="../_images/cut_graph.excalidraw.png" style="width: 75%;" /></a>
+<p>That was a pretty easy example, but now try to find a solution for this one:</p>
+<a class="reference internal image-reference" href="../_images/harder_graph.excalidraw.png"><img alt="../_images/harder_graph.excalidraw.png" class="align-center" src="../_images/harder_graph.excalidraw.png" style="width: 75%;" /></a>
+<p>All I’ve done is add 2 nodes and a couple edges to connect them up to the graph (plus changing one edge weight), but the problem has become significantly harder! You can see why this problem will get very computationally expensive very quickly. I don’t know about you, but I’d rather not sit here and try to solve that by hand. Let’s make Orquestra Core do it for us!</p>
+<p>The <a class="reference external" href="https://www.mustythoughts.com/quantum-approximate-optimization-algorithm-explained">Quantum Approximate Optimzation Algorithm</a> is a heuristic quantum algorithm that is believed to offer some advantage in solving optimization problems. It’s also very easy to work with in Orquestra! We can use that to try to solve this maxcut problem.</p>
+<p>Let’s start by creating a new python file called <code class="docutils literal notranslate"><span class="pre">qaoa_maxcut.py</span></code>. The first thing we’ll do is import all the necessary packages:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">orquestra.integrations.cirq.simulator</span> <span class="kn">import</span> <span class="n">CirqSimulator</span>
+<span class="kn">from</span> <span class="nn">orquestra.opt.optimizers</span> <span class="kn">import</span> <span class="n">ScipyOptimizer</span>
+<span class="kn">from</span> <span class="nn">orquestra.opt.problems.maxcut</span> <span class="kn">import</span> <span class="n">MaxCut</span>
+<span class="kn">from</span> <span class="nn">orquestra.quantum.estimation</span> <span class="kn">import</span> <span class="n">calculate_exact_expectation_values</span>
+<span class="kn">from</span> <span class="nn">orquestra.vqa.ansatz.qaoa_farhi</span> <span class="kn">import</span> <span class="n">QAOAFarhiAnsatz</span>
+<span class="kn">from</span> <span class="nn">orquestra.vqa.cost_function.cost_function</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">create_cost_function</span><span class="p">,</span>
+    <span class="n">substitution_based_estimation_tasks_factory</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">icecream</span> <span class="kn">import</span> <span class="n">ic</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">icecream</span></code> (and <code class="docutils literal notranslate"><span class="pre">ic</span></code>) is like <code class="docutils literal notranslate"><span class="pre">print</span></code>, but offers more information about what is being printed. It’s great for debugging! Just install it with <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">icecream</span></code></p>
+<p>If you would rather just use <code class="docutils literal notranslate"><span class="pre">print</span></code>, everything in this tutorial should still work! Just replace <code class="docutils literal notranslate"><span class="pre">ic()</span></code> with <code class="docutils literal notranslate"><span class="pre">print()</span></code> and all will be well.</p>
+</div>
+<p>Now that the imports are out of the way, we can start by making a function that defines our graph. We use the <code class="docutils literal notranslate"><span class="pre">networkx</span></code> / <code class="docutils literal notranslate"><span class="pre">nx</span></code> package for this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">create_harder_graph</span><span class="p">():</span>
+    <span class="n">graph</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
+    <span class="n">graph</span><span class="o">.</span><span class="n">add_nodes_from</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+    <span class="n">graph</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">graph</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">graph</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">graph</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>That code only makes the simpler, box-looking graph from the easy maxcut example. In your own code, go ahead and add the remaining lines of the function to define edges between the new nodes I added in the harder problem.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>You should add 5 more edges to your graph and end the function with a <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">graph</span></code>.</p>
+</div>
+<p>Here’s the solution to that little exercise if you want it:</p>
+<div class="dropdown admonition hint">
+<p class="admonition-title">Hint</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">graph</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">graph</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">graph</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">graph</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">graph</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">graph</span>
+</pre></div>
+</div>
+</div>
+<p>Now let’s write a function that accepts our graph object and used QAOA to try to solve it. The first step is to get a description of the problem in a language our quantum computer can understand, we call this the Hamiltonian. We also need a quantum ciruit we can train using QAOA, this is called our ansatz.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">solve_maxcut_qaoa</span><span class="p">(</span><span class="n">test_graph</span><span class="p">):</span>
+
+    <span class="n">hamiltonian</span> <span class="o">=</span> <span class="n">MaxCut</span><span class="p">()</span><span class="o">.</span><span class="n">get_hamiltonian</span><span class="p">(</span><span class="n">test_graph</span><span class="p">)</span>
+    <span class="n">ansatz</span> <span class="o">=</span> <span class="n">QAOAFarhiAnsatz</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">cost_hamiltonian</span><span class="o">=</span><span class="n">hamiltonian</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Notice we didn’t have to build up the Hamiltonian or ansatz ourselves, Orquestra Core just did that for us! MaxCut isn’t the only problem we can do that for, either. The <code class="docutils literal notranslate"><span class="pre">opt</span></code> part of Orquestra Core has <a class="reference external" href="https://github.com/zapatacomputing/orquestra-opt/tree/main/src/orquestra/opt/problems">a number of problems</a> readily solvable like <a class="reference external" href="https://github.com/zapatacomputing/orquestra-opt/blob/main/src/orquestra/opt/problems/graph_partition.py">graph partition</a> and <a class="reference external" href="https://github.com/zapatacomputing/orquestra-opt/blob/main/src/orquestra/opt/problems/vertex_cover.py">vertex cover</a>. Similarly, we can select from a <a class="reference external" href="https://github.com/zapatacomputing/orquestra-vqa/tree/main/src/orquestra/vqa/ansatz">number of ansatzes</a></p>
+<p>Next, we need to define how the QAOA will estimate expectation values, and create a set of tasks to do that:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">estimation_method</span> <span class="o">=</span> <span class="n">calculate_exact_expectation_values</span>
+    <span class="n">estimation_task_factory</span> <span class="o">=</span> <span class="n">substitution_based_estimation_tasks_factory</span><span class="p">(</span>
+        <span class="n">hamiltonian</span><span class="p">,</span> <span class="n">ansatz</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+<p>Now we can select which backend we want to run on and which optimizer we want to use:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">backend</span> <span class="o">=</span> <span class="n">CirqSimulator</span><span class="p">()</span>
+    <span class="n">optimizer</span> <span class="o">=</span> <span class="n">ScipyOptimizer</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s2">&quot;L-BFGS-B&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If you want to use a different optimizer, you can certainly <a class="reference external" href="https://github.com/zapatacomputing/orquestra-opt/tree/main/src/orquestra/opt/optimizers">do that</a>. And if you want to run on a different backend, you can <a class="reference internal" href="beginner_tutorial.html#running-circuits"><span class="std std-ref">do so easily</span></a>! In fact, in your own code, try using the Qiskit Aer Statevector simulator. If you don’t remember how to do that, take a look at the <a class="reference internal" href="beginner_tutorial.html#running-circuits"><span class="std std-ref">Running Circuits on a Backend</span></a> tutorial again.</p>
+<div class="dropdown admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Rememember that you’ll need to import the <code class="docutils literal notranslate"><span class="pre">QiskitSimulator</span></code> at the top of your file and change <code class="docutils literal notranslate"><span class="pre">CirqSimulator()</span></code> to <code class="docutils literal notranslate"><span class="pre">QiskitSimulator(aer_simulator_statevector)</span></code></p>
+</div>
+<p>The last steps before running the circuit are to minimize the cost of the parameters for the circuit and get runnable circuit:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">cost_function</span> <span class="o">=</span> <span class="n">create_cost_function</span><span class="p">(</span>
+        <span class="n">backend</span><span class="p">,</span>
+        <span class="n">estimation_task_factory</span><span class="p">,</span>
+        <span class="n">estimation_method</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">initial_params</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">ansatz</span><span class="o">.</span><span class="n">number_of_params</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">5</span>
+    <span class="n">opt_results</span> <span class="o">=</span> <span class="n">optimizer</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">cost_function</span><span class="p">,</span> <span class="n">initial_params</span><span class="p">)</span>
+
+    <span class="n">circuit</span> <span class="o">=</span> <span class="n">ansatz</span><span class="o">.</span><span class="n">get_executable_circuit</span><span class="p">(</span><span class="n">opt_results</span><span class="o">.</span><span class="n">opt_params</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now that we have those parameters, we can actually run the circuit! Write a line in your own code that runs the circuit on the backend 10000 times and stores the results in a variable called <code class="docutils literal notranslate"><span class="pre">measurements</span></code>.</p>
+<div class="dropdown admonition hint">
+<p class="admonition-title">Hint</p>
+<p>That line should look like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">measurements</span> <span class="o">=</span> <span class="n">backend</span><span class="o">.</span><span class="n">run_circuit_and_measure</span><span class="p">(</span><span class="n">circuit</span><span class="p">,</span> <span class="n">n_samples</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Finally, we can get the most common result from our runs and return that:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">counter</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">measurements</span><span class="o">.</span><span class="n">bitstrings</span><span class="p">)</span>
+    <span class="n">most_common_string</span> <span class="o">=</span> <span class="n">counter</span><span class="o">.</span><span class="n">most_common</span><span class="p">()[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">most_common_string</span>
+</pre></div>
+</div>
+<p>Finally, at the end of the file, put a couple lines to call the functions we made and output the result. Try writing these lines by yourself, and check them with the answer below:</p>
+<div class="dropdown admonition hint">
+<p class="admonition-title">Hint</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">test_graph</span> <span class="o">=</span> <span class="n">create_harder_graph</span><span class="p">()</span>
+<span class="n">most_common_string</span> <span class="o">=</span> <span class="n">solve_maxcut_qaoa</span><span class="p">(</span><span class="n">test_graph</span><span class="p">)</span>
+<span class="n">ic</span><span class="p">(</span><span class="n">most_common_string</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>The output should be <code class="docutils literal notranslate"><span class="pre">most_common_string:</span> <span class="pre">(0,</span> <span class="pre">1,</span> <span class="pre">0,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">1)</span></code> or <code class="docutils literal notranslate"><span class="pre">most_common_string:</span> <span class="pre">(1,</span> <span class="pre">0,</span> <span class="pre">1,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0)</span></code> which corresponds to nodes 0 and 2 being one color, and the remaining nodes being another color. That looks like this graphically:</p>
+<a class="reference internal image-reference" href="../_images/harder_graph_cut.excalidraw.png"><img alt="../_images/harder_graph_cut.excalidraw.png" class="align-center" src="../_images/harder_graph_cut.excalidraw.png" style="width: 75%;" /></a>
+<p>And there we have it! Instead of having to do that optimization ourselves, we made a quick Orquestra program to do it for us. Now how to tell your boss in your dream you solved it…</p>
+</section>
+
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="beginner_tutorial.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Start from the Basics</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="orq_core_structure.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Orquestra Core’s Structure</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Zapata Computing<br/>
+  
+      &copy; Copyright 2022, Zapata Computing.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

@@ -51,7 +51,7 @@ For examples and tutorials please refer to [the documentation](https://zapatacom
 
 ## Bug Reporting
 
-If you'd like to report a bug/issue please create a new issue in this repository.
+If you'd like to report a bug/issue please create a new issue in appropriate repository. When in doubt, feel free to create issue in this repo.
 
 ## Contributing
-Please see our [CONTRIBUTING.md](CONTRIBUTING.md) for more information on contributing to Orquestra.
+Please see our [CONTRIBUTING.md](CONTRIBUTING.md) for more information on contributing to Orquestra Core.

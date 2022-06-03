@@ -49,22 +49,9 @@ pip install orquestra-opt[qubo]
 For examples and tutorials please refer to [the documentation](https://zapatacomputing.github.io/orquestra-core/).
 
 
-## Development and Contribution
+## Bug Reporting
 
-To install the development version, run `pip install -e .[dev]` from the main directory. Note that in certain environments you might need to add quotes: `pip install -e '.[dev]'`.
+If you'd like to report a bug/issue please create a new issue in appropriate repository. When in doubt, feel free to create issue in this repo.
 
-We use [Google-style](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html) docstring format. If you'd like to specify types please use [PEP 484](https://www.python.org/dev/peps/pep-0484/) type hints instead adding them to docstrings.
-
-There are codestyle-related [Github Actions](.github/workflows/style.yml) running for all pull requests.
-
-- If you'd like to report a bug/issue please create a new issue in this repository.
-- If you'd like to contribute, please create a pull request.
-
-### Running tests
-
-Unit tests for this project can be run using `make coverage` command from the main directory.
-Alternatively you can also run `pytest .`.
-
-### Style
-
-We are using automatic tools for style and type checking. In order to make sure the code is compliant with them please run: `make style` from the main directory (this requires `dev` dependencies).
+## Contributing
+Please see our [CONTRIBUTING.md](CONTRIBUTING.md) for more information on contributing to Orquestra Core.

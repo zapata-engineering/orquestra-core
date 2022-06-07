@@ -15,7 +15,7 @@ jobs:
       - name: get repos for api docs
         run: cd docs && make update
       - name: do the sphinx build
-        run: make html
+        run: cd docs && make html
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4.3.3
         with:

@@ -1,0 +1,22 @@
+on:
+  push:
+    # branches:
+    #   - "main"
+
+jobs:
+  build:
+    name: Push Sphinx Pages
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout this repo
+        uses: actions/checkout@v3
+      - name: install doc building dependencies
+        run: pip install -r docs/requirements.txt
+      - name: do the sphinx build
+        run: cd docs && make html
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4.3.3
+        with:
+          ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          branch: gh-pages # The branch the action should deploy to.
+          folder: _build/html

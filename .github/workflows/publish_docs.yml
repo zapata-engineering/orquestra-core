@@ -12,8 +12,10 @@ jobs:
         uses: actions/checkout@v3
       - name: install doc building dependencies
         run: pip install -r docs/requirements.txt
+      - name: get repos for api docs
+        run: cd docs && make update
       - name: do the sphinx build
-        run: cd docs && make html
+        run: make html
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4.3.3
         with:

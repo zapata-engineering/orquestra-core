@@ -13,13 +13,60 @@
 # import os
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
+from multiprocessing.sharedctypes import Value
+import subprocess
+import sys
+import pathlib
+import json
+import os
+from glob import glob
+from pathlib import Path
+import shutil
+from distutils.dir_util import copy_tree
+from tempfile import tempdir
 
 
+repos_folder = os.path.abspath("repos")
+TMP_MONOREPO_NAME = "tmp_monorepo"
+currentfolder = os.path.abspath(".")
+temp_repo_folder = f"{currentfolder}/{TMP_MONOREPO_NAME}"
+
+sys.path.insert(0, temp_repo_folder)
+
+
+def build_mono_repo(temp_repo_folder):
+
+    subprocess.check_call(
+        ["mkdir", "-p", temp_repo_folder]
+    )  # make sure temporary folder exists
+
+    # scan the manifest for the location of the root code directory for each repo
+    with open(os.path.join(repos_folder, "manifest.json")) as fp:
+        manifest = json.load(fp)
+
+    for name, details in manifest["repos"].items():
+        for path in details.get("autodoc", []):
+            source_dir = name + "/" + path
+            print(f"source_dir: {source_dir} to tmp folder: {temp_repo_folder}")
+            copy_tree(
+                os.path.join(repos_folder, source_dir), temp_repo_folder
+            )  # copy all folders to docs/tmp/repo/*
+
+
+try:
+    shutil.rmtree(temp_repo_folder)
+except FileNotFoundError:
+    print(f"no dir to remove {temp_repo_folder}")
+
+build_mono_repo(temp_repo_folder)
 # -- Project information -----------------------------------------------------
 
-project = 'Orquestra Core'
-copyright = '2022, Zapata Computing'
-author = 'Zapata Computing'
+project = "Orquestra Core Docs"
+copyright = "2022, Zapata Computing, Inc"
+author = "michal.stechly@zapatacomputing.com"
+
+# The full version, including alpha/beta/rc tags
+release = "0.2.0"
 
 
 # -- General configuration ---------------------------------------------------
@@ -28,25 +75,46 @@ author = 'Zapata Computing'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    'sphinx_togglebutton'
+    "sphinx.ext.inheritance_diagram",
+    "sphinx.ext.napoleon",
+    "sphinx.ext.intersphinx",
+    # "sphinx.ext.doctest",
+    # "sphinx_panels",
+    # "sphinx.ext.graphviz",
+    # "sphinxcontrib.youtube",
+    # "sphinxcontrib.autoprogram",
+    # "sphinxcontrib.confluencebuilder",
+    "sphinx_copybutton",
+    "sphinxemoji.sphinxemoji",
+    "sphinx_togglebutton",
+    "autoapi.extension",
 ]
+source_suffix = {
+    ".rst": "restructuredtext",
+    # '.txt': 'restructuredtext',
+    # '.md': 'markdown',
+}
 
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ['_templates']
+templates_path = ["_templates"]
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = [
-    '_build',
-    'Thumbs.db',
-    '.DS_Store',
-    'src',
-    'subtrees',
-    'tests',
-    'build',
-    '.venv',
-    '.github',
+    "_build",
+    "Thumbs.db",
+    ".DS_Store",
+    "venv",
+    "repos",
+    "subtrees",
+    "developer",
+    "investigator",
+    "src",
+    "tests",
+    "build",
+    ".venv",
+    ".github",
 ]
 
 
@@ -55,9 +123,46 @@ exclude_patterns = [
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'sphinx_book_theme'
+
+html_theme = "sphinx_book_theme"
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
+html_static_path = ["_static"]
+
+
+# this gets around some kind of bug-like behavior in autoapi where it doesn't create
+# the entries for the index.rst unless there is an __init__.py despite
+# setting autoapi_python_use_implicit_namespaces=True
+
+autoapi_dirs = glob(os.path.join(temp_repo_folder, "orquestra", "*"))
+autoapi_root = "api"
+for dir in autoapi_dirs:
+    Path(dir, "__init__.py").touch()
+
+
+html_logo = "_static/orquestra.png"
+html_title = "Orquestra Core Documentation"
+html_favicon = "_static/favicon.ico"
+
+# Intersphinx is a tool for creating links to multiple repos.  This should help us!
+intersphinx_mapping = {"python": ("https://docs.python.org/3", None)}
+
+# This is so that the args to __init__ methods are appended to the class docs
+autoclass_content = "both"
+
+# set to true to see the contents of the autoapi directory after building
+autoapi_keep_files = True
+autoapi_python_use_implicit_namespaces = True
+
+autoapi_options = [
+    "members",
+    "show-inheritance",
+    "show-module-summary",
+    "imported-members",
+    "undoc-members",
+]
+# if tags.has("internal"):
+#     # autoapi_options.append('undoc-members')
+#     autoapi_options.append("private-members")

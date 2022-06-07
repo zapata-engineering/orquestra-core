@@ -134,3 +134,6 @@ dmypy.json
 # VSCode files
 .vscode/
 docs/tutorials/images/.DS_Store
+docs/repos/
+docs/api/
+docs/tmp_monorepo/

@@ -163,6 +163,3 @@ autoapi_options = [
     "imported-members",
     "undoc-members",
 ]
-# if tags.has("internal"):
-#     # autoapi_options.append('undoc-members')
-#     autoapi_options.append("private-members")

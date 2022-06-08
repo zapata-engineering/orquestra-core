@@ -20,7 +20,7 @@ from orquestra.vqa.cost_function.cost_function import (
 from icecream import ic
 
 
-def create_graph():
+def create_simple_graph():
     """
     [0] --10-- [1]
     |           |
@@ -44,6 +44,8 @@ def create_harder_graph():
     graph.add_edge(0, 3, weight=5)
     graph.add_edge(1, 2, weight=1)
     graph.add_edge(2, 3, weight=1)
+
+    # YOUR CODE HERE
 
     graph.add_edge(0, 4, weight=10)
     graph.add_edge(0, 5, weight=5)

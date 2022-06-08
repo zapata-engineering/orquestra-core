@@ -26,7 +26,7 @@ That was a pretty easy example, but now try to find a solution for this one:
 
 All I've done is add 2 nodes and a couple edges to connect them up to the graph (plus changing one edge weight), but the problem has become significantly harder! You can see why this problem will get very computationally expensive very quickly. I don't know about you, but I'd rather not sit here and try to solve that by hand. Let's make Orquestra Core do it for us!
 
-The `Quantum Approximate Optimzation Algorithm <https://www.mustythoughts.com/quantum-approximate-optimization-algorithm-explained>`_ is a heuristic quantum algorithm that is believed to offer some advantage in solving optimization problems. It's also very easy to work with in Orquestra! We can use that to try to solve this maxcut problem.
+The `Quantum Approximate Optimization Algorithm <https://www.mustythoughts.com/quantum-approximate-optimization-algorithm-explained>`_ is a heuristic quantum algorithm that is believed to offer some advantage in solving optimization problems. It's also very easy to work with in Orquestra! We can use that to try to solve this maxcut problem.
 
 Let's start by creating a new python file called ``qaoa_maxcut.py``. The first thing we'll do is import all the necessary packages:
 

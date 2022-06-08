@@ -64,7 +64,7 @@ Here's the solution to that little exercise if you want it:
         :start-at: graph.add_edge(0, 4, weight=10)
         :end-at: return graph
 
-Now let's write a function that accepts our graph object and used QAOA to try to solve it. The first step is to get a description of the problem in a language our quantum computer can understand, we call this the Hamiltonian. We also need a quantum ciruit we can train using QAOA, this is called our ansatz.
+Now let's write a function that accepts our graph object and used QAOA to try to solve it. The first step is to get a description of the problem in a language our quantum computer can understand, we call this the Hamiltonian. We also need a quantum circuit we can train using QAOA, this is called our ansatz.
 
 .. literalinclude:: /examples/qaoa_maxcut.py
     :language: python

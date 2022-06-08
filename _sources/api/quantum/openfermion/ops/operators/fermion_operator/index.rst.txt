@@ -1,0 +1,121 @@
+:py:mod:`quantum.openfermion.ops.operators.fermion_operator`
+============================================================
+
+.. py:module:: quantum.openfermion.ops.operators.fermion_operator
+
+.. autoapi-nested-parse::
+
+   FermionOperator stores a sum of products of fermionic ladder operators.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   quantum.openfermion.ops.operators.fermion_operator.FermionOperator
+
+
+
+
+.. py:class:: FermionOperator
+
+   Bases: :py:obj:`orquestra.quantum.openfermion.ops.operators.symbolic_operator.SymbolicOperator`
+
+   FermionOperator stores a sum of products of fermionic ladder operators.
+
+   In OpenFermion, we describe fermionic ladder operators using the shorthand:
+   'q^' = a^\dagger_q
+   'q' = a_q
+   where {'p^', 'q'} = delta_pq
+
+   One can multiply together these fermionic ladder operators to obtain a
+   fermionic term. For instance, '2^ 1' is a fermion term which
+   creates at orbital 2 and destroys at orbital 1. The FermionOperator class
+   also stores a coefficient for the term, e.g. '3.17 * 2^ 1'.
+
+   The FermionOperator class is designed (in general) to store sums of these
+   terms. For instance, an instance of FermionOperator might represent
+   3.17 2^ 1 - 66.2 * 8^ 7 6^ 2
+   The Fermion Operator class overloads operations for manipulation of
+   these objects by the user.
+
+   FermionOperator is a subclass of SymbolicOperator. Importantly, it has
+   attributes set as follows::
+
+       actions = (1, 0)
+       action_strings = ('^', '')
+       action_before_index = False
+       different_indices_commute = False
+
+   See the documentation of SymbolicOperator for more details.
+
+   .. rubric:: Example
+
+   .. code-block:: python
+
+       ham = (FermionOperator('0^ 3', .5)
+              + .5 * FermionOperator('3^ 0'))
+       # Equivalently
+       ham2 = FermionOperator('0^ 3', 0.5)
+       ham2 += FermionOperator('3^ 0', 0.5)
+
+   .. note::
+
+      Adding FermionOperators is faster using += (as this
+      is done by in-place addition). Specifying the coefficient
+      during initialization is faster than multiplying a FermionOperator
+      with a scalar.
+
+   .. py:method:: actions(self)
+      :property:
+
+      The allowed actions.
+
+
+   .. py:method:: action_strings(self)
+      :property:
+
+      The string representations of the allowed actions.
+
+
+   .. py:method:: action_before_index(self)
+      :property:
+
+      Whether action comes before index in string representations.
+
+
+   .. py:method:: different_indices_commute(self)
+      :property:
+
+      Whether factors acting on different indices commute.
+
+
+   .. py:method:: is_normal_ordered(self)
+
+      Return whether or not term is in normal order.
+
+      In our convention, normal ordering implies terms are ordered
+      from highest tensor factor (on left) to lowest (on right). Also,
+      ladder operators come first.
+
+
+   .. py:method:: is_two_body_number_conserving(self, check_spin_symmetry=False)
+
+      Query whether operator has correct form to be from a molecule.
+
+      Require that term is particle-number conserving (same number of
+      raising and lowering operators). Require that term has 0, 2 or 4
+      ladder operators. Require that term conserves spin (parity of
+      raising operators equals parity of lowering operators).
+
+      :param check_spin_symmetry: Whether to check if
+                                  operator conserves spin.
+      :type check_spin_symmetry: bool
+
+
+

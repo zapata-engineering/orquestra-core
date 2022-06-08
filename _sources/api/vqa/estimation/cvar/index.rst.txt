@@ -1,0 +1,37 @@
+:py:mod:`vqa.estimation.cvar`
+=============================
+
+.. py:module:: vqa.estimation.cvar
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   vqa.estimation.cvar.CvarEstimator
+
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   vqa.estimation.cvar.PROBABILITY_CUTOFF
+
+
+.. py:data:: PROBABILITY_CUTOFF
+   :annotation: = 1e-08
+
+   
+
+.. py:class:: CvarEstimator(alpha: float, use_exact_expectation_values: Optional[bool] = False)
+
+   Bases: :py:obj:`orquestra.quantum.api.estimation.EstimateExpectationValues`
+
+

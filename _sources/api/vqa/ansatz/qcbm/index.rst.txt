@@ -1,0 +1,72 @@
+:py:mod:`vqa.ansatz.qcbm`
+=========================
+
+.. py:module:: vqa.ansatz.qcbm
+
+
+Package Contents
+----------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   vqa.ansatz.qcbm.QCBMAnsatz
+
+
+
+
+.. py:class:: QCBMAnsatz(number_of_layers: int, number_of_qubits: int, topology: str = 'all', **topology_kwargs)
+
+   Bases: :py:obj:`orquestra.vqa.api.ansatz.Ansatz`
+
+   .. py:attribute:: supports_parametrized_circuits
+      :annotation: = True
+
+      
+
+   .. py:attribute:: number_of_qubits
+      
+
+      
+
+   .. py:attribute:: topology
+      
+
+      
+
+   .. py:method:: number_of_params(self) -> int
+      :property:
+
+      Returns number of parameters in the ansatz.
+
+
+   .. py:method:: n_params_per_ent_layer(self) -> int
+      :property:
+
+
+   .. py:method:: get_number_of_parameters_by_layer(self) -> numpy.ndarray
+
+      Determine the number of parameters needed for each layer in the ansatz
+      :returns: A 1D array of integers
+
+
+   .. py:method:: to_dict(self)
+
+      Creates a dictionary representing a QCBM ansatz.
+
+      :returns: the dictionary
+      :rtype: dictionary (dict)
+
+
+   .. py:method:: from_dict(cls, item: dict) -> QCBMAnsatz
+      :classmethod:
+
+      Creates a QCBM ansatz object from an input dictionary of values.
+
+      :returns: the ansatz with a given number of layers, qubits, and topology
+      :rtype: QCBMAnsatz
+
+
+

@@ -1,0 +1,28 @@
+:py:mod:`opt.optimizers.cma_es_optimizer`
+=========================================
+
+.. py:module:: opt.optimizers.cma_es_optimizer
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   opt.optimizers.cma_es_optimizer.CMAESOptimizer
+
+
+
+
+.. py:class:: CMAESOptimizer(sigma_0: float, options: Optional[Dict] = None, recorder: opt.history.recorder.RecorderFactory = _recorder)
+
+   Bases: :py:obj:`opt.api.Optimizer`
+
+   Interface for implementing different optimizers.
+
+   :param recorder: recorder object which defines how to store the optimization history.
+
+

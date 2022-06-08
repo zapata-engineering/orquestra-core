@@ -1,0 +1,32 @@
+:py:mod:`quantum.testing.mocks`
+===============================
+
+.. py:module:: quantum.testing.mocks
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   quantum.testing.mocks.MockQuantumBackend
+
+
+
+
+.. py:class:: MockQuantumBackend
+
+   Bases: :py:obj:`orquestra.quantum.api.backend.QuantumBackend`
+
+   .. py:attribute:: supports_batching
+      :annotation: = False
+
+      
+
+   .. py:method:: run_circuit_and_measure(self, circuit: orquestra.quantum.circuits.Circuit, n_samples: int, **kwargs) -> orquestra.quantum.measurements.Measurements
+
+
+

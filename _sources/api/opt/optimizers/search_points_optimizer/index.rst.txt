@@ -1,0 +1,28 @@
+:py:mod:`opt.optimizers.search_points_optimizer`
+================================================
+
+.. py:module:: opt.optimizers.search_points_optimizer
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   opt.optimizers.search_points_optimizer.SearchPointsOptimizer
+
+
+
+
+.. py:class:: SearchPointsOptimizer(parameter_values_list: List[numpy.ndarray], recorder: opt.history.recorder.RecorderFactory = _recorder)
+
+   Bases: :py:obj:`opt.api.Optimizer`
+
+   Interface for implementing different optimizers.
+
+   :param recorder: recorder object which defines how to store the optimization history.
+
+

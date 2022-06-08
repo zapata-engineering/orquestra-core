@@ -1,0 +1,120 @@
+:py:mod:`integrations.qiskit.backend`
+=====================================
+
+.. py:module:: integrations.qiskit.backend
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   backend/index.rst
+
+
+Package Contents
+----------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   integrations.qiskit.backend.QiskitBackend
+
+
+
+
+.. py:class:: QiskitBackend(device_name: str, hub: Optional[str] = 'ibm-q', group: Optional[str] = 'open', project: Optional[str] = 'main', api_token: Optional[str] = None, readout_correction: Optional[bool] = False, optimization_level: Optional[int] = 0, retry_delay_seconds: Optional[int] = 60, retry_timeout_seconds: Optional[int] = 86400, n_samples_for_readout_calibration: Optional[int] = None, noise_inversion_method: str = 'least_squares', **kwargs)
+
+   Bases: :py:obj:`orquestra.quantum.api.backend.QuantumBackend`
+
+   .. py:method:: run_circuit_and_measure(self, circuit: orquestra.quantum.circuits.Circuit, n_samples: int) -> orquestra.quantum.measurements.Measurements
+
+      Run a circuit and measure a certain number of bitstrings.
+
+      :param circuit: the circuit to prepare the state
+      :param n_samples: The number of samples to collect.
+
+
+   .. py:method:: run_circuitset_and_measure(self, circuits: Sequence[orquestra.quantum.circuits.Circuit], n_samples: Sequence[int]) -> List[orquestra.quantum.measurements.Measurements]
+
+      Run a set of circuits and measure a certain number of bitstrings.
+
+      :param circuitset: the circuits to run
+      :param n_samples: The number of shots to perform on each circuit.
+
+      :returns: A list of Measurements objects containing the observed bitstrings.
+
+
+   .. py:method:: transform_circuitset_to_ibmq_experiments(self, circuitset: Sequence[orquestra.quantum.circuits.Circuit], n_samples: Sequence[int]) -> Tuple[List[qiskit.QuantumCircuit], List[int], List[int]]
+
+      Convert circuits to qiskit and duplicate those whose measurement
+      count exceeds the maximum allowed by the backend.
+
+      :param circuitset: The circuits to be executed.
+      :param n_samples: A list of the number of samples to be collected for each
+                        circuit.
+
+      :returns:
+
+                - The expanded list of circuits, converted to qiskit and each
+                  assigned a unique name.
+                - List of number of samples for each element in expanded list of circuits
+                - An array indicating how many duplicates there are for each of the
+                  original circuits.
+      :rtype: Tuple containing
+
+
+   .. py:method:: batch_experiments(self, experiments: List[qiskit.QuantumCircuit], n_samples_for_ibmq_circuits: List[int]) -> Tuple[List[List[qiskit.QuantumCircuit]], List[int]]
+
+      Batch a set of experiments (circuits to be executed) into groups
+      whose size is no greater than the maximum allowed by the backend.
+
+      :param experiments: The circuits to be executed.
+      :param n_samples_for_ibmq_circuits: The number of samples desired for each
+                                          experiment.
+
+      :returns:
+
+                - A list of batches, where each batch is a list of experiments.
+                - An array containing the number of measurements that must be
+                  performed for each batch so that each experiment receives at least
+                  as many samples as specified by n_samples_for_ibmq_circuits.
+      :rtype: A tuple containing
+
+
+   .. py:method:: execute_with_retries(self, batch: List[qiskit.QuantumCircuit], n_samples: int) -> qiskit.providers.ibmq.job.IBMQJob
+
+      Execute a job, resubmitting if the the backend job limit has been
+      reached.
+
+      The number of seconds between retries is specified by
+      self.retry_delay_seconds. If self.retry_timeout_seconds is defined, then
+      an exception will be raised if the submission does not succeed in the
+      specified number of seconds.
+
+      :param batch: The batch of qiskit circuits to be executed.
+      :param n_samples: The number of shots to perform on each circuit.
+
+      :returns: The qiskit representation of the submitted job.
+
+
+   .. py:method:: aggregate_measurements(self, jobs: List[qiskit.providers.ibmq.job.IBMQJob], batches: List[List[qiskit.QuantumCircuit]], multiplicities: List[int]) -> List[orquestra.quantum.measurements.Measurements]
+
+      Combine samples from a circuit set that has been expanded and batched
+      to obtain a set of measurements for each of the original circuits. Also
+      applies readout correction after combining.
+
+      :param jobs: The submitted IBMQ jobs.
+      :param batches: The batches of experiments submitted.
+      :param multiplicities: The number of copies of each of the original
+                             circuits.
+
+      :returns: A list of list of measurements, where each list of measurements
+                corresponds to one of the circuits of the original (unexpanded)
+                circuit set.
+
+
+

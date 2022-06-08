@@ -1,0 +1,725 @@
+:py:mod:`quantum.openfermion.ops`
+=================================
+
+.. py:module:: quantum.openfermion.ops
+
+.. autoapi-nested-parse::
+
+   This module should contain objects that describe the algebra of various
+   operators and representations which can be thought of as abstract instances that
+   serve as storage of the operators.  The abstract instance objects derive from
+   the PolynomialTensor.  Here we differentiate between generic storage objects and
+   particular instantiations.
+
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   operators/index.rst
+   representations/index.rst
+
+
+Package Contents
+----------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   quantum.openfermion.ops.FermionOperator
+   quantum.openfermion.ops.IsingOperator
+   quantum.openfermion.ops.QubitOperator
+   quantum.openfermion.ops.SymbolicOperator
+   quantum.openfermion.ops.PolynomialTensor
+   quantum.openfermion.ops.InteractionOperator
+   quantum.openfermion.ops.InteractionRDM
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   quantum.openfermion.ops.general_basis_change
+
+
+
+.. py:class:: FermionOperator
+
+   Bases: :py:obj:`orquestra.quantum.openfermion.ops.operators.symbolic_operator.SymbolicOperator`
+
+   FermionOperator stores a sum of products of fermionic ladder operators.
+
+   In OpenFermion, we describe fermionic ladder operators using the shorthand:
+   'q^' = a^\dagger_q
+   'q' = a_q
+   where {'p^', 'q'} = delta_pq
+
+   One can multiply together these fermionic ladder operators to obtain a
+   fermionic term. For instance, '2^ 1' is a fermion term which
+   creates at orbital 2 and destroys at orbital 1. The FermionOperator class
+   also stores a coefficient for the term, e.g. '3.17 * 2^ 1'.
+
+   The FermionOperator class is designed (in general) to store sums of these
+   terms. For instance, an instance of FermionOperator might represent
+   3.17 2^ 1 - 66.2 * 8^ 7 6^ 2
+   The Fermion Operator class overloads operations for manipulation of
+   these objects by the user.
+
+   FermionOperator is a subclass of SymbolicOperator. Importantly, it has
+   attributes set as follows::
+
+       actions = (1, 0)
+       action_strings = ('^', '')
+       action_before_index = False
+       different_indices_commute = False
+
+   See the documentation of SymbolicOperator for more details.
+
+   .. rubric:: Example
+
+   .. code-block:: python
+
+       ham = (FermionOperator('0^ 3', .5)
+              + .5 * FermionOperator('3^ 0'))
+       # Equivalently
+       ham2 = FermionOperator('0^ 3', 0.5)
+       ham2 += FermionOperator('3^ 0', 0.5)
+
+   .. note::
+
+      Adding FermionOperators is faster using += (as this
+      is done by in-place addition). Specifying the coefficient
+      during initialization is faster than multiplying a FermionOperator
+      with a scalar.
+
+   .. py:method:: actions(self)
+      :property:
+
+      The allowed actions.
+
+
+   .. py:method:: action_strings(self)
+      :property:
+
+      The string representations of the allowed actions.
+
+
+   .. py:method:: action_before_index(self)
+      :property:
+
+      Whether action comes before index in string representations.
+
+
+   .. py:method:: different_indices_commute(self)
+      :property:
+
+      Whether factors acting on different indices commute.
+
+
+   .. py:method:: is_normal_ordered(self)
+
+      Return whether or not term is in normal order.
+
+      In our convention, normal ordering implies terms are ordered
+      from highest tensor factor (on left) to lowest (on right). Also,
+      ladder operators come first.
+
+
+   .. py:method:: is_two_body_number_conserving(self, check_spin_symmetry=False)
+
+      Query whether operator has correct form to be from a molecule.
+
+      Require that term is particle-number conserving (same number of
+      raising and lowering operators). Require that term has 0, 2 or 4
+      ladder operators. Require that term conserves spin (parity of
+      raising operators equals parity of lowering operators).
+
+      :param check_spin_symmetry: Whether to check if
+                                  operator conserves spin.
+      :type check_spin_symmetry: bool
+
+
+
+.. py:class:: IsingOperator
+
+   Bases: :py:obj:`orquestra.quantum.openfermion.ops.operators.symbolic_operator.SymbolicOperator`
+
+   The IsingOperator class provides an analytic representation of an
+   Ising-type Hamiltonian, i.e. a sum of product of Zs.
+
+   IsingOperator is a subclass of SymbolicOperator. Importantly, it has
+   attributes set as follows:
+
+       actions = ('Z')
+       action_strings = ('Z')
+       action_before_index = True
+       different_indices_commute = True
+
+   See the documentation of SymbolicOperator for more details.
+
+   .. py:method:: actions(self)
+      :property:
+
+      The allowed actions.
+
+
+   .. py:method:: action_strings(self)
+      :property:
+
+      The string representations of the allowed actions.
+
+
+   .. py:method:: action_before_index(self)
+      :property:
+
+      Whether action comes before index in string representations.
+
+
+   .. py:method:: different_indices_commute(self)
+      :property:
+
+      Whether factors acting on different indices commute.
+
+
+
+.. py:class:: QubitOperator
+
+   Bases: :py:obj:`orquestra.quantum.openfermion.ops.operators.symbolic_operator.SymbolicOperator`
+
+   A sum of terms acting on qubits, e.g., 0.5 * 'X0 X5' + 0.3 * 'Z1 Z2'.
+
+   A term is an operator acting on n qubits and can be represented as:
+
+   coefficient * local_operator[0] x ... x local_operator[n-1]
+
+   where x is the tensor product. A local operator is a Pauli operator
+   ('I', 'X', 'Y', or 'Z') which acts on one qubit. In math notation a term
+   is, for example, 0.5 * 'X0 X5', which means that a Pauli X operator acts
+   on qubit 0 and 5, while the identity operator acts on all other qubits.
+
+   A QubitOperator represents a sum of terms acting on qubits and overloads
+   operations for easy manipulation of these objects by the user.
+
+   Note for a QubitOperator to be a Hamiltonian which is a hermitian
+   operator, the coefficients of all terms must be real.
+
+   .. code-block:: python
+
+       hamiltonian = 0.5 * QubitOperator('X0 X5') + 0.3 * QubitOperator('Z0')
+
+   QubitOperator is a subclass of SymbolicOperator. Importantly, it has
+   attributes set as follows::
+
+       actions = ('X', 'Y', 'Z')
+       action_strings = ('X', 'Y', 'Z')
+       action_before_index = True
+       different_indices_commute = True
+
+   See the documentation of SymbolicOperator for more details.
+
+   .. rubric:: Example
+
+   .. code-block:: python
+
+       ham = ((QubitOperator('X0 Y3', 0.5)
+               + 0.6 * QubitOperator('X0 Y3')))
+       # Equivalently
+       ham2 = QubitOperator('X0 Y3', 0.5)
+       ham2 += 0.6 * QubitOperator('X0 Y3')
+
+   .. note::
+
+      Adding QubitOperators is faster using += (as this
+      is done by in-place addition). Specifying the coefficient
+      during initialization is faster than multiplying a QubitOperator
+      with a scalar.
+
+   .. py:method:: actions(self)
+      :property:
+
+      The allowed actions.
+
+
+   .. py:method:: action_strings(self)
+      :property:
+
+      The string representations of the allowed actions.
+
+
+   .. py:method:: action_before_index(self)
+      :property:
+
+      Whether action comes before index in string representations.
+
+
+   .. py:method:: different_indices_commute(self)
+      :property:
+
+      Whether factors acting on different indices commute.
+
+
+   .. py:method:: renormalize(self)
+
+      Fix the trace norm of an operator to 1
+
+
+
+.. py:class:: SymbolicOperator(term=None, coefficient=1.0)
+
+   Base class for FermionOperator and QubitOperator.
+
+   A SymbolicOperator stores an object which represents a weighted
+   sum of terms; each term is a product of individual factors
+   of the form (`index`, `action`), where `index` is a nonnegative integer
+   and the possible values for `action` are determined by the subclass.
+   For instance, for the subclass FermionOperator, `action` can be 1 or 0,
+   indicating raising or lowering, and for QubitOperator, `action` is from
+   the set {'X', 'Y', 'Z'}.
+   The coefficients of the terms are stored in a dictionary whose
+   keys are the terms.
+   SymbolicOperators of the same type can be added or multiplied together.
+
+   .. note::
+
+      Adding SymbolicOperators is faster using += (as this
+      is done by in-place addition). Specifying the coefficient
+      during initialization is faster than multiplying a SymbolicOperator
+      with a scalar.
+
+   .. attribute:: actions
+
+      A tuple of objects representing the possible actions.
+      e.g. for FermionOperator, this is (1, 0).
+
+      :type: tuple
+
+   .. attribute:: action_strings
+
+      A tuple of string representations of actions.
+      These should be in one-to-one correspondence with actions and
+      listed in the same order.
+      e.g. for FermionOperator, this is ('^', '').
+
+      :type: tuple
+
+   .. attribute:: action_before_index
+
+      A boolean indicating whether in string
+      representations, the action should come before the index.
+
+      :type: bool
+
+   .. attribute:: different_indices_commute
+
+      A boolean indicating whether
+      factors acting on different indices commute.
+
+      :type: bool
+
+   .. attribute:: terms
+
+      **key** (tuple of tuples): A dictionary storing the coefficients
+      of the terms in the operator. The keys are the terms.
+      A term is a product of individual factors; each factor is
+      represented by a tuple of the form (`index`, `action`), and
+      these tuples are collected into a larger tuple which represents
+      the term as the product of its factors.
+
+      :type: dict
+
+   .. py:method:: actions(self)
+      :abstractmethod:
+
+      The allowed actions.
+
+      Returns a tuple of objects representing the possible actions.
+
+
+   .. py:method:: action_strings(self)
+      :abstractmethod:
+
+      The string representations of the allowed actions.
+
+      Returns a tuple containing string representations of the possible
+      actions, in the same order as the `actions` property.
+
+
+   .. py:method:: action_before_index(self)
+      :abstractmethod:
+
+      Whether action comes before index in string representations.
+
+      Example: For QubitOperator, the actions are ('X', 'Y', 'Z') and
+      the string representations look something like 'X0 Z2 Y3'. So the
+      action comes before the index, and this function should return True.
+      For FermionOperator, the string representations look like
+      '0^ 1 2^ 3'. The action comes after the index, so this function
+      should return False.
+
+
+   .. py:method:: different_indices_commute(self)
+      :abstractmethod:
+
+      Whether factors acting on different indices commute.
+
+
+   .. py:method:: constant(self)
+      :property:
+
+      The value of the constant term.
+
+
+   .. py:method:: zero(cls)
+      :classmethod:
+
+      :returns:     A symbolic operator o with the property that o+x = x+o = x for
+                    all operators x of the same class.
+      :rtype: additive_identity (SymbolicOperator)
+
+
+   .. py:method:: identity(cls)
+      :classmethod:
+
+      :returns:     A symbolic operator u with the property that u*x = x*u = x for
+                    all operators x of the same class.
+      :rtype: multiplicative_identity (SymbolicOperator)
+
+
+   .. py:method:: isclose(self, other, tol=EQ_TOLERANCE)
+
+      Check if other (SymbolicOperator) is close to self.
+
+      Comparison is done for each term individually. Return True
+      if the difference between each term in self and other is
+      less than EQ_TOLERANCE
+
+      :param other: SymbolicOperator to compare against.
+      :type other: SymbolicOperator
+
+
+   .. py:method:: compress(self, abs_tol=EQ_TOLERANCE)
+
+      Eliminates all terms with coefficients close to zero and removes
+      small imaginary and real parts.
+
+      :param abs_tol: Absolute tolerance, must be at least 0.0
+      :type abs_tol: float
+
+
+   .. py:method:: induced_norm(self, order=1)
+
+      Compute the induced p-norm of the operator.
+
+      If we represent an operator as
+      $\sum_{j} w_j H_j$
+      where $w_j$ are scalar coefficients then this norm is
+      $\left(\sum_{j} \| w_j \|^p \right)^{\frac{1}{p}}$
+      where $p$ is the order of the induced norm
+
+      :param order: the order of the induced norm.
+      :type order: int
+
+
+   .. py:method:: many_body_order(self)
+
+      Compute the many-body order of a SymbolicOperator.
+
+      The many-body order of a SymbolicOperator is the maximum length of
+      a term with nonzero coefficient.
+
+      :returns: int
+
+
+   .. py:method:: accumulate(cls, operators, start=None)
+      :classmethod:
+
+      Sums over SymbolicOperators.
+
+
+   .. py:method:: get_operators(self)
+
+      Gets a list of operators with a single term.
+
+      :returns: A generator of the operators in self.
+      :rtype: operators([self.__class__])
+
+
+   .. py:method:: get_operator_groups(self, num_groups)
+
+      Gets a list of operators with a few terms.
+      :param num_groups: How many operators to get in the end.
+      :type num_groups: int
+
+      :returns:
+
+                A list of operators summing up to
+                    self.
+      :rtype: operators([self.__class__])
+
+
+
+.. py:class:: PolynomialTensor(n_body_tensors)
+
+   Bases: :py:obj:`object`
+
+   Class for storing tensor representations of operators that correspond
+   with multilinear polynomials in the fermionic ladder operators.
+   For instance, in a quadratic Hamiltonian (degree 2 polynomial) which
+   conserves particle number, there are only terms of the form
+   a^\dagger_p a_q, and the coefficients can be stored in an
+   n_qubits x n_qubits matrix. Higher order terms would be described with
+   tensors of higher dimension. Note that each tensor must have an even
+   number of dimensions, since parity is conserved.
+   Much of the functionality of this class is redudant with FermionOperator
+   but enables much more efficient numerical computations in many cases,
+   such as basis rotations.
+
+   .. attribute:: n_qubits
+
+      The number of sites on which the tensor acts.
+
+      :type: int
+
+   .. attribute:: n_body_tensors
+
+      A dictionary storing the tensors describing
+      n-body interactions. The keys are tuples that indicate the
+      type of tensor. For instance, n_body_tensors[(1, 0)] would
+      be an (n_qubits x n_qubits) numpy array,
+      and it could represent the coefficients of terms of the form
+      a^\dagger_i a_j, whereas n_body_tensors[(0, 1)] would be
+      an array of the same shape, but instead representing terms
+      of the form a_i a^\dagger_j.
+
+      :type: dict
+
+   .. py:method:: constant(self)
+      :property:
+
+      The value of the constant term.
+
+
+   .. py:method:: n_body_tensors(self)
+      :property:
+
+
+   .. py:method:: n_qubits(self)
+      :property:
+
+
+   .. py:method:: with_function_applied_elementwise(self, func)
+
+
+   .. py:method:: rotate_basis(self, rotation_matrix)
+
+      Rotate the orbital basis of the PolynomialTensor.
+
+      :param rotation_matrix: A square numpy array or matrix having
+                              dimensions of n_qubits by n_qubits. Assumed to be real and
+                              invertible.
+
+
+   .. py:method:: projected_n_body_tensors(self, selection, exact=False)
+
+      Keep only selected elements.
+
+      :param selection: If int, keeps terms with at
+                        most (exactly, if exact is True) that many unique indices. If
+                        iterable, keeps only terms containing (all of, if exact is
+                        True) the specified indices.
+      :type selection: Union[int, Iterable[int]
+      :param exact: Whether or not the selection is strict.
+      :type exact: bool
+
+
+
+.. py:exception:: PolynomialTensorError
+
+   Bases: :py:obj:`Exception`
+
+   Common base class for all non-exit exceptions.
+
+
+.. py:function:: general_basis_change(general_tensor, rotation_matrix, key)
+
+   Change the basis of an general interaction tensor.
+
+   M'^{p_1p_2...p_n} = R^{p_1}_{a_1} R^{p_2}_{a_2} ...
+                       R^{p_n}_{a_n} M^{a_1a_2...a_n} R^{p_n}_{a_n}^T ...
+                       R^{p_2}_{a_2}^T R_{p_1}_{a_1}^T
+
+   where R is the rotation matrix, M is the general tensor, M' is the
+   transformed general tensor, and a_k and p_k are indices. The formula uses
+   the Einstein notation (implicit sum over repeated indices).
+
+   In case R is complex, the k-th R in the above formula need to be conjugated
+   if key has a 1 in the k-th place (meaning that the corresponding operator
+   is a creation operator).
+
+   :param general_tensor: A square numpy array or matrix containing information
+                          about a general interaction tensor.
+   :param rotation_matrix: A square numpy array or matrix having dimensions of
+                           n_qubits by n_qubits. Assumed to be unitary.
+   :param key: A tuple indicating the type of general_tensor. Assumed to be
+               non-empty. For example, a tensor storing coefficients of
+               $a^\dagger_p a_q$ would have a key of (1, 0) whereas a tensor
+               storing coefficients of $a^\dagger_p a_q a_r a^\dagger_s$
+               would have a key of (1, 0, 0, 1).
+
+   :returns: general_tensor in the rotated basis.
+   :rtype: transformed_general_tensor
+
+
+.. py:class:: InteractionOperator(constant, one_body_tensor, two_body_tensor)
+
+   Bases: :py:obj:`orquestra.quantum.openfermion.ops.representations.polynomial_tensor.PolynomialTensor`
+
+   Class for storing 'interaction operators' which are defined to be
+   fermionic operators consisting of one-body and two-body terms which
+   conserve particle number and spin. The most common examples of data that
+   will use this structure are molecular Hamiltonians. In principle,
+   everything stored in this class could also be represented using the more
+   general FermionOperator class. However, this class is able to exploit
+   specific properties of how fermions interact to enable more numerically
+   efficient manipulation of the data. Note that the operators stored in this
+   class take the form:
+
+       $$
+           constant + \sum_{p, q} h_{p, q} a^\dagger_p a_q +
+           \sum_{p, q, r, s} h_{p, q, r, s} a^\dagger_p a^\dagger_q a_r a_s.
+       $$
+
+   .. attribute:: one_body_tensor
+
+      The coefficients of the one-body terms
+
+   .. attribute:: ($h_{p, q}$). This is an n_qubits x n_qubits
+
+      
+
+   .. attribute:: numpy array of floats.
+
+      
+
+   .. attribute:: two_body_tensor
+
+      The coefficients of the two-body terms
+      ($h_{p, q, r, s}$).
+      This is an n_qubits x n_qubits x n_qubits x
+      n_qubits numpy array of floats.
+
+   .. py:method:: one_body_tensor(self)
+      :property:
+
+      The value of the one-body tensor.
+
+
+   .. py:method:: two_body_tensor(self)
+      :property:
+
+      The value of the two-body tensor.
+
+
+   .. py:method:: unique_iter(self, complex_valued=False)
+
+      Iterate all terms that are not in the same symmetry group.
+
+      Four point symmetry:
+          1. pq = qp.
+          2. pqrs = srqp = qpsr = rspq.
+      Eight point symmetry:
+          1. pq = qp.
+          2. pqrs = rqps = psrq = srqp = qpsr = rspq = spqr = qrsp.
+
+      :param complex_valued: Whether the operator has complex coefficients.
+      :type complex_valued: bool
+
+      :Yields: tuple[int]
+
+
+   .. py:method:: zero(cls, n_qubits)
+      :classmethod:
+
+
+   .. py:method:: projected(self, indices, exact=False)
+
+
+   .. py:method:: with_function_applied_elementwise(self, func)
+
+
+
+.. py:exception:: InteractionOperatorError
+
+   Bases: :py:obj:`Exception`
+
+   Common base class for all non-exit exceptions.
+
+
+.. py:class:: InteractionRDM(one_body_tensor, two_body_tensor)
+
+   Bases: :py:obj:`orquestra.quantum.openfermion.ops.representations.PolynomialTensor`
+
+   Class for storing 1- and 2-body reduced density matrices.
+
+   .. attribute:: one_body_tensor
+
+      The expectation values <a^\dagger_p a_q>.
+
+   .. attribute:: two_body_tensor
+
+      The expectation values
+      <a^\dagger_p a^\dagger_q a_r a_s>.
+
+   .. py:method:: one_body_tensor(self)
+      :property:
+
+      The value of the one-body tensor.
+
+
+   .. py:method:: two_body_tensor(self)
+      :property:
+
+      The value of the two-body tensor.
+
+
+   .. py:method:: expectation(self, operator)
+
+      Return expectation value of an InteractionRDM with an operator.
+
+      :param operator: A QubitOperator or InteractionOperator.
+
+      :returns: Expectation value
+      :rtype: float
+
+      :raises InteractionRDMError: Invalid operator provided.
+
+
+   .. py:method:: get_qubit_expectations(self, qubit_operator)
+
+      Return expectations of QubitOperator in new QubitOperator.
+
+      :param qubit_operator: QubitOperator instance to be evaluated on
+                             this InteractionRDM.
+
+      :returns: QubitOperator with coefficients
+                corresponding to expectation values of those operators.
+      :rtype: QubitOperator
+
+      :raises InteractionRDMError: Observable not contained in 1-RDM or 2-RDM.
+
+
+
+.. py:exception:: InteractionRDMError
+
+   Bases: :py:obj:`Exception`
+
+   Common base class for all non-exit exceptions.
+
+

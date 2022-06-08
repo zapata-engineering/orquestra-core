@@ -1,0 +1,43 @@
+:py:mod:`integrations.qulacs.simulator`
+=======================================
+
+.. py:module:: integrations.qulacs.simulator
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   integrations.qulacs.simulator.QulacsSimulator
+
+
+
+
+.. py:class:: QulacsSimulator
+
+   Bases: :py:obj:`orquestra.quantum.api.backend.QuantumSimulator`
+
+   .. py:attribute:: supports_batching
+      :annotation: = False
+
+      
+
+   .. py:method:: run_circuit_and_measure(self, circuit: orquestra.quantum.circuits.Circuit, n_samples: int) -> orquestra.quantum.measurements.Measurements
+
+      Run a circuit and measure a certain number of bitstrings
+
+      :param circuit: the circuit to prepare the state
+      :param n_samples: the number of bitstrings to sample
+
+
+   .. py:method:: get_exact_expectation_values(self, circuit: orquestra.quantum.circuits.Circuit, qubit_operator: orquestra.quantum.openfermion.SymbolicOperator) -> orquestra.quantum.measurements.ExpectationValues
+
+
+   .. py:method:: can_be_executed_natively(self, operation: Any) -> bool
+
+
+

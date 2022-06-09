@@ -23,7 +23,7 @@ Classes
 
 
 
-.. py:class:: IsingOperator
+.. py:class:: IsingOperator(term=None, coefficient=1.0)
 
    Bases: :py:obj:`orquestra.quantum.openfermion.ops.operators.symbolic_operator.SymbolicOperator`
 

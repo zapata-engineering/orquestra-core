@@ -21,6 +21,9 @@ Classes
 
    Bases: :py:obj:`orquestra.vqa.api.ansatz.Ansatz`
 
+   Helper class that provides a standard way to create an ABC using
+   inheritance.
+
    .. py:attribute:: supports_parametrized_circuits
       :annotation: = True
 
@@ -41,6 +44,8 @@ Classes
 
    .. py:method:: number_of_qubits(self)
       :property:
+
+      Returns number of qubits ansatz circuit uses
 
 
    .. py:method:: number_of_alpha_electrons(self)

@@ -1447,14 +1447,33 @@ title="Print to PDF"
 <div class="section" id="installing-orquestra-core">
 <h2>Installing orquestra-core<a class="headerlink" href="#installing-orquestra-core" title="Permalink to this headline">#</a></h2>
 <p>orquestra-core is a metapackage that installs other orquestra packages for you:</p>
-<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>- orquestra-quantum
-- orquestra-opt
-- orquestra-vqa
-- orquestra-qiskit
-- orquestra-cirq
-- orquestra-forest
-</pre></div>
-</div>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/zapatacomputing/orquestra-quantum">orquestra-quantum</a> provides</p>
+<ul>
+<li><p>core functionalities required to run experiments, such as the Circuit class.</p></li>
+<li><p>interfaces for implementing other Orquestra modules, such as quantum backends.</p></li>
+<li><p>basic data structures and functions for quantum computing.</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://github.com/zapatacomputing/orquestra-opt">orquestra-opt</a> provides:</p>
+<ul>
+<li><p>interfaces for implementing ansatzes including qaoa and qcbm.</p></li>
+<li><p>optimizers and cost functions tailored to opt</p></li>
+<li><p>misc functions such as grouping, qaoa interpolation, and estimators</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://github.com/zapatacomputing/orquestra-vqa">orquestra-vqa</a> provides:</p>
+<ul>
+<li><p>interfaces for implementing ansatzes including qaoa and qcbm.</p></li>
+<li><p>optimizers and cost functions tailored to vqa</p></li>
+<li><p>misc functions such as grouping, qaoa interpolation, and estimators</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://github.com/zapatacomputing/orquestra-qiskit">orquestra-qiskit</a> is a <a class="reference external" href="https://www.zapatacomputing.com/">Zapata</a> library holding modules for integrating qiskit with <a class="reference external" href="https://www.zapatacomputing.com/orquestra/">Orquestra</a>.</p></li>
+<li><p><a class="reference external" href="https://github.com/zapatacomputing/orquestra-cirq">orquestra-cirq</a> is a <a class="reference external" href="https://www.zapatacomputing.com/">Zapata</a> library holding modules for integrating cirq with <a class="reference external" href="https://www.zapatacomputing.com/orquestra/">Orquestra</a>.</p></li>
+<li><p><a class="reference external" href="https://github.com/zapatacomputing/orquestra-forest">orquestra-forest</a> is a <a class="reference external" href="https://www.zapatacomputing.com/">Zapata</a> library holding modules for integrating forest with <a class="reference external" href="https://www.zapatacomputing.com/orquestra/">Orquestra</a>.</p></li>
+<li><p><a class="reference external" href="https://github.com/zapatacomputing/orquestra-qulacs">orquestra-qulacs</a> is a <a class="reference external" href="https://www.zapatacomputing.com/">Zapata</a> library holding modules for integrating forest with <a class="reference external" href="https://www.zapatacomputing.com/orquestra/">Orquestra</a>.</p></li>
+</ul>
 <p>Installing orquestra-core can be done by running <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">orquestra-core</span></code></p>
 <p>If instead you want to install from source, you can clone <a class="reference external" href="https://github.com/zapatacomputing/orquestra-core">this repo</a>, navigate to it, and do
 <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">.</span></code></p>
@@ -1473,36 +1492,20 @@ q_1: ─────┤ X ├
 </pre></div>
 </div>
 <p>Let’s create a circuit that does this for us! Create a new file <code class="docutils literal notranslate"><span class="pre">bell_state.py</span></code> and follow along</p>
-<p>First, we need to import the necessary pieces from Orquestra Core (some of these won’t be used here, but rather will be used in future parts of these tutorials):</p>
+<p>This circuit can be created in a few lines. First, we import the needed gate and circuit classes, then create a new <code class="docutils literal notranslate"><span class="pre">Circuit</span></code> object, and finally add the gates we want.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">orquestra.quantum.circuits</span> <span class="kn">import</span> <span class="n">CNOT</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">Circuit</span>
-
-<span class="kn">from</span> <span class="nn">orquestra.quantum.symbolic_simulator</span> <span class="kn">import</span> <span class="n">SymbolicSimulator</span>
-<span class="kn">from</span> <span class="nn">orquestra.quantum.api.estimation</span> <span class="kn">import</span> <span class="n">EstimationTask</span>
-<span class="kn">from</span> <span class="nn">orquestra.integrations.qiskit.simulator</span> <span class="kn">import</span> <span class="n">QiskitSimulator</span>
-<span class="kn">from</span> <span class="nn">orquestra.quantum.openfermion</span> <span class="kn">import</span> <span class="n">IsingOperator</span>
-<span class="kn">from</span> <span class="nn">orquestra.quantum.estimation</span> <span class="kn">import</span> <span class="n">calculate_exact_expectation_values</span>
-
-<span class="kn">from</span> <span class="nn">orquestra.integrations.qiskit.conversions</span> <span class="kn">import</span> <span class="p">(</span>
-    <span class="n">export_to_qiskit</span><span class="p">,</span>
-    <span class="n">import_from_qiskit</span><span class="p">,</span>
-<span class="p">)</span>
-<span class="kn">from</span> <span class="nn">orquestra.integrations.cirq.conversions._circuit_conversions</span> <span class="kn">import</span> <span class="n">export_to_cirq</span>
-<span class="kn">from</span> <span class="nn">orquestra.integrations.forest.conversions</span> <span class="kn">import</span> <span class="n">export_to_pyquil</span>
-
 <span class="kn">from</span> <span class="nn">icecream</span> <span class="kn">import</span> <span class="n">ic</span>
-</pre></div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p><code class="docutils literal notranslate"><span class="pre">icecream</span></code> (and <code class="docutils literal notranslate"><span class="pre">ic</span></code>) is like <code class="docutils literal notranslate"><span class="pre">print</span></code>, but offers more information about what is being printed. It’s great for debugging! Just install it with <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">icecream</span></code></p>
-<p>If you would rather just use <code class="docutils literal notranslate"><span class="pre">print</span></code>, everything in this tutorial should still work! Just replace <code class="docutils literal notranslate"><span class="pre">ic()</span></code> with <code class="docutils literal notranslate"><span class="pre">print()</span></code> and all will be well.</p>
-</div>
-<p>Now, let’s actually build the circuit:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bell_circuit</span> <span class="o">=</span> <span class="n">Circuit</span><span class="p">()</span>
+
+<span class="n">bell_circuit</span> <span class="o">=</span> <span class="n">Circuit</span><span class="p">()</span>
 <span class="n">bell_circuit</span> <span class="o">+=</span> <span class="n">H</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">bell_circuit</span> <span class="o">+=</span> <span class="n">CNOT</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">ic</span><span class="p">(</span><span class="n">bell_circuit</span><span class="p">)</span>
 </pre></div>
+</div>
+<div class="admonition note" id="icecream-note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">icecream</span></code> (and <code class="docutils literal notranslate"><span class="pre">ic</span></code>) is like <code class="docutils literal notranslate"><span class="pre">print</span></code>, but offers more information about what is being printed. It’s great for debugging! Just install it with <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">icecream</span></code></p>
+<p>If you would rather just use <code class="docutils literal notranslate"><span class="pre">print</span></code>, everything in this tutorial should still work! Just replace <code class="docutils literal notranslate"><span class="pre">ic()</span></code> with <code class="docutils literal notranslate"><span class="pre">print()</span></code> and all will be well.</p>
 </div>
 <p>This will output a text description of the circuit that looks like <code class="docutils literal notranslate"><span class="pre">bell_circuit:</span> <span class="pre">Circuit(operations=[H(0),</span> <span class="pre">CNOT(0,1)],</span> <span class="pre">n_qubits=2)</span></code></p>
 <p>We actually have another option of how to build the circuit by specifying all of the gates at once:</p>
@@ -1548,16 +1551,20 @@ q_1: ─────┤ X ├
 <div class="section" id="running-circuits-on-a-backend">
 <h2>Running Circuits on a Backend<a class="headerlink" href="#running-circuits-on-a-backend" title="Permalink to this headline">#</a></h2>
 <p id="running-circuits">Once we have our circuit, the next step is to select what backend to run on and get our measurements. For this run, let’s use Qiskit’s aer simulator with 100 shots:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">simulator</span> <span class="o">=</span> <span class="n">QiskitSimulator</span><span class="p">(</span><span class="s2">&quot;aer_simulator&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">orquestra.integrations.qiskit.simulator</span> <span class="kn">import</span> <span class="n">QiskitSimulator</span>
+
+<span class="n">simulator</span> <span class="o">=</span> <span class="n">QiskitSimulator</span><span class="p">(</span><span class="s2">&quot;aer_simulator&quot;</span><span class="p">)</span>
 <span class="n">num_samples</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="n">measurements</span> <span class="o">=</span> <span class="n">simulator</span><span class="o">.</span><span class="n">run_circuit_and_measure</span><span class="p">(</span><span class="n">bell_circuit</span><span class="p">,</span> <span class="n">num_samples</span><span class="p">)</span>
 <span class="n">ic</span><span class="p">(</span><span class="n">measurements</span><span class="o">.</span><span class="n">get_counts</span><span class="p">())</span>
 </pre></div>
 </div>
 <p>It’s actually very easy to switch out backends thanks to Orquestra Core’s interfaces. Let’s say instead of the QiskitSimulator, we want to use Zapata’s very own SymbolicSimulator. We can do that by changing just part of one line:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sym_simulator</span> <span class="o">=</span> <span class="n">SymbolicSimulator</span><span class="p">()</span>
-<span class="n">measurements3</span> <span class="o">=</span> <span class="n">sym_simulator</span><span class="o">.</span><span class="n">run_circuit_and_measure</span><span class="p">(</span><span class="n">bell_circuit</span><span class="p">,</span> <span class="n">num_samples</span><span class="p">)</span>
-<span class="n">ic</span><span class="p">(</span><span class="n">measurements3</span><span class="o">.</span><span class="n">get_counts</span><span class="p">())</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">orquestra.quantum.symbolic_simulator</span> <span class="kn">import</span> <span class="n">SymbolicSimulator</span>
+
+<span class="n">sym_simulator</span> <span class="o">=</span> <span class="n">SymbolicSimulator</span><span class="p">()</span>
+<span class="n">measurements2</span> <span class="o">=</span> <span class="n">sym_simulator</span><span class="o">.</span><span class="n">run_circuit_and_measure</span><span class="p">(</span><span class="n">bell_circuit</span><span class="p">,</span> <span class="n">num_samples</span><span class="p">)</span>
+<span class="n">ic</span><span class="p">(</span><span class="n">measurements2</span><span class="o">.</span><span class="n">get_counts</span><span class="p">())</span>
 </pre></div>
 </div>
 <p id="running-amplitudes">If we want to get the amplitudes from the wavefunction instead of running measurements, we can do that as well:</p>
@@ -1567,7 +1574,11 @@ q_1: ─────┤ X ├
 </pre></div>
 </div>
 <p>We can also get an expectation value for the circuit given an operator we want to use:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ising</span> <span class="o">=</span> <span class="n">IsingOperator</span><span class="p">(</span><span class="s2">&quot;[Z0] + [Z1]&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">orquestra.quantum.api.estimation</span> <span class="kn">import</span> <span class="n">EstimationTask</span>
+<span class="kn">from</span> <span class="nn">orquestra.quantum.openfermion</span> <span class="kn">import</span> <span class="n">IsingOperator</span>
+<span class="kn">from</span> <span class="nn">orquestra.quantum.estimation</span> <span class="kn">import</span> <span class="n">calculate_exact_expectation_values</span>
+
+<span class="n">ising</span> <span class="o">=</span> <span class="n">IsingOperator</span><span class="p">(</span><span class="s2">&quot;[Z0] + [Z1]&quot;</span><span class="p">)</span>
 <span class="n">task</span> <span class="o">=</span> <span class="n">EstimationTask</span><span class="p">(</span><span class="n">ising</span><span class="p">,</span> <span class="n">bell_circuit</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
 <span class="n">evals</span> <span class="o">=</span> <span class="n">calculate_exact_expectation_values</span><span class="p">(</span><span class="n">sym_simulator</span><span class="p">,</span> <span class="p">[</span><span class="n">task</span><span class="p">])</span>
 <span class="n">ic</span><span class="p">(</span><span class="n">evals</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
@@ -1596,12 +1607,19 @@ q_1: ─────┤ X ├
 \[| \psi^+ \rangle = \frac{1}{\sqrt{2}}( |01\rangle + |10\rangle )\]</div>
 <p>But we want to do it by editing the circuit in Qiskit, and then visualizing the circuit in Cirq (because why not?) Lucky for us, Orquestra Core allows us to do that readily!</p>
 <p>First, we can translate our existing circuit from the current Orquestra Core representation into its Qiskit representation and add an <code class="docutils literal notranslate"><span class="pre">X</span></code> gate to the second qubit in Qiskit:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">qiskit_circuit</span> <span class="o">=</span> <span class="n">export_to_qiskit</span><span class="p">(</span><span class="n">bell_circuit</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">orquestra.integrations.qiskit.conversions</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">export_to_qiskit</span><span class="p">,</span>
+    <span class="n">import_from_qiskit</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">qiskit_circuit</span> <span class="o">=</span> <span class="n">export_to_qiskit</span><span class="p">(</span><span class="n">bell_circuit</span><span class="p">)</span>
 <span class="n">qiskit_circuit</span><span class="o">.</span><span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Then, we can re-import the Qiskit version to Orquestra Core and re-export to Cirq:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bell_circuit_X</span> <span class="o">=</span> <span class="n">import_from_qiskit</span><span class="p">(</span><span class="n">qiskit_circuit</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">orquestra.integrations.cirq.conversions._circuit_conversions</span> <span class="kn">import</span> <span class="n">export_to_cirq</span>
+
+<span class="n">bell_circuit_X</span> <span class="o">=</span> <span class="n">import_from_qiskit</span><span class="p">(</span><span class="n">qiskit_circuit</span><span class="p">)</span>
 <span class="n">cirq_circuit</span> <span class="o">=</span> <span class="n">export_to_cirq</span><span class="p">(</span><span class="n">bell_circuit_X</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">cirq_circuit</span><span class="p">)</span>
 </pre></div>
@@ -1620,15 +1638,18 @@ q_1: ─────┤ X ├
 </pre></div>
 </div>
 </div>
-<p>And we should get <code class="docutils literal notranslate"><span class="pre">wavefunction.amplitudes:</span> <span class="pre">array([0.70710678+0.j,</span> <span class="pre">0.</span>&#160;&#160; <span class="pre">+0.j,</span> <span class="pre">0.</span>&#160;&#160; <span class="pre">+0.j,</span> <span class="pre">0.70710678+0.j])</span></code> if everything went to plan.</p>
+<p>And we should get <code class="docutils literal notranslate"><span class="pre">wavefunction.amplitudes:</span> <span class="pre">array([0.70710678+0.j,</span> <span class="pre">0.+0.j,</span> <span class="pre">0.+0.j,</span> <span class="pre">0.70710678+0.j])</span></code> if everything went according to plan.</p>
 <p><strong>Your turn!</strong></p>
 <p>Try to export our new <code class="docutils literal notranslate"><span class="pre">bell_circuit_X</span></code> to pyQuil!</p>
 <div class="dropdown admonition hint">
 <p class="admonition-title">Hint</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pyquil_circuit</span> <span class="o">=</span> <span class="n">export_to_pyquil</span><span class="p">(</span><span class="n">bell_circuit_X</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">orquestra.integrations.forest.conversions</span> <span class="kn">import</span> <span class="n">export_to_pyquil</span>
+
+<span class="n">pyquil_circuit</span> <span class="o">=</span> <span class="n">export_to_pyquil</span><span class="p">(</span><span class="n">bell_circuit_X</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<p>Ready for something a bit more interesting? Try the <a class="reference internal" href="basic_qaoa.html#qaoa"><span class="std std-ref">qaoa tutorial</span></a>!</p>
 </div>
 </div>
 

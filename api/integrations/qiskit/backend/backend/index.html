@@ -1386,6 +1386,26 @@ title="Print to PDF"
       </a>
       <ul class="nav section-nav flex-column">
        <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#integrations.qiskit.backend.backend.QiskitBackend.supports_batching">
+         supports_batching
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#integrations.qiskit.backend.backend.QiskitBackend.batch_size">
+         batch_size
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#integrations.qiskit.backend.backend.QiskitBackend.number_of_circuits_run">
+         number_of_circuits_run
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#integrations.qiskit.backend.backend.QiskitBackend.number_of_jobs_run">
+         number_of_jobs_run
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
         <a class="reference internal nav-link" href="#integrations.qiskit.backend.backend.QiskitBackend.run_circuit_and_measure">
          run_circuit_and_measure
         </a>
@@ -1456,6 +1476,26 @@ title="Print to PDF"
       </a>
       <ul class="nav section-nav flex-column">
        <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#integrations.qiskit.backend.backend.QiskitBackend.supports_batching">
+         supports_batching
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#integrations.qiskit.backend.backend.QiskitBackend.batch_size">
+         batch_size
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#integrations.qiskit.backend.backend.QiskitBackend.number_of_circuits_run">
+         number_of_circuits_run
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#integrations.qiskit.backend.backend.QiskitBackend.number_of_jobs_run">
+         number_of_jobs_run
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
         <a class="reference internal nav-link" href="#integrations.qiskit.backend.backend.QiskitBackend.run_circuit_and_measure">
          run_circuit_and_measure
         </a>
@@ -1514,7 +1554,7 @@ title="Print to PDF"
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#integrations.qiskit.backend.backend.QiskitBackend" title="integrations.qiskit.backend.backend.QiskitBackend"><code class="xref py py-obj docutils literal notranslate"><span class="pre">QiskitBackend</span></code></a></p></td>
-<td><p></p></td>
+<td><p>Interface for implementing different quantum backends.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1522,6 +1562,34 @@ title="Print to PDF"
 <dt class="sig sig-object py" id="integrations.qiskit.backend.backend.QiskitBackend">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">integrations.qiskit.backend.backend.</span></span><span class="sig-name descname"><span class="pre">QiskitBackend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">device_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">hub</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'ibm-q'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'open'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">project</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'main'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">api_token</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">readout_correction</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimization_level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">retry_delay_seconds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">60</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">retry_timeout_seconds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">86400</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_samples_for_readout_calibration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noise_inversion_method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'least_squares'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#integrations.qiskit.backend.backend.QiskitBackend" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">orquestra.quantum.api.backend.QuantumBackend</span></code></p>
+<p>Interface for implementing different quantum backends.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="integrations.qiskit.backend.backend.QiskitBackend.supports_batching">
+<span class="sig-name descname"><span class="pre">supports_batching</span></span><a class="headerlink" href="#integrations.qiskit.backend.backend.QiskitBackend.supports_batching" title="Permalink to this definition">#</a></dt>
+<dd><p>boolean flag indicating whether given backend
+supports batching circuits.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="integrations.qiskit.backend.backend.QiskitBackend.batch_size">
+<span class="sig-name descname"><span class="pre">batch_size</span></span><a class="headerlink" href="#integrations.qiskit.backend.backend.QiskitBackend.batch_size" title="Permalink to this definition">#</a></dt>
+<dd><p>number of circuit runs in a single batch.
+If <cite>supports_batching</cite> is true should be a positive integer.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="integrations.qiskit.backend.backend.QiskitBackend.number_of_circuits_run">
+<span class="sig-name descname"><span class="pre">number_of_circuits_run</span></span><a class="headerlink" href="#integrations.qiskit.backend.backend.QiskitBackend.number_of_circuits_run" title="Permalink to this definition">#</a></dt>
+<dd><p>number of circuits executed by this backend</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="integrations.qiskit.backend.backend.QiskitBackend.number_of_jobs_run">
+<span class="sig-name descname"><span class="pre">number_of_jobs_run</span></span><a class="headerlink" href="#integrations.qiskit.backend.backend.QiskitBackend.number_of_jobs_run" title="Permalink to this definition">#</a></dt>
+<dd><p>number of jobs executed by this backend. Will be different
+from <cite>number_of_circuits_run</cite> if batches are used.</p>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="integrations.qiskit.backend.backend.QiskitBackend.run_circuit_and_measure">
 <span class="sig-name descname"><span class="pre">run_circuit_and_measure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">circuit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">orquestra.quantum.circuits.Circuit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_samples</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">orquestra.quantum.measurements.Measurements</span></span></span><a class="headerlink" href="#integrations.qiskit.backend.backend.QiskitBackend.run_circuit_and_measure" title="Permalink to this definition">#</a></dt>

@@ -8,14 +8,9 @@ Installing orquestra-core
 
 orquestra-core is a metapackage that installs other orquestra packages for you:
 
-.. code-block:: markdown
-
-    - orquestra-quantum
-    - orquestra-opt
-    - orquestra-vqa
-    - orquestra-qiskit
-    - orquestra-cirq
-    - orquestra-forest
+.. include:: /tutorials/orq_core_structure.rst
+  :start-after: Orquestra Core is broken into multiple packages, each with a different purpose.
+  :end-before: Here is a diagram of these packages:
 
 Installing orquestra-core can be done by running ``pip install orquestra-core``
 
@@ -46,24 +41,19 @@ This state can be created using a Hadamard gate and a CNOT gate:
 
 Let's create a circuit that does this for us! Create a new file ``bell_state.py`` and follow along
 
-First, we need to import the necessary pieces from Orquestra Core (some of these won't be used here, but rather will be used in future parts of these tutorials):
+This circuit can be created in a few lines. First, we import the needed gate and circuit classes, then create a new ``Circuit`` object, and finally add the gates we want.
 
 .. literalinclude:: /examples/bell_state.py
     :language: python
     :start-at: from orquestra.quantum.circuits import CNOT, H, Circuit
-    :end-at: from icecream import ic
+    :end-at: ic(bell_circuit)
+
+.. _icecream-note:
 
 .. note::
     ``icecream`` (and ``ic``) is like ``print``, but offers more information about what is being printed. It's great for debugging! Just install it with ``pip install icecream``
 
     If you would rather just use ``print``, everything in this tutorial should still work! Just replace ``ic()`` with ``print()`` and all will be well.
-
-Now, let's actually build the circuit:
-
-.. literalinclude:: /examples/bell_state.py
-    :language: python
-    :start-at: bell_circuit = Circuit()
-    :end-at: ic(bell_circuit)
 
 This will output a text description of the circuit that looks like ``bell_circuit: Circuit(operations=[H(0), CNOT(0,1)], n_qubits=2)``
 
@@ -73,7 +63,6 @@ We actually have another option of how to build the circuit by specifying all of
     :language: python
     :start-at: bell_circuit2
     :end-at: ic(bell_circuit2)
-
 
 This creates the exact same circuit as appending the gates one-by-one! Now we can run the circuit on the backend of our choosing.
 
@@ -107,15 +96,15 @@ Once we have our circuit, the next step is to select what backend to run on and 
 
 .. literalinclude:: /examples/bell_state.py
     :language: python
-    :start-at: simulator = QiskitSimulator("aer_simulator")
+    :start-at: import QiskitSimulator
     :end-at: ic(measurements.get_counts())
 
 It's actually very easy to switch out backends thanks to Orquestra Core's interfaces. Let's say instead of the QiskitSimulator, we want to use Zapata's very own SymbolicSimulator. We can do that by changing just part of one line:
 
 .. literalinclude:: /examples/bell_state.py
     :language: python
-    :start-at: sym_simulator = SymbolicSimulator()
-    :end-at: ic(measurements3.get_counts())
+    :start-at: import SymbolicSimulator
+    :end-at: ic(measurements2.get_counts())
 
 .. _running_amplitudes:
 
@@ -130,7 +119,7 @@ We can also get an expectation value for the circuit given an operator we want t
 
 .. literalinclude:: /examples/bell_state.py
     :language: python
-    :start-at: ising = 
+    :start-at: import EstimationTask
     :end-at: ic(evals[0].values)
 
 For a full list of backends you can run your circuits on, check :ref:`this page <backends>`
@@ -167,14 +156,14 @@ First, we can translate our existing circuit from the current Orquestra Core rep
 
 .. literalinclude:: /examples/bell_state.py
     :language: python
-    :start-at: qiskit_circuit = export_to_qiskit(bell_circuit)
+    :start-at: qiskit.conversions import
     :end-at: qiskit_circuit.x(1)
 
 Then, we can re-import the Qiskit version to Orquestra Core and re-export to Cirq:
 
 .. literalinclude:: /examples/bell_state.py
     :language: python
-    :start-at: bell_circuit_X = import_from_qiskit(qiskit_circuit)
+    :start-at: import export_to_cirq
     :end-at: print(cirq_circuit)
 
 Make sure the output now has an X gate at on qubit 1 after the CNOT gate:
@@ -195,7 +184,7 @@ Lastly, we can use the Qiskit statevector simulator to make sure we've created t
         :start-at: wavefunction = sv_simulator.get_wavefunction(bell_circuit_X)
         :end-at: ic(wavefunction.amplitudes)
 
-And we should get ``wavefunction.amplitudes: array([0.70710678+0.j, 0.   +0.j, 0.   +0.j, 0.70710678+0.j])`` if everything went to plan.
+And we should get ``wavefunction.amplitudes: array([0.70710678+0.j, 0.+0.j, 0.+0.j, 0.70710678+0.j])`` if everything went according to plan.
 
 **Your turn!**
 
@@ -206,5 +195,7 @@ Try to export our new ``bell_circuit_X`` to pyQuil!
 
     .. literalinclude:: /examples/bell_state.py
         :language: python
-        :start-at: pyquil_circuit =
+        :start-at: import export_to_pyquil
         :end-at: pyquil_circuit = 
+
+Ready for something a bit more interesting? Try the :ref:`qaoa tutorial <qaoa>`!

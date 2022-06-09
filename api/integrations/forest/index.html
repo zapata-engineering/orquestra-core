@@ -1520,7 +1520,7 @@ title="Print to PDF"
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#integrations.forest.ForestSimulator" title="integrations.forest.ForestSimulator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ForestSimulator</span></code></a></p></td>
-<td><p></p></td>
+<td><p>Simulator capable of computing exact wavefunction.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1528,6 +1528,16 @@ title="Print to PDF"
 <dt class="sig sig-object py" id="integrations.forest.ForestSimulator">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">integrations.forest.</span></span><span class="sig-name descname"><span class="pre">ForestSimulator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">device_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nthreads</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#integrations.forest.ForestSimulator" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">orquestra.quantum.api.backend.QuantumSimulator</span></code></p>
+<p>Simulator capable of computing exact wavefunction.</p>
+<p>Note that in contrast to non-simulator QuantumBackends, simulators
+are capable of simulating operations that are not natively supported
+by libraries/services they wrap. Therefore, simulation of a circuit may
+get broken into several smaller circuits. Each native circuit run
+using the wrapped library or service counts towards number_of_circuits
+run and number_of_jobs_run. However, if simulated circuit comprises only
+natively supported operation AND concrete implementation does not change
+counting methodology, each simulated circuit corresponds to an increase
+of both those numbers by one.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="integrations.forest.ForestSimulator.supports_batching">
 <span class="sig-name descname"><span class="pre">supports_batching</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">False</span></em><a class="headerlink" href="#integrations.forest.ForestSimulator.supports_batching" title="Permalink to this definition">#</a></dt>
@@ -1554,7 +1564,17 @@ of bitstrings measured is derived from self.n_samples</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="integrations.forest.ForestSimulator.get_exact_expectation_values">
 <span class="sig-name descname"><span class="pre">get_exact_expectation_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">circuit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">orquestra.quantum.circuits.Circuit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qubit_operator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">orquestra.quantum.openfermion.ops.SymbolicOperator</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">orquestra.quantum.measurements.ExpectationValues</span></span></span><a class="headerlink" href="#integrations.forest.ForestSimulator.get_exact_expectation_values" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
+<dd><p>Calculates the expectation values for given operator, based on the exact
+quantum state produced by circuit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>circuit</strong> – quantum circuit to be executed.</p></li>
+<li><p><strong>operator</strong> – Operator for which we calculate the expectation value.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 

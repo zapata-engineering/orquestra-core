@@ -1513,7 +1513,7 @@ title="Print to PDF"
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#integrations.qulacs.QulacsSimulator" title="integrations.qulacs.QulacsSimulator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">QulacsSimulator</span></code></a></p></td>
-<td><p></p></td>
+<td><p>Simulator capable of computing exact wavefunction.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1521,6 +1521,16 @@ title="Print to PDF"
 <dt class="sig sig-object py" id="integrations.qulacs.QulacsSimulator">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">integrations.qulacs.</span></span><span class="sig-name descname"><span class="pre">QulacsSimulator</span></span><a class="headerlink" href="#integrations.qulacs.QulacsSimulator" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">orquestra.quantum.api.backend.QuantumSimulator</span></code></p>
+<p>Simulator capable of computing exact wavefunction.</p>
+<p>Note that in contrast to non-simulator QuantumBackends, simulators
+are capable of simulating operations that are not natively supported
+by libraries/services they wrap. Therefore, simulation of a circuit may
+get broken into several smaller circuits. Each native circuit run
+using the wrapped library or service counts towards number_of_circuits
+run and number_of_jobs_run. However, if simulated circuit comprises only
+natively supported operation AND concrete implementation does not change
+counting methodology, each simulated circuit corresponds to an increase
+of both those numbers by one.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="integrations.qulacs.QulacsSimulator.supports_batching">
 <span class="sig-name descname"><span class="pre">supports_batching</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">False</span></em><a class="headerlink" href="#integrations.qulacs.QulacsSimulator.supports_batching" title="Permalink to this definition">#</a></dt>
@@ -1543,7 +1553,17 @@ title="Print to PDF"
 <dl class="py method">
 <dt class="sig sig-object py" id="integrations.qulacs.QulacsSimulator.get_exact_expectation_values">
 <span class="sig-name descname"><span class="pre">get_exact_expectation_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">circuit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">orquestra.quantum.circuits.Circuit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qubit_operator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">orquestra.quantum.openfermion.SymbolicOperator</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">orquestra.quantum.measurements.ExpectationValues</span></span></span><a class="headerlink" href="#integrations.qulacs.QulacsSimulator.get_exact_expectation_values" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
+<dd><p>Calculates the expectation values for given operator, based on the exact
+quantum state produced by circuit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>circuit</strong> – quantum circuit to be executed.</p></li>
+<li><p><strong>operator</strong> – Operator for which we calculate the expectation value.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="integrations.qulacs.QulacsSimulator.can_be_executed_natively">

@@ -1377,12 +1377,31 @@ title="Print to PDF"
 <h1>Contributing to Orquestra Core<a class="headerlink" href="#contributing-to-orquestra-core" title="Permalink to this headline">#</a></h1>
 <p id="contributing">Orquestra Core itself doesn’t have any source code in it, so the first step is to find which specific package you want to contribute to:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/zapatacomputing/orquestra-quantum">orquestra-quantum</a></p></li>
-<li><p><a class="reference external" href="https://github.com/zapatacomputing/orquestra-opt">orquestra-opt</a></p></li>
-<li><p><a class="reference external" href="https://github.com/zapatacomputing/orquestra-vqa">orquestra-vqa</a></p></li>
-<li><p><a class="reference external" href="https://github.com/zapatacomputing/orquestra-qiskit">orquestra-qiskit</a></p></li>
-<li><p><a class="reference external" href="https://github.com/zapatacomputing/orquestra-cirq">orquestra-cirq</a></p></li>
-<li><p><a class="reference external" href="https://github.com/zapatacomputing/orquestra-forest">orquestra-forest</a></p></li>
+<li><p><a class="reference external" href="https://github.com/zapatacomputing/orquestra-quantum">orquestra-quantum</a> provides</p>
+<ul>
+<li><p>core functionalities required to run experiments, such as the Circuit class.</p></li>
+<li><p>interfaces for implementing other Orquestra modules, such as quantum backends.</p></li>
+<li><p>basic data structures and functions for quantum computing.</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://github.com/zapatacomputing/orquestra-opt">orquestra-opt</a> provides:</p>
+<ul>
+<li><p>interfaces for implementing ansatzes including qaoa and qcbm.</p></li>
+<li><p>optimizers and cost functions tailored to opt</p></li>
+<li><p>misc functions such as grouping, qaoa interpolation, and estimators</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://github.com/zapatacomputing/orquestra-vqa">orquestra-vqa</a> provides:</p>
+<ul>
+<li><p>interfaces for implementing ansatzes including qaoa and qcbm.</p></li>
+<li><p>optimizers and cost functions tailored to vqa</p></li>
+<li><p>misc functions such as grouping, qaoa interpolation, and estimators</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://github.com/zapatacomputing/orquestra-qiskit">orquestra-qiskit</a> is a <a class="reference external" href="https://www.zapatacomputing.com/">Zapata</a> library holding modules for integrating qiskit with <a class="reference external" href="https://www.zapatacomputing.com/orquestra/">Orquestra</a>.</p></li>
+<li><p><a class="reference external" href="https://github.com/zapatacomputing/orquestra-cirq">orquestra-cirq</a> is a <a class="reference external" href="https://www.zapatacomputing.com/">Zapata</a> library holding modules for integrating cirq with <a class="reference external" href="https://www.zapatacomputing.com/orquestra/">Orquestra</a>.</p></li>
+<li><p><a class="reference external" href="https://github.com/zapatacomputing/orquestra-forest">orquestra-forest</a> is a <a class="reference external" href="https://www.zapatacomputing.com/">Zapata</a> library holding modules for integrating forest with <a class="reference external" href="https://www.zapatacomputing.com/orquestra/">Orquestra</a>.</p></li>
+<li><p><a class="reference external" href="https://github.com/zapatacomputing/orquestra-qulacs">orquestra-qulacs</a> is a <a class="reference external" href="https://www.zapatacomputing.com/">Zapata</a> library holding modules for integrating forest with <a class="reference external" href="https://www.zapatacomputing.com/orquestra/">Orquestra</a>.</p></li>
 </ul>
 <p>Now that you’ve found the repository you want to contribute to, you can fork it and make your edits, or open a new issue for that repo.</p>
 <p>If you wanted to make improvements to the code, do that on your fork of the repo. When you’re done, make sure your edits actually work, then open up a pull request to merge the changes into the main repo. Fill out any template that comes up for the pull request and send the pull request on its way!</p>

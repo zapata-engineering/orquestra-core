@@ -6,12 +6,9 @@ Contributing to Orquestra Core
 
 Orquestra Core itself doesn't have any source code in it, so the first step is to find which specific package you want to contribute to:
 
-* `orquestra-quantum <https://github.com/zapatacomputing/orquestra-quantum>`_
-* `orquestra-opt <https://github.com/zapatacomputing/orquestra-opt>`_
-* `orquestra-vqa <https://github.com/zapatacomputing/orquestra-vqa>`_
-* `orquestra-qiskit <https://github.com/zapatacomputing/orquestra-qiskit>`_
-* `orquestra-cirq <https://github.com/zapatacomputing/orquestra-cirq>`_
-* `orquestra-forest <https://github.com/zapatacomputing/orquestra-forest>`_
+.. include:: /tutorials/orq_core_structure.rst
+  :start-after: Orquestra Core is broken into multiple packages, each with a different purpose.
+  :end-before: Here is a diagram of these packages:
 
 Now that you've found the repository you want to contribute to, you can fork it and make your edits, or open a new issue for that repo.
 

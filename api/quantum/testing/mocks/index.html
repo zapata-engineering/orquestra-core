@@ -1391,6 +1391,26 @@ title="Print to PDF"
         </a>
        </li>
        <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.testing.mocks.MockQuantumBackend.batch_size">
+         batch_size
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.testing.mocks.MockQuantumBackend.number_of_circuits_run">
+         number_of_circuits_run
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.testing.mocks.MockQuantumBackend.number_of_jobs_run">
+         number_of_jobs_run
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id0">
+         supports_batching
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
         <a class="reference internal nav-link" href="#quantum.testing.mocks.MockQuantumBackend.run_circuit_and_measure">
          run_circuit_and_measure
         </a>
@@ -1441,6 +1461,26 @@ title="Print to PDF"
         </a>
        </li>
        <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.testing.mocks.MockQuantumBackend.batch_size">
+         batch_size
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.testing.mocks.MockQuantumBackend.number_of_circuits_run">
+         number_of_circuits_run
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.testing.mocks.MockQuantumBackend.number_of_jobs_run">
+         number_of_jobs_run
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id0">
+         supports_batching
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
         <a class="reference internal nav-link" href="#quantum.testing.mocks.MockQuantumBackend.run_circuit_and_measure">
          run_circuit_and_measure
         </a>
@@ -1474,7 +1514,7 @@ title="Print to PDF"
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#quantum.testing.mocks.MockQuantumBackend" title="quantum.testing.mocks.MockQuantumBackend"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MockQuantumBackend</span></code></a></p></td>
-<td><p></p></td>
+<td><p>Interface for implementing different quantum backends.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1482,15 +1522,46 @@ title="Print to PDF"
 <dt class="sig sig-object py" id="quantum.testing.mocks.MockQuantumBackend">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">quantum.testing.mocks.</span></span><span class="sig-name descname"><span class="pre">MockQuantumBackend</span></span><a class="headerlink" href="#quantum.testing.mocks.MockQuantumBackend" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">orquestra.quantum.api.backend.QuantumBackend</span></code></p>
+<p>Interface for implementing different quantum backends.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="quantum.testing.mocks.MockQuantumBackend.supports_batching">
-<span class="sig-name descname"><span class="pre">supports_batching</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">False</span></em><a class="headerlink" href="#quantum.testing.mocks.MockQuantumBackend.supports_batching" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">supports_batching</span></span><a class="headerlink" href="#quantum.testing.mocks.MockQuantumBackend.supports_batching" title="Permalink to this definition">#</a></dt>
+<dd><p>boolean flag indicating whether given backend
+supports batching circuits.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="quantum.testing.mocks.MockQuantumBackend.batch_size">
+<span class="sig-name descname"><span class="pre">batch_size</span></span><a class="headerlink" href="#quantum.testing.mocks.MockQuantumBackend.batch_size" title="Permalink to this definition">#</a></dt>
+<dd><p>number of circuit runs in a single batch.
+If <cite>supports_batching</cite> is true should be a positive integer.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="quantum.testing.mocks.MockQuantumBackend.number_of_circuits_run">
+<span class="sig-name descname"><span class="pre">number_of_circuits_run</span></span><a class="headerlink" href="#quantum.testing.mocks.MockQuantumBackend.number_of_circuits_run" title="Permalink to this definition">#</a></dt>
+<dd><p>number of circuits executed by this backend</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="quantum.testing.mocks.MockQuantumBackend.number_of_jobs_run">
+<span class="sig-name descname"><span class="pre">number_of_jobs_run</span></span><a class="headerlink" href="#quantum.testing.mocks.MockQuantumBackend.number_of_jobs_run" title="Permalink to this definition">#</a></dt>
+<dd><p>number of jobs executed by this backend. Will be different
+from <cite>number_of_circuits_run</cite> if batches are used.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id0">
+<span class="sig-name descname"><span class="pre">supports_batching</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">False</span></em><a class="headerlink" href="#id0" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="quantum.testing.mocks.MockQuantumBackend.run_circuit_and_measure">
 <span class="sig-name descname"><span class="pre">run_circuit_and_measure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">circuit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">orquestra.quantum.circuits.Circuit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_samples</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">orquestra.quantum.measurements.Measurements</span></span></span><a class="headerlink" href="#quantum.testing.mocks.MockQuantumBackend.run_circuit_and_measure" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
+<dd><p>Method for executing the circuit and measuring the outcome.
+:param circuit: quantum circuit to be executed.
+:param n_samples: The number of samples to collect.</p>
+</dd></dl>
 
 </dd></dl>
 

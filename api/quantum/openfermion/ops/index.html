@@ -2221,7 +2221,7 @@ particular instantiations.</p>
 </table>
 <dl class="py class">
 <dt class="sig sig-object py" id="quantum.openfermion.ops.FermionOperator">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">quantum.openfermion.ops.</span></span><span class="sig-name descname"><span class="pre">FermionOperator</span></span><a class="headerlink" href="#quantum.openfermion.ops.FermionOperator" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">quantum.openfermion.ops.</span></span><span class="sig-name descname"><span class="pre">FermionOperator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">term</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coefficient</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quantum.openfermion.ops.FermionOperator" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">orquestra.quantum.openfermion.ops.operators.symbolic_operator.SymbolicOperator</span></code></p>
 <p>FermionOperator stores a sum of products of fermionic ladder operators.</p>
 <p>In OpenFermion, we describe fermionic ladder operators using the shorthand:
@@ -2314,7 +2314,7 @@ operator conserves spin.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="quantum.openfermion.ops.IsingOperator">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">quantum.openfermion.ops.</span></span><span class="sig-name descname"><span class="pre">IsingOperator</span></span><a class="headerlink" href="#quantum.openfermion.ops.IsingOperator" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">quantum.openfermion.ops.</span></span><span class="sig-name descname"><span class="pre">IsingOperator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">term</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coefficient</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quantum.openfermion.ops.IsingOperator" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">orquestra.quantum.openfermion.ops.operators.symbolic_operator.SymbolicOperator</span></code></p>
 <p>The IsingOperator class provides an analytic representation of an
 Ising-type Hamiltonian, i.e. a sum of product of Zs.</p>
@@ -2355,7 +2355,7 @@ different_indices_commute = True</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="quantum.openfermion.ops.QubitOperator">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">quantum.openfermion.ops.</span></span><span class="sig-name descname"><span class="pre">QubitOperator</span></span><a class="headerlink" href="#quantum.openfermion.ops.QubitOperator" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">quantum.openfermion.ops.</span></span><span class="sig-name descname"><span class="pre">QubitOperator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">term</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coefficient</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quantum.openfermion.ops.QubitOperator" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">orquestra.quantum.openfermion.ops.operators.symbolic_operator.SymbolicOperator</span></code></p>
 <p>A sum of terms acting on qubits, e.g., 0.5 * ‘X0 X5’ + 0.3 * ‘Z1 Z2’.</p>
 <p>A term is an operator acting on n qubits and can be represented as:</p>

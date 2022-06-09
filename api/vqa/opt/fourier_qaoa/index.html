@@ -1494,7 +1494,7 @@ title="Print to PDF"
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#vqa.opt.fourier_qaoa.FourierOptimizer" title="vqa.opt.fourier_qaoa.FourierOptimizer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FourierOptimizer</span></code></a></p></td>
-<td><p></p></td>
+<td><p>Optimizers that modify cost function throughout optimization.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1516,15 +1516,49 @@ title="Print to PDF"
 <dt class="sig sig-object py" id="vqa.opt.fourier_qaoa.FourierOptimizer">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vqa.opt.fourier_qaoa.</span></span><span class="sig-name descname"><span class="pre">FourierOptimizer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ansatz</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">orquestra.vqa.api.ansatz.Ansatz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inner_optimizer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">orquestra.opt.api.optimizer.Optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_layer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_layer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_layers_per_iteration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recorder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">orquestra.opt.history.recorder.RecorderFactory</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">_recorder</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vqa.opt.fourier_qaoa.FourierOptimizer" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">orquestra.opt.api.optimizer.NestedOptimizer</span></code></p>
+<p>Optimizers that modify cost function throughout optimization.
+An example of such optimizer could be on that freezes certain
+parameters during every iteration or adds new layers of
+the underlying circuit (so called layer-by-layer optimization).</p>
+<p>See MockNestedOptimizer in orquestra.opt.mock_objects for an example.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inner_optimizer</strong> – Optimizer object used in the inner optimization loop.</p></li>
+<li><p><strong>recorder</strong> – recorder object which defines how to store the optimization history.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><p>opt_value,
+opt_params,
+nit: total number of iterations of inner_optimizer,
+nfev: total number of calls to cost function,
+history: a list of HistoryEntrys.</p>
+<blockquote>
+<div><p>If keep_history is False this should be an empty list.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>gradient_history: if the cost function is a FunctionWithGradient,</dt><dd><p>this should be a list of HistoryEntrys representing
+previous calls to the gradient.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>An instance of OptimizeResult containing</p>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="vqa.opt.fourier_qaoa.FourierOptimizer.inner_optimizer">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">inner_optimizer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">orquestra.opt.api.optimizer.Optimizer</span></span></span><a class="headerlink" href="#vqa.opt.fourier_qaoa.FourierOptimizer.inner_optimizer" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
+<dd><p>Inner optimizer used by this optimizer.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="vqa.opt.fourier_qaoa.FourierOptimizer.recorder">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">recorder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">orquestra.opt.history.recorder.RecorderFactory</span></span></span><a class="headerlink" href="#vqa.opt.fourier_qaoa.FourierOptimizer.recorder" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
+<dd><p>Factory for creating recorders of functions being minimized.</p>
+</dd></dl>
 
 </dd></dl>
 

@@ -1376,7 +1376,10 @@ title="Print to PDF"
                 
   <div class="section" id="basic-qaoa-tutorial">
 <h1>Basic QAOA Tutorial<a class="headerlink" href="#basic-qaoa-tutorial" title="Permalink to this headline">#</a></h1>
-<p>It’s 3 in the morning and your boss calls you, waking you up from your sleep: “I got a problem I need you to solve.” Okay, what could this be? “I need to cut a graph in a way that maximizes the value of the edges cut” Ahhhh this dream again.</p>
+<p id="qaoa">It’s 3 in the morning and your boss calls you, waking you up from your sleep: “I got a problem I need you to solve.”</p>
+<p>Okay, what could this be?</p>
+<p>“I need to cut a graph in a way that maximizes the value of the edges cut”</p>
+<p>Ahhhh this dream again.</p>
 <p>In all seriousness, what I’m describing here is called the MaxCut problem. Given some graph, we want to cut it into two parts so that the value of the “cut” edges is maximized. For instance, let’s take this graph:</p>
 <a class="reference internal image-reference" href="../_images/uncut_graph.excalidraw.png"><img alt="../_images/uncut_graph.excalidraw.png" class="align-center" src="../_images/uncut_graph.excalidraw.png" style="width: 75%;" /></a>
 <p>How could you split each of the nodes into one of two categories such that the line that circles one category (but not the other) cuts edges in such a way that the sum of the edges is maximized?</p>
@@ -1385,7 +1388,7 @@ title="Print to PDF"
 <p>That was a pretty easy example, but now try to find a solution for this one:</p>
 <a class="reference internal image-reference" href="../_images/harder_graph.excalidraw.png"><img alt="../_images/harder_graph.excalidraw.png" class="align-center" src="../_images/harder_graph.excalidraw.png" style="width: 75%;" /></a>
 <p>All I’ve done is add 2 nodes and a couple edges to connect them up to the graph (plus changing one edge weight), but the problem has become significantly harder! You can see why this problem will get very computationally expensive very quickly. I don’t know about you, but I’d rather not sit here and try to solve that by hand. Let’s make Orquestra Core do it for us!</p>
-<p>The <a class="reference external" href="https://www.mustythoughts.com/quantum-approximate-optimization-algorithm-explained">Quantum Approximate Optimzation Algorithm</a> is a heuristic quantum algorithm that is believed to offer some advantage in solving optimization problems. It’s also very easy to work with in Orquestra! We can use that to try to solve this maxcut problem.</p>
+<p>The <a class="reference external" href="https://www.mustythoughts.com/quantum-approximate-optimization-algorithm-explained">Quantum Approximate Optimization Algorithm</a> is a heuristic quantum algorithm that is believed to offer some advantage in solving optimization problems. It’s also very easy to work with in Orquestra! We can use that to try to solve this maxcut problem.</p>
 <p>Let’s start by creating a new python file called <code class="docutils literal notranslate"><span class="pre">qaoa_maxcut.py</span></code>. The first thing we’ll do is import all the necessary packages:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
 
@@ -1418,9 +1421,11 @@ title="Print to PDF"
     <span class="n">graph</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
     <span class="n">graph</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">graph</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1"># YOUR CODE HERE</span>
 </pre></div>
 </div>
-<p>That code only makes the simpler, box-looking graph from the easy maxcut example. In your own code, go ahead and add the remaining lines of the function to define edges between the new nodes I added in the harder problem.</p>
+<p>That code only makes the simpler, box-looking graph from the easy maxcut example. In your own code, in new lines after the <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">YOUR</span> <span class="pre">CODE</span> <span class="pre">HERE</span></code>, go ahead and add the remaining lines of the function to define edges between the new nodes I added in the harder problem.</p>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
 <p>You should add 5 more edges to your graph and end the function with a <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">graph</span></code>.</p>
@@ -1437,7 +1442,7 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
-<p>Now let’s write a function that accepts our graph object and used QAOA to try to solve it. The first step is to get a description of the problem in a language our quantum computer can understand, we call this the Hamiltonian. We also need a quantum ciruit we can train using QAOA, this is called our ansatz.</p>
+<p>Now let’s write a function that accepts our graph object and uses QAOA to try to solve it. The first step is to get a description of the problem in a language our quantum computer can understand, we call this the Hamiltonian. We also need a quantum circuit we can train using QAOA, this is called our ansatz.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">solve_maxcut_qaoa</span><span class="p">(</span><span class="n">test_graph</span><span class="p">):</span>
 
     <span class="n">hamiltonian</span> <span class="o">=</span> <span class="n">MaxCut</span><span class="p">()</span><span class="o">.</span><span class="n">get_hamiltonian</span><span class="p">(</span><span class="n">test_graph</span><span class="p">)</span>
@@ -1499,6 +1504,100 @@ title="Print to PDF"
 </div>
 <p>The output should be <code class="docutils literal notranslate"><span class="pre">most_common_string:</span> <span class="pre">(0,</span> <span class="pre">1,</span> <span class="pre">0,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">1)</span></code> or <code class="docutils literal notranslate"><span class="pre">most_common_string:</span> <span class="pre">(1,</span> <span class="pre">0,</span> <span class="pre">1,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0)</span></code> which corresponds to nodes 0 and 2 being one color, and the remaining nodes being another color. That looks like this graphically:</p>
 <a class="reference internal image-reference" href="../_images/harder_graph_cut.excalidraw.png"><img alt="../_images/harder_graph_cut.excalidraw.png" class="align-center" src="../_images/harder_graph_cut.excalidraw.png" style="width: 75%;" /></a>
+<p>If you want to see all of the code put together, here it is:</p>
+<div class="dropdown admonition hint">
+<p class="admonition-title">Hint</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">################################################################################</span>
+<span class="c1"># © Copyright 2022 Zapata Computing Inc.</span>
+<span class="c1"># modified from tests/qaoa_maxcut_test.py</span>
+<span class="c1">################################################################################</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="kn">as</span> <span class="nn">nx</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">orquestra.integrations.cirq.simulator</span> <span class="kn">import</span> <span class="n">CirqSimulator</span>
+<span class="kn">from</span> <span class="nn">orquestra.opt.optimizers</span> <span class="kn">import</span> <span class="n">ScipyOptimizer</span>
+<span class="kn">from</span> <span class="nn">orquestra.opt.problems.maxcut</span> <span class="kn">import</span> <span class="n">MaxCut</span>
+<span class="kn">from</span> <span class="nn">orquestra.quantum.estimation</span> <span class="kn">import</span> <span class="n">calculate_exact_expectation_values</span>
+<span class="kn">from</span> <span class="nn">orquestra.vqa.ansatz.qaoa_farhi</span> <span class="kn">import</span> <span class="n">QAOAFarhiAnsatz</span>
+<span class="kn">from</span> <span class="nn">orquestra.vqa.cost_function.cost_function</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">create_cost_function</span><span class="p">,</span>
+    <span class="n">substitution_based_estimation_tasks_factory</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">icecream</span> <span class="kn">import</span> <span class="n">ic</span>
+
+
+<span class="k">def</span> <span class="nf">create_simple_graph</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    [0] --10-- [1]</span>
+<span class="sd">    |           |</span>
+<span class="sd">    10          1</span>
+<span class="sd">    |           |</span>
+<span class="sd">    [3] --1 -- [2]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">graph</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
+    <span class="n">graph</span><span class="o">.</span><span class="n">add_nodes_from</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+    <span class="n">graph</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">graph</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">graph</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">graph</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">graph</span>
+
+
+<span class="k">def</span> <span class="nf">create_harder_graph</span><span class="p">():</span>
+    <span class="n">graph</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
+    <span class="n">graph</span><span class="o">.</span><span class="n">add_nodes_from</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+    <span class="n">graph</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">graph</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">graph</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">graph</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1"># YOUR CODE HERE</span>
+
+    <span class="n">graph</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">graph</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">graph</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">graph</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">graph</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">graph</span>
+
+
+<span class="k">def</span> <span class="nf">solve_maxcut_qaoa</span><span class="p">(</span><span class="n">test_graph</span><span class="p">):</span>
+
+    <span class="n">hamiltonian</span> <span class="o">=</span> <span class="n">MaxCut</span><span class="p">()</span><span class="o">.</span><span class="n">get_hamiltonian</span><span class="p">(</span><span class="n">test_graph</span><span class="p">)</span>
+    <span class="n">ansatz</span> <span class="o">=</span> <span class="n">QAOAFarhiAnsatz</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">cost_hamiltonian</span><span class="o">=</span><span class="n">hamiltonian</span><span class="p">)</span>
+
+    <span class="n">estimation_method</span> <span class="o">=</span> <span class="n">calculate_exact_expectation_values</span>
+    <span class="n">estimation_task_factory</span> <span class="o">=</span> <span class="n">substitution_based_estimation_tasks_factory</span><span class="p">(</span>
+        <span class="n">hamiltonian</span><span class="p">,</span> <span class="n">ansatz</span>
+    <span class="p">)</span>
+
+    <span class="n">backend</span> <span class="o">=</span> <span class="n">CirqSimulator</span><span class="p">()</span>
+    <span class="n">optimizer</span> <span class="o">=</span> <span class="n">ScipyOptimizer</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s2">&quot;L-BFGS-B&quot;</span><span class="p">)</span>
+
+    <span class="n">cost_function</span> <span class="o">=</span> <span class="n">create_cost_function</span><span class="p">(</span>
+        <span class="n">backend</span><span class="p">,</span>
+        <span class="n">estimation_task_factory</span><span class="p">,</span>
+        <span class="n">estimation_method</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">initial_params</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">ansatz</span><span class="o">.</span><span class="n">number_of_params</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">5</span>
+    <span class="n">opt_results</span> <span class="o">=</span> <span class="n">optimizer</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">cost_function</span><span class="p">,</span> <span class="n">initial_params</span><span class="p">)</span>
+
+    <span class="n">circuit</span> <span class="o">=</span> <span class="n">ansatz</span><span class="o">.</span><span class="n">get_executable_circuit</span><span class="p">(</span><span class="n">opt_results</span><span class="o">.</span><span class="n">opt_params</span><span class="p">)</span>
+    <span class="n">measurements</span> <span class="o">=</span> <span class="n">backend</span><span class="o">.</span><span class="n">run_circuit_and_measure</span><span class="p">(</span><span class="n">circuit</span><span class="p">,</span> <span class="n">n_samples</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+    <span class="n">counter</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">measurements</span><span class="o">.</span><span class="n">bitstrings</span><span class="p">)</span>
+    <span class="n">most_common_string</span> <span class="o">=</span> <span class="n">counter</span><span class="o">.</span><span class="n">most_common</span><span class="p">()[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">most_common_string</span>
+
+
+<span class="n">test_graph</span> <span class="o">=</span> <span class="n">create_harder_graph</span><span class="p">()</span>
+<span class="n">most_common_string</span> <span class="o">=</span> <span class="n">solve_maxcut_qaoa</span><span class="p">(</span><span class="n">test_graph</span><span class="p">)</span>
+<span class="n">ic</span><span class="p">(</span><span class="n">most_common_string</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 <p>And there we have it! Instead of having to do that optimization ourselves, we made a quick Orquestra program to do it for us. Now how to tell your boss in your dream you solved it…</p>
 </div>
 

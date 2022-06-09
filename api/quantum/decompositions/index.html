@@ -1539,12 +1539,17 @@ title="Print to PDF"
 <dl class="py method">
 <dt class="sig sig-object py" id="quantum.decompositions.U3GateToRotation.predicate">
 <span class="sig-name descname"><span class="pre">predicate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">operation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">orquestra.quantum.circuits._gates.GateOperation</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span></span><a class="headerlink" href="#quantum.decompositions.U3GateToRotation.predicate" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
+<dd><p>Determine if this rule should be applied to given operation.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="quantum.decompositions.U3GateToRotation.production">
 <span class="sig-name descname"><span class="pre">production</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">operation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">orquestra.quantum.circuits._gates.GateOperation</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">orquestra.quantum.circuits._gates.GateOperation</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#quantum.decompositions.U3GateToRotation.production" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
+<dd><p>Decompose given operation.</p>
+<p>Implementers should make sure that the result of applying the decomposed
+sequence to any wavefunction is the same as after applying the original
+operation.</p>
+</dd></dl>
 
 </dd></dl>
 

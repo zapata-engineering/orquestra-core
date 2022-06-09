@@ -1,0 +1,8 @@
+sphinx-togglebutton
+sphinx-book-theme
+sphinx-copybutton
+sphinxemoji
+Jinja2>=3.0.0
+protobuf==3.20.1
+
+git+https://git@github.com/zapatacomputing/orquestra-manifest.git

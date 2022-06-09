@@ -130,3 +130,10 @@ dmypy.json
 
 # PyCharm files
 .idea
+
+# VSCode files
+.vscode/
+docs/tutorials/images/.DS_Store
+docs/repos/
+docs/api/
+docs/tmp_monorepo/

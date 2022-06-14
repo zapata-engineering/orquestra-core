@@ -1,0 +1,47 @@
+{
+  "version": "1.1.0",
+  "repos": {
+    "orquestra-quantum": {
+      "url": "https://github.com/zapatacomputing/orquestra-quantum.git",
+      "ref": "main",
+      "type": "python",
+      "autodoc": ["src/"]
+    },
+    "orquestra-opt": {
+      "url": "https://github.com/zapatacomputing/orquestra-opt.git",
+      "ref": "main",
+      "type": "python",
+      "autodoc": ["src/"]
+    },
+    "orquestra-vqa": {
+      "url": "https://github.com/zapatacomputing/orquestra-vqa.git",
+      "ref": "main",
+      "type": "python",
+      "autodoc": ["src/"]
+    },
+    "orquestra-qiskit": {
+      "url": "https://github.com/zapatacomputing/orquestra-qiskit.git",
+      "ref": "main",
+      "type": "python",
+      "autodoc": ["src/"]
+    },
+    "orquestra-cirq": {
+      "url": "https://github.com/zapatacomputing/orquestra-cirq.git",
+      "ref": "main",
+      "type": "python",
+      "autodoc": ["src/"]
+    },
+    "orquestra-forest": {
+      "url": "https://github.com/zapatacomputing/orquestra-forest.git",
+      "ref": "main",
+      "type": "python",
+      "autodoc": ["src/"]
+    },
+    "orquestra-qulacs": {
+      "url": "https://github.com/zapatacomputing/orquestra-qulacs.git",
+      "ref": "main",
+      "type": "python",
+      "autodoc": ["src/"]
+    }
+  }
+}

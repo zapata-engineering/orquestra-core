@@ -1,0 +1,22 @@
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Push Sphinx Pages
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout this repo
+        uses: actions/checkout@v3
+      - name: install doc building dependencies
+        run: pip install -r docs/requirements.txt
+      - name: get repos for api docs
+        run: cd docs && make update
+      - name: do the sphinx build
+        run: make html
+        working-directory: docs
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4.3.3
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: docs/_build/html

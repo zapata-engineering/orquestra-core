@@ -48,6 +48,10 @@ When you make your PR, github will automatically run style and test checks on py
 
 Once you have made the requested changes and your PR is approved, you can click merge and delete your branch. 🎉
 
+### CLA
+
+After making your PR, send an email to Michal or Athena (emails above) so that we can send you a copy of our CLA. If you wish to view the CLA before contributing, our you can find [here](docs/_static/ZapataCLA.pdf).
+
 ### Bug Reporting
 
 If you'd like to report a bug/issue please create a new issue in this repository.

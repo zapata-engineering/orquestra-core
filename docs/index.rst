@@ -10,6 +10,7 @@ Welcome to Orquestra Core's documentation!
    :maxdepth: 2
 
    tutorials/index
+   guides/index
 
 
 

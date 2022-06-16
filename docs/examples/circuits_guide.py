@@ -17,6 +17,7 @@ import numpy as np
 from icecream import ic
 
 N_QUBITS = 3
+
 beta = sympy.symbols("beta_0:3", real=True)
 gamma = sympy.symbols("gamma_0:3", real=True)
 theta = sympy.Symbol("theta", real=True)
@@ -41,13 +42,13 @@ problem_hamiltonian_circ += Circuit([CNOT(1, 2), RZ(beta[2])(2), CNOT(1, 2)])
 unitary = problem_hamiltonian_circ.to_unitary()
 ic(unitary.shape)  # should be 8x8 matrix
 ic(type(unitary))  # sympy matrix
-ic(problem_hamiltonian_circ.free_symbols)
 
 # Mixing Hamiltonian Circuit
 mixing_circ = Circuit()
 for i in range(N_QUBITS):
     mixing_circ += RX(gamma[i])(i)
 ic(mixing_circ)
+ic(mixing_circ.free_symbols)
 
 # Combine the circuit
 qaoa_circ = state_prep_circ + problem_hamiltonian_circ + mixing_circ

@@ -12,20 +12,20 @@ As shown in the diagram below, Orquestra Core is broken into multiple packages, 
   * interfaces for implementing other Orquestra modules, such as quantum backends.
   * basic data structures and functions for quantum computing.
 
-* `orquestra-opt <https://github.com/zapatacomputing/orquestra-opt>`_ provides:
+* `orquestra-opt <https://github.com/zapatacomputing/orquestra-opt>`_ provides
 
   * interfaces for implementing ansatzes including qaoa and qcbm.
   * optimizers and cost functions tailored to opt
   * misc functions such as grouping, qaoa interpolation, and estimators
 
-* `orquestra-vqa <https://github.com/zapatacomputing/orquestra-vqa>`_ provides:
+* `orquestra-vqa <https://github.com/zapatacomputing/orquestra-vqa>`_ provides
 
   * interfaces for implementing ansatzes including qaoa and qcbm.
   * optimizers and cost functions tailored to vqa
   * misc functions such as grouping, qaoa interpolation, and estimators
 
 * `orquestra-qiskit <https://github.com/zapatacomputing/orquestra-qiskit>`_ provides an integration with `Qiskit <https://qiskit.org/>`_.
-* `orquestra-cirq <https://github.com/zapatacomputing/orquestra-cirq>`_ provides and integration with `Cirq <https://quantumai.google/cirq>`_.`
+* `orquestra-cirq <https://github.com/zapatacomputing/orquestra-cirq>`_ provides and integration with `Cirq <https://quantumai.google/cirq>`_.
 * `orquestra-forest <https://github.com/zapatacomputing/orquestra-forest>`_ provides an integration with `Rigetti Forest <https://pyquil-docs.rigetti.com/en/stable/>`_.
 * `orquestra-qulacs <https://github.com/zapatacomputing/orquestra-qulacs>`_ provides an integration with the `Qulacs simulator <https://github.com/qulacs/qulacs>`_.
 

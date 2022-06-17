@@ -6,13 +6,13 @@ Circuits guide
 What this guide covers
 ======================
 
-This guide is an in-depth dive into the ``Circuit`` class within Orquestra Core. In it, we'll cover advanced capabilities that can be performed using ``Circuit`` s like using symbolic gates, creating your own gates, and building decomposition rules. If you're looking for a place to get started, please see :ref:`the basics tutorial <creating_circuits>` before diving into the advanced capabilities here.
+This guide is an in-depth dive into the ``Circuit`` class within Orquestra Core. In it, we'll cover advanced capabilities that can be performed using ``Circuit``\ s like using symbolic gates, creating your own gates, and building decomposition rules. If you're looking for a place to get started, please see :ref:`the basics tutorial <creating_circuits>` before diving into the advanced capabilities here.
 
 
 The Problem
 ===========
 
-In this guide we want to create a QAOA circuit to solve a 3-node, fully-connected maxcut problem. Our :ref:`Basic QAOA Tutorial <qaoa>` walks through using Orquestra Core's built-in QAOA functionality to solve the problem from circuit creation through to a final result. Here, to demonstrate capabilities of ``Circuit`` s, we'll do a simple example and just build the circuit we can use to solve the problem later.
+In this guide we want to create a QAOA circuit to solve a 3-node, fully-connected maxcut problem. Our :ref:`Basic QAOA Tutorial <qaoa>` walks through using Orquestra Core's built-in QAOA functionality to solve the problem from circuit creation through to a final result. Here, to demonstrate capabilities of ``Circuit``\ s, we'll do a simple example and just build the circuit we can use to solve the problem later.
 
 TODO: diagram of the graph we want to to maxcut on w/ short explainer including circuit diagram
 
@@ -22,7 +22,7 @@ General ``Circuit`` Information
 Circuit Architecture
 --------------------
 
-Orquestra Core represents quantum circuits with the ``Circuit`` class, which is in turn composed of ``Operation`` s. The most common operation type is a ``GateOperation``, which we'll focus on here, although in some circumstances :ref:`wavefunction operations <wavefunction_operations>` can be useful. Circuits also have a property for the number of qubits, but users don't have to define that themselves.
+Orquestra Core represents quantum circuits with the ``Circuit`` class, which is in turn composed of ``Operation``\ s. The most common operation type is a ``GateOperation``, which we'll focus on here, although in some circumstances :ref:`wavefunction operations <wavefunction_operations>` can be useful. Circuits also have a property for the number of qubits, but users don't have to define that themselves.
 
 If you would like to follow along with this guide, please create a new python file and start it with the imports we'll need to ensure the rest of the code examples can be run:
 

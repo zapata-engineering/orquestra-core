@@ -1,10 +1,10 @@
-==========================
-Orquestra Core's Structure
-==========================
+=================
+Package Structure
+=================
 
 .. _orq_core_structure:
 
-Orquestra Core is broken into multiple packages, each with a different purpose.
+As shown in the diagram below, Orquestra Core is broken into multiple packages, each with a different purpose.
 
 * `orquestra-quantum <https://github.com/zapatacomputing/orquestra-quantum>`_ provides
 
@@ -24,21 +24,17 @@ Orquestra Core is broken into multiple packages, each with a different purpose.
   * optimizers and cost functions tailored to vqa
   * misc functions such as grouping, qaoa interpolation, and estimators
 
-* `orquestra-qiskit <https://github.com/zapatacomputing/orquestra-qiskit>`_ is a `Zapata <https://www.zapatacomputing.com/>`_ library holding modules for integrating qiskit with `Orquestra <https://www.zapatacomputing.com/orquestra/>`_.
-* `orquestra-cirq <https://github.com/zapatacomputing/orquestra-cirq>`_ is a `Zapata <https://www.zapatacomputing.com/>`_ library holding modules for integrating cirq with `Orquestra <https://www.zapatacomputing.com/orquestra/>`_.
-* `orquestra-forest <https://github.com/zapatacomputing/orquestra-forest>`_ is a `Zapata <https://www.zapatacomputing.com/>`_ library holding modules for integrating forest with `Orquestra <https://www.zapatacomputing.com/orquestra/>`_.
-* `orquestra-qulacs <https://github.com/zapatacomputing/orquestra-qulacs>`_ is a `Zapata <https://www.zapatacomputing.com/>`_ library holding modules for integrating forest with `Orquestra <https://www.zapatacomputing.com/orquestra/>`_.
-
-Here is a diagram of these packages:
+* `orquestra-qiskit <https://github.com/zapatacomputing/orquestra-qiskit>`_ provides an integration with `Qiskit <https://qiskit.org/>`_.
+* `orquestra-cirq <https://github.com/zapatacomputing/orquestra-cirq>`_ provides and integration with `Cirq <https://quantumai.google/cirq>`_.`
+* `orquestra-forest <https://github.com/zapatacomputing/orquestra-forest>`_ provides an integration with `Rigetti Forest <https://pyquil-docs.rigetti.com/en/stable/>`_.
+* `orquestra-qulacs <https://github.com/zapatacomputing/orquestra-qulacs>`_ provides an integration with the `Qulacs simulator <https://github.com/qulacs/qulacs>`_.
 
 .. image:: images/orquestra_core_connection.excalidraw.png
 
-We decided to do it this way, rather than having a single monorepo due to multiple reasons:
+Dividing Orquestra core into multiple packages creates provides a number of benefits:
 
 * It makes the code more modular and helps creating clear boundaries between the libraries.
 * A lot of packages that we rely on are unstable - by dividing code into multiple separate packages, we reduce the risk of one unstable dependency breaking all of them.
-* User have more control over what they want and need to install.
-* Both points above reduce the risk that the user will end up with conflicting dependencies with some other packages they might be using..
+* Users have more control over what they want and need to install.
+* Both points above reduce the risk that the user will end up with conflicting dependencies with some other packages they might be using.
 * It is easier to develop them separately.
-
-However, we acknowledge the fact that it comes with certain challenges for the users, such as the fact that the overall structure and scope of the libraries is less obvious. We do our best to alleviate these.

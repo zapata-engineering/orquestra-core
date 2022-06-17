@@ -1,21 +1,16 @@
 =====================
-Start from the Basics
+Getting Started
 =====================
 
 
 Installing orquestra-core
 =========================
 
-orquestra-core is a metapackage that installs other orquestra packages for you:
+Orquestra Core can be installed by running ``pip install orquestra-core``.
 
-.. include:: /tutorials/orq_core_structure.rst
-  :start-after: Orquestra Core is broken into multiple packages, each with a different purpose.
-  :end-before: Here is a diagram of these packages:
+The ``orquestra-core`` metapackage bundles together :doc:`several packages <orq_core_structure>`, including the ``orquestra-quantum``, ``orquestra-qiskit``, and ``orquestra-cirq`` packages used in this tutorial.
 
-Installing orquestra-core can be done by running ``pip install orquestra-core``
-
-If instead you want to install from source, you can clone `this repo <https://github.com/zapatacomputing/orquestra-core>`_, navigate to it, and do
-``pip install .``
+Note that Orquestra Core can also be installed from source from the `orquestra-core GitHub repository <https://github.com/zapatacomputing/orquestra-core>`_.
 
 
 Creating basic circuits

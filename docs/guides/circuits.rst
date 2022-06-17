@@ -22,7 +22,7 @@ General ``Circuit`` Information
 Circuit Architecture
 --------------------
 
-Orquestra Core represents quantum circuits with the ``Circuit`` class, which is in turn composed of ``Operation`` s. The most common operation type is a ``GateOperation``, which we'll focus on here. Circuits also have a number of qubits property, but users don't have to define that themselves.
+Orquestra Core represents quantum circuits with the ``Circuit`` class, which is in turn composed of ``Operation`` s. The most common operation type is a ``GateOperation``, which we'll focus on here, although in some circumstances :ref:`wavefunction operations <wavefunction_operations>` can be useful. Circuits also have a property for the number of qubits, but users don't have to define that themselves.
 
 If you would like to follow along with this guide, please create a new python file and start it with the imports we'll need to ensure the rest of the code examples can be run:
 
@@ -31,7 +31,9 @@ If you would like to follow along with this guide, please create a new python fi
   :start-at: from orquestra.quantum.circuits import (
   :end-at: N_QUBITS =
 
-Notice we also defined the number of qubits we'll be working with. This will make some list comprehensions easier later.
+Notice we also defined a variable for the number of qubits we'll be working with. This will make some list comprehensions easier later.
+
+.. _creating_circuits:
 
 Creating a circuit
 ------------------
@@ -130,7 +132,9 @@ To build up the mixing circuit, we ust need to put parametrized RX gate on each 
 
 The output of that looks like ``mixing_circ: Circuit(operations=[RX(gamma_0)(0), RX(gamma_1)(1), RX(gamma_2)(2)], n_qubits=3)``. Again, for now don't worry about the ``gamma`` parameters in there, that will be addressed in the :ref:`symbolic gates <symbolic_gates>` section.
 
-Inspecting Circuits and Components
+.. _inspecting_circuits:
+
+Inspecting circuits and components
 ----------------------------------
 
 Now that we have all three sub-circuits of our overall QAOA circuit, we can put them all together! We can do this by just adding them and storing the result in a new ``qaoa_circ`` variable
@@ -178,6 +182,14 @@ That will produce this output:
   ic| op.gate.name: 'RX', op.qubit_indices: (1,), op.params: (gamma_1,)
   ic| op.gate.name: 'RX', op.qubit_indices: (2,), op.params: (gamma_2,)
 
+.. _wavefunction_operations:
+
+Gate operations vs Wave Function Operations
+-------------------------------------------
+
+While gate operations perform the familiar gates on the qubits of a circuit, `wavefunction operations <https://github.com/zapatacomputing/orquestra-quantum/blob/main/src/orquestra/quantum/circuits/_wavefunction_operations.py>`_ can operate on the wavefunction directly. Currently, the only built-in wavefunction operation in Orquestra is the ``MultiPhaseOperation``, which allows a specific phase (given as an angle theta) to be applied to all 2^N components of the wavefunction for an N-qubit circuit.
+
+Wave function operations can be included in the :ref:`creation of a circuit <creating_circuits>`, :ref:`appended later <appending_circuits>`, and :ref:`inspected <inspecting_circuits>` in the same manner GateOperations can be.
 
 
 - TODO: include power and exponential classes from new unitaryhack work
@@ -187,7 +199,13 @@ That will produce this output:
 Symbolic gates
 ==============
 
-Symbolic gates allow the user to specify parametric gates in terms of parameters that can be set to a specific value/angle later.
+Symbolic gates allow the user to specify parametric gates in terms of parameters that can be set to a specific value/angle later. This allows for a few benefits: 
+
+1. You can create the circuit once and bind the parameters later. Sometimes this saves on computational cost, and it allows for more easily understandable implementations of certain circuits, like the QAOA circuit in this example. 
+2. It gives you a closed formula for the final state of the circuit. This allows users interested in mathematical description and manipulations of the state easier access than could be obtained by varying parameters and running the same circuit multiple times. However, when doing symbolic simulation of the circuit, the performance of the simulation is substantially worse than if the parameters were bound.
+
+Using gates with symbolic parameters
+---------------------------------------
 
 In order to use symbols in symbolic gates, you need to ``import sympy`` and define some symbols at the top of the file. We recommend doing so just under where you defined ``N_QUBITS``. In our examples, we'll use the following symbols.
 
@@ -197,9 +215,6 @@ In order to use symbols in symbolic gates, you need to ``import sympy`` and defi
   :end-at: theta = sympy.Symbol
 
 For more info on using sympy, please see the `sympy documentation <https://docs.sympy.org/latest/index.html>`_.
-
-Using gates with symbolic parameters
----------------------------------------
 
 As previously seen in the section on :ref:`appending circuits <appending_circuits>` gates can be added to ``Circuits`` with symbolic parameters in place of "standard" parameters. The syntax for parametric gates is ``GATE(param)(qubit)``. Here is the example from the problem hamiltonian circuit from before
 
@@ -330,9 +345,9 @@ Creating a ``DecompositionRule``
 
 In order to create a ``DecompositionRule`` you need a ``predicate`` and a ``production`` method.
 
-``production`` tells Orquestra Core what should be decomposed
+``predicate`` tells Orquestra Core what should be decomposed. This should be a method that accepts an operation and returns a boolean (True if it should be decomposed, False otherwise).
 
-``production`` tells Orquestra Core how it should be decomposed
+``production`` tells Orquestra Core how it should be decomposed. This method accepts an operation and returns a list of operations.
 
 Your custom decomposition rule should implement the `DecompositionRule <https://github.com/zapatacomputing/orquestra-quantum/blob/main/src/orquestra/quantum/decompositions/_decomposition.py#L12=>`_ protocol. We can see an example of that in our QAOA example. Suppose we want to decompose our CNOT gate, here's what that ``CNOTDecompositionRule`` class would look like:
 

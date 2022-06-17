@@ -48,7 +48,6 @@ mixing_circ = Circuit()
 for i in range(N_QUBITS):
     mixing_circ += RX(gamma[i])(i)
 ic(mixing_circ)
-ic(mixing_circ.free_symbols)
 
 # Combine the circuit
 qaoa_circ = state_prep_circ + problem_hamiltonian_circ + mixing_circ

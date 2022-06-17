@@ -34,7 +34,7 @@ Orquestra contributors are required to use black, flake8, mypy and isort to run 
 
 All new contributions to Orquestra should be accompanied by deterministic unit tests. This means each test should focus on a specific aspect of the new code and shouldn't include any probabilistic elements. If you are unsure how to remove randomness in your tests, mention it in your PR and we'll be happy to assist. 💪
 
-Tests for this project can be run using the `make coverage` or `pytest .` commands from the main directory.
+Tests for this project can be run using the `make coverage` or `pytest tests` commands from the main directory.
 
 ### Making a PR
 

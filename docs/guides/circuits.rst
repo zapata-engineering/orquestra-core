@@ -14,7 +14,17 @@ The Problem
 
 In this guide we want to create a QAOA circuit to solve a 3-node, fully-connected maxcut problem. Our :ref:`Basic QAOA Tutorial <qaoa>` walks through using Orquestra Core's built-in QAOA functionality to solve the problem from circuit creation through to a final result. Here, to demonstrate capabilities of ``Circuit``\ s, we'll do a simple example and just build the circuit we can use to solve the problem later.
 
-TODO: diagram of the graph we want to to maxcut on w/ short explainer including circuit diagram
+Here is the overall circuit we want to build:
+
+.. code-block::
+
+       ┌───┐ ░                                                                             ░ ┌──────────────┐
+  q_0: ┤ H ├─░───■───────────────────■────■───────────────────■────────────────────────────░─┤ Rx($\gamma$) ├
+       ├───┤ ░ ┌─┴─┐┌─────────────┐┌─┴─┐  │                   │                            ░ ├──────────────┤
+  q_1: ┤ H ├─░─┤ X ├┤ Rz($\beta$) ├┤ X ├──┼───────────────────┼────■───────────────────■───░─┤ Rx($\gamma$) ├
+       ├───┤ ░ └───┘└─────────────┘└───┘┌─┴─┐┌─────────────┐┌─┴─┐┌─┴─┐┌─────────────┐┌─┴─┐ ░ ├──────────────┤
+  q_2: ┤ H ├─░──────────────────────────┤ X ├┤ Rz($\beta$) ├┤ X ├┤ X ├┤ Rz($\beta$) ├┤ X ├─░─┤ Rx($\gamma$) ├
+       └───┘ ░                          └───┘└─────────────┘└───┘└───┘└─────────────┘└───┘ ░ └──────────────┘
 
 General ``Circuit`` Information
 ===============================
@@ -42,7 +52,13 @@ For this QAOA problem, the first part of the circuit we need to create is the in
 
 .. code-block:: text
   
-  TODO
+       ┌───┐
+  q_0: ┤ H ├
+       ├───┤
+  q_1: ┤ H ├
+       ├───┤
+  q_2: ┤ H ├
+       └───┘
 
 We do this in our example using a `list comprehension <https://www.w3schools.com/python/python_lists_comprehension.asp>`_:
 
@@ -88,9 +104,14 @@ Appending operations to a circuit
 
 You don't have to build a whole circuit all at once! Let's see how to append operations to an existing circuit by constructing the next part of our QAOA circuit, the problem hamiltonian circuit. This problem hamiltonian circuit gives a quantum description of the problem and shows how the nodes are connected. In this case, the 3 nodes are all-to-all connected, so our circuit should look like this:
 
-.. code-block:: text
-
-  TODO
+.. code-block:: text                                                                     
+                                                                                
+  q_0: ──■───────────────────■────■───────────────────■───────────────────────────
+       ┌─┴─┐┌─────────────┐┌─┴─┐  │                   │                           
+  q_1: ┤ X ├┤ Rz($\beta$) ├┤ X ├──┼───────────────────┼────■───────────────────■──
+       └───┘└─────────────┘└───┘┌─┴─┐┌─────────────┐┌─┴─┐┌─┴─┐┌─────────────┐┌─┴─┐
+  q_2: ─────────────────────────┤ X ├┤ Rz($\beta$) ├┤ X ├┤ X ├┤ Rz($\beta$) ├┤ X ├
+                                └───┘└─────────────┘└───┘└───┘└─────────────┘└───┘
 
 We'll build up this circuit one connection at a time, using ``+=`` to append ``Circuit`` objects to the end of our existing ``problem_hamiltonian_circ``
 
@@ -121,7 +142,13 @@ Appending individual gates to circuits is also possible, as we'll see when we bu
 
 .. code-block:: text
 
-  TODO
+       ┌──────────────┐
+  q_0: ┤ Rx($\gamma$) ├
+       ├──────────────┤
+  q_1: ┤ Rx($\gamma$) ├
+       ├──────────────┤
+  q_2: ┤ Rx($\gamma$) ├
+       └──────────────┘
 
 To build up the mixing circuit, we ust need to put parametrized RX gate on each of the qubits. We can do that with a for loop:
 
@@ -182,17 +209,33 @@ That will produce this output:
   ic| op.gate.name: 'RX', op.qubit_indices: (1,), op.params: (gamma_1,)
   ic| op.gate.name: 'RX', op.qubit_indices: (2,), op.params: (gamma_2,)
 
+Exponential and Power gates
+---------------------------
+
+You can add an exponent or a power of arbitrary non-symbolic gates to your circuit. This won't be used in the creation of our QAOA circuit, but we'll still provide examples here. 
+
+To raise a gate to a power, you can use ``.power(n)`` with the ``n`` argument the power you want to raise the gate to. Here we verify that the Hadamard gate raised to the 2nd power is the same as the identity.
+
+.. literalinclude:: /examples/circuits_guide.py
+  :language: python
+  :start-at: ic(H.power(2).matrix == sympy.eye(2))
+  :end-at: ic(H.power(2).matrix == sympy.eye(2))
+
+TODO: matrix exponential
+
+
 .. _wavefunction_operations:
 
 Gate operations vs Wave Function Operations
 -------------------------------------------
 
-While gate operations perform the familiar gates on the qubits of a circuit, `wavefunction operations <https://github.com/zapatacomputing/orquestra-quantum/blob/main/src/orquestra/quantum/circuits/_wavefunction_operations.py>`_ can operate on the wavefunction directly. Currently, the only built-in wavefunction operation in Orquestra is the ``MultiPhaseOperation``, which allows a specific phase (given as an angle theta) to be applied to all 2^N components of the wavefunction for an N-qubit circuit.
+While gate operations perform the familiar gates on the qubits of a circuit, `wavefunction operations <https://github.com/zapatacomputing/orquestra-quantum/blob/main/src/orquestra/quantum/circuits/_wavefunction_operations.py>`_ can operate on the wavefunction directly. This is convenient if the operation you want to perform is not easily expressible using gates or is not unitary at all. Currently, the only built-in wavefunction operation in Orquestra is the ``MultiPhaseOperation``, which allows a specific phase (given as an angle theta) to be applied to all 2^N components of the wavefunction for an N-qubit circuit.
 
 Wave function operations can be included in the :ref:`creation of a circuit <creating_circuits>`, :ref:`appended later <appending_circuits>`, and :ref:`inspected <inspecting_circuits>` in the same manner GateOperations can be.
 
+.. attention::
+  ``Circuit``\ s containing wave function operations generally cannot be run on backends. Simulators are usually able to.
 
-- TODO: include power and exponential classes from new unitaryhack work
 
 .. _symbolic_gates:
 
@@ -365,8 +408,8 @@ Let's apply our ``CNOTDecompositionRule`` to our problem hamiltonian circuit. Be
 
 .. literalinclude:: /examples/circuits_guide.py
   :language: python
-  :start-at: decomposed_ham_circ = Circuit(
-  :end-at: ic(decomposed_ham_circ.to_unitary() ==
+  :start-at: decomposed_circ = Circuit(
+  :end-at: ic(np.allclose(decomposed_
 
 We can see here that the decomposed circuit is equivalent to the original circuit
 

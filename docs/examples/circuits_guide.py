@@ -8,6 +8,7 @@ from orquestra.quantum.circuits import (
     RZ,
     CNOT,
     RX,
+    CZ,
     CustomGateDefinition,
 )
 from orquestra.quantum.decompositions import decompose_operations
@@ -94,14 +95,21 @@ ic(new_problem_ham_circ.collect_custom_gate_definitions())
 # Decomposing Gates
 class CNOTDecompositionRule:
     def production(self, operation):
-        # TODO: fix this decomposition
-        return [RZ(sympy.pi).controlled(1)(0, 1)]
+        q0, q1 = operation.qubit_indices
+        return [H(q1), CZ(q0, q1), H(q1)]
 
     def predicate(self, operation):
         return operation.gate.name == "CNOT"
 
 
-decomposed_ham_circ = Circuit(
-    decompose_operations(problem_hamiltonian_circ.operations, [CNOTDecompositionRule()])
+decomposed_circ = Circuit(
+    decompose_operations(bound_all_circ.operations, [CNOTDecompositionRule()])
 )
-ic(decomposed_ham_circ.to_unitary() == problem_hamiltonian_circ.to_unitary())
+ic(np.allclose(decomposed_circ.to_unitary(), bound_all_circ.to_unitary()))
+
+
+# Exponential and power gates
+ic(H.power(2).matrix == sympy.eye(2))
+
+# TODO: exponential example
+# ic(sympy.simplify(H.exp.matrix))

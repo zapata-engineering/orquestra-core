@@ -23,3 +23,19 @@ Building the docs can be done with `make html`
 ## Viewing the docs
 
 Once the docs are built, they can be opened in browser with `open _build/html/index.html`
+
+## Contributing to these docs
+
+### rst heading conventions
+
+RestructuredText is very nice with the heading conventions, allowing almost anything to work in a file as long as it's consistent. However, we want to maintain readability and consistency across many files and projects, so here are our standard rst header conventions:
+
+Title: over and under-line with `=========================`
+
+Heading 1: under-line with `======================`
+
+Heading 2: under-line with `--------------------`
+
+Heading 3: under-line with `~~~~~~~~~~~~~~~~~~`
+
+Anything beyond that, please pick something and add what you picked to the above list

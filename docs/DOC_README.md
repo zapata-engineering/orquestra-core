@@ -6,6 +6,8 @@ This readme is not for the whole of orquestra-core, this is just for information
 
 ### Doc-specific requirements
 
+_Note: if you want to activate a [virtualenvironment](https://www.freecodecamp.org/news/how-to-setup-virtual-environments-in-python/) do that before installing the requirements_
+
 The docs have their own requirements, found in the `requirements.txt` file. Install those requirements with `pip install -r requirements.txt`
 
 ### Installing Orquestra Core to run examples

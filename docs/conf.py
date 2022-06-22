@@ -63,7 +63,6 @@ build_mono_repo(temp_repo_folder)
 
 project = "Orquestra Core Docs"
 copyright = "2022, Zapata Computing, Inc"
-author = "michal.stechly@zapatacomputing.com"
 
 # The full version, including alpha/beta/rc tags
 release = "0.2.0"
@@ -79,7 +78,7 @@ extensions = [
     "sphinx.ext.napoleon",
     "sphinx.ext.intersphinx",
     # "sphinx.ext.doctest",
-    # "sphinx_panels",
+    "sphinx_design",
     # "sphinx.ext.graphviz",
     # "sphinxcontrib.youtube",
     # "sphinxcontrib.autoprogram",
@@ -125,6 +124,9 @@ exclude_patterns = [
 #
 
 html_theme = "sphinx_book_theme"
+html_theme_options = {
+    "use_download_button": False,
+}
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,

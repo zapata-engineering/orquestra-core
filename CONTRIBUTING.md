@@ -34,7 +34,7 @@ Orquestra contributors are required to use black, flake8, mypy and isort to run 
 
 All new contributions to Orquestra should be accompanied by deterministic unit tests. This means each test should focus on a specific aspect of the new code and shouldn't include any probabilistic elements. If you are unsure how to remove randomness in your tests, mention it in your PR and we'll be happy to assist. 💪
 
-Tests for this project can be run using the `make coverage` or `pytest .` commands from the main directory.
+Tests for this project can be run using the `make coverage` or `pytest tests` commands from the main directory.
 
 ### Making a PR
 
@@ -47,6 +47,10 @@ Then you can make a PR directly to the `main` branch by filling out the PR submi
 When you make your PR, github will automatically run style and test checks on python 3.8, 3.9, and 3.10 using [Github Actions](.github/workflows/style.yml). While tests are running, request that `quantum-software` to review your code.
 
 Once you have made the requested changes and your PR is approved, you can click merge and delete your branch. 🎉
+
+### CLA
+
+After making your PR, send an email to Michal or Athena (emails above) so that we can send you a copy of our CLA. If you wish to view the CLA before contributing, our you can find [here](docs/_static/ZapataCLA.pdf).
 
 ### Bug Reporting
 

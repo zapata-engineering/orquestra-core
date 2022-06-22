@@ -29,12 +29,12 @@ unitary = state_prep_circ.to_unitary()
 ic(unitary.shape)  # should be 8x8 matrix
 ic(type(unitary))  # will be numpy ndarray, later see sympy matrix
 
-# TODO: Inverting the circuit
-# invert_state_prep_circ = state_prep_circ.inverse()
-# ic(invert_state_prep_circ)
-# inverse_unitary = invert_state_prep_circ.to_unitary()
-# product = unitary * inverse_unitary
-# ic(np.allclose(product, np.eye(8)))
+# Inverting the circuit
+invert_state_prep_circ = state_prep_circ.inverse()
+ic(invert_state_prep_circ)
+invert_test_circ = state_prep_circ + invert_state_prep_circ
+inverse_unitary = invert_test_circ.to_unitary()
+ic(np.allclose(inverse_unitary, np.eye(8)))
 
 # Problem Hamiltonian Circuit
 problem_hamiltonian_circ = Circuit([CNOT(0, 1), RZ(beta[0])(1), CNOT(0, 1)])
@@ -111,5 +111,5 @@ ic(np.allclose(decomposed_circ.to_unitary(), bound_all_circ.to_unitary()))
 # Exponential and power gates
 ic(H.power(2).matrix == sympy.eye(2))
 
-# TODO: exponential example
-# ic(sympy.simplify(H.exp.matrix))
+# exponential example
+ic(sympy.simplify(H.exp.matrix))

@@ -18,7 +18,7 @@ If instead you want to install from source, you can clone `this repo <https://gi
 ``pip install .``
 
 
-.. _creating_circuits:
+.. _creating_basic_circuits:
 
 Creating basic circuits
 ============================

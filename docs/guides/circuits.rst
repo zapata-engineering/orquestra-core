@@ -6,13 +6,13 @@ Circuits guide
 What this guide covers
 ======================
 
-This guide is an in-depth dive into the ``Circuit`` class within Orquestra Core. In it, we'll cover advanced capabilities that can be performed using ``Circuit``\ s like using symbolic gates, creating your own gates, and building decomposition rules. If you're looking for a place to get started, please see :ref:`the basics tutorial <creating_circuits>` before diving into the advanced capabilities here.
+This guide is an in-depth dive into the ``Circuit`` class within Orquestra Core. In it, we'll cover advanced capabilities that can be performed using ``Circuit``\ s like using symbolic gates, creating your own gates, and building decomposition rules. If you're looking for a place to get started, please see :ref:`the basics tutorial <creating_basic_circuits>` before diving into the advanced capabilities here.
 
 
 The Problem
 ===========
 
-In this guide we want to create a QAOA circuit to solve a 3-node, fully-connected maxcut problem. Our :ref:`Basic QAOA Tutorial <qaoa>` walks through using Orquestra Core's built-in QAOA functionality to solve the problem from circuit creation through to a final result. Here, to demonstrate capabilities of ``Circuit``\ s, we'll do a simple example and just build the circuit we can use to solve the problem later.
+In this guide we will use the example of creating a QAOA circuit to solve a 3-node, fully-connected maxcut problem as motivation for showcasing the capabilities of ``Circuit``\ s in Orquestra Core. Our :ref:`Basic QAOA Tutorial <qaoa>` walks through using Orquestra Core's built-in QAOA functionality to solve the problem from circuit creation through to a final result. Here, we'll do a smaller example and build the circuit we can use to solve the problem later.
 
 Here is the overall circuit we want to build:
 
@@ -95,7 +95,20 @@ The output we get from those two ``icecream`` statements should be
 Inverting a circuit
 -------------------
 
-**TODO**
+In some contexts, you may want to invert a circuit. For instance, if instead of :ref:`building a bell state <creating_basic_circuits>`, you want to perform a bell measurement. Or perhaps your circuit requires some `uncomputation <https://quantum.country/search#building-blocks-quantum-search>`_ that you don't want to build manually. To get the inverse of a circuit, just call the ``.inverse()`` method on it:
+
+.. literalinclude:: /examples/circuits_guide.py
+  :language: python
+  :start-at: = state_prep_circ.inverse()
+  :end-at: ic(np.allclose(inverse_unitary, np.eye(8)))
+
+In the output we can see that, indeed, the Hadamard gate is its own inverse and when we append this circuit to the ``state_prep_circ`` it does in fact invert it, leaving us with the identity matrix:
+
+.. code-block:: text
+
+  ic| invert_state_prep_circ: Circuit(operations=[H(2), H(1), H(0)], n_qubits=3)
+  ic| np.allclose(inverse_unitary, np.eye(8)): True
+
 
 .. _appending_circuits:
 
@@ -209,19 +222,26 @@ That will produce this output:
   ic| op.gate.name: 'RX', op.qubit_indices: (1,), op.params: (gamma_1,)
   ic| op.gate.name: 'RX', op.qubit_indices: (2,), op.params: (gamma_2,)
 
-Exponential and Power gates
----------------------------
+Powers of gates and gate exponentials
+-------------------------------------
 
-You can add an exponent or a power of arbitrary non-symbolic gates to your circuit. This won't be used in the creation of our QAOA circuit, but we'll still provide examples here. 
+You can add a power of arbitrary non-symbolic gates to your circuit, as well as get the gate exponential. This won't be used in the creation of our QAOA circuit, but we'll still provide examples here. 
 
-To raise a gate to a power, you can use ``.power(n)`` with the ``n`` argument the power you want to raise the gate to. Here we verify that the Hadamard gate raised to the 2nd power is the same as the identity.
+**To raise a gate to a power**, you can use ``.power(exponent)`` with the ``exponent`` argument the power you want to raise the gate to. Here we verify that the Hadamard gate raised to the 2nd power is the same as the identity.
 
 .. literalinclude:: /examples/circuits_guide.py
   :language: python
   :start-at: ic(H.power(2).matrix == sympy.eye(2))
   :end-at: ic(H.power(2).matrix == sympy.eye(2))
 
-TODO: matrix exponential
+Where the output is ``ic| H.power(2).matrix == sympy.eye(2): True``
+
+**To get the gate exponential** of a specific gate, you can use ``.exp``, shown in this example with ``.matrix`` to view what the matrix looks like. It is also generally a good idea to simplify the matrix when possible.
+
+.. literalinclude:: /examples/circuits_guide.py
+  :language: python
+  :start-at: ic(sympy.simplify(H.exp.matrix))
+  :end-at: ic(sympy.simplify(H.exp.matrix))
 
 
 .. _wavefunction_operations:
@@ -319,7 +339,7 @@ We can see in the output that there are no more free parameters and that when al
   ic| type(unitary): <class 'numpy.ndarray'>
 
 .. attention::
-  Please note that ``Circuits`` which still have free parameters are not suited to run on most backends. At this time only Zapata's SymbolicSimulator is able run them
+  Please note that ``Circuits`` which still have free parameters are not suited to run on most backends. At this time only Zapata's SymbolicSimulator is able to run them.
 
 
 Using custom gates
@@ -381,7 +401,7 @@ The output should just show our ``ZZ`` gate:
 Decompositions
 ==============
 
-Decompostion is the process of representing gate operations in (often simpler) different gates. For instance, a SWAP gate can be represented as a series of 3 SWAP gates. Often decomposition is needed to be able to run an algorithm on real hardware as different quantum computers have different sets of gates they can physically accomplish (called native gates).
+Decompostion is the process of representing gate operations in (often simpler) different gates. For instance, a SWAP gate can be represented as a series of 3 CNOT gates. Often decomposition is needed to be able to run an algorithm on real hardware as different quantum computers have different sets of gate operations they can physically perform (called native gates).
 
 Creating a ``DecompositionRule``
 --------------------------------

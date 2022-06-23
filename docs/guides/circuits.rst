@@ -401,7 +401,7 @@ The output should just show our ``ZZ`` gate:
 Decompositions
 ==============
 
-Decompostion is the process of representing gate operations in (often simpler) different gates. For instance, a SWAP gate can be represented as a series of 3 CNOT gates. Often decomposition is needed to be able to run an algorithm on real hardware as different quantum computers have different sets of gate operations they can physically perform (called native gates).
+Decompostion is the process of representing gate operations using different (often simpler) gates. For instance, a SWAP gate can be represented as a series of 3 CNOT gates. Often, decomposition is needed to be able to run an algorithm on real hardware as different quantum computers have different sets of gate operations they can physically perform (also called "native gates").
 
 Creating a ``DecompositionRule``
 --------------------------------

@@ -345,7 +345,7 @@ We can see in the output that there are no more free parameters and that when al
 Using custom gates
 ==================
 
-Custom gates let users define gates that can be re-used multiple times. This is especially useful for common sub-circuits like the ``CNOT, RZ, CNOT`` sequence in our ``problem_hamiltonian_circ``. Lets make a custom gate to implement that
+Our libraries let users define gates that can be re-used multiple times. This is especially useful for common sub-circuits like the ``CNOT, RZ, CNOT`` sequence in our ``problem_hamiltonian_circ``. Lets make a custom gate to implement that
 
 Defining custom gates
 ---------------------

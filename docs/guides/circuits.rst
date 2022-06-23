@@ -41,7 +41,7 @@ If you would like to follow along with this guide, please create a new python fi
   :start-at: from orquestra.quantum.circuits import (
   :end-at: N_QUBITS =
 
-Notice we also defined a variable for the number of qubits we'll be working with. This will make some list comprehensions easier later.
+Notice we also defined a variable for the number of qubits we'll be working with. This will make using some list comprehensions easier down the line.
 
 .. _creating_circuits:
 

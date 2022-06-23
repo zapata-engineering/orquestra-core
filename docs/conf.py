@@ -28,8 +28,10 @@ from tempfile import tempdir
 
 repos_folder = os.path.abspath("repos")
 TMP_MONOREPO_NAME = "tmp_monorepo"
-currentfolder = os.path.abspath(".")
-temp_repo_folder = f"{currentfolder}/{TMP_MONOREPO_NAME}"
+currentfolder = Path(os.path.abspath("."))
+temp_repo_folder = currentfolder / f"{TMP_MONOREPO_NAME}"
+
+temp_repo_folder = str(temp_repo_folder)
 
 sys.path.insert(0, temp_repo_folder)
 

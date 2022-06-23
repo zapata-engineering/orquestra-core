@@ -100,14 +100,14 @@ In some contexts, you may want to invert a circuit. For instance, if instead of 
 .. literalinclude:: /examples/circuits_guide.py
   :language: python
   :start-at: = state_prep_circ.inverse()
-  :end-at: ic(np.allclose(inverse_unitary, np.eye(8)))
+  :end-at: ic(np.allclose(combined_unitary, np.eye(8)))
 
 In the output we can see that, indeed, the Hadamard gate is its own inverse and when we append this circuit to the ``state_prep_circ`` it does in fact invert it, leaving us with the identity matrix:
 
 .. code-block:: text
 
-  ic| invert_state_prep_circ: Circuit(operations=[H(2), H(1), H(0)], n_qubits=3)
-  ic| np.allclose(inverse_unitary, np.eye(8)): True
+  ic| inverse_state_prep_circ: Circuit(operations=[H(2), H(1), H(0)], n_qubits=3)
+  ic| np.allclose(combined_unitary, np.eye(8)): True
 
 
 .. _appending_circuits:
@@ -126,14 +126,18 @@ You don't have to build a whole circuit all at once! Let's see how to append ope
   q_2: ─────────────────────────┤ X ├┤ Rz($\beta$) ├┤ X ├┤ X ├┤ Rz($\beta$) ├┤ X ├
                                 └───┘└─────────────┘└───┘└───┘└─────────────┘└───┘
 
-We'll build up this circuit one connection at a time, using ``+=`` to append ``Circuit`` objects to the end of our existing ``problem_hamiltonian_circ``
+We'll build up this circuit one connection at a time, using ``+=`` to append ``Circuit`` objects to the end of our existing ``problem_hamiltonian_circ``. For now, don't worry about what the ``beta`` variables mean in these circuits. 
 
 .. literalinclude:: /examples/circuits_guide.py
   :language: python
   :start-at: problem_hamiltonian_circ = Circuit(
   :end-before: unitary = problem_hamiltonian_circ.to_unitary()
 
-For now, don't worry about what the ``beta`` variables mean in these circuits. We'll cover that later when we talk about :ref:`symbolic gates <symbolic_gates>`. For now, just notice that we started with an initial circuit and we were able to append other circuits to it using ``+=``
+We'll cover information about the ``beta`` variables later when we talk about :ref:`symbolic gates <symbolic_gates>`. Just notice that we started with an initial circuit and we were able to append other circuits to it using ``+=``
+
+.. note::
+
+  With these ``RZ`` gates, you might have noticed that there seem to be 2 arguments, first the angle argument, then the index of the qubit it operates on. If you did notice that, you'd be correct! The **syntax for parameterized gates** is ``GATE(angle)(qubit)``
 
 Let's get the :ref:`unitary matrix <getting_unitary>` again and see if it makes sense for this circuit
 
@@ -163,12 +167,15 @@ Appending individual gates to circuits is also possible, as we'll see when we bu
   q_2: ┤ Rx($\gamma$) ├
        └──────────────┘
 
-To build up the mixing circuit, we ust need to put parametrized RX gate on each of the qubits. We can do that with a for loop:
+To build up the mixing circuit, we need to put parametrized RX gate on each of the qubits. We can do that with a for loop:
 
 .. literalinclude:: /examples/circuits_guide.py
   :language: python
   :start-at: mixing_circ = Circuit()
   :end-at: ic(mixing_circ)
+
+.. note::
+  ``orquestra-quantum`` comes with a `built-in utility function <https://github.com/zapatacomputing/orquestra-quantum/blob/main/src/orquestra/quantum/circuits/_generators.py#L14=>`_ that puts down a layer of the same single-qubit gate acting on all qubits.
 
 The output of that looks like ``mixing_circ: Circuit(operations=[RX(gamma_0)(0), RX(gamma_1)(1), RX(gamma_2)(2)], n_qubits=3)``. Again, for now don't worry about the ``gamma`` parameters in there, that will be addressed in the :ref:`symbolic gates <symbolic_gates>` section.
 
@@ -249,7 +256,7 @@ Where the output is ``ic| H.power(2).matrix == sympy.eye(2): True``
 Gate operations vs Wave Function Operations
 -------------------------------------------
 
-While gate operations perform the familiar gates on the qubits of a circuit, `wavefunction operations <https://github.com/zapatacomputing/orquestra-quantum/blob/main/src/orquestra/quantum/circuits/_wavefunction_operations.py>`_ can operate on the wavefunction directly. This is convenient if the operation you want to perform is not easily expressible using gates or is not unitary at all. Currently, the only built-in wavefunction operation in Orquestra is the ``MultiPhaseOperation``, which allows a specific phase (given as an angle theta) to be applied to all 2^N components of the wavefunction for an N-qubit circuit.
+While gate operations perform the familiar gates on the qubits of a circuit, `wave function operations <https://github.com/zapatacomputing/orquestra-quantum/blob/main/src/orquestra/quantum/circuits/_wavefunction_operations.py>`_ can operate on the wave function directly. This is convenient if the operation you want to perform is not easily expressible using gates or is not unitary at all. It can also be used to quickly prepare your simulation in a given state if you know the amplitude vector of this state. Currently, the only built-in wave function operation in Orquestra is the ``MultiPhaseOperation``, which allows a specific phase (given as an angle theta) to be applied to all 2^N components of the wave function for an N-qubit circuit.
 
 Wave function operations can be included in the :ref:`creation of a circuit <creating_circuits>`, :ref:`appended later <appending_circuits>`, and :ref:`inspected <inspecting_circuits>` in the same manner GateOperations can be.
 
@@ -267,6 +274,8 @@ Symbolic gates allow the user to specify parametric gates in terms of parameters
 1. You can create the circuit once and bind the parameters later. Sometimes this saves on computational cost, and it allows for more easily understandable implementations of certain circuits, like the QAOA circuit in this example. 
 2. It gives you a closed formula for the final state of the circuit. This allows users interested in mathematical description and manipulations of the state easier access than could be obtained by varying parameters and running the same circuit multiple times. However, when doing symbolic simulation of the circuit, the performance of the simulation is substantially worse than if the parameters were bound.
 
+Zapata has created the `SymbolicSimulator <https://github.com/zapatacomputing/orquestra-quantum/blob/main/tests/orquestra/quantum/symbolic_simulator_test.py>`_ which is purpose-built for running symbolic simulation of the circuit.
+
 Using gates with symbolic parameters
 ---------------------------------------
 
@@ -279,7 +288,7 @@ In order to use symbols in symbolic gates, you need to ``import sympy`` and defi
 
 For more info on using sympy, please see the `sympy documentation <https://docs.sympy.org/latest/index.html>`_.
 
-As previously seen in the section on :ref:`appending circuits <appending_circuits>` gates can be added to ``Circuits`` with symbolic parameters in place of "standard" parameters. The syntax for parametric gates is ``GATE(param)(qubit)``. Here is the example from the problem hamiltonian circuit from before
+As previously seen in the section on :ref:`appending circuits <appending_circuits>` gates can be added to ``Circuits`` with symbolic parameters in place of "standard" parameters. The syntax for parametric gates is ``GATE(angle)(qubit)``. Here is the example from the problem hamiltonian circuit from before
 
 .. literalinclude:: /examples/circuits_guide.py
   :language: python

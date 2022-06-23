@@ -30,11 +30,11 @@ ic(unitary.shape)  # should be 8x8 matrix
 ic(type(unitary))  # will be numpy ndarray, later see sympy matrix
 
 # Inverting the circuit
-invert_state_prep_circ = state_prep_circ.inverse()
-ic(invert_state_prep_circ)
-invert_test_circ = state_prep_circ + invert_state_prep_circ
-inverse_unitary = invert_test_circ.to_unitary()
-ic(np.allclose(inverse_unitary, np.eye(8)))
+inverse_state_prep_circ = state_prep_circ.inverse()
+ic(inverse_state_prep_circ)
+combined_circ = state_prep_circ + inverse_state_prep_circ
+combined_unitary = combined_circ.to_unitary()
+ic(np.allclose(combined_unitary, np.eye(8)))
 
 # Problem Hamiltonian Circuit
 problem_hamiltonian_circ = Circuit([CNOT(0, 1), RZ(beta[0])(1), CNOT(0, 1)])

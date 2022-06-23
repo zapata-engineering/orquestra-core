@@ -48,7 +48,7 @@ Notice we also defined a variable for the number of qubits we'll be working with
 Creating a circuit
 ------------------
 
-For this QAOA problem, the first part of the circuit we need to create is the initial state preparation circuit. That can be done by putting a Hadamard gate on each qubit. In the end we want the initial state preparation circuit to look like this:
+For this QAOA problem, the first part of the circuit we need to create is the initial state preparation. This can be done by putting a Hadamard gate on each qubit. In the end we want the initial state preparation circuit to look like this:
 
 .. code-block:: text
   

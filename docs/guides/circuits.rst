@@ -32,7 +32,7 @@ General ``Circuit`` Information
 Circuit Architecture
 --------------------
 
-Orquestra Core represents quantum circuits with the ``Circuit`` class, which is in turn composed of ``Operation``\ s. The most common operation type is a ``GateOperation``, which we'll focus on here, although in some circumstances :ref:`wavefunction operations <wavefunction_operations>` can be useful. Circuits also have a property for the number of qubits, but users don't have to define that themselves.
+Orquestra Core represents quantum circuits with the ``Circuit`` class, which contains multiple ``Operation``\ s. The most common operation type is a ``GateOperation``, which we'll focus on here, although in some circumstances :ref:`wavefunction operations <wavefunction_operations>` can be useful as well. 
 
 If you would like to follow along with this guide, please create a new python file and start it with the imports we'll need to ensure the rest of the code examples can be run:
 

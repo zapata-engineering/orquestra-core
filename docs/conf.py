@@ -32,14 +32,15 @@ currentfolder = Path(os.path.abspath("."))
 temp_repo_folder = currentfolder / f"{TMP_MONOREPO_NAME}"
 
 temp_repo_folder = str(temp_repo_folder)
-
+print(temp_repo_folder)
 sys.path.insert(0, temp_repo_folder)
 
 
 def build_mono_repo(temp_repo_folder):
 
-    subprocess.check_call(
-        ["mkdir", "-p", temp_repo_folder]
+    subprocess.call(
+        ["mkdir", "-p", temp_repo_folder],
+        shell = True
     )  # make sure temporary folder exists
 
     # scan the manifest for the location of the root code directory for each repo
@@ -48,7 +49,7 @@ def build_mono_repo(temp_repo_folder):
 
     for name, details in manifest["repos"].items():
         for path in details.get("autodoc", []):
-            source_dir = name + "/" + path
+            source_dir = str(Path(name) / path)
             print(f"source_dir: {source_dir} to tmp folder: {temp_repo_folder}")
             copy_tree(
                 os.path.join(repos_folder, source_dir), temp_repo_folder

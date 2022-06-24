@@ -32,7 +32,6 @@ currentfolder = Path(os.path.abspath("."))
 temp_repo_folder = currentfolder / f"{TMP_MONOREPO_NAME}"
 
 temp_repo_folder = str(temp_repo_folder)
-print(temp_repo_folder)
 sys.path.insert(0, temp_repo_folder)
 
 

@@ -9,7 +9,7 @@ What this guide covers
 This guide is an in-depth dive into the ``Circuit`` class within Orquestra Core. In it, we'll cover advanced capabilities that can be performed using ``Circuit``\ s like using symbolic gates, creating your own gates, and building decomposition rules. If you're looking for a place to get started, please see :ref:`the basics tutorial <creating_basic_circuits>` before diving into the advanced capabilities here.
 
 
-The Problem
+The problem
 ===========
 
 In this guide we will use the example of creating a QAOA circuit to solve a 3-node, fully-connected maxcut problem as motivation for showcasing the capabilities of ``Circuit``\ s in Orquestra Core. Our :ref:`Basic QAOA Tutorial <qaoa>` walks through using Orquestra Core's built-in QAOA functionality to solve the problem from circuit creation through to a final result. Here, we'll do a smaller example and build the circuit we can use to solve the problem later.
@@ -26,10 +26,10 @@ Here is the overall circuit we want to build:
   q_2: ┤ H ├─░──────────────────────────┤ X ├┤ Rz($\beta$) ├┤ X ├┤ X ├┤ Rz($\beta$) ├┤ X ├─░─┤ Rx($\gamma$) ├
        └───┘ ░                          └───┘└─────────────┘└───┘└───┘└─────────────┘└───┘ ░ └──────────────┘
 
-General ``Circuit`` Information
+General ``Circuit`` information
 ===============================
 
-Circuit Architecture
+Circuit architecture
 --------------------
 
 Orquestra Core represents quantum circuits with the ``Circuit`` class, which contains multiple ``Operation``\ s. The most common operation type is a ``GateOperation``, which we'll focus on here, although in some circumstances :ref:`wavefunction operations <wavefunction_operations>` can be useful as well. 
@@ -253,7 +253,7 @@ Where the output is ``ic| H.power(2).matrix == sympy.eye(2): True``
 
 .. _wavefunction_operations:
 
-Gate operations vs Wave Function Operations
+Gate operations vs wave function operations
 -------------------------------------------
 
 While gate operations perform the familiar gates on the qubits of a circuit, `wave function operations <https://github.com/zapatacomputing/orquestra-quantum/blob/main/src/orquestra/quantum/circuits/_wavefunction_operations.py>`_ can operate on the wave function directly. This is convenient if the operation you want to perform is not easily expressible using gates or is not unitary at all. It can also be used to quickly prepare your simulation in a given state if you know the amplitude vector of this state. Currently, the only built-in wave function operation in Orquestra is the ``MultiPhaseOperation``, which allows a specific phase (given as an angle theta) to be applied to all 2^N components of the wave function for an N-qubit circuit.
@@ -310,7 +310,7 @@ Note that when you call ``.to_unitary()`` on a Circuit where some parameters are
   ic| type(unitary): <class 'sympy.matrices.immutable.ImmutableDenseMatrix'>
 
 
-Binding Parameters
+Binding parameters
 ------------------
 
 When you use a symbolic parameter in a gate, that parameter is referred to as a "free parameter" and it has no value. In order to assign it a value, you need to bind the parameter.

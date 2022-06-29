@@ -32,7 +32,7 @@ General ``Circuit`` information
 Circuit architecture
 --------------------
 
-Orquestra Core represents quantum circuits with the ``Circuit`` class, which contains multiple ``Operation``\ s. The most common operation type is a ``GateOperation``, which we'll focus on here, although in some circumstances :ref:`wavefunction operations <wavefunction_operations>` can be useful as well. 
+Orquestra Core represents quantum circuits with the ``Circuit`` class, which contains multiple ``Operation``\ s. The most common operation type is a ``GateOperation``, which we'll focus on here, although in some circumstances :ref:`wavefunction operations <wavefunction_operations>` can be useful as well.
 
 If you would like to follow along with this guide, please create a new python file and start it with the imports we'll need to ensure the rest of the code examples can be run:
 
@@ -51,7 +51,7 @@ Creating a circuit
 For this QAOA problem, the first part of the circuit we need to create is the initial state preparation. This can be done by putting a Hadamard gate on each qubit. In the end we want the initial state preparation circuit to look like this:
 
 .. code-block:: text
-  
+
        ┌───┐
   q_0: ┤ H ├
        ├───┤
@@ -117,16 +117,16 @@ Appending operations to a circuit
 
 You don't have to build a whole circuit all at once! Let's see how to append operations to an existing circuit by constructing the next part of our QAOA circuit, the problem hamiltonian circuit. This problem hamiltonian circuit gives a quantum description of the problem and shows how the nodes are connected. In this case, the 3 nodes are all-to-all connected, so our circuit should look like this:
 
-.. code-block:: text                                                                     
-                                                                                
+.. code-block:: text
+
   q_0: ──■───────────────────■────■───────────────────■───────────────────────────
-       ┌─┴─┐┌─────────────┐┌─┴─┐  │                   │                           
+       ┌─┴─┐┌─────────────┐┌─┴─┐  │                   │
   q_1: ┤ X ├┤ Rz($\beta$) ├┤ X ├──┼───────────────────┼────■───────────────────■──
        └───┘└─────────────┘└───┘┌─┴─┐┌─────────────┐┌─┴─┐┌─┴─┐┌─────────────┐┌─┴─┐
   q_2: ─────────────────────────┤ X ├┤ Rz($\beta$) ├┤ X ├┤ X ├┤ Rz($\beta$) ├┤ X ├
                                 └───┘└─────────────┘└───┘└───┘└─────────────┘└───┘
 
-We'll build up this circuit one connection at a time, using ``+=`` to append ``Circuit`` objects to the end of our existing ``problem_hamiltonian_circ``. For now, don't worry about what the ``beta`` variables mean in these circuits. 
+We'll build up this circuit one connection at a time, using ``+=`` to append ``Circuit`` objects to the end of our existing ``problem_hamiltonian_circ``. For now, don't worry about what the ``beta`` variables mean in these circuits.
 
 .. literalinclude:: /examples/circuits_guide.py
   :language: python
@@ -138,6 +138,8 @@ We'll cover information about the ``beta`` variables later when we talk about :r
 .. note::
 
   With these ``RZ`` gates, you might have noticed that there seem to be 2 arguments, first the angle argument, then the index of the qubit it operates on. If you did notice that, you'd be correct! The **syntax for parameterized gates** is ``GATE(angle)(qubit)``
+
+  In our approach ``RZ`` is treated as a family of gates, and the parameter specifies the concrete member of the family. Hence, the syntax is always the same (``GATE(qubit)``), it's just that ``RZ(beta)`` is a ``GATE`` that needs to be applied to some qubit.
 
 Let's get the :ref:`unitary matrix <getting_unitary>` again and see if it makes sense for this circuit
 
@@ -232,7 +234,7 @@ That will produce this output:
 Powers of gates and gate exponentials
 -------------------------------------
 
-You can add a power of arbitrary non-symbolic gates to your circuit, as well as get the gate exponential. This won't be used in the creation of our QAOA circuit, but we'll still provide examples here. 
+You can add a power of arbitrary non-symbolic gates to your circuit, as well as get the gate exponential. This won't be used in the creation of our QAOA circuit, but we'll still provide examples here.
 
 **To raise a gate to a power**, you can use ``.power(exponent)`` with the ``exponent`` argument the power you want to raise the gate to. Here we verify that the Hadamard gate raised to the 2nd power is the same as the identity.
 
@@ -269,9 +271,9 @@ Wave function operations can be included in the :ref:`creation of a circuit <cre
 Symbolic gates
 ==============
 
-Symbolic gates allow the user to specify parametric gates in terms of parameters that can be set to a specific value/angle later. This allows for a few benefits: 
+Symbolic gates allow the user to specify parametric gates in terms of parameters that can be set to a specific value/angle later. This allows for a few benefits:
 
-1. You can create the circuit once and bind the parameters later. Sometimes this saves on computational cost, and it allows for more easily understandable implementations of certain circuits, like the QAOA circuit in this example. 
+1. You can create the circuit once and bind the parameters later. Sometimes this saves on computational cost, and it allows for more easily understandable implementations of certain circuits, like the QAOA circuit in this example.
 2. It gives you a closed formula for the final state of the circuit. This allows users interested in mathematical description and manipulations of the state easier access than could be obtained by varying parameters and running the same circuit multiple times. However, when doing symbolic simulation of the circuit, the performance of the simulation is substantially worse than if the parameters were bound.
 
 Zapata has created the `SymbolicSimulator <https://github.com/zapatacomputing/orquestra-quantum/blob/main/tests/orquestra/quantum/symbolic_simulator_test.py>`_ which is purpose-built for running symbolic simulation of the circuit.

@@ -167,3 +167,8 @@ autoapi_options = [
     "imported-members",
     "undoc-members",
 ]
+
+
+# uses a custom CSS file to override some defaults
+def setup(app):
+    app.add_css_file("css/autoapi.css")

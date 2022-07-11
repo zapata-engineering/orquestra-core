@@ -11,6 +11,7 @@ Orquestra Core
    :hidden:
 
    tutorials/index
+   guides/index
 
 Orquestra\ :sup:`®` Core is a Python library for developing quantum applications. It provides a compatibility layer across quantum computing frameworks and hardware, as well as building blocks used in many near-term quantum and quantum-inspired algorithms. It is part of `Orquestra <https://www.zapatacomputing.com/orquestra-platform/>`_, Zapata's computational workflow platform for quantum computing.
 

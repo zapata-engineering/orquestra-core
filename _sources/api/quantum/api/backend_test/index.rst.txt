@@ -90,6 +90,11 @@ Functions
 
 .. py:class:: QuantumBackendGatesTests
 
+   .. py:attribute:: exp_val_spread
+      :annotation: = 1
+
+      
+
    .. py:attribute:: gates_to_exclude
       :annotation: :List[str] = []
 
@@ -112,6 +117,21 @@ Functions
 
    Bases: :py:obj:`QuantumBackendTests`
 
+   .. py:attribute:: atol_wavefunction
+      :annotation: = 1e-15
+
+      
+
+   .. py:attribute:: atol_wavefunction_element
+      :annotation: = 1e-07
+
+      
+
+   .. py:attribute:: atol_distribution
+      :annotation: = 1e-07
+
+      
+
    .. py:method:: test_get_wavefunction(self, wf_simulator)
 
 
@@ -126,6 +146,11 @@ Functions
 
 
 .. py:class:: QuantumSimulatorGatesTest
+
+   .. py:attribute:: atol_wavefunction
+      :annotation: = 1e-15
+
+      
 
    .. py:attribute:: gates_to_exclude
       :annotation: :List[str] = []

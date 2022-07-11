@@ -24,6 +24,8 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/autoapi.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
@@ -39,6 +41,7 @@
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../../_static/togglebutton.js"></script>
     <script src="../../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../../../_static/design-tabs.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -107,17 +110,17 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../../../tutorials/beginner_tutorial.html">
-     Start from the Basics
+     Getting Started
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../../tutorials/basic_qaoa.html">
-     Basic QAOA Tutorial
+     Solving MaxCut with QAOA
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../../tutorials/orq_core_structure.html">
-     Orquestra Core’s Structure
+     Package Structure
     </a>
    </li>
    <li class="toctree-l2">
@@ -132,204 +135,33 @@
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="../../index.html">
-   API Reference
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../guides/index.html">
+   Guides
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../../integrations/index.html">
-     <code class="xref py py-mod docutils literal notranslate">
-      <span class="pre">
-       integrations
-      </span>
-     </code>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../guides/circuits.html">
+     Circuits guide
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-    <label for="toctree-checkbox-3">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3 has-children">
-      <a class="reference internal" href="../../integrations/cirq/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         integrations.cirq
-        </span>
-       </code>
-      </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-      <label for="toctree-checkbox-4">
-       <i class="fas fa-chevron-down">
-       </i>
-      </label>
-      <ul>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../integrations/cirq/conversions/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           integrations.cirq.conversions
-          </span>
-         </code>
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../integrations/cirq/decompositions/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           integrations.cirq.decompositions
-          </span>
-         </code>
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../integrations/cirq/noise/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           integrations.cirq.noise
-          </span>
-         </code>
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../integrations/cirq/simulator/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           integrations.cirq.simulator
-          </span>
-         </code>
-        </a>
-       </li>
-      </ul>
-     </li>
-     <li class="toctree-l3 has-children">
-      <a class="reference internal" href="../../integrations/forest/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         integrations.forest
-        </span>
-       </code>
-      </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-      <label for="toctree-checkbox-5">
-       <i class="fas fa-chevron-down">
-       </i>
-      </label>
-      <ul>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../integrations/forest/conversions/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           integrations.forest.conversions
-          </span>
-         </code>
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../integrations/forest/simulator/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           integrations.forest.simulator
-          </span>
-         </code>
-        </a>
-       </li>
-      </ul>
-     </li>
-     <li class="toctree-l3 has-children">
-      <a class="reference internal" href="../../integrations/qiskit/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         integrations.qiskit
-        </span>
-       </code>
-      </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-      <label for="toctree-checkbox-6">
-       <i class="fas fa-chevron-down">
-       </i>
-      </label>
-      <ul>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../integrations/qiskit/backend/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           integrations.qiskit.backend
-          </span>
-         </code>
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../integrations/qiskit/conversions/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           integrations.qiskit.conversions
-          </span>
-         </code>
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../integrations/qiskit/noise/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           integrations.qiskit.noise
-          </span>
-         </code>
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../integrations/qiskit/simulator/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           integrations.qiskit.simulator
-          </span>
-         </code>
-        </a>
-       </li>
-      </ul>
-     </li>
-     <li class="toctree-l3 has-children">
-      <a class="reference internal" href="../../integrations/qulacs/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         integrations.qulacs
-        </span>
-       </code>
-      </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
-      <label for="toctree-checkbox-7">
-       <i class="fas fa-chevron-down">
-       </i>
-      </label>
-      <ul>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../integrations/qulacs/conversions/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           integrations.qulacs.conversions
-          </span>
-         </code>
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../integrations/qulacs/simulator/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           integrations.qulacs.simulator
-          </span>
-         </code>
-        </a>
-       </li>
-      </ul>
-     </li>
-    </ul>
    </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../../index.html">
+   API Reference
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
    <li class="toctree-l2 has-children">
     <a class="reference internal" href="../../opt/index.html">
      <code class="xref py py-mod docutils literal notranslate">
@@ -338,8 +170,8 @@
       </span>
      </code>
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
-    <label for="toctree-checkbox-8">
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
      <i class="fas fa-chevron-down">
      </i>
     </label>
@@ -352,8 +184,8 @@
         </span>
        </code>
       </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
-      <label for="toctree-checkbox-9">
+      <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+      <label for="toctree-checkbox-5">
        <i class="fas fa-chevron-down">
        </i>
       </label>
@@ -449,8 +281,8 @@
         </span>
        </code>
       </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
-      <label for="toctree-checkbox-10">
+      <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+      <label for="toctree-checkbox-6">
        <i class="fas fa-chevron-down">
        </i>
       </label>
@@ -492,8 +324,8 @@
         </span>
        </code>
       </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
-      <label for="toctree-checkbox-11">
+      <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+      <label for="toctree-checkbox-7">
        <i class="fas fa-chevron-down">
        </i>
       </label>
@@ -517,8 +349,8 @@
         </span>
        </code>
       </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
-      <label for="toctree-checkbox-12">
+      <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+      <label for="toctree-checkbox-8">
        <i class="fas fa-chevron-down">
        </i>
       </label>
@@ -546,6 +378,15 @@
          <code class="xref py py-mod docutils literal notranslate">
           <span class="pre">
            opt.optimizers.qiskit_optimizer
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../opt/optimizers/scikit_quant_optimizer/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.optimizers.scikit_quant_optimizer
           </span>
          </code>
         </a>
@@ -587,8 +428,8 @@
         </span>
        </code>
       </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
-      <label for="toctree-checkbox-13">
+      <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+      <label for="toctree-checkbox-9">
        <i class="fas fa-chevron-down">
        </i>
       </label>
@@ -687,6 +528,271 @@
      </li>
     </ul>
    </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../integrations/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       integrations
+      </span>
+     </code>
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+    <label for="toctree-checkbox-10">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../integrations/cirq/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         integrations.cirq
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+      <label for="toctree-checkbox-11">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../integrations/cirq/conversions/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.cirq.conversions
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../integrations/cirq/decompositions/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.cirq.decompositions
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../integrations/cirq/noise/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.cirq.noise
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../integrations/cirq/simulator/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.cirq.simulator
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../integrations/forest/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         integrations.forest
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+      <label for="toctree-checkbox-12">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../integrations/forest/conversions/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.forest.conversions
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../integrations/forest/simulator/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.forest.simulator
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../integrations/qiskit/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         integrations.qiskit
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+      <label for="toctree-checkbox-13">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../integrations/qiskit/backend/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.qiskit.backend
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../integrations/qiskit/conversions/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.qiskit.conversions
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../integrations/qiskit/noise/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.qiskit.noise
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../integrations/qiskit/simulator/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.qiskit.simulator
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../integrations/qulacs/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         integrations.qulacs
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+      <label for="toctree-checkbox-14">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../integrations/qulacs/conversions/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.qulacs.conversions
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../integrations/qulacs/simulator/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.qulacs.simulator
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../vqa/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       vqa
+      </span>
+     </code>
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+    <label for="toctree-checkbox-15">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../vqa/grouping/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         vqa.grouping
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../vqa/parameter_initialization/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         vqa.parameter_initialization
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../vqa/shot_allocation/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         vqa.shot_allocation
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../vqa/testing/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         vqa.testing
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+      <label for="toctree-checkbox-16">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../vqa/testing/mock_objects/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           vqa.testing.mock_objects
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../vqa/utils/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         vqa.utils
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
    <li class="toctree-l2 current active has-children">
     <a class="reference internal" href="../index.html">
      <code class="xref py py-mod docutils literal notranslate">
@@ -695,8 +801,8 @@
       </span>
      </code>
     </a>
-    <input checked="" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
-    <label for="toctree-checkbox-14">
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
+    <label for="toctree-checkbox-17">
      <i class="fas fa-chevron-down">
      </i>
     </label>
@@ -709,8 +815,8 @@
         </span>
        </code>
       </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
-      <label for="toctree-checkbox-15">
+      <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
+      <label for="toctree-checkbox-18">
        <i class="fas fa-chevron-down">
        </i>
       </label>
@@ -761,8 +867,8 @@
         </span>
        </code>
       </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
-      <label for="toctree-checkbox-16">
+      <input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/>
+      <label for="toctree-checkbox-19">
        <i class="fas fa-chevron-down">
        </i>
       </label>
@@ -804,8 +910,8 @@
         </span>
        </code>
       </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
-      <label for="toctree-checkbox-17">
+      <input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/>
+      <label for="toctree-checkbox-20">
        <i class="fas fa-chevron-down">
        </i>
       </label>
@@ -866,6 +972,49 @@
        </code>
       </a>
      </li>
+     <li class="toctree-l3 current active has-children">
+      <a class="current reference internal" href="#">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         quantum.measurements
+        </span>
+       </code>
+      </a>
+      <input checked="" class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/>
+      <label for="toctree-checkbox-21">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="expectation_values/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.measurements.expectation_values
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="measurements/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.measurements.measurements
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="parities/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.measurements.parities
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
      <li class="toctree-l3 has-children">
       <a class="reference internal" href="../openfermion/index.html">
        <code class="xref py py-mod docutils literal notranslate">
@@ -874,8 +1023,8 @@
         </span>
        </code>
       </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
-      <label for="toctree-checkbox-18">
+      <input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/>
+      <label for="toctree-checkbox-22">
        <i class="fas fa-chevron-down">
        </i>
       </label>
@@ -989,8 +1138,8 @@
         </span>
        </code>
       </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/>
-      <label for="toctree-checkbox-19">
+      <input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/>
+      <label for="toctree-checkbox-23">
        <i class="fas fa-chevron-down">
        </i>
       </label>
@@ -1029,15 +1178,6 @@
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          quantum.evolution
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toctree-l3 current active">
-      <a class="current reference internal" href="#">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         quantum.measurements
         </span>
        </code>
       </a>
@@ -1083,153 +1223,6 @@
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          quantum.wavefunction
-        </span>
-       </code>
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../../vqa/index.html">
-     <code class="xref py py-mod docutils literal notranslate">
-      <span class="pre">
-       vqa
-      </span>
-     </code>
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/>
-    <label for="toctree-checkbox-20">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3 has-children">
-      <a class="reference internal" href="../../vqa/ansatz/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         vqa.ansatz
-        </span>
-       </code>
-      </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/>
-      <label for="toctree-checkbox-21">
-       <i class="fas fa-chevron-down">
-       </i>
-      </label>
-      <ul>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../vqa/ansatz/qcbm/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           vqa.ansatz.qcbm
-          </span>
-         </code>
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../vqa/ansatz/kbody/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           vqa.ansatz.kbody
-          </span>
-         </code>
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../vqa/ansatz/qaoa_farhi/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           vqa.ansatz.qaoa_farhi
-          </span>
-         </code>
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../vqa/ansatz/qaoa_warm_start/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           vqa.ansatz.qaoa_warm_start
-          </span>
-         </code>
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../vqa/ansatz/quantum_compiling/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           vqa.ansatz.quantum_compiling
-          </span>
-         </code>
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../vqa/ansatz/singlet_uccsd/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           vqa.ansatz.singlet_uccsd
-          </span>
-         </code>
-        </a>
-       </li>
-      </ul>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../vqa/grouping/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         vqa.grouping
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../vqa/parameter_initialization/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         vqa.parameter_initialization
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../vqa/shot_allocation/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         vqa.shot_allocation
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toctree-l3 has-children">
-      <a class="reference internal" href="../../vqa/testing/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         vqa.testing
-        </span>
-       </code>
-      </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/>
-      <label for="toctree-checkbox-22">
-       <i class="fas fa-chevron-down">
-       </i>
-      </label>
-      <ul>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../vqa/testing/mock_objects/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           vqa.testing.mock_objects
-          </span>
-         </code>
-        </a>
-       </li>
-      </ul>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../vqa/utils/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         vqa.utils
         </span>
        </code>
       </a>
@@ -1302,52 +1295,6 @@ title="Fullscreen mode"
   </span>
 
 </button>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../../../_sources/api/quantum/measurements/index.rst.txt"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.rst</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
 <label for="__page-toc"
   class="headerbtn headerbtn-page-toc"
   
@@ -1371,8 +1318,13 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#module-contents">
-   Module Contents
+  <a class="reference internal nav-link" href="#submodules">
+   Submodules
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#package-contents">
+   Package Contents
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -1385,26 +1337,6 @@ title="Print to PDF"
      Functions
     </a>
     <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#quantum.measurements.save_expectation_values">
-       save_expectation_values
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#quantum.measurements.load_expectation_values">
-       load_expectation_values
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#quantum.measurements.load_wavefunction">
-       load_wavefunction
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#quantum.measurements.save_wavefunction">
-       save_wavefunction
-      </a>
-     </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#quantum.measurements.ExpectationValues">
        ExpectationValues
@@ -1438,55 +1370,8 @@ title="Print to PDF"
       </ul>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#quantum.measurements.sample_from_wavefunction">
-       sample_from_wavefunction
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#quantum.measurements.Parities">
-       Parities
-      </a>
-      <ul class="nav section-nav flex-column">
-       <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#quantum.measurements.Parities.values">
-         values
-        </a>
-       </li>
-       <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#quantum.measurements.Parities.correlations">
-         correlations
-        </a>
-       </li>
-       <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#quantum.measurements.Parities.to_dict">
-         to_dict
-        </a>
-       </li>
-       <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#quantum.measurements.Parities.from_dict">
-         from_dict
-        </a>
-       </li>
-      </ul>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#quantum.measurements.save_parities">
-       save_parities
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#quantum.measurements.load_parities">
-       load_parities
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#quantum.measurements.get_expectation_values_from_parities">
-       get_expectation_values_from_parities
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#quantum.measurements.get_parities_from_measurements">
-       get_parities_from_measurements
+      <a class="reference internal nav-link" href="#quantum.measurements.concatenate_expectation_values">
+       concatenate_expectation_values
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
@@ -1495,23 +1380,18 @@ title="Print to PDF"
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#quantum.measurements.convert_bitstring_to_int">
-       convert_bitstring_to_int
+      <a class="reference internal nav-link" href="#quantum.measurements.get_expectation_values_from_parities">
+       get_expectation_values_from_parities
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#quantum.measurements.check_parity">
-       check_parity
+      <a class="reference internal nav-link" href="#quantum.measurements.load_expectation_values">
+       load_expectation_values
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#quantum.measurements.check_parity_of_vector">
-       check_parity_of_vector
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#quantum.measurements.get_expectation_value_from_frequencies">
-       get_expectation_value_from_frequencies
+      <a class="reference internal nav-link" href="#quantum.measurements.save_expectation_values">
+       save_expectation_values
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
@@ -1562,8 +1442,65 @@ title="Print to PDF"
       </ul>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#quantum.measurements.concatenate_expectation_values">
-       concatenate_expectation_values
+      <a class="reference internal nav-link" href="#quantum.measurements.convert_bitstring_to_int">
+       convert_bitstring_to_int
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.measurements.get_expectation_value_from_frequencies">
+       get_expectation_value_from_frequencies
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.measurements.Parities">
+       Parities
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.measurements.Parities.values">
+         values
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.measurements.Parities.correlations">
+         correlations
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.measurements.Parities.to_dict">
+         to_dict
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.measurements.Parities.from_dict">
+         from_dict
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.measurements.check_parity">
+       check_parity
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.measurements.check_parity_of_vector">
+       check_parity_of_vector
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.measurements.get_parities_from_measurements">
+       get_parities_from_measurements
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.measurements.load_parities">
+       load_parities
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.measurements.save_parities">
+       save_parities
       </a>
      </li>
     </ul>
@@ -1590,8 +1527,13 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#module-contents">
-   Module Contents
+  <a class="reference internal nav-link" href="#submodules">
+   Submodules
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#package-contents">
+   Package Contents
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -1604,26 +1546,6 @@ title="Print to PDF"
      Functions
     </a>
     <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#quantum.measurements.save_expectation_values">
-       save_expectation_values
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#quantum.measurements.load_expectation_values">
-       load_expectation_values
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#quantum.measurements.load_wavefunction">
-       load_wavefunction
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#quantum.measurements.save_wavefunction">
-       save_wavefunction
-      </a>
-     </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#quantum.measurements.ExpectationValues">
        ExpectationValues
@@ -1657,55 +1579,8 @@ title="Print to PDF"
       </ul>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#quantum.measurements.sample_from_wavefunction">
-       sample_from_wavefunction
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#quantum.measurements.Parities">
-       Parities
-      </a>
-      <ul class="nav section-nav flex-column">
-       <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#quantum.measurements.Parities.values">
-         values
-        </a>
-       </li>
-       <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#quantum.measurements.Parities.correlations">
-         correlations
-        </a>
-       </li>
-       <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#quantum.measurements.Parities.to_dict">
-         to_dict
-        </a>
-       </li>
-       <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#quantum.measurements.Parities.from_dict">
-         from_dict
-        </a>
-       </li>
-      </ul>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#quantum.measurements.save_parities">
-       save_parities
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#quantum.measurements.load_parities">
-       load_parities
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#quantum.measurements.get_expectation_values_from_parities">
-       get_expectation_values_from_parities
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#quantum.measurements.get_parities_from_measurements">
-       get_parities_from_measurements
+      <a class="reference internal nav-link" href="#quantum.measurements.concatenate_expectation_values">
+       concatenate_expectation_values
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
@@ -1714,23 +1589,18 @@ title="Print to PDF"
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#quantum.measurements.convert_bitstring_to_int">
-       convert_bitstring_to_int
+      <a class="reference internal nav-link" href="#quantum.measurements.get_expectation_values_from_parities">
+       get_expectation_values_from_parities
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#quantum.measurements.check_parity">
-       check_parity
+      <a class="reference internal nav-link" href="#quantum.measurements.load_expectation_values">
+       load_expectation_values
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#quantum.measurements.check_parity_of_vector">
-       check_parity_of_vector
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#quantum.measurements.get_expectation_value_from_frequencies">
-       get_expectation_value_from_frequencies
+      <a class="reference internal nav-link" href="#quantum.measurements.save_expectation_values">
+       save_expectation_values
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
@@ -1781,8 +1651,65 @@ title="Print to PDF"
       </ul>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#quantum.measurements.concatenate_expectation_values">
-       concatenate_expectation_values
+      <a class="reference internal nav-link" href="#quantum.measurements.convert_bitstring_to_int">
+       convert_bitstring_to_int
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.measurements.get_expectation_value_from_frequencies">
+       get_expectation_value_from_frequencies
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.measurements.Parities">
+       Parities
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.measurements.Parities.values">
+         values
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.measurements.Parities.correlations">
+         correlations
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.measurements.Parities.to_dict">
+         to_dict
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.measurements.Parities.from_dict">
+         from_dict
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.measurements.check_parity">
+       check_parity
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.measurements.check_parity_of_vector">
+       check_parity_of_vector
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.measurements.get_parities_from_measurements">
+       get_parities_from_measurements
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.measurements.load_parities">
+       load_parities
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.measurements.save_parities">
+       save_parities
       </a>
      </li>
     </ul>
@@ -1801,8 +1728,18 @@ title="Print to PDF"
                 
   <div class="section" id="module-quantum.measurements">
 <span id="quantum-measurements"></span><h1><a class="reference internal" href="#module-quantum.measurements" title="quantum.measurements"><code class="xref py py-mod docutils literal notranslate"><span class="pre">quantum.measurements</span></code></a><a class="headerlink" href="#module-quantum.measurements" title="Permalink to this headline">#</a></h1>
-<div class="section" id="module-contents">
-<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">#</a></h2>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">#</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="expectation_values/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">quantum.measurements.expectation_values</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="measurements/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">quantum.measurements.measurements</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="parities/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">quantum.measurements.parities</span></code></a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="package-contents">
+<h2>Package Contents<a class="headerlink" href="#package-contents" title="Permalink to this headline">#</a></h2>
 <div class="section" id="classes">
 <h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">#</a></h3>
 <table class="autosummary longtable table autosummary">
@@ -1814,11 +1751,11 @@ title="Print to PDF"
 <tr class="row-odd"><td><p><a class="reference internal" href="#quantum.measurements.ExpectationValues" title="quantum.measurements.ExpectationValues"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ExpectationValues</span></code></a></p></td>
 <td><p>A class representing expectation values of operators.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#quantum.measurements.Parities" title="quantum.measurements.Parities"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Parities</span></code></a></p></td>
-<td><p>A class representing counts of parities for Pauli terms.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.measurements.Measurements" title="quantum.measurements.Measurements"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Measurements</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#quantum.measurements.Measurements" title="quantum.measurements.Measurements"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Measurements</span></code></a></p></td>
 <td><p>A class representing measurements from a quantum circuit. The bitstrings variable</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.measurements.Parities" title="quantum.measurements.Parities"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Parities</span></code></a></p></td>
+<td><p>A class representing counts of parities for Pauli terms.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1831,38 +1768,26 @@ title="Print to PDF"
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.measurements.save_expectation_values" title="quantum.measurements.save_expectation_values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_expectation_values</span></code></a>(expectation_values: ExpectationValues, filename: orquestra.quantum.typing.AnyPath) → None</p></td>
-<td><p>Save expectation values to a file.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#quantum.measurements.load_expectation_values" title="quantum.measurements.load_expectation_values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_expectation_values</span></code></a>(file: orquestra.quantum.typing.LoadSource) → ExpectationValues</p></td>
-<td><p>Load an array from a file.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.measurements.load_wavefunction" title="quantum.measurements.load_wavefunction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_wavefunction</span></code></a>(file: orquestra.quantum.typing.LoadSource) → orquestra.quantum.wavefunction.Wavefunction</p></td>
-<td><p>Load a qubit wavefunction from a file.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#quantum.measurements.save_wavefunction" title="quantum.measurements.save_wavefunction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_wavefunction</span></code></a>(wavefunction: orquestra.quantum.wavefunction.Wavefunction, filename: orquestra.quantum.typing.AnyPath) → None</p></td>
-<td><p>Save a wavefunction object to a file.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.measurements.sample_from_wavefunction" title="quantum.measurements.sample_from_wavefunction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sample_from_wavefunction</span></code></a>(wavefunction: orquestra.quantum.wavefunction.Wavefunction, n_samples: int, seed: Optional[int] = None) → List[Tuple[int, Ellipsis]]</p></td>
-<td><p>Sample bitstrings from a wavefunction.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#quantum.measurements.save_parities" title="quantum.measurements.save_parities"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_parities</span></code></a>(parities: Parities, filename: orquestra.quantum.typing.AnyPath) → None</p></td>
-<td><p>Save parities to a file.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.measurements.load_parities" title="quantum.measurements.load_parities"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_parities</span></code></a>(file: orquestra.quantum.typing.LoadSource) → Parities</p></td>
-<td><p>Load parities from a file.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#quantum.measurements.get_expectation_values_from_parities" title="quantum.measurements.get_expectation_values_from_parities"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_expectation_values_from_parities</span></code></a>(parities: Parities) → ExpectationValues</p></td>
-<td><p>Get the expectation values of a set of operators (with precisions) from a set of</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.measurements.get_parities_from_measurements" title="quantum.measurements.get_parities_from_measurements"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_parities_from_measurements</span></code></a>(measurements: List[Tuple[int]], ising_operator) → Parities</p></td>
-<td><p>Get expectation values from bitstrings.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.measurements.concatenate_expectation_values" title="quantum.measurements.concatenate_expectation_values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">concatenate_expectation_values</span></code></a>(expectation_values_set: Iterable[ExpectationValues]) → ExpectationValues</p></td>
+<td><p>Concatenates a set of expectation values objects.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#quantum.measurements.expectation_values_to_real" title="quantum.measurements.expectation_values_to_real"><code class="xref py py-obj docutils literal notranslate"><span class="pre">expectation_values_to_real</span></code></a>(expectation_values: ExpectationValues) → ExpectationValues</p></td>
 <td><p>Remove the imaginary parts of the expectation values</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.measurements.convert_bitstring_to_int" title="quantum.measurements.convert_bitstring_to_int"><code class="xref py py-obj docutils literal notranslate"><span class="pre">convert_bitstring_to_int</span></code></a>(bitstring: Sequence[int]) → int</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.measurements.get_expectation_values_from_parities" title="quantum.measurements.get_expectation_values_from_parities"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_expectation_values_from_parities</span></code></a>(parities: quantum.measurements.parities.Parities) → ExpectationValues</p></td>
+<td><p>Get the expectation values of a set of operators (with precisions) from a set of</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#quantum.measurements.load_expectation_values" title="quantum.measurements.load_expectation_values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_expectation_values</span></code></a>(file: orquestra.quantum.typing.LoadSource) → ExpectationValues</p></td>
+<td><p>Load an array from a file.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.measurements.save_expectation_values" title="quantum.measurements.save_expectation_values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_expectation_values</span></code></a>(expectation_values: ExpectationValues, filename: orquestra.quantum.typing.AnyPath) → None</p></td>
+<td><p>Save expectation values to a file.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#quantum.measurements.convert_bitstring_to_int" title="quantum.measurements.convert_bitstring_to_int"><code class="xref py py-obj docutils literal notranslate"><span class="pre">convert_bitstring_to_int</span></code></a>(bitstring: Sequence[int]) → int</p></td>
 <td><p>Convert a bitstring to an integer.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.measurements.get_expectation_value_from_frequencies" title="quantum.measurements.get_expectation_value_from_frequencies"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_expectation_value_from_frequencies</span></code></a>(marked_qubits: Iterable[int], bitstring_frequencies: Dict[str, int]) → float</p></td>
+<td><p>Get the expectation value the product of Z operators on selected qubits</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#quantum.measurements.check_parity" title="quantum.measurements.check_parity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_parity</span></code></a>(bitstring: Union[str, Sequence[int]], marked_qubits: Iterable[int]) → bool</p></td>
 <td><p>Determine if the marked qubits have even parity for the given bitstring.</p></td>
@@ -1870,76 +1795,17 @@ title="Print to PDF"
 <tr class="row-odd"><td><p><a class="reference internal" href="#quantum.measurements.check_parity_of_vector" title="quantum.measurements.check_parity_of_vector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_parity_of_vector</span></code></a>(bitstrings_vector: numpy.ndarray, marked_qubits: Iterable[int]) → numpy.ndarray</p></td>
 <td><p>Determine if the marked qubits have even parity for each bitstring in the given</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#quantum.measurements.get_expectation_value_from_frequencies" title="quantum.measurements.get_expectation_value_from_frequencies"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_expectation_value_from_frequencies</span></code></a>(marked_qubits: Iterable[int], bitstring_frequencies: Dict[str, int]) → float</p></td>
-<td><p>Get the expectation value the product of Z operators on selected qubits</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#quantum.measurements.get_parities_from_measurements" title="quantum.measurements.get_parities_from_measurements"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_parities_from_measurements</span></code></a>(measurements: List[Tuple[int]], ising_operator: orquestra.quantum.openfermion.ops.IsingOperator) → Parities</p></td>
+<td><p>Get expectation values from bitstrings.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.measurements.concatenate_expectation_values" title="quantum.measurements.concatenate_expectation_values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">concatenate_expectation_values</span></code></a>(expectation_values_set: Iterable[ExpectationValues]) → ExpectationValues</p></td>
-<td><p>Concatenates a set of expectation values objects.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.measurements.load_parities" title="quantum.measurements.load_parities"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_parities</span></code></a>(file: orquestra.quantum.typing.LoadSource) → Parities</p></td>
+<td><p>Load parities from a file.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#quantum.measurements.save_parities" title="quantum.measurements.save_parities"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_parities</span></code></a>(parities: Parities, filename: orquestra.quantum.typing.AnyPath) → None</p></td>
+<td><p>Save parities to a file.</p></td>
 </tr>
 </tbody>
 </table>
-<dl class="py function">
-<dt class="sig sig-object py" id="quantum.measurements.save_expectation_values">
-<span class="sig-prename descclassname"><span class="pre">quantum.measurements.</span></span><span class="sig-name descname"><span class="pre">save_expectation_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">expectation_values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#quantum.measurements.ExpectationValues" title="quantum.measurements.ExpectationValues"><span class="pre">ExpectationValues</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">orquestra.quantum.typing.AnyPath</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#quantum.measurements.save_expectation_values" title="Permalink to this definition">#</a></dt>
-<dd><p>Save expectation values to a file.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>expectation_values</strong> (<a class="reference internal" href="#quantum.measurements.ExpectationValues" title="quantum.measurements.ExpectationValues"><em>ExpectationValues</em></a>) – the expectation values to save</p></li>
-<li><p><strong>file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em> or </em><em>file-like object</em>) – the name of the file, or a file-like object</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="quantum.measurements.load_expectation_values">
-<span class="sig-prename descclassname"><span class="pre">quantum.measurements.</span></span><span class="sig-name descname"><span class="pre">load_expectation_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">orquestra.quantum.typing.LoadSource</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#quantum.measurements.ExpectationValues" title="quantum.measurements.ExpectationValues"><span class="pre">ExpectationValues</span></a></span></span><a class="headerlink" href="#quantum.measurements.load_expectation_values" title="Permalink to this definition">#</a></dt>
-<dd><p>Load an array from a file.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em> or </em><em>file-like object</em>) – the name of the file, or a file-like object.</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>the array</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>array (numpy.array)</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="quantum.measurements.load_wavefunction">
-<span class="sig-prename descclassname"><span class="pre">quantum.measurements.</span></span><span class="sig-name descname"><span class="pre">load_wavefunction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">orquestra.quantum.typing.LoadSource</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">orquestra.quantum.wavefunction.Wavefunction</span></span></span><a class="headerlink" href="#quantum.measurements.load_wavefunction" title="Permalink to this definition">#</a></dt>
-<dd><p>Load a qubit wavefunction from a file.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em> or </em><em>file-like object</em>) – the name of the file, or a file-like object.</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>the wavefunction object</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>wavefunction (orquestra.quantum.Wavefunction)</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="quantum.measurements.save_wavefunction">
-<span class="sig-prename descclassname"><span class="pre">quantum.measurements.</span></span><span class="sig-name descname"><span class="pre">save_wavefunction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wavefunction</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">orquestra.quantum.wavefunction.Wavefunction</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">orquestra.quantum.typing.AnyPath</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#quantum.measurements.save_wavefunction" title="Permalink to this definition">#</a></dt>
-<dd><p>Save a wavefunction object to a file.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>wavefunction</strong> (<em>orquestra.quantum.Wavefunction</em>) – the wavefunction object</p></li>
-<li><p><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – the name of the file</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
 <dl class="py class">
 <dt class="sig sig-object py" id="quantum.measurements.ExpectationValues">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">quantum.measurements.</span></span><span class="sig-name descname"><span class="pre">ExpectationValues</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">correlations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">estimator_covariances</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quantum.measurements.ExpectationValues" title="Permalink to this definition">#</a></dt>
@@ -1995,144 +1861,15 @@ the number of samples.</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="quantum.measurements.sample_from_wavefunction">
-<span class="sig-prename descclassname"><span class="pre">quantum.measurements.</span></span><span class="sig-name descname"><span class="pre">sample_from_wavefunction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wavefunction</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">orquestra.quantum.wavefunction.Wavefunction</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_samples</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Ellipsis</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#quantum.measurements.sample_from_wavefunction" title="Permalink to this definition">#</a></dt>
-<dd><p>Sample bitstrings from a wavefunction.</p>
+<dt class="sig sig-object py" id="quantum.measurements.concatenate_expectation_values">
+<span class="sig-prename descclassname"><span class="pre">quantum.measurements.</span></span><span class="sig-name descname"><span class="pre">concatenate_expectation_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">expectation_values_set</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#quantum.measurements.ExpectationValues" title="quantum.measurements.ExpectationValues"><span class="pre">ExpectationValues</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#quantum.measurements.ExpectationValues" title="quantum.measurements.ExpectationValues"><span class="pre">ExpectationValues</span></a></span></span><a class="headerlink" href="#quantum.measurements.concatenate_expectation_values" title="Permalink to this definition">#</a></dt>
+<dd><p>Concatenates a set of expectation values objects.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>wavefunction</strong> – the wavefunction to sample from.</p></li>
-<li><p><strong>n_samples</strong> – the number of samples taken. Needs to be greater than 0.</p></li>
-<li><p><strong>seed</strong> – the seed of the sampler</p></li>
-</ul>
+<dd class="field-odd"><p><strong>expectation_values_set</strong> – The expectation values objects to be concatenated.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>A list of tuples where the each tuple is a sampled bitstring.</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>List[Tuple[<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a>]]</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="quantum.measurements.Parities">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">quantum.measurements.</span></span><span class="sig-name descname"><span class="pre">Parities</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">correlations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quantum.measurements.Parities" title="Permalink to this definition">#</a></dt>
-<dd><p>A class representing counts of parities for Pauli terms.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>values</strong> (<em>np.array</em>) – Number of observations of parities. See Attributes.</p></li>
-<li><p><strong>correlations</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a>) – Number of observations of pairwise products of terms.
-See Attributes.</p></li>
-</ul>
-</dd>
-</dl>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="quantum.measurements.Parities.values">
-<span class="sig-name descname"><span class="pre">values</span></span><a class="headerlink" href="#quantum.measurements.Parities.values" title="Permalink to this definition">#</a></dt>
-<dd><p>an array of dimension N x 2 indicating how many times
-each Pauli term was observed with even and odd parity, where N is the
-number of Pauli terms. Here values[i][0] and values[i][1] correspond
-to the number of samples with even and odd parities for term P_i,
-respectively.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>np.array</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="quantum.measurements.Parities.correlations">
-<span class="sig-name descname"><span class="pre">correlations</span></span><a class="headerlink" href="#quantum.measurements.Parities.correlations" title="Permalink to this definition">#</a></dt>
-<dd><p>a list of 3-dimensional numpy arrays indicating how
-many times each product of Pauli terms was observed with even and odd
-parity. Here correlations[i][j][k][0] and correlations[i][j][k][1]
-correspond to the number of samples with even and odd parities term P_j P_k
-in frame i, respectively.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)">list</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="quantum.measurements.Parities.to_dict">
-<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><span class="pre">dict</span></a></span></span><a class="headerlink" href="#quantum.measurements.Parities.to_dict" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="quantum.measurements.Parities.from_dict">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><span class="pre">dict</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quantum.measurements.Parities.from_dict" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="quantum.measurements.save_parities">
-<span class="sig-prename descclassname"><span class="pre">quantum.measurements.</span></span><span class="sig-name descname"><span class="pre">save_parities</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parities</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#quantum.measurements.Parities" title="quantum.measurements.Parities"><span class="pre">Parities</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">orquestra.quantum.typing.AnyPath</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#quantum.measurements.save_parities" title="Permalink to this definition">#</a></dt>
-<dd><p>Save parities to a file.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>parities</strong> (<em>orquestra.quantum.measurement.Parities</em>) – the parities</p></li>
-<li><p><strong>file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em> or </em><em>file-like object</em>) – the name of the file, or a file-like object</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="quantum.measurements.load_parities">
-<span class="sig-prename descclassname"><span class="pre">quantum.measurements.</span></span><span class="sig-name descname"><span class="pre">load_parities</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">orquestra.quantum.typing.LoadSource</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#quantum.measurements.Parities" title="quantum.measurements.Parities"><span class="pre">Parities</span></a></span></span><a class="headerlink" href="#quantum.measurements.load_parities" title="Permalink to this definition">#</a></dt>
-<dd><p>Load parities from a file.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em> or </em><em>file-like object</em>) – the name of the file, or a file-like object.</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>the parities</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>orquestra.quantum.measurement.Parities</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="quantum.measurements.get_expectation_values_from_parities">
-<span class="sig-prename descclassname"><span class="pre">quantum.measurements.</span></span><span class="sig-name descname"><span class="pre">get_expectation_values_from_parities</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parities</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#quantum.measurements.Parities" title="quantum.measurements.Parities"><span class="pre">Parities</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#quantum.measurements.ExpectationValues" title="quantum.measurements.ExpectationValues"><span class="pre">ExpectationValues</span></a></span></span><a class="headerlink" href="#quantum.measurements.get_expectation_values_from_parities" title="Permalink to this definition">#</a></dt>
-<dd><p>Get the expectation values of a set of operators (with precisions) from a set of
-samples (with even/odd parities) for them.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>parities</strong> – Contains the number of samples with even and odd parities for each
-operator.</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Expectation values of the operators and the associated precisions.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="quantum.measurements.get_parities_from_measurements">
-<span class="sig-prename descclassname"><span class="pre">quantum.measurements.</span></span><span class="sig-name descname"><span class="pre">get_parities_from_measurements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">measurements</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ising_operator</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#quantum.measurements.Parities" title="quantum.measurements.Parities"><span class="pre">Parities</span></a></span></span><a class="headerlink" href="#quantum.measurements.get_parities_from_measurements" title="Permalink to this definition">#</a></dt>
-<dd><p>Get expectation values from bitstrings.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>measurements</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a>) – the measured bitstrings</p></li>
-<li><p><strong>ising_operator</strong> (<a class="reference internal" href="../openfermion/ops/index.html#quantum.openfermion.ops.IsingOperator" title="quantum.openfermion.ops.IsingOperator"><em>openfermion.ops.IsingOperator</em></a>) – the operator</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>parities of each term in the operator</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>orquestra.quantum.measurement.Parities</p>
+<dd class="field-even"><p>The combined expectation values.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2152,87 +1889,48 @@ operator.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="quantum.measurements.convert_bitstring_to_int">
-<span class="sig-prename descclassname"><span class="pre">quantum.measurements.</span></span><span class="sig-name descname"><span class="pre">convert_bitstring_to_int</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bitstring</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></span><a class="headerlink" href="#quantum.measurements.convert_bitstring_to_int" title="Permalink to this definition">#</a></dt>
-<dd><p>Convert a bitstring to an integer.</p>
+<dt class="sig sig-object py" id="quantum.measurements.get_expectation_values_from_parities">
+<span class="sig-prename descclassname"><span class="pre">quantum.measurements.</span></span><span class="sig-name descname"><span class="pre">get_expectation_values_from_parities</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parities</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="parities/index.html#quantum.measurements.parities.Parities" title="quantum.measurements.parities.Parities"><span class="pre">quantum.measurements.parities.Parities</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#quantum.measurements.ExpectationValues" title="quantum.measurements.ExpectationValues"><span class="pre">ExpectationValues</span></a></span></span><a class="headerlink" href="#quantum.measurements.get_expectation_values_from_parities" title="Permalink to this definition">#</a></dt>
+<dd><p>Get the expectation values of a set of operators (with precisions) from a set of
+samples (with even/odd parities) for them.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>bitstring</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a>) – A list of integers.</p>
+<dd class="field-odd"><p><strong>parities</strong> – Contains the number of samples with even and odd parities for each
+operator.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><dl class="simple">
-<dt>The value of the bitstring, where the first bit in the least</dt><dd><p>significant (little endian).</p>
+<dd class="field-even"><p>Expectation values of the operators and the associated precisions.</p>
 </dd>
 </dl>
-</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="quantum.measurements.load_expectation_values">
+<span class="sig-prename descclassname"><span class="pre">quantum.measurements.</span></span><span class="sig-name descname"><span class="pre">load_expectation_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">orquestra.quantum.typing.LoadSource</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#quantum.measurements.ExpectationValues" title="quantum.measurements.ExpectationValues"><span class="pre">ExpectationValues</span></a></span></span><a class="headerlink" href="#quantum.measurements.load_expectation_values" title="Permalink to this definition">#</a></dt>
+<dd><p>Load an array from a file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em> or </em><em>file-like object</em>) – the name of the file, or a file-like object.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the array</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+<dd class="field-odd"><p>array (numpy.array)</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="quantum.measurements.check_parity">
-<span class="sig-prename descclassname"><span class="pre">quantum.measurements.</span></span><span class="sig-name descname"><span class="pre">check_parity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bitstring</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">marked_qubits</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span></span><a class="headerlink" href="#quantum.measurements.check_parity" title="Permalink to this definition">#</a></dt>
-<dd><p>Determine if the marked qubits have even parity for the given bitstring.</p>
+<dt class="sig sig-object py" id="quantum.measurements.save_expectation_values">
+<span class="sig-prename descclassname"><span class="pre">quantum.measurements.</span></span><span class="sig-name descname"><span class="pre">save_expectation_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">expectation_values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#quantum.measurements.ExpectationValues" title="quantum.measurements.ExpectationValues"><span class="pre">ExpectationValues</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">orquestra.quantum.typing.AnyPath</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#quantum.measurements.save_expectation_values" title="Permalink to this definition">#</a></dt>
+<dd><p>Save expectation values to a file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>bitstring</strong> – The bitstring, either as a tuple or little endian string.</p></li>
-<li><p><strong>marked_qubits</strong> – The qubits whose parity is to be determined.</p></li>
+<li><p><strong>expectation_values</strong> (<a class="reference internal" href="#quantum.measurements.ExpectationValues" title="quantum.measurements.ExpectationValues"><em>ExpectationValues</em></a>) – the expectation values to save</p></li>
+<li><p><strong>file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em> or </em><em>file-like object</em>) – the name of the file, or a file-like object</p></li>
 </ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><dl class="simple">
-<dt>True if an even number of the marked qubits are in the 1 state, False</dt><dd><p>otherwise.</p>
-</dd>
-</dl>
-</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="quantum.measurements.check_parity_of_vector">
-<span class="sig-prename descclassname"><span class="pre">quantum.measurements.</span></span><span class="sig-name descname"><span class="pre">check_parity_of_vector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bitstrings_vector</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">marked_qubits</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.ndarray</span></span></span><a class="headerlink" href="#quantum.measurements.check_parity_of_vector" title="Permalink to this definition">#</a></dt>
-<dd><dl class="simple">
-<dt>Determine if the marked qubits have even parity for each bitstring in the given</dt><dd><p>vector.
-NOTE: This performs the same functionality as <cite>check_parity</cite> but is much
-faster as it uses vectorization to find the parity of multiple bitstrings
-at once.</p>
-</dd>
-</dl>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>bitstring</strong> – A 2d array of bitstrings whose size is number of bistrings * number
-of qubits</p></li>
-<li><p><strong>marked_qubits</strong> – The qubits whose parity is to be determined.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>A 1d array with size equal to number of bitstrings. Each entry is 1 if an even
-number of the marked qubits of the corresponding bitstring are in the 1 state
-and 0 if otherwise.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="quantum.measurements.get_expectation_value_from_frequencies">
-<span class="sig-prename descclassname"><span class="pre">quantum.measurements.</span></span><span class="sig-name descname"><span class="pre">get_expectation_value_from_frequencies</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">marked_qubits</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bitstring_frequencies</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><span class="pre">float</span></a></span></span><a class="headerlink" href="#quantum.measurements.get_expectation_value_from_frequencies" title="Permalink to this definition">#</a></dt>
-<dd><p>Get the expectation value the product of Z operators on selected qubits
-from bitstring frequencies.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>marked_qubits</strong> – The qubits that the Z operators act on.</p></li>
-<li><p><strong>bitstring_frequences</strong> – The frequencies of the bitstrings.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>The expectation value of the product of Z operators on selected qubits.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2258,7 +1956,7 @@ the bitstring was measured</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="quantum.measurements.Measurements.get_measurements_representing_distribution">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_measurements_representing_distribution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">measurement_outcome_distribution</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../distributions/index.html#quantum.distributions.MeasurementOutcomeDistribution" title="quantum.distributions.MeasurementOutcomeDistribution"><span class="pre">quantum.distributions.MeasurementOutcomeDistribution</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">number_of_samples</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quantum.measurements.Measurements.get_measurements_representing_distribution" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_measurements_representing_distribution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">measurement_outcome_distribution</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">orquestra.quantum.distributions.MeasurementOutcomeDistribution</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">number_of_samples</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quantum.measurements.Measurements.get_measurements_representing_distribution" title="Permalink to this definition">#</a></dt>
 <dd><p>Create an instance of the Measurements class that exactly (or as closely as
 possible) resembles the input bitstring distribution.</p>
 <dl class="field-list simple">
@@ -2321,7 +2019,7 @@ bitstring represents a measurement of qubit 2 in the 1 state</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="quantum.measurements.Measurements.get_distribution">
-<span class="sig-name descname"><span class="pre">get_distribution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../distributions/index.html#quantum.distributions.MeasurementOutcomeDistribution" title="quantum.distributions.MeasurementOutcomeDistribution"><span class="pre">quantum.distributions.MeasurementOutcomeDistribution</span></a></span></span><a class="headerlink" href="#quantum.measurements.Measurements.get_distribution" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">get_distribution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">orquestra.quantum.distributions.MeasurementOutcomeDistribution</span></span></span><a class="headerlink" href="#quantum.measurements.Measurements.get_distribution" title="Permalink to this definition">#</a></dt>
 <dd><p>Get the normalized probability distribution representing the measurements</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -2335,7 +2033,7 @@ bitstring represents a measurement of qubit 2 in the 1 state</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="quantum.measurements.Measurements.get_expectation_values">
-<span class="sig-name descname"><span class="pre">get_expectation_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ising_operator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_bessel_correction</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#quantum.measurements.ExpectationValues" title="quantum.measurements.ExpectationValues"><span class="pre">ExpectationValues</span></a></span></span><a class="headerlink" href="#quantum.measurements.Measurements.get_expectation_values" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">get_expectation_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ising_operator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_bessel_correction</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="expectation_values/index.html#quantum.measurements.expectation_values.ExpectationValues" title="quantum.measurements.expectation_values.ExpectationValues"><span class="pre">quantum.measurements.expectation_values.ExpectationValues</span></a></span></span><a class="headerlink" href="#quantum.measurements.Measurements.get_expectation_values" title="Permalink to this definition">#</a></dt>
 <dd><p>Get the expectation values of an operator from the measurements.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -2356,15 +2054,193 @@ diverges when only one sample is taken.</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="quantum.measurements.concatenate_expectation_values">
-<span class="sig-prename descclassname"><span class="pre">quantum.measurements.</span></span><span class="sig-name descname"><span class="pre">concatenate_expectation_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">expectation_values_set</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#quantum.measurements.ExpectationValues" title="quantum.measurements.ExpectationValues"><span class="pre">ExpectationValues</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#quantum.measurements.ExpectationValues" title="quantum.measurements.ExpectationValues"><span class="pre">ExpectationValues</span></a></span></span><a class="headerlink" href="#quantum.measurements.concatenate_expectation_values" title="Permalink to this definition">#</a></dt>
-<dd><p>Concatenates a set of expectation values objects.</p>
+<dt class="sig sig-object py" id="quantum.measurements.convert_bitstring_to_int">
+<span class="sig-prename descclassname"><span class="pre">quantum.measurements.</span></span><span class="sig-name descname"><span class="pre">convert_bitstring_to_int</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bitstring</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></span><a class="headerlink" href="#quantum.measurements.convert_bitstring_to_int" title="Permalink to this definition">#</a></dt>
+<dd><p>Convert a bitstring to an integer.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>expectation_values_set</strong> – The expectation values objects to be concatenated.</p>
+<dd class="field-odd"><p><strong>bitstring</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a>) – A list of integers.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>The combined expectation values.</p>
+<dd class="field-even"><p><dl class="simple">
+<dt>The value of the bitstring, where the first bit in the least</dt><dd><p>significant (little endian).</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="quantum.measurements.get_expectation_value_from_frequencies">
+<span class="sig-prename descclassname"><span class="pre">quantum.measurements.</span></span><span class="sig-name descname"><span class="pre">get_expectation_value_from_frequencies</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">marked_qubits</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bitstring_frequencies</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><span class="pre">float</span></a></span></span><a class="headerlink" href="#quantum.measurements.get_expectation_value_from_frequencies" title="Permalink to this definition">#</a></dt>
+<dd><p>Get the expectation value the product of Z operators on selected qubits
+from bitstring frequencies.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>marked_qubits</strong> – The qubits that the Z operators act on.</p></li>
+<li><p><strong>bitstring_frequences</strong> – The frequencies of the bitstrings.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The expectation value of the product of Z operators on selected qubits.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="quantum.measurements.Parities">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">quantum.measurements.</span></span><span class="sig-name descname"><span class="pre">Parities</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">correlations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quantum.measurements.Parities" title="Permalink to this definition">#</a></dt>
+<dd><p>A class representing counts of parities for Pauli terms.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>values</strong> (<em>np.array</em>) – Number of observations of parities. See Attributes.</p></li>
+<li><p><strong>correlations</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a>) – Number of observations of pairwise products of terms.
+See Attributes.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="quantum.measurements.Parities.values">
+<span class="sig-name descname"><span class="pre">values</span></span><a class="headerlink" href="#quantum.measurements.Parities.values" title="Permalink to this definition">#</a></dt>
+<dd><p>an array of dimension N x 2 indicating how many times
+each Pauli term was observed with even and odd parity, where N is the
+number of Pauli terms. Here values[i][0] and values[i][1] correspond
+to the number of samples with even and odd parities for term P_i,
+respectively.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>np.array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="quantum.measurements.Parities.correlations">
+<span class="sig-name descname"><span class="pre">correlations</span></span><a class="headerlink" href="#quantum.measurements.Parities.correlations" title="Permalink to this definition">#</a></dt>
+<dd><p>a list of 3-dimensional numpy arrays indicating how
+many times each product of Pauli terms was observed with even and odd
+parity. Here correlations[i][j][k][0] and correlations[i][j][k][1]
+correspond to the number of samples with even and odd parities term P_j P_k
+in frame i, respectively.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)">list</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum.measurements.Parities.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><span class="pre">dict</span></a></span></span><a class="headerlink" href="#quantum.measurements.Parities.to_dict" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum.measurements.Parities.from_dict">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><span class="pre">dict</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quantum.measurements.Parities.from_dict" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="quantum.measurements.check_parity">
+<span class="sig-prename descclassname"><span class="pre">quantum.measurements.</span></span><span class="sig-name descname"><span class="pre">check_parity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bitstring</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">marked_qubits</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span></span><a class="headerlink" href="#quantum.measurements.check_parity" title="Permalink to this definition">#</a></dt>
+<dd><p>Determine if the marked qubits have even parity for the given bitstring.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>bitstring</strong> – The bitstring, either as a tuple or little endian string.</p></li>
+<li><p><strong>marked_qubits</strong> – The qubits whose parity is to be determined.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>True if an even number of the marked qubits are in the 1 state, False</dt><dd><p>otherwise.</p>
+</dd>
+</dl>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="quantum.measurements.check_parity_of_vector">
+<span class="sig-prename descclassname"><span class="pre">quantum.measurements.</span></span><span class="sig-name descname"><span class="pre">check_parity_of_vector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bitstrings_vector</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">marked_qubits</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.ndarray</span></span></span><a class="headerlink" href="#quantum.measurements.check_parity_of_vector" title="Permalink to this definition">#</a></dt>
+<dd><dl class="simple">
+<dt>Determine if the marked qubits have even parity for each bitstring in the given</dt><dd><p>vector.
+NOTE: This performs the same functionality as <cite>check_parity</cite> but is much
+faster as it uses vectorization to find the parity of multiple bitstrings
+at once.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>bitstring</strong> – A 2d array of bitstrings whose size is number of bistrings * number
+of qubits</p></li>
+<li><p><strong>marked_qubits</strong> – The qubits whose parity is to be determined.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A 1d array with size equal to number of bitstrings. Each entry is 1 if an even
+number of the marked qubits of the corresponding bitstring are in the 1 state
+and 0 if otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="quantum.measurements.get_parities_from_measurements">
+<span class="sig-prename descclassname"><span class="pre">quantum.measurements.</span></span><span class="sig-name descname"><span class="pre">get_parities_from_measurements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">measurements</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ising_operator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">orquestra.quantum.openfermion.ops.IsingOperator</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#quantum.measurements.Parities" title="quantum.measurements.Parities"><span class="pre">Parities</span></a></span></span><a class="headerlink" href="#quantum.measurements.get_parities_from_measurements" title="Permalink to this definition">#</a></dt>
+<dd><p>Get expectation values from bitstrings.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>measurements</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a>) – the measured bitstrings</p></li>
+<li><p><strong>ising_operator</strong> (<a class="reference internal" href="../openfermion/ops/index.html#quantum.openfermion.ops.IsingOperator" title="quantum.openfermion.ops.IsingOperator"><em>openfermion.ops.IsingOperator</em></a>) – the operator</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>parities of each term in the operator</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>orquestra.quantum.measurement.Parities</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="quantum.measurements.load_parities">
+<span class="sig-prename descclassname"><span class="pre">quantum.measurements.</span></span><span class="sig-name descname"><span class="pre">load_parities</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">orquestra.quantum.typing.LoadSource</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#quantum.measurements.Parities" title="quantum.measurements.Parities"><span class="pre">Parities</span></a></span></span><a class="headerlink" href="#quantum.measurements.load_parities" title="Permalink to this definition">#</a></dt>
+<dd><p>Load parities from a file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em> or </em><em>file-like object</em>) – the name of the file, or a file-like object.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the parities</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>orquestra.quantum.measurement.Parities</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="quantum.measurements.save_parities">
+<span class="sig-prename descclassname"><span class="pre">quantum.measurements.</span></span><span class="sig-name descname"><span class="pre">save_parities</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parities</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#quantum.measurements.Parities" title="quantum.measurements.Parities"><span class="pre">Parities</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">orquestra.quantum.typing.AnyPath</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#quantum.measurements.save_parities" title="Permalink to this definition">#</a></dt>
+<dd><p>Save parities to a file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>parities</strong> (<em>orquestra.quantum.measurement.Parities</em>) – the parities</p></li>
+<li><p><strong>file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em> or </em><em>file-like object</em>) – the name of the file, or a file-like object</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -2387,8 +2263,6 @@ diverges when only one sample is taken.</p></li>
     </div>
     <div class="footer-content row">
         <footer class="col footer"><p>
-  
-    By michal.stechly@zapatacomputing.com<br/>
   
       &copy; Copyright 2022, Zapata Computing, Inc.<br/>
 </p>

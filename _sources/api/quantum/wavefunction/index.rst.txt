@@ -23,6 +23,9 @@ Functions
 
    quantum.wavefunction.flip_wavefunction
    quantum.wavefunction.flip_amplitudes
+   quantum.wavefunction.load_wavefunction
+   quantum.wavefunction.save_wavefunction
+   quantum.wavefunction.sample_from_wavefunction
 
 
 
@@ -68,5 +71,38 @@ Functions
 
 
 .. py:function:: flip_amplitudes(amplitudes: Union[Sequence[complex], numpy.ndarray]) -> numpy.ndarray
+
+
+.. py:function:: load_wavefunction(file: orquestra.quantum.typing.LoadSource) -> Wavefunction
+
+   Load a qubit wavefunction from a file.
+
+   :param file: the name of the file, or a file-like object.
+   :type file: str or file-like object
+
+   :returns: the wavefunction object
+   :rtype: wavefunction (orquestra.quantum.Wavefunction)
+
+
+.. py:function:: save_wavefunction(wavefunction: Wavefunction, filename: orquestra.quantum.typing.AnyPath) -> None
+
+   Save a wavefunction object to a file.
+
+   :param wavefunction: the wavefunction object
+   :type wavefunction: orquestra.quantum.Wavefunction
+   :param filename: the name of the file
+   :type filename: str
+
+
+.. py:function:: sample_from_wavefunction(wavefunction: Wavefunction, n_samples: int, seed: Optional[int] = None) -> List[Tuple[int, Ellipsis]]
+
+   Sample bitstrings from a wavefunction.
+
+   :param wavefunction: the wavefunction to sample from.
+   :param n_samples: the number of samples taken. Needs to be greater than 0.
+   :param seed: the seed of the sampler
+
+   :returns: A list of tuples where the each tuple is a sampled bitstring.
+   :rtype: List[Tuple[int]]
 
 

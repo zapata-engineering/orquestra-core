@@ -73,6 +73,12 @@ Functions
       :param symbols_map: A map of the symbols/gate parameters to new values
 
 
+   .. py:method:: inverse(self) -> Circuit
+
+      Create a circuit that, when applied to the current circuit, will
+      produce the identity circuit.
+
+
 
 .. py:function:: split_circuit(circuit: Circuit, predicate: Callable[[quantum.circuits._operations.Operation], bool]) -> Iterable[Tuple[bool, Circuit]]
 

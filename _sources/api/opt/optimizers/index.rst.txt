@@ -13,6 +13,7 @@ Submodules
    basin_hopping/index.rst
    cma_es_optimizer/index.rst
    qiskit_optimizer/index.rst
+   scikit_quant_optimizer/index.rst
    scipy_optimizer/index.rst
    search_points_optimizer/index.rst
    simple_gradient_descent/index.rst
@@ -27,8 +28,6 @@ Classes
 .. autoapisummary::
 
    opt.optimizers.BasinHoppingOptimizer
-   opt.optimizers.CMAESOptimizer
-   opt.optimizers.QiskitOptimizer
    opt.optimizers.ScipyOptimizer
    opt.optimizers.SearchPointsOptimizer
    opt.optimizers.SimpleGradientDescent
@@ -37,24 +36,6 @@ Classes
 
 
 .. py:class:: BasinHoppingOptimizer(niter: int = 100, T: float = 1.0, stepsize: float = 0.5, minimizer_kwargs: Union[dict, None] = None, take_step: Union[Callable, None] = None, accept_test: Union[Callable, None] = None, interval: int = 50, disp: bool = False, niter_success: Union[int, None] = None, recorder: opt.history.recorder.RecorderFactory = _recorder)
-
-   Bases: :py:obj:`opt.api.Optimizer`
-
-   Interface for implementing different optimizers.
-
-   :param recorder: recorder object which defines how to store the optimization history.
-
-
-.. py:class:: CMAESOptimizer(sigma_0: float, options: Optional[Dict] = None, recorder: opt.history.recorder.RecorderFactory = _recorder)
-
-   Bases: :py:obj:`opt.api.Optimizer`
-
-   Interface for implementing different optimizers.
-
-   :param recorder: recorder object which defines how to store the optimization history.
-
-
-.. py:class:: QiskitOptimizer(method: str, optimizer_kwargs: Optional[Dict] = None, recorder: opt.history.recorder.RecorderFactory = _recorder)
 
    Bases: :py:obj:`opt.api.Optimizer`
 

@@ -15,6 +15,7 @@ Subpackages
    decompositions/index.rst
    distributions/index.rst
    estimation/index.rst
+   measurements/index.rst
    openfermion/index.rst
    testing/index.rst
 
@@ -26,7 +27,6 @@ Submodules
    :maxdepth: 1
 
    evolution/index.rst
-   measurements/index.rst
    symbolic_simulator/index.rst
    trackers/index.rst
    typing/index.rst

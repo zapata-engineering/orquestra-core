@@ -22,7 +22,7 @@ Classes
 
 
 
-.. py:class:: FermionOperator(term=None, coefficient=1.0)
+.. py:class:: FermionOperator
 
    Bases: :py:obj:`orquestra.quantum.openfermion.ops.operators.symbolic_operator.SymbolicOperator`
 

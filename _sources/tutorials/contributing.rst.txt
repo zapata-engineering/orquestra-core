@@ -14,6 +14,8 @@ Now that you've found the repository you want to contribute to, you can fork it 
 
 If you wanted to make improvements to the code, do that on your fork of the repo. When you're done, make sure your edits actually work, then open up a pull request to merge the changes into the main repo. Fill out any template that comes up for the pull request and send the pull request on its way!
 
+After you PR has been approved, make sure to send an email to `athena <mailto:athena.caesura@zapatacomputing.com>`_ or `michal <michal.stechly@zapatacomputing.com>`_ and we will send you back a :download:`CLA <../_static/ZapataCLA.pdf>` for you to sign. After the CLA has been signed, we will merge your contribution!
+
 Some best practices for when you're editing the code:
 
 * Use flake8 to make sure your code follows our style conventions

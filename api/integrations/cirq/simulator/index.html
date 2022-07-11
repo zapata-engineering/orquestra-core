@@ -24,6 +24,8 @@
     <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/autoapi.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
@@ -39,6 +41,7 @@
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../../../_static/togglebutton.js"></script>
     <script src="../../../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../../../../_static/design-tabs.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../../../genindex.html" />
@@ -107,17 +110,17 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../../../../tutorials/beginner_tutorial.html">
-     Start from the Basics
+     Getting Started
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../../../tutorials/basic_qaoa.html">
-     Basic QAOA Tutorial
+     Solving MaxCut with QAOA
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../../../tutorials/orq_core_structure.html">
-     Orquestra Core’s Structure
+     Package Structure
     </a>
    </li>
    <li class="toctree-l2">
@@ -132,204 +135,33 @@
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="../../../index.html">
-   API Reference
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../../guides/index.html">
+   Guides
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
-   <li class="toctree-l2 current active has-children">
-    <a class="reference internal" href="../../index.html">
-     <code class="xref py py-mod docutils literal notranslate">
-      <span class="pre">
-       integrations
-      </span>
-     </code>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../guides/circuits.html">
+     Circuits guide
     </a>
-    <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-    <label for="toctree-checkbox-3">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul class="current">
-     <li class="toctree-l3 current active has-children">
-      <a class="reference internal" href="../index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         integrations.cirq
-        </span>
-       </code>
-      </a>
-      <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-      <label for="toctree-checkbox-4">
-       <i class="fas fa-chevron-down">
-       </i>
-      </label>
-      <ul class="current">
-       <li class="toctree-l4">
-        <a class="reference internal" href="../conversions/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           integrations.cirq.conversions
-          </span>
-         </code>
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../decompositions/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           integrations.cirq.decompositions
-          </span>
-         </code>
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../noise/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           integrations.cirq.noise
-          </span>
-         </code>
-        </a>
-       </li>
-       <li class="toctree-l4 current active">
-        <a class="current reference internal" href="#">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           integrations.cirq.simulator
-          </span>
-         </code>
-        </a>
-       </li>
-      </ul>
-     </li>
-     <li class="toctree-l3 has-children">
-      <a class="reference internal" href="../../forest/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         integrations.forest
-        </span>
-       </code>
-      </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-      <label for="toctree-checkbox-5">
-       <i class="fas fa-chevron-down">
-       </i>
-      </label>
-      <ul>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../forest/conversions/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           integrations.forest.conversions
-          </span>
-         </code>
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../forest/simulator/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           integrations.forest.simulator
-          </span>
-         </code>
-        </a>
-       </li>
-      </ul>
-     </li>
-     <li class="toctree-l3 has-children">
-      <a class="reference internal" href="../../qiskit/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         integrations.qiskit
-        </span>
-       </code>
-      </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-      <label for="toctree-checkbox-6">
-       <i class="fas fa-chevron-down">
-       </i>
-      </label>
-      <ul>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../qiskit/backend/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           integrations.qiskit.backend
-          </span>
-         </code>
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../qiskit/conversions/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           integrations.qiskit.conversions
-          </span>
-         </code>
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../qiskit/noise/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           integrations.qiskit.noise
-          </span>
-         </code>
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../qiskit/simulator/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           integrations.qiskit.simulator
-          </span>
-         </code>
-        </a>
-       </li>
-      </ul>
-     </li>
-     <li class="toctree-l3 has-children">
-      <a class="reference internal" href="../../qulacs/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         integrations.qulacs
-        </span>
-       </code>
-      </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
-      <label for="toctree-checkbox-7">
-       <i class="fas fa-chevron-down">
-       </i>
-      </label>
-      <ul>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../qulacs/conversions/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           integrations.qulacs.conversions
-          </span>
-         </code>
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../qulacs/simulator/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           integrations.qulacs.simulator
-          </span>
-         </code>
-        </a>
-       </li>
-      </ul>
-     </li>
-    </ul>
    </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../../../index.html">
+   API Reference
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
    <li class="toctree-l2 has-children">
     <a class="reference internal" href="../../../opt/index.html">
      <code class="xref py py-mod docutils literal notranslate">
@@ -338,8 +170,8 @@
       </span>
      </code>
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
-    <label for="toctree-checkbox-8">
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
      <i class="fas fa-chevron-down">
      </i>
     </label>
@@ -352,8 +184,8 @@
         </span>
        </code>
       </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
-      <label for="toctree-checkbox-9">
+      <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+      <label for="toctree-checkbox-5">
        <i class="fas fa-chevron-down">
        </i>
       </label>
@@ -449,8 +281,8 @@
         </span>
        </code>
       </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
-      <label for="toctree-checkbox-10">
+      <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+      <label for="toctree-checkbox-6">
        <i class="fas fa-chevron-down">
        </i>
       </label>
@@ -492,8 +324,8 @@
         </span>
        </code>
       </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
-      <label for="toctree-checkbox-11">
+      <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+      <label for="toctree-checkbox-7">
        <i class="fas fa-chevron-down">
        </i>
       </label>
@@ -517,8 +349,8 @@
         </span>
        </code>
       </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
-      <label for="toctree-checkbox-12">
+      <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+      <label for="toctree-checkbox-8">
        <i class="fas fa-chevron-down">
        </i>
       </label>
@@ -546,6 +378,15 @@
          <code class="xref py py-mod docutils literal notranslate">
           <span class="pre">
            opt.optimizers.qiskit_optimizer
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../opt/optimizers/scikit_quant_optimizer/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.optimizers.scikit_quant_optimizer
           </span>
          </code>
         </a>
@@ -587,8 +428,8 @@
         </span>
        </code>
       </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
-      <label for="toctree-checkbox-13">
+      <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+      <label for="toctree-checkbox-9">
        <i class="fas fa-chevron-down">
        </i>
       </label>
@@ -687,6 +528,271 @@
      </li>
     </ul>
    </li>
+   <li class="toctree-l2 current active has-children">
+    <a class="reference internal" href="../../index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       integrations
+      </span>
+     </code>
+    </a>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+    <label for="toctree-checkbox-10">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul class="current">
+     <li class="toctree-l3 current active has-children">
+      <a class="reference internal" href="../index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         integrations.cirq
+        </span>
+       </code>
+      </a>
+      <input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+      <label for="toctree-checkbox-11">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul class="current">
+       <li class="toctree-l4">
+        <a class="reference internal" href="../conversions/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.cirq.conversions
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../decompositions/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.cirq.decompositions
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../noise/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.cirq.noise
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4 current active">
+        <a class="current reference internal" href="#">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.cirq.simulator
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../forest/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         integrations.forest
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+      <label for="toctree-checkbox-12">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../forest/conversions/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.forest.conversions
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../forest/simulator/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.forest.simulator
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../qiskit/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         integrations.qiskit
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+      <label for="toctree-checkbox-13">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../qiskit/backend/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.qiskit.backend
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../qiskit/conversions/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.qiskit.conversions
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../qiskit/noise/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.qiskit.noise
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../qiskit/simulator/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.qiskit.simulator
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../qulacs/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         integrations.qulacs
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+      <label for="toctree-checkbox-14">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../qulacs/conversions/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.qulacs.conversions
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../qulacs/simulator/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.qulacs.simulator
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../../vqa/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       vqa
+      </span>
+     </code>
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+    <label for="toctree-checkbox-15">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../vqa/grouping/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         vqa.grouping
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../vqa/parameter_initialization/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         vqa.parameter_initialization
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../vqa/shot_allocation/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         vqa.shot_allocation
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../../vqa/testing/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         vqa.testing
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+      <label for="toctree-checkbox-16">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../vqa/testing/mock_objects/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           vqa.testing.mock_objects
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../vqa/utils/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         vqa.utils
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
    <li class="toctree-l2 has-children">
     <a class="reference internal" href="../../../quantum/index.html">
      <code class="xref py py-mod docutils literal notranslate">
@@ -695,8 +801,8 @@
       </span>
      </code>
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
-    <label for="toctree-checkbox-14">
+    <input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
+    <label for="toctree-checkbox-17">
      <i class="fas fa-chevron-down">
      </i>
     </label>
@@ -709,8 +815,8 @@
         </span>
        </code>
       </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
-      <label for="toctree-checkbox-15">
+      <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
+      <label for="toctree-checkbox-18">
        <i class="fas fa-chevron-down">
        </i>
       </label>
@@ -761,8 +867,8 @@
         </span>
        </code>
       </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
-      <label for="toctree-checkbox-16">
+      <input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/>
+      <label for="toctree-checkbox-19">
        <i class="fas fa-chevron-down">
        </i>
       </label>
@@ -804,8 +910,8 @@
         </span>
        </code>
       </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
-      <label for="toctree-checkbox-17">
+      <input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/>
+      <label for="toctree-checkbox-20">
        <i class="fas fa-chevron-down">
        </i>
       </label>
@@ -867,6 +973,49 @@
       </a>
      </li>
      <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../../quantum/measurements/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         quantum.measurements
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/>
+      <label for="toctree-checkbox-21">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../quantum/measurements/expectation_values/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.measurements.expectation_values
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../quantum/measurements/measurements/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.measurements.measurements
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../quantum/measurements/parities/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.measurements.parities
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
       <a class="reference internal" href="../../../quantum/openfermion/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
@@ -874,8 +1023,8 @@
         </span>
        </code>
       </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
-      <label for="toctree-checkbox-18">
+      <input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/>
+      <label for="toctree-checkbox-22">
        <i class="fas fa-chevron-down">
        </i>
       </label>
@@ -989,8 +1138,8 @@
         </span>
        </code>
       </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/>
-      <label for="toctree-checkbox-19">
+      <input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/>
+      <label for="toctree-checkbox-23">
        <i class="fas fa-chevron-down">
        </i>
       </label>
@@ -1029,15 +1178,6 @@
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          quantum.evolution
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../../quantum/measurements/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         quantum.measurements
         </span>
        </code>
       </a>
@@ -1083,153 +1223,6 @@
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          quantum.wavefunction
-        </span>
-       </code>
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../../../vqa/index.html">
-     <code class="xref py py-mod docutils literal notranslate">
-      <span class="pre">
-       vqa
-      </span>
-     </code>
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/>
-    <label for="toctree-checkbox-20">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3 has-children">
-      <a class="reference internal" href="../../../vqa/ansatz/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         vqa.ansatz
-        </span>
-       </code>
-      </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/>
-      <label for="toctree-checkbox-21">
-       <i class="fas fa-chevron-down">
-       </i>
-      </label>
-      <ul>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../../vqa/ansatz/qcbm/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           vqa.ansatz.qcbm
-          </span>
-         </code>
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../../vqa/ansatz/kbody/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           vqa.ansatz.kbody
-          </span>
-         </code>
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../../vqa/ansatz/qaoa_farhi/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           vqa.ansatz.qaoa_farhi
-          </span>
-         </code>
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../../vqa/ansatz/qaoa_warm_start/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           vqa.ansatz.qaoa_warm_start
-          </span>
-         </code>
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../../vqa/ansatz/quantum_compiling/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           vqa.ansatz.quantum_compiling
-          </span>
-         </code>
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../../vqa/ansatz/singlet_uccsd/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           vqa.ansatz.singlet_uccsd
-          </span>
-         </code>
-        </a>
-       </li>
-      </ul>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../../vqa/grouping/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         vqa.grouping
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../../vqa/parameter_initialization/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         vqa.parameter_initialization
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../../vqa/shot_allocation/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         vqa.shot_allocation
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toctree-l3 has-children">
-      <a class="reference internal" href="../../../vqa/testing/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         vqa.testing
-        </span>
-       </code>
-      </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/>
-      <label for="toctree-checkbox-22">
-       <i class="fas fa-chevron-down">
-       </i>
-      </label>
-      <ul>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../../vqa/testing/mock_objects/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           vqa.testing.mock_objects
-          </span>
-         </code>
-        </a>
-       </li>
-      </ul>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../../vqa/utils/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         vqa.utils
         </span>
        </code>
       </a>
@@ -1302,52 +1295,6 @@ title="Fullscreen mode"
   </span>
 
 </button>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../../../../_sources/api/integrations/cirq/simulator/index.rst.txt"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.rst</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
 <label for="__page-toc"
   class="headerbtn headerbtn-page-toc"
   
@@ -1401,6 +1348,16 @@ title="Print to PDF"
         </a>
        </li>
        <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#integrations.cirq.simulator.CirqSimulator.param_resolver">
+         param_resolver
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#integrations.cirq.simulator.CirqSimulator.qubit_order">
+         qubit_order
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
         <a class="reference internal nav-link" href="#integrations.cirq.simulator.CirqSimulator.supports_batching">
          supports_batching
         </a>
@@ -1408,26 +1365,6 @@ title="Print to PDF"
        <li class="toc-h5 nav-item toc-entry">
         <a class="reference internal nav-link" href="#integrations.cirq.simulator.CirqSimulator.batch_size">
          batch_size
-        </a>
-       </li>
-       <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#integrations.cirq.simulator.CirqSimulator.run_circuit_and_measure">
-         run_circuit_and_measure
-        </a>
-       </li>
-       <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#integrations.cirq.simulator.CirqSimulator.run_circuitset_and_measure">
-         run_circuitset_and_measure
-        </a>
-       </li>
-       <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#integrations.cirq.simulator.CirqSimulator.get_exact_expectation_values">
-         get_exact_expectation_values
-        </a>
-       </li>
-       <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#integrations.cirq.simulator.CirqSimulator.get_exact_noisy_expectation_values">
-         get_exact_noisy_expectation_values
         </a>
        </li>
       </ul>
@@ -1486,6 +1423,16 @@ title="Print to PDF"
         </a>
        </li>
        <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#integrations.cirq.simulator.CirqSimulator.param_resolver">
+         param_resolver
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#integrations.cirq.simulator.CirqSimulator.qubit_order">
+         qubit_order
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
         <a class="reference internal nav-link" href="#integrations.cirq.simulator.CirqSimulator.supports_batching">
          supports_batching
         </a>
@@ -1493,26 +1440,6 @@ title="Print to PDF"
        <li class="toc-h5 nav-item toc-entry">
         <a class="reference internal nav-link" href="#integrations.cirq.simulator.CirqSimulator.batch_size">
          batch_size
-        </a>
-       </li>
-       <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#integrations.cirq.simulator.CirqSimulator.run_circuit_and_measure">
-         run_circuit_and_measure
-        </a>
-       </li>
-       <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#integrations.cirq.simulator.CirqSimulator.run_circuitset_and_measure">
-         run_circuitset_and_measure
-        </a>
-       </li>
-       <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#integrations.cirq.simulator.CirqSimulator.get_exact_expectation_values">
-         get_exact_expectation_values
-        </a>
-       </li>
-       <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#integrations.cirq.simulator.CirqSimulator.get_exact_noisy_expectation_values">
-         get_exact_noisy_expectation_values
         </a>
        </li>
       </ul>
@@ -1537,6 +1464,7 @@ title="Print to PDF"
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">#</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="qsim_simulator/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">integrations.cirq.simulator.qsim_simulator</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="simulator/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">integrations.cirq.simulator.simulator</span></code></a></li>
 </ul>
 </div>
@@ -1558,14 +1486,18 @@ title="Print to PDF"
 </table>
 <dl class="py class">
 <dt class="sig sig-object py" id="integrations.cirq.simulator.CirqSimulator">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">integrations.cirq.simulator.</span></span><span class="sig-name descname"><span class="pre">CirqSimulator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">noise_model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#integrations.cirq.simulator.CirqSimulator" title="Permalink to this definition">#</a></dt>
-<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">orquestra.quantum.api.backend.QuantumSimulator</span></code></p>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">integrations.cirq.simulator.</span></span><span class="sig-name descname"><span class="pre">CirqSimulator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">noise_model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param_resolver</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">cirq.ParamResolverOrSimilarType</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qubit_order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">cirq.ops.QubitOrder.DEFAULT</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#integrations.cirq.simulator.CirqSimulator" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="_base/index.html#integrations.cirq.simulator._base.CirqBasedSimulator" title="integrations.cirq.simulator._base.CirqBasedSimulator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">integrations.cirq.simulator._base.CirqBasedSimulator</span></code></a></p>
 <p>Simulator using a cirq device (simulator or QPU).</p>
-<p>Currently this Simulator uses cirq.Simulator if noise_model is None and
-cirq.DensityMatrixSimulator otherwise.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>noise_model</strong> – an optional noise model to pass in for noisy simulations</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>noise_model</strong> – an optional noise model to pass in for noisy simulations</p></li>
+<li><p><strong>seed</strong> – seed for random number generator.</p></li>
+<li><p><strong>param_resolver</strong> – Optional arg that defines the</p></li>
+<li><p><strong>program.</strong> (<em>parameters to run with the</em>) – </p></li>
+<li><p><strong>qubit_order</strong> – Optional arg that defines the ordering of qubits.</p></li>
+</ul>
 </dd>
 </dl>
 <dl class="py attribute">
@@ -1581,6 +1513,23 @@ cirq.DensityMatrixSimulator otherwise.</p>
 </dd></dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py" id="integrations.cirq.simulator.CirqSimulator.param_resolver">
+<span class="sig-name descname"><span class="pre">param_resolver</span></span><a class="headerlink" href="#integrations.cirq.simulator.CirqSimulator.param_resolver" title="Permalink to this definition">#</a></dt>
+<dd><p>Optional arg that defines the</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">parameters</span> <span class="pre">to</span> <span class="pre">run</span> <span class="pre">with</span> <span class="pre">the</span> <span class="pre">program.</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="integrations.cirq.simulator.CirqSimulator.qubit_order">
+<span class="sig-name descname"><span class="pre">qubit_order</span></span><a class="headerlink" href="#integrations.cirq.simulator.CirqSimulator.qubit_order" title="Permalink to this definition">#</a></dt>
+<dd><p>Optional arg that defines the ordering of qubits.</p>
+</dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="integrations.cirq.simulator.CirqSimulator.supports_batching">
 <span class="sig-name descname"><span class="pre">supports_batching</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">True</span></em><a class="headerlink" href="#integrations.cirq.simulator.CirqSimulator.supports_batching" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
@@ -1589,83 +1538,6 @@ cirq.DensityMatrixSimulator otherwise.</p>
 <dt class="sig sig-object py" id="integrations.cirq.simulator.CirqSimulator.batch_size">
 <span class="sig-name descname"><span class="pre">batch_size</span></span><a class="headerlink" href="#integrations.cirq.simulator.CirqSimulator.batch_size" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="integrations.cirq.simulator.CirqSimulator.run_circuit_and_measure">
-<span class="sig-name descname"><span class="pre">run_circuit_and_measure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">circuit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">orquestra.quantum.circuits.Circuit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_samples</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">orquestra.quantum.measurements.Measurements</span></span></span><a class="headerlink" href="#integrations.cirq.simulator.CirqSimulator.run_circuit_and_measure" title="Permalink to this definition">#</a></dt>
-<dd><p>Run a circuit and measure a certain number of bitstrings.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>circuit</strong> – the circuit to prepare the state.</p></li>
-<li><p><strong>n_samples</strong> – number of bitstrings to measure. If None, <cite>self.n_samples</cite>
-is used.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>A list of bitstrings.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="integrations.cirq.simulator.CirqSimulator.run_circuitset_and_measure">
-<span class="sig-name descname"><span class="pre">run_circuitset_and_measure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">circuitset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">orquestra.quantum.circuits.Circuit</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_samples</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">orquestra.quantum.measurements.Measurements</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#integrations.cirq.simulator.CirqSimulator.run_circuitset_and_measure" title="Permalink to this definition">#</a></dt>
-<dd><p>Run a set of circuits and measure a certain number of bitstrings.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>circuitset</strong> – a set of circuits to prepare the state.</p></li>
-<li><p><strong>n_samples</strong> – number of bitstrings to measure. If None, <cite>self.n_samples</cite>
-is used. If an iterable, its-ith element corresponds to number
-of samples that will be taken from i-th circuit. If an int N,
-each circuit in circuitset will be measured N times.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>a list of lists of bitstrings (a list of lists of tuples)</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="integrations.cirq.simulator.CirqSimulator.get_exact_expectation_values">
-<span class="sig-name descname"><span class="pre">get_exact_expectation_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">circuit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">orquestra.quantum.circuits.Circuit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qubit_operator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">orquestra.quantum.openfermion.SymbolicOperator</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">orquestra.quantum.measurements.ExpectationValues</span></span></span><a class="headerlink" href="#integrations.cirq.simulator.CirqSimulator.get_exact_expectation_values" title="Permalink to this definition">#</a></dt>
-<dd><p>Compute exact expectation values with respect to given operator.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>circuit</strong> – the circuit to prepare the state</p></li>
-<li><p><strong>qubit_operator</strong> – the operator to measure</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>the expectation values of each term in the operator</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="integrations.cirq.simulator.CirqSimulator.get_exact_noisy_expectation_values">
-<span class="sig-name descname"><span class="pre">get_exact_noisy_expectation_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">circuit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">orquestra.quantum.circuits.Circuit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qubit_operator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">orquestra.quantum.openfermion.SymbolicOperator</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">orquestra.quantum.measurements.ExpectationValues</span></span></span><a class="headerlink" href="#integrations.cirq.simulator.CirqSimulator.get_exact_noisy_expectation_values" title="Permalink to this definition">#</a></dt>
-<dd><p>Compute exact expectation values w.r.t. given operator in presence of noise.</p>
-<p>Note that this method can be used only if simulator’s noise_model is not set
-to None.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>circuit</strong> – the circuit to prepare the state</p></li>
-<li><p><strong>qubit_operator</strong> – the operator to measure</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>the expectation values of each term in the operator</p>
-</dd>
-<dt class="field-odd">Raises</dt>
-<dd class="field-odd"><p><strong>RuntimeError if this simulator's noise_model is None.</strong> – </p>
-</dd>
-</dl>
-</dd></dl>
 
 </dd></dl>
 
@@ -1687,8 +1559,6 @@ to None.</p>
     </div>
     <div class="footer-content row">
         <footer class="col footer"><p>
-  
-    By michal.stechly@zapatacomputing.com<br/>
   
       &copy; Copyright 2022, Zapata Computing, Inc.<br/>
 </p>

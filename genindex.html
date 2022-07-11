@@ -24,6 +24,8 @@
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/css/autoapi.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
@@ -39,6 +41,7 @@
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
     <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="_static/design-tabs.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="#" />
@@ -107,17 +110,17 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="tutorials/beginner_tutorial.html">
-     Start from the Basics
+     Getting Started
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="tutorials/basic_qaoa.html">
-     Basic QAOA Tutorial
+     Solving MaxCut with QAOA
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="tutorials/orq_core_structure.html">
-     Orquestra Core’s Structure
+     Package Structure
     </a>
    </li>
    <li class="toctree-l2">
@@ -133,8 +136,8 @@
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="api/index.html">
-   API Reference
+  <a class="reference internal" href="guides/index.html">
+   Guides
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
@@ -142,194 +145,23 @@
    </i>
   </label>
   <ul>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="api/integrations/index.html">
-     <code class="xref py py-mod docutils literal notranslate">
-      <span class="pre">
-       integrations
-      </span>
-     </code>
+   <li class="toctree-l2">
+    <a class="reference internal" href="guides/circuits.html">
+     Circuits guide
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-    <label for="toctree-checkbox-3">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3 has-children">
-      <a class="reference internal" href="api/integrations/cirq/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         integrations.cirq
-        </span>
-       </code>
-      </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-      <label for="toctree-checkbox-4">
-       <i class="fas fa-chevron-down">
-       </i>
-      </label>
-      <ul>
-       <li class="toctree-l4">
-        <a class="reference internal" href="api/integrations/cirq/conversions/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           integrations.cirq.conversions
-          </span>
-         </code>
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="api/integrations/cirq/decompositions/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           integrations.cirq.decompositions
-          </span>
-         </code>
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="api/integrations/cirq/noise/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           integrations.cirq.noise
-          </span>
-         </code>
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="api/integrations/cirq/simulator/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           integrations.cirq.simulator
-          </span>
-         </code>
-        </a>
-       </li>
-      </ul>
-     </li>
-     <li class="toctree-l3 has-children">
-      <a class="reference internal" href="api/integrations/forest/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         integrations.forest
-        </span>
-       </code>
-      </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-      <label for="toctree-checkbox-5">
-       <i class="fas fa-chevron-down">
-       </i>
-      </label>
-      <ul>
-       <li class="toctree-l4">
-        <a class="reference internal" href="api/integrations/forest/conversions/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           integrations.forest.conversions
-          </span>
-         </code>
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="api/integrations/forest/simulator/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           integrations.forest.simulator
-          </span>
-         </code>
-        </a>
-       </li>
-      </ul>
-     </li>
-     <li class="toctree-l3 has-children">
-      <a class="reference internal" href="api/integrations/qiskit/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         integrations.qiskit
-        </span>
-       </code>
-      </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-      <label for="toctree-checkbox-6">
-       <i class="fas fa-chevron-down">
-       </i>
-      </label>
-      <ul>
-       <li class="toctree-l4">
-        <a class="reference internal" href="api/integrations/qiskit/backend/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           integrations.qiskit.backend
-          </span>
-         </code>
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="api/integrations/qiskit/conversions/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           integrations.qiskit.conversions
-          </span>
-         </code>
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="api/integrations/qiskit/noise/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           integrations.qiskit.noise
-          </span>
-         </code>
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="api/integrations/qiskit/simulator/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           integrations.qiskit.simulator
-          </span>
-         </code>
-        </a>
-       </li>
-      </ul>
-     </li>
-     <li class="toctree-l3 has-children">
-      <a class="reference internal" href="api/integrations/qulacs/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         integrations.qulacs
-        </span>
-       </code>
-      </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
-      <label for="toctree-checkbox-7">
-       <i class="fas fa-chevron-down">
-       </i>
-      </label>
-      <ul>
-       <li class="toctree-l4">
-        <a class="reference internal" href="api/integrations/qulacs/conversions/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           integrations.qulacs.conversions
-          </span>
-         </code>
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="api/integrations/qulacs/simulator/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           integrations.qulacs.simulator
-          </span>
-         </code>
-        </a>
-       </li>
-      </ul>
-     </li>
-    </ul>
    </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="api/index.html">
+   API Reference
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2 has-children">
     <a class="reference internal" href="api/opt/index.html">
      <code class="xref py py-mod docutils literal notranslate">
@@ -338,8 +170,8 @@
       </span>
      </code>
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
-    <label for="toctree-checkbox-8">
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
      <i class="fas fa-chevron-down">
      </i>
     </label>
@@ -352,8 +184,8 @@
         </span>
        </code>
       </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
-      <label for="toctree-checkbox-9">
+      <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+      <label for="toctree-checkbox-5">
        <i class="fas fa-chevron-down">
        </i>
       </label>
@@ -449,8 +281,8 @@
         </span>
        </code>
       </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
-      <label for="toctree-checkbox-10">
+      <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+      <label for="toctree-checkbox-6">
        <i class="fas fa-chevron-down">
        </i>
       </label>
@@ -492,8 +324,8 @@
         </span>
        </code>
       </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
-      <label for="toctree-checkbox-11">
+      <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+      <label for="toctree-checkbox-7">
        <i class="fas fa-chevron-down">
        </i>
       </label>
@@ -517,8 +349,8 @@
         </span>
        </code>
       </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
-      <label for="toctree-checkbox-12">
+      <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+      <label for="toctree-checkbox-8">
        <i class="fas fa-chevron-down">
        </i>
       </label>
@@ -546,6 +378,15 @@
          <code class="xref py py-mod docutils literal notranslate">
           <span class="pre">
            opt.optimizers.qiskit_optimizer
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/opt/optimizers/scikit_quant_optimizer/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.optimizers.scikit_quant_optimizer
           </span>
          </code>
         </a>
@@ -587,8 +428,8 @@
         </span>
        </code>
       </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
-      <label for="toctree-checkbox-13">
+      <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+      <label for="toctree-checkbox-9">
        <i class="fas fa-chevron-down">
        </i>
       </label>
@@ -688,6 +529,271 @@
     </ul>
    </li>
    <li class="toctree-l2 has-children">
+    <a class="reference internal" href="api/integrations/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       integrations
+      </span>
+     </code>
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+    <label for="toctree-checkbox-10">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="api/integrations/cirq/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         integrations.cirq
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+      <label for="toctree-checkbox-11">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/integrations/cirq/conversions/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.cirq.conversions
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/integrations/cirq/decompositions/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.cirq.decompositions
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/integrations/cirq/noise/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.cirq.noise
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/integrations/cirq/simulator/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.cirq.simulator
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="api/integrations/forest/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         integrations.forest
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+      <label for="toctree-checkbox-12">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/integrations/forest/conversions/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.forest.conversions
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/integrations/forest/simulator/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.forest.simulator
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="api/integrations/qiskit/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         integrations.qiskit
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+      <label for="toctree-checkbox-13">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/integrations/qiskit/backend/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.qiskit.backend
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/integrations/qiskit/conversions/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.qiskit.conversions
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/integrations/qiskit/noise/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.qiskit.noise
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/integrations/qiskit/simulator/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.qiskit.simulator
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="api/integrations/qulacs/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         integrations.qulacs
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+      <label for="toctree-checkbox-14">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/integrations/qulacs/conversions/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.qulacs.conversions
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/integrations/qulacs/simulator/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.qulacs.simulator
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="api/vqa/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       vqa
+      </span>
+     </code>
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+    <label for="toctree-checkbox-15">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/vqa/grouping/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         vqa.grouping
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/vqa/parameter_initialization/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         vqa.parameter_initialization
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/vqa/shot_allocation/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         vqa.shot_allocation
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="api/vqa/testing/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         vqa.testing
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+      <label for="toctree-checkbox-16">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/vqa/testing/mock_objects/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           vqa.testing.mock_objects
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/vqa/utils/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         vqa.utils
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
     <a class="reference internal" href="api/quantum/index.html">
      <code class="xref py py-mod docutils literal notranslate">
       <span class="pre">
@@ -695,8 +801,8 @@
       </span>
      </code>
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
-    <label for="toctree-checkbox-14">
+    <input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
+    <label for="toctree-checkbox-17">
      <i class="fas fa-chevron-down">
      </i>
     </label>
@@ -709,8 +815,8 @@
         </span>
        </code>
       </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
-      <label for="toctree-checkbox-15">
+      <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
+      <label for="toctree-checkbox-18">
        <i class="fas fa-chevron-down">
        </i>
       </label>
@@ -761,8 +867,8 @@
         </span>
        </code>
       </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
-      <label for="toctree-checkbox-16">
+      <input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/>
+      <label for="toctree-checkbox-19">
        <i class="fas fa-chevron-down">
        </i>
       </label>
@@ -804,8 +910,8 @@
         </span>
        </code>
       </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
-      <label for="toctree-checkbox-17">
+      <input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/>
+      <label for="toctree-checkbox-20">
        <i class="fas fa-chevron-down">
        </i>
       </label>
@@ -867,6 +973,49 @@
       </a>
      </li>
      <li class="toctree-l3 has-children">
+      <a class="reference internal" href="api/quantum/measurements/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         quantum.measurements
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/>
+      <label for="toctree-checkbox-21">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/quantum/measurements/expectation_values/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.measurements.expectation_values
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/quantum/measurements/measurements/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.measurements.measurements
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/quantum/measurements/parities/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.measurements.parities
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
       <a class="reference internal" href="api/quantum/openfermion/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
@@ -874,8 +1023,8 @@
         </span>
        </code>
       </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
-      <label for="toctree-checkbox-18">
+      <input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/>
+      <label for="toctree-checkbox-22">
        <i class="fas fa-chevron-down">
        </i>
       </label>
@@ -989,8 +1138,8 @@
         </span>
        </code>
       </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/>
-      <label for="toctree-checkbox-19">
+      <input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/>
+      <label for="toctree-checkbox-23">
        <i class="fas fa-chevron-down">
        </i>
       </label>
@@ -1029,15 +1178,6 @@
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          quantum.evolution
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="api/quantum/measurements/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         quantum.measurements
         </span>
        </code>
       </a>
@@ -1083,153 +1223,6 @@
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          quantum.wavefunction
-        </span>
-       </code>
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="api/vqa/index.html">
-     <code class="xref py py-mod docutils literal notranslate">
-      <span class="pre">
-       vqa
-      </span>
-     </code>
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/>
-    <label for="toctree-checkbox-20">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3 has-children">
-      <a class="reference internal" href="api/vqa/ansatz/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         vqa.ansatz
-        </span>
-       </code>
-      </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/>
-      <label for="toctree-checkbox-21">
-       <i class="fas fa-chevron-down">
-       </i>
-      </label>
-      <ul>
-       <li class="toctree-l4">
-        <a class="reference internal" href="api/vqa/ansatz/qcbm/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           vqa.ansatz.qcbm
-          </span>
-         </code>
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="api/vqa/ansatz/kbody/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           vqa.ansatz.kbody
-          </span>
-         </code>
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="api/vqa/ansatz/qaoa_farhi/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           vqa.ansatz.qaoa_farhi
-          </span>
-         </code>
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="api/vqa/ansatz/qaoa_warm_start/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           vqa.ansatz.qaoa_warm_start
-          </span>
-         </code>
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="api/vqa/ansatz/quantum_compiling/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           vqa.ansatz.quantum_compiling
-          </span>
-         </code>
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="api/vqa/ansatz/singlet_uccsd/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           vqa.ansatz.singlet_uccsd
-          </span>
-         </code>
-        </a>
-       </li>
-      </ul>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="api/vqa/grouping/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         vqa.grouping
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="api/vqa/parameter_initialization/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         vqa.parameter_initialization
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="api/vqa/shot_allocation/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         vqa.shot_allocation
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toctree-l3 has-children">
-      <a class="reference internal" href="api/vqa/testing/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         vqa.testing
-        </span>
-       </code>
-      </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/>
-      <label for="toctree-checkbox-22">
-       <i class="fas fa-chevron-down">
-       </i>
-      </label>
-      <ul>
-       <li class="toctree-l4">
-        <a class="reference internal" href="api/vqa/testing/mock_objects/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           vqa.testing.mock_objects
-          </span>
-         </code>
-        </a>
-       </li>
-      </ul>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="api/vqa/utils/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         vqa.utils
         </span>
        </code>
       </a>
@@ -1498,10 +1491,14 @@ title="Fullscreen mode"
         <li><a href="api/quantum/circuits/_generators/index.html#quantum.circuits._generators.add_ancilla_register">(in module quantum.circuits._generators)</a>
 </li>
       </ul></li>
+      <li><a href="api/quantum/measurements/index.html#quantum.measurements.Measurements.add_counts">add_counts() (quantum.measurements.Measurements method)</a>
+
+      <ul>
+        <li><a href="api/quantum/measurements/measurements/index.html#quantum.measurements.measurements.Measurements.add_counts">(quantum.measurements.measurements.Measurements method)</a>
+</li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/quantum/measurements/index.html#quantum.measurements.Measurements.add_counts">add_counts() (quantum.measurements.Measurements method)</a>
-</li>
       <li><a href="api/quantum/openfermion/testing/index.html#quantum.openfermion.testing.EqualsTester.add_equality_group">add_equality_group() (quantum.openfermion.testing.EqualsTester method)</a>
 
       <ul>
@@ -1614,6 +1611,16 @@ title="Fullscreen mode"
       </ul></li>
       <li><a href="api/opt/history/recorder/index.html#opt.history.recorder.HistoryEntryWithArtifacts.artifacts">artifacts (opt.history.recorder.HistoryEntryWithArtifacts attribute)</a>
 </li>
+      <li><a href="api/quantum/api/backend_test/index.html#quantum.api.backend_test.QuantumSimulatorTests.atol_distribution">atol_distribution (quantum.api.backend_test.QuantumSimulatorTests attribute)</a>
+</li>
+      <li><a href="api/quantum/api/backend_test/index.html#quantum.api.backend_test.QuantumSimulatorGatesTest.atol_wavefunction">atol_wavefunction (quantum.api.backend_test.QuantumSimulatorGatesTest attribute)</a>
+
+      <ul>
+        <li><a href="api/quantum/api/backend_test/index.html#quantum.api.backend_test.QuantumSimulatorTests.atol_wavefunction">(quantum.api.backend_test.QuantumSimulatorTests attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="api/quantum/api/backend_test/index.html#quantum.api.backend_test.QuantumSimulatorTests.atol_wavefunction_element">atol_wavefunction_element (quantum.api.backend_test.QuantumSimulatorTests attribute)</a>
+</li>
       <li><a href="api/quantum/openfermion/chem/molecular_data/index.html#quantum.openfermion.chem.molecular_data.MolecularData.atoms">atoms (quantum.openfermion.chem.molecular_data.MolecularData attribute)</a>
 
       <ul>
@@ -1652,14 +1659,14 @@ title="Fullscreen mode"
         <li><a href="api/integrations/qiskit/backend/index.html#integrations.qiskit.backend.QiskitBackend.batch_experiments">(integrations.qiskit.backend.QiskitBackend method)</a>
 </li>
       </ul></li>
-      <li><a href="api/integrations/cirq/simulator/index.html#integrations.cirq.simulator.CirqSimulator.batch_size">batch_size (integrations.cirq.simulator.CirqSimulator attribute)</a>
+      <li><a href="api/integrations/cirq/simulator/_base/index.html#integrations.cirq.simulator._base.CirqBasedSimulator.batch_size">batch_size (integrations.cirq.simulator._base.CirqBasedSimulator attribute)</a>
 
       <ul>
+        <li><a href="api/integrations/cirq/simulator/index.html#integrations.cirq.simulator.CirqSimulator.batch_size">(integrations.cirq.simulator.CirqSimulator attribute)</a>
+</li>
+        <li><a href="api/integrations/cirq/simulator/qsim_simulator/index.html#integrations.cirq.simulator.qsim_simulator.QSimSimulator.batch_size">(integrations.cirq.simulator.qsim_simulator.QSimSimulator attribute)</a>
+</li>
         <li><a href="api/integrations/cirq/simulator/simulator/index.html#integrations.cirq.simulator.simulator.CirqSimulator.batch_size">(integrations.cirq.simulator.simulator.CirqSimulator attribute)</a>
-</li>
-        <li><a href="api/integrations/qiskit/backend/backend/index.html#integrations.qiskit.backend.backend.QiskitBackend.batch_size">(integrations.qiskit.backend.backend.QiskitBackend attribute)</a>
-</li>
-        <li><a href="api/integrations/qiskit/backend/index.html#integrations.qiskit.backend.QiskitBackend.batch_size">(integrations.qiskit.backend.QiskitBackend attribute)</a>
 </li>
         <li><a href="api/integrations/qiskit/simulator/index.html#integrations.qiskit.simulator.QiskitSimulator.batch_size">(integrations.qiskit.simulator.QiskitSimulator attribute)</a>
 </li>
@@ -1668,10 +1675,6 @@ title="Fullscreen mode"
         <li><a href="api/quantum/api/backend/index.html#id1">(quantum.api.backend.QuantumBackend attribute)</a>, <a href="api/quantum/api/backend/index.html#quantum.api.backend.QuantumBackend.batch_size">[1]</a>
 </li>
         <li><a href="api/quantum/api/index.html#id1">(quantum.api.QuantumBackend attribute)</a>, <a href="api/quantum/api/index.html#quantum.api.QuantumBackend.batch_size">[1]</a>
-</li>
-        <li><a href="api/quantum/testing/index.html#quantum.testing.MockQuantumBackend.batch_size">(quantum.testing.MockQuantumBackend attribute)</a>
-</li>
-        <li><a href="api/quantum/testing/mocks/index.html#quantum.testing.mocks.MockQuantumBackend.batch_size">(quantum.testing.mocks.MockQuantumBackend attribute)</a>
 </li>
       </ul></li>
       <li><a href="api/quantum/openfermion/testing/performance_benchmarks/index.html#quantum.openfermion.testing.performance_benchmarks.benchmark_commutator_diagonal_coulomb_operators_2D_spinless_jellium">benchmark_commutator_diagonal_coulomb_operators_2D_spinless_jellium() (in module quantum.openfermion.testing.performance_benchmarks)</a>
@@ -1693,11 +1696,15 @@ title="Fullscreen mode"
 </li>
         <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.Dagger.bind">(quantum.circuits._gates.Dagger method)</a>
 </li>
+        <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.Exponential.bind">(quantum.circuits._gates.Exponential method)</a>
+</li>
         <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.Gate.bind">(quantum.circuits._gates.Gate method)</a>
 </li>
         <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.GateOperation.bind">(quantum.circuits._gates.GateOperation method)</a>
 </li>
         <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.MatrixFactoryGate.bind">(quantum.circuits._gates.MatrixFactoryGate method)</a>
+</li>
+        <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.Power.bind">(quantum.circuits._gates.Power method)</a>
 </li>
         <li><a href="api/quantum/circuits/_operations/index.html#quantum.circuits._operations.Operation.bind">(quantum.circuits._operations.Operation method)</a>
 </li>
@@ -1708,6 +1715,8 @@ title="Fullscreen mode"
         <li><a href="api/quantum/circuits/index.html#quantum.circuits.ControlledGate.bind">(quantum.circuits.ControlledGate method)</a>
 </li>
         <li><a href="api/quantum/circuits/index.html#quantum.circuits.Dagger.bind">(quantum.circuits.Dagger method)</a>
+</li>
+        <li><a href="api/quantum/circuits/index.html#quantum.circuits.Exponential.bind">(quantum.circuits.Exponential method)</a>
 </li>
         <li><a href="api/quantum/circuits/index.html#quantum.circuits.Gate.bind">(quantum.circuits.Gate method)</a>
 </li>
@@ -1863,9 +1872,17 @@ title="Fullscreen mode"
 </li>
       </ul></li>
       <li><a href="api/quantum/measurements/index.html#quantum.measurements.check_parity">check_parity() (in module quantum.measurements)</a>
+
+      <ul>
+        <li><a href="api/quantum/measurements/parities/index.html#quantum.measurements.parities.check_parity">(in module quantum.measurements.parities)</a>
 </li>
+      </ul></li>
       <li><a href="api/quantum/measurements/index.html#quantum.measurements.check_parity_of_vector">check_parity_of_vector() (in module quantum.measurements)</a>
+
+      <ul>
+        <li><a href="api/quantum/measurements/parities/index.html#quantum.measurements.parities.check_parity_of_vector">(in module quantum.measurements.parities)</a>
 </li>
+      </ul></li>
       <li><a href="api/quantum/openfermion/transforms/index.html#quantum.openfermion.transforms.chemist_ordered">chemist_ordered() (in module quantum.openfermion.transforms)</a>
 
       <ul>
@@ -1908,6 +1925,8 @@ title="Fullscreen mode"
 </li>
       <li><a href="api/integrations/cirq/conversions/_circuit_conversions/index.html#integrations.cirq.conversions._circuit_conversions.CIRQ_GATE_SPECIAL_CASES">CIRQ_GATE_SPECIAL_CASES (in module integrations.cirq.conversions._circuit_conversions)</a>
 </li>
+      <li><a href="api/integrations/cirq/simulator/_base/index.html#integrations.cirq.simulator._base.CirqBasedSimulator">CirqBasedSimulator (class in integrations.cirq.simulator._base)</a>
+</li>
       <li><a href="api/integrations/cirq/simulator/index.html#integrations.cirq.simulator.CirqSimulator">CirqSimulator (class in integrations.cirq.simulator)</a>
 
       <ul>
@@ -1940,12 +1959,8 @@ title="Fullscreen mode"
         <li><a href="api/quantum/openfermion/chem/index.html#id5">(quantum.openfermion.chem.MolecularData property)</a>
 </li>
       </ul></li>
-      <li><a href="api/opt/optimizers/index.html#opt.optimizers.CMAESOptimizer">CMAESOptimizer (class in opt.optimizers)</a>
-
-      <ul>
-        <li><a href="api/opt/optimizers/cma_es_optimizer/index.html#opt.optimizers.cma_es_optimizer.CMAESOptimizer">(class in opt.optimizers.cma_es_optimizer)</a>
+      <li><a href="api/opt/optimizers/cma_es_optimizer/index.html#opt.optimizers.cma_es_optimizer.CMAESOptimizer">CMAESOptimizer (class in opt.optimizers.cma_es_optimizer)</a>
 </li>
-      </ul></li>
       <li><a href="api/quantum/circuits/index.html#quantum.circuits.CNOT">CNOT (in module quantum.circuits)</a>
 
       <ul>
@@ -2027,7 +2042,11 @@ title="Fullscreen mode"
       <li><a href="api/vqa/ansatz/singlet_uccsd/index.html#vqa.ansatz.singlet_uccsd.SingletUCCSDAnsatz.compute_uccsd_vector_from_fermion_generator">compute_uccsd_vector_from_fermion_generator() (vqa.ansatz.singlet_uccsd.SingletUCCSDAnsatz method)</a>
 </li>
       <li><a href="api/quantum/measurements/index.html#quantum.measurements.concatenate_expectation_values">concatenate_expectation_values() (in module quantum.measurements)</a>
+
+      <ul>
+        <li><a href="api/quantum/measurements/expectation_values/index.html#quantum.measurements.expectation_values.concatenate_expectation_values">(in module quantum.measurements.expectation_values)</a>
 </li>
+      </ul></li>
       <li><a href="api/opt/cost_function_augmentations/index.html#opt.cost_function_augmentations.ConditionalSideEffect">ConditionalSideEffect (class in opt.cost_function_augmentations)</a>
 </li>
       <li><a href="api/quantum/openfermion/ops/operators/symbolic_operator/index.html#quantum.openfermion.ops.operators.symbolic_operator.SymbolicOperator.constant">constant (quantum.openfermion.ops.operators.symbolic_operator.SymbolicOperator property)</a>
@@ -2061,13 +2080,19 @@ title="Fullscreen mode"
       <ul>
         <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.Dagger.controlled">(quantum.circuits._gates.Dagger method)</a>
 </li>
+        <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.Exponential.controlled">(quantum.circuits._gates.Exponential method)</a>
+</li>
         <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.Gate.controlled">(quantum.circuits._gates.Gate method)</a>
 </li>
         <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.MatrixFactoryGate.controlled">(quantum.circuits._gates.MatrixFactoryGate method)</a>
 </li>
+        <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.Power.controlled">(quantum.circuits._gates.Power method)</a>
+</li>
         <li><a href="api/quantum/circuits/index.html#quantum.circuits.ControlledGate.controlled">(quantum.circuits.ControlledGate method)</a>
 </li>
         <li><a href="api/quantum/circuits/index.html#quantum.circuits.Dagger.controlled">(quantum.circuits.Dagger method)</a>
+</li>
+        <li><a href="api/quantum/circuits/index.html#quantum.circuits.Exponential.controlled">(quantum.circuits.Exponential method)</a>
 </li>
         <li><a href="api/quantum/circuits/index.html#quantum.circuits.Gate.controlled">(quantum.circuits.Gate method)</a>
 </li>
@@ -2085,7 +2110,11 @@ title="Fullscreen mode"
       <li><a href="api/quantum/utils/index.html#quantum.utils.convert_array_to_dict">convert_array_to_dict() (in module quantum.utils)</a>
 </li>
       <li><a href="api/quantum/measurements/index.html#quantum.measurements.convert_bitstring_to_int">convert_bitstring_to_int() (in module quantum.measurements)</a>
+
+      <ul>
+        <li><a href="api/quantum/measurements/measurements/index.html#quantum.measurements.measurements.convert_bitstring_to_int">(in module quantum.measurements.measurements)</a>
 </li>
+      </ul></li>
       <li><a href="api/quantum/utils/index.html#quantum.utils.convert_bitstrings_to_tuples">convert_bitstrings_to_tuples() (in module quantum.utils)</a>
 </li>
       <li><a href="api/quantum/utils/index.html#quantum.utils.convert_dict_to_array">convert_dict_to_array() (in module quantum.utils)</a>
@@ -2166,10 +2195,14 @@ title="Fullscreen mode"
 </li>
       <li><a href="api/opt/history/recorder/index.html#opt.history.recorder.copy_recorder">copy_recorder() (in module opt.history.recorder)</a>
 </li>
-      <li><a href="api/quantum/measurements/index.html#quantum.measurements.ExpectationValues.correlations">correlations (quantum.measurements.ExpectationValues attribute)</a>
+      <li><a href="api/quantum/measurements/expectation_values/index.html#quantum.measurements.expectation_values.ExpectationValues.correlations">correlations (quantum.measurements.expectation_values.ExpectationValues attribute)</a>
 
       <ul>
+        <li><a href="api/quantum/measurements/index.html#quantum.measurements.ExpectationValues.correlations">(quantum.measurements.ExpectationValues attribute)</a>
+</li>
         <li><a href="api/quantum/measurements/index.html#quantum.measurements.Parities.correlations">(quantum.measurements.Parities attribute)</a>
+</li>
+        <li><a href="api/quantum/measurements/parities/index.html#quantum.measurements.parities.Parities.correlations">(quantum.measurements.parities.Parities attribute)</a>
 </li>
       </ul></li>
       <li><a href="api/vqa/ansatz/qaoa_farhi/index.html#vqa.ansatz.qaoa_farhi.QAOAFarhiAnsatz.cost_hamiltonian">cost_hamiltonian (vqa.ansatz.qaoa_farhi.QAOAFarhiAnsatz attribute)</a>
@@ -2313,13 +2346,19 @@ title="Fullscreen mode"
       <ul>
         <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.Dagger.dagger">(quantum.circuits._gates.Dagger property)</a>
 </li>
+        <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.Exponential.dagger">(quantum.circuits._gates.Exponential property)</a>
+</li>
         <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.Gate.dagger">(quantum.circuits._gates.Gate property)</a>
 </li>
         <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.MatrixFactoryGate.dagger">(quantum.circuits._gates.MatrixFactoryGate property)</a>
 </li>
+        <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.Power.dagger">(quantum.circuits._gates.Power property)</a>
+</li>
         <li><a href="api/quantum/circuits/index.html#quantum.circuits.ControlledGate.dagger">(quantum.circuits.ControlledGate property)</a>
 </li>
         <li><a href="api/quantum/circuits/index.html#quantum.circuits.Dagger.dagger">(quantum.circuits.Dagger property)</a>
+</li>
+        <li><a href="api/quantum/circuits/index.html#quantum.circuits.Exponential.dagger">(quantum.circuits.Exponential property)</a>
 </li>
         <li><a href="api/quantum/circuits/index.html#quantum.circuits.Gate.dagger">(quantum.circuits.Gate property)</a>
 </li>
@@ -2362,10 +2401,10 @@ title="Fullscreen mode"
         <li><a href="api/quantum/openfermion/chem/index.html#quantum.openfermion.chem.MolecularData.description">(quantum.openfermion.chem.MolecularData attribute)</a>
 </li>
       </ul></li>
-      <li><a href="api/quantum/circuits/_serde/index.html#quantum.circuits._serde.deserialize_expr">deserialize_expr() (in module quantum.circuits._serde)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/quantum/circuits/_serde/index.html#quantum.circuits._serde.deserialize_expr">deserialize_expr() (in module quantum.circuits._serde)</a>
+</li>
       <li><a href="api/quantum/wavefunction/index.html#quantum.wavefunction.Wavefunction.dicke_state">dicke_state() (quantum.wavefunction.Wavefunction static method)</a>
 </li>
       <li><a href="api/quantum/openfermion/ops/index.html#quantum.openfermion.ops.FermionOperator.different_indices_commute">different_indices_commute (quantum.openfermion.ops.FermionOperator property)</a>
@@ -2480,8 +2519,12 @@ title="Fullscreen mode"
 </li>
       <li><a href="api/quantum/api/estimator_contract/index.html#quantum.api.estimator_contract.ESTIMATOR_CONTRACTS">ESTIMATOR_CONTRACTS (in module quantum.api.estimator_contract)</a>
 </li>
-      <li><a href="api/quantum/measurements/index.html#quantum.measurements.ExpectationValues.estimator_covariances">estimator_covariances (quantum.measurements.ExpectationValues attribute)</a>
+      <li><a href="api/quantum/measurements/expectation_values/index.html#quantum.measurements.expectation_values.ExpectationValues.estimator_covariances">estimator_covariances (quantum.measurements.expectation_values.ExpectationValues attribute)</a>
+
+      <ul>
+        <li><a href="api/quantum/measurements/index.html#quantum.measurements.ExpectationValues.estimator_covariances">(quantum.measurements.ExpectationValues attribute)</a>
 </li>
+      </ul></li>
       <li><a href="api/opt/bqm/utils/index.html#opt.bqm.utils.evaluate_bitstring_for_qubo">evaluate_bitstring_for_qubo() (in module opt.bqm.utils)</a>
 </li>
       <li><a href="api/quantum/distributions/index.html#quantum.distributions.evaluate_distribution_distance">evaluate_distribution_distance() (in module quantum.distributions)</a>
@@ -2520,8 +2563,6 @@ title="Fullscreen mode"
         <li><a href="api/opt/api/problem/index.html#opt.api.problem.Problem.evaluate_solution">(opt.api.problem.Problem method)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/opt/api/index.html#opt.api.every_nth">every_nth() (in module opt.api)</a>
 
       <ul>
@@ -2536,6 +2577,34 @@ title="Fullscreen mode"
         <li><a href="api/integrations/qiskit/backend/index.html#integrations.qiskit.backend.QiskitBackend.execute_with_retries">(integrations.qiskit.backend.QiskitBackend method)</a>
 </li>
       </ul></li>
+      <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.ControlledGate.exp">exp (quantum.circuits._gates.ControlledGate property)</a>
+
+      <ul>
+        <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.Dagger.exp">(quantum.circuits._gates.Dagger property)</a>
+</li>
+        <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.Exponential.exp">(quantum.circuits._gates.Exponential property)</a>
+</li>
+        <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.Gate.exp">(quantum.circuits._gates.Gate property)</a>
+</li>
+        <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.MatrixFactoryGate.exp">(quantum.circuits._gates.MatrixFactoryGate property)</a>
+</li>
+        <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.Power.exp">(quantum.circuits._gates.Power property)</a>
+</li>
+        <li><a href="api/quantum/circuits/index.html#quantum.circuits.ControlledGate.exp">(quantum.circuits.ControlledGate property)</a>
+</li>
+        <li><a href="api/quantum/circuits/index.html#quantum.circuits.Dagger.exp">(quantum.circuits.Dagger property)</a>
+</li>
+        <li><a href="api/quantum/circuits/index.html#quantum.circuits.Exponential.exp">(quantum.circuits.Exponential property)</a>
+</li>
+        <li><a href="api/quantum/circuits/index.html#quantum.circuits.Gate.exp">(quantum.circuits.Gate property)</a>
+</li>
+        <li><a href="api/quantum/circuits/index.html#quantum.circuits.MatrixFactoryGate.exp">(quantum.circuits.MatrixFactoryGate property)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/quantum/api/backend_test/index.html#quantum.api.backend_test.QuantumBackendGatesTests.exp_val_spread">exp_val_spread (quantum.api.backend_test.QuantumBackendGatesTests attribute)</a>
+</li>
       <li><a href="api/quantum/openfermion/linalg/index.html#quantum.openfermion.linalg.expectation">expectation() (in module quantum.openfermion.linalg)</a>
 
       <ul>
@@ -2551,10 +2620,28 @@ title="Fullscreen mode"
       <li><a href="api/vqa/cost_function/cost_function/index.html#vqa.cost_function.cost_function.expectation_value_estimation_tasks_factory">expectation_value_estimation_tasks_factory() (in module vqa.cost_function.cost_function)</a>
 </li>
       <li><a href="api/quantum/measurements/index.html#quantum.measurements.expectation_values_to_real">expectation_values_to_real() (in module quantum.measurements)</a>
+
+      <ul>
+        <li><a href="api/quantum/measurements/expectation_values/index.html#quantum.measurements.expectation_values.expectation_values_to_real">(in module quantum.measurements.expectation_values)</a>
 </li>
+      </ul></li>
       <li><a href="api/quantum/measurements/index.html#quantum.measurements.ExpectationValues">ExpectationValues (class in quantum.measurements)</a>
+
+      <ul>
+        <li><a href="api/quantum/measurements/expectation_values/index.html#quantum.measurements.expectation_values.ExpectationValues">(class in quantum.measurements.expectation_values)</a>
+</li>
+      </ul></li>
+      <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.Power.exponent">exponent (quantum.circuits._gates.Power attribute)</a>
 </li>
       <li><a href="api/integrations/cirq/conversions/_circuit_conversions/index.html#integrations.cirq.conversions._circuit_conversions.exponent_to_angle">exponent_to_angle() (in module integrations.cirq.conversions._circuit_conversions)</a>
+</li>
+      <li><a href="api/quantum/circuits/index.html#quantum.circuits.Exponential">Exponential (class in quantum.circuits)</a>
+
+      <ul>
+        <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.Exponential">(class in quantum.circuits._gates)</a>
+</li>
+      </ul></li>
+      <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.EXPONENTIAL_GATE_NAME">EXPONENTIAL_GATE_NAME (in module quantum.circuits._gates)</a>
 </li>
       <li><a href="api/vqa/utils/index.html#vqa.utils.exponentiate_fermion_operator">exponentiate_fermion_operator() (in module vqa.utils)</a>
 </li>
@@ -2679,6 +2766,8 @@ title="Fullscreen mode"
 </li>
         <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.MatrixFactoryGate.free_symbols">(quantum.circuits._gates.MatrixFactoryGate property)</a>
 </li>
+        <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.Power.free_symbols">(quantum.circuits._gates.Power property)</a>
+</li>
         <li><a href="api/quantum/circuits/_operations/index.html#quantum.circuits._operations.Operation.free_symbols">(quantum.circuits._operations.Operation property)</a>
 </li>
         <li><a href="api/quantum/circuits/_wavefunction_operations/index.html#quantum.circuits._wavefunction_operations.MultiPhaseOperation.free_symbols">(quantum.circuits._wavefunction_operations.MultiPhaseOperation property)</a>
@@ -2709,15 +2798,23 @@ title="Fullscreen mode"
 </li>
       </ul></li>
       <li><a href="api/quantum/measurements/index.html#quantum.measurements.Measurements.from_counts">from_counts() (quantum.measurements.Measurements class method)</a>
+
+      <ul>
+        <li><a href="api/quantum/measurements/measurements/index.html#quantum.measurements.measurements.Measurements.from_counts">(quantum.measurements.measurements.Measurements class method)</a>
 </li>
+      </ul></li>
       <li><a href="api/quantum/circuits/layouts/index.html#quantum.circuits.layouts.CircuitConnectivity.from_dict">from_dict() (quantum.circuits.layouts.CircuitConnectivity class method)</a>
 
       <ul>
         <li><a href="api/quantum/circuits/layouts/index.html#quantum.circuits.layouts.CircuitLayers.from_dict">(quantum.circuits.layouts.CircuitLayers class method)</a>
 </li>
+        <li><a href="api/quantum/measurements/expectation_values/index.html#quantum.measurements.expectation_values.ExpectationValues.from_dict">(quantum.measurements.expectation_values.ExpectationValues class method)</a>
+</li>
         <li><a href="api/quantum/measurements/index.html#quantum.measurements.ExpectationValues.from_dict">(quantum.measurements.ExpectationValues class method)</a>
 </li>
         <li><a href="api/quantum/measurements/index.html#quantum.measurements.Parities.from_dict">(quantum.measurements.Parities class method)</a>
+</li>
+        <li><a href="api/quantum/measurements/parities/index.html#quantum.measurements.parities.Parities.from_dict">(quantum.measurements.parities.Parities class method)</a>
 </li>
         <li><a href="api/quantum/utils/index.html#quantum.utils.ValueEstimate.from_dict">(quantum.utils.ValueEstimate class method)</a>
 </li>
@@ -2929,7 +3026,11 @@ title="Fullscreen mode"
       <li><a href="api/vqa/estimation/context_selection/index.html#vqa.estimation.context_selection.get_context_selection_circuit_for_group">get_context_selection_circuit_for_group() (in module vqa.estimation.context_selection)</a>
 </li>
       <li><a href="api/quantum/measurements/index.html#quantum.measurements.Measurements.get_counts">get_counts() (quantum.measurements.Measurements method)</a>
+
+      <ul>
+        <li><a href="api/quantum/measurements/measurements/index.html#quantum.measurements.measurements.Measurements.get_counts">(quantum.measurements.measurements.Measurements method)</a>
 </li>
+      </ul></li>
       <li><a href="api/quantum/openfermion/linalg/index.html#quantum.openfermion.linalg.get_density_matrix">get_density_matrix() (in module quantum.openfermion.linalg)</a>
 
       <ul>
@@ -2955,7 +3056,11 @@ title="Fullscreen mode"
 </li>
       </ul></li>
       <li><a href="api/quantum/measurements/index.html#quantum.measurements.Measurements.get_distribution">get_distribution() (quantum.measurements.Measurements method)</a>
+
+      <ul>
+        <li><a href="api/quantum/measurements/measurements/index.html#quantum.measurements.measurements.Measurements.get_distribution">(quantum.measurements.measurements.Measurements method)</a>
 </li>
+      </ul></li>
       <li><a href="api/vqa/ansatz/qcbm/_qcbm_utils/index.html#vqa.ansatz.qcbm._qcbm_utils.get_entangling_layer">get_entangling_layer() (in module vqa.ansatz.qcbm._qcbm_utils)</a>
 </li>
       <li><a href="api/vqa/ansatz/qcbm/_qcbm_utils/index.html#vqa.ansatz.qcbm._qcbm_utils.get_entangling_layer_all_topology">get_entangling_layer_all_topology() (in module vqa.ansatz.qcbm._qcbm_utils)</a>
@@ -2966,11 +3071,9 @@ title="Fullscreen mode"
 </li>
       <li><a href="api/vqa/ansatz/qcbm/_qcbm_utils/index.html#vqa.ansatz.qcbm._qcbm_utils.get_entangling_layer_star_topology">get_entangling_layer_star_topology() (in module vqa.ansatz.qcbm._qcbm_utils)</a>
 </li>
-      <li><a href="api/integrations/cirq/simulator/index.html#integrations.cirq.simulator.CirqSimulator.get_exact_expectation_values">get_exact_expectation_values() (integrations.cirq.simulator.CirqSimulator method)</a>
+      <li><a href="api/integrations/cirq/simulator/_base/index.html#integrations.cirq.simulator._base.CirqBasedSimulator.get_exact_expectation_values">get_exact_expectation_values() (integrations.cirq.simulator._base.CirqBasedSimulator method)</a>
 
       <ul>
-        <li><a href="api/integrations/cirq/simulator/simulator/index.html#integrations.cirq.simulator.simulator.CirqSimulator.get_exact_expectation_values">(integrations.cirq.simulator.simulator.CirqSimulator method)</a>
-</li>
         <li><a href="api/integrations/forest/index.html#integrations.forest.ForestSimulator.get_exact_expectation_values">(integrations.forest.ForestSimulator method)</a>
 </li>
         <li><a href="api/integrations/forest/simulator/index.html#integrations.forest.simulator.ForestSimulator.get_exact_expectation_values">(integrations.forest.simulator.ForestSimulator method)</a>
@@ -2982,12 +3085,8 @@ title="Fullscreen mode"
         <li><a href="api/quantum/api/backend/index.html#quantum.api.backend.QuantumSimulator.get_exact_expectation_values">(quantum.api.backend.QuantumSimulator method)</a>
 </li>
       </ul></li>
-      <li><a href="api/integrations/cirq/simulator/index.html#integrations.cirq.simulator.CirqSimulator.get_exact_noisy_expectation_values">get_exact_noisy_expectation_values() (integrations.cirq.simulator.CirqSimulator method)</a>
-
-      <ul>
-        <li><a href="api/integrations/cirq/simulator/simulator/index.html#integrations.cirq.simulator.simulator.CirqSimulator.get_exact_noisy_expectation_values">(integrations.cirq.simulator.simulator.CirqSimulator method)</a>
+      <li><a href="api/integrations/cirq/simulator/_base/index.html#integrations.cirq.simulator._base.CirqBasedSimulator.get_exact_noisy_expectation_values">get_exact_noisy_expectation_values() (integrations.cirq.simulator._base.CirqBasedSimulator method)</a>
 </li>
-      </ul></li>
       <li><a href="api/vqa/api/ansatz/index.html#vqa.api.ansatz.Ansatz.get_executable_circuit">get_executable_circuit() (vqa.api.ansatz.Ansatz method)</a>
 </li>
       <li><a href="api/quantum/openfermion/zapata_utils/index.html#quantum.openfermion.zapata_utils.get_expectation_value">get_expectation_value() (in module quantum.openfermion.zapata_utils)</a>
@@ -2997,11 +3096,23 @@ title="Fullscreen mode"
 </li>
       </ul></li>
       <li><a href="api/quantum/measurements/index.html#quantum.measurements.get_expectation_value_from_frequencies">get_expectation_value_from_frequencies() (in module quantum.measurements)</a>
+
+      <ul>
+        <li><a href="api/quantum/measurements/measurements/index.html#quantum.measurements.measurements.get_expectation_value_from_frequencies">(in module quantum.measurements.measurements)</a>
 </li>
+      </ul></li>
       <li><a href="api/quantum/measurements/index.html#quantum.measurements.Measurements.get_expectation_values">get_expectation_values() (quantum.measurements.Measurements method)</a>
+
+      <ul>
+        <li><a href="api/quantum/measurements/measurements/index.html#quantum.measurements.measurements.Measurements.get_expectation_values">(quantum.measurements.measurements.Measurements method)</a>
 </li>
+      </ul></li>
       <li><a href="api/quantum/measurements/index.html#quantum.measurements.get_expectation_values_from_parities">get_expectation_values_from_parities() (in module quantum.measurements)</a>
+
+      <ul>
+        <li><a href="api/quantum/measurements/expectation_values/index.html#quantum.measurements.expectation_values.get_expectation_values_from_parities">(in module quantum.measurements.expectation_values)</a>
 </li>
+      </ul></li>
       <li><a href="api/quantum/openfermion/zapata_utils/index.html#quantum.openfermion.zapata_utils.get_fermion_number_operator">get_fermion_number_operator() (in module quantum.openfermion.zapata_utils)</a>
 
       <ul>
@@ -3086,7 +3197,7 @@ title="Fullscreen mode"
         <li><a href="api/integrations/qiskit/noise/basic/index.html#integrations.qiskit.noise.basic.get_kraus_matrices_from_ibm_noise_model">(in module integrations.qiskit.noise.basic)</a>
 </li>
       </ul></li>
-      <li><a href="api/integrations/cirq/simulator/simulator/index.html#integrations.cirq.simulator.simulator.get_measurement_from_cirq_result_object">get_measurement_from_cirq_result_object() (in module integrations.cirq.simulator.simulator)</a>
+      <li><a href="api/integrations/cirq/simulator/_base/index.html#integrations.cirq.simulator._base.get_measurement_from_cirq_result_object">get_measurement_from_cirq_result_object() (in module integrations.cirq.simulator._base)</a>
 </li>
       <li><a href="api/quantum/api/backend/index.html#quantum.api.backend.QuantumBackend.get_measurement_outcome_distribution">get_measurement_outcome_distribution() (quantum.api.backend.QuantumBackend method)</a>
 
@@ -3099,7 +3210,11 @@ title="Fullscreen mode"
 </li>
       </ul></li>
       <li><a href="api/quantum/measurements/index.html#quantum.measurements.Measurements.get_measurements_representing_distribution">get_measurements_representing_distribution() (quantum.measurements.Measurements class method)</a>
+
+      <ul>
+        <li><a href="api/quantum/measurements/measurements/index.html#quantum.measurements.measurements.Measurements.get_measurements_representing_distribution">(quantum.measurements.measurements.Measurements class method)</a>
 </li>
+      </ul></li>
       <li><a href="api/quantum/openfermion/transforms/index.html#quantum.openfermion.transforms.get_molecular_data">get_molecular_data() (in module quantum.openfermion.transforms)</a>
 
       <ul>
@@ -3179,7 +3294,11 @@ title="Fullscreen mode"
       <li><a href="api/quantum/wavefunction/index.html#quantum.wavefunction.Wavefunction.get_outcome_probs">get_outcome_probs() (quantum.wavefunction.Wavefunction method)</a>
 </li>
       <li><a href="api/quantum/measurements/index.html#quantum.measurements.get_parities_from_measurements">get_parities_from_measurements() (in module quantum.measurements)</a>
+
+      <ul>
+        <li><a href="api/quantum/measurements/parities/index.html#quantum.measurements.parities.get_parities_from_measurements">(in module quantum.measurements.parities)</a>
 </li>
+      </ul></li>
       <li><a href="api/quantum/openfermion/zapata_utils/index.html#quantum.openfermion.zapata_utils.get_pauli_strings">get_pauli_strings() (in module quantum.openfermion.zapata_utils)</a>
 
       <ul>
@@ -3535,6 +3654,20 @@ title="Fullscreen mode"
 </li>
       </ul></li>
       <li>
+    integrations.cirq.simulator._base
+
+      <ul>
+        <li><a href="api/integrations/cirq/simulator/_base/index.html#module-integrations.cirq.simulator._base">module</a>
+</li>
+      </ul></li>
+      <li>
+    integrations.cirq.simulator.qsim_simulator
+
+      <ul>
+        <li><a href="api/integrations/cirq/simulator/qsim_simulator/index.html#module-integrations.cirq.simulator.qsim_simulator">module</a>
+</li>
+      </ul></li>
+      <li>
     integrations.cirq.simulator.simulator
 
       <ul>
@@ -3597,6 +3730,8 @@ title="Fullscreen mode"
         <li><a href="api/integrations/qiskit/backend/index.html#module-integrations.qiskit.backend">module</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     integrations.qiskit.backend.backend
 
@@ -3604,8 +3739,6 @@ title="Fullscreen mode"
         <li><a href="api/integrations/qiskit/backend/backend/index.html#module-integrations.qiskit.backend.backend">module</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     integrations.qiskit.conversions
 
@@ -3720,6 +3853,12 @@ title="Fullscreen mode"
 </li>
       <li><a href="api/vqa/api/ansatz_utils/index.html#vqa.api.ansatz_utils.invalidates_parametrized_circuit">invalidates_parametrized_circuit() (in module vqa.api.ansatz_utils)</a>
 </li>
+      <li><a href="api/quantum/circuits/_circuit/index.html#quantum.circuits._circuit.Circuit.inverse">inverse() (quantum.circuits._circuit.Circuit method)</a>
+
+      <ul>
+        <li><a href="api/quantum/circuits/index.html#quantum.circuits.Circuit.inverse">(quantum.circuits.Circuit method)</a>
+</li>
+      </ul></li>
       <li><a href="api/quantum/circuits/symbolic/sympy_expressions/index.html#quantum.circuits.symbolic.sympy_expressions.is_addition_of_negation">is_addition_of_negation() (in module quantum.circuits.symbolic.sympy_expressions)</a>
 </li>
       <li><a href="api/vqa/grouping/index.html#vqa.grouping.is_comeasureable">is_comeasureable() (in module vqa.grouping)</a>
@@ -3967,9 +4106,17 @@ title="Fullscreen mode"
 </li>
       </ul></li>
       <li><a href="api/quantum/measurements/index.html#quantum.measurements.load_expectation_values">load_expectation_values() (in module quantum.measurements)</a>
+
+      <ul>
+        <li><a href="api/quantum/measurements/expectation_values/index.html#quantum.measurements.expectation_values.load_expectation_values">(in module quantum.measurements.expectation_values)</a>
 </li>
+      </ul></li>
       <li><a href="api/quantum/measurements/index.html#quantum.measurements.Measurements.load_from_file">load_from_file() (quantum.measurements.Measurements class method)</a>
+
+      <ul>
+        <li><a href="api/quantum/measurements/measurements/index.html#quantum.measurements.measurements.Measurements.load_from_file">(quantum.measurements.measurements.Measurements class method)</a>
 </li>
+      </ul></li>
       <li><a href="api/quantum/openfermion/zapata_utils/index.html#quantum.openfermion.zapata_utils.load_interaction_operator">load_interaction_operator() (in module quantum.openfermion.zapata_utils)</a>
 
       <ul>
@@ -4025,7 +4172,11 @@ title="Fullscreen mode"
 </li>
       </ul></li>
       <li><a href="api/quantum/measurements/index.html#quantum.measurements.load_parities">load_parities() (in module quantum.measurements)</a>
+
+      <ul>
+        <li><a href="api/quantum/measurements/parities/index.html#quantum.measurements.parities.load_parities">(in module quantum.measurements.parities)</a>
 </li>
+      </ul></li>
       <li><a href="api/vqa/ansatz/qcbm/_qcbm/index.html#vqa.ansatz.qcbm._qcbm.load_qcbm_ansatz_set">load_qcbm_ansatz_set() (in module vqa.ansatz.qcbm._qcbm)</a>
 </li>
       <li><a href="api/quantum/openfermion/zapata_utils/index.html#quantum.openfermion.zapata_utils.load_qubit_operator">load_qubit_operator() (in module quantum.openfermion.zapata_utils)</a>
@@ -4046,7 +4197,7 @@ title="Fullscreen mode"
 </li>
       <li><a href="api/quantum/utils/index.html#quantum.utils.load_value_estimate">load_value_estimate() (in module quantum.utils)</a>
 </li>
-      <li><a href="api/quantum/measurements/index.html#quantum.measurements.load_wavefunction">load_wavefunction() (in module quantum.measurements)</a>
+      <li><a href="api/quantum/wavefunction/index.html#quantum.wavefunction.load_wavefunction">load_wavefunction() (in module quantum.wavefunction)</a>
 </li>
       <li><a href="api/quantum/typing/index.html#quantum.typing.LoadSource">LoadSource (in module quantum.typing)</a>
 </li>
@@ -4097,15 +4248,21 @@ title="Fullscreen mode"
 </li>
         <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.Dagger.matrix">(quantum.circuits._gates.Dagger property)</a>
 </li>
+        <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.Exponential.matrix">(quantum.circuits._gates.Exponential property)</a>
+</li>
         <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.Gate.matrix">(quantum.circuits._gates.Gate property)</a>
 </li>
         <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.MatrixFactoryGate.matrix">(quantum.circuits._gates.MatrixFactoryGate property)</a>
+</li>
+        <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.Power.matrix">(quantum.circuits._gates.Power property)</a>
 </li>
         <li><a href="api/quantum/circuits/index.html#quantum.circuits.ControlledGate.matrix">(quantum.circuits.ControlledGate property)</a>
 </li>
         <li><a href="api/quantum/circuits/index.html#quantum.circuits.CustomGateDefinition.matrix">(quantum.circuits.CustomGateDefinition attribute)</a>
 </li>
         <li><a href="api/quantum/circuits/index.html#quantum.circuits.Dagger.matrix">(quantum.circuits.Dagger property)</a>
+</li>
+        <li><a href="api/quantum/circuits/index.html#quantum.circuits.Exponential.matrix">(quantum.circuits.Exponential property)</a>
 </li>
         <li><a href="api/quantum/circuits/index.html#quantum.circuits.Gate.matrix">(quantum.circuits.Gate property)</a>
 </li>
@@ -4143,7 +4300,11 @@ title="Fullscreen mode"
 </li>
       </ul></li>
       <li><a href="api/quantum/measurements/index.html#quantum.measurements.Measurements">Measurements (class in quantum.measurements)</a>
+
+      <ul>
+        <li><a href="api/quantum/measurements/measurements/index.html#quantum.measurements.measurements.Measurements">(class in quantum.measurements.measurements)</a>
 </li>
+      </ul></li>
       <li><a href="api/quantum/trackers/index.html#quantum.trackers.MeasurementTrackingBackend">MeasurementTrackingBackend (class in quantum.trackers)</a>
 </li>
       <li><a href="api/opt/api/index.html#opt.api.NestedOptimizer.minimize">minimize() (opt.api.NestedOptimizer method)</a>
@@ -4197,6 +4358,10 @@ title="Fullscreen mode"
         <li><a href="api/integrations/cirq/noise/basic/index.html#module-integrations.cirq.noise.basic">integrations.cirq.noise.basic</a>
 </li>
         <li><a href="api/integrations/cirq/simulator/index.html#module-integrations.cirq.simulator">integrations.cirq.simulator</a>
+</li>
+        <li><a href="api/integrations/cirq/simulator/_base/index.html#module-integrations.cirq.simulator._base">integrations.cirq.simulator._base</a>
+</li>
+        <li><a href="api/integrations/cirq/simulator/qsim_simulator/index.html#module-integrations.cirq.simulator.qsim_simulator">integrations.cirq.simulator.qsim_simulator</a>
 </li>
         <li><a href="api/integrations/cirq/simulator/simulator/index.html#module-integrations.cirq.simulator.simulator">integrations.cirq.simulator.simulator</a>
 </li>
@@ -4294,6 +4459,8 @@ title="Fullscreen mode"
 </li>
         <li><a href="api/opt/optimizers/qiskit_optimizer/index.html#module-opt.optimizers.qiskit_optimizer">opt.optimizers.qiskit_optimizer</a>
 </li>
+        <li><a href="api/opt/optimizers/scikit_quant_optimizer/index.html#module-opt.optimizers.scikit_quant_optimizer">opt.optimizers.scikit_quant_optimizer</a>
+</li>
         <li><a href="api/opt/optimizers/scipy_optimizer/index.html#module-opt.optimizers.scipy_optimizer">opt.optimizers.scipy_optimizer</a>
 </li>
         <li><a href="api/opt/optimizers/search_points_optimizer/index.html#module-opt.optimizers.search_points_optimizer">opt.optimizers.search_points_optimizer</a>
@@ -4387,6 +4554,12 @@ title="Fullscreen mode"
         <li><a href="api/quantum/evolution/index.html#module-quantum.evolution">quantum.evolution</a>
 </li>
         <li><a href="api/quantum/measurements/index.html#module-quantum.measurements">quantum.measurements</a>
+</li>
+        <li><a href="api/quantum/measurements/expectation_values/index.html#module-quantum.measurements.expectation_values">quantum.measurements.expectation_values</a>
+</li>
+        <li><a href="api/quantum/measurements/measurements/index.html#module-quantum.measurements.measurements">quantum.measurements.measurements</a>
+</li>
+        <li><a href="api/quantum/measurements/parities/index.html#module-quantum.measurements.parities">quantum.measurements.parities</a>
 </li>
         <li><a href="api/quantum/openfermion/index.html#module-quantum.openfermion">quantum.openfermion</a>
 </li>
@@ -4515,8 +4688,6 @@ title="Fullscreen mode"
         <li><a href="api/quantum/wavefunction/index.html#module-quantum.wavefunction">quantum.wavefunction</a>
 </li>
         <li><a href="api/vqa/index.html#module-vqa">vqa</a>
-</li>
-        <li><a href="api/vqa/ansatz/index.html#module-vqa.ansatz">vqa.ansatz</a>
 </li>
         <li><a href="api/vqa/ansatz/kbody/index.html#module-vqa.ansatz.kbody">vqa.ansatz.kbody</a>
 </li>
@@ -4684,13 +4855,19 @@ title="Fullscreen mode"
       <ul>
         <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.Dagger.name">(quantum.circuits._gates.Dagger property)</a>
 </li>
+        <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.Exponential.name">(quantum.circuits._gates.Exponential property)</a>
+</li>
         <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.Gate.name">(quantum.circuits._gates.Gate property)</a>
 </li>
         <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.MatrixFactoryGate.name">(quantum.circuits._gates.MatrixFactoryGate attribute)</a>
 </li>
+        <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.Power.name">(quantum.circuits._gates.Power property)</a>
+</li>
         <li><a href="api/quantum/circuits/index.html#quantum.circuits.ControlledGate.name">(quantum.circuits.ControlledGate property)</a>
 </li>
         <li><a href="api/quantum/circuits/index.html#quantum.circuits.Dagger.name">(quantum.circuits.Dagger property)</a>
+</li>
+        <li><a href="api/quantum/circuits/index.html#quantum.circuits.Exponential.name">(quantum.circuits.Exponential property)</a>
 </li>
         <li><a href="api/quantum/circuits/index.html#quantum.circuits.Gate.name">(quantum.circuits.Gate property)</a>
 </li>
@@ -4759,14 +4936,16 @@ title="Fullscreen mode"
         <li><a href="api/opt/api/optimizer/index.html#opt.api.optimizer.NestedOptimizer">(class in opt.api.optimizer)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/integrations/cirq/simulator/index.html#integrations.cirq.simulator.CirqSimulator.noise_model">noise_model (integrations.cirq.simulator.CirqSimulator attribute)</a>
 
       <ul>
+        <li><a href="api/integrations/cirq/simulator/qsim_simulator/index.html#integrations.cirq.simulator.qsim_simulator.QSimSimulator.noise_model">(integrations.cirq.simulator.qsim_simulator.QSimSimulator attribute)</a>
+</li>
         <li><a href="api/integrations/cirq/simulator/simulator/index.html#integrations.cirq.simulator.simulator.CirqSimulator.noise_model">(integrations.cirq.simulator.simulator.CirqSimulator attribute)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/integrations/cirq/conversions/_circuit_conversions/index.html#integrations.cirq.conversions._circuit_conversions.NonNativeGate">NonNativeGate (class in integrations.cirq.conversions._circuit_conversions)</a>
 </li>
       <li><a href="api/quantum/openfermion/transforms/index.html#quantum.openfermion.transforms.normal_ordered">normal_ordered() (in module quantum.openfermion.transforms)</a>
@@ -4810,13 +4989,19 @@ title="Fullscreen mode"
       <ul>
         <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.Dagger.num_qubits">(quantum.circuits._gates.Dagger property)</a>
 </li>
+        <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.Exponential.num_qubits">(quantum.circuits._gates.Exponential property)</a>
+</li>
         <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.Gate.num_qubits">(quantum.circuits._gates.Gate property)</a>
 </li>
         <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.MatrixFactoryGate.num_qubits">(quantum.circuits._gates.MatrixFactoryGate attribute)</a>
 </li>
+        <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.Power.num_qubits">(quantum.circuits._gates.Power property)</a>
+</li>
         <li><a href="api/quantum/circuits/index.html#quantum.circuits.ControlledGate.num_qubits">(quantum.circuits.ControlledGate property)</a>
 </li>
         <li><a href="api/quantum/circuits/index.html#quantum.circuits.Dagger.num_qubits">(quantum.circuits.Dagger property)</a>
+</li>
+        <li><a href="api/quantum/circuits/index.html#quantum.circuits.Exponential.num_qubits">(quantum.circuits.Exponential property)</a>
 </li>
         <li><a href="api/quantum/circuits/index.html#quantum.circuits.Gate.num_qubits">(quantum.circuits.Gate property)</a>
 </li>
@@ -4827,34 +5012,18 @@ title="Fullscreen mode"
 </li>
       <li><a href="api/vqa/ansatz/singlet_uccsd/index.html#vqa.ansatz.singlet_uccsd.SingletUCCSDAnsatz.number_of_alpha_electrons">number_of_alpha_electrons (vqa.ansatz.singlet_uccsd.SingletUCCSDAnsatz property)</a>
 </li>
-      <li><a href="api/integrations/qiskit/backend/backend/index.html#integrations.qiskit.backend.backend.QiskitBackend.number_of_circuits_run">number_of_circuits_run (integrations.qiskit.backend.backend.QiskitBackend attribute)</a>
+      <li><a href="api/quantum/api/backend/index.html#quantum.api.backend.QuantumBackend.number_of_circuits_run">number_of_circuits_run (quantum.api.backend.QuantumBackend attribute)</a>
 
       <ul>
-        <li><a href="api/integrations/qiskit/backend/index.html#integrations.qiskit.backend.QiskitBackend.number_of_circuits_run">(integrations.qiskit.backend.QiskitBackend attribute)</a>
-</li>
-        <li><a href="api/quantum/api/backend/index.html#quantum.api.backend.QuantumBackend.number_of_circuits_run">(quantum.api.backend.QuantumBackend attribute)</a>
-</li>
         <li><a href="api/quantum/api/index.html#quantum.api.QuantumBackend.number_of_circuits_run">(quantum.api.QuantumBackend attribute)</a>
-</li>
-        <li><a href="api/quantum/testing/index.html#quantum.testing.MockQuantumBackend.number_of_circuits_run">(quantum.testing.MockQuantumBackend attribute)</a>
-</li>
-        <li><a href="api/quantum/testing/mocks/index.html#quantum.testing.mocks.MockQuantumBackend.number_of_circuits_run">(quantum.testing.mocks.MockQuantumBackend attribute)</a>
 </li>
       </ul></li>
       <li><a href="api/vqa/ansatz/singlet_uccsd/index.html#vqa.ansatz.singlet_uccsd.SingletUCCSDAnsatz.number_of_electrons">number_of_electrons (vqa.ansatz.singlet_uccsd.SingletUCCSDAnsatz property)</a>
 </li>
-      <li><a href="api/integrations/qiskit/backend/backend/index.html#integrations.qiskit.backend.backend.QiskitBackend.number_of_jobs_run">number_of_jobs_run (integrations.qiskit.backend.backend.QiskitBackend attribute)</a>
+      <li><a href="api/quantum/api/backend/index.html#quantum.api.backend.QuantumBackend.number_of_jobs_run">number_of_jobs_run (quantum.api.backend.QuantumBackend attribute)</a>
 
       <ul>
-        <li><a href="api/integrations/qiskit/backend/index.html#integrations.qiskit.backend.QiskitBackend.number_of_jobs_run">(integrations.qiskit.backend.QiskitBackend attribute)</a>
-</li>
-        <li><a href="api/quantum/api/backend/index.html#quantum.api.backend.QuantumBackend.number_of_jobs_run">(quantum.api.backend.QuantumBackend attribute)</a>
-</li>
         <li><a href="api/quantum/api/index.html#quantum.api.QuantumBackend.number_of_jobs_run">(quantum.api.QuantumBackend attribute)</a>
-</li>
-        <li><a href="api/quantum/testing/index.html#quantum.testing.MockQuantumBackend.number_of_jobs_run">(quantum.testing.MockQuantumBackend attribute)</a>
-</li>
-        <li><a href="api/quantum/testing/mocks/index.html#quantum.testing.mocks.MockQuantumBackend.number_of_jobs_run">(quantum.testing.mocks.MockQuantumBackend attribute)</a>
 </li>
       </ul></li>
       <li><a href="api/vqa/ansatz/singlet_uccsd/index.html#vqa.ansatz.singlet_uccsd.SingletUCCSDAnsatz.number_of_layers">number_of_layers (vqa.ansatz.singlet_uccsd.SingletUCCSDAnsatz property)</a>
@@ -5180,6 +5349,13 @@ title="Fullscreen mode"
 </li>
       </ul></li>
       <li>
+    opt.optimizers.scikit_quant_optimizer
+
+      <ul>
+        <li><a href="api/opt/optimizers/scikit_quant_optimizer/index.html#module-opt.optimizers.scikit_quant_optimizer">module</a>
+</li>
+      </ul></li>
+      <li>
     opt.optimizers.scipy_optimizer
 
       <ul>
@@ -5289,6 +5465,14 @@ title="Fullscreen mode"
 <h2 id="P">P</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/integrations/cirq/simulator/index.html#integrations.cirq.simulator.CirqSimulator.param_resolver">param_resolver (integrations.cirq.simulator.CirqSimulator attribute)</a>
+
+      <ul>
+        <li><a href="api/integrations/cirq/simulator/qsim_simulator/index.html#integrations.cirq.simulator.qsim_simulator.QSimSimulator.param_resolver">(integrations.cirq.simulator.qsim_simulator.QSimSimulator attribute)</a>
+</li>
+        <li><a href="api/integrations/cirq/simulator/simulator/index.html#integrations.cirq.simulator.simulator.CirqSimulator.param_resolver">(integrations.cirq.simulator.simulator.CirqSimulator attribute)</a>
+</li>
+      </ul></li>
       <li><a href="api/quantum/typing/index.html#quantum.typing.Parameter">Parameter (in module quantum.typing)</a>
 </li>
       <li><a href="api/quantum/typing/index.html#quantum.typing.ParameterizedVector">ParameterizedVector (in module quantum.typing)</a>
@@ -5306,11 +5490,15 @@ title="Fullscreen mode"
 </li>
         <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.Dagger.params">(quantum.circuits._gates.Dagger property)</a>
 </li>
+        <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.Exponential.params">(quantum.circuits._gates.Exponential property)</a>
+</li>
         <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.Gate.params">(quantum.circuits._gates.Gate property)</a>
 </li>
         <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.GateOperation.params">(quantum.circuits._gates.GateOperation property)</a>
 </li>
         <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.MatrixFactoryGate.params">(quantum.circuits._gates.MatrixFactoryGate attribute)</a>
+</li>
+        <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.Power.params">(quantum.circuits._gates.Power property)</a>
 </li>
         <li><a href="api/quantum/circuits/_operations/index.html#quantum.circuits._operations.Operation.params">(quantum.circuits._operations.Operation property)</a>
 </li>
@@ -5319,6 +5507,8 @@ title="Fullscreen mode"
         <li><a href="api/quantum/circuits/index.html#quantum.circuits.ControlledGate.params">(quantum.circuits.ControlledGate property)</a>
 </li>
         <li><a href="api/quantum/circuits/index.html#quantum.circuits.Dagger.params">(quantum.circuits.Dagger property)</a>
+</li>
+        <li><a href="api/quantum/circuits/index.html#quantum.circuits.Exponential.params">(quantum.circuits.Exponential property)</a>
 </li>
         <li><a href="api/quantum/circuits/index.html#quantum.circuits.Gate.params">(quantum.circuits.Gate property)</a>
 </li>
@@ -5340,7 +5530,11 @@ title="Fullscreen mode"
 </li>
       </ul></li>
       <li><a href="api/quantum/measurements/index.html#quantum.measurements.Parities">Parities (class in quantum.measurements)</a>
+
+      <ul>
+        <li><a href="api/quantum/measurements/parities/index.html#quantum.measurements.parities.Parities">(class in quantum.measurements.parities)</a>
 </li>
+      </ul></li>
       <li><a href="api/quantum/openfermion/linalg/sparse_tools/index.html#quantum.openfermion.linalg.sparse_tools.pauli_matrix_map">pauli_matrix_map (in module quantum.openfermion.linalg.sparse_tools)</a>
 </li>
       <li><a href="api/quantum/utils/index.html#quantum.utils.pauli_x">pauli_x (in module quantum.utils)</a>
@@ -5371,8 +5565,6 @@ title="Fullscreen mode"
       </ul></li>
       <li><a href="api/quantum/circuits/_matrices/index.html#quantum.circuits._matrices.phase_matrix">phase_matrix() (in module quantum.circuits._matrices)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/quantum/openfermion/ops/index.html#quantum.openfermion.ops.PolynomialTensor">PolynomialTensor (class in quantum.openfermion.ops)</a>
 
       <ul>
@@ -5381,13 +5573,43 @@ title="Fullscreen mode"
         <li><a href="api/quantum/openfermion/ops/representations/polynomial_tensor/index.html#quantum.openfermion.ops.representations.polynomial_tensor.PolynomialTensor">(class in quantum.openfermion.ops.representations.polynomial_tensor)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/quantum/openfermion/ops/index.html#quantum.openfermion.ops.PolynomialTensorError">PolynomialTensorError</a>, <a href="api/quantum/openfermion/ops/representations/index.html#quantum.openfermion.ops.representations.PolynomialTensorError">[1]</a>, <a href="api/quantum/openfermion/ops/representations/polynomial_tensor/index.html#quantum.openfermion.ops.representations.polynomial_tensor.PolynomialTensorError">[2]</a>
 </li>
       <li><a href="api/quantum/openfermion/hamiltonians/general_hubbard/index.html#quantum.openfermion.hamiltonians.general_hubbard.PotentialParameter">PotentialParameter (in module quantum.openfermion.hamiltonians.general_hubbard)</a>
 </li>
+      <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.Power">Power (class in quantum.circuits._gates)</a>
+</li>
+      <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.ControlledGate.power">power() (quantum.circuits._gates.ControlledGate method)</a>
+
+      <ul>
+        <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.Dagger.power">(quantum.circuits._gates.Dagger method)</a>
+</li>
+        <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.Exponential.power">(quantum.circuits._gates.Exponential method)</a>
+</li>
+        <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.Gate.power">(quantum.circuits._gates.Gate method)</a>
+</li>
+        <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.MatrixFactoryGate.power">(quantum.circuits._gates.MatrixFactoryGate method)</a>
+</li>
+        <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.Power.power">(quantum.circuits._gates.Power method)</a>
+</li>
+        <li><a href="api/quantum/circuits/index.html#quantum.circuits.ControlledGate.power">(quantum.circuits.ControlledGate method)</a>
+</li>
+        <li><a href="api/quantum/circuits/index.html#quantum.circuits.Dagger.power">(quantum.circuits.Dagger method)</a>
+</li>
+        <li><a href="api/quantum/circuits/index.html#quantum.circuits.Exponential.power">(quantum.circuits.Exponential method)</a>
+</li>
+        <li><a href="api/quantum/circuits/index.html#quantum.circuits.Gate.power">(quantum.circuits.Gate method)</a>
+</li>
+        <li><a href="api/quantum/circuits/index.html#quantum.circuits.MatrixFactoryGate.power">(quantum.circuits.MatrixFactoryGate method)</a>
+</li>
+      </ul></li>
       <li><a href="api/integrations/qiskit/conversions/_symengine_expressions/index.html#integrations.qiskit.conversions._symengine_expressions.power_from_symengine_pow">power_from_symengine_pow() (in module integrations.qiskit.conversions._symengine_expressions)</a>
 </li>
       <li><a href="api/quantum/circuits/symbolic/sympy_expressions/index.html#quantum.circuits.symbolic.sympy_expressions.power_from_sympy_pow">power_from_sympy_pow() (in module quantum.circuits.symbolic.sympy_expressions)</a>
+</li>
+      <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.POWER_GATE_SYMBOL">POWER_GATE_SYMBOL (in module quantum.circuits._gates)</a>
 </li>
       <li><a href="api/integrations/cirq/decompositions/index.html#integrations.cirq.decompositions.PowerGateToPhaseAndRotation">PowerGateToPhaseAndRotation (class in integrations.cirq.decompositions)</a>
 
@@ -5493,20 +5715,14 @@ title="Fullscreen mode"
 </li>
       <li><a href="api/integrations/qiskit/conversions/_circuit_conversions/index.html#integrations.qiskit.conversions._circuit_conversions.QISKIT_ORQUESTRA_GATE_MAP">QISKIT_ORQUESTRA_GATE_MAP (in module integrations.qiskit.conversions._circuit_conversions)</a>
 </li>
-      <li><a href="api/integrations/qiskit/conversions/_circuit_conversions/index.html#integrations.qiskit.conversions._circuit_conversions.qiskit_qubit">qiskit_qubit() (in module integrations.qiskit.conversions._circuit_conversions)</a>
-</li>
       <li><a href="api/integrations/qiskit/backend/index.html#integrations.qiskit.backend.QiskitBackend">QiskitBackend (class in integrations.qiskit.backend)</a>
 
       <ul>
         <li><a href="api/integrations/qiskit/backend/backend/index.html#integrations.qiskit.backend.backend.QiskitBackend">(class in integrations.qiskit.backend.backend)</a>
 </li>
       </ul></li>
-      <li><a href="api/opt/optimizers/index.html#opt.optimizers.QiskitOptimizer">QiskitOptimizer (class in opt.optimizers)</a>
-
-      <ul>
-        <li><a href="api/opt/optimizers/qiskit_optimizer/index.html#opt.optimizers.qiskit_optimizer.QiskitOptimizer">(class in opt.optimizers.qiskit_optimizer)</a>
+      <li><a href="api/opt/optimizers/qiskit_optimizer/index.html#opt.optimizers.qiskit_optimizer.QiskitOptimizer">QiskitOptimizer (class in opt.optimizers.qiskit_optimizer)</a>
 </li>
-      </ul></li>
       <li><a href="api/integrations/qiskit/conversions/index.html#integrations.qiskit.conversions.qiskitpauli_to_qubitop">qiskitpauli_to_qubitop() (in module integrations.qiskit.conversions)</a>
 
       <ul>
@@ -5520,6 +5736,8 @@ title="Fullscreen mode"
 </li>
       </ul></li>
       <li><a href="api/integrations/qiskit/conversions/_circuit_conversions/index.html#integrations.qiskit.conversions._circuit_conversions.QiskitTriplet">QiskitTriplet (in module integrations.qiskit.conversions._circuit_conversions)</a>
+</li>
+      <li><a href="api/integrations/cirq/simulator/qsim_simulator/index.html#integrations.cirq.simulator.qsim_simulator.QSimSimulator">QSimSimulator (class in integrations.cirq.simulator.qsim_simulator)</a>
 </li>
       <li>
     quantum
@@ -5781,6 +5999,27 @@ title="Fullscreen mode"
 </li>
       </ul></li>
       <li>
+    quantum.measurements.expectation_values
+
+      <ul>
+        <li><a href="api/quantum/measurements/expectation_values/index.html#module-quantum.measurements.expectation_values">module</a>
+</li>
+      </ul></li>
+      <li>
+    quantum.measurements.measurements
+
+      <ul>
+        <li><a href="api/quantum/measurements/measurements/index.html#module-quantum.measurements.measurements">module</a>
+</li>
+      </ul></li>
+      <li>
+    quantum.measurements.parities
+
+      <ul>
+        <li><a href="api/quantum/measurements/parities/index.html#module-quantum.measurements.parities">module</a>
+</li>
+      </ul></li>
+      <li>
     quantum.openfermion
 
       <ul>
@@ -5885,6 +6124,8 @@ title="Fullscreen mode"
         <li><a href="api/quantum/openfermion/measurements/index.html#module-quantum.openfermion.measurements">module</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     quantum.openfermion.measurements.get_interaction_rdm
 
@@ -5892,8 +6133,6 @@ title="Fullscreen mode"
         <li><a href="api/quantum/openfermion/measurements/get_interaction_rdm/index.html#module-quantum.openfermion.measurements.get_interaction_rdm">module</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     quantum.openfermion.ops
 
@@ -6259,6 +6498,14 @@ title="Fullscreen mode"
         <li><a href="api/quantum/openfermion/linalg/sparse_tools/index.html#quantum.openfermion.linalg.sparse_tools.qubit_operator_sparse">(in module quantum.openfermion.linalg.sparse_tools)</a>
 </li>
       </ul></li>
+      <li><a href="api/integrations/cirq/simulator/index.html#integrations.cirq.simulator.CirqSimulator.qubit_order">qubit_order (integrations.cirq.simulator.CirqSimulator attribute)</a>
+
+      <ul>
+        <li><a href="api/integrations/cirq/simulator/qsim_simulator/index.html#id0">(integrations.cirq.simulator.qsim_simulator.QSimSimulator attribute)</a>, <a href="api/integrations/cirq/simulator/qsim_simulator/index.html#integrations.cirq.simulator.qsim_simulator.QSimSimulator.qubit_order">[1]</a>
+</li>
+        <li><a href="api/integrations/cirq/simulator/simulator/index.html#integrations.cirq.simulator.simulator.CirqSimulator.qubit_order">(integrations.cirq.simulator.simulator.CirqSimulator attribute)</a>
+</li>
+      </ul></li>
       <li><a href="api/integrations/cirq/conversions/index.html#integrations.cirq.conversions.qubitop_to_paulisum">qubitop_to_paulisum() (in module integrations.cirq.conversions)</a>
 
       <ul>
@@ -6394,11 +6641,15 @@ title="Fullscreen mode"
       <ul>
         <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.Dagger.replace_params">(quantum.circuits._gates.Dagger method)</a>
 </li>
+        <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.Exponential.replace_params">(quantum.circuits._gates.Exponential method)</a>
+</li>
         <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.Gate.replace_params">(quantum.circuits._gates.Gate method)</a>
 </li>
         <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.GateOperation.replace_params">(quantum.circuits._gates.GateOperation method)</a>
 </li>
         <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.MatrixFactoryGate.replace_params">(quantum.circuits._gates.MatrixFactoryGate method)</a>
+</li>
+        <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.Power.replace_params">(quantum.circuits._gates.Power method)</a>
 </li>
         <li><a href="api/quantum/circuits/_operations/index.html#quantum.circuits._operations.Operation.replace_params">(quantum.circuits._operations.Operation method)</a>
 </li>
@@ -6407,6 +6658,8 @@ title="Fullscreen mode"
         <li><a href="api/quantum/circuits/index.html#quantum.circuits.ControlledGate.replace_params">(quantum.circuits.ControlledGate method)</a>
 </li>
         <li><a href="api/quantum/circuits/index.html#quantum.circuits.Dagger.replace_params">(quantum.circuits.Dagger method)</a>
+</li>
+        <li><a href="api/quantum/circuits/index.html#quantum.circuits.Exponential.replace_params">(quantum.circuits.Exponential method)</a>
 </li>
         <li><a href="api/quantum/circuits/index.html#quantum.circuits.Gate.replace_params">(quantum.circuits.Gate method)</a>
 </li>
@@ -6419,14 +6672,14 @@ title="Fullscreen mode"
         <li><a href="api/quantum/circuits/index.html#quantum.circuits.Operation.replace_params">(quantum.circuits.Operation method)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/quantum/openfermion/transforms/opconversions/index.html#quantum.openfermion.transforms.opconversions.reverse_jordan_wigner">reverse_jordan_wigner() (in module quantum.openfermion.transforms.opconversions)</a>
 
       <ul>
         <li><a href="api/quantum/openfermion/transforms/opconversions/reverse_jordan_wigner/index.html#quantum.openfermion.transforms.opconversions.reverse_jordan_wigner.reverse_jordan_wigner">(in module quantum.openfermion.transforms.opconversions.reverse_jordan_wigner)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/quantum/openfermion/zapata_utils/index.html#quantum.openfermion.zapata_utils.reverse_qubit_order">reverse_qubit_order() (in module quantum.openfermion.zapata_utils)</a>
 
       <ul>
@@ -6455,11 +6708,9 @@ title="Fullscreen mode"
       </ul></li>
       <li><a href="api/integrations/cirq/conversions/_circuit_conversions/index.html#integrations.cirq.conversions._circuit_conversions.RotationGateFactory">RotationGateFactory (in module integrations.cirq.conversions._circuit_conversions)</a>
 </li>
-      <li><a href="api/integrations/cirq/simulator/index.html#integrations.cirq.simulator.CirqSimulator.run_circuit_and_measure">run_circuit_and_measure() (integrations.cirq.simulator.CirqSimulator method)</a>
+      <li><a href="api/integrations/cirq/simulator/_base/index.html#integrations.cirq.simulator._base.CirqBasedSimulator.run_circuit_and_measure">run_circuit_and_measure() (integrations.cirq.simulator._base.CirqBasedSimulator method)</a>
 
       <ul>
-        <li><a href="api/integrations/cirq/simulator/simulator/index.html#integrations.cirq.simulator.simulator.CirqSimulator.run_circuit_and_measure">(integrations.cirq.simulator.simulator.CirqSimulator method)</a>
-</li>
         <li><a href="api/integrations/forest/index.html#integrations.forest.ForestSimulator.run_circuit_and_measure">(integrations.forest.ForestSimulator method)</a>
 </li>
         <li><a href="api/integrations/forest/simulator/index.html#integrations.forest.simulator.ForestSimulator.run_circuit_and_measure">(integrations.forest.simulator.ForestSimulator method)</a>
@@ -6489,11 +6740,9 @@ title="Fullscreen mode"
         <li><a href="api/quantum/trackers/index.html#quantum.trackers.MeasurementTrackingBackend.run_circuit_and_measure">(quantum.trackers.MeasurementTrackingBackend method)</a>
 </li>
       </ul></li>
-      <li><a href="api/integrations/cirq/simulator/index.html#integrations.cirq.simulator.CirqSimulator.run_circuitset_and_measure">run_circuitset_and_measure() (integrations.cirq.simulator.CirqSimulator method)</a>
+      <li><a href="api/integrations/cirq/simulator/_base/index.html#integrations.cirq.simulator._base.CirqBasedSimulator.run_circuitset_and_measure">run_circuitset_and_measure() (integrations.cirq.simulator._base.CirqBasedSimulator method)</a>
 
       <ul>
-        <li><a href="api/integrations/cirq/simulator/simulator/index.html#integrations.cirq.simulator.simulator.CirqSimulator.run_circuitset_and_measure">(integrations.cirq.simulator.simulator.CirqSimulator method)</a>
-</li>
         <li><a href="api/integrations/qiskit/backend/backend/index.html#integrations.qiskit.backend.backend.QiskitBackend.run_circuitset_and_measure">(integrations.qiskit.backend.backend.QiskitBackend method)</a>
 </li>
         <li><a href="api/integrations/qiskit/backend/index.html#integrations.qiskit.backend.QiskitBackend.run_circuitset_and_measure">(integrations.qiskit.backend.QiskitBackend method)</a>
@@ -6561,13 +6810,15 @@ title="Fullscreen mode"
 </li>
       <li><a href="api/quantum/utils/index.html#quantum.utils.sample_from_probability_distribution">sample_from_probability_distribution() (in module quantum.utils)</a>
 </li>
-      <li><a href="api/quantum/measurements/index.html#quantum.measurements.sample_from_wavefunction">sample_from_wavefunction() (in module quantum.measurements)</a>
+      <li><a href="api/quantum/wavefunction/index.html#quantum.wavefunction.sample_from_wavefunction">sample_from_wavefunction() (in module quantum.wavefunction)</a>
 </li>
       <li><a href="api/opt/problems/graph/index.html#opt.problems.graph.Sampler">Sampler (in module opt.problems.graph)</a>
 </li>
       <li><a href="api/quantum/measurements/index.html#quantum.measurements.Measurements.save">save() (quantum.measurements.Measurements method)</a>
 
       <ul>
+        <li><a href="api/quantum/measurements/measurements/index.html#quantum.measurements.measurements.Measurements.save">(quantum.measurements.measurements.Measurements method)</a>
+</li>
         <li><a href="api/quantum/openfermion/chem/molecular_data/index.html#quantum.openfermion.chem.molecular_data.MolecularData.save">(quantum.openfermion.chem.molecular_data.MolecularData method)</a>
 </li>
         <li><a href="api/quantum/openfermion/chem/index.html#quantum.openfermion.chem.MolecularData.save">(quantum.openfermion.chem.MolecularData method)</a>
@@ -6592,7 +6843,11 @@ title="Fullscreen mode"
 </li>
       </ul></li>
       <li><a href="api/quantum/measurements/index.html#quantum.measurements.save_expectation_values">save_expectation_values() (in module quantum.measurements)</a>
+
+      <ul>
+        <li><a href="api/quantum/measurements/expectation_values/index.html#quantum.measurements.expectation_values.save_expectation_values">(in module quantum.measurements.expectation_values)</a>
 </li>
+      </ul></li>
       <li><a href="api/quantum/utils/index.html#quantum.utils.save_generic_dict">save_generic_dict() (in module quantum.utils)</a>
 </li>
       <li><a href="api/quantum/openfermion/zapata_utils/index.html#quantum.openfermion.zapata_utils.save_interaction_operator">save_interaction_operator() (in module quantum.openfermion.zapata_utils)</a>
@@ -6642,7 +6897,11 @@ title="Fullscreen mode"
 </li>
       </ul></li>
       <li><a href="api/quantum/measurements/index.html#quantum.measurements.save_parities">save_parities() (in module quantum.measurements)</a>
+
+      <ul>
+        <li><a href="api/quantum/measurements/parities/index.html#quantum.measurements.parities.save_parities">(in module quantum.measurements.parities)</a>
 </li>
+      </ul></li>
       <li><a href="api/vqa/ansatz/qcbm/_qcbm/index.html#vqa.ansatz.qcbm._qcbm.save_qcbm_ansatz_set">save_qcbm_ansatz_set() (in module vqa.ansatz.qcbm._qcbm)</a>
 </li>
       <li><a href="api/quantum/openfermion/zapata_utils/index.html#quantum.openfermion.zapata_utils.save_qubit_operator">save_qubit_operator() (in module quantum.openfermion.zapata_utils)</a>
@@ -6667,7 +6926,7 @@ title="Fullscreen mode"
 </li>
       <li><a href="api/quantum/utils/index.html#quantum.utils.save_value_estimate">save_value_estimate() (in module quantum.utils)</a>
 </li>
-      <li><a href="api/quantum/measurements/index.html#quantum.measurements.save_wavefunction">save_wavefunction() (in module quantum.measurements)</a>
+      <li><a href="api/quantum/wavefunction/index.html#quantum.wavefunction.save_wavefunction">save_wavefunction() (in module quantum.wavefunction)</a>
 </li>
       <li><a href="api/opt/api/index.html#opt.api.SaveCondition">SaveCondition (class in opt.api)</a>
 
@@ -6676,6 +6935,8 @@ title="Fullscreen mode"
 </li>
       </ul></li>
       <li><a href="api/quantum/utils/index.html#quantum.utils.scale_and_discretize">scale_and_discretize() (in module quantum.utils)</a>
+</li>
+      <li><a href="api/opt/optimizers/scikit_quant_optimizer/index.html#opt.optimizers.scikit_quant_optimizer.ScikitQuantOptimizer">ScikitQuantOptimizer (class in opt.optimizers.scikit_quant_optimizer)</a>
 </li>
       <li><a href="api/opt/optimizers/index.html#opt.optimizers.ScipyOptimizer">ScipyOptimizer (class in opt.optimizers)</a>
 
@@ -6692,6 +6953,8 @@ title="Fullscreen mode"
 </li>
       </ul></li>
       <li><a href="api/quantum/circuits/_serde/index.html#quantum.circuits._serde.serialize_expr">serialize_expr() (in module quantum.circuits._serde)</a>
+</li>
+      <li><a href="api/opt/optimizers/scikit_quant_optimizer/index.html#opt.optimizers.scikit_quant_optimizer.ScikitQuantOptimizer.set_general_bounds">set_general_bounds() (opt.optimizers.scikit_quant_optimizer.ScikitQuantOptimizer method)</a>
 </li>
       <li><a href="api/quantum/openfermion/testing/examples_test/index.html#quantum.openfermion.testing.examples_test.ExamplesTest.setUp">setUp() (quantum.openfermion.testing.examples_test.ExamplesTest method)</a>
 
@@ -6722,17 +6985,19 @@ title="Fullscreen mode"
       <li><a href="api/integrations/cirq/simulator/index.html#integrations.cirq.simulator.CirqSimulator.simulator">simulator (integrations.cirq.simulator.CirqSimulator attribute)</a>
 
       <ul>
+        <li><a href="api/integrations/cirq/simulator/qsim_simulator/index.html#integrations.cirq.simulator.qsim_simulator.QSimSimulator.simulator">(integrations.cirq.simulator.qsim_simulator.QSimSimulator attribute)</a>
+</li>
         <li><a href="api/integrations/cirq/simulator/simulator/index.html#integrations.cirq.simulator.simulator.CirqSimulator.simulator">(integrations.cirq.simulator.simulator.CirqSimulator attribute)</a>
 </li>
       </ul></li>
       <li><a href="api/quantum/testing/generate_cases_for_backend_tests/index.html#quantum.testing.generate_cases_for_backend_tests.single_qubit_initial_states">single_qubit_initial_states (in module quantum.testing.generate_cases_for_backend_tests)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/quantum/testing/generate_cases_for_backend_tests/index.html#quantum.testing.generate_cases_for_backend_tests.single_qubit_operators">single_qubit_operators (in module quantum.testing.generate_cases_for_backend_tests)</a>
 </li>
       <li><a href="api/vqa/ansatz/singlet_uccsd/index.html#vqa.ansatz.singlet_uccsd.SingletUCCSDAnsatz">SingletUCCSDAnsatz (class in vqa.ansatz.singlet_uccsd)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/quantum/api/backend_test/index.html#quantum.api.backend_test.skip_tests_for_excluded_gates">skip_tests_for_excluded_gates() (in module quantum.api.backend_test)</a>
 </li>
       <li><a href="api/opt/api/bqm_solver/index.html#opt.api.bqm_solver.BQMSolver.solve">solve() (opt.api.bqm_solver.BQMSolver method)</a>
@@ -6787,6 +7052,12 @@ title="Fullscreen mode"
 </li>
       <li><a href="api/quantum/circuits/_operations/index.html#quantum.circuits._operations.sub_symbols">sub_symbols() (in module quantum.circuits._operations)</a>
 </li>
+      <li><a href="api/quantum/distributions/_measurement_outcome_distribution/index.html#quantum.distributions._measurement_outcome_distribution.MeasurementOutcomeDistribution.subdistribution">subdistribution() (quantum.distributions._measurement_outcome_distribution.MeasurementOutcomeDistribution method)</a>
+
+      <ul>
+        <li><a href="api/quantum/distributions/index.html#quantum.distributions.MeasurementOutcomeDistribution.subdistribution">(quantum.distributions.MeasurementOutcomeDistribution method)</a>
+</li>
+      </ul></li>
       <li><a href="api/vqa/cost_function/cost_function/index.html#vqa.cost_function.cost_function.substitution_based_estimation_tasks_factory">substitution_based_estimation_tasks_factory() (in module vqa.cost_function.cost_function)</a>
 </li>
       <li><a href="api/vqa/cost_function/cost_function/index.html#vqa.cost_function.cost_function.sum_expectation_values">sum_expectation_values() (in module vqa.cost_function.cost_function)</a>
@@ -6795,18 +7066,18 @@ title="Fullscreen mode"
 </li>
       <li><a href="api/opt/api/optimizer_test/index.html#opt.api.optimizer_test.OptimizerTests.sum_x_squared">sum_x_squared() (opt.api.optimizer_test.OptimizerTests method)</a>
 </li>
-      <li><a href="api/integrations/cirq/simulator/index.html#integrations.cirq.simulator.CirqSimulator.supports_batching">supports_batching (integrations.cirq.simulator.CirqSimulator attribute)</a>
+      <li><a href="api/integrations/cirq/simulator/_base/index.html#integrations.cirq.simulator._base.CirqBasedSimulator.supports_batching">supports_batching (integrations.cirq.simulator._base.CirqBasedSimulator attribute)</a>
 
       <ul>
+        <li><a href="api/integrations/cirq/simulator/index.html#integrations.cirq.simulator.CirqSimulator.supports_batching">(integrations.cirq.simulator.CirqSimulator attribute)</a>
+</li>
+        <li><a href="api/integrations/cirq/simulator/qsim_simulator/index.html#integrations.cirq.simulator.qsim_simulator.QSimSimulator.supports_batching">(integrations.cirq.simulator.qsim_simulator.QSimSimulator attribute)</a>
+</li>
         <li><a href="api/integrations/cirq/simulator/simulator/index.html#integrations.cirq.simulator.simulator.CirqSimulator.supports_batching">(integrations.cirq.simulator.simulator.CirqSimulator attribute)</a>
 </li>
         <li><a href="api/integrations/forest/index.html#integrations.forest.ForestSimulator.supports_batching">(integrations.forest.ForestSimulator attribute)</a>
 </li>
         <li><a href="api/integrations/forest/simulator/index.html#integrations.forest.simulator.ForestSimulator.supports_batching">(integrations.forest.simulator.ForestSimulator attribute)</a>
-</li>
-        <li><a href="api/integrations/qiskit/backend/backend/index.html#integrations.qiskit.backend.backend.QiskitBackend.supports_batching">(integrations.qiskit.backend.backend.QiskitBackend attribute)</a>
-</li>
-        <li><a href="api/integrations/qiskit/backend/index.html#integrations.qiskit.backend.QiskitBackend.supports_batching">(integrations.qiskit.backend.QiskitBackend attribute)</a>
 </li>
         <li><a href="api/integrations/qiskit/simulator/index.html#integrations.qiskit.simulator.QiskitSimulator.supports_batching">(integrations.qiskit.simulator.QiskitSimulator attribute)</a>
 </li>
@@ -6820,9 +7091,9 @@ title="Fullscreen mode"
 </li>
         <li><a href="api/quantum/api/index.html#id0">(quantum.api.QuantumBackend attribute)</a>, <a href="api/quantum/api/index.html#quantum.api.QuantumBackend.supports_batching">[1]</a>
 </li>
-        <li><a href="api/quantum/testing/index.html#id0">(quantum.testing.MockQuantumBackend attribute)</a>, <a href="api/quantum/testing/index.html#quantum.testing.MockQuantumBackend.supports_batching">[1]</a>
+        <li><a href="api/quantum/testing/index.html#quantum.testing.MockQuantumBackend.supports_batching">(quantum.testing.MockQuantumBackend attribute)</a>
 </li>
-        <li><a href="api/quantum/testing/mocks/index.html#id0">(quantum.testing.mocks.MockQuantumBackend attribute)</a>, <a href="api/quantum/testing/mocks/index.html#quantum.testing.mocks.MockQuantumBackend.supports_batching">[1]</a>
+        <li><a href="api/quantum/testing/mocks/index.html#quantum.testing.mocks.MockQuantumBackend.supports_batching">(quantum.testing.mocks.MockQuantumBackend attribute)</a>
 </li>
       </ul></li>
       <li><a href="api/vqa/ansatz/kbody/index.html#vqa.ansatz.kbody.XAnsatz.supports_parametrized_circuits">supports_parametrized_circuits (vqa.ansatz.kbody.XAnsatz attribute)</a>
@@ -7021,10 +7292,10 @@ title="Fullscreen mode"
 </li>
       <li><a href="api/vqa/api/ansatz_test/index.html#vqa.api.ansatz_test.AnsatzTests.test_set_number_of_layers_invalidates_parametrized_circuit">test_set_number_of_layers_invalidates_parametrized_circuit() (vqa.api.ansatz_test.AnsatzTests method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/quantum/openfermion/testing/hydrogen_integration_test/index.html#quantum.openfermion.testing.hydrogen_integration_test.HydrogenIntegrationTest.test_sparse_numerically">test_sparse_numerically() (quantum.openfermion.testing.hydrogen_integration_test.HydrogenIntegrationTest method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/quantum/api/backend_test/index.html#quantum.api.backend_test.QuantumSimulatorGatesTest.test_two_qubit_non_parametric_gates_using_amplitudes">test_two_qubit_non_parametric_gates_using_amplitudes() (quantum.api.backend_test.QuantumSimulatorGatesTest method)</a>
 </li>
       <li><a href="api/quantum/api/backend_test/index.html#quantum.api.backend_test.QuantumBackendGatesTests.test_two_qubit_non_parametric_gates_using_expectation_values">test_two_qubit_non_parametric_gates_using_expectation_values() (quantum.api.backend_test.QuantumBackendGatesTests method)</a>
@@ -7052,9 +7323,13 @@ title="Fullscreen mode"
 </li>
         <li><a href="api/quantum/circuits/layouts/index.html#quantum.circuits.layouts.CircuitLayers.to_dict">(quantum.circuits.layouts.CircuitLayers method)</a>
 </li>
+        <li><a href="api/quantum/measurements/expectation_values/index.html#quantum.measurements.expectation_values.ExpectationValues.to_dict">(quantum.measurements.expectation_values.ExpectationValues method)</a>
+</li>
         <li><a href="api/quantum/measurements/index.html#quantum.measurements.ExpectationValues.to_dict">(quantum.measurements.ExpectationValues method)</a>
 </li>
         <li><a href="api/quantum/measurements/index.html#quantum.measurements.Parities.to_dict">(quantum.measurements.Parities method)</a>
+</li>
+        <li><a href="api/quantum/measurements/parities/index.html#quantum.measurements.parities.Parities.to_dict">(quantum.measurements.parities.Parities method)</a>
 </li>
         <li><a href="api/quantum/utils/index.html#quantum.utils.ValueEstimate.to_dict">(quantum.utils.ValueEstimate method)</a>
 </li>
@@ -7239,10 +7514,14 @@ title="Fullscreen mode"
       </ul></li>
       <li><a href="api/quantum/utils/index.html#quantum.utils.ValueEstimate">ValueEstimate (class in quantum.utils)</a>
 </li>
-      <li><a href="api/quantum/measurements/index.html#quantum.measurements.ExpectationValues.values">values (quantum.measurements.ExpectationValues attribute)</a>
+      <li><a href="api/quantum/measurements/expectation_values/index.html#quantum.measurements.expectation_values.ExpectationValues.values">values (quantum.measurements.expectation_values.ExpectationValues attribute)</a>
 
       <ul>
+        <li><a href="api/quantum/measurements/index.html#quantum.measurements.ExpectationValues.values">(quantum.measurements.ExpectationValues attribute)</a>
+</li>
         <li><a href="api/quantum/measurements/index.html#quantum.measurements.Parities.values">(quantum.measurements.Parities attribute)</a>
+</li>
+        <li><a href="api/quantum/measurements/parities/index.html#quantum.measurements.parities.Parities.values">(quantum.measurements.parities.Parities attribute)</a>
 </li>
       </ul></li>
       <li><a href="api/opt/problems/index.html#opt.problems.VertexCover">VertexCover (class in opt.problems)</a>
@@ -7256,13 +7535,6 @@ title="Fullscreen mode"
 
       <ul>
         <li><a href="api/vqa/index.html#module-vqa">module</a>
-</li>
-      </ul></li>
-      <li>
-    vqa.ansatz
-
-      <ul>
-        <li><a href="api/vqa/ansatz/index.html#module-vqa.ansatz">module</a>
 </li>
       </ul></li>
       <li>
@@ -7482,18 +7754,24 @@ title="Fullscreen mode"
       </ul></li>
       <li><a href="api/quantum/openfermion/_compat/index.html#quantum.openfermion._compat.wrap_module">wrap_module() (in module quantum.openfermion._compat)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.ControlledGate.wrapped_gate">wrapped_gate (quantum.circuits._gates.ControlledGate attribute)</a>
 
       <ul>
         <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.Dagger.wrapped_gate">(quantum.circuits._gates.Dagger attribute)</a>
 </li>
+        <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.Exponential.wrapped_gate">(quantum.circuits._gates.Exponential attribute)</a>
+</li>
+        <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.Power.wrapped_gate">(quantum.circuits._gates.Power attribute)</a>
+</li>
         <li><a href="api/quantum/circuits/index.html#quantum.circuits.ControlledGate.wrapped_gate">(quantum.circuits.ControlledGate attribute)</a>
 </li>
         <li><a href="api/quantum/circuits/index.html#quantum.circuits.Dagger.wrapped_gate">(quantum.circuits.Dagger attribute)</a>
 </li>
+        <li><a href="api/quantum/circuits/index.html#quantum.circuits.Exponential.wrapped_gate">(quantum.circuits.Exponential attribute)</a>
+</li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/quantum/openfermion/linalg/index.html#quantum.openfermion.linalg.wrapped_kronecker">wrapped_kronecker() (in module quantum.openfermion.linalg)</a>
 
       <ul>
@@ -7644,8 +7922,6 @@ title="Fullscreen mode"
     </div>
     <div class="footer-content row">
         <footer class="col footer"><p>
-  
-    By michal.stechly@zapatacomputing.com<br/>
   
       &copy; Copyright 2022, Zapata Computing, Inc.<br/>
 </p>

@@ -23,7 +23,6 @@ Functions
 
 .. autoapisummary::
 
-   integrations.qiskit.conversions._circuit_conversions.qiskit_qubit
    integrations.qiskit.conversions._circuit_conversions.export_to_qiskit
    integrations.qiskit.conversions._circuit_conversions.import_from_qiskit
 
@@ -44,9 +43,6 @@ Attributes
    
 
    
-
-.. py:function:: qiskit_qubit(index: int, num_qubits_in_circuit: int) -> qiskit.circuit.Qubit
-
 
 .. py:data:: ORQUESTRA_QISKIT_GATE_MAP
    

@@ -10,7 +10,6 @@ Subpackages
    :titlesonly:
    :maxdepth: 3
 
-   ansatz/index.rst
    grouping/index.rst
    parameter_initialization/index.rst
    shot_allocation/index.rst

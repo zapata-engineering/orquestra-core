@@ -35,9 +35,5 @@ Classes
 
    .. py:method:: is_natively_supported(self, operation: orquestra.quantum.circuits.Operation) -> bool
 
-      Determine if given operation is natively supported by this Simulator.
-
-      This method can be as a predicate in split_circuit function.
-
 
 

@@ -24,6 +24,8 @@
     <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/autoapi.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
@@ -39,6 +41,7 @@
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../../../_static/togglebutton.js"></script>
     <script src="../../../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../../../../_static/design-tabs.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../../../genindex.html" />
@@ -107,17 +110,17 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../../../../tutorials/beginner_tutorial.html">
-     Start from the Basics
+     Getting Started
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../../../tutorials/basic_qaoa.html">
-     Basic QAOA Tutorial
+     Solving MaxCut with QAOA
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../../../tutorials/orq_core_structure.html">
-     Orquestra Core’s Structure
+     Package Structure
     </a>
    </li>
    <li class="toctree-l2">
@@ -133,8 +136,8 @@
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../../index.html">
-   API Reference
+  <a class="reference internal" href="../../../../guides/index.html">
+   Guides
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
@@ -142,194 +145,23 @@
    </i>
   </label>
   <ul>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../../../integrations/index.html">
-     <code class="xref py py-mod docutils literal notranslate">
-      <span class="pre">
-       integrations
-      </span>
-     </code>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../guides/circuits.html">
+     Circuits guide
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-    <label for="toctree-checkbox-3">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3 has-children">
-      <a class="reference internal" href="../../../integrations/cirq/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         integrations.cirq
-        </span>
-       </code>
-      </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-      <label for="toctree-checkbox-4">
-       <i class="fas fa-chevron-down">
-       </i>
-      </label>
-      <ul>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../../integrations/cirq/conversions/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           integrations.cirq.conversions
-          </span>
-         </code>
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../../integrations/cirq/decompositions/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           integrations.cirq.decompositions
-          </span>
-         </code>
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../../integrations/cirq/noise/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           integrations.cirq.noise
-          </span>
-         </code>
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../../integrations/cirq/simulator/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           integrations.cirq.simulator
-          </span>
-         </code>
-        </a>
-       </li>
-      </ul>
-     </li>
-     <li class="toctree-l3 has-children">
-      <a class="reference internal" href="../../../integrations/forest/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         integrations.forest
-        </span>
-       </code>
-      </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-      <label for="toctree-checkbox-5">
-       <i class="fas fa-chevron-down">
-       </i>
-      </label>
-      <ul>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../../integrations/forest/conversions/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           integrations.forest.conversions
-          </span>
-         </code>
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../../integrations/forest/simulator/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           integrations.forest.simulator
-          </span>
-         </code>
-        </a>
-       </li>
-      </ul>
-     </li>
-     <li class="toctree-l3 has-children">
-      <a class="reference internal" href="../../../integrations/qiskit/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         integrations.qiskit
-        </span>
-       </code>
-      </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-      <label for="toctree-checkbox-6">
-       <i class="fas fa-chevron-down">
-       </i>
-      </label>
-      <ul>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../../integrations/qiskit/backend/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           integrations.qiskit.backend
-          </span>
-         </code>
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../../integrations/qiskit/conversions/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           integrations.qiskit.conversions
-          </span>
-         </code>
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../../integrations/qiskit/noise/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           integrations.qiskit.noise
-          </span>
-         </code>
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../../integrations/qiskit/simulator/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           integrations.qiskit.simulator
-          </span>
-         </code>
-        </a>
-       </li>
-      </ul>
-     </li>
-     <li class="toctree-l3 has-children">
-      <a class="reference internal" href="../../../integrations/qulacs/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         integrations.qulacs
-        </span>
-       </code>
-      </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
-      <label for="toctree-checkbox-7">
-       <i class="fas fa-chevron-down">
-       </i>
-      </label>
-      <ul>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../../integrations/qulacs/conversions/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           integrations.qulacs.conversions
-          </span>
-         </code>
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../../integrations/qulacs/simulator/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           integrations.qulacs.simulator
-          </span>
-         </code>
-        </a>
-       </li>
-      </ul>
-     </li>
-    </ul>
    </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../index.html">
+   API Reference
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2 has-children">
     <a class="reference internal" href="../../../opt/index.html">
      <code class="xref py py-mod docutils literal notranslate">
@@ -338,8 +170,8 @@
       </span>
      </code>
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
-    <label for="toctree-checkbox-8">
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
      <i class="fas fa-chevron-down">
      </i>
     </label>
@@ -352,8 +184,8 @@
         </span>
        </code>
       </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
-      <label for="toctree-checkbox-9">
+      <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+      <label for="toctree-checkbox-5">
        <i class="fas fa-chevron-down">
        </i>
       </label>
@@ -449,8 +281,8 @@
         </span>
        </code>
       </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
-      <label for="toctree-checkbox-10">
+      <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+      <label for="toctree-checkbox-6">
        <i class="fas fa-chevron-down">
        </i>
       </label>
@@ -492,8 +324,8 @@
         </span>
        </code>
       </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
-      <label for="toctree-checkbox-11">
+      <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+      <label for="toctree-checkbox-7">
        <i class="fas fa-chevron-down">
        </i>
       </label>
@@ -517,8 +349,8 @@
         </span>
        </code>
       </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
-      <label for="toctree-checkbox-12">
+      <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+      <label for="toctree-checkbox-8">
        <i class="fas fa-chevron-down">
        </i>
       </label>
@@ -546,6 +378,15 @@
          <code class="xref py py-mod docutils literal notranslate">
           <span class="pre">
            opt.optimizers.qiskit_optimizer
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../opt/optimizers/scikit_quant_optimizer/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           opt.optimizers.scikit_quant_optimizer
           </span>
          </code>
         </a>
@@ -587,8 +428,8 @@
         </span>
        </code>
       </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
-      <label for="toctree-checkbox-13">
+      <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+      <label for="toctree-checkbox-9">
        <i class="fas fa-chevron-down">
        </i>
       </label>
@@ -688,6 +529,271 @@
     </ul>
    </li>
    <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../../integrations/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       integrations
+      </span>
+     </code>
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+    <label for="toctree-checkbox-10">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../../integrations/cirq/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         integrations.cirq
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+      <label for="toctree-checkbox-11">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../integrations/cirq/conversions/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.cirq.conversions
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../integrations/cirq/decompositions/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.cirq.decompositions
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../integrations/cirq/noise/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.cirq.noise
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../integrations/cirq/simulator/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.cirq.simulator
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../../integrations/forest/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         integrations.forest
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+      <label for="toctree-checkbox-12">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../integrations/forest/conversions/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.forest.conversions
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../integrations/forest/simulator/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.forest.simulator
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../../integrations/qiskit/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         integrations.qiskit
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+      <label for="toctree-checkbox-13">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../integrations/qiskit/backend/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.qiskit.backend
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../integrations/qiskit/conversions/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.qiskit.conversions
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../integrations/qiskit/noise/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.qiskit.noise
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../integrations/qiskit/simulator/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.qiskit.simulator
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../../integrations/qulacs/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         integrations.qulacs
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+      <label for="toctree-checkbox-14">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../integrations/qulacs/conversions/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.qulacs.conversions
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../integrations/qulacs/simulator/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           integrations.qulacs.simulator
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../../vqa/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       vqa
+      </span>
+     </code>
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+    <label for="toctree-checkbox-15">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../vqa/grouping/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         vqa.grouping
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../vqa/parameter_initialization/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         vqa.parameter_initialization
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../vqa/shot_allocation/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         vqa.shot_allocation
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../../vqa/testing/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         vqa.testing
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+      <label for="toctree-checkbox-16">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../vqa/testing/mock_objects/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           vqa.testing.mock_objects
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../vqa/utils/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         vqa.utils
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
     <a class="reference internal" href="../../index.html">
      <code class="xref py py-mod docutils literal notranslate">
       <span class="pre">
@@ -695,8 +801,8 @@
       </span>
      </code>
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
-    <label for="toctree-checkbox-14">
+    <input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
+    <label for="toctree-checkbox-17">
      <i class="fas fa-chevron-down">
      </i>
     </label>
@@ -709,8 +815,8 @@
         </span>
        </code>
       </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
-      <label for="toctree-checkbox-15">
+      <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
+      <label for="toctree-checkbox-18">
        <i class="fas fa-chevron-down">
        </i>
       </label>
@@ -761,8 +867,8 @@
         </span>
        </code>
       </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
-      <label for="toctree-checkbox-16">
+      <input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/>
+      <label for="toctree-checkbox-19">
        <i class="fas fa-chevron-down">
        </i>
       </label>
@@ -804,8 +910,8 @@
         </span>
        </code>
       </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
-      <label for="toctree-checkbox-17">
+      <input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/>
+      <label for="toctree-checkbox-20">
        <i class="fas fa-chevron-down">
        </i>
       </label>
@@ -867,6 +973,49 @@
       </a>
      </li>
      <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../measurements/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         quantum.measurements
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/>
+      <label for="toctree-checkbox-21">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../measurements/expectation_values/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.measurements.expectation_values
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../measurements/measurements/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.measurements.measurements
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../measurements/parities/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           quantum.measurements.parities
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
       <a class="reference internal" href="../../openfermion/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
@@ -874,8 +1023,8 @@
         </span>
        </code>
       </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
-      <label for="toctree-checkbox-18">
+      <input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/>
+      <label for="toctree-checkbox-22">
        <i class="fas fa-chevron-down">
        </i>
       </label>
@@ -989,8 +1138,8 @@
         </span>
        </code>
       </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/>
-      <label for="toctree-checkbox-19">
+      <input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/>
+      <label for="toctree-checkbox-23">
        <i class="fas fa-chevron-down">
        </i>
       </label>
@@ -1029,15 +1178,6 @@
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          quantum.evolution
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../measurements/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         quantum.measurements
         </span>
        </code>
       </a>
@@ -1083,153 +1223,6 @@
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          quantum.wavefunction
-        </span>
-       </code>
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../../../vqa/index.html">
-     <code class="xref py py-mod docutils literal notranslate">
-      <span class="pre">
-       vqa
-      </span>
-     </code>
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/>
-    <label for="toctree-checkbox-20">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3 has-children">
-      <a class="reference internal" href="../../../vqa/ansatz/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         vqa.ansatz
-        </span>
-       </code>
-      </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/>
-      <label for="toctree-checkbox-21">
-       <i class="fas fa-chevron-down">
-       </i>
-      </label>
-      <ul>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../../vqa/ansatz/qcbm/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           vqa.ansatz.qcbm
-          </span>
-         </code>
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../../vqa/ansatz/kbody/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           vqa.ansatz.kbody
-          </span>
-         </code>
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../../vqa/ansatz/qaoa_farhi/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           vqa.ansatz.qaoa_farhi
-          </span>
-         </code>
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../../vqa/ansatz/qaoa_warm_start/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           vqa.ansatz.qaoa_warm_start
-          </span>
-         </code>
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../../vqa/ansatz/quantum_compiling/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           vqa.ansatz.quantum_compiling
-          </span>
-         </code>
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../../vqa/ansatz/singlet_uccsd/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           vqa.ansatz.singlet_uccsd
-          </span>
-         </code>
-        </a>
-       </li>
-      </ul>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../../vqa/grouping/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         vqa.grouping
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../../vqa/parameter_initialization/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         vqa.parameter_initialization
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../../vqa/shot_allocation/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         vqa.shot_allocation
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toctree-l3 has-children">
-      <a class="reference internal" href="../../../vqa/testing/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         vqa.testing
-        </span>
-       </code>
-      </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/>
-      <label for="toctree-checkbox-22">
-       <i class="fas fa-chevron-down">
-       </i>
-      </label>
-      <ul>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../../vqa/testing/mock_objects/index.html">
-         <code class="xref py py-mod docutils literal notranslate">
-          <span class="pre">
-           vqa.testing.mock_objects
-          </span>
-         </code>
-        </a>
-       </li>
-      </ul>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../../vqa/utils/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         vqa.utils
         </span>
        </code>
       </a>
@@ -1302,52 +1295,6 @@ title="Fullscreen mode"
   </span>
 
 </button>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../../../../_sources/api/quantum/circuits/_gates/index.rst.txt"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.rst</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
 <label for="__page-toc"
   class="headerbtn headerbtn-page-toc"
   
@@ -1428,6 +1375,16 @@ title="Print to PDF"
        <li class="toc-h5 nav-item toc-entry">
         <a class="reference internal nav-link" href="#quantum.circuits._gates.Gate.dagger">
          dagger
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.Gate.power">
+         power
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.Gate.exp">
+         exp
         </a>
        </li>
        <li class="toc-h5 nav-item toc-entry">
@@ -1550,6 +1507,16 @@ title="Print to PDF"
         </a>
        </li>
        <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.MatrixFactoryGate.exp">
+         exp
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.MatrixFactoryGate.power">
+         power
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
         <a class="reference internal nav-link" href="#quantum.circuits._gates.MatrixFactoryGate.free_symbols">
          free_symbols
         </a>
@@ -1604,6 +1571,16 @@ title="Print to PDF"
        <li class="toc-h5 nav-item toc-entry">
         <a class="reference internal nav-link" href="#quantum.circuits._gates.ControlledGate.dagger">
          dagger
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.ControlledGate.exp">
+         exp
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.ControlledGate.power">
+         power
         </a>
        </li>
        <li class="toc-h5 nav-item toc-entry">
@@ -1671,6 +1648,160 @@ title="Print to PDF"
        <li class="toc-h5 nav-item toc-entry">
         <a class="reference internal nav-link" href="#quantum.circuits._gates.Dagger.dagger">
          dagger
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.Dagger.exp">
+         exp
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.Dagger.power">
+         power
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.circuits._gates.EXPONENTIAL_GATE_NAME">
+       EXPONENTIAL_GATE_NAME
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.circuits._gates.Exponential">
+       Exponential
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.Exponential.wrapped_gate">
+         wrapped_gate
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.Exponential.matrix">
+         matrix
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.Exponential.params">
+         params
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.Exponential.num_qubits">
+         num_qubits
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.Exponential.name">
+         name
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.Exponential.controlled">
+         controlled
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.Exponential.bind">
+         bind
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.Exponential.replace_params">
+         replace_params
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.Exponential.dagger">
+         dagger
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.Exponential.exp">
+         exp
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.Exponential.power">
+         power
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.circuits._gates.POWER_GATE_SYMBOL">
+       POWER_GATE_SYMBOL
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.circuits._gates.Power">
+       Power
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.Power.wrapped_gate">
+         wrapped_gate
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.Power.exponent">
+         exponent
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.Power.name">
+         name
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.Power.params">
+         params
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.Power.free_symbols">
+         free_symbols
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.Power.num_qubits">
+         num_qubits
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.Power.matrix">
+         matrix
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.Power.controlled">
+         controlled
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.Power.dagger">
+         dagger
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.Power.exp">
+         exp
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.Power.power">
+         power
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.Power.bind">
+         bind
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.Power.replace_params">
+         replace_params
         </a>
        </li>
       </ul>
@@ -1803,6 +1934,16 @@ title="Print to PDF"
         </a>
        </li>
        <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.Gate.power">
+         power
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.Gate.exp">
+         exp
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
         <a class="reference internal nav-link" href="#quantum.circuits._gates.Gate.bind">
          bind
         </a>
@@ -1922,6 +2063,16 @@ title="Print to PDF"
         </a>
        </li>
        <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.MatrixFactoryGate.exp">
+         exp
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.MatrixFactoryGate.power">
+         power
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
         <a class="reference internal nav-link" href="#quantum.circuits._gates.MatrixFactoryGate.free_symbols">
          free_symbols
         </a>
@@ -1976,6 +2127,16 @@ title="Print to PDF"
        <li class="toc-h5 nav-item toc-entry">
         <a class="reference internal nav-link" href="#quantum.circuits._gates.ControlledGate.dagger">
          dagger
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.ControlledGate.exp">
+         exp
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.ControlledGate.power">
+         power
         </a>
        </li>
        <li class="toc-h5 nav-item toc-entry">
@@ -2043,6 +2204,160 @@ title="Print to PDF"
        <li class="toc-h5 nav-item toc-entry">
         <a class="reference internal nav-link" href="#quantum.circuits._gates.Dagger.dagger">
          dagger
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.Dagger.exp">
+         exp
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.Dagger.power">
+         power
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.circuits._gates.EXPONENTIAL_GATE_NAME">
+       EXPONENTIAL_GATE_NAME
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.circuits._gates.Exponential">
+       Exponential
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.Exponential.wrapped_gate">
+         wrapped_gate
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.Exponential.matrix">
+         matrix
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.Exponential.params">
+         params
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.Exponential.num_qubits">
+         num_qubits
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.Exponential.name">
+         name
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.Exponential.controlled">
+         controlled
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.Exponential.bind">
+         bind
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.Exponential.replace_params">
+         replace_params
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.Exponential.dagger">
+         dagger
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.Exponential.exp">
+         exp
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.Exponential.power">
+         power
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.circuits._gates.POWER_GATE_SYMBOL">
+       POWER_GATE_SYMBOL
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantum.circuits._gates.Power">
+       Power
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.Power.wrapped_gate">
+         wrapped_gate
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.Power.exponent">
+         exponent
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.Power.name">
+         name
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.Power.params">
+         params
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.Power.free_symbols">
+         free_symbols
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.Power.num_qubits">
+         num_qubits
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.Power.matrix">
+         matrix
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.Power.controlled">
+         controlled
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.Power.dagger">
+         dagger
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.Power.exp">
+         exp
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.Power.power">
+         power
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.Power.bind">
+         bind
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#quantum.circuits._gates.Power.replace_params">
+         replace_params
         </a>
        </li>
       </ul>
@@ -2133,6 +2448,12 @@ title="Print to PDF"
 <tr class="row-odd"><td><p><a class="reference internal" href="#quantum.circuits._gates.Dagger" title="quantum.circuits._gates.Dagger"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Dagger</span></code></a></p></td>
 <td><p>Interface of a quantum gate representable by a matrix, translatable to other</p></td>
 </tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#quantum.circuits._gates.Exponential" title="quantum.circuits._gates.Exponential"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Exponential</span></code></a></p></td>
+<td><p>Interface of a quantum gate representable by a matrix, translatable to other</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.circuits._gates.Power" title="quantum.circuits._gates.Power"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Power</span></code></a></p></td>
+<td><p>Interface of a quantum gate representable by a matrix, translatable to other</p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#quantum.circuits._gates.CustomGateMatrixFactory" title="quantum.circuits._gates.CustomGateMatrixFactory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CustomGateMatrixFactory</span></code></a></p></td>
 <td><p>Can be passed as <cite>matrix_factory</cite> when a gate matrix isn't lazily evaluated.</p></td>
 </tr>
@@ -2168,6 +2489,12 @@ title="Print to PDF"
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#quantum.circuits._gates.DAGGER_GATE_NAME" title="quantum.circuits._gates.DAGGER_GATE_NAME"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DAGGER_GATE_NAME</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.circuits._gates.EXPONENTIAL_GATE_NAME" title="quantum.circuits._gates.EXPONENTIAL_GATE_NAME"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EXPONENTIAL_GATE_NAME</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#quantum.circuits._gates.POWER_GATE_SYMBOL" title="quantum.circuits._gates.POWER_GATE_SYMBOL"><code class="xref py py-obj docutils literal notranslate"><span class="pre">POWER_GATE_SYMBOL</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -2250,6 +2577,19 @@ just to know the number of qubits.</p>
 <dt class="sig sig-object py" id="quantum.circuits._gates.Gate.dagger">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dagger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#quantum.circuits._gates.Gate" title="quantum.circuits._gates.Gate"><span class="pre">Gate</span></a></span></span><a class="headerlink" href="#quantum.circuits._gates.Gate.dagger" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum.circuits._gates.Gate.power">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">power</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exponent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#quantum.circuits._gates.Gate" title="quantum.circuits._gates.Gate"><span class="pre">Gate</span></a></span></span><a class="headerlink" href="#quantum.circuits._gates.Gate.power" title="Permalink to this definition">#</a></dt>
+<dd><p>Gate representing the underlying matrix raised to the power
+of the given exponent.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum.circuits._gates.Gate.exp">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">exp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#quantum.circuits._gates.Gate" title="quantum.circuits._gates.Gate"><span class="pre">Gate</span></a></span></span><a class="headerlink" href="#quantum.circuits._gates.Gate.exp" title="Permalink to this definition">#</a></dt>
+<dd><p>Gate representing the exponential of the given gate.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="quantum.circuits._gates.Gate.bind">
@@ -2398,6 +2738,16 @@ Will be passed to <cite>matrix_factory</cite> when <cite>matrix</cite> property 
 <dd></dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="quantum.circuits._gates.MatrixFactoryGate.exp">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">exp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#quantum.circuits._gates.Gate" title="quantum.circuits._gates.Gate"><span class="pre">Gate</span></a></span></span><a class="headerlink" href="#quantum.circuits._gates.MatrixFactoryGate.exp" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum.circuits._gates.MatrixFactoryGate.power">
+<span class="sig-name descname"><span class="pre">power</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exponent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#quantum.circuits._gates.Gate" title="quantum.circuits._gates.Gate"><span class="pre">Gate</span></a></span></span><a class="headerlink" href="#quantum.circuits._gates.MatrixFactoryGate.power" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="quantum.circuits._gates.MatrixFactoryGate.free_symbols">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">free_symbols</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">sympy.Symbol</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#quantum.circuits._gates.MatrixFactoryGate.free_symbols" title="Permalink to this definition">#</a></dt>
 <dd><p>Unbound symbols in the gate matrix. See Gate.free_symbols for details.</p>
@@ -2477,6 +2827,19 @@ In particular, nonparametric gates should always return ().</p>
 <dt class="sig sig-object py" id="quantum.circuits._gates.ControlledGate.dagger">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dagger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#quantum.circuits._gates.ControlledGate" title="quantum.circuits._gates.ControlledGate"><span class="pre">ControlledGate</span></a></span></span><a class="headerlink" href="#quantum.circuits._gates.ControlledGate.dagger" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum.circuits._gates.ControlledGate.exp">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">exp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#quantum.circuits._gates.Gate" title="quantum.circuits._gates.Gate"><span class="pre">Gate</span></a></span></span><a class="headerlink" href="#quantum.circuits._gates.ControlledGate.exp" title="Permalink to this definition">#</a></dt>
+<dd><p>Gate representing the exponential of the given gate.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum.circuits._gates.ControlledGate.power">
+<span class="sig-name descname"><span class="pre">power</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exponent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#quantum.circuits._gates.Gate" title="quantum.circuits._gates.Gate"><span class="pre">Gate</span></a></span></span><a class="headerlink" href="#quantum.circuits._gates.ControlledGate.power" title="Permalink to this definition">#</a></dt>
+<dd><p>Gate representing the underlying matrix raised to the power
+of the given exponent.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="quantum.circuits._gates.ControlledGate.bind">
@@ -2568,6 +2931,231 @@ is discouraged.</p>
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dagger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#quantum.circuits._gates.Gate" title="quantum.circuits._gates.Gate"><span class="pre">Gate</span></a></span></span><a class="headerlink" href="#quantum.circuits._gates.Dagger.dagger" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum.circuits._gates.Dagger.exp">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">exp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#quantum.circuits._gates.Gate" title="quantum.circuits._gates.Gate"><span class="pre">Gate</span></a></span></span><a class="headerlink" href="#quantum.circuits._gates.Dagger.exp" title="Permalink to this definition">#</a></dt>
+<dd><p>Gate representing the exponential of the given gate.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum.circuits._gates.Dagger.power">
+<span class="sig-name descname"><span class="pre">power</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exponent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#quantum.circuits._gates.Gate" title="quantum.circuits._gates.Gate"><span class="pre">Gate</span></a></span></span><a class="headerlink" href="#quantum.circuits._gates.Dagger.power" title="Permalink to this definition">#</a></dt>
+<dd><p>Gate representing the underlying matrix raised to the power
+of the given exponent.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="quantum.circuits._gates.EXPONENTIAL_GATE_NAME">
+<span class="sig-prename descclassname"><span class="pre">quantum.circuits._gates.</span></span><span class="sig-name descname"><span class="pre">EXPONENTIAL_GATE_NAME</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">Exponential</span></em><a class="headerlink" href="#quantum.circuits._gates.EXPONENTIAL_GATE_NAME" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="quantum.circuits._gates.Exponential">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">quantum.circuits._gates.</span></span><span class="sig-name descname"><span class="pre">Exponential</span></span><a class="headerlink" href="#quantum.circuits._gates.Exponential" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#quantum.circuits._gates.Gate" title="quantum.circuits._gates.Gate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gate</span></code></a></p>
+<p>Interface of a quantum gate representable by a matrix, translatable to other
+frameworks and backends.</p>
+<p>See <cite>orquestra.quantum.circuits</cite> for a list of built-in gates and usage guide.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="quantum.circuits._gates.Exponential.wrapped_gate">
+<span class="sig-name descname"><span class="pre">wrapped_gate</span></span><em class="property"><span class="w"> </span><span class="pre">:Gate</span></em><a class="headerlink" href="#quantum.circuits._gates.Exponential.wrapped_gate" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum.circuits._gates.Exponential.matrix">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">sympy.Matrix</span></span></span><a class="headerlink" href="#quantum.circuits._gates.Exponential.matrix" title="Permalink to this definition">#</a></dt>
+<dd><p>Unitary matrix describing gate’s action on state vector.</p>
+<p>We need it to be able to implement .propagate() on the operation class.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum.circuits._gates.Exponential.params">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">quantum.circuits._operations.Parameter</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Ellipsis</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#quantum.circuits._gates.Exponential.params" title="Permalink to this definition">#</a></dt>
+<dd><p>Value of parameters bound to this gate.</p>
+<p>Length of <cite>params</cite> should be equal to number of parameters in gate initializer.
+In particular, nonparametric gates should always return ().</p>
+<p>Examples:
+- an <cite>H</cite> gate has no params
+- a <cite>RX(np.pi)</cite> gate has a single param with value of <cite>np.pi</cite>
+- a <cite>RX(sympy.Symbol(“theta”))</cite> gate has a single symbolic param <cite>theta</cite>
+- a <cite>RX(sympy.sympify(“theta * alpha”))</cite> gate has a single symbolic expression</p>
+<blockquote>
+<div><p>param <cite>theta*alpha</cite></p>
+</div></blockquote>
+<p>We need it for translations to other frameworks and for serialization.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum.circuits._gates.Exponential.num_qubits">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_qubits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></span><a class="headerlink" href="#quantum.circuits._gates.Exponential.num_qubits" title="Permalink to this definition">#</a></dt>
+<dd><p>Number of qubits this gate acts on.
+We need it because matrix is computed lazily, and we don’t want to create matrix
+just to know the number of qubits.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum.circuits._gates.Exponential.name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quantum.circuits._gates.Exponential.name" title="Permalink to this definition">#</a></dt>
+<dd><p>Globally unique name of the gate.</p>
+<p>Name is used in textual representation and dispatching in conversion between
+frameworks. Defining different gates with the same name as built-in ones
+is discouraged.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum.circuits._gates.Exponential.controlled">
+<span class="sig-name descname"><span class="pre">controlled</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_control_qubits</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#quantum.circuits._gates.Gate" title="quantum.circuits._gates.Gate"><span class="pre">Gate</span></a></span></span><a class="headerlink" href="#quantum.circuits._gates.Exponential.controlled" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum.circuits._gates.Exponential.bind">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bind</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">symbols_map</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#quantum.circuits._gates.Gate" title="quantum.circuits._gates.Gate"><span class="pre">Gate</span></a></span></span><a class="headerlink" href="#quantum.circuits._gates.Exponential.bind" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum.circuits._gates.Exponential.replace_params">
+<span class="sig-name descname"><span class="pre">replace_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">quantum.circuits._operations.Parameter</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Ellipsis</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#quantum.circuits._gates.Gate" title="quantum.circuits._gates.Gate"><span class="pre">Gate</span></a></span></span><a class="headerlink" href="#quantum.circuits._gates.Exponential.replace_params" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum.circuits._gates.Exponential.dagger">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dagger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#quantum.circuits._gates.Gate" title="quantum.circuits._gates.Gate"><span class="pre">Gate</span></a></span></span><a class="headerlink" href="#quantum.circuits._gates.Exponential.dagger" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum.circuits._gates.Exponential.exp">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">exp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#quantum.circuits._gates.Gate" title="quantum.circuits._gates.Gate"><span class="pre">Gate</span></a></span></span><a class="headerlink" href="#quantum.circuits._gates.Exponential.exp" title="Permalink to this definition">#</a></dt>
+<dd><p>Gate representing the exponential of the given gate.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum.circuits._gates.Exponential.power">
+<span class="sig-name descname"><span class="pre">power</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exponent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#quantum.circuits._gates.Gate" title="quantum.circuits._gates.Gate"><span class="pre">Gate</span></a></span></span><a class="headerlink" href="#quantum.circuits._gates.Exponential.power" title="Permalink to this definition">#</a></dt>
+<dd><p>Gate representing the underlying matrix raised to the power
+of the given exponent.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="quantum.circuits._gates.POWER_GATE_SYMBOL">
+<span class="sig-prename descclassname"><span class="pre">quantum.circuits._gates.</span></span><span class="sig-name descname"><span class="pre">POWER_GATE_SYMBOL</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">^</span></em><a class="headerlink" href="#quantum.circuits._gates.POWER_GATE_SYMBOL" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="quantum.circuits._gates.Power">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">quantum.circuits._gates.</span></span><span class="sig-name descname"><span class="pre">Power</span></span><a class="headerlink" href="#quantum.circuits._gates.Power" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#quantum.circuits._gates.Gate" title="quantum.circuits._gates.Gate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gate</span></code></a></p>
+<p>Interface of a quantum gate representable by a matrix, translatable to other
+frameworks and backends.</p>
+<p>See <cite>orquestra.quantum.circuits</cite> for a list of built-in gates and usage guide.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="quantum.circuits._gates.Power.wrapped_gate">
+<span class="sig-name descname"><span class="pre">wrapped_gate</span></span><em class="property"><span class="w"> </span><span class="pre">:Gate</span></em><a class="headerlink" href="#quantum.circuits._gates.Power.wrapped_gate" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="quantum.circuits._gates.Power.exponent">
+<span class="sig-name descname"><span class="pre">exponent</span></span><em class="property"><span class="w"> </span><span class="pre">:float</span></em><a class="headerlink" href="#quantum.circuits._gates.Power.exponent" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum.circuits._gates.Power.name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a></span></span><a class="headerlink" href="#quantum.circuits._gates.Power.name" title="Permalink to this definition">#</a></dt>
+<dd><p>Globally unique name of the gate.</p>
+<p>Name is used in textual representation and dispatching in conversion between
+frameworks. Defining different gates with the same name as built-in ones
+is discouraged.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum.circuits._gates.Power.params">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">quantum.circuits._operations.Parameter</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Ellipsis</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#quantum.circuits._gates.Power.params" title="Permalink to this definition">#</a></dt>
+<dd><p>Value of parameters bound to this gate.</p>
+<p>Length of <cite>params</cite> should be equal to number of parameters in gate initializer.
+In particular, nonparametric gates should always return ().</p>
+<p>Examples:
+- an <cite>H</cite> gate has no params
+- a <cite>RX(np.pi)</cite> gate has a single param with value of <cite>np.pi</cite>
+- a <cite>RX(sympy.Symbol(“theta”))</cite> gate has a single symbolic param <cite>theta</cite>
+- a <cite>RX(sympy.sympify(“theta * alpha”))</cite> gate has a single symbolic expression</p>
+<blockquote>
+<div><p>param <cite>theta*alpha</cite></p>
+</div></blockquote>
+<p>We need it for translations to other frameworks and for serialization.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum.circuits._gates.Power.free_symbols">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">free_symbols</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">sympy.Symbol</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#quantum.circuits._gates.Power.free_symbols" title="Permalink to this definition">#</a></dt>
+<dd><p>Unbound symbols in the gate matrix.</p>
+<p>Examples:
+- an <cite>H</cite> gate has no free symbols
+- a <cite>RX(np.pi)</cite> gate has no free symbols
+- a <cite>RX(sympy.Symbol(“theta”))</cite> gate has a single free symbol <cite>theta</cite>
+- a <cite>RX(sympy.sympify(“theta * alpha”))</cite> gate has two free symbols, <cite>alpha</cite> and</p>
+<blockquote>
+<div><p><cite>theta</cite></p>
+</div></blockquote>
+<ul class="simple">
+<li><dl class="simple">
+<dt>a <cite>RX(sympy.sympify(“theta * alpha”)).bind({sympy.Symbol(“theta”): 0.42})</cite></dt><dd><p>gate has one free symbol, <cite>alpha</cite></p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum.circuits._gates.Power.num_qubits">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_qubits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></span><a class="headerlink" href="#quantum.circuits._gates.Power.num_qubits" title="Permalink to this definition">#</a></dt>
+<dd><p>Number of qubits this gate acts on.
+We need it because matrix is computed lazily, and we don’t want to create matrix
+just to know the number of qubits.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum.circuits._gates.Power.matrix">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">sympy.Matrix</span></span></span><a class="headerlink" href="#quantum.circuits._gates.Power.matrix" title="Permalink to this definition">#</a></dt>
+<dd><p>Unitary matrix describing gate’s action on state vector.</p>
+<p>We need it to be able to implement .propagate() on the operation class.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum.circuits._gates.Power.controlled">
+<span class="sig-name descname"><span class="pre">controlled</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_control_qubits</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#quantum.circuits._gates.Gate" title="quantum.circuits._gates.Gate"><span class="pre">Gate</span></a></span></span><a class="headerlink" href="#quantum.circuits._gates.Power.controlled" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum.circuits._gates.Power.dagger">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dagger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#quantum.circuits._gates.Gate" title="quantum.circuits._gates.Gate"><span class="pre">Gate</span></a></span></span><a class="headerlink" href="#quantum.circuits._gates.Power.dagger" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum.circuits._gates.Power.exp">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">exp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#quantum.circuits._gates.Gate" title="quantum.circuits._gates.Gate"><span class="pre">Gate</span></a></span></span><a class="headerlink" href="#quantum.circuits._gates.Power.exp" title="Permalink to this definition">#</a></dt>
+<dd><p>Gate representing the exponential of the given gate.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum.circuits._gates.Power.power">
+<span class="sig-name descname"><span class="pre">power</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exponent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#quantum.circuits._gates.Gate" title="quantum.circuits._gates.Gate"><span class="pre">Gate</span></a></span></span><a class="headerlink" href="#quantum.circuits._gates.Power.power" title="Permalink to this definition">#</a></dt>
+<dd><p>Gate representing the underlying matrix raised to the power
+of the given exponent.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum.circuits._gates.Power.bind">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bind</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">symbols_map</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">sympy.Symbol</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">quantum.circuits._operations.Parameter</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#quantum.circuits._gates.Gate" title="quantum.circuits._gates.Gate"><span class="pre">Gate</span></a></span></span><a class="headerlink" href="#quantum.circuits._gates.Power.bind" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum.circuits._gates.Power.replace_params">
+<span class="sig-name descname"><span class="pre">replace_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">quantum.circuits._operations.Parameter</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Ellipsis</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#quantum.circuits._gates.Gate" title="quantum.circuits._gates.Gate"><span class="pre">Gate</span></a></span></span><a class="headerlink" href="#quantum.circuits._gates.Power.replace_params" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 <dl class="py class">
@@ -2641,8 +3229,6 @@ Circuit operations.</p>
     </div>
     <div class="footer-content row">
         <footer class="col footer"><p>
-  
-    By michal.stechly@zapatacomputing.com<br/>
   
       &copy; Copyright 2022, Zapata Computing, Inc.<br/>
 </p>

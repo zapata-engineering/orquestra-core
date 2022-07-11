@@ -22,9 +22,6 @@ Classes
 
    Bases: :py:obj:`orquestra.vqa.api.ansatz.Ansatz`
 
-   Helper class that provides a standard way to create an ABC using
-   inheritance.
-
    .. py:attribute:: supports_parametrized_circuits
       :annotation: = True
 
@@ -39,9 +36,6 @@ Classes
 .. py:class:: XZAnsatz(number_of_layers: int, number_of_qubits: int, use_k_body_z_operators: bool = True)
 
    Bases: :py:obj:`orquestra.vqa.api.ansatz.Ansatz`
-
-   Helper class that provides a standard way to create an ABC using
-   inheritance.
 
    .. py:attribute:: supports_parametrized_circuits
       :annotation: = True

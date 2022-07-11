@@ -82,6 +82,19 @@ Functions
       :rtype: int
 
 
+   .. py:method:: subdistribution(self, active_qubits: List[int]) -> MeasurementOutcomeDistribution
+
+      Returns a subdistribution, which represents measurements outcome including only
+      the specified qubits.
+
+      :returns:
+
+                indices of the qubits that should be included in
+                    the subdistribution. Order of the indices will be preserved in
+                    the order of the result bitstrings.
+      :rtype: active_qubits
+
+
 
 .. py:function:: change_tuple_dict_keys_to_comma_separated_integers(dict)
 

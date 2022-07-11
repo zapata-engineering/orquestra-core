@@ -57,6 +57,9 @@
        to_dict(circuit)
        circuit5 = circuit_from_dict(dict5)
 
+   Inverting a circuit::
+       circuit_inverted = circuit.invert()
+
    Defining new gates
    ------------------
 
@@ -140,6 +143,7 @@ Classes
    quantum.circuits.ControlledGate
    quantum.circuits.CustomGateDefinition
    quantum.circuits.Dagger
+   quantum.circuits.Exponential
    quantum.circuits.Gate
    quantum.circuits.GateOperation
    quantum.circuits.MatrixFactoryGate
@@ -369,6 +373,12 @@ Attributes
       :param symbols_map: A map of the symbols/gate parameters to new values
 
 
+   .. py:method:: inverse(self) -> Circuit
+
+      Create a circuit that, when applied to the current circuit, will
+      produce the identity circuit.
+
+
 
 .. py:function:: split_circuit(circuit: Circuit, predicate: Callable[[quantum.circuits._operations.Operation], bool]) -> Iterable[Tuple[bool, Circuit]]
 
@@ -456,6 +466,18 @@ Attributes
 
    .. py:method:: dagger(self) -> ControlledGate
       :property:
+
+
+   .. py:method:: exp(self) -> Gate
+      :property:
+
+      Gate representing the exponential of the given gate.
+
+
+   .. py:method:: power(self, exponent: float) -> Gate
+
+      Gate representing the underlying matrix raised to the power
+      of the given exponent.
 
 
    .. py:method:: bind(self, symbols_map) -> Gate
@@ -571,6 +593,103 @@ Attributes
       :property:
 
 
+   .. py:method:: exp(self) -> Gate
+      :property:
+
+      Gate representing the exponential of the given gate.
+
+
+   .. py:method:: power(self, exponent: float) -> Gate
+
+      Gate representing the underlying matrix raised to the power
+      of the given exponent.
+
+
+
+.. py:class:: Exponential
+
+   Bases: :py:obj:`Gate`
+
+   Interface of a quantum gate representable by a matrix, translatable to other
+   frameworks and backends.
+
+   See `orquestra.quantum.circuits` for a list of built-in gates and usage guide.
+
+   .. py:attribute:: wrapped_gate
+      :annotation: :Gate
+
+      
+
+   .. py:method:: matrix(self) -> sympy.Matrix
+      :property:
+
+      Unitary matrix describing gate's action on state vector.
+
+      We need it to be able to implement .propagate() on the operation class.
+
+
+   .. py:method:: params(self) -> Tuple[quantum.circuits._operations.Parameter, Ellipsis]
+      :property:
+
+      Value of parameters bound to this gate.
+
+      Length of `params` should be equal to number of parameters in gate initializer.
+      In particular, nonparametric gates should always return ().
+
+      Examples:
+      - an `H` gate has no params
+      - a `RX(np.pi)` gate has a single param with value of `np.pi`
+      - a `RX(sympy.Symbol("theta"))` gate has a single symbolic param `theta`
+      - a `RX(sympy.sympify("theta * alpha"))` gate has a single symbolic expression
+          param `theta*alpha`
+
+      We need it for translations to other frameworks and for serialization.
+
+
+   .. py:method:: num_qubits(self) -> int
+      :property:
+
+      Number of qubits this gate acts on.
+      We need it because matrix is computed lazily, and we don't want to create matrix
+      just to know the number of qubits.
+
+
+   .. py:method:: name(self)
+      :property:
+
+      Globally unique name of the gate.
+
+      Name is used in textual representation and dispatching in conversion between
+      frameworks. Defining different gates with the same name as built-in ones
+      is discouraged.
+
+
+   .. py:method:: controlled(self, num_control_qubits: int) -> Gate
+
+
+   .. py:method:: bind(self, symbols_map) -> Gate
+      :abstractmethod:
+
+
+   .. py:method:: replace_params(self, new_params: Tuple[quantum.circuits._operations.Parameter, Ellipsis]) -> Gate
+
+
+   .. py:method:: dagger(self) -> Gate
+      :property:
+
+
+   .. py:method:: exp(self) -> Gate
+      :property:
+
+      Gate representing the exponential of the given gate.
+
+
+   .. py:method:: power(self, exponent: float) -> Gate
+
+      Gate representing the underlying matrix raised to the power
+      of the given exponent.
+
+
 
 .. py:class:: Gate
 
@@ -646,6 +765,19 @@ Attributes
 
    .. py:method:: dagger(self) -> Gate
       :property:
+
+
+   .. py:method:: power(self, exponent: float) -> Gate
+      :abstractmethod:
+
+      Gate representing the underlying matrix raised to the power
+      of the given exponent.
+
+
+   .. py:method:: exp(self) -> Gate
+      :property:
+
+      Gate representing the exponential of the given gate.
 
 
    .. py:method:: bind(self, symbols_map: Dict[sympy.Symbol, quantum.circuits._operations.Parameter]) -> Gate
@@ -763,6 +895,13 @@ Attributes
 
    .. py:method:: dagger(self) -> Union[MatrixFactoryGate, Gate]
       :property:
+
+
+   .. py:method:: exp(self) -> Gate
+      :property:
+
+
+   .. py:method:: power(self, exponent: float) -> Gate
 
 
    .. py:method:: free_symbols(self) -> Iterable[sympy.Symbol]

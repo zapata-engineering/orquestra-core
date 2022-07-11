@@ -22,7 +22,7 @@ Classes
 
 
 
-.. py:class:: QubitOperator(term=None, coefficient=1.0)
+.. py:class:: QubitOperator
 
    Bases: :py:obj:`orquestra.quantum.openfermion.ops.operators.symbolic_operator.SymbolicOperator`
 

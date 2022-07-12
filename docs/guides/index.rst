@@ -6,3 +6,4 @@ Guides
     :maxdepth: 2
 
     circuits.rst
+    backends.rst

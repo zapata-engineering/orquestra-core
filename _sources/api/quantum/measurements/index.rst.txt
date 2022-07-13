@@ -317,7 +317,7 @@ Functions
              and 0 if otherwise.
 
 
-.. py:function:: get_parities_from_measurements(measurements: List[Tuple[int]], ising_operator: orquestra.quantum.openfermion.ops.IsingOperator) -> Parities
+.. py:function:: get_parities_from_measurements(measurements: List[Tuple[int]], ising_operator) -> Parities
 
    Get expectation values from bitstrings.
 

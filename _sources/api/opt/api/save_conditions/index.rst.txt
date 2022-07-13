@@ -33,7 +33,7 @@ Functions
 
 .. py:class:: SaveCondition
 
-   Bases: :py:obj:`typing_extensions.Protocol`
+   Bases: :py:obj:`Protocol`
 
    Protocol of a function determining if given call should should be saved in the
    history.

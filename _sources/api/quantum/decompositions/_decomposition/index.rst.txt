@@ -43,7 +43,7 @@ Attributes
 
 .. py:class:: DecompositionRule
 
-   Bases: :py:obj:`typing_extensions.Protocol`\ [\ :py:obj:`OperationType`\ ]
+   Bases: :py:obj:`Protocol`\ [\ :py:obj:`OperationType`\ ]
 
    .. py:method:: production(self, operation: OperationType) -> Iterable[OperationType]
       :abstractmethod:

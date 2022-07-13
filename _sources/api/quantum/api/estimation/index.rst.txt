@@ -47,7 +47,7 @@ Classes
 
 .. py:class:: EstimationPreprocessor
 
-   Bases: :py:obj:`typing_extensions.Protocol`
+   Bases: :py:obj:`Protocol`
 
    Protocol defining function which transforms a list of EstimationTasks
    into another list of EstimationTasks.
@@ -55,7 +55,7 @@ Classes
 
 .. py:class:: EstimateExpectationValues
 
-   Bases: :py:obj:`typing_extensions.Protocol`
+   Bases: :py:obj:`Protocol`
 
    Protocol defining a function that estimates expectation values for a list of
    estimation tasks. Implementations of this protocol should obey the following rules:
@@ -71,7 +71,7 @@ Classes
 
 .. py:class:: EstimationTasksFactory
 
-   Bases: :py:obj:`typing_extensions.Protocol`
+   Bases: :py:obj:`Protocol`
 
    Factory from producing estimation tasks from R^n vectors.
 

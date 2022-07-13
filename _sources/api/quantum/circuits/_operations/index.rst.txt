@@ -43,7 +43,7 @@ Attributes
 
 .. py:class:: Operation
 
-   Bases: :py:obj:`typing_extensions.Protocol`
+   Bases: :py:obj:`Protocol`
 
    Represents arbitrary operation applicable to a circuit or wavefunction.
 

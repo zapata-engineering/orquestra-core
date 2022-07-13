@@ -39,7 +39,7 @@ Attributes
 
 .. py:class:: Readable
 
-   Bases: :py:obj:`typing_extensions.Protocol`
+   Bases: :py:obj:`Protocol`
 
    Base class for protocol classes.
 
@@ -79,7 +79,7 @@ Attributes
 
 .. py:class:: Writeable
 
-   Bases: :py:obj:`typing_extensions.Protocol`
+   Bases: :py:obj:`Protocol`
 
    Base class for protocol classes.
 
@@ -149,7 +149,7 @@ Attributes
 
 .. py:class:: SupportsLessThan
 
-   Bases: :py:obj:`typing_extensions.Protocol`
+   Bases: :py:obj:`Protocol`
 
    Base class for protocol classes.
 

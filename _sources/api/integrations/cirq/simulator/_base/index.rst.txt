@@ -27,7 +27,7 @@ Functions
 
 
 
-.. py:class:: CirqBasedSimulator(simulator, noise_model=None, param_resolver: cirq.ParamResolverOrSimilarType = None, qubit_order=cirq.ops.QubitOrder.DEFAULT)
+.. py:class:: CirqBasedSimulator(simulator, noise_model: cirq.NOISE_MODEL_LIKE = None, param_resolver: cirq.ParamResolverOrSimilarType = None, qubit_order=cirq.ops.QubitOrder.DEFAULT)
 
    Bases: :py:obj:`orquestra.quantum.api.backend.QuantumSimulator`
 

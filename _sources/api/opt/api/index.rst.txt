@@ -70,14 +70,14 @@ Attributes
 
 .. py:class:: CallableStoringArtifacts
 
-   Bases: :py:obj:`typing_extensions.Protocol`\ [\ :py:obj:`S`\ , :py:obj:`T`\ ]
+   Bases: :py:obj:`Protocol`\ [\ :py:obj:`S`\ , :py:obj:`T`\ ]
 
    A callable that stores artifacts.
 
 
 .. py:class:: CallableWithGradient
 
-   Bases: :py:obj:`typing_extensions.Protocol`
+   Bases: :py:obj:`Protocol`
 
    A callable with gradient.
 
@@ -87,7 +87,7 @@ Attributes
 
 .. py:class:: CallableWithGradientStoringArtifacts
 
-   Bases: :py:obj:`CallableStoringArtifacts`\ [\ :py:obj:`numpy.ndarray`\ , :py:obj:`T`\ ], :py:obj:`typing_extensions.Protocol`
+   Bases: :py:obj:`CallableStoringArtifacts`\ [\ :py:obj:`numpy.ndarray`\ , :py:obj:`T`\ ], :py:obj:`Protocol`
 
    A callable with gradient that stored artifacts.
 
@@ -131,7 +131,7 @@ Attributes
 
 .. py:class:: StoreArtifact
 
-   Bases: :py:obj:`typing_extensions.Protocol`
+   Bases: :py:obj:`Protocol`
 
    A protocol describing how the artifacts are stored.
 
@@ -240,7 +240,7 @@ Attributes
 
 .. py:class:: SaveCondition
 
-   Bases: :py:obj:`typing_extensions.Protocol`
+   Bases: :py:obj:`Protocol`
 
    Protocol of a function determining if given call should should be saved in the
    history.

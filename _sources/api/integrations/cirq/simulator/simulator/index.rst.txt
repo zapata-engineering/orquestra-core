@@ -17,7 +17,7 @@ Classes
 
 
 
-.. py:class:: CirqSimulator(noise_model=None, seed: int = None, param_resolver: cirq.ParamResolverOrSimilarType = None, qubit_order=cirq.ops.QubitOrder.DEFAULT)
+.. py:class:: CirqSimulator(noise_model: cirq.NOISE_MODEL_LIKE = None, seed: int = None, param_resolver: cirq.ParamResolverOrSimilarType = None, qubit_order=cirq.ops.QubitOrder.DEFAULT)
 
    Bases: :py:obj:`integrations.cirq.simulator._base.CirqBasedSimulator`
 

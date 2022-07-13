@@ -17,12 +17,13 @@ Classes
 
 
 
-.. py:class:: QSimSimulator(noise_model=None, param_resolver: Optional[cirq.ParamResolverOrSimilarType] = None, qubit_order=cirq.ops.QubitOrder.DEFAULT, seed: cirq.RANDOM_STATE_OR_SEED_LIKE = None, circuit_memoization_size: int = 0, qsim_options: Optional[qsimcirq.QSimOptions] = None)
+.. py:class:: QSimSimulator(noise_model: cirq.NOISE_MODEL_LIKE = None, param_resolver: Optional[cirq.ParamResolverOrSimilarType] = None, qubit_order=cirq.ops.QubitOrder.DEFAULT, seed: cirq.RANDOM_STATE_OR_SEED_LIKE = None, circuit_memoization_size: int = 0, qsim_options: Optional[qsimcirq.QSimOptions] = None)
 
    Bases: :py:obj:`integrations.cirq.simulator._base.CirqBasedSimulator`
 
-   Simulator using a qsimcirq simulator which is optimized for GPU
-   using cuStateVec (https://docs.nvidia.com/cuda/cuquantum/custatevec/index.html).
+   Integration with qsim simulator.
+   In order to run on GPU using cuStateVec (https://docs.nvidia.com/cuda/cuquantum/custatevec/index.html)
+   please provide `use_gpu=True` and `gpu_mode=1` in `qsim_options`.
    Visit https://quantumai.google/qsim to learn more about qsimcirq.
 
    :param noise_model: an optional noise model to pass in for noisy simulations

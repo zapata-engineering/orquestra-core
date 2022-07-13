@@ -693,7 +693,7 @@ Attributes
 
 .. py:class:: Gate
 
-   Bases: :py:obj:`typing_extensions.Protocol`
+   Bases: :py:obj:`Protocol`
 
    Interface of a quantum gate representable by a matrix, translatable to other
    frameworks and backends.
@@ -950,7 +950,7 @@ Attributes
 
 .. py:class:: Operation
 
-   Bases: :py:obj:`typing_extensions.Protocol`
+   Bases: :py:obj:`Protocol`
 
    Represents arbitrary operation applicable to a circuit or wavefunction.
 

@@ -37,7 +37,7 @@ Attributes
 
 .. py:class:: ParameterPreprocessor
 
-   Bases: :py:obj:`typing_extensions.Protocol`
+   Bases: :py:obj:`Protocol`
 
    Parameter preprocessor.
 

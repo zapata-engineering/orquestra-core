@@ -13,10 +13,10 @@ The ``orquestra-core`` metapackage bundles together :doc:`several packages <orq_
 Note that Orquestra Core can also be installed from source from the `orquestra-core GitHub repository <https://github.com/zapatacomputing/orquestra-core>`_.
 
 
+.. _creating_basic_circuits:
+
 Creating basic circuits
 ============================
-
-.. _creating_circuits:
 
 Let's say you want to build a quantum circuit just to build a Bell State and measure it. As a quick reminder, a Bell State is a maximally entangled state with the most well-known form:
 

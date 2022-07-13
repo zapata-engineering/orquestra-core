@@ -26,6 +26,11 @@ Backends (including simulators)
 * `SymbolicSimulator <https://github.com/zapatacomputing/orquestra-quantum/blob/main/tests/orquestra/quantum/symbolic_simulator_test.py>`_
 * `ForestSimulator <https://github.com/zapatacomputing/orquestra-forest/blob/main/tests/orquestra/integrations/forest/simulator_test.py>`_
 * `CirqSimulator <https://github.com/zapatacomputing/orquestra-cirq/blob/main/tests/orquestra/integrations/cirq/simulator/simulator_test.py>`_
+* `QSimSimulator <https://github.com/zapatacomputing/orquestra-cirq/blob/main/tests/orquestra/integrations/cirq/simulator/qsimsimulator_test.py>`_ including:
+
+  * `Google's qsim <https://quantumai.google/qsim>`
+  * `NVIDIA's cuStateVec <https://docs.nvidia.com/cuda/cuquantum/custatevec/index.html>` with GPU support
+
 * `QiskitSimulator <https://github.com/zapatacomputing/orquestra-qiskit/blob/main/tests/orquestra/integrations/qiskit/simulator/simulator_test.py>`_ has multiple options
 
   * ``aer_simulator``

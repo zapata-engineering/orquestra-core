@@ -117,7 +117,7 @@ We can also get an expectation value for the circuit given an operator we want t
     :start-at: import EstimationTask
     :end-at: ic(evals[0].values)
 
-For a full list of backends you can run your circuits on, check :ref:`this page <backends>`
+For a full list of backends you can run your circuits on, refer to :ref:`this page <integrated_backends>`
 
 **Your turn!**
 

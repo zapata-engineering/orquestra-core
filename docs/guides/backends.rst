@@ -28,6 +28,8 @@ Two types of backends
 
 ``QuantumBackend`` is the base class for all backends. ``QuantumBackend``\ s are used for physical quantum hardware backends.
 
+.. _quantum_simulator:
+
 ``QuantumSimulator`` is a subclass of ``QuantumBackend`` with added functionality that only simulators can provide, such as getting the wavefunction of a circuit and getting the exact expectation values.
 
 For more information on how to use each type of backend please refer to the :ref:`section in this guide on various methods <backend_methods>` or to the :doc:`API documentation </api/quantum/api/backend/index>`.
@@ -41,7 +43,7 @@ The `backend tests <https://github.com/zapatacomputing/orquestra-quantum/blob/ma
 
     Because tests are often specific to their ``Backend``, there are only prototype backend tests in `orquestra-quantum <https://github.com/zapatacomputing/orquestra-quantum/blob/main/src/orquestra/quantum/api/backend_test.py>`_. Implementations of these tests are in the integrations that house specific backends. Please refer to the section on :ref:`currently integrated backends <integrated_backends>` for a complete list of backends
 
-For gates tests, the goal is to ensure it is properly implemented.  
+For gates tests, the goal is to ensure it is properly implemented. @yogi I'm going to need some help here because all the examples I can find just say "pass" (https://github.com/zapatacomputing/orquestra-forest/blob/main/tests/orquestra/integrations/forest/simulator_test.py and https://github.com/zapatacomputing/orquestra-cirq/blob/main/tests/orquestra/integrations/cirq/simulator/simulator_test.py and https://github.com/zapatacomputing/orquestra-quantum/blob/main/tests/orquestra/quantum/symbolic_simulator_test.py and etc)
 
 -- Also tests for gates – and why they are important (we can use the example of XY gate in various frameworks and their conventions. Or not ¯\_(ツ)_/¯)
 
@@ -64,18 +66,45 @@ Simulator ones:
 - get_exact_expectation_values
 - get_measurement_outcome_distribution
 
-Zapata's backend – TrackingBackend, SymbolicBackend
-===================================================
+Zapata's backends
+=================
 
-- What they are and why do we need them? -> Athena implemented TrackingBackend, she can answer any questions
-- SymbolicBackend is super slow, but helpful for small circuits :) 
+SymbolicSimulator
+-----------------
+
+Zapata's ``SymbolicSimulator`` is a type of :ref:`quantum simulator <quantum_simulator>` that's built specifically to allow for the evaluation of circuits with :ref:`symbolic gates <symbolic_gates>`. Because there is extra overhead to allow for this broader type of evaluation, ``SymbolicSimulator`` is not the most performant simulator, but it can be useful for deeply understanding small circuits.
+
+The ``SymbolicSimulator`` can be used the same way any other simulator can be. To see more usage please refer to the :ref:`section in this guide on various methods <backend_methods>` or to the :doc:`API documentation </api/quantum/api/backend/index>`
+
+TrackingBackend
+---------------
+
+TODO
 
 .. _integrated_backends:
 
 Currently integrated backends
 =============================
 
-- List all of them (TODO: also make sure this section and the :ref:`backends <backends>` section of integrations.rst are auto-synced with ``include``)
+Hardware backends
+-----------------
+
+* `QiskitBackend <https://github.com/zapatacomputing/orquestra-qiskit/blob/main/tests/orquestra/integrations/qiskit/backend/backend_test.py>`_
+
+Simulators
+----------
+
+* `SymbolicSimulator <https://github.com/zapatacomputing/orquestra-quantum/blob/main/tests/orquestra/quantum/symbolic_simulator_test.py>`_
+* `ForestSimulator <https://github.com/zapatacomputing/orquestra-forest/blob/main/tests/orquestra/integrations/forest/simulator_test.py>`_
+* `CirqSimulator <https://github.com/zapatacomputing/orquestra-cirq/blob/main/tests/orquestra/integrations/cirq/simulator/simulator_test.py>`_
+* `QiskitSimulator <https://github.com/zapatacomputing/orquestra-qiskit/blob/main/tests/orquestra/integrations/qiskit/simulator/simulator_test.py>`_ has multiple options
+
+  * ``aer_simulator``
+  * ``aer_simulator_statevector``
+
+* `QulacsSimulator <https://github.com/zapatacomputing/orquestra-qulacs/blob/main/tests/orquestra/integrations/qulacs/simulator_test.py>`_
+
+
 - Maybe some short pros&cons of each?
 - GPU stuff as well I think? @yogi
 
@@ -83,7 +112,7 @@ Conversions to other frameworks
 ===============================
 
 - cirq/pyquil/qiskit
-- Mention that it's very fast – the overhead is neglibile, so you can do it back&forth and should be ok :)
+- Mention that it's very fast - the overhead is neglibile, so you can do it back&forth and should be ok :)
 - Please double check if we're not changing the values/signs for some gates, e.g. cause we're using different conventions (some gates are in the reverse order, inverted gates)
 - If you want to use some specific features from particular framework (e.g. drawing circuits from qiskit) feel free to export/import and do it! super easy :)
 

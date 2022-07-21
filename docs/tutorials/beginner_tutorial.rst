@@ -1,6 +1,6 @@
-=====================
+===============
 Getting Started
-=====================
+===============
 
 
 Installing orquestra-core
@@ -131,6 +131,7 @@ For the superdense coding example we made in the last section, run the circuit o
         :start-at: # bob runs and measures the qubits
         :end-at: ic(measurements.get_counts())
 
+.. _beginner_translating_circuits:
 
 Translating Circuits between Libraries
 ======================================

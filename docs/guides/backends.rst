@@ -79,7 +79,19 @@ The ``SymbolicSimulator`` can be used the same way any other simulator can be. T
 TrackingBackend
 ---------------
 
-TODO
+A ``TrackingBackend`` is a backend that tracks and stores data about each run of a circuit. This is accomplished by wrapping pre-existing backends in a ``TrackingBackend``. Currently the ``MeasurementTrackingBackend`` in :doc:`orquestra.quantum.trackers </api/quantum/trackers/index>` is the only implemented ``TrackingBackend``
+
+When ``run_circuit_and_measure`` is called, the tracking backend stores the ``data_type`` recieved from the call (usually a measurement outcome distribution), the wrapped device, the circuit which was run, the disribution of bitstrings which was recieved, the number of gates in the circuit, and the number of shots run in a JSON file. This is useful when you are paying to run circuits on a machine and you want to be able to re-use the data in a different workflow.
+
+To create a ``MeasurementTrackingBackend`` it must be initialized with a backend to be wrapped around, a name for the file you are storing the data in, and a boolean indicating whether or not the individual bitstrings should be saved. 
+
+.. caution:: 
+  
+  If all the bitstrings are saved, it will greatly increase the size of the produced JSON file.
+
+TODO: insert example of using the MeasurementTrackingBackend here
+
+For more examples of using the ``MeasurementTrackingBackend``, refer to the `tracking backend tests <https://github.com/zapatacomputing/orquestra-quantum/blob/main/tests/orquestra/quantum/trackers_test.py>`_
 
 .. _integrated_backends:
 
@@ -105,16 +117,22 @@ Simulators
 * `QulacsSimulator <https://github.com/zapatacomputing/orquestra-qulacs/blob/main/tests/orquestra/integrations/qulacs/simulator_test.py>`_
 
 
-- Maybe some short pros&cons of each?
 - GPU stuff as well I think? @yogi
 
 Conversions to other frameworks
 ===============================
 
-- cirq/pyquil/qiskit
-- Mention that it's very fast - the overhead is neglibile, so you can do it back&forth and should be ok :)
-- Please double check if we're not changing the values/signs for some gates, e.g. cause we're using different conventions (some gates are in the reverse order, inverted gates)
-- If you want to use some specific features from particular framework (e.g. drawing circuits from qiskit) feel free to export/import and do it! super easy :)
+The integrations Orquestra Core has with :ref:`many other frameworks <orq_core_structure>` not only allows for running on Orquestra-supported backends, but also allows for converting circuits to and from those frameworks. This process is very fast so converting to and from different frameworks can be done multiple times with negligible overhead.
+
+There are slightly different ways to import the conversions from the integrations for different frameworks, so here's examples for all of them:
+
+.. literalinclude:: /examples/backends_guide.py
+  :start-after: # Importng and Exporting with different frameworks
+  :end-before: # end importing/exporting examples
+
+If you want to use some specific features from a particular framework (e.g. drawing circuits from qiskit) feel free to export/import and do it! Examples of using the import and export functions can be found in the :ref:`getting started tutorial <beginner_translating_circuits>`.
+
+- Please double check if we're not changing the values/signs for some gates, e.g. cause we're using different conventions (some gates are in the reverse order, inverted gates) @yogi you said you might know what this is about?
 
 How to integrate your own backend @yogi
 =================================

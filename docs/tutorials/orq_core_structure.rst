@@ -1,8 +1,8 @@
+.. _orq_core_structure:
+
 =================
 Package Structure
 =================
-
-.. _orq_core_structure:
 
 As shown in the diagram below, Orquestra Core is broken into multiple packages, each with a different purpose.
 

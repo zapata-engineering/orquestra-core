@@ -25,7 +25,7 @@ As shown in the diagram below, Orquestra Core is broken into multiple packages, 
   * misc functions such as grouping, qaoa interpolation, and estimators
 
 * `orquestra-qiskit <https://github.com/zapatacomputing/orquestra-qiskit>`_ provides an integration with `Qiskit <https://qiskit.org/>`_.
-* `orquestra-cirq <https://github.com/zapatacomputing/orquestra-cirq>`_ provides and integration with `Cirq <https://quantumai.google/cirq>`_.
+* `orquestra-cirq <https://github.com/zapatacomputing/orquestra-cirq>`_ provides an integration with `Cirq <https://quantumai.google/cirq>`_ as well as :ref:`Nvidia's custatevec backend <backends>`.
 * `orquestra-forest <https://github.com/zapatacomputing/orquestra-forest>`_ provides an integration with `Rigetti Forest <https://pyquil-docs.rigetti.com/en/stable/>`_.
 * `orquestra-qulacs <https://github.com/zapatacomputing/orquestra-qulacs>`_ provides an integration with the `Qulacs simulator <https://github.com/qulacs/qulacs>`_.
 

@@ -1,5 +1,5 @@
 sphinx-togglebutton
-sphinx-book-theme
+furo
 sphinx-copybutton
 sphinx-design
 sphinxemoji

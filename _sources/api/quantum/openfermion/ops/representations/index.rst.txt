@@ -75,24 +75,24 @@ Functions
 
       :type: dict
 
-   .. py:method:: constant(self)
+   .. py:method:: constant()
       :property:
 
       The value of the constant term.
 
 
-   .. py:method:: n_body_tensors(self)
+   .. py:method:: n_body_tensors()
       :property:
 
 
-   .. py:method:: n_qubits(self)
+   .. py:method:: n_qubits()
       :property:
 
 
-   .. py:method:: with_function_applied_elementwise(self, func)
+   .. py:method:: with_function_applied_elementwise(func)
 
 
-   .. py:method:: rotate_basis(self, rotation_matrix)
+   .. py:method:: rotate_basis(rotation_matrix)
 
       Rotate the orbital basis of the PolynomialTensor.
 
@@ -101,7 +101,7 @@ Functions
                               invertible.
 
 
-   .. py:method:: projected_n_body_tensors(self, selection, exact=False)
+   .. py:method:: projected_n_body_tensors(selection, exact=False)
 
       Keep only selected elements.
 
@@ -190,19 +190,19 @@ Functions
       This is an n_qubits x n_qubits x n_qubits x
       n_qubits numpy array of floats.
 
-   .. py:method:: one_body_tensor(self)
+   .. py:method:: one_body_tensor()
       :property:
 
       The value of the one-body tensor.
 
 
-   .. py:method:: two_body_tensor(self)
+   .. py:method:: two_body_tensor()
       :property:
 
       The value of the two-body tensor.
 
 
-   .. py:method:: unique_iter(self, complex_valued=False)
+   .. py:method:: unique_iter(complex_valued=False)
 
       Iterate all terms that are not in the same symmetry group.
 
@@ -219,14 +219,14 @@ Functions
       :Yields: tuple[int]
 
 
-   .. py:method:: zero(cls, n_qubits)
+   .. py:method:: zero(n_qubits)
       :classmethod:
 
 
-   .. py:method:: projected(self, indices, exact=False)
+   .. py:method:: projected(indices, exact=False)
 
 
-   .. py:method:: with_function_applied_elementwise(self, func)
+   .. py:method:: with_function_applied_elementwise(func)
 
 
 
@@ -289,19 +289,19 @@ Functions
       The expectation values
       <a^\dagger_p a^\dagger_q a_r a_s>.
 
-   .. py:method:: one_body_tensor(self)
+   .. py:method:: one_body_tensor()
       :property:
 
       The value of the one-body tensor.
 
 
-   .. py:method:: two_body_tensor(self)
+   .. py:method:: two_body_tensor()
       :property:
 
       The value of the two-body tensor.
 
 
-   .. py:method:: expectation(self, operator)
+   .. py:method:: expectation(operator)
 
       Return expectation value of an InteractionRDM with an operator.
 
@@ -313,7 +313,7 @@ Functions
       :raises InteractionRDMError: Invalid operator provided.
 
 
-   .. py:method:: get_qubit_expectations(self, qubit_operator)
+   .. py:method:: get_qubit_expectations(qubit_operator)
 
       Return expectations of QubitOperator in new QubitOperator.
 

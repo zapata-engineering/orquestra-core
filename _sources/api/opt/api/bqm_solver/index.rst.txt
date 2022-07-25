@@ -27,7 +27,7 @@ Classes
    If we ever implement some additional functionalities for this class it
    won't require changing the base class of the already implemented samplers.
 
-   .. py:method:: solve(self, bqm: dimod.BQM) -> dimod.SampleSet
+   .. py:method:: solve(bqm: dimod.BQM) -> dimod.SampleSet
 
       Wrapper around the `sample` method of dimod.Sampler, for making it more
       intuitive to use, as some people find the term "sampling" confusing in

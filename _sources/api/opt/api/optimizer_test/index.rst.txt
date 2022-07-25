@@ -15,13 +15,14 @@
 Module Contents
 ---------------
 
-Classes
-~~~~~~~
+
+Functions
+~~~~~~~~~
 
 .. autoapisummary::
 
-   opt.api.optimizer_test.OptimizerTests
-
+   opt.api.optimizer_test.sum_x_squared
+   opt.api.optimizer_test.rosenbrock_function
 
 
 
@@ -31,67 +32,36 @@ Attributes
 .. autoapisummary::
 
    opt.api.optimizer_test.MANDATORY_OPTIMIZATION_RESULT_FIELDS
+   opt.api.optimizer_test.OPTIMIZER_CONTRACTS
    opt.api.optimizer_test.NESTED_OPTIMIZER_CONTRACTS
 
 
 .. py:data:: MANDATORY_OPTIMIZATION_RESULT_FIELDS
-   :annotation: = ['nfev', 'nit', 'opt_value', 'opt_params']
+   :annotation: = ['nfev', 'nit', 'opt_value', 'opt_params', 'history']
 
    
 
-.. py:class:: OptimizerTests
-
-   Bases: :py:obj:`object`
-
-   Base class for optimizers tests.
-
-   How to use:
-   1. Inherit this class (remember to start name of the class with "Test"
-   2. In the same module define fixture called "optimizer".
-
-   Basic usage pattern:
-
-   @pytest.fixture
-   def optimizer():
-       return MyOptimizer()
+.. py:function:: sum_x_squared(x: numpy.ndarray) -> float
 
 
-   class TestMyOptimizer(OptimizerTests): # Inherits all tests from this class
-        def test_some_new_feature(self, optimizer): # new test
-            ....
-
-   Notice that the `optimizer` fixture can be parametrized if you wish to
-   perform tests for various configurations of your optimizer.
-
-   .. py:method:: sum_x_squared(self)
+.. py:function:: rosenbrock_function(x: numpy.ndarray) -> float
 
 
-   .. py:method:: rosenbrock_function(self)
+.. py:data:: OPTIMIZER_CONTRACTS
+   
 
-      The Rosenbrock function
+   Contracts for instances of the NestedOptimizer base class that can be used in
+   other projects.
 
+   Usage:
+       from orquestra.opt.api.optimizer_test import NESTED_OPTIMIZER_CONTRACTS
 
-   .. py:method:: test_optimizer_succeeds_with_optimizing_rosenbrock_function(self, optimizer, rosenbrock_function, keep_history)
-
-
-   .. py:method:: test_optimizer_succeeds_with_optimizing_sum_of_squares_function(self, optimizer, sum_x_squared, keep_history)
-
-
-   .. py:method:: test_optimizer_succeeds_on_cost_function_without_gradient(self, optimizer, sum_x_squared, keep_history)
-
-
-   .. py:method:: test_optimizer_records_history_if_keep_history_is_true(self, optimizer, sum_x_squared)
-
-
-   .. py:method:: test_gradients_history_is_recorded_if_keep_history_is_true(self, optimizer, sum_x_squared)
-
-
-   .. py:method:: test_optimizer_does_not_record_history_if_keep_history_is_set_to_false(self, optimizer, sum_x_squared)
-
-
-   .. py:method:: test_optimizer_does_not_record_history_by_default(self, optimizer, sum_x_squared)
-
-
+       @pytest.mark.parametrize("contract", NESTED_OPTIMIZER_CONTRACTS)
+       def test_nestedoptimizer_contract(contract):
+           optimizer = MockNestedOptimizer(inner_optimizer=MockOptimizer(), n_iters=5)
+           cost_function_factory = ...
+           initial_params = ...
+           assert contract(optimizer, cost_function_factory, initial_params)
 
 .. py:data:: NESTED_OPTIMIZER_CONTRACTS
    

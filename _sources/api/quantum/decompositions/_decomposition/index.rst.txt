@@ -45,7 +45,7 @@ Attributes
 
    Bases: :py:obj:`Protocol`\ [\ :py:obj:`OperationType`\ ]
 
-   .. py:method:: production(self, operation: OperationType) -> Iterable[OperationType]
+   .. py:method:: production(operation: OperationType) -> Iterable[OperationType]
       :abstractmethod:
 
       Decompose given operation.
@@ -55,7 +55,7 @@ Attributes
       operation.
 
 
-   .. py:method:: predicate(self, operation: OperationType) -> bool
+   .. py:method:: predicate(operation: OperationType) -> bool
       :abstractmethod:
 
       Determine if this rule should be applied to given operation.

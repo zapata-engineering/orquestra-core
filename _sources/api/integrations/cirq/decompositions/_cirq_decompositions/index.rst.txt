@@ -33,10 +33,10 @@ Functions
 
    Decomposition of cirq's XPowGate and YPowGate.
 
-   .. py:method:: predicate(self, operation: cirq.Operation) -> bool
+   .. py:method:: predicate(operation: cirq.Operation) -> bool
 
 
-   .. py:method:: production(self, operation: cirq.Operation) -> Iterable[cirq.Operation]
+   .. py:method:: production(operation: cirq.Operation) -> Iterable[cirq.Operation]
 
 
 

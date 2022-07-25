@@ -33,20 +33,20 @@ Functions
 
    See `help(orquestra.quantum.circuits)` for usage guide.
 
-   .. py:method:: operations(self)
+   .. py:method:: operations()
       :property:
 
       Sequence of quantum gates to apply to qubits in this circuit.
 
 
-   .. py:method:: n_qubits(self) -> int
+   .. py:method:: n_qubits() -> int
       :property:
 
       Number of qubits in this circuit.
       Not every qubit has to be used by a gate.
 
 
-   .. py:method:: free_symbols(self) -> List[sympy.Symbol]
+   .. py:method:: free_symbols() -> List[sympy.Symbol]
       :property:
 
       Set of all the sympy symbols used as params of gates in the circuit.
@@ -54,10 +54,10 @@ Functions
       in `self._operations`.
 
 
-   .. py:method:: collect_custom_gate_definitions(self) -> Iterable[quantum.circuits._gates.CustomGateDefinition]
+   .. py:method:: collect_custom_gate_definitions() -> Iterable[quantum.circuits._gates.CustomGateDefinition]
 
 
-   .. py:method:: to_unitary(self) -> Union[numpy.ndarray, sympy.Matrix]
+   .. py:method:: to_unitary() -> Union[numpy.ndarray, sympy.Matrix]
 
       Create a unitary matrix describing Circuit's action.
 
@@ -65,7 +65,7 @@ Functions
       not have free parameters, and a sympy matrix otherwise.
 
 
-   .. py:method:: bind(self, symbols_map: Dict[sympy.Symbol, Any])
+   .. py:method:: bind(symbols_map: Dict[sympy.Symbol, Any])
 
       Create a copy of the current circuit with the parameters of each gate bound
       to the values provided in the input symbols map.
@@ -73,7 +73,7 @@ Functions
       :param symbols_map: A map of the symbols/gate parameters to new values
 
 
-   .. py:method:: inverse(self) -> Circuit
+   .. py:method:: inverse() -> Circuit
 
       Create a circuit that, when applied to the current circuit, will
       produce the identity circuit.

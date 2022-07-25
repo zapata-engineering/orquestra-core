@@ -40,25 +40,25 @@ Classes
 
    See the documentation of SymbolicOperator for more details.
 
-   .. py:method:: actions(self)
+   .. py:method:: actions()
       :property:
 
       The allowed actions.
 
 
-   .. py:method:: action_strings(self)
+   .. py:method:: action_strings()
       :property:
 
       The string representations of the allowed actions.
 
 
-   .. py:method:: action_before_index(self)
+   .. py:method:: action_before_index()
       :property:
 
       Whether action comes before index in string representations.
 
 
-   .. py:method:: different_indices_commute(self)
+   .. py:method:: different_indices_commute()
       :property:
 
       Whether factors acting on different indices commute.

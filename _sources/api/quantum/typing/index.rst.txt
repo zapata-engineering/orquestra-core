@@ -70,10 +70,10 @@ Attributes
            def meth(self) -> T:
                ...
 
-   .. py:method:: read(self, size: int = 0) -> str
+   .. py:method:: read(size: int = 0) -> str
 
 
-   .. py:method:: writable(self) -> bool
+   .. py:method:: writable() -> bool
 
 
 
@@ -110,10 +110,10 @@ Attributes
            def meth(self) -> T:
                ...
 
-   .. py:method:: write(self, content: str)
+   .. py:method:: write(content: str)
 
 
-   .. py:method:: writable(self) -> bool
+   .. py:method:: writable() -> bool
 
 
 

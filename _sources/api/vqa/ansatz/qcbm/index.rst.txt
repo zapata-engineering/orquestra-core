@@ -36,23 +36,23 @@ Classes
 
       
 
-   .. py:method:: number_of_params(self) -> int
+   .. py:method:: number_of_params() -> int
       :property:
 
       Returns number of parameters in the ansatz.
 
 
-   .. py:method:: n_params_per_ent_layer(self) -> int
+   .. py:method:: n_params_per_ent_layer() -> int
       :property:
 
 
-   .. py:method:: get_number_of_parameters_by_layer(self) -> numpy.ndarray
+   .. py:method:: get_number_of_parameters_by_layer() -> numpy.ndarray
 
       Determine the number of parameters needed for each layer in the ansatz
       :returns: A 1D array of integers
 
 
-   .. py:method:: to_dict(self)
+   .. py:method:: to_dict()
 
       Creates a dictionary representing a QCBM ansatz.
 
@@ -60,7 +60,7 @@ Classes
       :rtype: dictionary (dict)
 
 
-   .. py:method:: from_dict(cls, item: dict) -> QCBMAnsatz
+   .. py:method:: from_dict(item: dict) -> QCBMAnsatz
       :classmethod:
 
       Creates a QCBM ansatz object from an input dictionary of values.

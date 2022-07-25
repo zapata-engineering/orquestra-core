@@ -36,7 +36,7 @@ Functions
 
    :param recorder: recorder object which defines how to store the optimization history.
 
-   .. py:method:: minimize(self, cost_function: opt.api.CostFunction, initial_params: numpy.ndarray, keep_history: bool = False) -> scipy.optimize.OptimizeResult
+   .. py:method:: minimize(cost_function: opt.api.CostFunction, initial_params: numpy.ndarray, keep_history: bool = False) -> scipy.optimize.OptimizeResult
 
       Finds the parameters which minimize given cost function.
 
@@ -47,7 +47,7 @@ Functions
 
 
 
-.. py:function:: optimization_result(opt_value, opt_params, **kwargs) -> scipy.optimize.OptimizeResult
+.. py:function:: optimization_result(*, opt_value, opt_params, **kwargs) -> scipy.optimize.OptimizeResult
 
    Construct instance of OptimizeResult.
 
@@ -93,19 +93,19 @@ Functions
                      previous calls to the gradient.
    :rtype: An instance of OptimizeResult containing
 
-   .. py:method:: inner_optimizer(self) -> Optimizer
+   .. py:method:: inner_optimizer() -> Optimizer
       :property:
 
       Inner optimizer used by this optimizer.
 
 
-   .. py:method:: recorder(self) -> opt.history.recorder.RecorderFactory
+   .. py:method:: recorder() -> opt.history.recorder.RecorderFactory
       :property:
 
       Factory for creating recorders of functions being minimized.
 
 
-   .. py:method:: minimize(self, cost_function_factory: Callable[Ellipsis, opt.api.CostFunction], initial_params: numpy.ndarray, keep_history: bool = False) -> scipy.optimize.OptimizeResult
+   .. py:method:: minimize(cost_function_factory: Callable[Ellipsis, opt.api.CostFunction], initial_params: numpy.ndarray, keep_history: bool = False) -> scipy.optimize.OptimizeResult
 
       Finds optimal parameters to minimize the cost function factory.
 

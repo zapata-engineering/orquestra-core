@@ -21,7 +21,7 @@ Classes
 
    Bases: :py:obj:`orquestra.opt.api.Optimizer`
 
-   .. py:method:: set_general_bounds(self, bounds: Union[List[int], numpy.ndarray])
+   .. py:method:: set_general_bounds(bounds: Union[List[int], numpy.ndarray])
 
 
 

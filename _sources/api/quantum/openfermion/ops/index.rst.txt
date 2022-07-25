@@ -99,31 +99,31 @@ Functions
       during initialization is faster than multiplying a FermionOperator
       with a scalar.
 
-   .. py:method:: actions(self)
+   .. py:method:: actions()
       :property:
 
       The allowed actions.
 
 
-   .. py:method:: action_strings(self)
+   .. py:method:: action_strings()
       :property:
 
       The string representations of the allowed actions.
 
 
-   .. py:method:: action_before_index(self)
+   .. py:method:: action_before_index()
       :property:
 
       Whether action comes before index in string representations.
 
 
-   .. py:method:: different_indices_commute(self)
+   .. py:method:: different_indices_commute()
       :property:
 
       Whether factors acting on different indices commute.
 
 
-   .. py:method:: is_normal_ordered(self)
+   .. py:method:: is_normal_ordered()
 
       Return whether or not term is in normal order.
 
@@ -132,7 +132,7 @@ Functions
       ladder operators come first.
 
 
-   .. py:method:: is_two_body_number_conserving(self, check_spin_symmetry=False)
+   .. py:method:: is_two_body_number_conserving(check_spin_symmetry=False)
 
       Query whether operator has correct form to be from a molecule.
 
@@ -164,25 +164,25 @@ Functions
 
    See the documentation of SymbolicOperator for more details.
 
-   .. py:method:: actions(self)
+   .. py:method:: actions()
       :property:
 
       The allowed actions.
 
 
-   .. py:method:: action_strings(self)
+   .. py:method:: action_strings()
       :property:
 
       The string representations of the allowed actions.
 
 
-   .. py:method:: action_before_index(self)
+   .. py:method:: action_before_index()
       :property:
 
       Whether action comes before index in string representations.
 
 
-   .. py:method:: different_indices_commute(self)
+   .. py:method:: different_indices_commute()
       :property:
 
       Whether factors acting on different indices commute.
@@ -241,31 +241,31 @@ Functions
       during initialization is faster than multiplying a QubitOperator
       with a scalar.
 
-   .. py:method:: actions(self)
+   .. py:method:: actions()
       :property:
 
       The allowed actions.
 
 
-   .. py:method:: action_strings(self)
+   .. py:method:: action_strings()
       :property:
 
       The string representations of the allowed actions.
 
 
-   .. py:method:: action_before_index(self)
+   .. py:method:: action_before_index()
       :property:
 
       Whether action comes before index in string representations.
 
 
-   .. py:method:: different_indices_commute(self)
+   .. py:method:: different_indices_commute()
       :property:
 
       Whether factors acting on different indices commute.
 
 
-   .. py:method:: renormalize(self)
+   .. py:method:: renormalize()
 
       Fix the trace norm of an operator to 1
 
@@ -334,7 +334,7 @@ Functions
 
       :type: dict
 
-   .. py:method:: actions(self)
+   .. py:method:: actions()
       :abstractmethod:
 
       The allowed actions.
@@ -342,7 +342,7 @@ Functions
       Returns a tuple of objects representing the possible actions.
 
 
-   .. py:method:: action_strings(self)
+   .. py:method:: action_strings()
       :abstractmethod:
 
       The string representations of the allowed actions.
@@ -351,7 +351,7 @@ Functions
       actions, in the same order as the `actions` property.
 
 
-   .. py:method:: action_before_index(self)
+   .. py:method:: action_before_index()
       :abstractmethod:
 
       Whether action comes before index in string representations.
@@ -364,19 +364,19 @@ Functions
       should return False.
 
 
-   .. py:method:: different_indices_commute(self)
+   .. py:method:: different_indices_commute()
       :abstractmethod:
 
       Whether factors acting on different indices commute.
 
 
-   .. py:method:: constant(self)
+   .. py:method:: constant()
       :property:
 
       The value of the constant term.
 
 
-   .. py:method:: zero(cls)
+   .. py:method:: zero()
       :classmethod:
 
       :returns:     A symbolic operator o with the property that o+x = x+o = x for
@@ -384,7 +384,7 @@ Functions
       :rtype: additive_identity (SymbolicOperator)
 
 
-   .. py:method:: identity(cls)
+   .. py:method:: identity()
       :classmethod:
 
       :returns:     A symbolic operator u with the property that u*x = x*u = x for
@@ -392,7 +392,7 @@ Functions
       :rtype: multiplicative_identity (SymbolicOperator)
 
 
-   .. py:method:: isclose(self, other, tol=EQ_TOLERANCE)
+   .. py:method:: isclose(other, tol=EQ_TOLERANCE)
 
       Check if other (SymbolicOperator) is close to self.
 
@@ -404,7 +404,7 @@ Functions
       :type other: SymbolicOperator
 
 
-   .. py:method:: compress(self, abs_tol=EQ_TOLERANCE)
+   .. py:method:: compress(abs_tol=EQ_TOLERANCE)
 
       Eliminates all terms with coefficients close to zero and removes
       small imaginary and real parts.
@@ -413,7 +413,7 @@ Functions
       :type abs_tol: float
 
 
-   .. py:method:: induced_norm(self, order=1)
+   .. py:method:: induced_norm(order=1)
 
       Compute the induced p-norm of the operator.
 
@@ -427,7 +427,7 @@ Functions
       :type order: int
 
 
-   .. py:method:: many_body_order(self)
+   .. py:method:: many_body_order()
 
       Compute the many-body order of a SymbolicOperator.
 
@@ -437,13 +437,13 @@ Functions
       :returns: int
 
 
-   .. py:method:: accumulate(cls, operators, start=None)
+   .. py:method:: accumulate(operators, start=None)
       :classmethod:
 
       Sums over SymbolicOperators.
 
 
-   .. py:method:: get_operators(self)
+   .. py:method:: get_operators()
 
       Gets a list of operators with a single term.
 
@@ -451,7 +451,7 @@ Functions
       :rtype: operators([self.__class__])
 
 
-   .. py:method:: get_operator_groups(self, num_groups)
+   .. py:method:: get_operator_groups(num_groups)
 
       Gets a list of operators with a few terms.
       :param num_groups: How many operators to get in the end.
@@ -500,24 +500,24 @@ Functions
 
       :type: dict
 
-   .. py:method:: constant(self)
+   .. py:method:: constant()
       :property:
 
       The value of the constant term.
 
 
-   .. py:method:: n_body_tensors(self)
+   .. py:method:: n_body_tensors()
       :property:
 
 
-   .. py:method:: n_qubits(self)
+   .. py:method:: n_qubits()
       :property:
 
 
-   .. py:method:: with_function_applied_elementwise(self, func)
+   .. py:method:: with_function_applied_elementwise(func)
 
 
-   .. py:method:: rotate_basis(self, rotation_matrix)
+   .. py:method:: rotate_basis(rotation_matrix)
 
       Rotate the orbital basis of the PolynomialTensor.
 
@@ -526,7 +526,7 @@ Functions
                               invertible.
 
 
-   .. py:method:: projected_n_body_tensors(self, selection, exact=False)
+   .. py:method:: projected_n_body_tensors(selection, exact=False)
 
       Keep only selected elements.
 
@@ -615,19 +615,19 @@ Functions
       This is an n_qubits x n_qubits x n_qubits x
       n_qubits numpy array of floats.
 
-   .. py:method:: one_body_tensor(self)
+   .. py:method:: one_body_tensor()
       :property:
 
       The value of the one-body tensor.
 
 
-   .. py:method:: two_body_tensor(self)
+   .. py:method:: two_body_tensor()
       :property:
 
       The value of the two-body tensor.
 
 
-   .. py:method:: unique_iter(self, complex_valued=False)
+   .. py:method:: unique_iter(complex_valued=False)
 
       Iterate all terms that are not in the same symmetry group.
 
@@ -644,14 +644,14 @@ Functions
       :Yields: tuple[int]
 
 
-   .. py:method:: zero(cls, n_qubits)
+   .. py:method:: zero(n_qubits)
       :classmethod:
 
 
-   .. py:method:: projected(self, indices, exact=False)
+   .. py:method:: projected(indices, exact=False)
 
 
-   .. py:method:: with_function_applied_elementwise(self, func)
+   .. py:method:: with_function_applied_elementwise(func)
 
 
 
@@ -677,19 +677,19 @@ Functions
       The expectation values
       <a^\dagger_p a^\dagger_q a_r a_s>.
 
-   .. py:method:: one_body_tensor(self)
+   .. py:method:: one_body_tensor()
       :property:
 
       The value of the one-body tensor.
 
 
-   .. py:method:: two_body_tensor(self)
+   .. py:method:: two_body_tensor()
       :property:
 
       The value of the two-body tensor.
 
 
-   .. py:method:: expectation(self, operator)
+   .. py:method:: expectation(operator)
 
       Return expectation value of an InteractionRDM with an operator.
 
@@ -701,7 +701,7 @@ Functions
       :raises InteractionRDMError: Invalid operator provided.
 
 
-   .. py:method:: get_qubit_expectations(self, qubit_operator)
+   .. py:method:: get_qubit_expectations(qubit_operator)
 
       Return expectations of QubitOperator in new QubitOperator.
 

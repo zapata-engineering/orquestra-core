@@ -68,7 +68,7 @@ Attributes
 
    A callable with gradient.
 
-   .. py:method:: gradient(self, params: numpy.ndarray) -> numpy.ndarray
+   .. py:method:: gradient(params: numpy.ndarray) -> numpy.ndarray
 
 
 
@@ -85,7 +85,7 @@ Attributes
 
    A callable with gradient that stored artifacts.
 
-   .. py:method:: gradient(self, params: numpy.ndarray) -> numpy.ndarray
+   .. py:method:: gradient(params: numpy.ndarray) -> numpy.ndarray
 
 
 

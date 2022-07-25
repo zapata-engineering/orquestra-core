@@ -39,7 +39,7 @@ Functions
 
    A shortcut to create a getter-setter descriptor with one liners.
 
-   .. py:method:: attrname(self)
+   .. py:method:: attrname()
       :property:
 
 

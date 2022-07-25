@@ -76,19 +76,19 @@ Functions
       This is an n_qubits x n_qubits x n_qubits x
       n_qubits numpy array of floats.
 
-   .. py:method:: one_body_tensor(self)
+   .. py:method:: one_body_tensor()
       :property:
 
       The value of the one-body tensor.
 
 
-   .. py:method:: two_body_tensor(self)
+   .. py:method:: two_body_tensor()
       :property:
 
       The value of the two-body tensor.
 
 
-   .. py:method:: unique_iter(self, complex_valued=False)
+   .. py:method:: unique_iter(complex_valued=False)
 
       Iterate all terms that are not in the same symmetry group.
 
@@ -105,14 +105,14 @@ Functions
       :Yields: tuple[int]
 
 
-   .. py:method:: zero(cls, n_qubits)
+   .. py:method:: zero(n_qubits)
       :classmethod:
 
 
-   .. py:method:: projected(self, indices, exact=False)
+   .. py:method:: projected(indices, exact=False)
 
 
-   .. py:method:: with_function_applied_elementwise(self, func)
+   .. py:method:: with_function_applied_elementwise(func)
 
 
 

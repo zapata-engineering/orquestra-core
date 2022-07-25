@@ -45,17 +45,17 @@ Functions
 
       
 
-   .. py:method:: symbols_sort_key(self) -> orquestra.vqa.api.ansatz.SymbolsSortKey
+   .. py:method:: symbols_sort_key() -> orquestra.vqa.api.ansatz.SymbolsSortKey
       :property:
 
 
-   .. py:method:: number_of_qubits(self)
+   .. py:method:: number_of_qubits()
       :property:
 
       Returns number of qubits used for the ansatz circuit.
 
 
-   .. py:method:: number_of_params(self) -> int
+   .. py:method:: number_of_params() -> int
       :property:
 
       Returns number of parameters in the ansatz.

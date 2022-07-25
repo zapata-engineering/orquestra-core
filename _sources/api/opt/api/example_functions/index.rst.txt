@@ -68,7 +68,7 @@ Attributes
 
    :param multiplier: fixed multiplier, see equation above.
 
-   .. py:method:: gradient(self, params)
+   .. py:method:: gradient(params)
 
       Compute value of gradient of this function for given params.
 
@@ -109,7 +109,7 @@ Attributes
 
    :param alpha: parameter for this function, see equation above.
 
-   .. py:method:: gradient(self, params)
+   .. py:method:: gradient(params)
 
       Compute value of gradient of this function for given params.
 

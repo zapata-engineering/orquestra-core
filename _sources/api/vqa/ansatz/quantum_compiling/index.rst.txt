@@ -31,19 +31,19 @@ Classes
 
       
 
-   .. py:method:: number_of_params(self) -> int
+   .. py:method:: number_of_params() -> int
       :property:
 
       Returns number of parameters in the ansatz.
 
 
-   .. py:method:: number_of_params_per_layer(self) -> int
+   .. py:method:: number_of_params_per_layer() -> int
       :property:
 
       Returns number of parameters in the ansatz.
 
 
-   .. py:method:: symbols(self) -> List[sympy.Symbol]
+   .. py:method:: symbols() -> List[sympy.Symbol]
       :property:
 
       Returns a list of symbolic parameters used for creating the ansatz.

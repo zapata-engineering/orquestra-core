@@ -81,31 +81,31 @@ Classes
       during initialization is faster than multiplying a FermionOperator
       with a scalar.
 
-   .. py:method:: actions(self)
+   .. py:method:: actions()
       :property:
 
       The allowed actions.
 
 
-   .. py:method:: action_strings(self)
+   .. py:method:: action_strings()
       :property:
 
       The string representations of the allowed actions.
 
 
-   .. py:method:: action_before_index(self)
+   .. py:method:: action_before_index()
       :property:
 
       Whether action comes before index in string representations.
 
 
-   .. py:method:: different_indices_commute(self)
+   .. py:method:: different_indices_commute()
       :property:
 
       Whether factors acting on different indices commute.
 
 
-   .. py:method:: is_normal_ordered(self)
+   .. py:method:: is_normal_ordered()
 
       Return whether or not term is in normal order.
 
@@ -114,7 +114,7 @@ Classes
       ladder operators come first.
 
 
-   .. py:method:: is_two_body_number_conserving(self, check_spin_symmetry=False)
+   .. py:method:: is_two_body_number_conserving(check_spin_symmetry=False)
 
       Query whether operator has correct form to be from a molecule.
 
@@ -146,25 +146,25 @@ Classes
 
    See the documentation of SymbolicOperator for more details.
 
-   .. py:method:: actions(self)
+   .. py:method:: actions()
       :property:
 
       The allowed actions.
 
 
-   .. py:method:: action_strings(self)
+   .. py:method:: action_strings()
       :property:
 
       The string representations of the allowed actions.
 
 
-   .. py:method:: action_before_index(self)
+   .. py:method:: action_before_index()
       :property:
 
       Whether action comes before index in string representations.
 
 
-   .. py:method:: different_indices_commute(self)
+   .. py:method:: different_indices_commute()
       :property:
 
       Whether factors acting on different indices commute.
@@ -223,31 +223,31 @@ Classes
       during initialization is faster than multiplying a QubitOperator
       with a scalar.
 
-   .. py:method:: actions(self)
+   .. py:method:: actions()
       :property:
 
       The allowed actions.
 
 
-   .. py:method:: action_strings(self)
+   .. py:method:: action_strings()
       :property:
 
       The string representations of the allowed actions.
 
 
-   .. py:method:: action_before_index(self)
+   .. py:method:: action_before_index()
       :property:
 
       Whether action comes before index in string representations.
 
 
-   .. py:method:: different_indices_commute(self)
+   .. py:method:: different_indices_commute()
       :property:
 
       Whether factors acting on different indices commute.
 
 
-   .. py:method:: renormalize(self)
+   .. py:method:: renormalize()
 
       Fix the trace norm of an operator to 1
 
@@ -316,7 +316,7 @@ Classes
 
       :type: dict
 
-   .. py:method:: actions(self)
+   .. py:method:: actions()
       :abstractmethod:
 
       The allowed actions.
@@ -324,7 +324,7 @@ Classes
       Returns a tuple of objects representing the possible actions.
 
 
-   .. py:method:: action_strings(self)
+   .. py:method:: action_strings()
       :abstractmethod:
 
       The string representations of the allowed actions.
@@ -333,7 +333,7 @@ Classes
       actions, in the same order as the `actions` property.
 
 
-   .. py:method:: action_before_index(self)
+   .. py:method:: action_before_index()
       :abstractmethod:
 
       Whether action comes before index in string representations.
@@ -346,19 +346,19 @@ Classes
       should return False.
 
 
-   .. py:method:: different_indices_commute(self)
+   .. py:method:: different_indices_commute()
       :abstractmethod:
 
       Whether factors acting on different indices commute.
 
 
-   .. py:method:: constant(self)
+   .. py:method:: constant()
       :property:
 
       The value of the constant term.
 
 
-   .. py:method:: zero(cls)
+   .. py:method:: zero()
       :classmethod:
 
       :returns:     A symbolic operator o with the property that o+x = x+o = x for
@@ -366,7 +366,7 @@ Classes
       :rtype: additive_identity (SymbolicOperator)
 
 
-   .. py:method:: identity(cls)
+   .. py:method:: identity()
       :classmethod:
 
       :returns:     A symbolic operator u with the property that u*x = x*u = x for
@@ -374,7 +374,7 @@ Classes
       :rtype: multiplicative_identity (SymbolicOperator)
 
 
-   .. py:method:: isclose(self, other, tol=EQ_TOLERANCE)
+   .. py:method:: isclose(other, tol=EQ_TOLERANCE)
 
       Check if other (SymbolicOperator) is close to self.
 
@@ -386,7 +386,7 @@ Classes
       :type other: SymbolicOperator
 
 
-   .. py:method:: compress(self, abs_tol=EQ_TOLERANCE)
+   .. py:method:: compress(abs_tol=EQ_TOLERANCE)
 
       Eliminates all terms with coefficients close to zero and removes
       small imaginary and real parts.
@@ -395,7 +395,7 @@ Classes
       :type abs_tol: float
 
 
-   .. py:method:: induced_norm(self, order=1)
+   .. py:method:: induced_norm(order=1)
 
       Compute the induced p-norm of the operator.
 
@@ -409,7 +409,7 @@ Classes
       :type order: int
 
 
-   .. py:method:: many_body_order(self)
+   .. py:method:: many_body_order()
 
       Compute the many-body order of a SymbolicOperator.
 
@@ -419,13 +419,13 @@ Classes
       :returns: int
 
 
-   .. py:method:: accumulate(cls, operators, start=None)
+   .. py:method:: accumulate(operators, start=None)
       :classmethod:
 
       Sums over SymbolicOperators.
 
 
-   .. py:method:: get_operators(self)
+   .. py:method:: get_operators()
 
       Gets a list of operators with a single term.
 
@@ -433,7 +433,7 @@ Classes
       :rtype: operators([self.__class__])
 
 
-   .. py:method:: get_operator_groups(self, num_groups)
+   .. py:method:: get_operator_groups(num_groups)
 
       Gets a list of operators with a few terms.
       :param num_groups: How many operators to get in the end.

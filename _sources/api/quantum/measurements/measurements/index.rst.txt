@@ -58,7 +58,7 @@ Functions
    a list of tuples wherein each tuple is a measurement and the value of the tuple at a
    given index is the measured bit-value of the qubit (indexed from 0 -> N-1)
 
-   .. py:method:: from_counts(cls, counts: Dict[str, int])
+   .. py:method:: from_counts(counts: Dict[str, int])
       :classmethod:
 
       Create an instance of the Measurements class from a dictionary
@@ -67,7 +67,7 @@ Functions
                      the bitstring was measured
 
 
-   .. py:method:: get_measurements_representing_distribution(cls, measurement_outcome_distribution: orquestra.quantum.distributions.MeasurementOutcomeDistribution, number_of_samples: int)
+   .. py:method:: get_measurements_representing_distribution(measurement_outcome_distribution: orquestra.quantum.distributions.MeasurementOutcomeDistribution, number_of_samples: int)
       :classmethod:
 
       Create an instance of the Measurements class that exactly (or as closely as
@@ -77,7 +77,7 @@ Functions
       :param number_of_samples: the number of measurements
 
 
-   .. py:method:: load_from_file(cls, file: TextIO)
+   .. py:method:: load_from_file(file: TextIO)
       :classmethod:
 
       Load a set of measurements from file
@@ -86,7 +86,7 @@ Functions
       :type file: str or file-like object
 
 
-   .. py:method:: save(self, filename: orquestra.quantum.typing.AnyPath)
+   .. py:method:: save(filename: orquestra.quantum.typing.AnyPath)
 
       Serialize the Measurements object into a file in JSON format.
 
@@ -94,7 +94,7 @@ Functions
       :type filename: string
 
 
-   .. py:method:: get_counts(self)
+   .. py:method:: get_counts()
 
       Get the measurements as a histogram
 
@@ -102,7 +102,7 @@ Functions
                 the bitstring was measured
 
 
-   .. py:method:: add_counts(self, counts: Dict[str, int])
+   .. py:method:: add_counts(counts: Dict[str, int])
 
       Add measurements from a histogram
 
@@ -112,7 +112,7 @@ Functions
                      bitstring represents a measurement of qubit 2 in the 1 state
 
 
-   .. py:method:: get_distribution(self) -> orquestra.quantum.distributions.MeasurementOutcomeDistribution
+   .. py:method:: get_distribution() -> orquestra.quantum.distributions.MeasurementOutcomeDistribution
 
       Get the normalized probability distribution representing the measurements
 
@@ -120,7 +120,7 @@ Functions
       :rtype: distribution
 
 
-   .. py:method:: get_expectation_values(self, ising_operator, use_bessel_correction: bool = False) -> quantum.measurements.expectation_values.ExpectationValues
+   .. py:method:: get_expectation_values(ising_operator, use_bessel_correction: bool = False) -> quantum.measurements.expectation_values.ExpectationValues
 
       Get the expectation values of an operator from the measurements.
 

@@ -44,19 +44,19 @@ Classes
       The expectation values
       <a^\dagger_p a^\dagger_q a_r a_s>.
 
-   .. py:method:: one_body_tensor(self)
+   .. py:method:: one_body_tensor()
       :property:
 
       The value of the one-body tensor.
 
 
-   .. py:method:: two_body_tensor(self)
+   .. py:method:: two_body_tensor()
       :property:
 
       The value of the two-body tensor.
 
 
-   .. py:method:: expectation(self, operator)
+   .. py:method:: expectation(operator)
 
       Return expectation value of an InteractionRDM with an operator.
 
@@ -68,7 +68,7 @@ Classes
       :raises InteractionRDMError: Invalid operator provided.
 
 
-   .. py:method:: get_qubit_expectations(self, qubit_operator)
+   .. py:method:: get_qubit_expectations(qubit_operator)
 
       Return expectations of QubitOperator in new QubitOperator.
 

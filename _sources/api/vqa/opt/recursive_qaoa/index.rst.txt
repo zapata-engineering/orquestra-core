@@ -21,11 +21,11 @@ Classes
 
    Bases: :py:obj:`orquestra.opt.api.optimizer.NestedOptimizer`
 
-   .. py:method:: inner_optimizer(self) -> orquestra.opt.api.optimizer.Optimizer
+   .. py:method:: inner_optimizer() -> orquestra.opt.api.optimizer.Optimizer
       :property:
 
 
-   .. py:method:: recorder(self) -> orquestra.opt.history.recorder.RecorderFactory
+   .. py:method:: recorder() -> orquestra.opt.history.recorder.RecorderFactory
       :property:
 
 

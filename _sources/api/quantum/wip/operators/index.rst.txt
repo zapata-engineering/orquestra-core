@@ -1,0 +1,103 @@
+:py:mod:`quantum.wip.operators`
+===============================
+
+.. py:module:: quantum.wip.operators
+
+
+Package Contents
+----------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   quantum.wip.operators.PauliSum
+   quantum.wip.operators.PauliTerm
+
+
+
+
+.. py:class:: PauliSum(terms: Sequence[PauliTerm] = None)
+
+   .. py:method:: from_str(str_pauli_sum: str) -> PauliSum
+      :staticmethod:
+
+      Construct a PauliSum from the result of str(pauli_sum)
+
+
+   .. py:method:: qubits() -> Set[int]
+      :property:
+
+
+   .. py:method:: is_ising() -> bool
+      :property:
+
+      Returns whether the full operator represents an ising model.
+
+
+   .. py:method:: circuits() -> List[orquestra.quantum.circuits.Circuit]
+      :property:
+
+
+   .. py:method:: identity() -> PauliSum
+      :staticmethod:
+
+
+   .. py:method:: simplify() -> PauliSum
+
+
+
+.. py:class:: PauliTerm(operator: Union[str, Dict[int, str]], coefficient: complex = 1.0)
+
+   A datastructure for storing information about a single Pauli Term
+
+   .. py:method:: from_list(list_of_terms: List[Tuple[str, int]], coefficient: complex = 1.0) -> PauliTerm
+      :staticmethod:
+
+      A slightly more efficient constructor when all the elements of the term are
+       known beforehand. Users should employ this function instead of creating
+       individual terms and multiplying.
+
+
+   .. py:method:: from_str(str_pauli_term: str) -> PauliTerm
+      :staticmethod:
+
+      Construct a PauliTerm from the result of str(pauli_term)
+
+
+   .. py:method:: identity() -> PauliTerm
+      :staticmethod:
+
+
+   .. py:method:: copy(new_coefficient: complex = None) -> PauliTerm
+
+      Properly creates a new PauliTerm, with a completely new dictionary
+      of operators
+
+
+   .. py:method:: qubits() -> Set[int]
+      :property:
+
+      Returns the list of qubit indices associated with this term.
+
+
+   .. py:method:: is_ising() -> bool
+      :property:
+
+      Returns whether the term represents an ising model
+      (i.e. contains only Z terms)
+
+
+   .. py:method:: circuit() -> orquestra.quantum.circuits.Circuit
+      :property:
+
+      Returns the circuit implementing this Pauli Term. Since the public API
+      treats the object as immutable, we store the circuit representation when
+      the function is called for the first time, for efficiency.
+
+
+   .. py:method:: operations_as_set() -> FrozenSet[Tuple[int, str]]
+
+
+

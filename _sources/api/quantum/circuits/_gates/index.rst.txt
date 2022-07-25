@@ -60,7 +60,7 @@ Attributes
 
    See `orquestra.quantum.circuits` for a list of built-in gates and usage guide.
 
-   .. py:method:: name(self) -> str
+   .. py:method:: name() -> str
       :property:
 
       Globally unique name of the gate.
@@ -70,7 +70,7 @@ Attributes
       is discouraged.
 
 
-   .. py:method:: params(self) -> Tuple[quantum.circuits._operations.Parameter, Ellipsis]
+   .. py:method:: params() -> Tuple[quantum.circuits._operations.Parameter, Ellipsis]
       :property:
 
       Value of parameters bound to this gate.
@@ -88,7 +88,7 @@ Attributes
       We need it for translations to other frameworks and for serialization.
 
 
-   .. py:method:: free_symbols(self) -> Iterable[sympy.Symbol]
+   .. py:method:: free_symbols() -> Iterable[sympy.Symbol]
       :property:
 
       Unbound symbols in the gate matrix.
@@ -103,7 +103,7 @@ Attributes
           gate has one free symbol, `alpha`
 
 
-   .. py:method:: num_qubits(self) -> int
+   .. py:method:: num_qubits() -> int
       :property:
 
       Number of qubits this gate acts on.
@@ -111,7 +111,7 @@ Attributes
       just to know the number of qubits.
 
 
-   .. py:method:: matrix(self) -> sympy.Matrix
+   .. py:method:: matrix() -> sympy.Matrix
       :property:
 
       Unitary matrix describing gate's action on state vector.
@@ -119,32 +119,32 @@ Attributes
       We need it to be able to implement .propagate() on the operation class.
 
 
-   .. py:method:: controlled(self, num_control_qubits: int) -> Gate
+   .. py:method:: controlled(num_control_qubits: int) -> Gate
       :abstractmethod:
 
 
-   .. py:method:: dagger(self) -> Gate
+   .. py:method:: dagger() -> Gate
       :property:
 
 
-   .. py:method:: power(self, exponent: float) -> Gate
+   .. py:method:: power(exponent: float) -> Gate
       :abstractmethod:
 
       Gate representing the underlying matrix raised to the power
       of the given exponent.
 
 
-   .. py:method:: exp(self) -> Gate
+   .. py:method:: exp() -> Gate
       :property:
 
       Gate representing the exponential of the given gate.
 
 
-   .. py:method:: bind(self, symbols_map: Dict[sympy.Symbol, quantum.circuits._operations.Parameter]) -> Gate
+   .. py:method:: bind(symbols_map: Dict[sympy.Symbol, quantum.circuits._operations.Parameter]) -> Gate
       :abstractmethod:
 
 
-   .. py:method:: replace_params(self, new_params: Tuple[quantum.circuits._operations.Parameter, Ellipsis]) -> Gate
+   .. py:method:: replace_params(new_params: Tuple[quantum.circuits._operations.Parameter, Ellipsis]) -> Gate
       :abstractmethod:
 
 
@@ -166,23 +166,23 @@ Attributes
 
       
 
-   .. py:method:: params(self) -> Tuple[quantum.circuits._operations.Parameter, Ellipsis]
+   .. py:method:: params() -> Tuple[quantum.circuits._operations.Parameter, Ellipsis]
       :property:
 
 
-   .. py:method:: bind(self, symbols_map: Dict[sympy.Symbol, quantum.circuits._operations.Parameter]) -> GateOperation
+   .. py:method:: bind(symbols_map: Dict[sympy.Symbol, quantum.circuits._operations.Parameter]) -> GateOperation
 
 
-   .. py:method:: replace_params(self, new_params: Tuple[quantum.circuits._operations.Parameter, Ellipsis]) -> GateOperation
+   .. py:method:: replace_params(new_params: Tuple[quantum.circuits._operations.Parameter, Ellipsis]) -> GateOperation
 
 
-   .. py:method:: lifted_matrix(self, num_qubits)
+   .. py:method:: lifted_matrix(num_qubits)
 
 
-   .. py:method:: apply(self, amplitude_vector: orquestra.quantum.typing.ParameterizedVector) -> orquestra.quantum.typing.ParameterizedVector
+   .. py:method:: apply(amplitude_vector: orquestra.quantum.typing.ParameterizedVector) -> orquestra.quantum.typing.ParameterizedVector
 
 
-   .. py:method:: free_symbols(self) -> Iterable[sympy.Symbol]
+   .. py:method:: free_symbols() -> Iterable[sympy.Symbol]
       :property:
 
 
@@ -238,7 +238,7 @@ Attributes
 
       
 
-   .. py:method:: matrix(self) -> sympy.Matrix
+   .. py:method:: matrix() -> sympy.Matrix
       :property:
 
       Unitary matrix defining action of this gate.
@@ -247,27 +247,27 @@ Attributes
           bound to this gate.
 
 
-   .. py:method:: bind(self, symbols_map) -> MatrixFactoryGate
+   .. py:method:: bind(symbols_map) -> MatrixFactoryGate
 
 
-   .. py:method:: replace_params(self, new_params: Tuple[quantum.circuits._operations.Parameter, Ellipsis]) -> MatrixFactoryGate
+   .. py:method:: replace_params(new_params: Tuple[quantum.circuits._operations.Parameter, Ellipsis]) -> MatrixFactoryGate
 
 
-   .. py:method:: controlled(self, num_controlled_qubits: int) -> Gate
+   .. py:method:: controlled(num_controlled_qubits: int) -> Gate
 
 
-   .. py:method:: dagger(self) -> Union[MatrixFactoryGate, Gate]
+   .. py:method:: dagger() -> Union[MatrixFactoryGate, Gate]
       :property:
 
 
-   .. py:method:: exp(self) -> Gate
+   .. py:method:: exp() -> Gate
       :property:
 
 
-   .. py:method:: power(self, exponent: float) -> Gate
+   .. py:method:: power(exponent: float) -> Gate
 
 
-   .. py:method:: free_symbols(self) -> Iterable[sympy.Symbol]
+   .. py:method:: free_symbols() -> Iterable[sympy.Symbol]
       :property:
 
       Unbound symbols in the gate matrix. See Gate.free_symbols for details.
@@ -298,7 +298,7 @@ Attributes
 
       
 
-   .. py:method:: name(self)
+   .. py:method:: name()
       :property:
 
       Globally unique name of the gate.
@@ -308,7 +308,7 @@ Attributes
       is discouraged.
 
 
-   .. py:method:: num_qubits(self)
+   .. py:method:: num_qubits()
       :property:
 
       Number of qubits this gate acts on.
@@ -316,7 +316,7 @@ Attributes
       just to know the number of qubits.
 
 
-   .. py:method:: matrix(self)
+   .. py:method:: matrix()
       :property:
 
       Unitary matrix describing gate's action on state vector.
@@ -324,7 +324,7 @@ Attributes
       We need it to be able to implement .propagate() on the operation class.
 
 
-   .. py:method:: params(self)
+   .. py:method:: params()
       :property:
 
       Value of parameters bound to this gate.
@@ -342,29 +342,29 @@ Attributes
       We need it for translations to other frameworks and for serialization.
 
 
-   .. py:method:: controlled(self, num_control_qubits: int) -> ControlledGate
+   .. py:method:: controlled(num_control_qubits: int) -> ControlledGate
 
 
-   .. py:method:: dagger(self) -> ControlledGate
+   .. py:method:: dagger() -> ControlledGate
       :property:
 
 
-   .. py:method:: exp(self) -> Gate
+   .. py:method:: exp() -> Gate
       :property:
 
       Gate representing the exponential of the given gate.
 
 
-   .. py:method:: power(self, exponent: float) -> Gate
+   .. py:method:: power(exponent: float) -> Gate
 
       Gate representing the underlying matrix raised to the power
       of the given exponent.
 
 
-   .. py:method:: bind(self, symbols_map) -> Gate
+   .. py:method:: bind(symbols_map) -> Gate
 
 
-   .. py:method:: replace_params(self, new_params: Tuple[quantum.circuits._operations.Parameter, Ellipsis]) -> Gate
+   .. py:method:: replace_params(new_params: Tuple[quantum.circuits._operations.Parameter, Ellipsis]) -> Gate
 
 
 
@@ -387,7 +387,7 @@ Attributes
 
       
 
-   .. py:method:: matrix(self) -> sympy.Matrix
+   .. py:method:: matrix() -> sympy.Matrix
       :property:
 
       Unitary matrix describing gate's action on state vector.
@@ -395,7 +395,7 @@ Attributes
       We need it to be able to implement .propagate() on the operation class.
 
 
-   .. py:method:: params(self) -> Tuple[quantum.circuits._operations.Parameter, Ellipsis]
+   .. py:method:: params() -> Tuple[quantum.circuits._operations.Parameter, Ellipsis]
       :property:
 
       Value of parameters bound to this gate.
@@ -413,7 +413,7 @@ Attributes
       We need it for translations to other frameworks and for serialization.
 
 
-   .. py:method:: num_qubits(self) -> int
+   .. py:method:: num_qubits() -> int
       :property:
 
       Number of qubits this gate acts on.
@@ -421,7 +421,7 @@ Attributes
       just to know the number of qubits.
 
 
-   .. py:method:: name(self)
+   .. py:method:: name()
       :property:
 
       Globally unique name of the gate.
@@ -431,26 +431,26 @@ Attributes
       is discouraged.
 
 
-   .. py:method:: controlled(self, num_control_qubits: int) -> Gate
+   .. py:method:: controlled(num_control_qubits: int) -> Gate
 
 
-   .. py:method:: bind(self, symbols_map) -> Gate
+   .. py:method:: bind(symbols_map) -> Gate
 
 
-   .. py:method:: replace_params(self, new_params: Tuple[quantum.circuits._operations.Parameter, Ellipsis]) -> Gate
+   .. py:method:: replace_params(new_params: Tuple[quantum.circuits._operations.Parameter, Ellipsis]) -> Gate
 
 
-   .. py:method:: dagger(self) -> Gate
+   .. py:method:: dagger() -> Gate
       :property:
 
 
-   .. py:method:: exp(self) -> Gate
+   .. py:method:: exp() -> Gate
       :property:
 
       Gate representing the exponential of the given gate.
 
 
-   .. py:method:: power(self, exponent: float) -> Gate
+   .. py:method:: power(exponent: float) -> Gate
 
       Gate representing the underlying matrix raised to the power
       of the given exponent.
@@ -476,7 +476,7 @@ Attributes
 
       
 
-   .. py:method:: matrix(self) -> sympy.Matrix
+   .. py:method:: matrix() -> sympy.Matrix
       :property:
 
       Unitary matrix describing gate's action on state vector.
@@ -484,7 +484,7 @@ Attributes
       We need it to be able to implement .propagate() on the operation class.
 
 
-   .. py:method:: params(self) -> Tuple[quantum.circuits._operations.Parameter, Ellipsis]
+   .. py:method:: params() -> Tuple[quantum.circuits._operations.Parameter, Ellipsis]
       :property:
 
       Value of parameters bound to this gate.
@@ -502,7 +502,7 @@ Attributes
       We need it for translations to other frameworks and for serialization.
 
 
-   .. py:method:: num_qubits(self) -> int
+   .. py:method:: num_qubits() -> int
       :property:
 
       Number of qubits this gate acts on.
@@ -510,7 +510,7 @@ Attributes
       just to know the number of qubits.
 
 
-   .. py:method:: name(self)
+   .. py:method:: name()
       :property:
 
       Globally unique name of the gate.
@@ -520,27 +520,27 @@ Attributes
       is discouraged.
 
 
-   .. py:method:: controlled(self, num_control_qubits: int) -> Gate
+   .. py:method:: controlled(num_control_qubits: int) -> Gate
 
 
-   .. py:method:: bind(self, symbols_map) -> Gate
+   .. py:method:: bind(symbols_map) -> Gate
       :abstractmethod:
 
 
-   .. py:method:: replace_params(self, new_params: Tuple[quantum.circuits._operations.Parameter, Ellipsis]) -> Gate
+   .. py:method:: replace_params(new_params: Tuple[quantum.circuits._operations.Parameter, Ellipsis]) -> Gate
 
 
-   .. py:method:: dagger(self) -> Gate
+   .. py:method:: dagger() -> Gate
       :property:
 
 
-   .. py:method:: exp(self) -> Gate
+   .. py:method:: exp() -> Gate
       :property:
 
       Gate representing the exponential of the given gate.
 
 
-   .. py:method:: power(self, exponent: float) -> Gate
+   .. py:method:: power(exponent: float) -> Gate
 
       Gate representing the underlying matrix raised to the power
       of the given exponent.
@@ -571,7 +571,7 @@ Attributes
 
       
 
-   .. py:method:: name(self) -> str
+   .. py:method:: name() -> str
       :property:
 
       Globally unique name of the gate.
@@ -581,7 +581,7 @@ Attributes
       is discouraged.
 
 
-   .. py:method:: params(self) -> Tuple[quantum.circuits._operations.Parameter, Ellipsis]
+   .. py:method:: params() -> Tuple[quantum.circuits._operations.Parameter, Ellipsis]
       :property:
 
       Value of parameters bound to this gate.
@@ -599,7 +599,7 @@ Attributes
       We need it for translations to other frameworks and for serialization.
 
 
-   .. py:method:: free_symbols(self) -> Iterable[sympy.Symbol]
+   .. py:method:: free_symbols() -> Iterable[sympy.Symbol]
       :property:
 
       Unbound symbols in the gate matrix.
@@ -614,7 +614,7 @@ Attributes
           gate has one free symbol, `alpha`
 
 
-   .. py:method:: num_qubits(self) -> int
+   .. py:method:: num_qubits() -> int
       :property:
 
       Number of qubits this gate acts on.
@@ -622,7 +622,7 @@ Attributes
       just to know the number of qubits.
 
 
-   .. py:method:: matrix(self) -> sympy.Matrix
+   .. py:method:: matrix() -> sympy.Matrix
       :property:
 
       Unitary matrix describing gate's action on state vector.
@@ -630,30 +630,30 @@ Attributes
       We need it to be able to implement .propagate() on the operation class.
 
 
-   .. py:method:: controlled(self, num_control_qubits: int) -> Gate
+   .. py:method:: controlled(num_control_qubits: int) -> Gate
 
 
-   .. py:method:: dagger(self) -> Gate
+   .. py:method:: dagger() -> Gate
       :property:
 
 
-   .. py:method:: exp(self) -> Gate
+   .. py:method:: exp() -> Gate
       :property:
 
       Gate representing the exponential of the given gate.
 
 
-   .. py:method:: power(self, exponent: float) -> Gate
+   .. py:method:: power(exponent: float) -> Gate
 
       Gate representing the underlying matrix raised to the power
       of the given exponent.
 
 
-   .. py:method:: bind(self, symbols_map: Dict[sympy.Symbol, quantum.circuits._operations.Parameter]) -> Gate
+   .. py:method:: bind(symbols_map: Dict[sympy.Symbol, quantum.circuits._operations.Parameter]) -> Gate
       :abstractmethod:
 
 
-   .. py:method:: replace_params(self, new_params: Tuple[quantum.circuits._operations.Parameter, Ellipsis]) -> Gate
+   .. py:method:: replace_params(new_params: Tuple[quantum.circuits._operations.Parameter, Ellipsis]) -> Gate
 
 
 
@@ -666,11 +666,11 @@ Attributes
 
       
 
-   .. py:method:: matrix(self) -> sympy.Matrix
+   .. py:method:: matrix() -> sympy.Matrix
       :property:
 
 
-   .. py:method:: params_ordering(self) -> Tuple[quantum.circuits._operations.Parameter, Ellipsis]
+   .. py:method:: params_ordering() -> Tuple[quantum.circuits._operations.Parameter, Ellipsis]
       :property:
 
 

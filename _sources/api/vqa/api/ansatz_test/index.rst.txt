@@ -27,22 +27,22 @@ Classes
 
 .. py:class:: AnsatzTests
 
-   .. py:method:: test_set_number_of_layers(self, ansatz)
+   .. py:method:: test_set_number_of_layers(ansatz)
 
 
-   .. py:method:: test_set_number_of_layers_invalidates_parametrized_circuit(self, ansatz)
+   .. py:method:: test_set_number_of_layers_invalidates_parametrized_circuit(ansatz)
 
 
-   .. py:method:: test_number_of_params_greater_than_0(self, ansatz)
+   .. py:method:: test_number_of_params_greater_than_0(ansatz)
 
 
-   .. py:method:: test_number_of_qubits_greater_than_0(self, ansatz)
+   .. py:method:: test_number_of_qubits_greater_than_0(ansatz)
 
 
-   .. py:method:: test_get_executable_circuit_is_not_empty(self, ansatz)
+   .. py:method:: test_get_executable_circuit_is_not_empty(ansatz)
 
 
-   .. py:method:: test_get_executable_circuit_does_not_contain_symbols(self, ansatz)
+   .. py:method:: test_get_executable_circuit_does_not_contain_symbols(ansatz)
 
 
 

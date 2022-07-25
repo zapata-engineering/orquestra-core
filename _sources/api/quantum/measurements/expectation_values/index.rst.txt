@@ -58,12 +58,12 @@ Functions
 
       See Args.
 
-   .. py:method:: to_dict(self) -> Dict[str, Any]
+   .. py:method:: to_dict() -> Dict[str, Any]
 
       Convert to a dictionary
 
 
-   .. py:method:: from_dict(cls, dictionary: dict) -> ExpectationValues
+   .. py:method:: from_dict(dictionary: dict) -> ExpectationValues
       :classmethod:
 
       Create an ExpectationValues object from a dictionary.

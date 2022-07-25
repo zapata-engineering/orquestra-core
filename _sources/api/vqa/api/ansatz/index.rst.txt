@@ -47,31 +47,31 @@ Attributes
 
       
 
-   .. py:method:: parametrized_circuit(self) -> orquestra.quantum.circuits.Circuit
+   .. py:method:: parametrized_circuit() -> orquestra.quantum.circuits.Circuit
       :property:
 
       Returns a parametrized circuit if given ansatz supports it.
 
 
-   .. py:method:: number_of_qubits(self) -> int
+   .. py:method:: number_of_qubits() -> int
       :property:
 
       Returns number of qubits ansatz circuit uses
 
 
-   .. py:method:: number_of_params(self) -> int
+   .. py:method:: number_of_params() -> int
       :property:
 
       Returns number of parameters in the ansatz.
 
 
-   .. py:method:: get_executable_circuit(self, params: numpy.ndarray) -> orquestra.quantum.circuits.Circuit
+   .. py:method:: get_executable_circuit(params: numpy.ndarray) -> orquestra.quantum.circuits.Circuit
 
       Returns an executable circuit representing the ansatz.
       :param params: circuit parameters
 
 
-   .. py:method:: symbols_sort_key(self) -> SymbolsSortKey
+   .. py:method:: symbols_sort_key() -> SymbolsSortKey
       :property:
 
 

@@ -21,4 +21,8 @@ Classes
 
    Bases: :py:obj:`opt.api.Optimizer`
 
+   Interface for implementing different optimizers.
+
+   :param recorder: recorder object which defines how to store the optimization history.
+
 

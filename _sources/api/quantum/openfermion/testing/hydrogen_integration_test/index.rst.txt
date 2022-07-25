@@ -57,27 +57,27 @@ Classes
        by assert methods using difflib. It is looked up as an instance
        attribute so can be configured by individual tests if required.
 
-   .. py:method:: setUp(self)
+   .. py:method:: setUp()
 
       Hook method for setting up the test fixture before exercising it.
 
 
-   .. py:method:: test_integral_data(self)
+   .. py:method:: test_integral_data()
 
 
-   .. py:method:: test_qubit_operator(self)
+   .. py:method:: test_qubit_operator()
 
 
-   .. py:method:: test_reverse_jordan_wigner(self)
+   .. py:method:: test_reverse_jordan_wigner()
 
 
-   .. py:method:: test_interaction_operator_mapping(self)
+   .. py:method:: test_interaction_operator_mapping()
 
 
-   .. py:method:: test_rdm_numerically(self)
+   .. py:method:: test_rdm_numerically()
 
 
-   .. py:method:: test_sparse_numerically(self)
+   .. py:method:: test_sparse_numerically()
 
 
 

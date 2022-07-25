@@ -87,7 +87,7 @@ Functions
 
       
 
-   .. py:method:: run_circuit_and_measure(self, circuit: orquestra.quantum.circuits.Circuit, n_samples: int, **kwargs) -> orquestra.quantum.measurements.Measurements
+   .. py:method:: run_circuit_and_measure(circuit: orquestra.quantum.circuits.Circuit, n_samples: int, **kwargs) -> orquestra.quantum.measurements.Measurements
 
 
 

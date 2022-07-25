@@ -71,7 +71,7 @@ Functions
 
    Tests equality against user-provided disjoint equivalence groups.
 
-   .. py:method:: add_equality_group(self, *group_items)
+   .. py:method:: add_equality_group(*group_items)
 
       Tries to add a disjoint equivalence group to the equality tester.
       This methods asserts that items within the group must all be equal to
@@ -85,7 +85,7 @@ Functions
           or the items violate the equals-implies-same-hash rule.
 
 
-   .. py:method:: make_equality_pair(self, factory)
+   .. py:method:: make_equality_pair(factory)
 
       Tries to add a disjoint (item, item) group to the equality tester.
       Uses the factory method to produce two different objects containing

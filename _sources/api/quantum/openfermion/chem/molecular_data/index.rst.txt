@@ -303,60 +303,60 @@ Attributes
       A dictionary storing general calculation results
       for this system annotated by the key.
 
-   .. py:method:: init_lazy_properties(self)
+   .. py:method:: init_lazy_properties()
 
       Initializes properties loaded on demand to None
 
 
-   .. py:method:: canonical_orbitals(self)
+   .. py:method:: canonical_orbitals()
       :property:
 
 
-   .. py:method:: overlap_integrals(self)
+   .. py:method:: overlap_integrals()
       :property:
 
 
-   .. py:method:: one_body_integrals(self)
+   .. py:method:: one_body_integrals()
       :property:
 
 
-   .. py:method:: two_body_integrals(self)
+   .. py:method:: two_body_integrals()
       :property:
 
 
-   .. py:method:: cisd_one_rdm(self)
+   .. py:method:: cisd_one_rdm()
       :property:
 
 
-   .. py:method:: cisd_two_rdm(self)
+   .. py:method:: cisd_two_rdm()
       :property:
 
 
-   .. py:method:: fci_one_rdm(self)
+   .. py:method:: fci_one_rdm()
       :property:
 
 
-   .. py:method:: fci_two_rdm(self)
+   .. py:method:: fci_two_rdm()
       :property:
 
 
-   .. py:method:: ccsd_single_amps(self)
+   .. py:method:: ccsd_single_amps()
       :property:
 
 
-   .. py:method:: ccsd_double_amps(self)
+   .. py:method:: ccsd_double_amps()
       :property:
 
 
-   .. py:method:: save(self)
+   .. py:method:: save()
 
       Method to save the class under a systematic name.
 
 
-   .. py:method:: load(self)
+   .. py:method:: load()
 
 
-   .. py:method:: get_from_file(self, property_name)
+   .. py:method:: get_from_file(property_name)
 
       Helper routine to re-open HDF5 file and pull out single property
 
@@ -369,17 +369,17 @@ Attributes
                     file.
 
 
-   .. py:method:: get_n_alpha_electrons(self)
+   .. py:method:: get_n_alpha_electrons()
 
       Return number of alpha electrons.
 
 
-   .. py:method:: get_n_beta_electrons(self)
+   .. py:method:: get_n_beta_electrons()
 
       Return number of beta electrons.
 
 
-   .. py:method:: get_integrals(self)
+   .. py:method:: get_integrals()
 
       Method to return 1-electron and 2-electron integrals in MO basis.
 
@@ -394,7 +394,7 @@ Attributes
       :raises MissingCalculationError: If integrals are not calculated.
 
 
-   .. py:method:: get_active_space_integrals(self, occupied_indices=None, active_indices=None)
+   .. py:method:: get_active_space_integrals(occupied_indices=None, active_indices=None)
 
       Restricts a molecule at a spatial orbital level to an active space
 
@@ -421,7 +421,7 @@ Attributes
       :rtype: tuple
 
 
-   .. py:method:: get_molecular_hamiltonian(self, occupied_indices=None, active_indices=None)
+   .. py:method:: get_molecular_hamiltonian(occupied_indices=None, active_indices=None)
 
       Output arrays of the second quantized Hamiltonian coefficients.
 
@@ -442,7 +442,7 @@ Attributes
          (beta) modes.
 
 
-   .. py:method:: get_molecular_rdm(self, use_fci=False)
+   .. py:method:: get_molecular_rdm(use_fci=False)
 
       Method to return 1-RDM and 2-RDMs from CISD or FCI.
 
@@ -456,7 +456,7 @@ Attributes
           performed.
 
 
-   .. py:method:: get_j(self)
+   .. py:method:: get_j()
 
       Method to return coulomb matrix.
 
@@ -469,7 +469,7 @@ Attributes
       :raises MissingCalculationError: If integrals are not calculated.
 
 
-   .. py:method:: get_k(self)
+   .. py:method:: get_k()
 
       Method to return exchange matrix.
 
@@ -482,7 +482,7 @@ Attributes
       :raises MissingCalculationError: If integrals are not calculated.
 
 
-   .. py:method:: get_antisym(self)
+   .. py:method:: get_antisym()
 
       Method to return anti-symmetrized integrals in spin-orbital basis.
 

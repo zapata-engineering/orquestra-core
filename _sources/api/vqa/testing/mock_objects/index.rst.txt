@@ -34,7 +34,7 @@ Classes
 
       
 
-   .. py:method:: number_of_qubits(self) -> int
+   .. py:method:: number_of_qubits() -> int
       :property:
 
       Returns number of qubits ansatz circuit uses

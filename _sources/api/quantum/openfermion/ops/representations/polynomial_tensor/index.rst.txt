@@ -116,24 +116,24 @@ Attributes
 
       :type: dict
 
-   .. py:method:: constant(self)
+   .. py:method:: constant()
       :property:
 
       The value of the constant term.
 
 
-   .. py:method:: n_body_tensors(self)
+   .. py:method:: n_body_tensors()
       :property:
 
 
-   .. py:method:: n_qubits(self)
+   .. py:method:: n_qubits()
       :property:
 
 
-   .. py:method:: with_function_applied_elementwise(self, func)
+   .. py:method:: with_function_applied_elementwise(func)
 
 
-   .. py:method:: rotate_basis(self, rotation_matrix)
+   .. py:method:: rotate_basis(rotation_matrix)
 
       Rotate the orbital basis of the PolynomialTensor.
 
@@ -142,7 +142,7 @@ Attributes
                               invertible.
 
 
-   .. py:method:: projected_n_body_tensors(self, selection, exact=False)
+   .. py:method:: projected_n_body_tensors(selection, exact=False)
 
       Keep only selected elements.
 

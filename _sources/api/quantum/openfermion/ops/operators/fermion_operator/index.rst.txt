@@ -71,31 +71,31 @@ Classes
       during initialization is faster than multiplying a FermionOperator
       with a scalar.
 
-   .. py:method:: actions(self)
+   .. py:method:: actions()
       :property:
 
       The allowed actions.
 
 
-   .. py:method:: action_strings(self)
+   .. py:method:: action_strings()
       :property:
 
       The string representations of the allowed actions.
 
 
-   .. py:method:: action_before_index(self)
+   .. py:method:: action_before_index()
       :property:
 
       Whether action comes before index in string representations.
 
 
-   .. py:method:: different_indices_commute(self)
+   .. py:method:: different_indices_commute()
       :property:
 
       Whether factors acting on different indices commute.
 
 
-   .. py:method:: is_normal_ordered(self)
+   .. py:method:: is_normal_ordered()
 
       Return whether or not term is in normal order.
 
@@ -104,7 +104,7 @@ Classes
       ladder operators come first.
 
 
-   .. py:method:: is_two_body_number_conserving(self, check_spin_symmetry=False)
+   .. py:method:: is_two_body_number_conserving(check_spin_symmetry=False)
 
       Query whether operator has correct form to be from a molecule.
 

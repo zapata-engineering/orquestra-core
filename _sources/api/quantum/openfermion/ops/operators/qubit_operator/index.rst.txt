@@ -74,31 +74,31 @@ Classes
       during initialization is faster than multiplying a QubitOperator
       with a scalar.
 
-   .. py:method:: actions(self)
+   .. py:method:: actions()
       :property:
 
       The allowed actions.
 
 
-   .. py:method:: action_strings(self)
+   .. py:method:: action_strings()
       :property:
 
       The string representations of the allowed actions.
 
 
-   .. py:method:: action_before_index(self)
+   .. py:method:: action_before_index()
       :property:
 
       Whether action comes before index in string representations.
 
 
-   .. py:method:: different_indices_commute(self)
+   .. py:method:: different_indices_commute()
       :property:
 
       Whether factors acting on different indices commute.
 
 
-   .. py:method:: renormalize(self)
+   .. py:method:: renormalize()
 
       Fix the trace norm of an operator to 1
 

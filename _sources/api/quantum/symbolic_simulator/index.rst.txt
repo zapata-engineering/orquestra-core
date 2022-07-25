@@ -25,7 +25,7 @@ Classes
 
    :param seed: the seed of the sampler
 
-   .. py:method:: run_circuit_and_measure(self, circuit: orquestra.quantum.circuits.Circuit, n_samples: int, symbol_map: Optional[Dict[sympy.Symbol, Any]] = None) -> orquestra.quantum.measurements.Measurements
+   .. py:method:: run_circuit_and_measure(circuit: orquestra.quantum.circuits.Circuit, n_samples: int, symbol_map: Optional[Dict[sympy.Symbol, Any]] = None) -> orquestra.quantum.measurements.Measurements
 
       Run a circuit and measure a certain number of bitstrings
 
@@ -33,7 +33,7 @@ Classes
       :param n_samples: the number of bitstrings to sample
 
 
-   .. py:method:: is_natively_supported(self, operation: orquestra.quantum.circuits.Operation) -> bool
+   .. py:method:: is_natively_supported(operation: orquestra.quantum.circuits.Operation) -> bool
 
 
 

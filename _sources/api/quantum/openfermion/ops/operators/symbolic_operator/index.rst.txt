@@ -98,7 +98,7 @@ Attributes
 
       :type: dict
 
-   .. py:method:: actions(self)
+   .. py:method:: actions()
       :abstractmethod:
 
       The allowed actions.
@@ -106,7 +106,7 @@ Attributes
       Returns a tuple of objects representing the possible actions.
 
 
-   .. py:method:: action_strings(self)
+   .. py:method:: action_strings()
       :abstractmethod:
 
       The string representations of the allowed actions.
@@ -115,7 +115,7 @@ Attributes
       actions, in the same order as the `actions` property.
 
 
-   .. py:method:: action_before_index(self)
+   .. py:method:: action_before_index()
       :abstractmethod:
 
       Whether action comes before index in string representations.
@@ -128,19 +128,19 @@ Attributes
       should return False.
 
 
-   .. py:method:: different_indices_commute(self)
+   .. py:method:: different_indices_commute()
       :abstractmethod:
 
       Whether factors acting on different indices commute.
 
 
-   .. py:method:: constant(self)
+   .. py:method:: constant()
       :property:
 
       The value of the constant term.
 
 
-   .. py:method:: zero(cls)
+   .. py:method:: zero()
       :classmethod:
 
       :returns:     A symbolic operator o with the property that o+x = x+o = x for
@@ -148,7 +148,7 @@ Attributes
       :rtype: additive_identity (SymbolicOperator)
 
 
-   .. py:method:: identity(cls)
+   .. py:method:: identity()
       :classmethod:
 
       :returns:     A symbolic operator u with the property that u*x = x*u = x for
@@ -156,7 +156,7 @@ Attributes
       :rtype: multiplicative_identity (SymbolicOperator)
 
 
-   .. py:method:: isclose(self, other, tol=EQ_TOLERANCE)
+   .. py:method:: isclose(other, tol=EQ_TOLERANCE)
 
       Check if other (SymbolicOperator) is close to self.
 
@@ -168,7 +168,7 @@ Attributes
       :type other: SymbolicOperator
 
 
-   .. py:method:: compress(self, abs_tol=EQ_TOLERANCE)
+   .. py:method:: compress(abs_tol=EQ_TOLERANCE)
 
       Eliminates all terms with coefficients close to zero and removes
       small imaginary and real parts.
@@ -177,7 +177,7 @@ Attributes
       :type abs_tol: float
 
 
-   .. py:method:: induced_norm(self, order=1)
+   .. py:method:: induced_norm(order=1)
 
       Compute the induced p-norm of the operator.
 
@@ -191,7 +191,7 @@ Attributes
       :type order: int
 
 
-   .. py:method:: many_body_order(self)
+   .. py:method:: many_body_order()
 
       Compute the many-body order of a SymbolicOperator.
 
@@ -201,13 +201,13 @@ Attributes
       :returns: int
 
 
-   .. py:method:: accumulate(cls, operators, start=None)
+   .. py:method:: accumulate(operators, start=None)
       :classmethod:
 
       Sums over SymbolicOperators.
 
 
-   .. py:method:: get_operators(self)
+   .. py:method:: get_operators()
 
       Gets a list of operators with a single term.
 
@@ -215,7 +215,7 @@ Attributes
       :rtype: operators([self.__class__])
 
 
-   .. py:method:: get_operator_groups(self, num_groups)
+   .. py:method:: get_operator_groups(num_groups)
 
       Gets a list of operators with a few terms.
       :param num_groups: How many operators to get in the end.

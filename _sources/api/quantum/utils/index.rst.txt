@@ -227,12 +227,12 @@ Attributes
 
       :type: np.float
 
-   .. py:method:: to_dict(self)
+   .. py:method:: to_dict()
 
       Convert to a dictionary
 
 
-   .. py:method:: from_dict(cls, dictionary)
+   .. py:method:: from_dict(dictionary)
       :classmethod:
 
       Create an ExpectationValues object from a dictionary.

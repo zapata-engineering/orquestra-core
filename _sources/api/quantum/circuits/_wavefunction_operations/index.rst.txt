@@ -32,20 +32,20 @@ Classes
 
       
 
-   .. py:method:: qubit_indices(self) -> Tuple[int, Ellipsis]
+   .. py:method:: qubit_indices() -> Tuple[int, Ellipsis]
       :property:
 
 
-   .. py:method:: bind(self, symbols_map) -> MultiPhaseOperation
+   .. py:method:: bind(symbols_map) -> MultiPhaseOperation
 
 
-   .. py:method:: replace_params(self, new_params: Tuple[quantum.circuits._operations.Parameter, Ellipsis]) -> MultiPhaseOperation
+   .. py:method:: replace_params(new_params: Tuple[quantum.circuits._operations.Parameter, Ellipsis]) -> MultiPhaseOperation
 
 
-   .. py:method:: apply(self, amplitude_vector: orquestra.quantum.typing.ParameterizedVector) -> orquestra.quantum.typing.ParameterizedVector
+   .. py:method:: apply(amplitude_vector: orquestra.quantum.typing.ParameterizedVector) -> orquestra.quantum.typing.ParameterizedVector
 
 
-   .. py:method:: free_symbols(self) -> Iterable[sympy.Symbol]
+   .. py:method:: free_symbols() -> Iterable[sympy.Symbol]
       :property:
 
       Unbound symbols in the gate matrix.

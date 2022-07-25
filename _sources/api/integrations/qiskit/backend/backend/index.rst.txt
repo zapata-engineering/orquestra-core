@@ -21,7 +21,7 @@ Classes
 
    Bases: :py:obj:`orquestra.quantum.api.backend.QuantumBackend`
 
-   .. py:method:: run_circuit_and_measure(self, circuit: orquestra.quantum.circuits.Circuit, n_samples: int) -> orquestra.quantum.measurements.Measurements
+   .. py:method:: run_circuit_and_measure(circuit: orquestra.quantum.circuits.Circuit, n_samples: int) -> orquestra.quantum.measurements.Measurements
 
       Run a circuit and measure a certain number of bitstrings.
 
@@ -29,7 +29,7 @@ Classes
       :param n_samples: The number of samples to collect.
 
 
-   .. py:method:: run_circuitset_and_measure(self, circuits: Sequence[orquestra.quantum.circuits.Circuit], n_samples: Sequence[int]) -> List[orquestra.quantum.measurements.Measurements]
+   .. py:method:: run_circuitset_and_measure(circuits: Sequence[orquestra.quantum.circuits.Circuit], n_samples: Sequence[int]) -> List[orquestra.quantum.measurements.Measurements]
 
       Run a set of circuits and measure a certain number of bitstrings.
 
@@ -39,7 +39,7 @@ Classes
       :returns: A list of Measurements objects containing the observed bitstrings.
 
 
-   .. py:method:: transform_circuitset_to_ibmq_experiments(self, circuitset: Sequence[orquestra.quantum.circuits.Circuit], n_samples: Sequence[int]) -> Tuple[List[qiskit.QuantumCircuit], List[int], List[int]]
+   .. py:method:: transform_circuitset_to_ibmq_experiments(circuitset: Sequence[orquestra.quantum.circuits.Circuit], n_samples: Sequence[int]) -> Tuple[List[qiskit.QuantumCircuit], List[int], List[int]]
 
       Convert circuits to qiskit and duplicate those whose measurement
       count exceeds the maximum allowed by the backend.
@@ -58,7 +58,7 @@ Classes
       :rtype: Tuple containing
 
 
-   .. py:method:: batch_experiments(self, experiments: List[qiskit.QuantumCircuit], n_samples_for_ibmq_circuits: List[int]) -> Tuple[List[List[qiskit.QuantumCircuit]], List[int]]
+   .. py:method:: batch_experiments(experiments: List[qiskit.QuantumCircuit], n_samples_for_ibmq_circuits: List[int]) -> Tuple[List[List[qiskit.QuantumCircuit]], List[int]]
 
       Batch a set of experiments (circuits to be executed) into groups
       whose size is no greater than the maximum allowed by the backend.
@@ -76,7 +76,7 @@ Classes
       :rtype: A tuple containing
 
 
-   .. py:method:: execute_with_retries(self, batch: List[qiskit.QuantumCircuit], n_samples: int) -> qiskit.providers.ibmq.job.IBMQJob
+   .. py:method:: execute_with_retries(batch: List[qiskit.QuantumCircuit], n_samples: int) -> qiskit.providers.ibmq.job.IBMQJob
 
       Execute a job, resubmitting if the the backend job limit has been
       reached.
@@ -92,7 +92,7 @@ Classes
       :returns: The qiskit representation of the submitted job.
 
 
-   .. py:method:: aggregate_measurements(self, jobs: List[qiskit.providers.ibmq.job.IBMQJob], batches: List[List[qiskit.QuantumCircuit]], multiplicities: List[int]) -> List[orquestra.quantum.measurements.Measurements]
+   .. py:method:: aggregate_measurements(jobs: List[qiskit.providers.ibmq.job.IBMQJob], batches: List[List[qiskit.QuantumCircuit]], multiplicities: List[int]) -> List[orquestra.quantum.measurements.Measurements]
 
       Combine samples from a circuit set that has been expanded and batched
       to obtain a set of measurements for each of the original circuits. Also

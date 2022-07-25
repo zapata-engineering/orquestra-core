@@ -31,27 +31,27 @@ Classes
 
       
 
-   .. py:method:: number_of_layers(self)
+   .. py:method:: number_of_layers()
       :property:
 
 
-   .. py:method:: number_of_spatial_orbitals(self)
+   .. py:method:: number_of_spatial_orbitals()
       :property:
 
 
-   .. py:method:: number_of_qubits(self)
+   .. py:method:: number_of_qubits()
       :property:
 
 
-   .. py:method:: number_of_alpha_electrons(self)
+   .. py:method:: number_of_alpha_electrons()
       :property:
 
 
-   .. py:method:: number_of_electrons(self)
+   .. py:method:: number_of_electrons()
       :property:
 
 
-   .. py:method:: number_of_params(self) -> int
+   .. py:method:: number_of_params() -> int
       :property:
 
       Returns number of parameters in the ansatz.
@@ -75,10 +75,10 @@ Classes
       :rtype: amplitudes (np.array)
 
 
-   .. py:method:: compute_uccsd_vector_from_fermion_generator(self, raw_fermion_generator: orquestra.quantum.openfermion.FermionOperator, screening_threshold: float = 0.0) -> numpy.ndarray
+   .. py:method:: compute_uccsd_vector_from_fermion_generator(raw_fermion_generator: orquestra.quantum.openfermion.FermionOperator, screening_threshold: float = 0.0) -> numpy.ndarray
 
 
-   .. py:method:: generate_circuit_from_fermion_generator(self, raw_fermion_generator: orquestra.quantum.openfermion.FermionOperator, screening_threshold: float = 0.0) -> orquestra.quantum.circuits.Circuit
+   .. py:method:: generate_circuit_from_fermion_generator(raw_fermion_generator: orquestra.quantum.openfermion.FermionOperator, screening_threshold: float = 0.0) -> orquestra.quantum.circuits.Circuit
 
 
 

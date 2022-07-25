@@ -38,10 +38,10 @@ Functions
    each list containing the groups of qubits entangled for each multiqubit
    gate in a particular layer.
 
-   .. py:method:: to_dict(self) -> dict
+   .. py:method:: to_dict() -> dict
 
 
-   .. py:method:: from_dict(cls, data: Dict[str, List[List[Tuple]]])
+   .. py:method:: from_dict(data: Dict[str, List[List[Tuple]]])
       :classmethod:
 
 
@@ -90,10 +90,10 @@ Functions
    constraints, consisting of a list of tuples of qubits representing the
    allowed multiqubit gate connections.
 
-   .. py:method:: to_dict(self)
+   .. py:method:: to_dict()
 
 
-   .. py:method:: from_dict(cls, data)
+   .. py:method:: from_dict(data)
       :classmethod:
 
 

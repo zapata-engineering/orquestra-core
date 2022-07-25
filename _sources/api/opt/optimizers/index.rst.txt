@@ -39,19 +39,35 @@ Classes
 
    Bases: :py:obj:`opt.api.Optimizer`
 
+   Interface for implementing different optimizers.
+
+   :param recorder: recorder object which defines how to store the optimization history.
+
 
 .. py:class:: ScipyOptimizer(method: str, constraints: Optional[Tuple[Dict[str, Callable]]] = None, bounds: Union[scipy.optimize.Bounds, Sequence[Tuple[float, float]], None] = None, options: Optional[Dict] = None, recorder: opt.history.recorder.RecorderFactory = _recorder)
 
    Bases: :py:obj:`opt.api.Optimizer`
+
+   Interface for implementing different optimizers.
+
+   :param recorder: recorder object which defines how to store the optimization history.
 
 
 .. py:class:: SearchPointsOptimizer(parameter_values_list: List[numpy.ndarray], recorder: opt.history.recorder.RecorderFactory = _recorder)
 
    Bases: :py:obj:`opt.api.Optimizer`
 
+   Interface for implementing different optimizers.
+
+   :param recorder: recorder object which defines how to store the optimization history.
+
 
 .. py:class:: SimpleGradientDescent(learning_rate: float, number_of_iterations: int, recorder: opt.history.recorder.RecorderFactory = _recorder)
 
    Bases: :py:obj:`opt.api.Optimizer`
+
+   Interface for implementing different optimizers.
+
+   :param recorder: recorder object which defines how to store the optimization history.
 
 

@@ -59,10 +59,10 @@ Functions
 
       :type: list
 
-   .. py:method:: to_dict(self) -> dict
+   .. py:method:: to_dict() -> dict
 
 
-   .. py:method:: from_dict(cls, data: dict)
+   .. py:method:: from_dict(data: dict)
       :classmethod:
 
 

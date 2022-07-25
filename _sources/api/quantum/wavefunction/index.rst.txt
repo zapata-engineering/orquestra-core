@@ -37,15 +37,15 @@ Functions
    :param amplitude_vector: the initial amplitudes of the system,
                             can either be a NumPy ndarray or a SymPy Matrix
 
-   .. py:method:: amplitudes(self) -> Union[numpy.ndarray, sympy.Matrix]
+   .. py:method:: amplitudes() -> Union[numpy.ndarray, sympy.Matrix]
       :property:
 
 
-   .. py:method:: n_qubits(self)
+   .. py:method:: n_qubits()
       :property:
 
 
-   .. py:method:: free_symbols(self) -> Set[sympy.Symbol]
+   .. py:method:: free_symbols() -> Set[sympy.Symbol]
       :property:
 
 
@@ -57,13 +57,13 @@ Functions
       :staticmethod:
 
 
-   .. py:method:: bind(self, symbol_map: Dict[sympy.Symbol, Any]) -> Wavefunction
+   .. py:method:: bind(symbol_map: Dict[sympy.Symbol, Any]) -> Wavefunction
 
 
-   .. py:method:: get_probabilities(self) -> numpy.ndarray
+   .. py:method:: get_probabilities() -> numpy.ndarray
 
 
-   .. py:method:: get_outcome_probs(self) -> Dict[str, float]
+   .. py:method:: get_outcome_probs() -> Dict[str, float]
 
 
 

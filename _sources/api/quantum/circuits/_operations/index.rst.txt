@@ -47,13 +47,13 @@ Attributes
 
    Represents arbitrary operation applicable to a circuit or wavefunction.
 
-   .. py:method:: params(self) -> Tuple[orquestra.quantum.typing.Parameter, Ellipsis]
+   .. py:method:: params() -> Tuple[orquestra.quantum.typing.Parameter, Ellipsis]
       :property:
 
       Parameters of this operation.
 
 
-   .. py:method:: bind(self: T, symbols_map: Dict[sympy.Symbol, orquestra.quantum.typing.Parameter]) -> T
+   .. py:method:: bind(symbols_map: Dict[sympy.Symbol, orquestra.quantum.typing.Parameter]) -> T
       :abstractmethod:
 
       Create new operation by replacing free symbols in operation params.
@@ -63,7 +63,7 @@ Attributes
       GateOperation.
 
 
-   .. py:method:: replace_params(self: T, new_params: Tuple[orquestra.quantum.typing.Parameter, Ellipsis]) -> T
+   .. py:method:: replace_params(new_params: Tuple[orquestra.quantum.typing.Parameter, Ellipsis]) -> T
       :abstractmethod:
 
       Create new operation by replacing params.
@@ -73,7 +73,7 @@ Attributes
       are unaffected by bind, whereas replace_params replaces *all* params.
 
 
-   .. py:method:: apply(self: T, amplitude_vector: orquestra.quantum.typing.ParameterizedVector) -> orquestra.quantum.typing.ParameterizedVector
+   .. py:method:: apply(amplitude_vector: orquestra.quantum.typing.ParameterizedVector) -> orquestra.quantum.typing.ParameterizedVector
       :abstractmethod:
 
       Apply this operation to given wavefunction.
@@ -82,7 +82,7 @@ Attributes
       NotImplementedError.
 
 
-   .. py:method:: free_symbols(self) -> Iterable[sympy.Symbol]
+   .. py:method:: free_symbols() -> Iterable[sympy.Symbol]
       :property:
 
       Free symbols parameterizing this operation.

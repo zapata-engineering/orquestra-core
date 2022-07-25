@@ -67,12 +67,12 @@ Functions
        by assert methods using difflib. It is looked up as an instance
        attribute so can be configured by individual tests if required.
 
-   .. py:method:: setUp(self)
+   .. py:method:: setUp()
 
       Construct test info
 
 
-   .. py:method:: test_example(self)
+   .. py:method:: test_example()
 
       Unit test for examples/performance_benchmark.py.
 

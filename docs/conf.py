@@ -125,9 +125,6 @@ exclude_patterns = [
 #
 
 html_theme = "furo"
-html_theme_options = {
-    "use_download_button": False,
-}
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,

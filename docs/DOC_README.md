@@ -41,3 +41,9 @@ Heading 2: under-line with `--------------------`
 Heading 3: under-line with `~~~~~~~~~~~~~~~~~~`
 
 Anything beyond that, please pick something and add what you picked to the above list
+
+### Graphic Best Practices
+
+If you're going to create a graphic from scratch, to keep style consitent, please create the graphic using [excalidraw](https://excalidraw.com/), an online whiteboarding/graphic creation tool.
+
+When you export your graphic as a PNG, use the "embed scene" option so if the graphic ever needs to be updated in the future, it can be done easily.

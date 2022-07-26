@@ -10,10 +10,7 @@ Backends are the interfaces used to run :ref:`Circuits <circuits_guide>` in Orqu
 General Backend Information
 ===========================
 
-- Why we have backend interface? @yogi
--- Make implementation easier
--- Make them interchangeable
-
+The function of a backend is to send instructions to a quantum hardware. Since there are various types of quantum hardware, different sets of instructions needs to be written and it can become complex. ``Quantumbackend`` simplifies this process by enabling the user to deploy a single set of instruction on multiple hardwares simultaneously. Therefore implementing a code on various hardwares becomes easier and manageable. 
 
 Two types of backends
 ---------------------
@@ -49,22 +46,43 @@ For gates tests, the goal is to ensure gates are properly implemented. Sometimes
 
 .. _backend_methods:
 
-In-depth dive in how various methods work, what's the default etc. @yogi make some examples in examples/backends_guide.py
+@Ethan - We only have qiskit backend. Braket backend is not going to be alive for another 2-3 weeks.
+
+In-depth dive in how various methods work, what's the default etc. @yogi make some examples in examples/backends_guide.py - Done
 ================================================
+In order to use the hardware, the user must use backend's authentication method to prove that they have the right credentials to send instruction to the hardware. The authentication method is specified by the hardware provider. Providing authentication credentials is the first step in using ``Quantumbackend``. Below is an example of using IBM's hardware through ``Quantumbackend``. 
 
-- run_circuit_and_measure
--- Workhorse of the backends 
--- by default it increases job counts
+.. literalinclude:: /examples/backends_guide.py
+  :start-after: # QuantumBackend creation example
+  :end-before: # End QuantumBackend creation example
+
+After intializing the backend, we can send the circuit and number of repetitions to the hardware and read the measurement. For a single circuit, it is executed as follows:
 
 
-- run_circuitset_and_measure
-- get_measurement_outcome_distribution
+.. literalinclude:: /examples/backends_guide.py
+  :start-after: # QuantumBackend run and measure circuit
+  :end-before: # End QuantumBackend run and measure circuit
+
+If you want to run multiple circuits with different number of samples, the code needs to be modified as follows:
+
+.. literalinclude:: /examples/backends_guide.py
+  :start-after: # QuantumBackend run and measure circuitset
+  :end-before: # End QuantumBackend run and measure circuitset
+
+``Quantumbackend`` can also provide the distribution of the outcome measurement. It can  be extracted using the following approach:
+
+.. literalinclide:: /examples/backends_guide.py
+  :start-after: # Quantumbackend measurement distribution
+  :end-before: # End Quantumbackend measurement distribution
+
+In all instances, ``Quantumbackend`` automatically adds the measurement operators to the circuit. Therefore, the user is not required to include it in the circuit.
 
 
-Simulator ones:
-- get_wavefunction
-- get_exact_expectation_values
-- get_measurement_outcome_distribution
+``Quantumsimulator`` can be used to extract the wave function and expectation value of a given circuit. Below is an example of extracting these values using a ``Quantumsimulator`` called ``CirqSimulator``:
+
+.. literalinclude:: /examples/backends_guide.py
+  :start-after: # Quantumsimulator examples
+  :end-before: # End Quantumsimulator examples
 
 Zapata's backends
 =================
@@ -119,9 +137,10 @@ Simulators
   * ``aer_simulator_statevector``
 
 * `QulacsSimulator <https://github.com/zapatacomputing/orquestra-qulacs/blob/main/tests/orquestra/integrations/qulacs/simulator_test.py>`_
+* `QiskitSimulator <https://github.com/zapatacomputing/orquestra-cirq/blob/main/tests/orquestra/integrations/cirq/simulator/qsimsimulator_test.py>`_
 
-
-- GPU stuff as well I think? @yogi
+- GPU stuff as well I think? @yogi - done
+@Ethan, why are the hyperlinks pointing towaards the test?
 
 Conversions to other frameworks
 ===============================
@@ -136,10 +155,12 @@ There are slightly different ways to import the conversions from the integration
 
 If you want to use some specific features from a particular framework (e.g. drawing circuits from qiskit) feel free to export/import and do it! Examples of using the import and export functions for this purpose can be found in the :ref:`getting started tutorial <beginner_translating_circuits>`.
 
-- Please double check if we're not changing the values/signs for some gates, e.g. cause we're using different conventions (some gates are in the reverse order, inverted gates) @yogi you said you might know what this is about? (@yogi to ask Michal on monday morning)
+- Please double check if we're not changing the values/signs for some gates, e.g. cause we're using different conventions (some gates are in the reverse order, inverted gates) @yogi you said you might know what this is about? (@yogi to ask Michal on monday morning) - Waiting for answers from Michal
 
 How to integrate your own backend @yogi
 =================================
+If you have credentials to access hardware, you can provide this to ``Quantumbackend`` when you initialize it. The process might vary between each backend. Check the ``Quantumbackend`` documentation for your hardware to find the credentials it accepts. If no credentials were provided, ``Quantumbackend`` will fail when you try to execute a function as you do not have permission to access the hardware. ``Quantumsimulator`` do not require any credentials as they are executed on a local environment.  
+
 
 - two sections, one for real hardware, one for simulators
 -- hardware: credentials
@@ -147,6 +168,7 @@ How to integrate your own backend @yogi
 
 What to pay attention to, what comes out of the box, etc.
 
+@Ethan, not sure what to write anymore. We can discuss this tomorrow.
 
 
 

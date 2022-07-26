@@ -1,32 +1,20 @@
-# QuantumBackend creation example
-from orquestra.integrations.qiskit.backend import QiskitBackend
+# QuantumSimulator creation example
+# Example of simulator with no arguments
+from orquestra.integrations.cirq.simulator import CirqSimulator
 
-backend = QiskitBackend(
-    "ibm_oslo", api_token="LOOKMORTYITURNEDMYSELFINTOANAPITOKEN!I'MAPIRICK"
-)
-# End QuantumBackend creation example
+simulator = CirqSimulator()
 
+# Example QiskitSimulator options
+from orquestra.integrations.qiskit.simulator import QiskitSimulator
 
-# QuantumBackend run and measure circuit
-measurements = backend.run_circuit_and_measure(circuit, number_of_samples)
-# End QuantumBackend run and measure circuit
+simulator = QiskitSimulator("aer_simulator")
+simulator = QiskitSimulator("aer_simulator_statevector")
+# End QuantumSimulator creation example
 
-# QuantumBackend run and measure circuitset
-circuit_set = [circuit1, circuit2, circuit3]
-number_of_samples_set = [10,90,100]
-
-measurements_set = backend.run_circuitset_and_measure(circuit_set, number_of_samples_set)
-# End QuantumBackend run and measure circuitset
-
-
-# Quantumbackend measurement distribution
-measurement_distribution = backend.get_measurement_outcome_distribution(circuit, number_of_samples)
-
-# End Quantumbackend measurement distribution
 
 # Quantumsimulator examples
 from orquestra.integrations.cirq.simulator import CirqSimulator
-from orquestra.quantum.circuits import CNOT, Circuit, H, X,
+from orquestra.quantum.circuits import CNOT, Circuit, H, X
 import numpy as np
 
 initial_state = np.array([0, 1, 0, 0])
@@ -41,23 +29,41 @@ wave_function = simulator.get_wavefunction(circuit, initial_state)
 operator = QubitOperator("[Z0] + 2[Z1]")
 
 expectation_values = simulator.get_exact_expectation_values(circuit, operator)
-
-
 # End Quantumsimulator examples
 
 
-# QuantumSimulator creation example
-# Example of simulator with no arguments
-from orquestra.integrations.cirq.simulator import CirqSimulator
+# QuantumBackend creation example
+from orquestra.integrations.qiskit.backend import QiskitBackend
 
-simulator = CirqSimulator()
+backend = QiskitBackend(
+    "ibm_oslo", api_token="LOOKMORTYITURNEDMYSELFINTOANAPITOKEN!I'MAPIRICK"
+)
+# End QuantumBackend creation example
 
-# Example QiskitSimulator options
-from orquestra.integrations.qiskit.simulator import QiskitSimulator
+backend = simulator
 
-simulator = QiskitSimulator("aer_simulator")
-simulator = QiskitSimulator("aer_simulator_statevector")
-# End QuantumSimulator creation example
+# QuantumBackend run and measure circuit
+circuit = Circuit()
+number_of_samples = 1024
+
+measurements = backend.run_circuit_and_measure(circuit, number_of_samples)
+# End QuantumBackend run and measure circuit
+
+# QuantumBackend run and measure circuitset
+circuit_set = [circuit, circuit2, circuit3]
+number_of_samples_set = [10, 90, 100]
+
+measurements_set = backend.run_circuitset_and_measure(
+    circuit_set, number_of_samples_set
+)
+# End QuantumBackend run and measure circuitset
+
+
+# Quantumbackend measurement distribution
+measurement_distribution = backend.get_measurement_outcome_distribution(
+    circuit, number_of_samples
+)
+# End Quantumbackend measurement distribution
 
 
 # TrackingBackend creation example

@@ -10,7 +10,7 @@ Backends are the interfaces used to run :ref:`Circuits <circuits_guide>` in Orqu
 General Backend Information
 ===========================
 
-The function of a backend is to send instructions to a quantum hardware. Since there are various types of quantum hardware, different sets of instructions needs to be written and it can become complex. ``Quantumbackend`` simplifies this process by enabling the user to deploy a single set of instruction on multiple hardwares simultaneously. Therefore implementing a code on various hardwares becomes easier and manageable. 
+The function of a backend is to send instructions to quantum hardware or to a simulator. Since there are various types of quantum hardware and simulators, different sets of instructions needs to be written and it can become complex. ``QuantumBackend`` simplifies this process by enabling the user to deploy a single set of instructions on multiple hardware and simulators simultaneously. Therefore executing code on various devices becomes easier and more manageable.
 
 Two types of backends
 ---------------------
@@ -46,18 +46,21 @@ For gates tests, the goal is to ensure gates are properly implemented. Sometimes
 
 .. _backend_methods:
 
-@Ethan - We only have qiskit backend. Braket backend is not going to be alive for another 2-3 weeks.
+Backend Methods Usage
+=====================
 
-In-depth dive in how various methods work, what's the default etc. @yogi make some examples in examples/backends_guide.py - Done
-================================================
-In order to use the hardware, the user must use backend's authentication method to prove that they have the right credentials to send instruction to the hardware. The authentication method is specified by the hardware provider. Providing authentication credentials is the first step in using ``Quantumbackend``. Below is an example of using IBM's hardware through ``Quantumbackend``. 
+In order to use quantum hardware, the user must use the backend's authentication method to prove that they have the right credentials to send instruction to the hardware. The authentication method is specified by the hardware provider. Providing authentication credentials is the first step in using ``QuantumBackend``. Below is an example of using IBM's hardware through ``QiskitBackend``.
+
+``QuantumSimulator``\ s run in your own environment and therefore can be used without needing authentication credentials.
 
 .. literalinclude:: /examples/backends_guide.py
   :start-after: # QuantumBackend creation example
   :end-before: # End QuantumBackend creation example
 
-After intializing the backend, we can send the circuit and number of repetitions to the hardware and read the measurement. For a single circuit, it is executed as follows:
+General Backend Methods
+-----------------------
 
+After intializing the backend we can send the ``Circuit`` and number of repetitions to the backend and read the measurement. For more information on creating circuits to send to a backend, refer to the :ref:`Circuits Guide <circuits_guide>`. For a single circuit, that is executed as follows:
 
 .. literalinclude:: /examples/backends_guide.py
   :start-after: # QuantumBackend run and measure circuit
@@ -69,14 +72,16 @@ If you want to run multiple circuits with different number of samples, the code 
   :start-after: # QuantumBackend run and measure circuitset
   :end-before: # End QuantumBackend run and measure circuitset
 
-``Quantumbackend`` can also provide the distribution of the outcome measurement. It can  be extracted using the following approach:
+``QuantumBackend`` can also provide the distribution of the outcome measurement. It can be extracted using the following approach:
 
-.. literalinclide:: /examples/backends_guide.py
+.. literalinclude:: /examples/backends_guide.py
   :start-after: # Quantumbackend measurement distribution
   :end-before: # End Quantumbackend measurement distribution
 
-In all instances, ``Quantumbackend`` automatically adds the measurement operators to the circuit. Therefore, the user is not required to include it in the circuit.
+In all instances, ``QuantumBackend`` automatically adds the measurement operators to the circuit. Therefore, the user is not required to include it in the circuit.
 
+Simulator-specific methods
+--------------------------
 
 ``Quantumsimulator`` can be used to extract the wave function and expectation value of a given circuit. Below is an example of extracting these values using a ``Quantumsimulator`` called ``CirqSimulator``:
 
@@ -137,10 +142,7 @@ Simulators
   * ``aer_simulator_statevector``
 
 * `QulacsSimulator <https://github.com/zapatacomputing/orquestra-qulacs/blob/main/tests/orquestra/integrations/qulacs/simulator_test.py>`_
-* `QiskitSimulator <https://github.com/zapatacomputing/orquestra-cirq/blob/main/tests/orquestra/integrations/cirq/simulator/qsimsimulator_test.py>`_
-
-- GPU stuff as well I think? @yogi - done
-@Ethan, why are the hyperlinks pointing towaards the test?
+* `QSimSimulator <https://github.com/zapatacomputing/orquestra-cirq/blob/main/tests/orquestra/integrations/cirq/simulator/qsimsimulator_test.py>`_
 
 Conversions to other frameworks
 ===============================
@@ -159,12 +161,17 @@ If you want to use some specific features from a particular framework (e.g. draw
 
 How to integrate your own backend @yogi
 =================================
-If you have credentials to access hardware, you can provide this to ``Quantumbackend`` when you initialize it. The process might vary between each backend. Check the ``Quantumbackend`` documentation for your hardware to find the credentials it accepts. If no credentials were provided, ``Quantumbackend`` will fail when you try to execute a function as you do not have permission to access the hardware. ``Quantumsimulator`` do not require any credentials as they are executed on a local environment.  
+
+If you have credentials to access hardware, you can provide this to ``QuantumBackend`` when you initialize it. The process might vary between each backend. Check the ``QuantumBackend`` documentation for your hardware to find the credentials it accepts. If no credentials were provided, ``QuantumBackend`` will fail when you try to execute a function as you do not have permission to access the hardware. ``QuantumSimulator`` do not require any credentials as they are executed on a local environment.  
 
 
 - two sections, one for real hardware, one for simulators
 -- hardware: credentials
 -- simulators: direct
+
+* conversion package
+* inherit backend classes
+* override abstract methods
 
 What to pay attention to, what comes out of the box, etc.
 

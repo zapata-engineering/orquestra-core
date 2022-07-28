@@ -41,7 +41,6 @@ expectation_values = simulator.get_exact_expectation_values(circuit, operator)
 # End QuantumBackend creation example
 
 
-
 # QuantumBackend run and measure circuit
 circuit = Circuit()
 number_of_samples = 1024
@@ -49,10 +48,11 @@ number_of_samples = 1024
 measurements = simulator.run_circuit_and_measure(circuit, number_of_samples)
 # End QuantumBackend run and measure circuit
 
+
 # QuantumBackend run and measure circuitset
 circuit1 = Circuit() + X(0) + X(1)
-circuit2 = Circuit() + H(0) + CNOT(0,1)
-circuit3 = Circuit() + X(0) + H(0) + CNOT(0,1)
+circuit2 = Circuit() + H(0) + CNOT(0, 1)
+circuit3 = Circuit() + X(0) + H(0) + CNOT(0, 1)
 
 circuit_set = [circuit1, circuit2, circuit3]
 number_of_samples_set = [10, 90, 100]
@@ -65,7 +65,7 @@ measurements_set = simulator.run_circuitset_and_measure(
 
 # Quantumbackend measurement distribution
 measurement_distribution = simulator.get_measurement_outcome_distribution(
-    circuit, number_of_samples =  1000
+    circuit, number_of_samples=1000
 )
 # End Quantumbackend measurement distribution
 

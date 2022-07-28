@@ -157,26 +157,23 @@ There are slightly different ways to import the conversions from the integration
 
 If you want to use some specific features from a particular framework (e.g. drawing circuits from qiskit) feel free to export/import and do it! Examples of using the import and export functions for this purpose can be found in the :ref:`getting started tutorial <beginner_translating_circuits>`.
 
-- Please double check if we're not changing the values/signs for some gates, e.g. cause we're using different conventions (some gates are in the reverse order, inverted gates) @yogi you said you might know what this is about? (@yogi to ask Michal on monday morning) - Waiting for answers from Michal
-
-How to integrate your own backend @yogi
+How to integrate your own backend
 =================================
 
-We have simplified the process of integrating any simulator into orquestra library. First you need to create a function that can translate gates between your library and `orquestra <https://github.com/zapatacomputing/orquestra-quantum/blob/main/src/orquestra/quantum/circuits/_builtin_gates.py>`. The create a class method that inherits from ``QuantumSimulator`` using the approach below:
+We have simplified the process of integrating any simulator into Orquestra Core. First you need to create a function that can translate gates between your library and `Orquestra's gates <https://github.com/zapatacomputing/orquestra-quantum/blob/main/src/orquestra/quantum/circuits/_builtin_gates.py>`. Then create a class method that inherits from ``QuantumSimulator`` using the approach below:
 
 .. literalinclude:: /examples/backends_guide.py
   :start-after: # Inherit QuantumSimulator
   :end-before: # End Inherit QuantumSimulator
 
-``QuantumSimulator`` has some abstract classes, that needs to be overwritten in order to use the library. For example, we need to define ``run_circuit_and_measure`` again in the class we created above. Here is an example of this approaach:
+``QuantumSimulator`` has some abstract classes that needs to be overwritten in order to use the library. For example, we need to define ``run_circuit_and_measure`` again in the class we created above. Here is an example of this approaach:
 
 .. literalinclude:: /examples/backends_guide.py
   :start-after: # overwrite run_circuit_and_measure
   :end-before: # End overwrite run_circuit_and_measure
 
 
-
-If you have credentials to access hardware, you can provide this to ``QuantumBackend`` when you initialize it. The process might vary between each backend. Check the ``QuantumBackend`` documentation for your hardware to find the credentials it accepts. If no credentials were provided, ``QuantumBackend`` will fail when you try to execute a function as you do not have permission to access the hardware. ``QuantumSimulator`` do not require any credentials as they are executed on a local environment.  
+If you have credentials to access hardware, you can provide this to ``QuantumBackend`` when you initialize it. The process might vary between each backend. Check the ``QuantumBackend`` documentation for your hardware to find the credentials it accepts. If no credentials were provided, ``QuantumBackend`` will fail when you try to execute a function as you do not have permission to access the hardware. ``QuantumSimulator``\ s do not require any credentials as they are executed on a local environment.  
 
 
 - two sections, one for real hardware, one for simulators
@@ -194,9 +191,8 @@ What to pay attention to, what comes out of the box, etc.
 
 
 ## Things I'm not sure where to put but we should put them somewhere:
-- Example usage – here's how you change to use various backends.
-- Maybe some simple benchmarking 3 backends?  (from ethan: my vote is hold off on this until we actually have benchmarking tooling)
 - info on what to do in case where given backend doesn’t use gates that we support (e.g. like https://github.com/zapatacomputing/qe-qhipster/blob/419e36c373442582b8b94933332d54972e9507b8/tests/qeqhipster/simulator_test.py#L27=)
 
-NOTE:
-- Refactoring backends is on our radar, though it will probably take us some time before we can do this.
+.. NOTE: Refactoring backends is on our radar, though it will probably take us some time before we can do this.
+
+.. TODO: add information on benchmarking backends once that functionality is implemented

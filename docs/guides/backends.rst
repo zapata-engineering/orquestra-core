@@ -162,6 +162,20 @@ If you want to use some specific features from a particular framework (e.g. draw
 How to integrate your own backend @yogi
 =================================
 
+We have simplified the process of integrating any simulator into orquestra library. First you need to create a function that can translate gates between your library and `orquestra <https://github.com/zapatacomputing/orquestra-quantum/blob/main/src/orquestra/quantum/circuits/_builtin_gates.py>`. The create a class method that inherits from ``QuantumSimulator`` using the approach below:
+
+.. literalinclude:: /examples/backends_guide.py
+  :start-after: # Inherit QuantumSimulator
+  :end-before: # End Inherit QuantumSimulator
+
+``QuantumSimulator`` has some abstract classes, that needs to be overwritten in order to use the library. For example, we need to define ``run_circuit_and_measure`` again in the class we created above. Here is an example of this approaach:
+
+.. literalinclude:: /examples/backends_guide.py
+  :start-after: # overwrite run_circuit_and_measure
+  :end-before: # End overwrite run_circuit_and_measure
+
+
+
 If you have credentials to access hardware, you can provide this to ``QuantumBackend`` when you initialize it. The process might vary between each backend. Check the ``QuantumBackend`` documentation for your hardware to find the credentials it accepts. If no credentials were provided, ``QuantumBackend`` will fail when you try to execute a function as you do not have permission to access the hardware. ``QuantumSimulator`` do not require any credentials as they are executed on a local environment.  
 
 

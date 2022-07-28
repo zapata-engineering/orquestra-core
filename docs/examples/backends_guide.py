@@ -33,35 +33,39 @@ expectation_values = simulator.get_exact_expectation_values(circuit, operator)
 
 
 # QuantumBackend creation example
-from orquestra.integrations.qiskit.backend import QiskitBackend
+# from orquestra.integrations.qiskit.backend import QiskitBackend
 
-backend = QiskitBackend(
-    "ibm_oslo", api_token="LOOKMORTYITURNEDMYSELFINTOANAPITOKEN!I'MAPIRICK"
-)
+# backend = QiskitBackend(
+#     "ibm_oslo", api_token="LOOKMORTYITURNEDMYSELFINTOANAPITOKEN!I'MAPIRICK"
+# )
 # End QuantumBackend creation example
 
-backend = simulator
+
 
 # QuantumBackend run and measure circuit
 circuit = Circuit()
 number_of_samples = 1024
 
-measurements = backend.run_circuit_and_measure(circuit, number_of_samples)
+measurements = simulator.run_circuit_and_measure(circuit, number_of_samples)
 # End QuantumBackend run and measure circuit
 
 # QuantumBackend run and measure circuitset
-circuit_set = [circuit, circuit2, circuit3]
+circuit1 = Circuit() + X(0) + X(1)
+circuit2 = Circuit() + H(0) + CNOT(0,1)
+circuit3 = Circuit() + X(0) + H(0) + CNOT(0,1)
+
+circuit_set = [circuit1, circuit2, circuit3]
 number_of_samples_set = [10, 90, 100]
 
-measurements_set = backend.run_circuitset_and_measure(
+measurements_set = simulator.run_circuitset_and_measure(
     circuit_set, number_of_samples_set
 )
 # End QuantumBackend run and measure circuitset
 
 
 # Quantumbackend measurement distribution
-measurement_distribution = backend.get_measurement_outcome_distribution(
-    circuit, number_of_samples
+measurement_distribution = simulator.get_measurement_outcome_distribution(
+    circuit, number_of_samples =  1000
 )
 # End Quantumbackend measurement distribution
 

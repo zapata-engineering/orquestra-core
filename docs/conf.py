@@ -38,8 +38,7 @@ sys.path.insert(0, temp_repo_folder)
 def build_mono_repo(temp_repo_folder):
 
     subprocess.call(
-        ["mkdir", "-p", temp_repo_folder],
-        shell = True
+        ["mkdir", "-p", temp_repo_folder], shell=True
     )  # make sure temporary folder exists
 
     # scan the manifest for the location of the root code directory for each repo
@@ -125,10 +124,7 @@ exclude_patterns = [
 # a list of builtin themes.
 #
 
-html_theme = "sphinx_book_theme"
-html_theme_options = {
-    "use_download_button": False,
-}
+html_theme = "furo"
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,

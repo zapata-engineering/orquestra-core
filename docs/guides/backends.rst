@@ -44,6 +44,16 @@ The `backend tests <https://github.com/zapatacomputing/orquestra-quantum/blob/ma
 
 For gates tests, the goal is to ensure gates are properly implemented. Sometimes gate operations in certain simulators are in reverse order (compared to Orquestra Core and other frameworks). When you use a gate operation in Orquestra, it's important to make sure it's represented correctly in the simulator and/or backend. In order to do that, Orquestra Core has a `suite of gate operations <https://github.com/zapatacomputing/orquestra-quantum/blob/main/src/orquestra/quantum/testing/test_cases_for_backend_tests.py>`_ that should be tested on each backend and simulator. This is done with `QuantumBackendGateTests <https://github.com/zapatacomputing/orquestra-quantum/blob/main/src/orquestra/quantum/api/backend_test.py#L193=>`_ and `QuantumSimulatorGateTests <https://github.com/zapatacomputing/orquestra-quantum/blob/main/src/orquestra/quantum/api/backend_test.py#L432=>`_
 
+.. TODO: updating the link to the backend test excluding RH gates to braket when public
+
+There is also the case where a certain backend doesn't use some gates that we support. When this happens, in the backend test, a list of excluded gates will be used in the ``QuantumSimulatorGatesTest`` like in `TestCirqSimulatorGates <https://github.com/zapatacomputing/orquestra-cirq/blob/main/tests/orquestra/integrations/cirq/simulator/simulator_test.py#L147>`_. For example, that might look something like this:
+
+.. code-block:: python
+
+  class TestCirqSimulatorGates(QuantumSimulatorGatesTest):
+      gates_to_exclude = ["RH"]
+      pass
+
 .. _backend_methods:
 
 Backend Methods Usage
@@ -160,38 +170,14 @@ If you want to use some specific features from a particular framework (e.g. draw
 How to integrate your own backend
 =================================
 
-We have simplified the process of integrating any simulator into Orquestra Core. First you need to create a function that can translate gates between your library and `Orquestra's gates <https://github.com/zapatacomputing/orquestra-quantum/blob/main/src/orquestra/quantum/circuits/_builtin_gates.py>`. Then create a class method that inherits from ``QuantumSimulator`` using the approach below:
+We have simplified the process of integrating any simulator into Orquestra Core. First you need to create a function that can translate gates between your library and `Orquestra's gates <https://github.com/zapatacomputing/orquestra-quantum/blob/main/src/orquestra/quantum/circuits/_builtin_gates.py>`_. Then create a class method that inherits from ``QuantumSimulator`` and overrides the needed abstract methods (like ``run_circuit_and_measure``) using the approach below:
 
 .. literalinclude:: /examples/backends_guide.py
   :start-after: # Inherit QuantumSimulator
   :end-before: # End Inherit QuantumSimulator
 
-``QuantumSimulator`` has some abstract classes that needs to be overwritten in order to use the library. For example, we need to define ``run_circuit_and_measure`` again in the class we created above. Here is an example of this approaach:
 
-.. literalinclude:: /examples/backends_guide.py
-  :start-after: # overwrite run_circuit_and_measure
-  :end-before: # End overwrite run_circuit_and_measure
-
-
-If you have credentials to access hardware, you can provide this to ``QuantumBackend`` when you initialize it. The process might vary between each backend. Check the ``QuantumBackend`` documentation for your hardware to find the credentials it accepts. If no credentials were provided, ``QuantumBackend`` will fail when you try to execute a function as you do not have permission to access the hardware. ``QuantumSimulator``\ s do not require any credentials as they are executed on a local environment.  
-
-
-- two sections, one for real hardware, one for simulators
--- hardware: credentials
--- simulators: direct
-
-* conversion package
-* inherit backend classes
-* override abstract methods
-
-What to pay attention to, what comes out of the box, etc.
-
-@Ethan, not sure what to write anymore. We can discuss this tomorrow.
-
-
-
-## Things I'm not sure where to put but we should put them somewhere:
-- info on what to do in case where given backend doesn’t use gates that we support (e.g. like https://github.com/zapatacomputing/qe-qhipster/blob/419e36c373442582b8b94933332d54972e9507b8/tests/qeqhipster/simulator_test.py#L27=)
+If you have credentials to access hardware, you can provide this to ``QuantumBackend`` when you initialize it. The process might vary between each backend. Check the ``QuantumBackend`` documentation for your hardware to find the credentials it accepts. If no credentials were provided, ``QuantumBackend`` will fail when you try to execute a function as you do not have permission to access the hardware. ``QuantumSimulator``\ s do not require any credentials as they are executed on a local environment.
 
 .. NOTE: Refactoring backends is on our radar, though it will probably take us some time before we can do this.
 

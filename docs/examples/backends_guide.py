@@ -35,17 +35,16 @@ expectation_values = simulator.get_exact_expectation_values(circuit, operator)
 
 
 # QuantumBackend creation example
-# from orquestra.integrations.qiskit.backend import QiskitBackend
+from orquestra.integrations.qiskit.backend import QiskitBackend
 
-# backend = QiskitBackend(
-#     "ibm_oslo", api_token="LOOKMORTYITURNEDMYSELFINTOANAPITOKEN!I'MAPIRICK"
-# )
+backend = QiskitBackend(
+    "ibm_oslo", api_token="LOOKMORTYITURNEDMYSELFINTOANAPITOKEN!I'MAPIRICK"
+)
 # End QuantumBackend creation example
 
 
-
 # QuantumBackend run and measure circuit
-circuit = Circuit()
+circuit = Circuit() + X(0) + X(1)
 number_of_samples = 1024
 
 measurements = simulator.run_circuit_and_measure(circuit, number_of_samples)
@@ -53,8 +52,8 @@ measurements = simulator.run_circuit_and_measure(circuit, number_of_samples)
 
 # QuantumBackend run and measure circuitset
 circuit1 = Circuit() + X(0) + X(1)
-circuit2 = Circuit() + H(0) + CNOT(0,1)
-circuit3 = Circuit() + X(0) + H(0) + CNOT(0,1)
+circuit2 = Circuit() + H(0) + CNOT(0, 1)
+circuit3 = Circuit() + X(0) + H(0) + CNOT(0, 1)
 
 circuit_set = [circuit1, circuit2, circuit3]
 number_of_samples_set = [10, 90, 100]
@@ -67,7 +66,7 @@ measurements_set = simulator.run_circuitset_and_measure(
 
 # Quantumbackend measurement distribution
 measurement_distribution = simulator.get_measurement_outcome_distribution(
-    circuit, number_of_samples =  1000
+    circuit, n_samples=1000
 )
 # End Quantumbackend measurement distribution
 
@@ -99,24 +98,23 @@ from orquestra.integrations.qiskit.conversions import (
 
 
 # Inherit QuantumSimulator
-
 from orquestra.quantum.api.backend import QuantumSimulator
 
-class mysimulator(QuantumSimulator):
-    pass
-# End Inherit QuantumSimulator
 
-# overwrite run_circuit_and_measure
 class mysimulator(QuantumSimulator):
-    simulator = your_simulator
+    def __init__(self, simulator_name, noise_model):
+        super().__init__()
+        self.noise_model = noise_model
+        self.simulator = simulator_name
 
     def run_circuit_and_measure(circuit, shots):
-        my_circ = export_to_my_circ(circuit) #function to translate circuits
-        result = self.simulator.run(circuit, shots) # assumption that your simulator uses the method .run to execute and measure. Also it takes circuit and shots as the only params
+        my_circ = export_to_my_circ(circuit)  # function to translate circuits
+        result = self.simulator.run(
+            circuit, shots
+        )  # assumption that your simulator uses the method .run to execute and measure. Also it takes circuit and shots as the only params
         samples = covert_the_results_to_samples(result)
 
         return Measurements(samples)
 
 
-
-# End overwrite run_circuit_and_measure
+# End Inherit QuantumSimulator

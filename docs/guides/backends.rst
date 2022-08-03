@@ -93,7 +93,7 @@ In all instances, ``QuantumBackend`` automatically adds the measurement operator
 Simulator-specific methods
 --------------------------
 
-``Quantumsimulator`` can be used to extract the wave function and expectation value of a given circuit. Below is an example of extracting these values using a ``Quantumsimulator`` called ``CirqSimulator``:
+``Quantumsimulator`` can be used to extract a wave function and expectation value for a given circuit (or circuit and operator). Below is an example of extracting these values using a ``Quantumsimulator`` called ``CirqSimulator``:
 
 .. literalinclude:: /examples/backends_guide.py
   :start-after: # Quantumsimulator examples

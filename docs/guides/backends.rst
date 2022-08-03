@@ -114,7 +114,7 @@ TrackingBackend
 
 A ``TrackingBackend`` is a backend that tracks and stores data about each run of a circuit. This is accomplished by wrapping pre-existing backends in a ``TrackingBackend``. Currently the ``MeasurementTrackingBackend`` in :doc:`orquestra.quantum.trackers </api/quantum/trackers/index>` is the only implemented ``TrackingBackend``
 
-When ``run_circuit_and_measure`` is called, the tracking backend stores the ``data_type`` recieved from the call (usually a measurement outcome distribution), the wrapped device, the circuit which was run, the disribution of bitstrings which was recieved, the number of gates in the circuit, and the number of shots run in a JSON file. This is useful when you are paying to run circuits on a machine and you want to be able to re-use the data in a different workflow.
+When ``run_circuit_and_measure`` is called, the tracking backend stores the ``data_type`` received from the call (usually a measurement outcome distribution), the wrapped device, the circuit which was run, the distribution of bitstrings which was received, the number of gates in the circuit, and the number of shots run in a JSON file. This is useful when you are paying to run circuits on a machine and you want to be able to re-use the data for different computations.
 
 To create a ``MeasurementTrackingBackend`` it must be initialized with a backend to be wrapped around, a name for the file you are storing the data in, and a boolean indicating whether or not the individual bitstrings should be saved. 
 

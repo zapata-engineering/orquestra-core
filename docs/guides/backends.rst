@@ -4,7 +4,7 @@
 Backends guide
 ==============
 
-Backends are the interfaces used to run :ref:`Circuits <circuits_guide>` in Orquestra Core. In this guide we'll cover differences between types of backends (``QuantumBackend`` vs ``QuantumSimulator``, ``TrackingBackend``, ``SymbolicSimulator``), how to use backends, currently integrated backends, and creating your own backend (among other topics).
+Backends are the interfaces used to run :ref:`Circuits <circuits_guide>` in Orquestra Core. In this guide we'll cover differences between types of backends (``QuantumBackend`` vs ``QuantumSimulator``), how to use backends, currently integrated backends, and creating your own backend (among other topics).
 
 
 General Backend Information
@@ -33,27 +33,6 @@ Because ``QuantumBackend``\ s connect to a cloud provider to run remote circuits
 
 For more information on how to use each type of backend please refer to the :ref:`section in this guide on various methods <backend_methods>` or to the :doc:`API documentation </api/quantum/api/backend/index>`.
 
-Testing the Backends
---------------------
-
-The `backend tests <https://github.com/zapatacomputing/orquestra-quantum/blob/main/src/orquestra/quantum/api/backend_test.py>`_ cover both general behaviors we want to make sure the ``Backend``\ s follow and specific gate tests. For instance, a common "general behavior" test across multiple backends is the ``run_circuitset_and_measure`` test. Here are examples in the `Cirq tests <https://github.com/zapatacomputing/orquestra-cirq/blob/main/tests/orquestra/integrations/cirq/simulator/simulator_test.py#L52=>`_ and the `Qiskit tests <https://github.com/zapatacomputing/orquestra-qiskit/blob/main/tests/orquestra/integrations/qiskit/backend/backend_test.py#L162=>`_.
-
-.. note::
-
-    Because tests are often specific to their ``Backend``, there are only basic tests in `orquestra-quantum <https://github.com/zapatacomputing/orquestra-quantum/blob/main/src/orquestra/quantum/api/backend_test.py>`_, which might be extended for specific implementations.
-
-For gates tests, the goal is to ensure gates are properly implemented and always follow the same conventions. Sometimes gate operations in certain simulators are in reverse order (compared to Orquestra Core and other frameworks). When you use a gate operation in Orquestra, it's important to make sure it's represented correctly in the simulator and/or backend. In order to do that, Orquestra Core has a `suite of gate operations <https://github.com/zapatacomputing/orquestra-quantum/blob/main/src/orquestra/quantum/testing/test_cases_for_backend_tests.py>`_ that should be tested on each backend and simulator. This is done with `QuantumBackendGateTests <https://github.com/zapatacomputing/orquestra-quantum/blob/main/src/orquestra/quantum/api/backend_test.py#L193=>`_ and `QuantumSimulatorGateTests <https://github.com/zapatacomputing/orquestra-quantum/blob/main/src/orquestra/quantum/api/backend_test.py#L432=>`_
-
-.. TODO: updating the link to the backend test excluding RH gates to braket when public
-
-There is also the case where a certain backend doesn't use some gates that we support. When this happens, in the backend test, a list of excluded gates will be used in the ``QuantumSimulatorGatesTest`` like in `TestCirqSimulatorGates <https://github.com/zapatacomputing/orquestra-cirq/blob/main/tests/orquestra/integrations/cirq/simulator/simulator_test.py#L147>`_. For example, that might look something like this:
-
-.. code-block:: python
-
-  class TestCirqSimulatorGates(QuantumSimulatorGatesTest):
-      gates_to_exclude = ["RH"]
-      pass
-
 .. _backend_methods:
 
 Backend Methods Usage
@@ -70,7 +49,7 @@ In order to use quantum hardware, the user must use the backend's authentication
 General Backend Methods
 -----------------------
 
-After intializing the backend we can send the ``Circuit`` and number of repetitions to the backend and read the measurement. For more information on creating circuits to send to a backend, refer to the :ref:`Circuits Guide <circuits_guide>`. For a single circuit, that is executed as follows:
+After intializing the backend we can send the ``Circuit`` and number of repetitions to the backend and read the measurement. For more information on creating circuits to send to a backend, refer to the :ref:`Circuits Guide <circuits_guide>`. For a single circuit, that looks like this:
 
 .. literalinclude:: /examples/backends_guide.py
   :start-after: # QuantumBackend run and measure circuit
@@ -93,11 +72,13 @@ In all instances, ``QuantumBackend`` automatically adds the measurement operator
 Simulator-specific methods
 --------------------------
 
-``Quantumsimulator`` can be used to extract a wave function and expectation value for a given circuit (or circuit and operator). Below is an example of extracting these values using a ``Quantumsimulator`` called ``CirqSimulator``:
+``QuantumSimulator`` can be used to extract a wave function and expectation value for a given circuit (or circuit and operator). Below is an example of extracting these values using a ``QuantumSimulator`` called ``CirqSimulator``:
 
 .. literalinclude:: /examples/backends_guide.py
   :start-after: # Quantumsimulator examples
   :end-before: # End Quantumsimulator examples
+
+**Noise Models** can be used on certain simulators (like Qiskit and QSim) to help evaluate a circuit's performance under noisy conditions. For more details how to use that, please refer to docs for particular simulator.
 
 Zapata's backends
 =================
@@ -105,18 +86,18 @@ Zapata's backends
 SymbolicSimulator
 -----------------
 
-Zapata's ``SymbolicSimulator`` is a type of :ref:`quantum simulator <quantum_simulator>` that's built specifically to allow for the evaluation of circuits with :ref:`symbolic gates <symbolic_gates>`. Because there is extra overhead to allow for this broader type of evaluation, ``SymbolicSimulator`` is not the most performant simulator, but it can be useful for deeply understanding small circuits.
+Zapata's ``SymbolicSimulator`` is a type of :ref:`quantum simulator <quantum_simulator>` that's built specifically to allow for the evaluation of circuits with :ref:`symbolic gates <symbolic_gates>`. Because there is extra overhead to allow for this broader type of evaluation, ``SymbolicSimulator`` is not the most performant simulator, but it can be useful for deeply understanding small circuits. Additionally, it doesn't require any extra dependencies (apart from ``orquestra-quantum``), making it useful for testing purposes.
 
 The ``SymbolicSimulator`` can be used the same way any other simulator can be. To see more usage please refer to the :ref:`section in this guide on various methods <backend_methods>` or to the :doc:`API documentation </api/quantum/api/backend/index>`
 
-TrackingBackend
----------------
+``MeasurementTrackingBackend``
+------------------------------
 
-A ``TrackingBackend`` is a backend that tracks and stores data about each run of a circuit. This is accomplished by wrapping pre-existing backends in a ``TrackingBackend``. Currently the ``MeasurementTrackingBackend`` in :doc:`orquestra.quantum.trackers </api/quantum/trackers/index>` is the only implemented ``TrackingBackend``
+A ``MeasurementTrackingBackend`` is a backend that tracks and stores data about each run of a circuit. This is accomplished by wrapping pre-existing backends in a ``MeasurementTrackingBackend`` from :doc:`orquestra.quantum.trackers </api/quantum/trackers/index>`.
 
 When ``run_circuit_and_measure`` is called, the tracking backend stores the ``data_type`` received from the call (usually a measurement outcome distribution), the wrapped device, the circuit which was run, the distribution of bitstrings which was received, the number of gates in the circuit, and the number of shots run in a JSON file. This is useful when you are paying to run circuits on a machine and you want to be able to re-use the data for different computations.
 
-To create a ``MeasurementTrackingBackend`` it must be initialized with a backend to be wrapped around, a name for the file you are storing the data in, and a boolean indicating whether or not the individual bitstrings should be saved. 
+To create a ``MeasurementTrackingBackend`` it must be initialized with a backend to be wrapped around, a name for the file you are storing the data in, and an optional boolean indicating whether or not the individual bitstrings should be saved (defaults to `False`)
 
 .. literalinclude:: /examples/backends_guide.py
   :start-after: # TrackingBackend creation example
@@ -167,10 +148,13 @@ There are slightly different ways to import the conversions from the integration
 
 If you want to use some specific features from a particular framework (e.g. drawing circuits from qiskit) feel free to export/import and do it! Examples of using the import and export functions for this purpose can be found in the :ref:`getting started tutorial <beginner_translating_circuits>`.
 
+
 How to integrate your own backend
 =================================
 
-We have simplified the process of integrating any simulator into Orquestra Core. First you need to create a function that can translate gates between your library and `Orquestra's gates <https://github.com/zapatacomputing/orquestra-quantum/blob/main/src/orquestra/quantum/circuits/_builtin_gates.py>`_. Then create a class method that inherits from ``QuantumSimulator`` and overrides the needed abstract methods (like ``run_circuit_and_measure``) using the approach below:
+We have simplified the process of integrating any simulator into Orquestra Core. First you need to create a function that can translate gates between your library and `Orquestra's gates <https://github.com/zapatacomputing/orquestra-quantum/blob/main/src/orquestra/quantum/circuits/_builtin_gates.py>`_. Then create a class method that inherits from ``QuantumSimulator`` and overrides the needed abstract methods (like ``run_circuit_and_measure``). In order for integration to work properly, the signature of all the methods needs to be exactly the same as in the abstract class. If your simulator requires some extra arguments (e.g. whether to use a noise model), please provide it in the ``__init__`` method.
+
+Here is an example of a (fake) simulator integrated using this process:
 
 .. literalinclude:: /examples/backends_guide.py
   :start-after: # Inherit QuantumSimulator
@@ -178,6 +162,33 @@ We have simplified the process of integrating any simulator into Orquestra Core.
 
 
 If you have credentials to access hardware, you can provide this to ``QuantumBackend`` when you initialize it. The process might vary between each backend. Check the ``QuantumBackend`` documentation for your hardware to find the credentials it accepts. If no credentials were provided, ``QuantumBackend`` will fail when you try to execute a function as you do not have permission to access the hardware. ``QuantumSimulator``\ s do not require any credentials as they are executed on a local environment.
+
+Testing the Backends
+--------------------
+
+One of our goals with the ``QuantumBackend``\ s was to make sure that all the backends behave in a uniform way. In order to ensure that, we have developed a suite of tests which all backends need to pass.
+
+.. note::
+
+  This suite of tests is needed when integrating your own backend, but to just use already-integrated backends the end user likely won't need to directly work with these tests.
+
+The `backend tests <https://github.com/zapatacomputing/orquestra-quantum/blob/main/src/orquestra/quantum/api/backend_test.py>`_ cover both general behaviors we want to make sure the ``Backend``\ s follow and specific gate tests. For instance, a common "general behavior" test across multiple backends is the ``run_circuitset_and_measure`` test. Here are examples in the `Cirq tests <https://github.com/zapatacomputing/orquestra-cirq/blob/main/tests/orquestra/integrations/cirq/simulator/simulator_test.py#L52=>`_ and the `Qiskit tests <https://github.com/zapatacomputing/orquestra-qiskit/blob/main/tests/orquestra/integrations/qiskit/backend/backend_test.py#L162=>`_.
+
+.. note::
+
+    Because tests are often specific to their ``Backend``, there are only prototype backend tests in `orquestra-quantum <https://github.com/zapatacomputing/orquestra-quantum/blob/main/src/orquestra/quantum/api/backend_test.py>`_. Implementations of these tests are in the integrations that house specific backends. Please refer to the section on :ref:`currently integrated backends <integrated_backends>` for a complete list of backends
+
+For gates tests, the goal is to ensure gates are properly implemented. Sometimes gate operations in certain simulators are in reverse order (compared to Orquestra Core and other frameworks). When you use a gate operation in Orquestra, it's important to make sure it's represented correctly in the simulator and/or backend. In order to do that, Orquestra Core has a `suite of gate operations <https://github.com/zapatacomputing/orquestra-quantum/blob/main/src/orquestra/quantum/testing/test_cases_for_backend_tests.py>`_ that should be tested on each backend and simulator. This is done with `QuantumBackendGateTests <https://github.com/zapatacomputing/orquestra-quantum/blob/main/src/orquestra/quantum/api/backend_test.py#L193=>`_ and `QuantumSimulatorGateTests <https://github.com/zapatacomputing/orquestra-quantum/blob/main/src/orquestra/quantum/api/backend_test.py#L432=>`_
+
+.. TODO: updating the link to the backend test excluding RH gates to braket when public
+
+There is also the case where a certain backend doesn't use some gates that we support. When this happens, in the backend test, a list of excluded gates will be used in the ``QuantumSimulatorGatesTest`` like in `TestCirqSimulatorGates <https://github.com/zapatacomputing/orquestra-cirq/blob/main/tests/orquestra/integrations/cirq/simulator/simulator_test.py#L147>`_. For example, that might look something like this:
+
+.. code-block:: python
+
+  class TestCirqSimulatorGates(QuantumSimulatorGatesTest):
+      gates_to_exclude = ["RH"]
+      pass
 
 .. NOTE: Refactoring backends is on our radar, though it will probably take us some time before we can do this.
 

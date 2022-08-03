@@ -107,10 +107,10 @@ class mysimulator(QuantumSimulator):
         self.noise_model = noise_model
         self.simulator = simulator_name
 
-    def run_circuit_and_measure(circuit, shots):
+    def run_circuit_and_measure(circuit, n_samples):
         my_circ = export_to_my_circ(circuit)  # function to translate circuits
         result = self.simulator.run(
-            circuit, shots
+            circuit, n_samples
         )  # assumption that your simulator uses the method .run to execute and measure. Also it takes circuit and shots as the only params
         samples = covert_the_results_to_samples(result)
 

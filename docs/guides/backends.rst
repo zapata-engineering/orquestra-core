@@ -15,7 +15,7 @@ The function of a backend is to send instructions to quantum hardware or to a si
 Two types of backends
 ---------------------
 
-``QuantumBackend`` is the base class for all backends. ``QuantumBackend``\ s are used for physical quantum hardware backends.
+``QuantumBackend`` is the base class for all backends. ``QuantumBackend``\ s can be used for physical quantum hardware backends as well as simulators.
 
 Because ``QuantumBackend``\ s connect to a cloud provider to run remote circuits, it is necessary to specify which device you want to connect to. For example, the ``QiskitBackend`` takes in a ``device_name`` string:
 

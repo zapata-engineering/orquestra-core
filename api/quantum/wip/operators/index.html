@@ -11,7 +11,6 @@
     <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/css/autoapi.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
@@ -172,6 +171,7 @@
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../../guides/index.html">Guides</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../guides/circuits.html">Circuits guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../guides/backends.html">Backends guide</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../index.html">API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -455,21 +455,36 @@
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#quantum.wip.operators.PauliTerm" title="quantum.wip.operators.PauliTerm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PauliTerm</span></code></a></p></td>
-<td><p>A datastructure for storing information about a single Pauli Term</p></td>
+<td><p>Representation of a single Pauli Term.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
+</div>
+<div class="section" id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">#</a></h3>
+<div class="table-wrapper autosummary longtable docutils container">
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.wip.operators.PauliRepresentation" title="quantum.wip.operators.PauliRepresentation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PauliRepresentation</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl class="py data">
+<dt class="sig sig-object py" id="quantum.wip.operators.PauliRepresentation">
+<span class="sig-prename descclassname"><span class="pre">quantum.wip.operators.</span></span><span class="sig-name descname"><span class="pre">PauliRepresentation</span></span><a class="headerlink" href="#quantum.wip.operators.PauliRepresentation" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
 <dl class="py class">
 <dt class="sig sig-object py" id="quantum.wip.operators.PauliSum">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">quantum.wip.operators.</span></span><span class="sig-name descname"><span class="pre">PauliSum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">terms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#quantum.wip.operators.PauliTerm" title="quantum.wip.operators.PauliTerm"><span class="pre">PauliTerm</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quantum.wip.operators.PauliSum" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">quantum.wip.operators.</span></span><span class="sig-name descname"><span class="pre">PauliSum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">terms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#quantum.wip.operators.PauliTerm" title="quantum.wip.operators.PauliTerm"><span class="pre">PauliTerm</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quantum.wip.operators.PauliSum" title="Permalink to this definition">#</a></dt>
 <dd><dl class="py method">
-<dt class="sig sig-object py" id="quantum.wip.operators.PauliSum.from_str">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">str_pauli_sum</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#quantum.wip.operators.PauliSum" title="quantum.wip.operators.PauliSum"><span class="pre">PauliSum</span></a></span></span><a class="headerlink" href="#quantum.wip.operators.PauliSum.from_str" title="Permalink to this definition">#</a></dt>
-<dd><p>Construct a PauliSum from the result of str(pauli_sum)</p>
-</dd></dl>
-
-<dl class="py method">
 <dt class="sig sig-object py" id="quantum.wip.operators.PauliSum.qubits">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">qubits</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#quantum.wip.operators.PauliSum.qubits" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
@@ -477,7 +492,7 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="quantum.wip.operators.PauliSum.is_ising">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_ising</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span></span><a class="headerlink" href="#quantum.wip.operators.PauliSum.is_ising" title="Permalink to this definition">#</a></dt>
-<dd><p>Returns whether the full operator represents an ising model.</p>
+<dd><p>Returns whether the full operator represents an Ising model.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -495,26 +510,26 @@
 <span class="sig-name descname"><span class="pre">simplify</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#quantum.wip.operators.PauliSum" title="quantum.wip.operators.PauliSum"><span class="pre">PauliSum</span></a></span></span><a class="headerlink" href="#quantum.wip.operators.PauliSum.simplify" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum.wip.operators.PauliSum.is_constant">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_constant</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span></span><a class="headerlink" href="#quantum.wip.operators.PauliSum.is_constant" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="quantum.wip.operators.PauliTerm">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">quantum.wip.operators.</span></span><span class="sig-name descname"><span class="pre">PauliTerm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">operator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coefficient</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.10)"><span class="pre">complex</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quantum.wip.operators.PauliTerm" title="Permalink to this definition">#</a></dt>
-<dd><p>A datastructure for storing information about a single Pauli Term</p>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">quantum.wip.operators.</span></span><span class="sig-name descname"><span class="pre">PauliTerm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">operator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coefficient</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.10)"><span class="pre">complex</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quantum.wip.operators.PauliTerm" title="Permalink to this definition">#</a></dt>
+<dd><p>Representation of a single Pauli Term.</p>
+<p>If coefficient is not provided neither directly nor in the string repr,
+it defaults to 1.0</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="quantum.wip.operators.PauliTerm.from_list">
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">list_of_terms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coefficient</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.10)"><span class="pre">complex</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#quantum.wip.operators.PauliTerm" title="quantum.wip.operators.PauliTerm"><span class="pre">PauliTerm</span></a></span></span><a class="headerlink" href="#quantum.wip.operators.PauliTerm.from_list" title="Permalink to this definition">#</a></dt>
-<dd><dl class="simple">
-<dt>A slightly more efficient constructor when all the elements of the term are</dt><dd><p>known beforehand. Users should employ this function instead of creating
+<dd><p>Construct PauliTerm from a list of operators.</p>
+<p>A slightly more efficient constructor when all the elements of the term are
+known beforehand. Users should employ this function instead of creating
 individual terms and multiplying.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="quantum.wip.operators.PauliTerm.from_str">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">str_pauli_term</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#quantum.wip.operators.PauliTerm" title="quantum.wip.operators.PauliTerm"><span class="pre">PauliTerm</span></a></span></span><a class="headerlink" href="#quantum.wip.operators.PauliTerm.from_str" title="Permalink to this definition">#</a></dt>
-<dd><p>Construct a PauliTerm from the result of str(pauli_term)</p>
 </dd></dl>
 
 <dl class="py method">
@@ -525,34 +540,44 @@ individual terms and multiplying.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="quantum.wip.operators.PauliTerm.copy">
 <span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_coefficient</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.10)"><span class="pre">complex</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#quantum.wip.operators.PauliTerm" title="quantum.wip.operators.PauliTerm"><span class="pre">PauliTerm</span></a></span></span><a class="headerlink" href="#quantum.wip.operators.PauliTerm.copy" title="Permalink to this definition">#</a></dt>
-<dd><p>Properly creates a new PauliTerm, with a completely new dictionary
-of operators</p>
+<dd><p>Copy PauliTerm, possibly changing its coefficient to a new one.</p>
+<p>The created copy is deep, in particular internal dictionary storing map
+from qubit indices to operators is also copied.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="quantum.wip.operators.PauliTerm.qubits">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">qubits</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#quantum.wip.operators.PauliTerm.qubits" title="Permalink to this definition">#</a></dt>
-<dd><p>Returns the list of qubit indices associated with this term.</p>
+<dd><p>The list of qubit indices associated with this term.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="quantum.wip.operators.PauliTerm.is_ising">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_ising</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span></span><a class="headerlink" href="#quantum.wip.operators.PauliTerm.is_ising" title="Permalink to this definition">#</a></dt>
-<dd><p>Returns whether the term represents an ising model
-(i.e. contains only Z terms)</p>
+<dd><p>True iff this term is Ising Operator (i.e. contains no X or Y operators)</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="quantum.wip.operators.PauliTerm.circuit">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">circuit</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">orquestra.quantum.circuits.Circuit</span></span></span><a class="headerlink" href="#quantum.wip.operators.PauliTerm.circuit" title="Permalink to this definition">#</a></dt>
-<dd><p>Returns the circuit implementing this Pauli Term. Since the public API
-treats the object as immutable, we store the circuit representation when
-the function is called for the first time, for efficiency.</p>
+<dd><p>Circuit implementing this Pauli term.</p>
+<p>For efficiency constructed circuit is cached after the first invocation of
+this property.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="quantum.wip.operators.PauliTerm.operations_as_set">
-<span class="sig-name descname"><span class="pre">operations_as_set</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">FrozenSet</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#quantum.wip.operators.PauliTerm.operations_as_set" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="quantum.wip.operators.PauliTerm.operations">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">operations</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">FrozenSet</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#quantum.wip.operators.PauliTerm.operations" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum.wip.operators.PauliTerm.terms">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">terms</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#quantum.wip.operators.PauliTerm" title="quantum.wip.operators.PauliTerm"><span class="pre">PauliTerm</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#quantum.wip.operators.PauliTerm.terms" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum.wip.operators.PauliTerm.is_constant">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_constant</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span></span><a class="headerlink" href="#quantum.wip.operators.PauliTerm.is_constant" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -602,25 +627,28 @@ the function is called for the first time, for efficiency.</p>
             <ul>
 <li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">quantum.wip.operators</span></code></a><ul>
 <li><a class="reference internal" href="#package-contents">Package Contents</a><ul>
-<li><a class="reference internal" href="#classes">Classes</a><ul>
+<li><a class="reference internal" href="#classes">Classes</a></li>
+<li><a class="reference internal" href="#attributes">Attributes</a><ul>
+<li><a class="reference internal" href="#quantum.wip.operators.PauliRepresentation">PauliRepresentation</a></li>
 <li><a class="reference internal" href="#quantum.wip.operators.PauliSum">PauliSum</a><ul>
-<li><a class="reference internal" href="#quantum.wip.operators.PauliSum.from_str">from_str</a></li>
 <li><a class="reference internal" href="#quantum.wip.operators.PauliSum.qubits">qubits</a></li>
 <li><a class="reference internal" href="#quantum.wip.operators.PauliSum.is_ising">is_ising</a></li>
 <li><a class="reference internal" href="#quantum.wip.operators.PauliSum.circuits">circuits</a></li>
 <li><a class="reference internal" href="#quantum.wip.operators.PauliSum.identity">identity</a></li>
 <li><a class="reference internal" href="#quantum.wip.operators.PauliSum.simplify">simplify</a></li>
+<li><a class="reference internal" href="#quantum.wip.operators.PauliSum.is_constant">is_constant</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#quantum.wip.operators.PauliTerm">PauliTerm</a><ul>
 <li><a class="reference internal" href="#quantum.wip.operators.PauliTerm.from_list">from_list</a></li>
-<li><a class="reference internal" href="#quantum.wip.operators.PauliTerm.from_str">from_str</a></li>
 <li><a class="reference internal" href="#quantum.wip.operators.PauliTerm.identity">identity</a></li>
 <li><a class="reference internal" href="#quantum.wip.operators.PauliTerm.copy">copy</a></li>
 <li><a class="reference internal" href="#quantum.wip.operators.PauliTerm.qubits">qubits</a></li>
 <li><a class="reference internal" href="#quantum.wip.operators.PauliTerm.is_ising">is_ising</a></li>
 <li><a class="reference internal" href="#quantum.wip.operators.PauliTerm.circuit">circuit</a></li>
-<li><a class="reference internal" href="#quantum.wip.operators.PauliTerm.operations_as_set">operations_as_set</a></li>
+<li><a class="reference internal" href="#quantum.wip.operators.PauliTerm.operations">operations</a></li>
+<li><a class="reference internal" href="#quantum.wip.operators.PauliTerm.terms">terms</a></li>
+<li><a class="reference internal" href="#quantum.wip.operators.PauliTerm.is_constant">is_constant</a></li>
 </ul>
 </li>
 </ul>

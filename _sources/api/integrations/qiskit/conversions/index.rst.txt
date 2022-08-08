@@ -26,20 +26,20 @@ Functions
 .. py:function:: import_from_qiskit(circuit: qiskit.QuantumCircuit) -> orquestra.quantum.circuits._circuit.Circuit
 
 
-.. py:function:: qiskitpauli_to_qubitop(qiskit_pauli: qiskit.opflow.SummedOp) -> orquestra.quantum.openfermion.QubitOperator
+.. py:function:: qiskitpauli_to_qubitop(qiskit_pauli: qiskit.opflow.SummedOp) -> orquestra.quantum.wip.operators.PauliSum
 
-   Convert a qiskit's SummedOp to an OpenFermion QubitOperator.
+   Convert a qiskit's SummedOp to a PauliSum.
 
    :param qiskit_pauli: operator to convert
 
-   :returns: QubitOperator representing the SummedOp
+   :returns: PauliSum representing the SummedOp
 
 
-.. py:function:: qubitop_to_qiskitpauli(qubit_operator: orquestra.quantum.openfermion.QubitOperator) -> qiskit.opflow.SummedOp
+.. py:function:: qubitop_to_qiskitpauli(operator: orquestra.quantum.wip.operators.PauliRepresentation) -> qiskit.opflow.SummedOp
 
-   Convert a OpenFermion QubitOperator to a SummedOp.
+   Convert a PauliRepresentation to a SummedOp.
 
-   :param qubit_operator: OpenFermion QubitOperator to convert
+   :param operator: PauliRepresentation to convert
 
    :returns: SummedOp representing the qubit operator
 

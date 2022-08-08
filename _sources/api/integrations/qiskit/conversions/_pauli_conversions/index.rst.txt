@@ -1,0 +1,45 @@
+:orphan:
+
+:py:mod:`integrations.qiskit.conversions._pauli_conversions`
+============================================================
+
+.. py:module:: integrations.qiskit.conversions._pauli_conversions
+
+.. autoapi-nested-parse::
+
+   Translates OpenFermion Objects to qiskit SummedOp objects
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   integrations.qiskit.conversions._pauli_conversions.qubitop_to_qiskitpauli
+   integrations.qiskit.conversions._pauli_conversions.qiskitpauli_to_qubitop
+
+
+
+.. py:function:: qubitop_to_qiskitpauli(operator: orquestra.quantum.wip.operators.PauliRepresentation) -> qiskit.opflow.SummedOp
+
+   Convert a PauliRepresentation to a SummedOp.
+
+   :param operator: PauliRepresentation to convert
+
+   :returns: SummedOp representing the qubit operator
+
+
+.. py:function:: qiskitpauli_to_qubitop(qiskit_pauli: qiskit.opflow.SummedOp) -> orquestra.quantum.wip.operators.PauliSum
+
+   Convert a qiskit's SummedOp to a PauliSum.
+
+   :param qiskit_pauli: operator to convert
+
+   :returns: PauliSum representing the SummedOp
+
+

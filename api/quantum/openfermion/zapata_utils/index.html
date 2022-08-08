@@ -11,7 +11,6 @@
     <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/css/autoapi.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
@@ -172,6 +171,7 @@
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../../guides/index.html">Guides</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../guides/circuits.html">Circuits guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../guides/backends.html">Backends guide</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../../../index.html">API Reference</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
@@ -517,46 +517,43 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#quantum.openfermion.zapata_utils.change_operator_type" title="quantum.openfermion.zapata_utils.change_operator_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">change_operator_type</span></code></a>(operator, operatorType)</p></td>
 <td><p>Take an operator and attempt to cast it to an operator of a different type</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.openfermion.zapata_utils.create_circuits_from_qubit_operator" title="quantum.openfermion.zapata_utils.create_circuits_from_qubit_operator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_circuits_from_qubit_operator</span></code></a>(...)</p></td>
-<td><p>Creates a list of circuit objects from the Pauli terms of a QubitOperator</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#quantum.openfermion.zapata_utils.evaluate_qubit_operator" title="quantum.openfermion.zapata_utils.evaluate_qubit_operator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">evaluate_qubit_operator</span></code></a>(...)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.openfermion.zapata_utils.evaluate_qubit_operator" title="quantum.openfermion.zapata_utils.evaluate_qubit_operator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">evaluate_qubit_operator</span></code></a>(...)</p></td>
 <td><p>Evaluate the expectation value of a qubit operator using expectation values for</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.openfermion.zapata_utils.evaluate_qubit_operator_list" title="quantum.openfermion.zapata_utils.evaluate_qubit_operator_list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">evaluate_qubit_operator_list</span></code></a>(...)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#quantum.openfermion.zapata_utils.evaluate_qubit_operator_list" title="quantum.openfermion.zapata_utils.evaluate_qubit_operator_list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">evaluate_qubit_operator_list</span></code></a>(...)</p></td>
 <td><p>Evaluate the expectation value of a qubit operator list using expectation values</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#quantum.openfermion.zapata_utils.generate_random_qubitop" title="quantum.openfermion.zapata_utils.generate_random_qubitop"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_random_qubitop</span></code></a>(...)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.openfermion.zapata_utils.generate_random_qubitop" title="quantum.openfermion.zapata_utils.generate_random_qubitop"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_random_qubitop</span></code></a>(...)</p></td>
 <td><p>Generates a Hamiltonian with term coefficients uniformly distributed</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.openfermion.zapata_utils.get_diagonal_component" title="quantum.openfermion.zapata_utils.get_diagonal_component"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_diagonal_component</span></code></a>(operator)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#quantum.openfermion.zapata_utils.get_diagonal_component" title="quantum.openfermion.zapata_utils.get_diagonal_component"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_diagonal_component</span></code></a>(operator)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#quantum.openfermion.zapata_utils.get_expectation_value" title="quantum.openfermion.zapata_utils.get_expectation_value"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_expectation_value</span></code></a>(→ complex)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.openfermion.zapata_utils.get_expectation_value" title="quantum.openfermion.zapata_utils.get_expectation_value"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_expectation_value</span></code></a>(→ complex)</p></td>
 <td><p>Get the expectation value of a qubit operator with respect to a wavefunction.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.openfermion.zapata_utils.get_fermion_number_operator" title="quantum.openfermion.zapata_utils.get_fermion_number_operator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_fermion_number_operator</span></code></a>(n_qubits[, n_particles])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#quantum.openfermion.zapata_utils.get_fermion_number_operator" title="quantum.openfermion.zapata_utils.get_fermion_number_operator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_fermion_number_operator</span></code></a>(n_qubits[, n_particles])</p></td>
 <td><p>Return a FermionOperator representing the number operator for n qubits.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#quantum.openfermion.zapata_utils.get_ground_state_rdm_from_qubit_op" title="quantum.openfermion.zapata_utils.get_ground_state_rdm_from_qubit_op"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_ground_state_rdm_from_qubit_op</span></code></a>(...)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.openfermion.zapata_utils.get_ground_state_rdm_from_qubit_op" title="quantum.openfermion.zapata_utils.get_ground_state_rdm_from_qubit_op"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_ground_state_rdm_from_qubit_op</span></code></a>(...)</p></td>
 <td><p>Diagonalize operator and compute the ground state 1- and 2-RDM</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.openfermion.zapata_utils.get_polynomial_tensor" title="quantum.openfermion.zapata_utils.get_polynomial_tensor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_polynomial_tensor</span></code></a>(fermion_operator[, n_qubits])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#quantum.openfermion.zapata_utils.get_polynomial_tensor" title="quantum.openfermion.zapata_utils.get_polynomial_tensor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_polynomial_tensor</span></code></a>(fermion_operator[, n_qubits])</p></td>
 <td><p>Convert a fermionic operator to a Polynomial Tensor.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#quantum.openfermion.zapata_utils.get_qubitop_from_coeffs_and_labels" title="quantum.openfermion.zapata_utils.get_qubitop_from_coeffs_and_labels"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_qubitop_from_coeffs_and_labels</span></code></a>(...)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.openfermion.zapata_utils.get_qubitop_from_coeffs_and_labels" title="quantum.openfermion.zapata_utils.get_qubitop_from_coeffs_and_labels"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_qubitop_from_coeffs_and_labels</span></code></a>(...)</p></td>
 <td><p>Generates a QubitOperator based on a coefficient vector and</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.openfermion.zapata_utils.get_qubitop_from_matrix" title="quantum.openfermion.zapata_utils.get_qubitop_from_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_qubitop_from_matrix</span></code></a>(...)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#quantum.openfermion.zapata_utils.get_qubitop_from_matrix" title="quantum.openfermion.zapata_utils.get_qubitop_from_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_qubitop_from_matrix</span></code></a>(...)</p></td>
 <td><p>Expands a 2^n by 2^n matrix into n-qubit Pauli basis. The runtime of</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#quantum.openfermion.zapata_utils.hf_rdm" title="quantum.openfermion.zapata_utils.hf_rdm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hf_rdm</span></code></a>(→ orquestra.quantum.openfermion.InteractionRDM)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.openfermion.zapata_utils.hf_rdm" title="quantum.openfermion.zapata_utils.hf_rdm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hf_rdm</span></code></a>(→ orquestra.quantum.openfermion.InteractionRDM)</p></td>
 <td><p>Construct the RDM corresponding to a Hartree-Fock state.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.openfermion.zapata_utils.remove_inactive_orbitals" title="quantum.openfermion.zapata_utils.remove_inactive_orbitals"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_inactive_orbitals</span></code></a>(...)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#quantum.openfermion.zapata_utils.remove_inactive_orbitals" title="quantum.openfermion.zapata_utils.remove_inactive_orbitals"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_inactive_orbitals</span></code></a>(...)</p></td>
 <td><p>Remove orbitals not in the active space from an interaction operator.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#quantum.openfermion.zapata_utils.reverse_qubit_order" title="quantum.openfermion.zapata_utils.reverse_qubit_order"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reverse_qubit_order</span></code></a>(qubit_operator[, n_qubits])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.openfermion.zapata_utils.reverse_qubit_order" title="quantum.openfermion.zapata_utils.reverse_qubit_order"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reverse_qubit_order</span></code></a>(qubit_operator[, n_qubits])</p></td>
 <td><p>Reverse the order of qubit indices in a qubit operator.</p></td>
 </tr>
 </tbody>
@@ -873,21 +870,6 @@ cast to</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="quantum.openfermion.zapata_utils.create_circuits_from_qubit_operator">
-<span class="sig-prename descclassname"><span class="pre">quantum.openfermion.zapata_utils.</span></span><span class="sig-name descname"><span class="pre">create_circuits_from_qubit_operator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qubit_operator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">orquestra.quantum.openfermion.QubitOperator</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">orquestra.quantum.circuits.Circuit</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#quantum.openfermion.zapata_utils.create_circuits_from_qubit_operator" title="Permalink to this definition">#</a></dt>
-<dd><p>Creates a list of circuit objects from the Pauli terms of a QubitOperator
-:param qubit_operator: operator for which the Pauli terms are converted into circuits</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>a list of Pauli string gate circuits</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>circuit_set</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
 <dt class="sig sig-object py" id="quantum.openfermion.zapata_utils.evaluate_qubit_operator">
 <span class="sig-prename descclassname"><span class="pre">quantum.openfermion.zapata_utils.</span></span><span class="sig-name descname"><span class="pre">evaluate_qubit_operator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qubit_operator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">orquestra.quantum.openfermion.QubitOperator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expectation_values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">orquestra.quantum.measurements.ExpectationValues</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">orquestra.quantum.utils.ValueEstimate</span></span></span><a class="headerlink" href="#quantum.openfermion.zapata_utils.evaluate_qubit_operator" title="Permalink to this definition">#</a></dt>
 <dd><p>Evaluate the expectation value of a qubit operator using expectation values for
@@ -960,7 +942,7 @@ and label matrix.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="quantum.openfermion.zapata_utils.get_expectation_value">
-<span class="sig-prename descclassname"><span class="pre">quantum.openfermion.zapata_utils.</span></span><span class="sig-name descname"><span class="pre">get_expectation_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qubit_op</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">orquestra.quantum.openfermion.QubitOperator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wavefunction</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">orquestra.quantum.wavefunction.Wavefunction</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reverse_operator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.10)"><span class="pre">complex</span></a></span></span><a class="headerlink" href="#quantum.openfermion.zapata_utils.get_expectation_value" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">quantum.openfermion.zapata_utils.</span></span><span class="sig-name descname"><span class="pre">get_expectation_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qubit_op</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">quantum.wip.operators.PauliRepresentation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wavefunction</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">orquestra.quantum.wavefunction.Wavefunction</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reverse_operator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.10)"><span class="pre">complex</span></a></span></span><a class="headerlink" href="#quantum.openfermion.zapata_utils.get_expectation_value" title="Permalink to this definition">#</a></dt>
 <dd><p>Get the expectation value of a qubit operator with respect to a wavefunction.
 :param qubit_op: the operator
 :param wavefunction: the wavefunction
@@ -1142,19 +1124,22 @@ the number of active molecular orbitals.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="quantum.openfermion.zapata_utils.reverse_qubit_order">
-<span class="sig-prename descclassname"><span class="pre">quantum.openfermion.zapata_utils.</span></span><span class="sig-name descname"><span class="pre">reverse_qubit_order</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qubit_operator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">orquestra.quantum.openfermion.QubitOperator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_qubits</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quantum.openfermion.zapata_utils.reverse_qubit_order" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">quantum.openfermion.zapata_utils.</span></span><span class="sig-name descname"><span class="pre">reverse_qubit_order</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qubit_operator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">quantum.wip.operators.PauliRepresentation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_qubits</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quantum.openfermion.zapata_utils.reverse_qubit_order" title="Permalink to this definition">#</a></dt>
 <dd><p>Reverse the order of qubit indices in a qubit operator.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>qubit_operator</strong> (<em>openfermion.QubitOperator</em>) – the operator</p></li>
+<li><p><strong>qubit_operator</strong> – the operator to be reversed</p></li>
 <li><p><strong>n_qubits</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – total number of qubits. Needs to be provided when
 the size of the system of interest is greater than the size of qubit
 operator (optional)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>reversed_op (openfermion.ops.QubitOperator)</p>
+<dd class="field-even"><p>the reversed operator</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>reversed_op</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1227,7 +1212,6 @@ operator (optional)</p></li>
 <li><a class="reference internal" href="#quantum.openfermion.zapata_utils.save_qubit_operator">save_qubit_operator</a></li>
 <li><a class="reference internal" href="#quantum.openfermion.zapata_utils.save_qubit_operator_set">save_qubit_operator_set</a></li>
 <li><a class="reference internal" href="#quantum.openfermion.zapata_utils.change_operator_type">change_operator_type</a></li>
-<li><a class="reference internal" href="#quantum.openfermion.zapata_utils.create_circuits_from_qubit_operator">create_circuits_from_qubit_operator</a></li>
 <li><a class="reference internal" href="#quantum.openfermion.zapata_utils.evaluate_qubit_operator">evaluate_qubit_operator</a></li>
 <li><a class="reference internal" href="#quantum.openfermion.zapata_utils.evaluate_qubit_operator_list">evaluate_qubit_operator_list</a></li>
 <li><a class="reference internal" href="#quantum.openfermion.zapata_utils.generate_random_qubitop">generate_random_qubitop</a></li>

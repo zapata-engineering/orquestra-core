@@ -11,7 +11,6 @@
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/autoapi.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
@@ -172,6 +171,7 @@
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../guides/index.html">Guides</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../guides/circuits.html">Circuits guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/backends.html">Backends guide</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../api/index.html">API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -453,27 +453,30 @@
 <li><p><a class="reference external" href="https://github.com/zapatacomputing/orquestra-vqa/blob/main/tests/orquestra/vqa/ansatz/singlet_uccsd_test.py">SingletUCCSDAnsatz</a></p></li>
 </ul>
 </div>
-<div class="section" id="backends-including-simulators">
-<span id="backends"></span><h2>Backends (including simulators)<a class="headerlink" href="#backends-including-simulators" title="Permalink to this headline">#</a></h2>
+<div class="section" id="currently-integrated-backends">
+<h2>Currently integrated backends<a class="headerlink" href="#currently-integrated-backends" title="Permalink to this headline">#</a></h2>
+<div class="section" id="hardware-backends">
+<h3>Hardware backends<a class="headerlink" href="#hardware-backends" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/zapatacomputing/orquestra-qiskit/blob/main/tests/orquestra/integrations/qiskit/backend/backend_test.py">QiskitBackend</a></p></li>
+</ul>
+</div>
+<div class="section" id="simulators">
+<h3>Simulators<a class="headerlink" href="#simulators" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/zapatacomputing/orquestra-quantum/blob/main/tests/orquestra/quantum/symbolic_simulator_test.py">SymbolicSimulator</a></p></li>
 <li><p><a class="reference external" href="https://github.com/zapatacomputing/orquestra-forest/blob/main/tests/orquestra/integrations/forest/simulator_test.py">ForestSimulator</a></p></li>
 <li><p><a class="reference external" href="https://github.com/zapatacomputing/orquestra-cirq/blob/main/tests/orquestra/integrations/cirq/simulator/simulator_test.py">CirqSimulator</a></p></li>
-<li><p><a class="reference external" href="https://github.com/zapatacomputing/orquestra-cirq/blob/main/tests/orquestra/integrations/cirq/simulator/qsimsimulator_test.py">QSimSimulator</a> including:</p>
-<ul>
-<li><p><a class="reference external" href="https://quantumai.google/qsim">Google’s qsim</a></p></li>
-<li><p><a class="reference external" href="https://docs.nvidia.com/cuda/cuquantum/custatevec/index.html">NVIDIA’s cuStateVec</a> with GPU support</p></li>
-</ul>
-</li>
 <li><p><a class="reference external" href="https://github.com/zapatacomputing/orquestra-qiskit/blob/main/tests/orquestra/integrations/qiskit/simulator/simulator_test.py">QiskitSimulator</a> has multiple options</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">aer_simulator</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">aer_simulator_statevector</span></code></p></li>
 </ul>
 </li>
-<li><p><a class="reference external" href="https://github.com/zapatacomputing/orquestra-qiskit/blob/main/tests/orquestra/integrations/qiskit/backend/backend_test.py">QiskitBackend</a></p></li>
 <li><p><a class="reference external" href="https://github.com/zapatacomputing/orquestra-qulacs/blob/main/tests/orquestra/integrations/qulacs/simulator_test.py">QulacsSimulator</a></p></li>
+<li><p><a class="reference external" href="https://github.com/zapatacomputing/orquestra-cirq/blob/main/tests/orquestra/integrations/cirq/simulator/qsimsimulator_test.py">QSimSimulator</a></p></li>
 </ul>
+</div>
 </div>
 <div class="section" id="noise-models">
 <h2>Noise Models<a class="headerlink" href="#noise-models" title="Permalink to this headline">#</a></h2>
@@ -563,7 +566,11 @@
             <ul>
 <li><a class="reference internal" href="#">Integrations, Modules, and Libraries in Orquestra Core</a><ul>
 <li><a class="reference internal" href="#ansatzes">Ansatzes</a></li>
-<li><a class="reference internal" href="#backends-including-simulators">Backends (including simulators)</a></li>
+<li><a class="reference internal" href="#currently-integrated-backends">Currently integrated backends</a><ul>
+<li><a class="reference internal" href="#hardware-backends">Hardware backends</a></li>
+<li><a class="reference internal" href="#simulators">Simulators</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#noise-models">Noise Models</a></li>
 <li><a class="reference internal" href="#optimizers">Optimizers</a></li>
 <li><a class="reference internal" href="#problems">Problems</a></li>

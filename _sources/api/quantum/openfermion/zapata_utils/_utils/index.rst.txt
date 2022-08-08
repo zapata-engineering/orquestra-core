@@ -26,7 +26,6 @@ Functions
    quantum.openfermion.zapata_utils._utils.get_fermion_number_operator
    quantum.openfermion.zapata_utils._utils.get_diagonal_component
    quantum.openfermion.zapata_utils._utils.get_polynomial_tensor
-   quantum.openfermion.zapata_utils._utils.create_circuits_from_qubit_operator
    quantum.openfermion.zapata_utils._utils.get_ground_state_rdm_from_qubit_op
    quantum.openfermion.zapata_utils._utils.remove_inactive_orbitals
    quantum.openfermion.zapata_utils._utils.hf_rdm
@@ -110,21 +109,21 @@ Functions
    :rtype: value_estimate
 
 
-.. py:function:: reverse_qubit_order(qubit_operator: orquestra.quantum.openfermion.QubitOperator, n_qubits: Optional[int] = None)
+.. py:function:: reverse_qubit_order(qubit_operator: quantum.wip.operators.PauliRepresentation, n_qubits: Optional[int] = None)
 
    Reverse the order of qubit indices in a qubit operator.
 
-   :param qubit_operator: the operator
-   :type qubit_operator: openfermion.QubitOperator
+   :param qubit_operator: the operator to be reversed
    :param n_qubits: total number of qubits. Needs to be provided when
                     the size of the system of interest is greater than the size of qubit
                     operator (optional)
    :type n_qubits: int
 
-   :returns: reversed_op (openfermion.ops.QubitOperator)
+   :returns: the reversed operator
+   :rtype: reversed_op
 
 
-.. py:function:: get_expectation_value(qubit_op: orquestra.quantum.openfermion.QubitOperator, wavefunction: orquestra.quantum.wavefunction.Wavefunction, reverse_operator: bool = False) -> complex
+.. py:function:: get_expectation_value(qubit_op: quantum.wip.operators.PauliRepresentation, wavefunction: orquestra.quantum.wavefunction.Wavefunction, reverse_operator: bool = False) -> complex
 
    Get the expectation value of a qubit operator with respect to a wavefunction.
    :param qubit_op: the operator
@@ -186,15 +185,6 @@ Functions
              The tensor representation of the
                  operator.
    :rtype: openfermion.ops.PolynomialTensor
-
-
-.. py:function:: create_circuits_from_qubit_operator(qubit_operator: orquestra.quantum.openfermion.QubitOperator) -> List[orquestra.quantum.circuits.Circuit]
-
-   Creates a list of circuit objects from the Pauli terms of a QubitOperator
-   :param qubit_operator: operator for which the Pauli terms are converted into circuits
-
-   :returns: a list of Pauli string gate circuits
-   :rtype: circuit_set
 
 
 .. py:function:: get_ground_state_rdm_from_qubit_op(qubit_operator: orquestra.quantum.openfermion.QubitOperator, n_particles: int) -> orquestra.quantum.openfermion.InteractionRDM

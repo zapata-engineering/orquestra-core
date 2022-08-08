@@ -15,8 +15,8 @@ Functions
 
    integrations.forest.conversions.export_to_pyquil
    integrations.forest.conversions.import_from_pyquil
-   integrations.forest.conversions.pyquilpauli_to_qubitop
-   integrations.forest.conversions.qubitop_to_pyquilpauli
+   integrations.forest.conversions.orq_to_pyquil
+   integrations.forest.conversions.pyquil_to_orq
 
 
 
@@ -26,23 +26,25 @@ Functions
 .. py:function:: import_from_pyquil(program: pyquil.Program)
 
 
-.. py:function:: pyquilpauli_to_qubitop(pyquil_pauli: Union[pyquil.paulis.PauliTerm, pyquil.paulis.PauliSum]) -> orquestra.quantum.openfermion.ops.QubitOperator
+.. py:function:: orq_to_pyquil(pauli_operator: orquestra.quantum.wip.operators.PauliRepresentation) -> Union[pyquil.paulis.PauliSum, pyquil.paulis.PauliTerm]
 
-   Convert a pyQuil PauliSum to a OpenFermion QubitOperator.
+   Convert an Orquestra PauliSum or PauliTerm to a pyQuil PauliSum or PauliTerm,
+   respectively.
 
-   :param pyquil_pauli: pyQuil PauliTerm or PauliSum to convert to an
+   :param pauli_operator: Orquestra PauliSum or PauliTerm to convert to a pyquil PauliSum
+                          or PauliTerm
 
-   OpenFermion QubitOperator
-
-   :returns: QubitOperator representing the PauliSum or PauliTerm
+   :returns: PauliSum or PauliTerm representing the input pauli operator
 
 
-.. py:function:: qubitop_to_pyquilpauli(qubit_operator: orquestra.quantum.openfermion.ops.QubitOperator) -> pyquil.paulis.PauliSum
+.. py:function:: pyquil_to_orq(pyquil_pauli: Union[pyquil.paulis.PauliTerm, pyquil.paulis.PauliSum]) -> orquestra.quantum.wip.operators.PauliRepresentation
 
-   Convert a OpenFermion QubitOperator to a PauliSum.
+   Convert a pyQuil PauliSum or PauliTerm to an Orquestra PauliSum or PauliTerm,
+       respectively.
 
-   :param qubit_operator: OpenFermion QubitOperator to convert to a pyquil.PauliSum
+   :param pyquil_pauli: pyQuil PauliTerm or PauliSum to convert to an Orquestra PauliTerm
+                        or PauliSum
 
-   :returns: PauliSum representing the qubit operator
+   :returns: Orquestra PauliSum or PauliTerm representing the pyQuil PauliTerm or PauliSum
 
 

@@ -36,6 +36,6 @@ Attributes
 
    
 
-.. py:function:: convert_to_qulacs(circuit: orquestra.quantum.circuits.Circuit)
+.. py:function:: convert_to_qulacs(circuit: orquestra.quantum.circuits.Circuit) -> qulacs.QuantumCircuit
 
 

@@ -17,27 +17,9 @@ Ansatzes
 * `HEAQuantumCompilingAnsatz <https://github.com/zapatacomputing/orquestra-vqa/blob/main/tests/orquestra/vqa/ansatz/quantum_compiling_test.py>`_
 * `SingletUCCSDAnsatz <https://github.com/zapatacomputing/orquestra-vqa/blob/main/tests/orquestra/vqa/ansatz/singlet_uccsd_test.py>`_
 
-
-.. _backends:
-
-Backends (including simulators)
-===============================
-
-* `SymbolicSimulator <https://github.com/zapatacomputing/orquestra-quantum/blob/main/tests/orquestra/quantum/symbolic_simulator_test.py>`_
-* `ForestSimulator <https://github.com/zapatacomputing/orquestra-forest/blob/main/tests/orquestra/integrations/forest/simulator_test.py>`_
-* `CirqSimulator <https://github.com/zapatacomputing/orquestra-cirq/blob/main/tests/orquestra/integrations/cirq/simulator/simulator_test.py>`_
-* `QSimSimulator <https://github.com/zapatacomputing/orquestra-cirq/blob/main/tests/orquestra/integrations/cirq/simulator/qsimsimulator_test.py>`_ including:
-
-  * `Google's qsim <https://quantumai.google/qsim>`_
-  * `NVIDIA's cuStateVec <https://docs.nvidia.com/cuda/cuquantum/custatevec/index.html>`_ with GPU support
-
-* `QiskitSimulator <https://github.com/zapatacomputing/orquestra-qiskit/blob/main/tests/orquestra/integrations/qiskit/simulator/simulator_test.py>`_ has multiple options
-
-  * ``aer_simulator``
-  * ``aer_simulator_statevector``
-
-* `QiskitBackend <https://github.com/zapatacomputing/orquestra-qiskit/blob/main/tests/orquestra/integrations/qiskit/backend/backend_test.py>`_
-* `QulacsSimulator <https://github.com/zapatacomputing/orquestra-qulacs/blob/main/tests/orquestra/integrations/qulacs/simulator_test.py>`_
+.. include:: /guides/backends.rst
+  :start-after: .. _integrated_backends:
+  :end-before: Conversions to other frameworks
 
 
 Noise Models

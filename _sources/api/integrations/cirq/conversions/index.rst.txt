@@ -15,7 +15,7 @@ Functions
 
    integrations.cirq.conversions.export_to_cirq
    integrations.cirq.conversions.import_from_cirq
-   integrations.cirq.conversions.qubitop_to_paulisum
+   integrations.cirq.conversions.pauliop_to_cirq_paulisum
 
 
 
@@ -47,13 +47,12 @@ Functions
    is no notion of GridQubit in Orquestra circuits.
 
 
-.. py:function:: qubitop_to_paulisum(qubit_operator: orquestra.quantum.openfermion.QubitOperator, qubits: Union[List[cirq.GridQubit], List[cirq.LineQubit]] = None) -> cirq.PauliSum
+.. py:function:: pauliop_to_cirq_paulisum(pauli_operator: orquestra.quantum.wip.operators.PauliRepresentation, qubits: Union[List[cirq.GridQubit], List[cirq.LineQubit]] = None) -> cirq.PauliSum
 
-   Convert and openfermion QubitOperator to a cirq PauliSum
+   Convert an orquestra PauliSum or PauliTerm to a cirq PauliSum
 
-   :param qubit_operator: The openfermion operator to convert
-   :type qubit_operator: openfermion.QubitOperator
-   :param qubits():
+   :param pauli_operator: The openfermion operator to convert
+   :param qubits: The qubits the operator is applied to
 
    :returns: cirq.PauliSum
 

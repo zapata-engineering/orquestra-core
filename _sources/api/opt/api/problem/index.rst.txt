@@ -24,7 +24,7 @@ Classes
    Helper class that provides a standard way to create an ABC using
    inheritance.
 
-   .. py:method:: get_hamiltonian(graph: networkx.Graph, scale_factor: float = 1.0, offset: float = 0.0) -> orquestra.quantum.openfermion.QubitOperator
+   .. py:method:: get_hamiltonian(graph: networkx.Graph, scale_factor: float = 1.0, offset: float = 0.0) -> orquestra.quantum.wip.operators.PauliSum
 
 
    .. py:method:: evaluate_solution(solution: Tuple[int], graph: networkx.Graph) -> float

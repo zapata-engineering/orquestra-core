@@ -30,7 +30,7 @@ Classes
                        e.g. number of shots or target accuracy.
 
    .. py:attribute:: operator
-      :annotation: :quantum.openfermion.SymbolicOperator
+      :annotation: :quantum.wip.operators.PauliRepresentation
 
       
 

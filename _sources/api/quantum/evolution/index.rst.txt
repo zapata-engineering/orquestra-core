@@ -24,7 +24,7 @@ Functions
 
 
 
-.. py:function:: time_evolution(hamiltonian: orquestra.quantum.openfermion.QubitOperator, time: Union[float, sympy.Expr], method: str = 'Trotter', trotter_order: int = 1) -> orquestra.quantum.circuits.Circuit
+.. py:function:: time_evolution(hamiltonian: orquestra.quantum.wip.operators.PauliRepresentation, time: Union[float, sympy.Expr], method: str = 'Trotter', trotter_order: int = 1) -> orquestra.quantum.circuits.Circuit
 
    Create a circuit simulating evolution under given Hamiltonian.
 
@@ -37,7 +37,7 @@ Functions
              Circuit's unitary i approximately equal to exp(-i * time * hamiltonian).
 
 
-.. py:function:: time_evolution_for_term(term: orquestra.quantum.openfermion.QubitOperator, time: Union[float, sympy.Expr]) -> orquestra.quantum.circuits.Circuit
+.. py:function:: time_evolution_for_term(term: orquestra.quantum.wip.operators.PauliTerm, time: Union[float, sympy.Expr]) -> orquestra.quantum.circuits.Circuit
 
    Evolves a Pauli term for a given time and returns a circuit representing it.
    Based on section 4 from https://arxiv.org/abs/1001.3855 .
@@ -48,7 +48,7 @@ Functions
    :rtype: Circuit
 
 
-.. py:function:: time_evolution_derivatives(hamiltonian: orquestra.quantum.openfermion.QubitOperator, time: float, method: str = 'Trotter', trotter_order: int = 1) -> Tuple[List[orquestra.quantum.circuits.Circuit], List[float]]
+.. py:function:: time_evolution_derivatives(hamiltonian: orquestra.quantum.wip.operators.PauliRepresentation, time: float, method: str = 'Trotter', trotter_order: int = 1) -> Tuple[List[orquestra.quantum.circuits.Circuit], List[float]]
 
    Generates derivative circuits for the time evolution operator defined in
    function time_evolution

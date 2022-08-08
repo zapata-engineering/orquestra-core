@@ -13,18 +13,18 @@ Functions
 
 .. autoapisummary::
 
-   opt.bqm.conversions.convert_qubo_to_openfermion_ising
-   opt.bqm.conversions.convert_openfermion_ising_to_qubo
+   opt.bqm.conversions.convert_qubo_to_paulisum
+   opt.bqm.conversions.convert_paulisum_to_qubo
    opt.bqm.conversions.convert_sampleset_to_measurements
    opt.bqm.conversions.convert_measurements_to_sampleset
 
 
 
-.. py:function:: convert_qubo_to_openfermion_ising(qubo: dimod.BinaryQuadraticModel) -> orquestra.quantum.openfermion.IsingOperator
+.. py:function:: convert_qubo_to_paulisum(qubo: dimod.BinaryQuadraticModel) -> orquestra.quantum.wip.operators.PauliSum
 
-   Converts dimod BinaryQuadraticModel to OpenFermion IsingOperator object.
+   Converts dimod BinaryQuadraticModel to PauliSum object.
 
-   The resulting Openfermion IsingOperator has the following property: for every
+   The resulting PauliSum has the following property: for every
    bitstring, its expected value is the same as the energy of the original QUBO.
    In order to ensure this, we had to add a minus sign for the coefficients
    of the linear terms coming from dimod conversion.
@@ -33,13 +33,13 @@ Functions
 
    :param qubo: Object we want to convert
 
-   :returns: IsingOperator representation of the input qubo.
-   :rtype: IsingOperator
+   :returns: PauliSum representation of the input qubo.
+   :rtype: PauliSum
 
 
-.. py:function:: convert_openfermion_ising_to_qubo(operator: orquestra.quantum.openfermion.IsingOperator) -> dimod.BinaryQuadraticModel
+.. py:function:: convert_paulisum_to_qubo(operator: orquestra.quantum.wip.operators.PauliSum) -> dimod.BinaryQuadraticModel
 
-   Converts dimod Openfermion IsingOperator to BinaryQuadraticModel object.
+   Converts an ising PauliSum to dimod BinaryQuadraticModel object.
    The resulting QUBO has the following property:
    For every bitstring, its energy is the same as the expected value of the original
    Ising Hamiltonian. For more context about conventions used please refer to note in
@@ -50,7 +50,7 @@ Functions
       The conversion might not be 100% accurate due to performing floating point
       operations during conversion between Ising and QUBO models.
 
-   :param operator: IsingOperator we want to convert
+   :param operator: PauliSum we want to convert
 
    :returns: BinaryQuadraticModel representation of the input operator
    :rtype: qubo

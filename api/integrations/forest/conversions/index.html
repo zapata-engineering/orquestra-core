@@ -11,7 +11,6 @@
     <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/css/autoapi.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
@@ -172,6 +171,7 @@
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../../guides/index.html">Guides</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../guides/circuits.html">Circuits guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../guides/backends.html">Backends guide</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../../../index.html">API Reference</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
@@ -457,11 +457,11 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#integrations.forest.conversions.import_from_pyquil" title="integrations.forest.conversions.import_from_pyquil"><code class="xref py py-obj docutils literal notranslate"><span class="pre">import_from_pyquil</span></code></a>(program)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#integrations.forest.conversions.pyquilpauli_to_qubitop" title="integrations.forest.conversions.pyquilpauli_to_qubitop"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyquilpauli_to_qubitop</span></code></a>(...)</p></td>
-<td><p>Convert a pyQuil PauliSum to a OpenFermion QubitOperator.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#integrations.forest.conversions.orq_to_pyquil" title="integrations.forest.conversions.orq_to_pyquil"><code class="xref py py-obj docutils literal notranslate"><span class="pre">orq_to_pyquil</span></code></a>(→ Union[pyquil.paulis.PauliSum, ...)</p></td>
+<td><p>Convert an Orquestra PauliSum or PauliTerm to a pyQuil PauliSum or PauliTerm,</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#integrations.forest.conversions.qubitop_to_pyquilpauli" title="integrations.forest.conversions.qubitop_to_pyquilpauli"><code class="xref py py-obj docutils literal notranslate"><span class="pre">qubitop_to_pyquilpauli</span></code></a>(→ pyquil.paulis.PauliSum)</p></td>
-<td><p>Convert a OpenFermion QubitOperator to a PauliSum.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#integrations.forest.conversions.pyquil_to_orq" title="integrations.forest.conversions.pyquil_to_orq"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyquil_to_orq</span></code></a>(...)</p></td>
+<td><p>Convert a pyQuil PauliSum or PauliTerm to an Orquestra PauliSum or PauliTerm,</p></td>
 </tr>
 </tbody>
 </table>
@@ -477,32 +477,35 @@
 <dd></dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="integrations.forest.conversions.pyquilpauli_to_qubitop">
-<span class="sig-prename descclassname"><span class="pre">integrations.forest.conversions.</span></span><span class="sig-name descname"><span class="pre">pyquilpauli_to_qubitop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pyquil_pauli</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">pyquil.paulis.PauliTerm</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">pyquil.paulis.PauliSum</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">orquestra.quantum.openfermion.ops.QubitOperator</span></span></span><a class="headerlink" href="#integrations.forest.conversions.pyquilpauli_to_qubitop" title="Permalink to this definition">#</a></dt>
-<dd><p>Convert a pyQuil PauliSum to a OpenFermion QubitOperator.</p>
+<dt class="sig sig-object py" id="integrations.forest.conversions.orq_to_pyquil">
+<span class="sig-prename descclassname"><span class="pre">integrations.forest.conversions.</span></span><span class="sig-name descname"><span class="pre">orq_to_pyquil</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pauli_operator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">orquestra.quantum.wip.operators.PauliRepresentation</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">pyquil.paulis.PauliSum</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">pyquil.paulis.PauliTerm</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#integrations.forest.conversions.orq_to_pyquil" title="Permalink to this definition">#</a></dt>
+<dd><p>Convert an Orquestra PauliSum or PauliTerm to a pyQuil PauliSum or PauliTerm,
+respectively.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>pyquil_pauli</strong> – pyQuil PauliTerm or PauliSum to convert to an</p>
+<dd class="field-odd"><p><strong>pauli_operator</strong> – Orquestra PauliSum or PauliTerm to convert to a pyquil PauliSum
+or PauliTerm</p>
 </dd>
-</dl>
-<p>OpenFermion QubitOperator</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>QubitOperator representing the PauliSum or PauliTerm</p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>PauliSum or PauliTerm representing the input pauli operator</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="integrations.forest.conversions.qubitop_to_pyquilpauli">
-<span class="sig-prename descclassname"><span class="pre">integrations.forest.conversions.</span></span><span class="sig-name descname"><span class="pre">qubitop_to_pyquilpauli</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qubit_operator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">orquestra.quantum.openfermion.ops.QubitOperator</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pyquil.paulis.PauliSum</span></span></span><a class="headerlink" href="#integrations.forest.conversions.qubitop_to_pyquilpauli" title="Permalink to this definition">#</a></dt>
-<dd><p>Convert a OpenFermion QubitOperator to a PauliSum.</p>
+<dt class="sig sig-object py" id="integrations.forest.conversions.pyquil_to_orq">
+<span class="sig-prename descclassname"><span class="pre">integrations.forest.conversions.</span></span><span class="sig-name descname"><span class="pre">pyquil_to_orq</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pyquil_pauli</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">pyquil.paulis.PauliTerm</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">pyquil.paulis.PauliSum</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">orquestra.quantum.wip.operators.PauliRepresentation</span></span></span><a class="headerlink" href="#integrations.forest.conversions.pyquil_to_orq" title="Permalink to this definition">#</a></dt>
+<dd><dl class="simple">
+<dt>Convert a pyQuil PauliSum or PauliTerm to an Orquestra PauliSum or PauliTerm,</dt><dd><p>respectively.</p>
+</dd>
+</dl>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>qubit_operator</strong> – OpenFermion QubitOperator to convert to a pyquil.PauliSum</p>
+<dd class="field-odd"><p><strong>pyquil_pauli</strong> – pyQuil PauliTerm or PauliSum to convert to an Orquestra PauliTerm
+or PauliSum</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>PauliSum representing the qubit operator</p>
+<dd class="field-even"><p>Orquestra PauliSum or PauliTerm representing the pyQuil PauliTerm or PauliSum</p>
 </dd>
 </dl>
 </dd></dl>
@@ -555,8 +558,8 @@
 <li><a class="reference internal" href="#functions">Functions</a><ul>
 <li><a class="reference internal" href="#integrations.forest.conversions.export_to_pyquil">export_to_pyquil</a></li>
 <li><a class="reference internal" href="#integrations.forest.conversions.import_from_pyquil">import_from_pyquil</a></li>
-<li><a class="reference internal" href="#integrations.forest.conversions.pyquilpauli_to_qubitop">pyquilpauli_to_qubitop</a></li>
-<li><a class="reference internal" href="#integrations.forest.conversions.qubitop_to_pyquilpauli">qubitop_to_pyquilpauli</a></li>
+<li><a class="reference internal" href="#integrations.forest.conversions.orq_to_pyquil">orq_to_pyquil</a></li>
+<li><a class="reference internal" href="#integrations.forest.conversions.pyquil_to_orq">pyquil_to_orq</a></li>
 </ul>
 </li>
 </ul>

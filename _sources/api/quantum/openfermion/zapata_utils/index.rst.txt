@@ -35,7 +35,6 @@ Functions
    quantum.openfermion.zapata_utils.save_qubit_operator
    quantum.openfermion.zapata_utils.save_qubit_operator_set
    quantum.openfermion.zapata_utils.change_operator_type
-   quantum.openfermion.zapata_utils.create_circuits_from_qubit_operator
    quantum.openfermion.zapata_utils.evaluate_qubit_operator
    quantum.openfermion.zapata_utils.evaluate_qubit_operator_list
    quantum.openfermion.zapata_utils.generate_random_qubitop
@@ -247,15 +246,6 @@ Functions
    :returns: An operator with type operatorType
 
 
-.. py:function:: create_circuits_from_qubit_operator(qubit_operator: orquestra.quantum.openfermion.QubitOperator) -> List[orquestra.quantum.circuits.Circuit]
-
-   Creates a list of circuit objects from the Pauli terms of a QubitOperator
-   :param qubit_operator: operator for which the Pauli terms are converted into circuits
-
-   :returns: a list of Pauli string gate circuits
-   :rtype: circuit_set
-
-
 .. py:function:: evaluate_qubit_operator(qubit_operator: orquestra.quantum.openfermion.QubitOperator, expectation_values: orquestra.quantum.measurements.ExpectationValues) -> orquestra.quantum.utils.ValueEstimate
 
    Evaluate the expectation value of a qubit operator using expectation values for
@@ -301,7 +291,7 @@ Functions
 .. py:function:: get_diagonal_component(operator)
 
 
-.. py:function:: get_expectation_value(qubit_op: orquestra.quantum.openfermion.QubitOperator, wavefunction: orquestra.quantum.wavefunction.Wavefunction, reverse_operator: bool = False) -> complex
+.. py:function:: get_expectation_value(qubit_op: quantum.wip.operators.PauliRepresentation, wavefunction: orquestra.quantum.wavefunction.Wavefunction, reverse_operator: bool = False) -> complex
 
    Get the expectation value of a qubit operator with respect to a wavefunction.
    :param qubit_op: the operator
@@ -429,17 +419,17 @@ Functions
                  energy of the core orbitals added to the constant.
 
 
-.. py:function:: reverse_qubit_order(qubit_operator: orquestra.quantum.openfermion.QubitOperator, n_qubits: Optional[int] = None)
+.. py:function:: reverse_qubit_order(qubit_operator: quantum.wip.operators.PauliRepresentation, n_qubits: Optional[int] = None)
 
    Reverse the order of qubit indices in a qubit operator.
 
-   :param qubit_operator: the operator
-   :type qubit_operator: openfermion.QubitOperator
+   :param qubit_operator: the operator to be reversed
    :param n_qubits: total number of qubits. Needs to be provided when
                     the size of the system of interest is greater than the size of qubit
                     operator (optional)
    :type n_qubits: int
 
-   :returns: reversed_op (openfermion.ops.QubitOperator)
+   :returns: the reversed operator
+   :rtype: reversed_op
 
 

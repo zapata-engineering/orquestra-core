@@ -11,7 +11,6 @@
     <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/css/autoapi.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
@@ -172,6 +171,7 @@
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../../guides/index.html">Guides</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../guides/circuits.html">Circuits guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../guides/backends.html">Backends guide</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../../../index.html">API Reference</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
@@ -457,8 +457,8 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#integrations.cirq.conversions.import_from_cirq" title="integrations.cirq.conversions.import_from_cirq"><code class="xref py py-obj docutils literal notranslate"><span class="pre">import_from_cirq</span></code></a>(obj)</p></td>
 <td><p>Import given Cirq object, converting it to its Orquestra counterpart.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#integrations.cirq.conversions.qubitop_to_paulisum" title="integrations.cirq.conversions.qubitop_to_paulisum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">qubitop_to_paulisum</span></code></a>(→ cirq.PauliSum)</p></td>
-<td><p>Convert and openfermion QubitOperator to a cirq PauliSum</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#integrations.cirq.conversions.pauliop_to_cirq_paulisum" title="integrations.cirq.conversions.pauliop_to_cirq_paulisum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pauliop_to_cirq_paulisum</span></code></a>(→ cirq.PauliSum)</p></td>
+<td><p>Convert an orquestra PauliSum or PauliTerm to a cirq PauliSum</p></td>
 </tr>
 </tbody>
 </table>
@@ -491,14 +491,14 @@ is no notion of GridQubit in Orquestra circuits.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="integrations.cirq.conversions.qubitop_to_paulisum">
-<span class="sig-prename descclassname"><span class="pre">integrations.cirq.conversions.</span></span><span class="sig-name descname"><span class="pre">qubitop_to_paulisum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qubit_operator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">orquestra.quantum.openfermion.QubitOperator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qubits</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">cirq.GridQubit</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">cirq.LineQubit</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">cirq.PauliSum</span></span></span><a class="headerlink" href="#integrations.cirq.conversions.qubitop_to_paulisum" title="Permalink to this definition">#</a></dt>
-<dd><p>Convert and openfermion QubitOperator to a cirq PauliSum</p>
+<dt class="sig sig-object py" id="integrations.cirq.conversions.pauliop_to_cirq_paulisum">
+<span class="sig-prename descclassname"><span class="pre">integrations.cirq.conversions.</span></span><span class="sig-name descname"><span class="pre">pauliop_to_cirq_paulisum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pauli_operator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">orquestra.quantum.wip.operators.PauliRepresentation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qubits</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">cirq.GridQubit</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">cirq.LineQubit</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">cirq.PauliSum</span></span></span><a class="headerlink" href="#integrations.cirq.conversions.pauliop_to_cirq_paulisum" title="Permalink to this definition">#</a></dt>
+<dd><p>Convert an orquestra PauliSum or PauliTerm to a cirq PauliSum</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>qubit_operator</strong> (<em>openfermion.QubitOperator</em>) – The openfermion operator to convert</p></li>
-<li><p><strong>qubits</strong><strong>(</strong><strong>)</strong> – </p></li>
+<li><p><strong>pauli_operator</strong> – The openfermion operator to convert</p></li>
+<li><p><strong>qubits</strong> – The qubits the operator is applied to</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -555,7 +555,7 @@ is no notion of GridQubit in Orquestra circuits.</p>
 <li><a class="reference internal" href="#functions">Functions</a><ul>
 <li><a class="reference internal" href="#integrations.cirq.conversions.export_to_cirq">export_to_cirq</a></li>
 <li><a class="reference internal" href="#integrations.cirq.conversions.import_from_cirq">import_from_cirq</a></li>
-<li><a class="reference internal" href="#integrations.cirq.conversions.qubitop_to_paulisum">qubitop_to_paulisum</a></li>
+<li><a class="reference internal" href="#integrations.cirq.conversions.pauliop_to_cirq_paulisum">pauliop_to_cirq_paulisum</a></li>
 </ul>
 </li>
 </ul>

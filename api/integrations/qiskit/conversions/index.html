@@ -11,7 +11,6 @@
     <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/css/autoapi.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
@@ -172,6 +171,7 @@
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../../guides/index.html">Guides</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../guides/circuits.html">Circuits guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../guides/backends.html">Backends guide</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../../../index.html">API Reference</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
@@ -458,10 +458,10 @@
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#integrations.qiskit.conversions.qiskitpauli_to_qubitop" title="integrations.qiskit.conversions.qiskitpauli_to_qubitop"><code class="xref py py-obj docutils literal notranslate"><span class="pre">qiskitpauli_to_qubitop</span></code></a>(...)</p></td>
-<td><p>Convert a qiskit's SummedOp to an OpenFermion QubitOperator.</p></td>
+<td><p>Convert a qiskit's SummedOp to a PauliSum.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#integrations.qiskit.conversions.qubitop_to_qiskitpauli" title="integrations.qiskit.conversions.qubitop_to_qiskitpauli"><code class="xref py py-obj docutils literal notranslate"><span class="pre">qubitop_to_qiskitpauli</span></code></a>(→ qiskit.opflow.SummedOp)</p></td>
-<td><p>Convert a OpenFermion QubitOperator to a SummedOp.</p></td>
+<td><p>Convert a PauliRepresentation to a SummedOp.</p></td>
 </tr>
 </tbody>
 </table>
@@ -478,25 +478,25 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="integrations.qiskit.conversions.qiskitpauli_to_qubitop">
-<span class="sig-prename descclassname"><span class="pre">integrations.qiskit.conversions.</span></span><span class="sig-name descname"><span class="pre">qiskitpauli_to_qubitop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qiskit_pauli</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">qiskit.opflow.SummedOp</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">orquestra.quantum.openfermion.QubitOperator</span></span></span><a class="headerlink" href="#integrations.qiskit.conversions.qiskitpauli_to_qubitop" title="Permalink to this definition">#</a></dt>
-<dd><p>Convert a qiskit’s SummedOp to an OpenFermion QubitOperator.</p>
+<span class="sig-prename descclassname"><span class="pre">integrations.qiskit.conversions.</span></span><span class="sig-name descname"><span class="pre">qiskitpauli_to_qubitop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qiskit_pauli</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">qiskit.opflow.SummedOp</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">orquestra.quantum.wip.operators.PauliSum</span></span></span><a class="headerlink" href="#integrations.qiskit.conversions.qiskitpauli_to_qubitop" title="Permalink to this definition">#</a></dt>
+<dd><p>Convert a qiskit’s SummedOp to a PauliSum.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>qiskit_pauli</strong> – operator to convert</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>QubitOperator representing the SummedOp</p>
+<dd class="field-even"><p>PauliSum representing the SummedOp</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="integrations.qiskit.conversions.qubitop_to_qiskitpauli">
-<span class="sig-prename descclassname"><span class="pre">integrations.qiskit.conversions.</span></span><span class="sig-name descname"><span class="pre">qubitop_to_qiskitpauli</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qubit_operator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">orquestra.quantum.openfermion.QubitOperator</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">qiskit.opflow.SummedOp</span></span></span><a class="headerlink" href="#integrations.qiskit.conversions.qubitop_to_qiskitpauli" title="Permalink to this definition">#</a></dt>
-<dd><p>Convert a OpenFermion QubitOperator to a SummedOp.</p>
+<span class="sig-prename descclassname"><span class="pre">integrations.qiskit.conversions.</span></span><span class="sig-name descname"><span class="pre">qubitop_to_qiskitpauli</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">operator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">orquestra.quantum.wip.operators.PauliRepresentation</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">qiskit.opflow.SummedOp</span></span></span><a class="headerlink" href="#integrations.qiskit.conversions.qubitop_to_qiskitpauli" title="Permalink to this definition">#</a></dt>
+<dd><p>Convert a PauliRepresentation to a SummedOp.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>qubit_operator</strong> – OpenFermion QubitOperator to convert</p>
+<dd class="field-odd"><p><strong>operator</strong> – PauliRepresentation to convert</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>SummedOp representing the qubit operator</p>

@@ -11,7 +11,6 @@
     <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/css/autoapi.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
@@ -172,6 +171,7 @@
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../../guides/index.html">Guides</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../guides/circuits.html">Circuits guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../guides/backends.html">Backends guide</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../../../index.html">API Reference</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
@@ -451,11 +451,11 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#opt.bqm.conversions.convert_qubo_to_openfermion_ising" title="opt.bqm.conversions.convert_qubo_to_openfermion_ising"><code class="xref py py-obj docutils literal notranslate"><span class="pre">convert_qubo_to_openfermion_ising</span></code></a>(...)</p></td>
-<td><p>Converts dimod BinaryQuadraticModel to OpenFermion IsingOperator object.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#opt.bqm.conversions.convert_qubo_to_paulisum" title="opt.bqm.conversions.convert_qubo_to_paulisum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">convert_qubo_to_paulisum</span></code></a>(...)</p></td>
+<td><p>Converts dimod BinaryQuadraticModel to PauliSum object.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#opt.bqm.conversions.convert_openfermion_ising_to_qubo" title="opt.bqm.conversions.convert_openfermion_ising_to_qubo"><code class="xref py py-obj docutils literal notranslate"><span class="pre">convert_openfermion_ising_to_qubo</span></code></a>(...)</p></td>
-<td><p>Converts dimod Openfermion IsingOperator to BinaryQuadraticModel object.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#opt.bqm.conversions.convert_paulisum_to_qubo" title="opt.bqm.conversions.convert_paulisum_to_qubo"><code class="xref py py-obj docutils literal notranslate"><span class="pre">convert_paulisum_to_qubo</span></code></a>(→ dimod.BinaryQuadraticModel)</p></td>
+<td><p>Converts an ising PauliSum to dimod BinaryQuadraticModel object.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#opt.bqm.conversions.convert_sampleset_to_measurements" title="opt.bqm.conversions.convert_sampleset_to_measurements"><code class="xref py py-obj docutils literal notranslate"><span class="pre">convert_sampleset_to_measurements</span></code></a>(...)</p></td>
 <td><p>Converts dimod SampleSet to orquestra.quantum Measurements.</p></td>
@@ -467,10 +467,10 @@
 </table>
 </div>
 <dl class="py function">
-<dt class="sig sig-object py" id="opt.bqm.conversions.convert_qubo_to_openfermion_ising">
-<span class="sig-prename descclassname"><span class="pre">opt.bqm.conversions.</span></span><span class="sig-name descname"><span class="pre">convert_qubo_to_openfermion_ising</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qubo</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dimod.BinaryQuadraticModel</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">orquestra.quantum.openfermion.IsingOperator</span></span></span><a class="headerlink" href="#opt.bqm.conversions.convert_qubo_to_openfermion_ising" title="Permalink to this definition">#</a></dt>
-<dd><p>Converts dimod BinaryQuadraticModel to OpenFermion IsingOperator object.</p>
-<p>The resulting Openfermion IsingOperator has the following property: for every
+<dt class="sig sig-object py" id="opt.bqm.conversions.convert_qubo_to_paulisum">
+<span class="sig-prename descclassname"><span class="pre">opt.bqm.conversions.</span></span><span class="sig-name descname"><span class="pre">convert_qubo_to_paulisum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qubo</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dimod.BinaryQuadraticModel</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">orquestra.quantum.wip.operators.PauliSum</span></span></span><a class="headerlink" href="#opt.bqm.conversions.convert_qubo_to_paulisum" title="Permalink to this definition">#</a></dt>
+<dd><p>Converts dimod BinaryQuadraticModel to PauliSum object.</p>
+<p>The resulting PauliSum has the following property: for every
 bitstring, its expected value is the same as the energy of the original QUBO.
 In order to ensure this, we had to add a minus sign for the coefficients
 of the linear terms coming from dimod conversion.
@@ -481,18 +481,18 @@ For more context about conventions used please refer to note in
 <dd class="field-odd"><p><strong>qubo</strong> – Object we want to convert</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>IsingOperator representation of the input qubo.</p>
+<dd class="field-even"><p>PauliSum representation of the input qubo.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="../../../quantum/openfermion/ops/index.html#quantum.openfermion.ops.IsingOperator" title="quantum.openfermion.ops.IsingOperator">IsingOperator</a></p>
+<dd class="field-odd"><p><a class="reference internal" href="../../../quantum/wip/operators/_pauli_operators/index.html#quantum.wip.operators._pauli_operators.PauliSum" title="quantum.wip.operators._pauli_operators.PauliSum">PauliSum</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="opt.bqm.conversions.convert_openfermion_ising_to_qubo">
-<span class="sig-prename descclassname"><span class="pre">opt.bqm.conversions.</span></span><span class="sig-name descname"><span class="pre">convert_openfermion_ising_to_qubo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">operator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">orquestra.quantum.openfermion.IsingOperator</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dimod.BinaryQuadraticModel</span></span></span><a class="headerlink" href="#opt.bqm.conversions.convert_openfermion_ising_to_qubo" title="Permalink to this definition">#</a></dt>
-<dd><p>Converts dimod Openfermion IsingOperator to BinaryQuadraticModel object.
+<dt class="sig sig-object py" id="opt.bqm.conversions.convert_paulisum_to_qubo">
+<span class="sig-prename descclassname"><span class="pre">opt.bqm.conversions.</span></span><span class="sig-name descname"><span class="pre">convert_paulisum_to_qubo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">operator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">orquestra.quantum.wip.operators.PauliSum</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dimod.BinaryQuadraticModel</span></span></span><a class="headerlink" href="#opt.bqm.conversions.convert_paulisum_to_qubo" title="Permalink to this definition">#</a></dt>
+<dd><p>Converts an ising PauliSum to dimod BinaryQuadraticModel object.
 The resulting QUBO has the following property:
 For every bitstring, its energy is the same as the expected value of the original
 Ising Hamiltonian. For more context about conventions used please refer to note in
@@ -504,7 +504,7 @@ operations during conversion between Ising and QUBO models.</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>operator</strong> – IsingOperator we want to convert</p>
+<dd class="field-odd"><p><strong>operator</strong> – PauliSum we want to convert</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>BinaryQuadraticModel representation of the input operator</p>
@@ -622,8 +622,8 @@ on the convention one is using (see note).</p></li>
 <li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">opt.bqm.conversions</span></code></a><ul>
 <li><a class="reference internal" href="#module-contents">Module Contents</a><ul>
 <li><a class="reference internal" href="#functions">Functions</a><ul>
-<li><a class="reference internal" href="#opt.bqm.conversions.convert_qubo_to_openfermion_ising">convert_qubo_to_openfermion_ising</a></li>
-<li><a class="reference internal" href="#opt.bqm.conversions.convert_openfermion_ising_to_qubo">convert_openfermion_ising_to_qubo</a></li>
+<li><a class="reference internal" href="#opt.bqm.conversions.convert_qubo_to_paulisum">convert_qubo_to_paulisum</a></li>
+<li><a class="reference internal" href="#opt.bqm.conversions.convert_paulisum_to_qubo">convert_paulisum_to_qubo</a></li>
 <li><a class="reference internal" href="#opt.bqm.conversions.convert_sampleset_to_measurements">convert_sampleset_to_measurements</a></li>
 <li><a class="reference internal" href="#opt.bqm.conversions.convert_measurements_to_sampleset">convert_measurements_to_sampleset</a></li>
 </ul>

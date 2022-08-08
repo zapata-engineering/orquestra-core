@@ -11,7 +11,6 @@
     <link rel="stylesheet" type="text/css" href="../../../../../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../../../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../../_static/css/autoapi.css" />
     <link rel="stylesheet" type="text/css" href="../../../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     <link rel="stylesheet" type="text/css" href="../../../../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
@@ -172,6 +171,7 @@
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../../../guides/index.html">Guides</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../guides/circuits.html">Circuits guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../guides/backends.html">Backends guide</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../../../../index.html">API Reference</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
@@ -464,46 +464,49 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#quantum.openfermion.linalg.sparse_tools.jordan_wigner_sparse" title="quantum.openfermion.linalg.sparse_tools.jordan_wigner_sparse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jordan_wigner_sparse</span></code></a>(fermion_operator[, n_qubits])</p></td>
 <td><p>Initialize a Scipy sparse matrix from a FermionOperator.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.openfermion.linalg.sparse_tools.qubit_operator_sparse" title="quantum.openfermion.linalg.sparse_tools.qubit_operator_sparse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">qubit_operator_sparse</span></code></a>(qubit_operator[, n_qubits])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.openfermion.linalg.sparse_tools.pauli_operator_sparse" title="quantum.openfermion.linalg.sparse_tools.pauli_operator_sparse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pauli_operator_sparse</span></code></a>(qubit_operator[, n_qubits])</p></td>
 <td><p>Initialize a Scipy sparse matrix from a QubitOperator.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#quantum.openfermion.linalg.sparse_tools.jw_configuration_state" title="quantum.openfermion.linalg.sparse_tools.jw_configuration_state"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jw_configuration_state</span></code></a>(occupied_orbitals, n_qubits)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#quantum.openfermion.linalg.sparse_tools.qubit_operator_sparse" title="quantum.openfermion.linalg.sparse_tools.qubit_operator_sparse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">qubit_operator_sparse</span></code></a>(qubit_operator[, n_qubits])</p></td>
+<td><p>Initialize a Scipy sparse matrix from a QubitOperator.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.openfermion.linalg.sparse_tools.jw_configuration_state" title="quantum.openfermion.linalg.sparse_tools.jw_configuration_state"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jw_configuration_state</span></code></a>(occupied_orbitals, n_qubits)</p></td>
 <td><p>Function to produce a basis state in the occupation number basis.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.openfermion.linalg.sparse_tools.jw_hartree_fock_state" title="quantum.openfermion.linalg.sparse_tools.jw_hartree_fock_state"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jw_hartree_fock_state</span></code></a>(n_electrons, n_orbitals)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#quantum.openfermion.linalg.sparse_tools.jw_hartree_fock_state" title="quantum.openfermion.linalg.sparse_tools.jw_hartree_fock_state"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jw_hartree_fock_state</span></code></a>(n_electrons, n_orbitals)</p></td>
 <td><p>Function to produce Hartree-Fock state in JW representation.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#quantum.openfermion.linalg.sparse_tools.jw_number_indices" title="quantum.openfermion.linalg.sparse_tools.jw_number_indices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jw_number_indices</span></code></a>(n_electrons, n_qubits)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.openfermion.linalg.sparse_tools.jw_number_indices" title="quantum.openfermion.linalg.sparse_tools.jw_number_indices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jw_number_indices</span></code></a>(n_electrons, n_qubits)</p></td>
 <td><p>Return the indices for n_electrons in n_qubits under JW encoding</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.openfermion.linalg.sparse_tools.jw_number_restrict_operator" title="quantum.openfermion.linalg.sparse_tools.jw_number_restrict_operator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jw_number_restrict_operator</span></code></a>(operator, n_electrons[, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#quantum.openfermion.linalg.sparse_tools.jw_number_restrict_operator" title="quantum.openfermion.linalg.sparse_tools.jw_number_restrict_operator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jw_number_restrict_operator</span></code></a>(operator, n_electrons[, ...])</p></td>
 <td><p>Restrict a Jordan-Wigner encoded operator to a given particle number</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#quantum.openfermion.linalg.sparse_tools.jw_get_ground_state_at_particle_number" title="quantum.openfermion.linalg.sparse_tools.jw_get_ground_state_at_particle_number"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jw_get_ground_state_at_particle_number</span></code></a>(...)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.openfermion.linalg.sparse_tools.jw_get_ground_state_at_particle_number" title="quantum.openfermion.linalg.sparse_tools.jw_get_ground_state_at_particle_number"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jw_get_ground_state_at_particle_number</span></code></a>(...)</p></td>
 <td><p>Compute ground energy and state at a specified particle number.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.openfermion.linalg.sparse_tools.get_density_matrix" title="quantum.openfermion.linalg.sparse_tools.get_density_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_density_matrix</span></code></a>(states, probabilities)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#quantum.openfermion.linalg.sparse_tools.get_density_matrix" title="quantum.openfermion.linalg.sparse_tools.get_density_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_density_matrix</span></code></a>(states, probabilities)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#quantum.openfermion.linalg.sparse_tools.get_ground_state" title="quantum.openfermion.linalg.sparse_tools.get_ground_state"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_ground_state</span></code></a>(sparse_operator[, initial_guess])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.openfermion.linalg.sparse_tools.get_ground_state" title="quantum.openfermion.linalg.sparse_tools.get_ground_state"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_ground_state</span></code></a>(sparse_operator[, initial_guess])</p></td>
 <td><p>Compute lowest eigenvalue and eigenstate.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.openfermion.linalg.sparse_tools.eigenspectrum" title="quantum.openfermion.linalg.sparse_tools.eigenspectrum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">eigenspectrum</span></code></a>(operator[, n_qubits])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#quantum.openfermion.linalg.sparse_tools.eigenspectrum" title="quantum.openfermion.linalg.sparse_tools.eigenspectrum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">eigenspectrum</span></code></a>(operator[, n_qubits])</p></td>
 <td><p>Compute the eigenspectrum of an operator.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#quantum.openfermion.linalg.sparse_tools.sparse_eigenspectrum" title="quantum.openfermion.linalg.sparse_tools.sparse_eigenspectrum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sparse_eigenspectrum</span></code></a>(sparse_operator)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.openfermion.linalg.sparse_tools.sparse_eigenspectrum" title="quantum.openfermion.linalg.sparse_tools.sparse_eigenspectrum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sparse_eigenspectrum</span></code></a>(sparse_operator)</p></td>
 <td><p>Perform a dense diagonalization.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.openfermion.linalg.sparse_tools.expectation" title="quantum.openfermion.linalg.sparse_tools.expectation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">expectation</span></code></a>(operator, state)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#quantum.openfermion.linalg.sparse_tools.expectation" title="quantum.openfermion.linalg.sparse_tools.expectation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">expectation</span></code></a>(operator, state)</p></td>
 <td><p>Compute the expectation value of an operator with a state.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#quantum.openfermion.linalg.sparse_tools.inner_product" title="quantum.openfermion.linalg.sparse_tools.inner_product"><code class="xref py py-obj docutils literal notranslate"><span class="pre">inner_product</span></code></a>(state_1, state_2)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.openfermion.linalg.sparse_tools.inner_product" title="quantum.openfermion.linalg.sparse_tools.inner_product"><code class="xref py py-obj docutils literal notranslate"><span class="pre">inner_product</span></code></a>(state_1, state_2)</p></td>
 <td><p>Compute inner product of two states.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.openfermion.linalg.sparse_tools.get_sparse_operator" title="quantum.openfermion.linalg.sparse_tools.get_sparse_operator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_sparse_operator</span></code></a>(operator[, n_qubits, trunc, hbar])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#quantum.openfermion.linalg.sparse_tools.get_sparse_operator" title="quantum.openfermion.linalg.sparse_tools.get_sparse_operator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_sparse_operator</span></code></a>(operator[, n_qubits, trunc, hbar])</p></td>
 <td><p>Map an operator to a sparse matrix.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#quantum.openfermion.linalg.sparse_tools.get_number_preserving_sparse_operator" title="quantum.openfermion.linalg.sparse_tools.get_number_preserving_sparse_operator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_number_preserving_sparse_operator</span></code></a>(fermion_op, ...)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#quantum.openfermion.linalg.sparse_tools.get_number_preserving_sparse_operator" title="quantum.openfermion.linalg.sparse_tools.get_number_preserving_sparse_operator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_number_preserving_sparse_operator</span></code></a>(fermion_op, ...)</p></td>
 <td><p>Initialize a Scipy sparse matrix in a specific symmetry sector.</p></td>
 </tr>
 </tbody>
@@ -633,8 +636,25 @@ class.</p></li>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="quantum.openfermion.linalg.sparse_tools.pauli_operator_sparse">
+<span class="sig-prename descclassname"><span class="pre">quantum.openfermion.linalg.sparse_tools.</span></span><span class="sig-name descname"><span class="pre">pauli_operator_sparse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qubit_operator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">quantum.wip.operators.PauliRepresentation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_qubits</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quantum.openfermion.linalg.sparse_tools.pauli_operator_sparse" title="Permalink to this definition">#</a></dt>
+<dd><p>Initialize a Scipy sparse matrix from a QubitOperator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qubit_operator</strong> (<a class="reference internal" href="../../ops/index.html#quantum.openfermion.ops.QubitOperator" title="quantum.openfermion.ops.QubitOperator"><em>QubitOperator</em></a>) – instance of the QubitOperator class.</p></li>
+<li><p><strong>n_qubits</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – Number of qubits.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The corresponding Scipy sparse matrix.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="quantum.openfermion.linalg.sparse_tools.qubit_operator_sparse">
-<span class="sig-prename descclassname"><span class="pre">quantum.openfermion.linalg.sparse_tools.</span></span><span class="sig-name descname"><span class="pre">qubit_operator_sparse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qubit_operator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_qubits</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quantum.openfermion.linalg.sparse_tools.qubit_operator_sparse" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">quantum.openfermion.linalg.sparse_tools.</span></span><span class="sig-name descname"><span class="pre">qubit_operator_sparse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qubit_operator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">orquestra.quantum.openfermion.ops.operators.QubitOperator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_qubits</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quantum.openfermion.linalg.sparse_tools.qubit_operator_sparse" title="Permalink to this definition">#</a></dt>
 <dd><p>Initialize a Scipy sparse matrix from a QubitOperator.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -996,6 +1016,7 @@ excitation.</p></li>
 <li><a class="reference internal" href="#quantum.openfermion.linalg.sparse_tools.kronecker_operators">kronecker_operators</a></li>
 <li><a class="reference internal" href="#quantum.openfermion.linalg.sparse_tools.jordan_wigner_ladder_sparse">jordan_wigner_ladder_sparse</a></li>
 <li><a class="reference internal" href="#quantum.openfermion.linalg.sparse_tools.jordan_wigner_sparse">jordan_wigner_sparse</a></li>
+<li><a class="reference internal" href="#quantum.openfermion.linalg.sparse_tools.pauli_operator_sparse">pauli_operator_sparse</a></li>
 <li><a class="reference internal" href="#quantum.openfermion.linalg.sparse_tools.qubit_operator_sparse">qubit_operator_sparse</a></li>
 <li><a class="reference internal" href="#quantum.openfermion.linalg.sparse_tools.jw_configuration_state">jw_configuration_state</a></li>
 <li><a class="reference internal" href="#quantum.openfermion.linalg.sparse_tools.jw_hartree_fock_state">jw_hartree_fock_state</a></li>

@@ -296,7 +296,7 @@ Functions
    Return the Kronecker product of multiple sparse.csc_matrix operators.
 
 
-.. py:function:: qubit_operator_sparse(qubit_operator, n_qubits=None)
+.. py:function:: qubit_operator_sparse(qubit_operator: orquestra.quantum.openfermion.ops.operators.QubitOperator, n_qubits=None)
 
    Initialize a Scipy sparse matrix from a QubitOperator.
 

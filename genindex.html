@@ -10,7 +10,6 @@
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/css/autoapi.css" />
     <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
@@ -171,6 +170,7 @@
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="guides/index.html">Guides</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="guides/circuits.html">Circuits guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guides/backends.html">Backends guide</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="api/index.html">API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -1160,6 +1160,8 @@
         </ul></li>
         <li><a href="api/opt/cost_function_augmentations/index.html#opt.cost_function_augmentations.ConditionalSideEffect">ConditionalSideEffect (class in opt.cost_function_augmentations)</a>
 </li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="api/quantum/openfermion/ops/operators/symbolic_operator/index.html#quantum.openfermion.ops.operators.symbolic_operator.SymbolicOperator.constant">constant (quantum.openfermion.ops.operators.symbolic_operator.SymbolicOperator property)</a>
 
         <ul>
@@ -1174,8 +1176,6 @@
           <li><a href="api/quantum/openfermion/ops/index.html#quantum.openfermion.ops.SymbolicOperator.constant">(quantum.openfermion.ops.SymbolicOperator property)</a>
 </li>
         </ul></li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="api/opt/problems/graph/index.html#opt.problems.graph.constant_sampler">constant_sampler() (in module opt.problems.graph)</a>
 </li>
         <li><a href="api/opt/api/index.html#opt.api.construct_history_info">construct_history_info() (in module opt.api)</a>
@@ -1284,7 +1284,7 @@
         </ul></li>
         <li><a href="api/opt/bqm/conversions/index.html#opt.bqm.conversions.convert_measurements_to_sampleset">convert_measurements_to_sampleset() (in module opt.bqm.conversions)</a>
 </li>
-        <li><a href="api/opt/bqm/conversions/index.html#opt.bqm.conversions.convert_openfermion_ising_to_qubo">convert_openfermion_ising_to_qubo() (in module opt.bqm.conversions)</a>
+        <li><a href="api/opt/bqm/conversions/index.html#opt.bqm.conversions.convert_paulisum_to_qubo">convert_paulisum_to_qubo() (in module opt.bqm.conversions)</a>
 </li>
         <li><a href="api/quantum/openfermion/zapata_utils/index.html#quantum.openfermion.zapata_utils.convert_qubitop_to_dict">convert_qubitop_to_dict() (in module quantum.openfermion.zapata_utils)</a>
 
@@ -1292,7 +1292,7 @@
           <li><a href="api/quantum/openfermion/zapata_utils/_io/index.html#quantum.openfermion.zapata_utils._io.convert_qubitop_to_dict">(in module quantum.openfermion.zapata_utils._io)</a>
 </li>
         </ul></li>
-        <li><a href="api/opt/bqm/conversions/index.html#opt.bqm.conversions.convert_qubo_to_openfermion_ising">convert_qubo_to_openfermion_ising() (in module opt.bqm.conversions)</a>
+        <li><a href="api/opt/bqm/conversions/index.html#opt.bqm.conversions.convert_qubo_to_paulisum">convert_qubo_to_paulisum() (in module opt.bqm.conversions)</a>
 </li>
         <li><a href="api/vqa/ansatz/qaoa_warm_start/index.html#vqa.ansatz.qaoa_warm_start.convert_relaxed_solution_to_angles">convert_relaxed_solution_to_angles() (in module vqa.ansatz.qaoa_warm_start)</a>
 </li>
@@ -1360,12 +1360,6 @@
 
         <ul>
           <li><a href="api/quantum/distributions/_measurement_outcome_distribution/index.html#quantum.distributions._measurement_outcome_distribution.create_bitstring_distribution_from_probability_distribution">(in module quantum.distributions._measurement_outcome_distribution)</a>
-</li>
-        </ul></li>
-        <li><a href="api/quantum/openfermion/zapata_utils/index.html#quantum.openfermion.zapata_utils.create_circuits_from_qubit_operator">create_circuits_from_qubit_operator() (in module quantum.openfermion.zapata_utils)</a>
-
-        <ul>
-          <li><a href="api/quantum/openfermion/zapata_utils/_utils/index.html#quantum.openfermion.zapata_utils._utils.create_circuits_from_qubit_operator">(in module quantum.openfermion.zapata_utils._utils)</a>
 </li>
         </ul></li>
         <li><a href="api/vqa/cost_function/cost_function/index.html#vqa.cost_function.cost_function.create_cost_function">create_cost_function() (in module vqa.cost_function.cost_function)</a>
@@ -1910,6 +1904,8 @@
           <li><a href="api/quantum/wavefunction/index.html#quantum.wavefunction.Wavefunction.free_symbols">(quantum.wavefunction.Wavefunction property)</a>
 </li>
         </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="api/quantum/openfermion/transforms/index.html#quantum.openfermion.transforms.freeze_orbitals">freeze_orbitals() (in module quantum.openfermion.transforms)</a>
 
         <ul>
@@ -1918,8 +1914,6 @@
           <li><a href="api/quantum/openfermion/transforms/repconversions/operator_tapering/index.html#quantum.openfermion.transforms.repconversions.operator_tapering.freeze_orbitals">(in module quantum.openfermion.transforms.repconversions.operator_tapering)</a>
 </li>
         </ul></li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="api/quantum/measurements/index.html#quantum.measurements.Measurements.from_counts">from_counts() (quantum.measurements.Measurements class method)</a>
 
         <ul>
@@ -1950,16 +1944,6 @@
 
         <ul>
           <li><a href="api/quantum/wip/operators/index.html#quantum.wip.operators.PauliTerm.from_list">(quantum.wip.operators.PauliTerm static method)</a>
-</li>
-        </ul></li>
-        <li><a href="api/quantum/wip/operators/_pauli_operators/index.html#quantum.wip.operators._pauli_operators.PauliSum.from_str">from_str() (quantum.wip.operators._pauli_operators.PauliSum static method)</a>
-
-        <ul>
-          <li><a href="api/quantum/wip/operators/_pauli_operators/index.html#quantum.wip.operators._pauli_operators.PauliTerm.from_str">(quantum.wip.operators._pauli_operators.PauliTerm static method)</a>
-</li>
-          <li><a href="api/quantum/wip/operators/index.html#quantum.wip.operators.PauliSum.from_str">(quantum.wip.operators.PauliSum static method)</a>
-</li>
-          <li><a href="api/quantum/wip/operators/index.html#quantum.wip.operators.PauliTerm.from_str">(quantum.wip.operators.PauliTerm static method)</a>
 </li>
         </ul></li>
         <li><a href="api/opt/api/functions/index.html#opt.api.functions.FunctionWithGradient.function">function (opt.api.functions.FunctionWithGradient attribute)</a>
@@ -2767,10 +2751,10 @@
 </li>
         </ul></li>
         <li>
-    integrations.cirq.conversions._openfermion_conversions
+    integrations.cirq.conversions._pauli_conversions
 
         <ul>
-          <li><a href="api/integrations/cirq/conversions/_openfermion_conversions/index.html#module-integrations.cirq.conversions._openfermion_conversions">module</a>
+          <li><a href="api/integrations/cirq/conversions/_pauli_conversions/index.html#module-integrations.cirq.conversions._pauli_conversions">module</a>
 </li>
         </ul></li>
         <li>
@@ -2858,10 +2842,10 @@
 </li>
         </ul></li>
         <li>
-    integrations.forest.conversions._openfermion_conversions
+    integrations.forest.conversions._pauli_conversions
 
         <ul>
-          <li><a href="api/integrations/forest/conversions/_openfermion_conversions/index.html#module-integrations.forest.conversions._openfermion_conversions">module</a>
+          <li><a href="api/integrations/forest/conversions/_pauli_conversions/index.html#module-integrations.forest.conversions._pauli_conversions">module</a>
 </li>
         </ul></li>
         <li>
@@ -2885,8 +2869,6 @@
           <li><a href="api/integrations/qiskit/backend/index.html#module-integrations.qiskit.backend">module</a>
 </li>
         </ul></li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li>
     integrations.qiskit.backend.backend
 
@@ -2894,6 +2876,8 @@
           <li><a href="api/integrations/qiskit/backend/backend/index.html#module-integrations.qiskit.backend.backend">module</a>
 </li>
         </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li>
     integrations.qiskit.conversions
 
@@ -2909,10 +2893,10 @@
 </li>
         </ul></li>
         <li>
-    integrations.qiskit.conversions._openfermion_conversions
+    integrations.qiskit.conversions._pauli_conversions
 
         <ul>
-          <li><a href="api/integrations/qiskit/conversions/_openfermion_conversions/index.html#module-integrations.qiskit.conversions._openfermion_conversions">module</a>
+          <li><a href="api/integrations/qiskit/conversions/_pauli_conversions/index.html#module-integrations.qiskit.conversions._pauli_conversions">module</a>
 </li>
         </ul></li>
         <li>
@@ -3020,6 +3004,16 @@
 
         <ul>
           <li><a href="api/vqa/grouping/_grouping/index.html#vqa.grouping._grouping.is_comeasureable">(in module vqa.grouping._grouping)</a>
+</li>
+        </ul></li>
+        <li><a href="api/quantum/wip/operators/_pauli_operators/index.html#quantum.wip.operators._pauli_operators.PauliSum.is_constant">is_constant (quantum.wip.operators._pauli_operators.PauliSum property)</a>
+
+        <ul>
+          <li><a href="api/quantum/wip/operators/_pauli_operators/index.html#quantum.wip.operators._pauli_operators.PauliTerm.is_constant">(quantum.wip.operators._pauli_operators.PauliTerm property)</a>
+</li>
+          <li><a href="api/quantum/wip/operators/index.html#quantum.wip.operators.PauliSum.is_constant">(quantum.wip.operators.PauliSum property)</a>
+</li>
+          <li><a href="api/quantum/wip/operators/index.html#quantum.wip.operators.PauliTerm.is_constant">(quantum.wip.operators.PauliTerm property)</a>
 </li>
         </ul></li>
         <li><a href="api/quantum/circuits/_gates/index.html#quantum.circuits._gates.MatrixFactoryGate.is_hermitian">is_hermitian (quantum.circuits._gates.MatrixFactoryGate attribute)</a>
@@ -3520,7 +3514,7 @@
 </li>
           <li><a href="api/integrations/cirq/conversions/_circuit_conversions/index.html#module-integrations.cirq.conversions._circuit_conversions">integrations.cirq.conversions._circuit_conversions</a>
 </li>
-          <li><a href="api/integrations/cirq/conversions/_openfermion_conversions/index.html#module-integrations.cirq.conversions._openfermion_conversions">integrations.cirq.conversions._openfermion_conversions</a>
+          <li><a href="api/integrations/cirq/conversions/_pauli_conversions/index.html#module-integrations.cirq.conversions._pauli_conversions">integrations.cirq.conversions._pauli_conversions</a>
 </li>
           <li><a href="api/integrations/cirq/decompositions/index.html#module-integrations.cirq.decompositions">integrations.cirq.decompositions</a>
 </li>
@@ -3546,7 +3540,7 @@
 </li>
           <li><a href="api/integrations/forest/conversions/_expressions/index.html#module-integrations.forest.conversions._expressions">integrations.forest.conversions._expressions</a>
 </li>
-          <li><a href="api/integrations/forest/conversions/_openfermion_conversions/index.html#module-integrations.forest.conversions._openfermion_conversions">integrations.forest.conversions._openfermion_conversions</a>
+          <li><a href="api/integrations/forest/conversions/_pauli_conversions/index.html#module-integrations.forest.conversions._pauli_conversions">integrations.forest.conversions._pauli_conversions</a>
 </li>
           <li><a href="api/integrations/forest/simulator/index.html#module-integrations.forest.simulator">integrations.forest.simulator</a>
 </li>
@@ -3560,7 +3554,7 @@
 </li>
           <li><a href="api/integrations/qiskit/conversions/_circuit_conversions/index.html#module-integrations.qiskit.conversions._circuit_conversions">integrations.qiskit.conversions._circuit_conversions</a>
 </li>
-          <li><a href="api/integrations/qiskit/conversions/_openfermion_conversions/index.html#module-integrations.qiskit.conversions._openfermion_conversions">integrations.qiskit.conversions._openfermion_conversions</a>
+          <li><a href="api/integrations/qiskit/conversions/_pauli_conversions/index.html#module-integrations.qiskit.conversions._pauli_conversions">integrations.qiskit.conversions._pauli_conversions</a>
 </li>
           <li><a href="api/integrations/qiskit/conversions/_qiskit_expressions/index.html#module-integrations.qiskit.conversions._qiskit_expressions">integrations.qiskit.conversions._qiskit_expressions</a>
 </li>
@@ -4332,11 +4326,9 @@
         <ul>
           <li><a href="api/quantum/circuits/index.html#quantum.circuits.Circuit.operations">(quantum.circuits.Circuit property)</a>
 </li>
-        </ul></li>
-        <li><a href="api/quantum/wip/operators/_pauli_operators/index.html#quantum.wip.operators._pauli_operators.PauliTerm.operations_as_set">operations_as_set() (quantum.wip.operators._pauli_operators.PauliTerm method)</a>
-
-        <ul>
-          <li><a href="api/quantum/wip/operators/index.html#quantum.wip.operators.PauliTerm.operations_as_set">(quantum.wip.operators.PauliTerm method)</a>
+          <li><a href="api/quantum/wip/operators/_pauli_operators/index.html#quantum.wip.operators._pauli_operators.PauliTerm.operations">(quantum.wip.operators._pauli_operators.PauliTerm property)</a>
+</li>
+          <li><a href="api/quantum/wip/operators/index.html#quantum.wip.operators.PauliTerm.operations">(quantum.wip.operators.PauliTerm property)</a>
 </li>
         </ul></li>
         <li><a href="api/quantum/decompositions/_decomposition/index.html#quantum.decompositions._decomposition.OperationType">OperationType (in module quantum.decompositions._decomposition)</a>
@@ -4444,8 +4436,6 @@
           <li><a href="api/opt/bqm/index.html#module-opt.bqm">module</a>
 </li>
         </ul></li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li>
     opt.bqm.conversions
 
@@ -4453,6 +4443,8 @@
           <li><a href="api/opt/bqm/conversions/index.html#module-opt.bqm.conversions">module</a>
 </li>
         </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li>
     opt.bqm.io
 
@@ -4634,6 +4626,12 @@
           <li><a href="api/quantum/openfermion/chem/index.html#quantum.openfermion.chem.MolecularData.orbital_energies">(quantum.openfermion.chem.MolecularData attribute)</a>
 </li>
         </ul></li>
+        <li><a href="api/integrations/forest/conversions/index.html#integrations.forest.conversions.orq_to_pyquil">orq_to_pyquil() (in module integrations.forest.conversions)</a>
+
+        <ul>
+          <li><a href="api/integrations/forest/conversions/_pauli_conversions/index.html#integrations.forest.conversions._pauli_conversions.orq_to_pyquil">(in module integrations.forest.conversions._pauli_conversions)</a>
+</li>
+        </ul></li>
         <li><a href="api/integrations/cirq/conversions/_circuit_conversions/index.html#integrations.cirq.conversions._circuit_conversions.ORQUESTRA_BUILTIN_GATE_NAME_TO_CIRQ_GATE">ORQUESTRA_BUILTIN_GATE_NAME_TO_CIRQ_GATE (in module integrations.cirq.conversions._circuit_conversions)</a>
 </li>
         <li><a href="api/integrations/qiskit/conversions/_circuit_conversions/index.html#integrations.qiskit.conversions._circuit_conversions.ORQUESTRA_QISKIT_GATE_MAP">ORQUESTRA_QISKIT_GATE_MAP (in module integrations.qiskit.conversions._circuit_conversions)</a>
@@ -4728,6 +4726,8 @@
         </ul></li>
         <li><a href="api/quantum/openfermion/linalg/sparse_tools/index.html#quantum.openfermion.linalg.sparse_tools.pauli_matrix_map">pauli_matrix_map (in module quantum.openfermion.linalg.sparse_tools)</a>
 </li>
+        <li><a href="api/quantum/openfermion/linalg/sparse_tools/index.html#quantum.openfermion.linalg.sparse_tools.pauli_operator_sparse">pauli_operator_sparse() (in module quantum.openfermion.linalg.sparse_tools)</a>
+</li>
         <li><a href="api/quantum/utils/index.html#quantum.utils.pauli_x">pauli_x (in module quantum.utils)</a>
 </li>
         <li><a href="api/quantum/openfermion/linalg/sparse_tools/index.html#quantum.openfermion.linalg.sparse_tools.pauli_x_csc">pauli_x_csc (in module quantum.openfermion.linalg.sparse_tools)</a>
@@ -4740,8 +4740,18 @@
 </li>
         <li><a href="api/quantum/openfermion/linalg/sparse_tools/index.html#quantum.openfermion.linalg.sparse_tools.pauli_z_csc">pauli_z_csc (in module quantum.openfermion.linalg.sparse_tools)</a>
 </li>
-        <li><a href="api/quantum/wip/operators/_pauli_operators/index.html#quantum.wip.operators._pauli_operators.PauliRepresentation">PauliRepresentation (in module quantum.wip.operators._pauli_operators)</a>
+        <li><a href="api/integrations/cirq/conversions/index.html#integrations.cirq.conversions.pauliop_to_cirq_paulisum">pauliop_to_cirq_paulisum() (in module integrations.cirq.conversions)</a>
+
+        <ul>
+          <li><a href="api/integrations/cirq/conversions/_pauli_conversions/index.html#integrations.cirq.conversions._pauli_conversions.pauliop_to_cirq_paulisum">(in module integrations.cirq.conversions._pauli_conversions)</a>
 </li>
+        </ul></li>
+        <li><a href="api/quantum/wip/operators/index.html#quantum.wip.operators.PauliRepresentation">PauliRepresentation (in module quantum.wip.operators)</a>
+
+        <ul>
+          <li><a href="api/quantum/wip/operators/_pauli_operators/index.html#quantum.wip.operators._pauli_operators.PauliRepresentation">(in module quantum.wip.operators._pauli_operators)</a>
+</li>
+        </ul></li>
         <li><a href="api/quantum/wip/operators/index.html#quantum.wip.operators.PauliSum">PauliSum (class in quantum.wip.operators)</a>
 
         <ul>
@@ -4768,6 +4778,8 @@
           <li><a href="api/quantum/circuits/_builtin_gates/index.html#quantum.circuits._builtin_gates.PHASE">(in module quantum.circuits._builtin_gates)</a>
 </li>
         </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="api/quantum/circuits/_matrices/index.html#quantum.circuits._matrices.phase_matrix">phase_matrix() (in module quantum.circuits._matrices)</a>
 </li>
         <li><a href="api/quantum/openfermion/ops/index.html#quantum.openfermion.ops.PolynomialTensor">PolynomialTensor (class in quantum.openfermion.ops)</a>
@@ -4778,8 +4790,6 @@
           <li><a href="api/quantum/openfermion/ops/representations/polynomial_tensor/index.html#quantum.openfermion.ops.representations.polynomial_tensor.PolynomialTensor">(class in quantum.openfermion.ops.representations.polynomial_tensor)</a>
 </li>
         </ul></li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="api/quantum/openfermion/ops/index.html#quantum.openfermion.ops.PolynomialTensorError">PolynomialTensorError</a>, <a href="api/quantum/openfermion/ops/representations/index.html#quantum.openfermion.ops.representations.PolynomialTensorError">[1]</a>, <a href="api/quantum/openfermion/ops/representations/polynomial_tensor/index.html#quantum.openfermion.ops.representations.polynomial_tensor.PolynomialTensorError">[2]</a>
 </li>
         <li><a href="api/quantum/openfermion/hamiltonians/general_hubbard/index.html#quantum.openfermion.hamiltonians.general_hubbard.PotentialParameter">PotentialParameter (in module quantum.openfermion.hamiltonians.general_hubbard)</a>
@@ -4892,10 +4902,10 @@
           <li><a href="api/quantum/openfermion/transforms/repconversions/operator_tapering/index.html#quantum.openfermion.transforms.repconversions.operator_tapering.prune_unused_indices">(in module quantum.openfermion.transforms.repconversions.operator_tapering)</a>
 </li>
         </ul></li>
-        <li><a href="api/integrations/forest/conversions/index.html#integrations.forest.conversions.pyquilpauli_to_qubitop">pyquilpauli_to_qubitop() (in module integrations.forest.conversions)</a>
+        <li><a href="api/integrations/forest/conversions/index.html#integrations.forest.conversions.pyquil_to_orq">pyquil_to_orq() (in module integrations.forest.conversions)</a>
 
         <ul>
-          <li><a href="api/integrations/forest/conversions/_openfermion_conversions/index.html#integrations.forest.conversions._openfermion_conversions.pyquilpauli_to_qubitop">(in module integrations.forest.conversions._openfermion_conversions)</a>
+          <li><a href="api/integrations/forest/conversions/_pauli_conversions/index.html#integrations.forest.conversions._pauli_conversions.pyquil_to_orq">(in module integrations.forest.conversions._pauli_conversions)</a>
 </li>
         </ul></li>
     </ul></td>
@@ -4933,7 +4943,7 @@
         <li><a href="api/integrations/qiskit/conversions/index.html#integrations.qiskit.conversions.qiskitpauli_to_qubitop">qiskitpauli_to_qubitop() (in module integrations.qiskit.conversions)</a>
 
         <ul>
-          <li><a href="api/integrations/qiskit/conversions/_openfermion_conversions/index.html#integrations.qiskit.conversions._openfermion_conversions.qiskitpauli_to_qubitop">(in module integrations.qiskit.conversions._openfermion_conversions)</a>
+          <li><a href="api/integrations/qiskit/conversions/_pauli_conversions/index.html#integrations.qiskit.conversions._pauli_conversions.qiskitpauli_to_qubitop">(in module integrations.qiskit.conversions._pauli_conversions)</a>
 </li>
         </ul></li>
         <li><a href="api/integrations/qiskit/simulator/index.html#integrations.qiskit.simulator.QiskitSimulator">QiskitSimulator (class in integrations.qiskit.simulator)</a>
@@ -5338,6 +5348,8 @@
           <li><a href="api/quantum/openfermion/measurements/get_interaction_rdm/index.html#module-quantum.openfermion.measurements.get_interaction_rdm">module</a>
 </li>
         </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li>
     quantum.openfermion.ops
 
@@ -5345,8 +5357,6 @@
           <li><a href="api/quantum/openfermion/ops/index.html#module-quantum.openfermion.ops">module</a>
 </li>
         </ul></li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li>
     quantum.openfermion.ops.operators
 
@@ -5727,22 +5737,10 @@
           <li><a href="api/integrations/cirq/simulator/simulator/index.html#integrations.cirq.simulator.simulator.CirqSimulator.qubit_order">(integrations.cirq.simulator.simulator.CirqSimulator attribute)</a>
 </li>
         </ul></li>
-        <li><a href="api/integrations/cirq/conversions/index.html#integrations.cirq.conversions.qubitop_to_paulisum">qubitop_to_paulisum() (in module integrations.cirq.conversions)</a>
-
-        <ul>
-          <li><a href="api/integrations/cirq/conversions/_openfermion_conversions/index.html#integrations.cirq.conversions._openfermion_conversions.qubitop_to_paulisum">(in module integrations.cirq.conversions._openfermion_conversions)</a>
-</li>
-        </ul></li>
-        <li><a href="api/integrations/forest/conversions/index.html#integrations.forest.conversions.qubitop_to_pyquilpauli">qubitop_to_pyquilpauli() (in module integrations.forest.conversions)</a>
-
-        <ul>
-          <li><a href="api/integrations/forest/conversions/_openfermion_conversions/index.html#integrations.forest.conversions._openfermion_conversions.qubitop_to_pyquilpauli">(in module integrations.forest.conversions._openfermion_conversions)</a>
-</li>
-        </ul></li>
         <li><a href="api/integrations/qiskit/conversions/index.html#integrations.qiskit.conversions.qubitop_to_qiskitpauli">qubitop_to_qiskitpauli() (in module integrations.qiskit.conversions)</a>
 
         <ul>
-          <li><a href="api/integrations/qiskit/conversions/_openfermion_conversions/index.html#integrations.qiskit.conversions._openfermion_conversions.qubitop_to_qiskitpauli">(in module integrations.qiskit.conversions._openfermion_conversions)</a>
+          <li><a href="api/integrations/qiskit/conversions/_pauli_conversions/index.html#integrations.qiskit.conversions._pauli_conversions.qubitop_to_qiskitpauli">(in module integrations.qiskit.conversions._pauli_conversions)</a>
 </li>
         </ul></li>
         <li><a href="api/quantum/openfermion/ops/index.html#quantum.openfermion.ops.QubitOperator">QubitOperator (class in quantum.openfermion.ops)</a>
@@ -6444,6 +6442,10 @@
 </li>
           <li><a href="api/quantum/openfermion/ops/index.html#quantum.openfermion.ops.SymbolicOperator.terms">(quantum.openfermion.ops.SymbolicOperator attribute)</a>
 </li>
+          <li><a href="api/quantum/wip/operators/_pauli_operators/index.html#quantum.wip.operators._pauli_operators.PauliTerm.terms">(quantum.wip.operators._pauli_operators.PauliTerm property)</a>
+</li>
+          <li><a href="api/quantum/wip/operators/index.html#quantum.wip.operators.PauliTerm.terms">(quantum.wip.operators.PauliTerm property)</a>
+</li>
         </ul></li>
         <li><a href="api/quantum/openfermion/testing/lih_integration_test/index.html#quantum.openfermion.testing.lih_integration_test.LiHIntegrationTest.test_all">test_all() (quantum.openfermion.testing.lih_integration_test.LiHIntegrationTest method)</a>
 </li>
@@ -6527,10 +6529,10 @@
 </li>
         <li><a href="api/quantum/api/backend_test/index.html#quantum.api.backend_test.QuantumBackendGatesTests.test_two_qubit_non_parametric_gates_using_expectation_values">test_two_qubit_non_parametric_gates_using_expectation_values() (quantum.api.backend_test.QuantumBackendGatesTests method)</a>
 </li>
-        <li><a href="api/quantum/api/backend_test/index.html#quantum.api.backend_test.QuantumSimulatorGatesTest.test_two_qubit_parametric_gates_using_amplitudes">test_two_qubit_parametric_gates_using_amplitudes() (quantum.api.backend_test.QuantumSimulatorGatesTest method)</a>
-</li>
     </ul></td>
     <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/quantum/api/backend_test/index.html#quantum.api.backend_test.QuantumSimulatorGatesTest.test_two_qubit_parametric_gates_using_amplitudes">test_two_qubit_parametric_gates_using_amplitudes() (quantum.api.backend_test.QuantumSimulatorGatesTest method)</a>
+</li>
         <li><a href="api/quantum/api/backend_test/index.html#quantum.api.backend_test.QuantumBackendGatesTests.test_two_qubit_parametric_gates_using_expectation_values">test_two_qubit_parametric_gates_using_expectation_values() (quantum.api.backend_test.QuantumBackendGatesTests method)</a>
 </li>
         <li><a href="api/vqa/ansatz/qaoa_warm_start/index.html#vqa.ansatz.qaoa_warm_start.WarmStartQAOAAnsatz.thetas">thetas (vqa.ansatz.qaoa_warm_start.WarmStartQAOAAnsatz attribute)</a>

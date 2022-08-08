@@ -22,6 +22,7 @@ Functions
    quantum.openfermion.linalg.sparse_tools.kronecker_operators
    quantum.openfermion.linalg.sparse_tools.jordan_wigner_ladder_sparse
    quantum.openfermion.linalg.sparse_tools.jordan_wigner_sparse
+   quantum.openfermion.linalg.sparse_tools.pauli_operator_sparse
    quantum.openfermion.linalg.sparse_tools.qubit_operator_sparse
    quantum.openfermion.linalg.sparse_tools.jw_configuration_state
    quantum.openfermion.linalg.sparse_tools.jw_hartree_fock_state
@@ -131,7 +132,19 @@ Attributes
    :returns: The corresponding Scipy sparse matrix.
 
 
-.. py:function:: qubit_operator_sparse(qubit_operator, n_qubits=None)
+.. py:function:: pauli_operator_sparse(qubit_operator: quantum.wip.operators.PauliRepresentation, n_qubits=None)
+
+   Initialize a Scipy sparse matrix from a QubitOperator.
+
+   :param qubit_operator: instance of the QubitOperator class.
+   :type qubit_operator: QubitOperator
+   :param n_qubits: Number of qubits.
+   :type n_qubits: int
+
+   :returns: The corresponding Scipy sparse matrix.
+
+
+.. py:function:: qubit_operator_sparse(qubit_operator: orquestra.quantum.openfermion.ops.operators.QubitOperator, n_qubits=None)
 
    Initialize a Scipy sparse matrix from a QubitOperator.
 

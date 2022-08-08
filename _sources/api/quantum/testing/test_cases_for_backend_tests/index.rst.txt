@@ -24,12 +24,12 @@ Module Contents
    
 
 .. py:data:: two_qubit_non_parametric_gates_exp_vals_test_set
-   :annotation: = [[['I', 'I'], 'CNOT', ['[]', '[X0 X1]', '[Y0 Y1]', '[Z0 Z1]', '[X1]', '[Z0]'], [1, 0, 0, 1, 0,...
+   :annotation: = [[['I', 'I'], 'CNOT', ['I0', 'X0*X1', 'Y0*Y1', 'Z0*Z1', 'X1', 'Z0'], [1, 0, 0, 1, 0, 1]], [['I',...
 
    
 
 .. py:data:: two_qubit_parametric_gates_exp_vals_test_set
-   :annotation: = [[['I', 'I'], 'CPHASE', None, ['[]', '[X0 X1]', '[Y0 Y1]', '[Z0 Z1]', '[X1]', '[Z0]'], [1, 0, 0,...
+   :annotation: = [[['I', 'I'], 'CPHASE', None, ['I0', 'X0*X1', 'Y0*Y1', 'Z0*Z1', 'X1', 'Z0'], [1, 0, 0, 1, 0,...
 
    
 

@@ -1,0 +1,49 @@
+:orphan:
+
+:py:mod:`integrations.forest.conversions._pauli_conversions`
+============================================================
+
+.. py:module:: integrations.forest.conversions._pauli_conversions
+
+.. autoapi-nested-parse::
+
+   Translates Orquestra pauli representation objects to pyQuil objects and vice versa.
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   integrations.forest.conversions._pauli_conversions.orq_to_pyquil
+   integrations.forest.conversions._pauli_conversions.pyquil_to_orq
+
+
+
+.. py:function:: orq_to_pyquil(pauli_operator: orquestra.quantum.wip.operators.PauliRepresentation) -> Union[pyquil.paulis.PauliSum, pyquil.paulis.PauliTerm]
+
+   Convert an Orquestra PauliSum or PauliTerm to a pyQuil PauliSum or PauliTerm,
+   respectively.
+
+   :param pauli_operator: Orquestra PauliSum or PauliTerm to convert to a pyquil PauliSum
+                          or PauliTerm
+
+   :returns: PauliSum or PauliTerm representing the input pauli operator
+
+
+.. py:function:: pyquil_to_orq(pyquil_pauli: Union[pyquil.paulis.PauliTerm, pyquil.paulis.PauliSum]) -> orquestra.quantum.wip.operators.PauliRepresentation
+
+   Convert a pyQuil PauliSum or PauliTerm to an Orquestra PauliSum or PauliTerm,
+       respectively.
+
+   :param pyquil_pauli: pyQuil PauliTerm or PauliSum to convert to an Orquestra PauliTerm
+                        or PauliSum
+
+   :returns: Orquestra PauliSum or PauliTerm representing the pyQuil PauliTerm or PauliSum
+
+

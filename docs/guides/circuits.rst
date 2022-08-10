@@ -1,6 +1,8 @@
-=========================
+.. _circuits_guide:
+
+==============
 Circuits guide
-=========================
+==============
 
 
 What this guide covers
@@ -448,3 +450,8 @@ Built-in decompositions
 -----------------------
 
 There is currently only one built-in decomposition in ``orquestra-quantum`` and that is a `U3GateToRotation <https://github.com/zapatacomputing/orquestra-quantum/blob/main/src/orquestra/quantum/decompositions/_orquestra_decompositions.py>`_ decomposition.
+
+
+--------------------------------
+
+**Next steps**: Head to the :ref:`Backends Guide <backends_guide>` to learn how to run ``Circuit``\ s on real hardware and simulators.

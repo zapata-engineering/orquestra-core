@@ -38,7 +38,7 @@ Let's create a circuit that does this for us! Create a new file ``bell_state.py`
 
 This circuit can be created in a few lines. First, we import the needed gate and circuit classes, then create a new ``Circuit`` object, and finally add the gates we want.
 
-.. literalinclude:: /examples/bell_state.py
+.. literalinclude:: ../examples/bell_state.py
     :language: python
     :start-at: from orquestra.quantum.circuits import CNOT, H, Circuit
     :end-at: ic(bell_circuit)
@@ -54,7 +54,7 @@ This will output a text description of the circuit that looks like ``bell_circui
 
 We actually have another option of how to build the circuit by specifying all of the gates at once:
 
-.. literalinclude:: /examples/bell_state.py
+.. literalinclude:: ../examples/bell_state.py
     :language: python
     :start-at: bell_circuit2
     :end-at: ic(bell_circuit2)
@@ -76,7 +76,7 @@ Got your circuit? Compare it with ours:
 .. hint::
     :class: dropdown
 
-    .. literalinclude:: /examples/superdense_coding.py
+    .. literalinclude:: ../examples/superdense_coding.py
         :language: python
         :start-at: from orquestra.quantum.circuits import
         :end-before: # bob runs and measures the qubits
@@ -89,14 +89,14 @@ Running Circuits on a Backend
 
 Once we have our circuit, the next step is to select what backend to run on and get our measurements. For this run, let's use Qiskit's aer simulator with 100 shots:
 
-.. literalinclude:: /examples/bell_state.py
+.. literalinclude:: ../examples/bell_state.py
     :language: python
     :start-at: import QiskitSimulator
     :end-at: ic(measurements.get_counts())
 
 It's actually very easy to switch out backends thanks to Orquestra Core's interfaces. Let's say instead of the QiskitSimulator, we want to use Zapata's very own SymbolicSimulator. We can do that by changing just part of one line:
 
-.. literalinclude:: /examples/bell_state.py
+.. literalinclude:: ../examples/bell_state.py
     :language: python
     :start-at: import SymbolicSimulator
     :end-at: ic(measurements2.get_counts())
@@ -105,14 +105,14 @@ It's actually very easy to switch out backends thanks to Orquestra Core's interf
 
 If we want to get the amplitudes from the wavefunction instead of running measurements, we can do that as well:
 
-.. literalinclude:: /examples/bell_state.py
+.. literalinclude:: ../examples/bell_state.py
     :language: python
     :start-at: sv_simulator = QiskitSimulator("aer_simulator_statevector")
     :end-at: ic(wavefunction.amplitudes)
 
 We can also get an expectation value for the circuit given an operator we want to use:
 
-.. literalinclude:: /examples/bell_state.py
+.. literalinclude:: ../examples/bell_state.py
     :language: python
     :start-at: import EstimationTask
     :end-at: ic(evals[0].values)
@@ -126,7 +126,7 @@ For the superdense coding example we made in the last section, run the circuit o
 .. hint::
     :class: dropdown
 
-    .. literalinclude:: /examples/superdense_coding.py
+    .. literalinclude:: ../examples/superdense_coding.py
         :language: python
         :start-at: # bob runs and measures the qubits
         :end-at: ic(measurements.get_counts())
@@ -150,14 +150,14 @@ But we want to do it by editing the circuit in Qiskit, and then visualizing the 
 
 First, we can translate our existing circuit from the current Orquestra Core representation into its Qiskit representation and add an ``X`` gate to the second qubit in Qiskit:
 
-.. literalinclude:: /examples/bell_state.py
+.. literalinclude:: ../examples/bell_state.py
     :language: python
     :start-at: qiskit.conversions import
     :end-at: qiskit_circuit.x(1)
 
 Then, we can re-import the Qiskit version to Orquestra Core and re-export to Cirq:
 
-.. literalinclude:: /examples/bell_state.py
+.. literalinclude:: ../examples/bell_state.py
     :language: python
     :start-at: import export_to_cirq
     :end-at: print(cirq_circuit)
@@ -175,7 +175,7 @@ Lastly, we can use the Qiskit statevector simulator to make sure we've created t
 .. hint::
     :class: dropdown
 
-    .. literalinclude:: /examples/bell_state.py
+    .. literalinclude:: ../examples/bell_state.py
         :language: python
         :start-at: wavefunction = sv_simulator.get_wavefunction(bell_circuit_X)
         :end-at: ic(wavefunction.amplitudes)
@@ -189,7 +189,7 @@ Try to export our new ``bell_circuit_X`` to pyQuil!
 .. hint::
     :class: dropdown
 
-    .. literalinclude:: /examples/bell_state.py
+    .. literalinclude:: ../examples/bell_state.py
         :language: python
         :start-at: import export_to_pyquil
         :end-at: pyquil_circuit = 

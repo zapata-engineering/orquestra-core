@@ -6,7 +6,9 @@ from collections import Counter
 import networkx as nx
 import numpy as np
 import pytest
-from orquestra.integrations.cirq.simulator import CirqSimulator
+from orquestra.integrations.cirq.simulator import CirqSimulator, QSimSimulator
+from orquestra.integrations.qiskit.simulator import QiskitSimulator
+from orquestra.integrations.qulacs import QulacsSimulator
 from orquestra.opt.optimizers import ScipyOptimizer
 from orquestra.opt.problems.maxcut import MaxCut
 from orquestra.quantum.estimation import calculate_exact_expectation_values
@@ -35,13 +37,24 @@ def test_graph():
     return graph
 
 
+@pytest.fixture(
+    params=[
+        CirqSimulator(),
+        QSimSimulator(),
+        QulacsSimulator(),
+        QiskitSimulator("aer_simulator_statevector"),
+    ]
+)
+def backend(request):
+    return request.param
+
+
 class TestMaxcut:
-    def test_solve_maxcut_qaoa(self, test_graph):
+    def test_solve_maxcut_qaoa(self, test_graph, backend):
 
         hamiltonian = MaxCut().get_hamiltonian(test_graph)
 
         ansatz = QAOAFarhiAnsatz(2, cost_hamiltonian=hamiltonian)
-        backend = CirqSimulator()
         # 1000 and 0111 are not really optimal solutions, but they're close enough,
         # so that optimization might also end up in this local minimum,
         # and hence it's ok for us to accept it.

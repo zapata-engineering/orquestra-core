@@ -2,20 +2,22 @@
 # © Copyright 2022 Zapata Computing Inc.
 ################################################################################
 from functools import partial
+from typing import Any, Tuple
 
 import numpy as np
 import pytest
-from orquestra.integrations.qiskit.simulator import QiskitSimulator
-from orquestra.opt.optimizers import ScipyOptimizer
-from orquestra.quantum.estimation import estimate_expectation_values_by_averaging
-from orquestra.quantum.openfermion import (
-    count_qubits,
+from openfermion import (
     get_ground_state,
     get_interaction_operator,
     get_sparse_operator,
     jordan_wigner,
 )
-from orquestra.quantum.openfermion.hamiltonians import fermi_hubbard
+from openfermion.hamiltonians import fermi_hubbard
+from orquestra.integrations.cirq.conversions import from_openfermion
+from orquestra.integrations.qulacs import QulacsSimulator
+from orquestra.opt.optimizers import ScipyOptimizer
+from orquestra.quantum.estimation import estimate_expectation_values_by_averaging
+from orquestra.quantum.operators import PauliSum
 from orquestra.vqa.ansatz.quantum_compiling import HEAQuantumCompilingAnsatz
 from orquestra.vqa.cost_function.cost_function import (
     create_cost_function,
@@ -26,7 +28,9 @@ from orquestra.vqa.grouping import group_greedily
 from orquestra.vqa.shot_allocation import allocate_shots_proportionally
 
 
-def get_fh_hamiltonian(x_dimension, y_dimension, U):
+def get_fh_hamiltonian(
+    x_dimension: int, y_dimension: int, U: float
+) -> Tuple[PauliSum, Any]:
     hamiltonian = fermi_hubbard(
         x_dimension=x_dimension,
         y_dimension=y_dimension,
@@ -41,19 +45,22 @@ def get_fh_hamiltonian(x_dimension, y_dimension, U):
     operator = get_interaction_operator(hamiltonian)
     operator.one_body_tensor = np.real(operator.one_body_tensor)
     operator.two_body_tensor = np.real(operator.two_body_tensor)
-    return operator
+    sparse_operator = get_sparse_operator(hamiltonian)
+    exact_energy, _ = get_ground_state(sparse_operator)
+
+    jw_hamiltonian = jordan_wigner(operator=hamiltonian)
+
+    return from_openfermion(jw_hamiltonian), exact_energy
 
 
 class TestVQE:
     def test_solve_fh_with_vqe(self):
-        hamiltonian = get_fh_hamiltonian(x_dimension=2, y_dimension=1, U=0.5)
-        sparse_operator = get_sparse_operator(hamiltonian)
-        exact_energy, _ = get_ground_state(sparse_operator)
+        hamiltonian, exact_energy = get_fh_hamiltonian(
+            x_dimension=2, y_dimension=1, U=0.5
+        )
+        backend = QulacsSimulator()
 
-        jw_hamiltonian = jordan_wigner(operator=hamiltonian)
-        backend = QiskitSimulator("aer_simulator_statevector")
-
-        ansatz = HEAQuantumCompilingAnsatz(2, count_qubits(jw_hamiltonian))
+        ansatz = HEAQuantumCompilingAnsatz(2, hamiltonian.n_qubits)
         estimation_method = estimate_expectation_values_by_averaging
 
         shot_allocation = partial(allocate_shots_proportionally, total_n_shots=50000)
@@ -63,7 +70,7 @@ class TestVQE:
             shot_allocation,
         ]
         estimation_task_factory = substitution_based_estimation_tasks_factory(
-            jw_hamiltonian, ansatz, estimation_preprocessors
+            hamiltonian, ansatz, estimation_preprocessors
         )
 
         optimizer = ScipyOptimizer(method="COBYLA", options={"maxiter": 250})

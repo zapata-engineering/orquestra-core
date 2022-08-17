@@ -26,6 +26,7 @@ module = [
     'sympy.*',
     'rapidjson',
     'networkx.*',
+    'openfermion.*',
 ]
 ignore_missing_imports = true
 

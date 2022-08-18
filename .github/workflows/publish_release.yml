@@ -56,12 +56,11 @@ jobs:
           repository: zapatacomputing/orquestra-qulacs
           path: orquestra-qulacs
 
-      - name: Install deps
+      - name: Run tests using libs from PyPI
         shell: bash
         run: make run_tests_before_release
         env:
           SSH_AUTH_SOCK: /tmp/ssh_agent.sock
-
 
       - name: Run publish release action
         uses: ./subtrees/z_quantum_actions/actions/publish-release

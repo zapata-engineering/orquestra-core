@@ -4,17 +4,34 @@
 include subtrees/z_quantum_actions/Makefile
 
 
+# The following installation instructions are unconventional.
+# This is due to the fact that on the CICD we usually want to test against the latest
+# version of the libraries specified from `main`.
+# However, in `setup.cfg` those dependencies are pinned using `==`. This is because
+# intended usage of `orquestra-core` is to used pinned versions which are
+# compatible with each other.
+# A solution to that is not to install `orquestra-core` at all, since installing it 
+# will force using pinned versions and lead to dependency conflicts.
+# Right we runn CI pipeline for `orquestra-core` just to run integration tests, which 
+# don't require `orquestra-core` to be installed, just all of its dependencies.
+# I'm well aware that there are several problems with this solution:
+# 1. It leads to redundancy between options.extras_require in setup.cfg and 
+# this makefile.
+# 2. It doesn't provide good experience for local development.
+# 3. It feels super hacky so probably has plenty of unexpected issues associated
+# with it.
+# But it's better than tests always failing on the CI ¯\_(ツ)_/¯
 github_actions:
 	python3 -m venv ${VENV_NAME} && \
 		${VENV_NAME}/bin/python3 -m pip install --upgrade pip && \
+		${VENV_NAME}/bin/python3 -m pip install orquestra-python-dev && \
 		${VENV_NAME}/bin/python3 -m pip install ./orquestra-quantum && \
 		${VENV_NAME}/bin/python3 -m pip install ./orquestra-opt[cma] && \
 		${VENV_NAME}/bin/python3 -m pip install ./orquestra-vqa && \
 		${VENV_NAME}/bin/python3 -m pip install ./orquestra-qiskit && \
 		${VENV_NAME}/bin/python3 -m pip install ./orquestra-forest && \
-		${VENV_NAME}/bin/python3 -m pip install ./orquestra-cirq && \
-		${VENV_NAME}/bin/python3 -m pip install ./orquestra-qulacs && \
-		${VENV_NAME}/bin/python3 -m pip install -e '.[dev]'
+		${VENV_NAME}/bin/python3 -m pip install ./orquestra-cirq[qsim] && \
+		${VENV_NAME}/bin/python3 -m pip install ./orquestra-qulacs
 
 coverage:
 	$(PYTHON) -m pytest tests/

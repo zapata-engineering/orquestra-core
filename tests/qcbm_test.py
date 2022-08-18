@@ -8,7 +8,7 @@ from typing import Callable, cast
 
 import numpy as np
 import pytest
-from orquestra.integrations.cirq.simulator import CirqSimulator
+from orquestra.integrations.qulacs import QulacsSimulator
 from orquestra.opt.api import Optimizer
 from orquestra.opt.optimizers import CMAESOptimizer
 from orquestra.quantum.api.backend import QuantumSimulator
@@ -26,7 +26,7 @@ from orquestra.vqa.cost_function.qcbm_cost_function import create_QCBM_cost_func
 class TestQCBM:
     @pytest.fixture
     def backend(self):
-        return CirqSimulator()
+        return QulacsSimulator()
 
     @pytest.fixture
     def qcbm_ansatz(self):

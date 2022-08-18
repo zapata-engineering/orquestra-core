@@ -31,7 +31,7 @@ github_actions:
 		${VENV_NAME}/bin/python3 -m pip install ./orquestra-qiskit && \
 		${VENV_NAME}/bin/python3 -m pip install ./orquestra-forest && \
 		${VENV_NAME}/bin/python3 -m pip install ./orquestra-cirq[qsim] && \
-		${VENV_NAME}/bin/python3 -m pip install ./orquestra-qulacs && \
+		${VENV_NAME}/bin/python3 -m pip install ./orquestra-qulacs
 
 coverage:
 	$(PYTHON) -m pytest tests/

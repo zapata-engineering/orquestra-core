@@ -6,7 +6,7 @@ from collections import Counter
 import networkx as nx
 import numpy as np
 import pytest
-from orquestra.integrations.cirq.simulator import CirqSimulator, QSimSimulator
+from orquestra.integrations.cirq.simulator import CirqSimulator
 from orquestra.integrations.qiskit.simulator import QiskitSimulator
 from orquestra.integrations.qulacs import QulacsSimulator
 from orquestra.opt.optimizers import ScipyOptimizer
@@ -40,7 +40,6 @@ def test_graph():
 @pytest.fixture(
     params=[
         CirqSimulator(),
-        QSimSimulator(),
         QulacsSimulator(),
         QiskitSimulator("aer_simulator_statevector"),
     ]

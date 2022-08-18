@@ -27,8 +27,9 @@ Orquestra Core comprises of the following packages:
 
 * [`orquestra-qiskit`](https://github.com/zapatacomputing/orquestra-qiskit) – integration with [qiskit](https://qiskit.org/).
 * [`orquestra-cirq`](https://github.com/zapatacomputing/orquestra-cirq) – integration with [CirQ](https://quantumai.google/cirq).
-* [`orquestra-forest`](https://github.com/zapatacomputing/orquestra-forest) – integration with [Forest SDK](https://docs.rigetti.com/qcs/).
 * [`orquestra-qulacs`](https://github.com/zapatacomputing/orquestra-qulacs) – integration with [Qulacs simulator](http://docs.qulacs.org/en/latest/).
+
+We have temporarily removed [`orquestra-forest`](https://github.com/zapatacomputing/orquestra-forest) (integration with [Forest SDK](https://docs.rigetti.com/qcs/)) due to compatibility issues. It should work in most cases, if you need it feel free to install it manually.
 
 
 ## Installation

@@ -103,11 +103,11 @@ To create a ``MeasurementTrackingBackend`` it must be initialized with a backend
   :start-after: # TrackingBackend creation example
   :end-before: # End TrackingBackend creation example
 
-.. caution:: 
-  
+.. caution::
+
   If all the bitstrings are saved, it will greatly increase the size of the produced JSON file.
 
-To use the ``MeasurementTrackingBackend`` you can call ``run_circuit_and_measure`` or ``run_circuitset_and_measure`` :ref:`just like with all other QuantumBackends <backend_methods>`. There is also the option to manually append measurement information to the data in a ``MeasurementTrackingBackend`` using ``record_raw_measurement_data``. This is not usually necessary, but if your use case requires it, please see the :doc:`API documentation </api/quantum/trackers/index>` for more information. 
+To use the ``MeasurementTrackingBackend`` you can call ``run_circuit_and_measure`` or ``run_circuitset_and_measure`` :ref:`just like with all other QuantumBackends <backend_methods>`. There is also the option to manually append measurement information to the data in a ``MeasurementTrackingBackend`` using ``record_raw_measurement_data``. This is not usually necessary, but if your use case requires it, please see the :doc:`API documentation </api/quantum/trackers/index>` for more information.
 
 For more examples of using the ``MeasurementTrackingBackend``, refer to the `tracking backend tests <https://github.com/zapatacomputing/orquestra-quantum/blob/main/tests/orquestra/quantum/trackers_test.py>`_
 
@@ -134,6 +134,7 @@ Simulators
 
 * `QulacsSimulator <https://github.com/zapatacomputing/orquestra-qulacs/blob/main/tests/orquestra/integrations/qulacs/simulator_test.py>`_
 * `QSimSimulator <https://github.com/zapatacomputing/orquestra-cirq/blob/main/tests/orquestra/integrations/cirq/simulator/qsimsimulator_test.py>`_
+* `CuStateVecSimulator <https://github.com/zapatacomputing/orquestra-cirq/tree/main/src/orquestra/integrations/custatevec/simulator>`_
 
 Conversions to other frameworks
 ===============================

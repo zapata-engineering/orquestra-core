@@ -134,7 +134,7 @@ Simulators
 
 * `QulacsSimulator <https://github.com/zapatacomputing/orquestra-qulacs/blob/main/tests/orquestra/integrations/qulacs/simulator_test.py>`_
 * `QSimSimulator <https://github.com/zapatacomputing/orquestra-cirq/blob/main/tests/orquestra/integrations/cirq/simulator/qsimsimulator_test.py>`_
-* `CuStateVecSimulator <https://github.com/zapatacomputing/orquestra-cirq/tree/main/src/orquestra/integrations/custatevec/simulator>_`
+* `CuStateVecSimulator <https://github.com/zapatacomputing/orquestra-cirq/tree/main/src/orquestra/integrations/custatevec/simulator>`_
 
 Conversions to other frameworks
 ===============================

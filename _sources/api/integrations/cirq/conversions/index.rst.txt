@@ -16,6 +16,8 @@ Functions
    integrations.cirq.conversions.export_to_cirq
    integrations.cirq.conversions.import_from_cirq
    integrations.cirq.conversions.pauliop_to_cirq_paulisum
+   integrations.cirq.conversions.from_openfermion
+   integrations.cirq.conversions.to_openfermion
 
 
 
@@ -47,7 +49,7 @@ Functions
    is no notion of GridQubit in Orquestra circuits.
 
 
-.. py:function:: pauliop_to_cirq_paulisum(pauli_operator: orquestra.quantum.wip.operators.PauliRepresentation, qubits: Union[List[cirq.GridQubit], List[cirq.LineQubit]] = None) -> cirq.PauliSum
+.. py:function:: pauliop_to_cirq_paulisum(pauli_operator: orquestra.quantum.operators.PauliRepresentation, qubits: Union[List[cirq.GridQubit], List[cirq.LineQubit]] = None) -> cirq.PauliSum
 
    Convert an orquestra PauliSum or PauliTerm to a cirq PauliSum
 
@@ -55,5 +57,20 @@ Functions
    :param qubits: The qubits the operator is applied to
 
    :returns: cirq.PauliSum
+
+
+.. py:function:: from_openfermion(op: openfermion.SymbolicOperator) -> orquestra.quantum.operators.PauliSum
+
+   Convert from OpenFermion symbolic operator to Orquestra native PauliSum
+
+
+.. py:function:: to_openfermion(op: orquestra.quantum.operators.PauliRepresentation, operatorType=QubitOperator)
+
+   Convert from Orquestra native PauliSum or PauliTerm to OpenFermion symbolic
+   operator
+
+   :param op: PauliSum to convert
+   :param operatorType: a subclass of OpenFermion SymbolicOperator (can be OpenFermion
+                        QubitOperator or IsingOperator)
 
 

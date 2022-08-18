@@ -21,7 +21,7 @@ Functions
 
 
 
-.. py:function:: solve_problem_by_exhaustive_search(hamiltonian: orquestra.quantum.wip.operators.PauliSum) -> Tuple[float, List[Tuple[int, Ellipsis]]]
+.. py:function:: solve_problem_by_exhaustive_search(hamiltonian: orquestra.quantum.operators.PauliSum) -> Tuple[float, List[Tuple[int, Ellipsis]]]
 
    Solves any QAOA cost hamiltonian using exhaustive search.
 
@@ -53,7 +53,7 @@ Functions
    :rtype: float
 
 
-.. py:function:: evaluate_solution(solution: Tuple[int], graph: networkx.Graph, get_hamiltonian: Callable[[networkx.Graph], orquestra.quantum.wip.operators.PauliSum]) -> float
+.. py:function:: evaluate_solution(solution: Tuple[int], graph: networkx.Graph, get_hamiltonian: Callable[[networkx.Graph], orquestra.quantum.operators.PauliSum]) -> float
 
    Evaluate expectation value of hamiltonian for given solution of a graph problem.
 

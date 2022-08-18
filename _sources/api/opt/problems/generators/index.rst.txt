@@ -17,7 +17,7 @@ Functions
 
 
 
-.. py:function:: get_random_ising_hamiltonian(number_of_qubits: int, number_of_terms: int, max_number_of_qubits_per_term: int) -> orquestra.quantum.wip.operators.PauliSum
+.. py:function:: get_random_ising_hamiltonian(number_of_qubits: int, number_of_terms: int, max_number_of_qubits_per_term: int) -> orquestra.quantum.operators.PauliSum
 
    Generates a random Hamiltonian for a given number of qubits and terms with
    weights between -1 and 1.

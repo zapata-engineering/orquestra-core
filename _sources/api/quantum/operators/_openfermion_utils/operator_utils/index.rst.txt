@@ -1,0 +1,35 @@
+:py:mod:`quantum.operators._openfermion_utils.operator_utils`
+=============================================================
+
+.. py:module:: quantum.operators._openfermion_utils.operator_utils
+
+.. autoapi-nested-parse::
+
+   This module provides generic tools for classes in orquestra.quantum.operators
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   quantum.operators._openfermion_utils.operator_utils.hermitian_conjugated
+   quantum.operators._openfermion_utils.operator_utils.is_hermitian
+
+
+
+.. py:function:: hermitian_conjugated(operator)
+
+   Return Hermitian conjugate of operator.
+
+
+.. py:function:: is_hermitian(operator)
+
+   Test if operator is Hermitian.
+
+

@@ -42,6 +42,7 @@ Functions
    quantum.circuits._matrices.yy_matrix
    quantum.circuits._matrices.zz_matrix
    quantum.circuits._matrices.xy_matrix
+   quantum.circuits._matrices.delay_matrix
 
 
 
@@ -114,5 +115,8 @@ Functions
 
 
 .. py:function:: xy_matrix(angle)
+
+
+.. py:function:: delay_matrix(_duration)
 
 

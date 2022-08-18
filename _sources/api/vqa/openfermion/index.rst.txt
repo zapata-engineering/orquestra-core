@@ -1,0 +1,217 @@
+:py:mod:`vqa.openfermion`
+=========================
+
+.. py:module:: vqa.openfermion
+
+
+Package Contents
+----------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   vqa.openfermion.openfermion_adapter
+   vqa.openfermion.convert_dict_to_interaction_op
+   vqa.openfermion.convert_dict_to_interaction_rdm
+   vqa.openfermion.convert_interaction_op_to_dict
+   vqa.openfermion.convert_interaction_rdm_to_dict
+   vqa.openfermion.load_interaction_operator
+   vqa.openfermion.load_interaction_rdm
+   vqa.openfermion.save_interaction_operator
+   vqa.openfermion.save_interaction_rdm
+   vqa.openfermion.get_diagonal_component
+   vqa.openfermion.get_fermion_number_operator
+   vqa.openfermion.get_ground_state_rdm_from_qubit_op
+   vqa.openfermion.get_polynomial_tensor
+   vqa.openfermion.hf_rdm
+   vqa.openfermion.remove_inactive_orbitals
+   vqa.openfermion.build_hartree_fock_circuit
+   vqa.openfermion.exponentiate_fermion_operator
+
+
+
+.. py:function:: openfermion_adapter(operatorType=openfermion.QubitOperator)
+
+
+.. py:function:: convert_dict_to_interaction_op(dictionary: dict) -> openfermion.InteractionOperator
+
+   Get an InteractionOperator from a dictionary.
+   :param dictionary: the dictionary representation
+
+   :returns: the operator
+   :rtype: op
+
+
+.. py:function:: convert_dict_to_interaction_rdm(dictionary)
+
+   Get an InteractionRDM from a dictionary.
+   :param dictionary: the dictionary representation
+   :type dictionary: dict
+
+   :returns: the operator
+   :rtype: op (openfermion.ops.InteractionRDM)
+
+
+.. py:function:: convert_interaction_op_to_dict(op: openfermion.InteractionOperator) -> Dict[str, Any]
+
+   Convert an InteractionOperator to a dictionary.
+   :param op: the operator
+
+   :returns: the dictionary representation
+   :rtype: dictionary
+
+
+.. py:function:: convert_interaction_rdm_to_dict(op)
+
+   Convert an InteractionRDM to a dictionary.
+   :param op: the operator
+   :type op: openfermion.ops.InteractionRDM
+
+   :returns: the dictionary representation
+   :rtype: dictionary (dict)
+
+
+.. py:function:: load_interaction_operator(file: orquestra.quantum.typing.LoadSource) -> openfermion.InteractionOperator
+
+   Load an interaction operator object from a file.
+   :param file: the name of the file, or a file-like object.
+   :type file: str or file-like object
+
+   :returns: the operator.
+   :rtype: op
+
+
+.. py:function:: load_interaction_rdm(file: orquestra.quantum.typing.LoadSource) -> openfermion.InteractionRDM
+
+   Load an interaction RDM object from a file.
+   :param file: a file-like object to load the interaction RDM from.
+
+   :returns: The interaction RDM.
+
+
+.. py:function:: save_interaction_operator(interaction_operator: openfermion.InteractionOperator, filename: orquestra.quantum.typing.AnyPath) -> None
+
+   Save an interaction operator to file.
+   :param interaction_operator: the operator to be saved
+   :param filename: the name of the file
+
+
+.. py:function:: save_interaction_rdm(interaction_rdm: openfermion.InteractionRDM, filename: orquestra.quantum.typing.AnyPath) -> None
+
+   Save an interaction operator to file.
+   :param interaction_operator: the operator to be saved
+   :param filename: the name of the file
+
+
+.. py:function:: get_diagonal_component(operator)
+
+
+.. py:function:: get_fermion_number_operator(n_qubits, n_particles=None)
+
+   Return a FermionOperator representing the number operator for n qubits.
+   If `n_particles` is specified, it can be used for creating constraint on the number
+   of particles.
+
+   :param n_qubits: number of qubits in the system
+   :type n_qubits: int
+   :param n_particles: number of particles in the system.
+                       If specified, it is subtracted from the number
+                       operator such as expectation value is zero.
+   :type n_particles: int
+
+   :returns: the number operator
+   :rtype: (openfermion.ops.FermionOperator)
+
+
+.. py:function:: get_ground_state_rdm_from_qubit_op(qubit_operator: openfermion.QubitOperator, n_particles: int) -> openfermion.InteractionRDM
+
+   Diagonalize operator and compute the ground state 1- and 2-RDM
+
+   :param qubit_operator: The openfermion operator to diagonalize
+   :param n_particles: number of particles in the target ground state
+
+   :returns: interaction RDM of the ground state with the particle number n_particles
+   :rtype: rdm
+
+
+.. py:function:: get_polynomial_tensor(fermion_operator, n_qubits=None)
+
+   Convert a fermionic operator to a Polynomial Tensor.
+
+   :param fermion_operator: The operator.
+   :type fermion_operator: openferion.ops.FermionOperator
+   :param n_qubits: The number of qubits to be included in the
+                    PolynomialTensor. Must be at least equal to the number of qubits
+                    that are acted on by fermion_operator. If None, then the number of
+                    qubits is inferred from fermion_operator.
+   :type n_qubits: int
+
+   :returns:
+
+             The tensor representation of the
+                 operator.
+   :rtype: openfermion.ops.PolynomialTensor
+
+
+.. py:function:: hf_rdm(n_alpha: int, n_beta: int, n_orbitals: int) -> openfermion.InteractionRDM
+
+   Construct the RDM corresponding to a Hartree-Fock state.
+
+   :param n_alpha: number of spin-up electrons
+   :type n_alpha: int
+   :param n_beta: number of spin-down electrons
+   :type n_beta: int
+   :param n_orbitals: number of spatial orbitals (not spin orbitals)
+   :type n_orbitals: int
+
+   :returns: the reduced density matrix
+   :rtype: openfermion.ops.InteractionRDM
+
+
+.. py:function:: remove_inactive_orbitals(interaction_op: openfermion.InteractionOperator, n_active: int = None, n_core: int = 0) -> openfermion.InteractionOperator
+
+   Remove orbitals not in the active space from an interaction operator.
+
+   :param interaction_op: the operator, assumed to be ordered with alternating spin-up and
+                          spin-down spin orbitals.
+   :param n_active: the number of active molecular orbitals. If None, include all orbitals
+                    beyond n_core. Note that the number of active spin orbitals will be twice
+                    the number of active molecular orbitals.
+   :param n_core: the number of core molecular orbitals to be frozen.
+
+   :returns:
+
+             The interaction operator with inactive orbitals removed, and the Hartree-Fock
+                 energy of the core orbitals added to the constant.
+
+
+.. py:function:: build_hartree_fock_circuit(number_of_qubits: int, number_of_alpha_electrons: int, number_of_beta_electrons: int, transformation: str, spin_ordering: str = 'interleaved') -> orquestra.quantum.circuits.Circuit
+
+   Creates a circuit that prepares the Hartree-Fock state.
+
+   :param number_of_qubits: the number of qubits in the system.
+   :param number_of_alpha_electrons: the number of alpha electrons in the system.
+   :param number_of_beta_electrons: the number of beta electrons in the system.
+   :param transformation: the Hamiltonian transformation to use.
+   :param spin_ordering: the spin ordering convention to use. Defaults to "interleaved".
+
+   :returns: a circuit that prepares Hartree-Fock state.
+   :rtype: orquestra.quantum.circuit.Circuit
+
+
+.. py:function:: exponentiate_fermion_operator(fermion_generator: Union[openfermion.FermionOperator, openfermion.InteractionOperator], transformation: str = 'Jordan-Wigner', number_of_qubits: Optional[int] = None) -> orquestra.quantum.circuits.Circuit
+
+   Create a circuit corresponding to the exponentiation of an operator.
+       Works only for antihermitian fermionic operators.
+
+   :param fermion_generator: fermionic generator.
+   :param transformation: The name of the qubit-to-fermion transformation to use.
+   :param number_of_qubits: This can be used to force the number of qubits in
+                            the resulting operator above the number that appears in the input operator.
+                            Defaults to None and the number of qubits in the resulting operator will
+                            match the number that appears in the input operator.
+
+

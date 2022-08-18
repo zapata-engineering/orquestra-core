@@ -49,6 +49,7 @@ Attributes
    quantum.circuits._builtin_gates.YY
    quantum.circuits._builtin_gates.ZZ
    quantum.circuits._builtin_gates.XY
+   quantum.circuits._builtin_gates.Delay
 
 
 .. py:data:: GatePrototype
@@ -61,7 +62,7 @@ Attributes
 
    
 
-.. py:function:: make_parametric_gate_prototype(name, matrix_factory, num_qubits) -> GatePrototype
+.. py:function:: make_parametric_gate_prototype(name, matrix_factory, num_qubits, is_hermitian=False) -> GatePrototype
 
 
 .. py:function:: builtin_gate_by_name(name) -> GateRef
@@ -177,6 +178,11 @@ Attributes
    
 
 .. py:data:: XY
+   
+
+   
+
+.. py:data:: Delay
    
 
    

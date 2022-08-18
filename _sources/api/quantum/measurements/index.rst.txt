@@ -55,7 +55,7 @@ Functions
    For more context on how it is being used, please see the docstring of
    EstimateExpectationValues Protocol in interfaces/estimation.py.
 
-   :param values: The expectation values of a set of terms in an IsingOperator.
+   :param values: The expectation values of a set of terms in an ising operator.
    :param correlations: The expectation values of pairwise products of operators.
                         Contains an NxN array for each frame, where N is the number of
                         operators in that frame.
@@ -210,7 +210,7 @@ Functions
       :rtype: distribution
 
 
-   .. py:method:: get_expectation_values(ising_operator: quantum.wip.operators.PauliRepresentation, use_bessel_correction: bool = False) -> quantum.measurements.expectation_values.ExpectationValues
+   .. py:method:: get_expectation_values(ising_operator: quantum.operators.PauliRepresentation, use_bessel_correction: bool = False) -> quantum.measurements.expectation_values.ExpectationValues
 
       Get the expectation values of an operator from the measurements.
 
@@ -317,14 +317,13 @@ Functions
              and 0 if otherwise.
 
 
-.. py:function:: get_parities_from_measurements(measurements: List[Tuple[int]], ising_operator) -> Parities
+.. py:function:: get_parities_from_measurements(measurements: List[Tuple[int]], ising_operator: quantum.operators.PauliRepresentation) -> Parities
 
    Get expectation values from bitstrings.
 
    :param measurements: the measured bitstrings
    :type measurements: list
    :param ising_operator: the operator
-   :type ising_operator: openfermion.ops.IsingOperator
 
    :returns: parities of each term in the operator
    :rtype: orquestra.quantum.measurement.Parities

@@ -20,7 +20,7 @@ Functions
 
 
 
-.. py:function:: convert_qubo_to_paulisum(qubo: dimod.BinaryQuadraticModel) -> orquestra.quantum.wip.operators.PauliSum
+.. py:function:: convert_qubo_to_paulisum(qubo: dimod.BinaryQuadraticModel) -> orquestra.quantum.operators.PauliSum
 
    Converts dimod BinaryQuadraticModel to PauliSum object.
 
@@ -37,7 +37,7 @@ Functions
    :rtype: PauliSum
 
 
-.. py:function:: convert_paulisum_to_qubo(operator: orquestra.quantum.wip.operators.PauliSum) -> dimod.BinaryQuadraticModel
+.. py:function:: convert_paulisum_to_qubo(operator: orquestra.quantum.operators.PauliSum) -> dimod.BinaryQuadraticModel
 
    Converts an ising PauliSum to dimod BinaryQuadraticModel object.
    The resulting QUBO has the following property:

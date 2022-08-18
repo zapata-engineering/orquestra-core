@@ -118,14 +118,13 @@ Functions
              and 0 if otherwise.
 
 
-.. py:function:: get_parities_from_measurements(measurements: List[Tuple[int]], ising_operator) -> Parities
+.. py:function:: get_parities_from_measurements(measurements: List[Tuple[int]], ising_operator: quantum.operators.PauliRepresentation) -> Parities
 
    Get expectation values from bitstrings.
 
    :param measurements: the measured bitstrings
    :type measurements: list
    :param ising_operator: the operator
-   :type ising_operator: openfermion.ops.IsingOperator
 
    :returns: parities of each term in the operator
    :rtype: orquestra.quantum.measurement.Parities

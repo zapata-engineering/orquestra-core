@@ -195,6 +195,7 @@ Attributes
    quantum.circuits.XY
    quantum.circuits.YY
    quantum.circuits.ZZ
+   quantum.circuits.Delay
    quantum.circuits.GatePrototype
    quantum.circuits.H
    quantum.circuits.I
@@ -276,6 +277,11 @@ Attributes
    
 
 .. py:data:: ZZ
+   
+
+   
+
+.. py:data:: Delay
    
 
    

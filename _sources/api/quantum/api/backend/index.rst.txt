@@ -127,7 +127,7 @@ Attributes
                             If not provided, the default |0...0> is used.
 
 
-   .. py:method:: get_exact_expectation_values(circuit: orquestra.quantum.circuits.Circuit, operator: orquestra.quantum.wip.operators.PauliRepresentation) -> quantum.measurements.ExpectationValues
+   .. py:method:: get_exact_expectation_values(circuit: orquestra.quantum.circuits.Circuit, operator: quantum.operators.PauliRepresentation) -> quantum.measurements.ExpectationValues
 
       Calculates the expectation values for given operator, based on the exact
       quantum state produced by circuit.

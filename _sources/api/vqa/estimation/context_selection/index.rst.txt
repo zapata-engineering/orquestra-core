@@ -18,7 +18,7 @@ Functions
 
 
 
-.. py:function:: get_context_selection_circuit_for_group(qubit_operator: orquestra.quantum.openfermion.QubitOperator) -> Tuple[orquestra.quantum.circuits.Circuit, orquestra.quantum.openfermion.IsingOperator]
+.. py:function:: get_context_selection_circuit_for_group(qubit_operator: orquestra.quantum.operators.PauliRepresentation) -> Tuple[orquestra.quantum.circuits.Circuit, orquestra.quantum.operators.PauliSum]
 
    Get the context selection circuit for measuring the expectation value
    of a group of co-measurable Pauli terms.

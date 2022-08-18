@@ -1,0 +1,113 @@
+:orphan:
+
+:py:mod:`vqa.openfermion._openfermion_utils`
+============================================
+
+.. py:module:: vqa.openfermion._openfermion_utils
+
+.. autoapi-nested-parse::
+
+   This module contains utils related to openfermion created by Zapata.
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   vqa.openfermion._openfermion_utils.get_fermion_number_operator
+   vqa.openfermion._openfermion_utils.get_diagonal_component
+   vqa.openfermion._openfermion_utils.get_polynomial_tensor
+   vqa.openfermion._openfermion_utils.get_ground_state_rdm_from_qubit_op
+   vqa.openfermion._openfermion_utils.remove_inactive_orbitals
+   vqa.openfermion._openfermion_utils.hf_rdm
+
+
+
+.. py:function:: get_fermion_number_operator(n_qubits, n_particles=None)
+
+   Return a FermionOperator representing the number operator for n qubits.
+   If `n_particles` is specified, it can be used for creating constraint on the number
+   of particles.
+
+   :param n_qubits: number of qubits in the system
+   :type n_qubits: int
+   :param n_particles: number of particles in the system.
+                       If specified, it is subtracted from the number
+                       operator such as expectation value is zero.
+   :type n_particles: int
+
+   :returns: the number operator
+   :rtype: (openfermion.ops.FermionOperator)
+
+
+.. py:function:: get_diagonal_component(operator)
+
+
+.. py:function:: get_polynomial_tensor(fermion_operator, n_qubits=None)
+
+   Convert a fermionic operator to a Polynomial Tensor.
+
+   :param fermion_operator: The operator.
+   :type fermion_operator: openferion.ops.FermionOperator
+   :param n_qubits: The number of qubits to be included in the
+                    PolynomialTensor. Must be at least equal to the number of qubits
+                    that are acted on by fermion_operator. If None, then the number of
+                    qubits is inferred from fermion_operator.
+   :type n_qubits: int
+
+   :returns:
+
+             The tensor representation of the
+                 operator.
+   :rtype: openfermion.ops.PolynomialTensor
+
+
+.. py:function:: get_ground_state_rdm_from_qubit_op(qubit_operator: openfermion.QubitOperator, n_particles: int) -> openfermion.InteractionRDM
+
+   Diagonalize operator and compute the ground state 1- and 2-RDM
+
+   :param qubit_operator: The openfermion operator to diagonalize
+   :param n_particles: number of particles in the target ground state
+
+   :returns: interaction RDM of the ground state with the particle number n_particles
+   :rtype: rdm
+
+
+.. py:function:: remove_inactive_orbitals(interaction_op: openfermion.InteractionOperator, n_active: int = None, n_core: int = 0) -> openfermion.InteractionOperator
+
+   Remove orbitals not in the active space from an interaction operator.
+
+   :param interaction_op: the operator, assumed to be ordered with alternating spin-up and
+                          spin-down spin orbitals.
+   :param n_active: the number of active molecular orbitals. If None, include all orbitals
+                    beyond n_core. Note that the number of active spin orbitals will be twice
+                    the number of active molecular orbitals.
+   :param n_core: the number of core molecular orbitals to be frozen.
+
+   :returns:
+
+             The interaction operator with inactive orbitals removed, and the Hartree-Fock
+                 energy of the core orbitals added to the constant.
+
+
+.. py:function:: hf_rdm(n_alpha: int, n_beta: int, n_orbitals: int) -> openfermion.InteractionRDM
+
+   Construct the RDM corresponding to a Hartree-Fock state.
+
+   :param n_alpha: number of spin-up electrons
+   :type n_alpha: int
+   :param n_beta: number of spin-down electrons
+   :type n_beta: int
+   :param n_orbitals: number of spatial orbitals (not spin orbitals)
+   :type n_orbitals: int
+
+   :returns: the reduced density matrix
+   :rtype: openfermion.ops.InteractionRDM
+
+

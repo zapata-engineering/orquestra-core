@@ -39,11 +39,11 @@ Functions
                                     values of all operators in frame_operators
 
 
-.. py:function:: estimate_nmeas_for_frames(frame_operators: List[orquestra.quantum.openfermion.QubitOperator], expecval: Optional[orquestra.quantum.measurements.ExpectationValues] = None) -> Tuple[float, int, numpy.ndarray]
+.. py:function:: estimate_nmeas_for_frames(frame_operators: List[orquestra.quantum.operators.PauliRepresentation], expecval: Optional[orquestra.quantum.measurements.ExpectationValues] = None) -> Tuple[float, int, numpy.ndarray]
 
    Calculates the number of measurements required for computing
    the expectation value of a qubit hamiltonian, where co-measurable terms
-   are grouped in a single QubitOperator, and different groups are different
+   are grouped in a single pauli operator, and different groups are different
    members of the list.
 
    We are assuming the exact expectation values are provided
@@ -56,9 +56,9 @@ Functions
    i-th group. Covariances are assumed to be zero for a != b:
    cov(O_{a}^{i}, O_{b}^{i}) = <O_{a}^{i} O_{b}^{i}> - <O_{a}^{i}> <O_{b}^{i}> = 0
 
-   :param frame_operators: A list of QubitOperator objects, where
+   :param frame_operators: A list of pauli operators, where
                            each element in the list is a group of co-measurable terms.
-   :type frame_operators: List[QubitOperator]
+   :type frame_operators: List[PauliRepresentation]
    :param expecval: An ExpectationValues object containing
                     the expectation values of all operators in frame_operators. If absent,
                     variances are assumed to be maximal, i.e. 1.

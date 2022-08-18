@@ -16,7 +16,7 @@ Subpackages
    distributions/index.rst
    estimation/index.rst
    measurements/index.rst
-   openfermion/index.rst
+   operators/index.rst
    testing/index.rst
 
 

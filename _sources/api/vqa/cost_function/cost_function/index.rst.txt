@@ -129,7 +129,7 @@ Attributes
 
 
 
-.. py:function:: expectation_value_estimation_tasks_factory(target_operator: orquestra.quantum.openfermion.SymbolicOperator, parametrized_circuit: orquestra.quantum.circuits.Circuit, estimation_preprocessors: List[orquestra.quantum.api.estimation.EstimationPreprocessor] = None, symbols_sort_key: SymbolsSortKey = str) -> orquestra.quantum.api.estimation.EstimationTasksFactory
+.. py:function:: expectation_value_estimation_tasks_factory(target_operator: orquestra.quantum.operators.PauliRepresentation, parametrized_circuit: orquestra.quantum.circuits.Circuit, estimation_preprocessors: List[orquestra.quantum.api.estimation.EstimationPreprocessor] = None, symbols_sort_key: SymbolsSortKey = str) -> orquestra.quantum.api.estimation.EstimationTasksFactory
 
    Creates a EstimationTasksFactory object that can be used to create
    estimation tasks that returns the estimated expectation value of the input
@@ -152,7 +152,7 @@ Attributes
    :returns: An EstimationTasksFactory object.
 
 
-.. py:function:: substitution_based_estimation_tasks_factory(target_operator: orquestra.quantum.openfermion.SymbolicOperator, ansatz: vqa.api.ansatz.Ansatz, estimation_preprocessors: List[orquestra.quantum.api.estimation.EstimationPreprocessor] = None) -> orquestra.quantum.api.estimation.EstimationTasksFactory
+.. py:function:: substitution_based_estimation_tasks_factory(target_operator: orquestra.quantum.operators.PauliRepresentation, ansatz: vqa.api.ansatz.Ansatz, estimation_preprocessors: List[orquestra.quantum.api.estimation.EstimationPreprocessor] = None) -> orquestra.quantum.api.estimation.EstimationTasksFactory
 
    Creates a EstimationTasksFactory object that can be used to create
    estimation tasks dynamically with parameters provided on the fly. These
@@ -171,7 +171,7 @@ Attributes
    :returns: An EstimationTasksFactory object.
 
 
-.. py:function:: dynamic_circuit_estimation_tasks_factory(target_operator: orquestra.quantum.openfermion.SymbolicOperator, ansatz: vqa.api.ansatz.Ansatz, estimation_preprocessors: List[orquestra.quantum.api.estimation.EstimationPreprocessor] = None) -> orquestra.quantum.api.estimation.EstimationTasksFactory
+.. py:function:: dynamic_circuit_estimation_tasks_factory(target_operator: orquestra.quantum.operators.PauliRepresentation, ansatz: vqa.api.ansatz.Ansatz, estimation_preprocessors: List[orquestra.quantum.api.estimation.EstimationPreprocessor] = None) -> orquestra.quantum.api.estimation.EstimationTasksFactory
 
    Creates a EstimationTasksFactory object that can be used to create
    estimation tasks dynamically with parameters provided on the fly. These

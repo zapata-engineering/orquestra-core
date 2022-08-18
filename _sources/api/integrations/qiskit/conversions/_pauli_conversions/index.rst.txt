@@ -25,7 +25,7 @@ Functions
 
 
 
-.. py:function:: qubitop_to_qiskitpauli(operator: orquestra.quantum.wip.operators.PauliRepresentation) -> qiskit.opflow.SummedOp
+.. py:function:: qubitop_to_qiskitpauli(operator: orquestra.quantum.operators.PauliRepresentation) -> qiskit.opflow.SummedOp
 
    Convert a PauliRepresentation to a SummedOp.
 
@@ -34,7 +34,7 @@ Functions
    :returns: SummedOp representing the qubit operator
 
 
-.. py:function:: qiskitpauli_to_qubitop(qiskit_pauli: qiskit.opflow.SummedOp) -> orquestra.quantum.wip.operators.PauliSum
+.. py:function:: qiskitpauli_to_qubitop(qiskit_pauli: qiskit.opflow.SummedOp) -> orquestra.quantum.operators.PauliSum
 
    Convert a qiskit's SummedOp to a PauliSum.
 

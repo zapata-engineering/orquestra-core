@@ -120,7 +120,7 @@ Functions
       :rtype: distribution
 
 
-   .. py:method:: get_expectation_values(ising_operator: quantum.wip.operators.PauliRepresentation, use_bessel_correction: bool = False) -> quantum.measurements.expectation_values.ExpectationValues
+   .. py:method:: get_expectation_values(ising_operator: quantum.operators.PauliRepresentation, use_bessel_correction: bool = False) -> quantum.measurements.expectation_values.ExpectationValues
 
       Get the expectation values of an operator from the measurements.
 

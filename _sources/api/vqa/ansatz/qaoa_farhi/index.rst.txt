@@ -26,7 +26,7 @@ Functions
 
 
 
-.. py:class:: QAOAFarhiAnsatz(number_of_layers: int, cost_hamiltonian: Union[orquestra.quantum.openfermion.QubitOperator, orquestra.quantum.openfermion.IsingOperator], mixer_hamiltonian: Optional[orquestra.quantum.openfermion.QubitOperator] = None)
+.. py:class:: QAOAFarhiAnsatz(number_of_layers: int, cost_hamiltonian: orquestra.quantum.operators.PauliRepresentation, mixer_hamiltonian: Optional[orquestra.quantum.operators.PauliRepresentation] = None)
 
    Bases: :py:obj:`orquestra.vqa.api.ansatz.Ansatz`
 
@@ -62,14 +62,14 @@ Functions
 
 
 
-.. py:function:: create_farhi_qaoa_circuits(hamiltonians: List[orquestra.quantum.openfermion.QubitOperator], number_of_layers: Union[int, List[int]])
+.. py:function:: create_farhi_qaoa_circuits(hamiltonians: List[orquestra.quantum.operators.PauliRepresentation], number_of_layers: Union[int, List[int]])
 
    Creates parameterizable quantum circuits based on the farhi qaoa ansatz for each
    hamiltonian in the input list using the set number of layers.
 
-   :param hamiltonians: List of hamiltonians for constructing the
-                        circuits
-   :type hamiltonians: List[QubitOperator]
+   :param hamiltonians: List of hamiltonians for constructing
+                        the circuits
+   :type hamiltonians: List[PauliRepresentation]
    :param number_of_layers: The number of layers of the ansatz in
                             the circuit. If an int is passed in, the same number of layers is used for
                             every ansatz circuit, however, if a list of ints is passed in, the number

@@ -25,7 +25,7 @@ Functions
 
 
 
-.. py:class:: WarmStartQAOAAnsatz(number_of_layers: int, cost_hamiltonian: Union[orquestra.quantum.openfermion.QubitOperator, orquestra.quantum.openfermion.IsingOperator], thetas: numpy.ndarray)
+.. py:class:: WarmStartQAOAAnsatz(number_of_layers: int, cost_hamiltonian: orquestra.quantum.operators.PauliRepresentation, thetas: numpy.ndarray)
 
    Bases: :py:obj:`orquestra.vqa.api.ansatz.Ansatz`
 

@@ -57,7 +57,7 @@ Classes
       Returns number of parameters in the ansatz.
 
 
-   .. py:method:: screen_out_operator_terms_below_threshold(threshold: float, fermion_generator: orquestra.quantum.openfermion.FermionOperator, ignore_singles=False) -> Tuple[numpy.ndarray, orquestra.quantum.openfermion.FermionOperator]
+   .. py:method:: screen_out_operator_terms_below_threshold(threshold: float, fermion_generator: openfermion.FermionOperator, ignore_singles=False) -> Tuple[numpy.ndarray, openfermion.FermionOperator]
       :staticmethod:
 
       Screen single and double excitation operators based on a guess
@@ -75,10 +75,10 @@ Classes
       :rtype: amplitudes (np.array)
 
 
-   .. py:method:: compute_uccsd_vector_from_fermion_generator(raw_fermion_generator: orquestra.quantum.openfermion.FermionOperator, screening_threshold: float = 0.0) -> numpy.ndarray
+   .. py:method:: compute_uccsd_vector_from_fermion_generator(raw_fermion_generator: openfermion.FermionOperator, screening_threshold: float = 0.0) -> numpy.ndarray
 
 
-   .. py:method:: generate_circuit_from_fermion_generator(raw_fermion_generator: orquestra.quantum.openfermion.FermionOperator, screening_threshold: float = 0.0) -> orquestra.quantum.circuits.Circuit
+   .. py:method:: generate_circuit_from_fermion_generator(raw_fermion_generator: openfermion.FermionOperator, screening_threshold: float = 0.0) -> orquestra.quantum.circuits.Circuit
 
 
 

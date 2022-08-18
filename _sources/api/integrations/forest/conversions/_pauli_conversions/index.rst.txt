@@ -25,7 +25,7 @@ Functions
 
 
 
-.. py:function:: orq_to_pyquil(pauli_operator: orquestra.quantum.wip.operators.PauliRepresentation) -> Union[pyquil.paulis.PauliSum, pyquil.paulis.PauliTerm]
+.. py:function:: orq_to_pyquil(pauli_operator: orquestra.quantum.operators.PauliRepresentation) -> Union[pyquil.paulis.PauliSum, pyquil.paulis.PauliTerm]
 
    Convert an Orquestra PauliSum or PauliTerm to a pyQuil PauliSum or PauliTerm,
    respectively.
@@ -36,7 +36,7 @@ Functions
    :returns: PauliSum or PauliTerm representing the input pauli operator
 
 
-.. py:function:: pyquil_to_orq(pyquil_pauli: Union[pyquil.paulis.PauliTerm, pyquil.paulis.PauliSum]) -> orquestra.quantum.wip.operators.PauliRepresentation
+.. py:function:: pyquil_to_orq(pyquil_pauli: Union[pyquil.paulis.PauliTerm, pyquil.paulis.PauliSum]) -> orquestra.quantum.operators.PauliRepresentation
 
    Convert a pyQuil PauliSum or PauliTerm to an Orquestra PauliSum or PauliTerm,
        respectively.

@@ -35,7 +35,7 @@ Functions
    For more context on how it is being used, please see the docstring of
    EstimateExpectationValues Protocol in interfaces/estimation.py.
 
-   :param values: The expectation values of a set of terms in an IsingOperator.
+   :param values: The expectation values of a set of terms in an ising operator.
    :param correlations: The expectation values of pairwise products of operators.
                         Contains an NxN array for each frame, where N is the number of
                         operators in that frame.

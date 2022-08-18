@@ -55,7 +55,7 @@ Classes
       :returns: a list of bitstrings (a list of tuples)
 
 
-   .. py:method:: get_exact_expectation_values(circuit: orquestra.quantum.circuits.Circuit, qubit_operator: orquestra.quantum.wip.operators.PauliRepresentation) -> orquestra.quantum.measurements.ExpectationValues
+   .. py:method:: get_exact_expectation_values(circuit: orquestra.quantum.circuits.Circuit, qubit_operator: orquestra.quantum.operators.PauliRepresentation) -> orquestra.quantum.measurements.ExpectationValues
 
 
 

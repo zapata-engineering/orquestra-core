@@ -21,7 +21,7 @@ Functions
 
 
 
-.. py:function:: compute_group_variances(groups: List[orquestra.quantum.openfermion.ops.QubitOperator], expecval: orquestra.quantum.measurements.ExpectationValues = None) -> numpy.ndarray
+.. py:function:: compute_group_variances(groups: List[orquestra.quantum.operators.PauliRepresentation], expecval: orquestra.quantum.measurements.ExpectationValues = None) -> numpy.ndarray
 
    Computes the variances of each frame in a grouped operator.
 
@@ -29,7 +29,7 @@ Functions
    otherwise assume variances are 1 (upper bound). Correlation information
    is ignored in the current implementation, covariances are assumed to be 0.
 
-   :param groups: A list of QubitOperators that defines a (grouped) operator
+   :param groups: A list of pauli operators that defines a (grouped) operator
    :param expecval: An ExpectationValues object containing the expectation
                     values of the operators.
 
@@ -37,7 +37,7 @@ Functions
    :rtype: frame_variances
 
 
-.. py:function:: group_comeasureable_terms_greedy(qubit_operator: orquestra.quantum.openfermion.ops.QubitOperator, sort_terms: bool = False) -> List[orquestra.quantum.openfermion.ops.QubitOperator]
+.. py:function:: group_comeasureable_terms_greedy(qubit_operator: orquestra.quantum.operators.PauliRepresentation, sort_terms: bool = False) -> List[orquestra.quantum.operators.PauliRepresentation]
 
    Group co-measurable terms in a qubit operator using a greedy algorithm.
 
@@ -65,7 +65,7 @@ Functions
    :param estimation_tasks: list of estimation tasks
 
 
-.. py:function:: is_comeasureable(term_1: Tuple[Tuple[int, str], Ellipsis], term_2: Tuple[Tuple[int, str], Ellipsis]) -> bool
+.. py:function:: is_comeasureable(term_1: orquestra.quantum.operators.PauliTerm, term_2: orquestra.quantum.operators.PauliTerm) -> bool
 
    Determine if two Pauli terms are co-measureable.
 
@@ -74,8 +74,8 @@ Functions
    then the other term cannot have a different Pauli operator acting on that
    qubit.
 
-   :param term1: a product of Pauli operators represented in openfermion style
-   :param term2: a product of Pauli operators represented in openfermion style
+   :param term_1: a Pauli term consisting of a product of Pauli operators
+   :param term_2: a Pauli term consisting of a product of Pauli operators
 
    :returns: True if the terms are co-measureable.
    :rtype: bool

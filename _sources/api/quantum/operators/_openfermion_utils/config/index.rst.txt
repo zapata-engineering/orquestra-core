@@ -1,0 +1,14 @@
+:py:mod:`quantum.operators._openfermion_utils.config`
+=====================================================
+
+.. py:module:: quantum.operators._openfermion_utils.config
+
+
+Module Contents
+---------------
+
+.. py:data:: EQ_TOLERANCE
+   :annotation: = 1e-08
+
+   
+

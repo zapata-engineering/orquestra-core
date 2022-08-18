@@ -17,7 +17,7 @@ Classes
 
 
 
-.. py:class:: RecursiveQAOA(n_c: int, cost_hamiltonian: orquestra.quantum.openfermion.IsingOperator, ansatz: vqa.api.ansatz.Ansatz, inner_optimizer: orquestra.opt.api.optimizer.Optimizer, recorder: orquestra.opt.history.recorder.RecorderFactory = _recorder)
+.. py:class:: RecursiveQAOA(n_c: int, cost_hamiltonian: orquestra.quantum.operators.PauliRepresentation, ansatz: vqa.api.ansatz.Ansatz, inner_optimizer: orquestra.opt.api.optimizer.Optimizer, recorder: orquestra.opt.history.recorder.RecorderFactory = _recorder)
 
    Bases: :py:obj:`orquestra.opt.api.optimizer.NestedOptimizer`
 

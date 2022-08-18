@@ -1,6 +1,0 @@
-:py:mod:`quantum.openfermion.testing.data`
-==========================================
-
-.. py:module:: quantum.openfermion.testing.data
-
-

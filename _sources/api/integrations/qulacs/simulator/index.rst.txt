@@ -34,7 +34,7 @@ Classes
       :param n_samples: the number of bitstrings to sample
 
 
-   .. py:method:: get_exact_expectation_values(circuit: orquestra.quantum.circuits.Circuit, qubit_operator: orquestra.quantum.wip.operators.PauliRepresentation) -> orquestra.quantum.measurements.ExpectationValues
+   .. py:method:: get_exact_expectation_values(circuit: orquestra.quantum.circuits.Circuit, qubit_operator: orquestra.quantum.operators.PauliRepresentation) -> orquestra.quantum.measurements.ExpectationValues
 
 
    .. py:method:: can_be_executed_natively(operation: Any) -> bool

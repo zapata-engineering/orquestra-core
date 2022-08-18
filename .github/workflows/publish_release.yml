@@ -20,47 +20,12 @@ jobs:
           # version.
           fetch-depth: 0
 
-      - name: Get orquestra-quantum
-        uses: actions/checkout@v2
-        with:
-          repository: zapatacomputing/orquestra-quantum
-          path: orquestra-quantum
+      - name: Install deps
+        shell: bash
+        run: make run_tests_before_release
+        env:
+          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
 
-      - name: Get orquestra-opt
-        uses: actions/checkout@v2
-        with:
-          repository: zapatacomputing/orquestra-opt
-          path: orquestra-opt
-
-      - name: Get orquestra-vqa
-        uses: actions/checkout@v2
-        with:
-          repository: zapatacomputing/orquestra-vqa
-          path: orquestra-vqa
-
-      - name: Get orquestra-cirq
-        uses: actions/checkout@v2
-        with:
-          repository: zapatacomputing/orquestra-cirq
-          path: orquestra-cirq
-
-      - name: Get orquestra-qiskit
-        uses: actions/checkout@v2
-        with:
-          repository: zapatacomputing/orquestra-qiskit
-          path: orquestra-qiskit
-
-      - name: Get orquestra-forest
-        uses: actions/checkout@v2
-        with:
-          repository: zapatacomputing/orquestra-forest
-          path: orquestra-forest
-
-      - name: Get orquestra-qulacs
-        uses: actions/checkout@v2
-        with:
-          repository: zapatacomputing/orquestra-qulacs
-          path: orquestra-qulacs
 
       - name: Run publish release action
         uses: ./subtrees/z_quantum_actions/actions/publish-release

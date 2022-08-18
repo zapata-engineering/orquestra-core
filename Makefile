@@ -34,3 +34,11 @@ github_actions:
 
 coverage:
 	$(PYTHON) -m pytest tests/
+
+
+run_tests_before_release:
+	python3 -m venv ${VENV_NAME} && \
+		${VENV_NAME}/bin/python3 -m pip install --upgrade pip && \
+		${VENV_NAME}/bin/python3 -m pip install -e '.[dev]'
+		${VENV_NAME}/bin/python3 -m pytest tests/
+

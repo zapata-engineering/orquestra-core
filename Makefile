@@ -35,10 +35,17 @@ github_actions:
 coverage:
 	$(PYTHON) -m pytest tests/
 
-
+# Runs tests with the latest dependncies from PyPI
 run_tests_before_release:
 	python3 -m venv ${VENV_NAME} && \
 		${VENV_NAME}/bin/python3 -m pip install --upgrade pip && \
 		${VENV_NAME}/bin/python3 -m pip install -e '.[dev]'
 		${VENV_NAME}/bin/python3 -m pytest tests/
 
+# We are overwriting the default version as it's using `github_actions`, which does
+# not install `orquestra-core` with the right dependencies for the release.
+get-next-version: 
+	python3 -m venv ${VENV_NAME} && \
+		${VENV_NAME}/bin/python3 -m pip install --upgrade pip && \
+		${VENV_NAME}/bin/python3 -m pip install -e '.[dev]' && \
+		${VENV_NAME}/bin/python3 subtrees/z_quantum_actions/bin/get_next_version.py $(PACKAGE_NAME)

@@ -14,9 +14,9 @@ As shown in the diagram below, Orquestra Core is broken into multiple packages, 
 
 * `orquestra-opt <https://github.com/zapatacomputing/orquestra-opt>`_ provides
 
-  * interfaces for implementing ansatzes including qaoa and qcbm.
-  * optimizers and cost functions tailored to opt
-  * misc functions such as grouping, qaoa interpolation, and estimators
+  * interface for optimizers and integrations with many optimizers
+  * utilities for optimizers (e.g. recording history, integration with QUBOs)
+  * mappings of graph problems to Ising Hamiltonians
 
 * `orquestra-vqa <https://github.com/zapatacomputing/orquestra-vqa>`_ provides
 

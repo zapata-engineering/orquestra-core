@@ -7,7 +7,7 @@ Ansatzes
 Usage
 =====
 
-In the cotext of VQAs, an ansatz is a parameterized quantum circuit. Given a cost function on the output of the circuit, parameters can be minimized to create a circuit which solves a given problem.
+In the cotext of VQAs, an ansatz is a template for a parameterized quantum circuit. Given a cost function which depends on the output of the circuit, parameters can be tuned to create a circuit which minimizes the cost function.
 
 In ``orquestra``, ``Ansatz`` objects are used to construct ``EstimationTaskFactory`` objects which are then used to make a cost function.
 

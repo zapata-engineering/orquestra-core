@@ -7,3 +7,6 @@ Guides
 
     circuits.rst
     backends.rst
+    cost_function.rst
+    optimizers.rst
+    vqa_guide/index

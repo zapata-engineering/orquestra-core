@@ -6,7 +6,7 @@ from orquestra.vqa.api import Ansatz
 from sympy import symbols
 
 
-class TestAnsatz(Ansatz):
+class MockAnsatz(Ansatz):
     def __init__(
         self,
         number_of_layers: int,

@@ -9,11 +9,15 @@ Estimators abstract away the method which is used to estimate a quantity. ``orqu
 ``EstimationMethod``
 ====================
 
-A ``QuantumBackend`` objects can be either a simulator or hardware. On a simulator, we have direct access to the wavefunction so we can simply extract the expectation value of an observable :math:`O` by calculating :math:`<\psi| O |\psi>`.
+A ``QuantumBackend`` object can be either a simulator or hardware. On a simulator, we have direct access to the wavefunction so we can simply extract the expectation value of an observable :math:`O` by calculating :math:`<\psi| O |\psi>`.
 
-In light of this ``orquestra`` proveds two separate ways of obtaining expectation values:
-- calculate_exact_expectation_values
-- estimate_expectation_values_by_averaging
+In addition to this this, ``orquestra`` provides several separate ways of obtaining expectation values:
+- ``calculate_exact_expectation_values``
+- ``estimate_expectation_values_by_averaging``
+- ``perform_context_selection``
+- ``CvarEstimator``
+- ``GibbsObjectiveEstimator``
+
 
 ``EstimationTaskFactory``
 =========================
@@ -37,4 +41,9 @@ When defining a VQA in orquestra, ``CostFunction`` :ref:`objects <cost_function>
 ``EstimationPreprocessors``
 ===========================
 
-Say you are tasked with a VQA which requires substituting your parameters into more than one circuit. You can use ``EstimationPreprocessors`` to acheive this. (unsure what other uses the preprocessors might have)
+Say you are tasked with a VQA which requires substituting your parameters into more than one circuit. You can use ``EstimationPreprocessors`` to acheive this. A list of preprocessors is given as follows:
+1. shot allocation - allows one to dynamically allocate shots to estimation tasks.
+2. grouping - combine EstimationTasks which can be done simultaneously to save computation resources. Comes in 3 types:
+    a. group_individually
+    b. group_greedily
+    c. group_comeasureable_terms_greedy

@@ -24,16 +24,38 @@ from pathlib import Path
 import shutil
 from distutils.dir_util import copy_tree
 from tempfile import tempdir
+import textwrap
 
 
 repos_folder = os.path.abspath("repos")
 TMP_MONOREPO_NAME = "tmp_monorepo"
 currentfolder = Path(os.path.abspath("."))
 temp_repo_folder = currentfolder / f"{TMP_MONOREPO_NAME}"
+CHANGELOGS_DIRECTORY = "changelogs"
 
 temp_repo_folder = str(temp_repo_folder)
 sys.path.insert(0, temp_repo_folder)
 
+
+def generate_changelogs():
+
+    changelog_index_content = "Changelogs\n====\n\n.. toctree::\n"
+    os.makedirs(CHANGELOGS_DIRECTORY, exist_ok=True)
+    with open(os.path.join(repos_folder, "manifest.json")) as fp:
+        manifest = json.load(fp)
+    for name, details in manifest["repos"].items():
+        # Run the cz changelog command in each directory
+        subprocess.call(
+            "cz changelog", cwd=os.path.join(repos_folder, name), shell=True
+        )
+        # Copy the changelog to the changelogs directory
+        changelog_path = os.path.join(repos_folder, name, "CHANGELOG.md")
+        destination_path = os.path.join(CHANGELOGS_DIRECTORY, f"{name}.md")
+        shutil.copyfile(changelog_path, destination_path)
+        changelog_index_content += f"\n    {name}"
+
+    with open(os.path.join(CHANGELOGS_DIRECTORY, "index.rst"), "w") as fp:
+        fp.write(changelog_index_content)
 
 def build_mono_repo(temp_repo_folder):
 
@@ -58,8 +80,14 @@ try:
     shutil.rmtree(temp_repo_folder)
 except FileNotFoundError:
     print(f"no dir to remove {temp_repo_folder}")
-
 build_mono_repo(temp_repo_folder)
+
+try:
+    shutil.rmtree(CHANGLOGS_DIRECTORY)
+except FileNotFoundError:
+    print(f"no dir to remove {temp_repo_folder}")
+generate_changelogs()
+
 # -- Project information -----------------------------------------------------
 
 project = "Orquestra Core Docs"
@@ -88,6 +116,7 @@ extensions = [
     "sphinxemoji.sphinxemoji",
     "sphinx_togglebutton",
     "autoapi.extension",
+    "myst_parser"
 ]
 source_suffix = {
     ".rst": "restructuredtext",

@@ -38,3 +38,4 @@ Featured tutorials
 
    tutorials/index
    guides/index
+   changelogs/index

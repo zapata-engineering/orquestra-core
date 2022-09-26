@@ -2,10 +2,11 @@ sphinx-togglebutton
 furo
 sphinx-copybutton
 sphinx-design
-sphinx-mdinclude
 sphinxemoji
 Jinja2>=3.0.0
 protobuf==3.20.1
 Pygments==2.11.2
+commitizen
+myst-parser
 
 git+https://git@github.com/zapatacomputing/orquestra-manifest.git

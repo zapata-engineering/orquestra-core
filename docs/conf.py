@@ -39,20 +39,24 @@ sys.path.insert(0, temp_repo_folder)
 
 def generate_changelogs():
 
-    changelog_index_content = "Changelogs\n====\n\n.. toctree::\n"
+    changelog_index_content = "Changelogs\n====\n\n.. toctree::\n    :maxdepth: 1\n"
     os.makedirs(CHANGELOGS_DIRECTORY, exist_ok=True)
     with open(os.path.join(repos_folder, "manifest.json")) as fp:
         manifest = json.load(fp)
     for name, details in manifest["repos"].items():
-        # Run the cz changelog command in each directory
+        changelog_index_content += f"\n    {name}<{name}>"
         subprocess.call(
             "cz changelog", cwd=os.path.join(repos_folder, name), shell=True
         )
-        # Copy the changelog to the changelogs directory
         changelog_path = os.path.join(repos_folder, name, "CHANGELOG.md")
-        destination_path = os.path.join(CHANGELOGS_DIRECTORY, f"{name}.md")
-        shutil.copyfile(changelog_path, destination_path)
-        changelog_index_content += f"\n    {name}"
+        with open(changelog_path) as f:
+            lines = f.readlines()
+        with open(os.path.join(CHANGELOGS_DIRECTORY, f"{name}.md"), "w") as f:
+            f.write(f"# {name} changelog\n")
+            for line in lines:
+                if line.startswith("#"):
+                    line = line.replace("#", "##", 1)
+                f.write(line)
 
     with open(os.path.join(CHANGELOGS_DIRECTORY, "index.rst"), "w") as fp:
         fp.write(changelog_index_content)
@@ -83,7 +87,7 @@ except FileNotFoundError:
 build_mono_repo(temp_repo_folder)
 
 try:
-    shutil.rmtree(CHANGLOGS_DIRECTORY)
+    shutil.rmtree(CHANGELOGS_DIRECTORY)
 except FileNotFoundError:
     print(f"no dir to remove {temp_repo_folder}")
 generate_changelogs()

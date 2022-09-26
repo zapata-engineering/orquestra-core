@@ -25,12 +25,7 @@
       "type": "python",
       "autodoc": ["src/"]
     },
-    "orquestra-cirq": {
-      "url": "https://github.com/zapatacomputing/orquestra-cirq.git",
-      "ref": "main",
-      "type": "python",
-      "autodoc": ["src/"]
-    },
+
     "orquestra-forest": {
       "url": "https://github.com/zapatacomputing/orquestra-forest.git",
       "ref": "main",

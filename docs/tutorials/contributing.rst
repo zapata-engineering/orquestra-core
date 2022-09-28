@@ -6,9 +6,9 @@ Contributing to Orquestra Core
 
 Orquestra Core itself doesn't have any source code in it, so the first step is to find which specific package you want to contribute to:
 
-.. include:: /tutorials/orq_core_structure.rst
+.. include:: ../tutorials/orq_core_structure.rst
   :start-after: Orquestra Core is broken into multiple packages, each with a different purpose.
-  :end-before: Here is a diagram of these packages:
+  :end-line: 31
 
 Now that you've found the repository you want to contribute to, you can fork it and make your edits, or open a new issue for that repo.
 

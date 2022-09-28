@@ -38,7 +38,7 @@ To install the latest versions of all of the Orquestra Core packages together ru
 
 `pip install orquestra-core`
 
-Libraries to interact with quantum simulators or QPU needs to be installed seperately. i.e `pip install orquestra[cirq]`.
+Libraries to interact with other frameworks (e.g. qiskit, cirq), simulators or QPU can be installed as optional dependencies, i.e.: `pip install orquestra[cirq]`.
 
 Keep in mind, that some of the packages have extra installation options, so there might be certain features unavailable if installed this way.  However, all the components of Orquestra Core can be installed separately as well, e.g.:
 

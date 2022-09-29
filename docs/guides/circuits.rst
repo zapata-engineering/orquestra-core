@@ -83,7 +83,7 @@ Now let's inspect some aspects of the unitary of the circuit, just as a sanity c
   :start-at: unitary = state_prep_circ.to_unitary()
   :end-at: ic(type(unitary))
 
-.. include:: /tutorials/beginner_tutorial.rst
+.. include:: ../tutorials/beginner_tutorial.rst
     :start-after: icecream-note:
     :end-before: This will output a text description of the circuit
 

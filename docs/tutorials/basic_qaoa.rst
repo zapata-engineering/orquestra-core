@@ -43,7 +43,7 @@ Let's start by creating a new python file called ``qaoa_maxcut.py``. The first t
     :start-at: from collections import Counter
     :end-at: from icecream import ic
 
-.. include:: /tutorials/beginner_tutorial.rst
+.. include:: ../tutorials/beginner_tutorial.rst
     :start-after: icecream-note:
     :end-before: This will output a text description of the circuit
 

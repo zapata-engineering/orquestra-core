@@ -82,14 +82,14 @@ Notice we didn't have to build up the Hamiltonian or ansatz ourselves, Orquestra
 
 Next, we need to define how the QAOA will estimate expectation values, and create a set of tasks to do that:
 
-.. literalinclude:: ..../examples/qaoa_maxcut.py
+.. literalinclude:: ../examples/qaoa_maxcut.py
     :language: python
     :start-at: estimation_method = calculate_exact_expectation_values
     :end-at:     )
 
 Now we can select which backend we want to run on and which optimizer we want to use:
 
-.. literalinclude:: ..../examples/qaoa_maxcut.py
+.. literalinclude:: ../examples/qaoa_maxcut.py
     :language: python
     :start-at: backend = 
     :end-at: optimizer =

@@ -4,12 +4,17 @@ Interfaces
 ========================
 
 
-One of the biggest strengths of Orquestra is its modularity. Integrating new backends, optimizers, ansatzes, etc. does not require changing the core code - it requires only creating a new module that conforms to existing interfaces and therefore can be used across the whole platform. These interfaces allow us to implement various modules and functions.
-
+One of the biggest strengths of Orquestra is its modularity. Integrating new backends, optimizers, ansatzes, etc. does not require changing the core code - it requires only creating a new module that conforms to existing interfaces and therefore can be used across the whole platform. 
 Benefits of interfaces
 ~~~~~~~~~~~~~~~~~~~~~~
 
-Interface offers the ability to define behaviour that can be implemented by unrelated classes without forcing them to share a common class hierarchy. This results in code flexibility and faster development with easier testing options. 
+Interface offers the ability to define behaviour that can be implemented by unrelated classes without forcing them to share a common class hierarchy. This results in code flexibility and faster development with easier testing options. Other benefits include:
+
+* Interoperability
+* Modularity
+* Dependencies decoupling
+
+Some relevant contents regarding these can be found `here <https://www.zapatacomputing.com/we-felt-your-pain-and-built-orquestra/>`_.
 
 
 Interfaces provided by the Orquestra are:
@@ -36,16 +41,19 @@ The interfaces are located in the ``api`` directory within each library. They ar
 Example
 ~~~~~~~
 
-Here we look at an example of creating a new ansatz class using an interface created for ansatz. The sample code will look as the following:
+Here we look at an example of creating a new expectation class using an interface created for expectation values. The sample code will look as the following:
 
-# QUESTION: is this correct?
 
-.. literalinclude:: ../examples/estimation.py
+.. literalinclude:: ../examples/expectation_values.py
         :language: python
-        :start-at: import numpy as np
-        :end-at: return cast(List[ExpectationValues], full_expectation_values)
+        :start-at: from typing import List
+        :end-at: return expectation_values_list
 
-Once an interface is created, we highly encourage you to create tests and ensure your interfaces are passing. You find some examples in our `tests <https://github.com/zapatacomputing/orquestra-quantum/blob/1d7b437cffb767f9a5caddf824911e13d268eec5/tests/orquestra/quantum/estimation/estimation_test.py>`_ directory. 
+
+Testing
+~~~~~~~~
+
+Since behaviours are impossible to enforce with just abstract class or protocol, in order to make sure that your implementation of an interface meets all the requirements, you should add tests for it. Every interface comes with basic set of tests. For a reference usage of these tests we recommend looking at code `test <https://github.com/zapatacomputing/orquestra-quantum/blob/1d7b437cffb767f9a5caddf824911e13d268eec5/tests/orquestra/quantum/estimation/estimation_test.py>`_ for particular interface implementations.
 
 New interface idea
 ~~~~~~~~~~~~~~~~~~

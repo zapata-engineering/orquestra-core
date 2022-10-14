@@ -9,15 +9,15 @@ Structure of VQAs
 Introduction to VQAs
 =====================
 
-The central idea of VQA is to use an **optimizer** to program a quantum computer.
+The central idea of VQAs is to use an **optimizer** to find the best quantum circuit to do the job at hand.
 
-In VQA, the optimizer selects a quantum program from a landscape of possible programs defined by an **ansatz**.
+We start with an **ansatz** - this is a "template" for generating circuits, which has tunable parameters.
 
-The optimizer selects a program by minimizing a **cost function** obtained from the output of the current quantum program.
+The optimizer selects the parameters by minimizing a **cost function** obtained from the output of the current quantum program.
 
-To **estimate** the cost function, we need to run (or simulate) the quantum program.
+To **estimate** the value of the cost function for given set of parameters, we need to run (or simulate) the quantum program.
 
-Optimizers and cost functions are general features of optimization problems, so this guide focuses on ansatzes and estimators. For a more complete, yet approachable discussion, see `Michal's blogpost <https://www.mustythoughts.com/vqas-how-do-they-work>`_
+:ref:`Optimizers <optimizers_guide>` and :ref:`cost functions <cost_function_guide>` are general features of optimization problems, so this guide focuses on ansatzes and estimators. For a more complete, yet approachable discussion, see `Michał's blogpost <https://www.mustythoughts.com/vqas-how-do-they-work>`_.
 
 
 .. _vqa_basics:
@@ -27,16 +27,14 @@ The Basics
 
 The process for running a VQA algorithm can be outlined in 5 steps:
 
-1. Define initial ingredients ``Ansatz``, ``QuantumBackend`` and ``Optimizer``.
-2. Call an ``EstimationTaskFactory`` factory using ``Ansatz``.
-3. Call ``create_cost_function`` using the ``EstimationTaskFactory`` and ``Backend``.
+1. Define initial ingredients: ``Ansatz``, ``QuantumBackend`` and ``Optimizer``.
+2. Create an ``EstimationTaskFactory`` factory using ``Ansatz``.
+3. Call ``create_cost_function`` using the ``EstimationTaskFactory`` and ``QuantumBackend``.
 4. Call ``optimizer.minimize`` using the ``CostFunction`` to get optimized parameters.
 5. Call ``ansatz.get_executable_circuit`` with optimized parameters to get the quantum program.
 
 
-Let's go through an example where a vqa is used to solve the maxcut problem. See the full program guide :ref:`qaoa tutorial <qaoa>` for a more in-depth look at this particular algorithm.
-
-The main body of the program is this:
+Let's go through an example where a vqa is used to solve the maxcut problem. See the :ref:`qaoa tutorial <qaoa_tutorial>` for a more hands-on example how to use VQAs with Orquestra Core
 
 .. literalinclude:: ../../examples/qaoa_maxcut.py
     :language: python
@@ -47,7 +45,7 @@ We'll go through the steps as they were outlined above:
 
 1. The ``Ansatz``, ``Backend`` and ``Optimizer`` can be defined independently of one another.
 2. As explained in :ref:`estimators guide <estimators>`, the ``EstimationTaskFactory`` tells the quantum computer how to construct a circuit. It therefore will always take an ``Ansatz`` as an argument.
-3. As explained briefly above, VQA uses a quantum computer to estimate the cost function. So it is sensible that to create our cost function we would need the method of costructing circuits for our cost function (``EstimationTask``) and the quantum computer to run them on (``QuantumBackend``). See the :ref:`cost function <cost_function>` guide for details.
+3. As explained briefly above, VQA uses a quantum computer to estimate the value of the cost function. So to create our cost function we would need the method of costructing circuits for our cost function (``estimation_task_factory``) and the quantum computer to run them on (``QuantumBackend``). See the :ref:`cost function <cost_function_guide>` guide for details.
 4. Now that we have the , we minimize if using the optimizer. This step generally takes the longest to run.
 5. Obtain the final circuit by substituting the optimized parameters into the ansatz.
 
@@ -55,3 +53,18 @@ And that's it! once these steps are completed we have now finished our variation
 
 
 
+Libraries structure
+===================
+
+Most of the code associated directly with VQAs lives in the `orquestra-vqa <https://github.com/zapatacomputing/orquestra-vqa>`_ repository. Some of these are not worth separate guides, but it might be useful for you to know what we have.
+
+So here's a short list of what's in `orquestra-vqa`:
+
+- ansatzes - see :ref:`ansatzes guide <_ansatzes_guide>`
+- cost functions - see: :ref:`cost functions guide <cost_function_guide>`
+- estimation - see: :ref:`estimation guide <estimators_guide>`
+- grouping - see: :ref:`estimation guide <estimators_guide>`
+- openfermion - some utility tools to make it easier to work with `OpenFermion <https://quantumai.google/openfermion>`_ within Orquestra.
+- optimizers - we have some VQA-specific optimizers such as Layer-by-layer optimizer, `Fourier <https://journals.aps.org/prx/abstract/10.1103/PhysRevX.10.021067>`_ or `R-QAOA <https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.125.260505>`_ . See: :ref:`optimizers guide <optimizers_guide>` for more details.
+- parameter initialization - `Interp method <https://journals.aps.org/prx/abstract/10.1103/PhysRevX.10.021067>`_
+- shot allocation - see: :ref:`estimation guide <estimators_guide>`

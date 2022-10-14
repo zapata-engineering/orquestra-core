@@ -1,7 +1,7 @@
 VQA Guide
 ================================================
 
-Variational quantum algos are promising class of introductory algorithms which can be (easily) implemented in orquestra.
+Variational quantum algorithms (VQAs) are a promising class of near-term algorithms which can be (easily) implemented using Orquestra Core.
 
 .. toctree::
     :maxdepth: 2

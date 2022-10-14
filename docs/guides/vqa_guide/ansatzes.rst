@@ -7,29 +7,28 @@ Ansatzes
 Usage
 =====
 
-In the cotext of VQAs, an ansatz is a template for a parameterized quantum circuit. Given a cost function which depends on the output of the circuit, parameters can be tuned to create a circuit which minimizes the cost function.
-
-In ``orquestra``, ``Ansatz`` objects are used to construct ``EstimationTaskFactory`` objects which are then used to make a cost function.
-
+In the context of VQAs, an ansatz is a template for a parameterized quantum circuit. Given a cost function which depends on the output of the circuit, parameters can be tuned to create a circuit which minimizes the cost function.
 
 Available Ansatzes
 ==================
-`orquestra-core` provides several ansatzes. Here we give a list of ansatzes with a breif description of each.
+`orquestra-vqa <https://github.com/zapatacomputing/orquestra-vqa>`_ provides several ansatzes. Here we give a list of ansatzes with a brief description of each.
 
-1. kbody ansatzes - ansatzes created to solve maxcut problems. Number of parameters increases exponentially with number of qubits, but these ansaztes avoid local minima. See `the paper <https://arxiv.org/abs/2105.01114>`_ for details.
+1. ``QAOAFarhiAnsatz`` - Vanilla QAOA Ansatz, alternates global cost Hamiltonians with local mixer Hamiltonians. See `the paper <https://arxiv.org/abs/1411.4028>`_ for details.
+2. kbody ansatzes - ansatzes created to solve maxcut problems. Number of parameters increases exponentially with number of qubits, but these ansaztes avoid local minima. See `the paper <https://arxiv.org/abs/2105.01114>`_ for details.
     a. ``XAnsatz`` - Couples qubits in the X direction. 
     b. ``XZAnsatz`` - Couples qubits in the X and Z directions. 
-2. ``QAOAFarhiAnsatz`` - Alternates global cost hamiltons with local mixer hamiltonians. See `the paper <https://arxiv.org/abs/1411.4028>`_ for details.
-3. ``WarmStartQAOAAnsatz`` - See `the paper <https://arxiv.org/abs/2009.10095v3>`_ for details.
-4. ``HEAQuantumCompilingAnsatz`` - See `the paper <https://arxiv.org/pdf/2011.12245.pdf>`_ for details.
-5. ``SingletUCCSDAnsatz`` - Widely used in chemistry problems to estimate the ground state of a molecule's hamiltonian. Parameters control the probability of single an double excitations in your simulated molecule. See `this paper <>`_
-6. ``QCBMAnsatz`` - Ansatz for learning distributions. See `this paper <https://arxiv.org/pdf/1801.07686.pdf>`_ for details.
+3. ``WarmStartQAOAAnsatz`` - Uses existing solution to the optimization problem to improve performance of QAOA. See `the paper <https://arxiv.org/abs/2009.10095v3>`_ for details.
+4. ``SingletUCCSDAnsatz`` - Widely used in chemistry problems to estimate the ground state of a molecule's Hamiltonian. Parameters control the probability of single an double excitations in your simulated molecule. See `this paper <https://arxiv.org/abs/1701.02691>`_ for details.
+5. ``HEAQuantumCompilingAnsatz`` - Hardware-efficient ansatz using quantum compiling . See `the paper <https://arxiv.org/abs/2011.12245>`_ for details.
+6. ``QCBMAnsatz`` - Ansatz for learning distributions for Quantum Circuit Born Machine. See `this paper <https://arxiv.org/abs/1801.07686>`_ for details.
 
 
 Creating Your Own Ansatz
 ========================
 
-Let's construct a simple example where we only have a single layer of Z rotations in our ansatz. We start by creating a child of the ``Ansatz``` class.
+While the ansatzes listed above provide a good start, eventually you might need to implement your own ansatz. Below you can find an example of how to do this.
+
+Let's construct a simple example where we only have a single layer of Z rotations in our ansatz. We start by creating a child of the ``Ansatz`` class.
 
 .. literalinclude:: ../../examples/mock_ansatz.py
     :language: python
@@ -51,3 +50,10 @@ Finally, we'll define the ``_generate_circuit`` function which substitutes param
     :end-at: return self._circuit.bind(symbols_map)
 
 And that's it! Once the ansatz is defined we can easily subtitute in into an ``EstimationTaskFactory``.
+
+
+Another important thing to know about our implementation of ansatzes is that it can support symbolic parameters. Conceptually, ansatzes yield themselves nicely be expressed using symbols rather. However, it might come at the price of performance, so we recommend implementing your ansatz using symbolic circuits in two cases:
+
+- if generating circuit is time-consuming. This is the case e.g. when you need to perform time evolution of some Hamiltonian to build the circuit.
+- if you value clarity and transparency over performance. 
+

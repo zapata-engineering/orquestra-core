@@ -136,11 +136,11 @@ html_static_path = ["_static"]
 # the entries for the index.rst unless there is an __init__.py despite
 # setting autoapi_python_use_implicit_namespaces=True
 
-autoapi_dirs = glob(os.path.join(temp_repo_folder, "orquestra", "*"))
+autoapi_dirs = [os.path.join(temp_repo_folder, "orquestra")]
+# autoapi_root = TMP_MONODOCS_NAME + "/api"
 autoapi_root = "api"
-for dir in autoapi_dirs:
-    Path(dir, "__init__.py").touch()
-
+for dirpath, dirnames, filenames in os.walk(temp_repo_folder):
+    Path(dirpath, "__init__.py").touch()
 
 html_logo = "_static/orquestra.png"
 html_title = "Orquestra Core Documentation"

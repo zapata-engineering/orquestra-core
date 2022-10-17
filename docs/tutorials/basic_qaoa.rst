@@ -2,7 +2,7 @@
 Solving MaxCut with QAOA
 ========================
 
-.. _qaoa:
+.. _qaoa_tutorial:
 
 It's 3 in the morning and your boss calls you, waking you up from your sleep: "I got a problem I need you to solve." 
 

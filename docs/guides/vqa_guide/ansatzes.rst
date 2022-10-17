@@ -52,8 +52,8 @@ Finally, we'll define the ``_generate_circuit`` function which substitutes param
 And that's it! Once the ansatz is defined we can easily subtitute in into an ``EstimationTaskFactory``.
 
 
-Another important thing to know about our implementation of ansatzes is that it can support symbolic parameters. Conceptually, ansatzes yield themselves nicely be expressed using symbols rather. However, it might come at the price of performance, so we recommend implementing your ansatz using symbolic circuits in two cases:
+Another important concept to understand about our implementation of ansatzes is that it can support symbolic parameters. Conceptually, ansatzes yield themselves nicely be expressed using symbols rather. However, it might come at the price of performance, so we recommend implementing your ansatz using symbolic circuits in two cases:
 
-- if generating circuit is time-consuming. This is the case e.g. when you need to perform time evolution of some Hamiltonian to build the circuit.
+- if generating circuit is time-consuming. For example in QAOA you need to perform time evolution of a Hamiltonian to build a circuit, which, depending on the Hamiltonian, can be pretty resource-intensive.
 - if you value clarity and transparency over performance. 
 

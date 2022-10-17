@@ -89,7 +89,7 @@ Let's say you have created a new estimator called ``my_estimator``. In order to 
 4. Output ExpectationValue should include coefficients of the terms/operators.
 5. ``estimation_tasks`` can include tasks where operator consists of a constant term or contains a constant term. The implemented method should include the contributions of such constant terms in the return value.
 
-I hope points 1-3 are not controversial for you. Points 4-5 define a conventions that we have decided to follow - we know that in some circles people like using other conventions, which might be confusing. So we want to be clear about the conventions that we follow.
+We hope points 1-3 are not controversial for you. Points 4-5 define a conventions that we have decided to follow - we know that in some circles people like using other conventions, which might be confusing. So we want to be clear about the conventions that we follow.
 
 ``orquestra`` provides several separate ways of obtaining expectation values:
 
@@ -143,7 +143,7 @@ Some other tools:
 Example
 =======
 
-Let's see how this plays out in an actual example. For the sake of example, let's say we want to run VQE using the following techniques:
+Let's see how this plays out in an actual example. For example, let's say we want to run VQE using the following techniques:
 - greedy grouping algorithm
 - proportional shot allocation with total 50000 shots per iteration
 - CVaR estimation method with alpha equal to 0.1

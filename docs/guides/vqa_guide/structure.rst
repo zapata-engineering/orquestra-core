@@ -46,7 +46,7 @@ We'll go through the steps as they were outlined above:
 1. The ``Ansatz``, ``Backend`` and ``Optimizer`` can be defined independently of one another.
 2. As explained in :ref:`estimators guide <estimators>`, the ``EstimationTaskFactory`` tells the quantum computer how to construct a circuit. It therefore will always take an ``Ansatz`` as an argument.
 3. As explained briefly above, VQA uses a quantum computer to estimate the value of the cost function. So to create our cost function we would need the method of costructing circuits for our cost function (``estimation_task_factory``) and the quantum computer to run them on (``QuantumBackend``). See the :ref:`cost function <cost_function_guide>` guide for details.
-4. Now that we have the , we minimize if using the optimizer. This step generally takes the longest to run.
+4. Now that we have the cost function, we minimize if using the optimizer. This step generally takes the longest to run.
 5. Obtain the final circuit by substituting the optimized parameters into the ansatz.
 
 And that's it! once these steps are completed we have now finished our variational quantum algorithm in ``orquestra``!

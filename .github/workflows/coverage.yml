@@ -58,11 +58,17 @@ jobs:
         with:
           repository: zapatacomputing/orquestra-qiskit
           path: orquestra-qiskit
-          
+
       - name: Get orquestra-qulacs
         uses: actions/checkout@v2
         with:
           repository: zapatacomputing/orquestra-qulacs
           path: orquestra-qulacs
+
+      - name: Get orquestra-braket
+        uses: actions/checkout@v2
+        with:
+          repository: zapatacomputing/orquestra-braket
+          path: orquestra-braket
 
       - uses: ./subtrees/z_quantum_actions/actions/coverage

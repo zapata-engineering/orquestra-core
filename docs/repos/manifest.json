@@ -42,6 +42,12 @@
       "ref": "main",
       "type": "python",
       "autodoc": ["src/"]
+    },
+    "orquestra-braket": {
+      "url": "https://github.com/zapatacomputing/orquestra-braket.git",
+      "ref": "main",
+      "type": "python",
+      "autodoc": ["src/"]
     }
   }
 }

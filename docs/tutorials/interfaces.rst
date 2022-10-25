@@ -5,6 +5,7 @@ Interfaces
 
 
 One of the biggest strengths of Orquestra is its modularity. Integrating new backends, optimizers, ansatzes, etc. does not require changing the core code - it requires only creating a new module that conforms to existing interfaces and therefore can be used across the whole platform. 
+
 Benefits of interfaces
 ~~~~~~~~~~~~~~~~~~~~~~
 

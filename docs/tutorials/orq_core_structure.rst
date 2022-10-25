@@ -28,6 +28,7 @@ As shown in the diagram below, Orquestra Core is broken into multiple packages, 
 * `orquestra-cirq <https://github.com/zapatacomputing/orquestra-cirq>`_ provides an integration with `Cirq <https://quantumai.google/cirq>`_ as well as :ref:`Nvidia's custatevec backend <backends>`.
 * `orquestra-forest <https://github.com/zapatacomputing/orquestra-forest>`_ provides an integration with `Rigetti Forest <https://pyquil-docs.rigetti.com/en/stable/>`_.
 * `orquestra-qulacs <https://github.com/zapatacomputing/orquestra-qulacs>`_ provides an integration with the `Qulacs simulator <https://github.com/qulacs/qulacs>`_.
+* `orquestra-braket <https://github.com/zapatacomputing/orquestra-braket>`_ provides an integration with the `Amazon Braket SDK Python <https://github.com/aws/amazon-braket-sdk-python>`_
 
 .. image:: images/orquestra_core_connection.excalidraw.png
 

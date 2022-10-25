@@ -120,6 +120,7 @@ Hardware backends
 -----------------
 
 * `QiskitBackend <https://github.com/zapatacomputing/orquestra-qiskit/blob/main/tests/orquestra/integrations/qiskit/backend/backend_test.py>`_
+* `BraketBackend <https://github.com/zapatacomputing/orquestra-braket/tree/main/src/orquestra/integrations/braket/backend>`_
 
 Simulators
 ----------
@@ -135,6 +136,8 @@ Simulators
 * `QulacsSimulator <https://github.com/zapatacomputing/orquestra-qulacs/blob/main/tests/orquestra/integrations/qulacs/simulator_test.py>`_
 * `QSimSimulator <https://github.com/zapatacomputing/orquestra-cirq/blob/main/tests/orquestra/integrations/cirq/simulator/qsimsimulator_test.py>`_
 * `CuStateVecSimulator <https://github.com/zapatacomputing/orquestra-cirq/tree/main/src/orquestra/integrations/custatevec/simulator>`_
+* `BraketLocalSimulator <https://github.com/zapatacomputing/orquestra-braket/blob/main/tests/orquestra/braket/simulator/localbraket_test.py>`_
+* `BraketOnDemandSimulator <https://github.com/zapatacomputing/orquestra-braket/blob/main/tests/orquestra/braket/simulator/ondemandbraket_test.py>`_
 
 Conversions to other frameworks
 ===============================

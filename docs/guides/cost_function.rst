@@ -1,7 +1,7 @@
 .. _cost_function_guide:
 
 ===================
-cost function guide
+Cost function guide
 ===================
 
 This guide is currently a work in progress and only contains bullet points for now.

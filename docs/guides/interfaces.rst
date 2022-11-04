@@ -9,7 +9,7 @@ One of the biggest strengths of Orquestra is its modularity. Integrating new bac
 What is an interface?
 =====================
 
-Before we get into the details, let's explain what we mean by "interfaces" in this context. We use this word as a shorthand for "a way to implement certain concepts in such a way, that as long as two implementations conform to a particular interface, they can be swapped and the program should still work correctly". Obviously, various implementations might work differently - e.g.: one simulator might be faster than the other - but they should be undistinguishable when it comes to inputs, outputs and how they are being used.
+Before we get into the details, let's explain what we mean by "interfaces" in this context. We use this word as a shorthand for "a way to implement certain concepts in such a way, that as long as two implementations conform to a particular interface, they can be swapped and the program should still work correctly". Obviously, various implementations might work differently - e.g.: one simulator might be faster than the other - but they should be indistinguishable when it comes to inputs, outputs and how they are being used.
 
 
 

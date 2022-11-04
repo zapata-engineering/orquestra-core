@@ -1,7 +1,7 @@
 .. _optimizers_guide:
 
 ================
-optimizers guide
+Optimizers guide
 ================
 
 This guide is currently a work in progress and only contains bullet points for now.

@@ -75,7 +75,7 @@ Testing
 
 Not every requirement can be expressed and enforced by using an abstract base class or a combination of static typing and protocols. For instance, there might be some nontrivial relationships between inputs and outputs that need to hold, or there might be some necessary side effects. Such requirements need to be verified by additional tests, as their violation cannot be caught by tools like MyPy or flake8. In Orquestra, every interface comes with a basic set of tests. You can find them in the `<INTERFACE_NAME>_test` directory next to the file where the interface itself is implemented. 
 
-In many cases we use so called "contracts". These are specific tests that take an instance of particular interface as input and check if it meets certain "contract". Each contract checks some basic expected behaviour, e.g.: `_validate_gradients_history_is_recorded_if_keep_history_is_true`. They are grouped in a list and can then used in tests in the following way:
+In many cases, Orquestra captures additional requirements as so-called "contracts". They are specific test functions that take an instance of the particular interface as input and check if it meets a certain "contract". Each contract checks some basic expected behaviour typically described by its name, e.g.: `_validate_gradients_history_is_recorded_if_keep_history_is_true`. They are grouped in a list and can then be used in tests in the following way:
 
 .. literalinclude:: ../examples/interfaces_guide.py
     :start-after: >> Guide code snippet: script showing how to use contract tests

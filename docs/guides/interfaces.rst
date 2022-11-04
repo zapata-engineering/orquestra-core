@@ -4,7 +4,7 @@ Interfaces
 ========================
 
 
-One of the biggest strengths of Orquestra is its modularity. Integrating new backends, optimizers, ansatzes, etc. does not require changing the core code - it requires only creating a new module that conforms to existing interfaces and therefore can be used across the whole platform. Using our interfaces help you add whatever building blocks you need for your project and ensure that they will work well with other existing elements.
+One of the biggest strengths of Orquestra is its modularity. Integrating new backends, optimizers, ansatzes, etc. does not require changing the core code - it requires only creating a new module that conforms to existing interfaces and therefore can be used across the whole platform. Using our interfaces helps you add whatever building blocks you need for your project and ensure that they will work well with other existing elements.
 
 What is an interface?
 =====================

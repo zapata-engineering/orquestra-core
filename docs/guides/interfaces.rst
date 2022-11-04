@@ -32,7 +32,7 @@ Currently interfaces in Orquestra are defined in the following 3 main libraries:
 * `orquestra-opt <https://github.com/zapatacomputing/orquestra-opt>`_
 * `orquestra-vqa <https://github.com/zapatacomputing/orquestra-vqa>`_
 
-The interfaces are located in the ``api`` directory within each packages. They are implemented either as an ``abstract class`` or ``protocols``. `Abstract classes <https://docs.python.org/3/library/abc.html>`_ are classes that contain one or more abstract method. However, they do not contain any implementation. Subclasses are required to provide implementations for abstract methods. Abstract classes can also be considered blueprint classes. 
+The interfaces are located in the ``api`` directory within each packages. They are implemented either as an ``abstract class`` or ``protocols``. `Abstract classes <https://docs.python.org/3/library/abc.html>`_ are classes that contain one or more abstract methods and thus cannot be instantiated. Concrete implementations (subclasses) of a given abstract base class have to override all of the abstract methods. Abstract base classes often serve as blueprint classes, defining common behaviours in terms of some specialized method(s) that has to be implemented in child classes.
 
 However, using abstract classes requires using inheritance, which sometimes is undesirable. Therefore, we also make use of `Protocols <https://peps.python.org/pep-0544/>`_ . The main differences are that we don't have to explicitly express that particular implementation conforms to a protocol and that protocols work not just with classes, but also functions. 
 

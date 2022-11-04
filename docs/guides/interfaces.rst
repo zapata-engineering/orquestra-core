@@ -36,7 +36,7 @@ The interfaces are located in the ``api`` directory within each packages. They a
 
 However, using abstract classes requires using inheritance, which sometimes is undesirable. Therefore, we also make use of `Protocols <https://peps.python.org/pep-0544/>`_ . The main differences are that we don't have to explicitly express that particular implementation conforms to a protocol and that protocols work not just with classes, but also functions. 
 
-Interfaces provided by Orquestra are:
+Orquestra provides the following interfaces:
 
 * :class:`QuantumBackend <orquestra.quantum.api.QuantumBackend>` (:ref:`guide <backends_guide>`)
 * :class:`QuantumSimulator <orquestra.quantum.api.backend.QuantumSimulator>` (:ref:`guide <backends_guide>`)

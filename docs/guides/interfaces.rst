@@ -82,7 +82,7 @@ In many cases, Orquestra captures additional requirements as so-called "contract
     :lines: 2-5
     :language: python
 
-Apart from the contracts, each implementation might have a set of other unit tests which check behavior specific for this implementation. You can find an example of how we test estimators `here <https://github.com/zapatacomputing/orquestra-vqa/blob/977a68202d00f93caa7e89726229c6a8a8bc05b0/tests/orquestra/vqa/estimation/cvar_test.py>`_.
+Apart from the contracts, each implementation might have a set of other unit tests which check behaviour specific to this implementation. You can find an example of how we test estimators `here <https://github.com/zapatacomputing/orquestra-vqa/blob/977a68202d00f93caa7e89726229c6a8a8bc05b0/tests/orquestra/vqa/estimation/cvar_test.py>`_.
 
 New interface idea
 ==================

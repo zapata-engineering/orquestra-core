@@ -1,8 +1,6 @@
-from orquestra.quantum.circuits import CNOT, H, Circuit, X, Z
-
-from orquestra.quantum.symbolic_simulator import SymbolicSimulator
-
 from icecream import ic
+from orquestra.quantum.backends import SymbolicSimulator
+from orquestra.quantum.circuits import CNOT, Circuit, H, X, Z
 
 teleport_circuit = Circuit()
 

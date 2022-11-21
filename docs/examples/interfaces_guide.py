@@ -1,4 +1,4 @@
-import scipy 
+import scipy
 
 # >> Guide code snippet: script showing scipy optimizers
 # >> Start
@@ -21,7 +21,8 @@ optimizer_2.minimize(cost_function, initial_params)
 
 import pytest
 from orquestra.quantum.api.estimator_contract import ESTIMATOR_CONTRACTS
-from orquestra.vqa.estimators import CvarEstimator
+from orquestra.vqa.estimation.cvar import CvarEstimator
+
 
 # >> Guide code snippet: script showing how to use contract tests
 # >> Start

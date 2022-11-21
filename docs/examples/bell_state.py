@@ -2,9 +2,10 @@
 # © Copyright 2022 Zapata Computing Inc.
 ################################################################################
 
-# build the circuit
-from orquestra.quantum.circuits import CNOT, H, Circuit
 from icecream import ic
+
+# build the circuit
+from orquestra.quantum.circuits import CNOT, Circuit, H
 
 bell_circuit = Circuit()
 bell_circuit += H(0)
@@ -23,7 +24,7 @@ num_samples = 100
 measurements = simulator.run_circuit_and_measure(bell_circuit, num_samples)
 ic(measurements.get_counts())
 
-from orquestra.quantum.symbolic_simulator import SymbolicSimulator
+from orquestra.quantum.backends import SymbolicSimulator
 
 sym_simulator = SymbolicSimulator()
 measurements2 = sym_simulator.run_circuit_and_measure(bell_circuit, num_samples)
@@ -34,8 +35,8 @@ wavefunction = sv_simulator.get_wavefunction(bell_circuit)
 ic(wavefunction.amplitudes)
 
 from orquestra.quantum.api.estimation import EstimationTask
-from orquestra.quantum.openfermion import IsingOperator
 from orquestra.quantum.estimation import calculate_exact_expectation_values
+from orquestra.quantum.operators import IsingOperator
 
 ising = IsingOperator("[Z0] + [Z1]")
 task = EstimationTask(ising, bell_circuit, None)

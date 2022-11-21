@@ -12,11 +12,12 @@ simulator = QiskitSimulator("aer_simulator_statevector")
 # End QuantumSimulator creation example
 
 
+
 # Quantumsimulator examples
+import numpy as np
 from orquestra.integrations.cirq.simulator import CirqSimulator
 from orquestra.quantum.circuits import CNOT, Circuit, H, X
-import numpy as np
-from orquestra.quantum.openfermion.ops.operators.qubit_operator import QubitOperator
+from orquestra.quantum.operators import QubitOperator
 
 initial_state = np.array([0, 1, 0, 0])
 circuit = Circuit([H(0), X(1)])
@@ -72,36 +73,37 @@ measurement_distribution = simulator.get_measurement_outcome_distribution(
 
 
 # TrackingBackend creation example
-from orquestra.quantum.symbolic_simulator import SymbolicSimulator
-from orquestra.quantum.trackers import MeasurementTrackingBackend
+from orquestra.quantum.backends import MeasurementTrackingBackend, SymbolicSimulator
 
 backend = MeasurementTrackingBackend(SymbolicSimulator(), "tracker_example")
 # End TrackingBackend creation example
 
+
+from orquestra.integrations.cirq.conversions._circuit_conversions import (
+    export_to_cirq,
+    import_from_cirq,
+)
 
 # Importng and Exporting with different frameworks
 from orquestra.integrations.forest.conversions import (
     export_to_pyquil,
     import_from_pyquil,
 )
-from orquestra.integrations.cirq.conversions._circuit_conversions import (
-    export_to_cirq,
-    import_from_cirq,
-)
-from orquestra.integrations.qulacs.conversions import convert_to_qulacs
 from orquestra.integrations.qiskit.conversions import (
     export_to_qiskit,
     import_from_qiskit,
 )
+from orquestra.integrations.qulacs.conversions import convert_to_qulacs
+
+# Inherit QuantumSimulator
+from orquestra.quantum.api.backend import QuantumSimulator
+from orquestra.quantum.measurements import Measurements
 
 # end importing/exporting examples
 
 
-# Inherit QuantumSimulator
-from orquestra.quantum.api.backend import QuantumSimulator
 
-
-class mysimulator(QuantumSimulator):
+class MySimulator(QuantumSimulator):
     def __init__(self, simulator_name, noise_model):
         super().__init__()
         self.noise_model = noise_model

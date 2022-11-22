@@ -8,3 +8,5 @@ protobuf==3.20.1
 Pygments==2.11.2
 
 git+https://git@github.com/zapatacomputing/orquestra-manifest.git
+
+icecream

@@ -36,9 +36,9 @@ ic(wavefunction.amplitudes)
 
 from orquestra.quantum.api.estimation import EstimationTask
 from orquestra.quantum.estimation import calculate_exact_expectation_values
-from orquestra.quantum.operators import IsingOperator
+from orquestra.quantum.operators import PauliSum
 
-ising = IsingOperator("[Z0] + [Z1]")
+ising = PauliSum("Z0 + Z1")
 task = EstimationTask(ising, bell_circuit, None)
 evals = calculate_exact_expectation_values(sym_simulator, [task])
 ic(evals[0].values)

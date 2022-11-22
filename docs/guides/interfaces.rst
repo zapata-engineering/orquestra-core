@@ -51,7 +51,7 @@ Passing parameters
 
 You might wonder - what if I have two optimizers which take different sets of parameters? For example, you might want to use `L-BFGS-B <https://docs.scipy.org/doc/scipy/reference/optimize.minimize-lbfgsb.html#optimize-minimize-lbfgsb>`_ and `COBYLA <https://docs.scipy.org/doc/scipy/reference/optimize.minimize-cobyla.html#optimize-minimize-cobyla>`_ from `scipy`. This is how you would use them in scipy: 
 
-.. literalinclude:: ../examples/interfaces_guide.py
+.. literalinclude:: ../examples/guides/interfaces_guide.py
     :start-after: >> Guide code snippet: script showing scipy optimizers
     :lines: 2-3
     :language: python
@@ -61,7 +61,7 @@ You might wonder - what if I have two optimizers which take different sets of pa
 
 In the case of optimizers, Orquestra solves this problem by moving differing parameters into object initialization. Constructed optimizers provide `minimize` method that always accepts only `cost_function` and `initial_params` arguments. Once constructed, optimizers are fully interchangeable.
 
-.. literalinclude:: ../examples/interfaces_guide.py
+.. literalinclude:: ../examples/guides/interfaces_guide.py
     :start-after: >> Guide code snippet: script showing passing parameters for optimizers
     :lines: 2-8
     :language: python
@@ -77,7 +77,7 @@ Not every requirement can be expressed and enforced by using an abstract base cl
 
 In many cases, Orquestra captures additional requirements as so-called "contracts". They are specific test functions that take an instance of the particular interface as input and check if it meets a certain "contract". Each contract checks some basic expected behaviour typically described by its name, e.g.: `_validate_gradients_history_is_recorded_if_keep_history_is_true`. They are grouped in a list and can then be used in tests in the following way:
 
-.. literalinclude:: ../examples/interfaces_guide.py
+.. literalinclude:: ../examples/guides/interfaces_guide.py
     :start-after: >> Guide code snippet: script showing how to use contract tests
     :lines: 2-5
     :language: python

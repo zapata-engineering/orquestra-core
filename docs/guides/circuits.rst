@@ -38,7 +38,7 @@ Orquestra Core represents quantum circuits with the ``Circuit`` class, which con
 
 If you would like to follow along with this guide, please create a new python file and start it with the imports we'll need to ensure the rest of the code examples can be run:
 
-.. literalinclude:: ../examples/circuits_guide.py
+.. literalinclude:: ../examples/guides/circuits_guide.py
   :language: python
   :start-at: from orquestra.quantum.circuits import (
   :end-at: N_QUBITS =
@@ -64,7 +64,7 @@ For this QAOA problem, the first part of the circuit we need to create is the in
 
 We do this in our example using a `list comprehension <https://www.w3schools.com/python/python_lists_comprehension.asp>`_:
 
-.. literalinclude:: ../examples/circuits_guide.py
+.. literalinclude:: ../examples/guides/circuits_guide.py
   :language: python
   :start-at: state_prep_circ = Circuit(
   :end-at: state_prep_circ = Circuit(
@@ -78,7 +78,7 @@ Getting the unitary matrix of a circuit
 
 Now let's inspect some aspects of the unitary of the circuit, just as a sanity check to see that everything makes sense. We can convert our circuit to a unitary matrix with the ``.to_unitary()`` method. In this case, we should see that the shape of the unitary is an 8x8 matrix (because we have a circuit that operates on 3 qubits) and the type should be a numpy ndarray.
 
-.. literalinclude:: ../examples/circuits_guide.py
+.. literalinclude:: ../examples/guides/circuits_guide.py
   :language: python
   :start-at: unitary = state_prep_circ.to_unitary()
   :end-at: ic(type(unitary))
@@ -99,7 +99,7 @@ Inverting a circuit
 
 In some contexts, you may want to invert a circuit. For instance, if instead of :ref:`building a bell state <creating_basic_circuits>`, you want to perform a bell measurement. Or perhaps your circuit requires some `uncomputation <https://quantum.country/search#building-blocks-quantum-search>`_ that you don't want to build manually. To get the inverse of a circuit, just call the ``.inverse()`` method on it:
 
-.. literalinclude:: ../examples/circuits_guide.py
+.. literalinclude:: ../examples/guides/circuits_guide.py
   :language: python
   :start-at: = state_prep_circ.inverse()
   :end-at: ic(np.allclose(combined_unitary, np.eye(8)))
@@ -130,7 +130,7 @@ You don't have to build a whole circuit all at once! Let's see how to append ope
 
 We'll build up this circuit one connection at a time, using ``+=`` to append ``Circuit`` objects to the end of our existing ``problem_hamiltonian_circ``. For now, don't worry about what the ``beta`` variables mean in these circuits.
 
-.. literalinclude:: ../examples/circuits_guide.py
+.. literalinclude:: ../examples/guides/circuits_guide.py
   :language: python
   :start-at: problem_hamiltonian_circ = Circuit(
   :end-before: unitary = problem_hamiltonian_circ.to_unitary()
@@ -145,7 +145,7 @@ We'll cover information about the ``beta`` variables later when we talk about :r
 
 Let's get the :ref:`unitary matrix <getting_unitary>` again and see if it makes sense for this circuit
 
-.. literalinclude:: ../examples/circuits_guide.py
+.. literalinclude:: ../examples/guides/circuits_guide.py
   :language: python
   :start-at: unitary = problem_hamiltonian_circ.to_unitary()
   :end-at: ic(type(unitary))
@@ -173,7 +173,7 @@ Appending individual gates to circuits is also possible, as we'll see when we bu
 
 To build up the mixing circuit, we need to put parametrized RX gate on each of the qubits. We can do that with a for loop:
 
-.. literalinclude:: ../examples/circuits_guide.py
+.. literalinclude:: ../examples/guides/circuits_guide.py
   :language: python
   :start-at: mixing_circ = Circuit()
   :end-at: ic(mixing_circ)
@@ -190,7 +190,7 @@ Inspecting circuits and components
 
 Now that we have all three sub-circuits of our overall QAOA circuit, we can put them all together! We can do this by just adding them and storing the result in a new ``qaoa_circ`` variable
 
-.. literalinclude:: ../examples/circuits_guide.py
+.. literalinclude:: ../examples/guides/circuits_guide.py
   :language: python
   :start-at: qaoa_circ =
   :end-at: qaoa_circ =
@@ -205,7 +205,7 @@ The **operations property** is a list containing all the operations, and so it c
 
 Here are examples of how to get the above information about our ``qaoa_circ``
 
-.. literalinclude:: ../examples/circuits_guide.py
+.. literalinclude:: ../examples/guides/circuits_guide.py
   :language: python
   :start-at: ic(qaoa_circ)
   :end-at: ic(op.gate.name,
@@ -240,7 +240,7 @@ You can add a power of arbitrary non-symbolic gates to your circuit, as well as 
 
 **To raise a gate to a power**, you can use ``.power(exponent)`` with the ``exponent`` argument the power you want to raise the gate to. Here we verify that the Hadamard gate raised to the 2nd power is the same as the identity.
 
-.. literalinclude:: ../examples/circuits_guide.py
+.. literalinclude:: ../examples/guides/circuits_guide.py
   :language: python
   :start-at: ic(H.power(2).matrix == sympy.eye(2))
   :end-at: ic(H.power(2).matrix == sympy.eye(2))
@@ -249,7 +249,7 @@ Where the output is ``ic| H.power(2).matrix == sympy.eye(2): True``
 
 **To get the gate exponential** of a specific gate, you can use ``.exp``, shown in this example with ``.matrix`` to view what the matrix looks like. It is also generally a good idea to simplify the matrix when possible.
 
-.. literalinclude:: ../examples/circuits_guide.py
+.. literalinclude:: ../examples/guides/circuits_guide.py
   :language: python
   :start-at: ic(sympy.simplify(H.exp.matrix))
   :end-at: ic(sympy.simplify(H.exp.matrix))
@@ -285,7 +285,7 @@ Using gates with symbolic parameters
 
 In order to use symbols in symbolic gates, you need to ``import sympy`` and define some symbols at the top of the file. We recommend doing so just under where you defined ``N_QUBITS``. In our examples, we'll use the following symbols.
 
-.. literalinclude:: ../examples/circuits_guide.py
+.. literalinclude:: ../examples/guides/circuits_guide.py
   :language: python
   :start-at: beta = sympy.symbols
   :end-at: theta = sympy.Symbol
@@ -294,7 +294,7 @@ For more info on using sympy, please see the `sympy documentation <https://docs.
 
 As previously seen in the section on :ref:`appending circuits <appending_circuits>` gates can be added to ``Circuits`` with symbolic parameters in place of "standard" parameters. The syntax for parametric gates is ``GATE(angle)(qubit)``. Here is the example from the problem hamiltonian circuit from before
 
-.. literalinclude:: ../examples/circuits_guide.py
+.. literalinclude:: ../examples/guides/circuits_guide.py
   :language: python
   :start-at: problem_hamiltonian_circ = Circuit(
   :end-at: problem_hamiltonian_circ += Circuit([CNOT(1, 2)
@@ -303,7 +303,7 @@ Sympy returns a list of symbols to the ``beta`` and ``gamma`` variables above, s
 
 Note that when you call ``.to_unitary()`` on a Circuit where some parameters are free symbolic parameters, the resulting matrix is a sympy matrix rather than a numpy matrix, as seen in these lines and their output:
 
-.. literalinclude:: ../examples/circuits_guide.py
+.. literalinclude:: ../examples/guides/circuits_guide.py
   :language: python
   :start-at: unitary = problem_hamiltonian_circ.to_unitary()
   :end-at: ic(type(unitary))
@@ -321,7 +321,7 @@ When you use a symbolic parameter in a gate, that parameter is referred to as a 
 
 Before binding the parameters, lets see what free parameters we have in our ``qaoa_circ`` with ``free_symbols``.
 
-.. literalinclude:: ../examples/circuits_guide.py
+.. literalinclude:: ../examples/guides/circuits_guide.py
   :language: python
   :start-at: ic(qaoa_circ.free_symbols)
   :end-at: ic(qaoa_circ.free_symbols)
@@ -330,7 +330,7 @@ That should output ``ic| qaoa_circ.free_symbols: [beta_0, beta_1, beta_2, gamma_
 
 We can choose which parameters to bind in our circuit, so first let's just bind the beta parameters:
 
-.. literalinclude:: ../examples/circuits_guide.py
+.. literalinclude:: ../examples/guides/circuits_guide.py
   :language: python
   :start-at: bound_beta_circ =
   :end-at: ic(bound_beta_circ.free_symbols)
@@ -339,7 +339,7 @@ This should output ``ic| bound_beta_circ.free_symbols: [gamma_0, gamma_1, gamma_
 
 Now let's bind the gamma parameters and check what the :ref:`resulting unitary's <getting_unitary>` type is.
 
-.. literalinclude:: ../examples/circuits_guide.py
+.. literalinclude:: ../examples/guides/circuits_guide.py
   :language: python
   :start-at: bound_all_circ =
   :end-at: ic(type(unitary))
@@ -373,7 +373,7 @@ In our case, we want to combine a CNOT, an RZ, and a final CNOT gate into a sing
 
 Here's our ``ZZ`` example all together:
 
-.. literalinclude:: ../examples/circuits_guide.py
+.. literalinclude:: ../examples/guides/circuits_guide.py
   :language: python
   :start-at: custom_matrix = sympy.Matrix(
   :end-before: new_problem_ham_circ = Circuit(
@@ -383,7 +383,7 @@ Instantiating custom gates
 
 You can use a custom gate in the same way as you would use a standard gate. To show this working, let's re-create the problem hamiltonian circuit, but this time using our new, custom ``ZZ`` gate:
 
-.. literalinclude:: ../examples/circuits_guide.py
+.. literalinclude:: ../examples/guides/circuits_guide.py
   :language: python
   :start-at: new_problem_ham_circ =
   :end-at: ic(new_problem_ham_circ.to_unitary() ==
@@ -395,7 +395,7 @@ Getting custom gates from a circuit
 
 To get a list of all the custom gate definitions in a ``Circuit``, you can use the ``collect_custom_gate_definitions()`` method. Let's do that on our ``new_problem_ham_circ`` circuit:
 
-.. literalinclude:: ../examples/circuits_guide.py
+.. literalinclude:: ../examples/guides/circuits_guide.py
   :language: python
   :start-at: ic(new_problem_ham_circ.collect_custom_gate_definitions())
   :end-at: ic(new_problem_ham_circ.collect_custom_gate_definitions())
@@ -427,7 +427,7 @@ In order to create a ``DecompositionRule`` you need a ``predicate`` and a ``prod
 
 Your custom decomposition rule should implement the `DecompositionRule <https://github.com/zapatacomputing/orquestra-quantum/blob/main/src/orquestra/quantum/decompositions/_decomposition.py#L12=>`_ protocol. We can see an example of that in our QAOA example. Suppose we want to decompose our CNOT gate, here's what that ``CNOTDecompositionRule`` class would look like:
 
-.. literalinclude:: ../examples/circuits_guide.py
+.. literalinclude:: ../examples/guides/circuits_guide.py
   :language: python
   :start-at: class CNOTDecompositionRule:
   :end-at: return operation.gate.name == "CNOT"
@@ -439,7 +439,7 @@ In order to use a ``DecompositionRule``, use the ``decompose_operations()`` meth
 
 Let's apply our ``CNOTDecompositionRule`` to our problem hamiltonian circuit. Because the ``Circuit`` class can accept a list of operations as a constructor argument, we can do this in one line:
 
-.. literalinclude:: ../examples/circuits_guide.py
+.. literalinclude:: ../examples/guides/circuits_guide.py
   :language: python
   :start-at: decomposed_circ = Circuit(
   :end-at: ic(np.allclose(decomposed_

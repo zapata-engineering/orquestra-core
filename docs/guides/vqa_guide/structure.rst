@@ -36,7 +36,7 @@ The process for running a VQA algorithm can be outlined in 5 steps:
 
 Let's go through an example where a vqa is used to solve the maxcut problem. See the :ref:`qaoa tutorial <qaoa_tutorial>` for a more hands-on example how to use VQAs with Orquestra Core
 
-.. literalinclude:: ../../examples/qaoa_maxcut.py
+.. literalinclude:: ../../examples/tutorials/qaoa_maxcut.py
     :language: python
     :start-at: def solve_maxcut_qaoa(test_graph):
     :end-at: return most_common_string

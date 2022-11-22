@@ -38,7 +38,7 @@ The `Quantum Approximate Optimization Algorithm <https://www.mustythoughts.com/q
 
 Let's start by creating a new python file called ``qaoa_maxcut.py``. The first thing we'll do is import all the necessary packages:
 
-.. literalinclude:: ../examples/qaoa_maxcut.py
+.. literalinclude:: ../examples/tutorials/qaoa_maxcut.py
     :language: python
     :start-at: from collections import Counter
     :end-at: from icecream import ic
@@ -49,7 +49,7 @@ Let's start by creating a new python file called ``qaoa_maxcut.py``. The first t
 
 Now that the imports are out of the way, we can start by making a function that defines our graph. We use the ``networkx`` / ``nx`` package for this:
 
-.. literalinclude:: ../examples/qaoa_maxcut.py
+.. literalinclude:: ../examples/tutorials/qaoa_maxcut.py
     :language: python
     :start-at: def create_harder_graph():
     :end-at: # YOUR CODE HERE
@@ -66,14 +66,14 @@ Here's the solution to that little exercise if you want it:
 .. hint::
     :class: dropdown
 
-    .. literalinclude:: ../examples/qaoa_maxcut.py
+    .. literalinclude:: ../examples/tutorials/qaoa_maxcut.py
         :language: python
         :start-at: graph.add_edge(0, 4, weight=10)
         :end-at: return graph
 
 Now let's write a function that accepts our graph object and uses QAOA to try to solve it. The first step is to get a description of the problem in a language our quantum computer can understand, we call this the Hamiltonian. We also need a quantum circuit we can train using QAOA, this is called our ansatz.
 
-.. literalinclude:: ../examples/qaoa_maxcut.py
+.. literalinclude:: ../examples/tutorials/qaoa_maxcut.py
     :language: python
     :start-at: def solve_maxcut_qaoa(test_graph):
     :end-at: ansatz = QAOAFarhiAnsatz(2, cost_hamiltonian=hamiltonian)
@@ -82,14 +82,14 @@ Notice we didn't have to build up the Hamiltonian or ansatz ourselves, Orquestra
 
 Next, we need to define how the QAOA will estimate expectation values, and create a set of tasks to do that:
 
-.. literalinclude:: ../examples/qaoa_maxcut.py
+.. literalinclude:: ../examples/tutorials/qaoa_maxcut.py
     :language: python
     :start-at: estimation_method = calculate_exact_expectation_values
     :end-at:     )
 
 Now we can select which backend we want to run on and which optimizer we want to use:
 
-.. literalinclude:: ../examples/qaoa_maxcut.py
+.. literalinclude:: ../examples/tutorials/qaoa_maxcut.py
     :language: python
     :start-at: backend = 
     :end-at: optimizer =
@@ -103,7 +103,7 @@ If you want to use a different optimizer, you can certainly `do that <https://gi
 
 The last steps before running the circuit are to minimize the cost of the parameters for the circuit and get runnable circuit:
 
-.. literalinclude:: ../examples/qaoa_maxcut.py
+.. literalinclude:: ../examples/tutorials/qaoa_maxcut.py
     :language: python
     :start-at: cost_function = 
     :end-at: circuit = ansatz.get_executable_circuit(opt_results.opt_params)
@@ -115,14 +115,14 @@ Now that we have those parameters, we can actually run the circuit! Write a line
 
     That line should look like this:
 
-    .. literalinclude:: ../examples/qaoa_maxcut.py
+    .. literalinclude:: ../examples/tutorials/qaoa_maxcut.py
         :language: python
         :start-at: measurements = 
         :end-at: measurements = 
 
 Finally, we can get the most common result from our runs and return that:
 
-.. literalinclude:: ../examples/qaoa_maxcut.py
+.. literalinclude:: ../examples/tutorials/qaoa_maxcut.py
     :language: python
     :start-at: counter = Counter(measurements.bitstrings)
     :end-at: return most_common_string
@@ -132,7 +132,7 @@ Finally, at the end of the file, put a couple lines to call the functions we mad
 .. hint::
     :class: dropdown
 
-    .. literalinclude:: ../examples/qaoa_maxcut.py
+    .. literalinclude:: ../examples/tutorials/qaoa_maxcut.py
         :language: python
         :start-at: test_graph = 
         :end-at: ic(
@@ -148,7 +148,7 @@ If you want to see all of the code put together, here it is:
 .. hint::
     :class: dropdown
 
-    .. literalinclude:: ../examples/qaoa_maxcut.py
+    .. literalinclude:: ../examples/tutorials/qaoa_maxcut.py
         :language: python
 
 And there we have it! Instead of having to do that optimization ourselves, we made a quick Orquestra program to do it for us. Now how to tell your boss in your dream you solved it...

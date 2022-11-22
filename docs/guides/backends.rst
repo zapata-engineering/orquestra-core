@@ -19,7 +19,7 @@ Two types of backends
 
 Because ``QuantumBackend``\ s connect to a cloud provider to run remote circuits, it is necessary to specify which device you want to connect to. For example, the ``QiskitBackend`` takes in a ``device_name`` string:
 
-.. literalinclude:: ../examples/backends_guide.py
+.. literalinclude:: ../examples/guides/backends_guide.py
   :start-after: # QuantumBackend creation example
   :end-before: # End QuantumBackend creation example
 
@@ -27,7 +27,7 @@ Because ``QuantumBackend``\ s connect to a cloud provider to run remote circuits
 
 ``QuantumSimulator`` is a subclass of ``QuantumBackend`` with added functionality that only simulators can provide, such as getting the wavefunction of a circuit and getting exact expectation values. Unlike ``QuantumBackend``\ s, ``QuantumSimulator``\ s usually do not require a ``device_name`` parameter. One exception to this rule is the ``QiskitSimulator``, which has :ref:`multiple options <integrated_backends>`:
 
-.. literalinclude:: ../examples/backends_guide.py
+.. literalinclude:: ../examples/guides/backends_guide.py
   :start-after: # QuantumSimulator creation example
   :end-before: # End QuantumSimulator creation example
 
@@ -42,7 +42,7 @@ In order to use quantum hardware, the user must use the backend's authentication
 
 ``QuantumSimulator``\ s run in your own environment and therefore can be used without needing authentication credentials.
 
-.. literalinclude:: ../examples/backends_guide.py
+.. literalinclude:: ../examples/guides/backends_guide.py
   :start-after: # QuantumBackend creation example
   :end-before: # End QuantumBackend creation example
 
@@ -51,19 +51,19 @@ General Backend Methods
 
 After intializing the backend we can send the ``Circuit`` and number of repetitions to the backend and read the measurement. For more information on creating circuits to send to a backend, refer to the :ref:`Circuits Guide <circuits_guide>`. For a single circuit, that looks like this:
 
-.. literalinclude:: ../examples/backends_guide.py
+.. literalinclude:: ../examples/guides/backends_guide.py
   :start-after: # QuantumBackend run and measure circuit
   :end-before: # End QuantumBackend run and measure circuit
 
 If you want to run multiple circuits with different number of samples, the code needs to be modified as follows:
 
-.. literalinclude:: ../examples/backends_guide.py
+.. literalinclude:: ../examples/guides/backends_guide.py
   :start-after: # QuantumBackend run and measure circuitset
   :end-before: # End QuantumBackend run and measure circuitset
 
 ``QuantumBackend`` can also provide the distribution of the outcome measurement. It can be extracted using the following approach:
 
-.. literalinclude:: ../examples/backends_guide.py
+.. literalinclude:: ../examples/guides/backends_guide.py
   :start-after: # Quantumbackend measurement distribution
   :end-before: # End Quantumbackend measurement distribution
 
@@ -74,7 +74,7 @@ Simulator-specific methods
 
 ``QuantumSimulator`` can be used to extract a wave function and expectation value for a given circuit (or circuit and operator). Below is an example of extracting these values using a ``QuantumSimulator`` called ``CirqSimulator``:
 
-.. literalinclude:: ../examples/backends_guide.py
+.. literalinclude:: ../examples/guides/backends_guide.py
   :start-after: # Quantumsimulator examples
   :end-before: # End Quantumsimulator examples
 
@@ -99,7 +99,7 @@ When ``run_circuit_and_measure`` is called, the tracking backend stores the ``da
 
 To create a ``MeasurementTrackingBackend`` it must be initialized with a backend to be wrapped around, a name for the file you are storing the data in, and an optional boolean indicating whether or not the individual bitstrings should be saved (defaults to `False`)
 
-.. literalinclude:: ../examples/backends_guide.py
+.. literalinclude:: ../examples/guides/backends_guide.py
   :start-after: # TrackingBackend creation example
   :end-before: # End TrackingBackend creation example
 
@@ -146,7 +146,7 @@ The integrations Orquestra Core has with :ref:`many other frameworks <orq_core_s
 
 There are slightly different ways to import the conversions from the integrations for different frameworks, so here's examples for all of them:
 
-.. literalinclude:: ../examples/backends_guide.py
+.. literalinclude:: ../examples/guides/backends_guide.py
   :start-after: # Importng and Exporting with different frameworks
   :end-before: # end importing/exporting examples
 
@@ -160,7 +160,7 @@ We have simplified the process of integrating any simulator into Orquestra Core.
 
 Here is an example of a (fake) simulator integrated using this process:
 
-.. literalinclude:: ../examples/backends_guide.py
+.. literalinclude:: ../examples/guides/backends_guide.py
   :start-after: # Inherit QuantumSimulator
   :end-before: # End Inherit QuantumSimulator
 

@@ -75,7 +75,7 @@ Estimation method
 
 Once we have our :class:`EstimationTask <orquestra.quantum.api.estimation.EstimationTask>` defined, we can think about what algorithm for estimation to use. These algorithms are expressed using :class:`EstimateExpectationValues <orquestra.quantum.api.estimation.EstimateExpectationValues>` interface. It is implemented as Python Protocol (you can read more about it in :ref:`interfaces guide <interfaces_guide>`) and it's fairly simple:
 
-.. literalinclude:: ../../examples/estimators_guide.py
+.. literalinclude:: ../../examples/guides/estimators_guide.py
     :start-after: >> Tutorial code snippet: estimation protocol
     :lines: 2-6
     :language: python
@@ -121,7 +121,7 @@ In Orquestra Core we have implemented the following preprocessors:
 If you look closely, you might notice that some of these methods do not actually follow the preprocessor interface. Let's take a look at `allocate_shots_proportionally`. It takes two things as input - list of estimation tasks and total number of shots. So why do we say it's kindof a preprocessor? Cause it's easy to make it into a preprocessor using `partial`:
 
 
-.. literalinclude:: ../../examples/estimators_guide.py
+.. literalinclude:: ../../examples/guides/estimators_guide.py
     :start-after: >> Tutorial code snippet: script showing how to use partials
     :lines: 2-4
     :language: python
@@ -150,7 +150,7 @@ Let's see how this plays out in an actual example. For example, let's say we wan
 
 Here's a snippet of code which shows how to do this:
 
-.. literalinclude:: ../../examples/estimators_guide.py
+.. literalinclude:: ../../examples/guides/estimators_guide.py
     :start-after: >> Tutorial code snippet: script for running VQE
     :lines: 16-40
     :language: python
@@ -159,7 +159,7 @@ Here's a snippet of code which shows how to do this:
 And if you would like to run and play with this code, here is the whole script:
 
 
-.. literalinclude:: ../../examples/estimators_guide.py
+.. literalinclude:: ../../examples/guides/estimators_guide.py
     :start-after: >> Tutorial code snippet: script for running VQE
     :lines: 2-46
     :language: python

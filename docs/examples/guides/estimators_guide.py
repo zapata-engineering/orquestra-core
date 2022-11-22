@@ -1,3 +1,7 @@
+from typing import Protocol, List
+from orquestra.quantum.api.backend import QuantumBackend
+from orquestra.quantum.api.estimation import EstimationTask, ExpectationValues
+
 # >> Tutorial code snippet: estimation protocol
 # >> Start
 class EstimateExpectationValues(Protocol):
@@ -8,12 +12,15 @@ class EstimateExpectationValues(Protocol):
 # >> End
 
 
-
 # >> Tutorial code snippet: script showing how to use partials
 # >> Start
 from functools import partial
+
 from orquestra.vqa.shot_allocation import allocate_shots_proportionally
-shot_allocation_preprocessor = partial(allocate_shots_proportionally, total_n_shots=50000)
+
+shot_allocation_preprocessor = partial(
+    allocate_shots_proportionally, total_n_shots=50000
+)
 # >> End
 
 
@@ -47,7 +54,7 @@ shot_allocation = partial(allocate_shots_proportionally, total_n_shots=50000)
 # Order matters - context selection needs to happen after the grouping!
 estimation_preprocessors = [
     group_greedily,
-    perform_context_selection, # This is required for VQE measurements to be done in the right way
+    perform_context_selection,  # This is required for VQE measurements to be done in the right way
     shot_allocation,
 ]
 

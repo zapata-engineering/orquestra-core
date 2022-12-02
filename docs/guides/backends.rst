@@ -156,7 +156,7 @@ If you want to use some specific features from a particular framework (e.g. draw
 How to integrate your own backend
 =================================
 
-We have simplified the process of integrating any hardware which runs quantum circuits into Orquestra Core. First you need to create a function that can translate gates between your library and `Orquestra's gates <https://github.com/zapatacomputing/orquestra-quantum/blob/main/src/orquestra/quantum/circuits/_builtin_gates.py>`_. Then create a class method that inherits from ``QuantumBackend`` and overrides the needed abstract methods (like ``run_circuit_and_measure``). In order for integration to work properly, the signature of all the methods needs to be exactly the same as in the abstract class. If your simulator requires some extra arguments (e.g. whether to use a noise model), please provide it in the ``__init__`` method.
+We have simplified the process of integrating any hardware or simulator which runs quantum circuits into Orquestra Core. First you need to create a function that can translate gates between your library and `Orquestra's gates <https://github.com/zapatacomputing/orquestra-quantum/blob/main/src/orquestra/quantum/circuits/_builtin_gates.py>`_. Then create a class method that inherits from ``QuantumBackend`` and overrides the needed abstract methods (like ``run_circuit_and_measure``). In order for integration to work properly, the signature of all the methods needs to be exactly the same as in the abstract class. If your simulator requires some extra arguments (e.g. whether to use a noise model), please provide it in the ``__init__`` method.
 
 Here is an example of a (fake) simulator integrated using this process:
 

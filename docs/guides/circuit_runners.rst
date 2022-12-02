@@ -10,7 +10,7 @@ Circuit runners are objects used to run :ref:`Circuits <circuits_guide>` in Orqu
 General Circuit Runner Information
 ==================================
 
-The function of a circuit runner is to send instructions to quantum hardware or to a simulator. Since there are various types of quantum hardware and simulators, different sets of instructions needs to be written and it can become complex. The :class:`CircuitRunner <orquestra.quantum.api.circuit_runner.CircuitRunner>` interface is an abstraction of object capable of running quantum circuit. For simulators capable of computing whole wavefunction, even richer abstraction :class:`WavefunctionSimulator <orquestra.quantum.api.wavefunction_simulator.WavefunctionSimulator>` is available. Different implementations of :class:`CircuitRunner` are (on the interface level) interchangeable, and thus the user can write their code in a hardware/simulator independent way. Therefore, executing code on various devices becomes easier and more manageable.
+The purpose of a circuit runner is to send instructions to quantum hardware or to a simulator. Since there are various types of quantum hardware and simulators, different sets of instructions need to be written and it can become complex. The :class:`CircuitRunner <orquestra.quantum.api.circuit_runner.CircuitRunner>` interface is an abstraction of object capable of running quantum circuits. For simulators capable of computing whole wavefunction, even richer abstraction :class:`WavefunctionSimulator <orquestra.quantum.api.wavefunction_simulator.WavefunctionSimulator>` is available. Different implementations of :class:`CircuitRunner` are (on the interface level) interchangeable, and thus the user can write their code in a hardware/simulator independent way. Therefore, executing code on various devices becomes easier and more manageable.
 
 CircuitRunner and WavefunctionSimulator
 ---------------------------------------
@@ -44,7 +44,7 @@ We will demonstrate usage of ``CircuitRunner`` and ``WavefunctionSimulator`` on 
   :start-after: # IBMQ runner creation example
   :end-before: # End IBMQ runner creation example
 
-For an example of direct construction of `QiskitRunner`, we will just wrap an Aer backend. In a similar fashion, one can construct a ``WavefunctionSimulator``, provided that the passed backend supports computing state vector.
+For an example of direct construction of `QiskitRunner`, we will just wrap an `Aer backend <https://qiskit.org/documentation/tutorials/simulators/1_aer_provider.html#The-Aer-Simulator>`. In a similar fashion, one can construct a ``WavefunctionSimulator``, provided that the passed backend supports computing state vector.
 
 .. literalinclude:: ../examples/circuit_runners_guide.py
   :start-after: # Example Qiskit options
@@ -83,7 +83,7 @@ WavefunctionSimulator-specific methods
   :start-after: # WavefunctionSimulator examples
   :end-before: # End WavefunctionSimulator examples
 
-**Noise Models** can be used on certain simulators (like Qiskit and QSim) to help evaluate a circuit's performance under noisy conditions. For more details how to use that, please refer to docs for particular simulator.
+**Noise Models** can be used on certain simulators (like Qiskit and QSim) to help evaluate a circuit's performance under noisy conditions. For more details how to use that feature, please refer to docs for particular simulator. Note that currently Orquestra does not provide a single abstraction of noise model compatible across multiple runners/simulators.
 
 Zapata's circuit runners
 ========================
@@ -91,7 +91,7 @@ Zapata's circuit runners
 SymbolicSimulator
 -----------------
 
-Zapata's :class:`SymbolicSimulator <orquestra.quantum.runners.symbolic_simulator.SymbolicSimulator>` is a type of :ref:`quantum simulator <wavefunction_simulators>` that's built specifically to allow for the evaluation of circuits with :ref:`symbolic gates <symbolic_gates>`. Because there is extra overhead to allow for this broader type of evaluation, :class:`SymbolicSimulator <orquestra.quantum.runners.symbolic_simulator.SymbolicSimulator>` is not the most performant simulator, but it can be useful for deeply understanding small circuits. Additionally, it doesn't require any extra dependencies (apart from ``orquestra-quantum``), making it useful for testing purposes.
+Zapata's :class:`SymbolicSimulator <orquestra.quantum.runners.symbolic_simulator.SymbolicSimulator>` is a type of :ref:`quantum simulator <wavefunction_simulators>` that's built specifically to allow for the evaluation of circuits with :ref:`symbolic gates <symbolic_gates>`. Because there is extra overhead to allow for this broader type of evaluation, :class:`SymbolicSimulator <orquestra.quantum.runners.symbolic_simulator.SymbolicSimulator>` is not the most performant simulator, but it can be useful for deeply understanding small circuits. Additionally, it doesn't require any extra dependencies (apart from ``orquestra-quantum``), making it useful for testing purposes and as a reference implementation of the ``WavefunctionSimulator``.
 
 The :class:`SymbolicSimulator <orquestra.quantum.runners.symbolic_simulator.SymbolicSimulator>` can be used the same way any other simulator can be. To see more usage please refer to the :ref:`section in this guide on various methods <circuit_runner_methods>` or to the :doc:`API documentation </api/orquestra/quantum/api/wavefunction_simulator/index>`
 
@@ -144,7 +144,7 @@ Simulators
 Conversions to other frameworks
 ===============================
 
-The integrations Orquestra Core has with :ref:`many other frameworks <orq_core_structure>` not only allows for running on Orquestra-supported backends, but also allows for converting circuits to and from those frameworks. This process is very fast so converting to and from different frameworks can be done multiple times with negligible overhead.
+The integrations Orquestra Core has with :ref:`many other frameworks <orq_core_structure>` not only allows for running on Orquestra-supported backends, but also allows for converting circuits to and from those frameworks.
 
 There are slightly different ways to import the conversions from the integrations for different frameworks, so here's examples for all of them:
 
@@ -176,7 +176,7 @@ Here is an example of a (fake) simulator integrated using this process:
 Testing the Circuit Runners
 ---------------------------
 
-One of our goals with the ``CircuitRunner``\ s and ``WavefunctionSimulator``\ s was to make sure that all implementations of a given protocol behave in a uniform way. In order to ensure that, we have developed a common suite of tests which all runners and simulators need to pass. Those tests are implemented in the form of *contracts*, i.e. collections of boolean functions accepting runner as a single argument. A runner (resp. wavefunction simulator) is said to fulfill given contract iff for this runner it evaluates to ``True``. Contracts can be used to effortlessly construct tests for your new runner, but they have additional purpose. They document properties of a given protocols that cannot be captured via type system. For instance, suppose you run a 5-qubit circuit using some runner.  Independently of runner used, you expected returned measurements ot have samples of length 5, right? This requirement is uncapturable by the type system, but there's' a contract that ensures that.
+One of our goals with the ``CircuitRunner``\ s and ``WavefunctionSimulator``\ s was to make sure that all implementations of a given protocol behave in a uniform way. In order to ensure that, we have developed a common suite of tests which all runners and simulators need to pass. Those tests are implemented in the form of *contracts*, i.e. collections of boolean functions accepting runner as a single argument. A runner (or wavefunction simulator) is said to fulfill given contract iff for this runner it evaluates to ``True``. Contracts can be used to effortlessly construct tests for your new runner, but they have additional purpose. They document properties of a given protocols that cannot be captured via type system. For instance, suppose you run a 5-qubit circuit using some runner.  Independently of runner used, you expected returned measurements ot have samples of length 5, right? This requirement is uncapturable by the type system, but there's' a contract that ensures that.
 
 .. note::
 

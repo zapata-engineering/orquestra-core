@@ -51,8 +51,8 @@ For an example of direct construction of `QiskitRunner`, we will just wrap an Ae
   :end-before: # End WavefunctionSimulator creation example
 
 
-General Backend Methods
------------------------
+General CircuitRunner methods
+-----------------------------
 
 Once the initialization is done, we can send the ``Circuit`` and number of repetitions to the runner and read the measurements. For more information on creating circuits to send to a circuit runner, refer to the :ref:`Circuits Guide <circuits_guide>`. For a single circuit, that looks like this:
 
@@ -74,8 +74,8 @@ If you want to run a batch of multiple circuits, possibly with different number 
 
 Notice that in all instances, ``CircuitRunner`` automatically adds the measurement operators to the circuit. Therefore, the user is not required to include them in the circuit.
 
-Simulator-specific methods
---------------------------
+WavefunctionSimulator-specific methods
+--------------------------------------
 
 ``WavefunctionSimulator`` can be used to extract a wave function and expectation value for a given circuit (or circuit and operator). Below is an example of extracting these values using a ``WavefunctionSimulator`` called :class:`CirqSimulator <orquestra.integrations.cirq.simulator.CirqSimulator>`:
 

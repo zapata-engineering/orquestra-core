@@ -67,7 +67,7 @@ class TestQCBM:
         opt_results = optimizer.minimize(cost_function, initial_params, True)
 
         actual_distribution = simulator.get_measurement_outcome_distribution(
-            qcbm_ansatz.get_executable_circuit(opt_results.opt_params)
+            qcbm_ansatz.get_executable_circuit(opt_results.opt_params), n_samples=None
         )
 
         size_of_bar_and_stripes = len(target_distribution.distribution_dict)

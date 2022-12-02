@@ -14,7 +14,7 @@ from openfermion import (
 )
 from openfermion.hamiltonians import fermi_hubbard
 from orquestra.integrations.cirq.conversions import from_openfermion
-from orquestra.integrations.qulacs import QulacsSimulator
+from orquestra.integrations.qulacs.simulator import QulacsSimulator
 from orquestra.opt.optimizers import ScipyOptimizer
 from orquestra.quantum.estimation import estimate_expectation_values_by_averaging
 from orquestra.quantum.operators import PauliSum

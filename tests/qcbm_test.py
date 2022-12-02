@@ -8,10 +8,10 @@ from typing import Callable, cast
 
 import numpy as np
 import pytest
-from orquestra.integrations.qulacs import QulacsSimulator
+from orquestra.integrations.qulacs.simulator import QulacsSimulator
 from orquestra.opt.api import Optimizer
 from orquestra.opt.optimizers import CMAESOptimizer
-from orquestra.quantum.api.backend import QuantumSimulator
+from orquestra.quantum.api.wavefunction_simulator import WavefunctionSimulator
 from orquestra.quantum.distributions import (
     MeasurementOutcomeDistribution,
     compute_clipped_negative_log_likelihood,
@@ -25,7 +25,7 @@ from orquestra.vqa.cost_function.qcbm_cost_function import create_QCBM_cost_func
 
 class TestQCBM:
     @pytest.fixture
-    def backend(self):
+    def simulator(self):
         return QulacsSimulator()
 
     @pytest.fixture
@@ -45,14 +45,14 @@ class TestQCBM:
     def test_qcbm_ansatz_optimizes_properly(
         self,
         qcbm_ansatz: QCBMAnsatz,
-        backend: QuantumSimulator,
+        simulator: WavefunctionSimulator,
         target_distribution: MeasurementOutcomeDistribution,
         optimizer: Optimizer,
     ):
 
         cost_function = create_QCBM_cost_function(
             ansatz=qcbm_ansatz,
-            backend=backend,
+            runner=simulator,
             n_samples=1000,
             distance_measure=cast(
                 Callable[..., Number], compute_clipped_negative_log_likelihood
@@ -66,7 +66,7 @@ class TestQCBM:
 
         opt_results = optimizer.minimize(cost_function, initial_params, True)
 
-        actual_distribution = backend.get_measurement_outcome_distribution(
+        actual_distribution = simulator.get_measurement_outcome_distribution(
             qcbm_ansatz.get_executable_circuit(opt_results.opt_params)
         )
 

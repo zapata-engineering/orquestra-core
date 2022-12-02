@@ -1,21 +1,19 @@
 ################################################################################
 # © Copyright 2022 Zapata Computing Inc.
 ################################################################################
-
+import numpy as np
+import sympy
+from icecream import ic
 from orquestra.quantum.circuits import (
-    Circuit,
-    H,
-    RZ,
     CNOT,
-    RX,
     CZ,
+    RX,
+    RZ,
+    Circuit,
     CustomGateDefinition,
+    H,
 )
 from orquestra.quantum.decompositions import decompose_operations
-import sympy
-import numpy as np
-
-from icecream import ic
 
 N_QUBITS = 3
 

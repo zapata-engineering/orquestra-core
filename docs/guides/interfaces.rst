@@ -38,8 +38,8 @@ However, using abstract classes requires using inheritance, which sometimes is u
 
 Orquestra provides the following interfaces:
 
-* :class:`QuantumBackend <orquestra.quantum.api.QuantumBackend>` (:ref:`guide <backends_guide>`)
-* :class:`QuantumSimulator <orquestra.quantum.api.backend.QuantumSimulator>` (:ref:`guide <backends_guide>`)
+* :class:`CircuitRunner <orquestra.quantum.api.circuit_runner.CircuitRunner>` (:ref:`guide <backends_guide>`)
+* :class:`WavefunctionSimulator <orquestra.quantum.api.wavefunction_simulator.WavefunctionSimulator>` (:ref:`guide <backends_guide>`)
 * :class:`Optimizer <orquestra.opt.api.Optimizer>` (:ref:`guide <optimizers_guide>`)
 * :class:`CostFunction <orquestra.opt.api.CostFunction>` (:ref:`guide <cost_function_guide>`)
 * :class:`Ansatz <orquestra.vqa.api.ansatz.Ansatz>` (:ref:`guide <ansatzes_guide>`)
@@ -59,7 +59,7 @@ You might wonder - what if I have two optimizers which take different sets of pa
 
 `L-BFGS-B` doesn't support argument called `constraints` and `COBYLA` doesn't support `bounds`. So how can you make them fit the same interface, if they have different inputs?
 
-In the case of optimizers, Orquestra solves this problem by moving differing parameters into object initialization. Constructed optimizers provide `minimize` method that always accepts only `cost_function` and `initial_params` arguments. Once constructed, optimizers are fully interchangeable.
+In the case of optimizers, Orquestra solves this problem by moving differing parameters into object initialization. Constructed optimizers provide :meth:`minimize <orquestra.opt.api.Optimizer.minimize>` method that always accepts only :func:`create_cost_function <orquestra.vqa.cost_function.cost_function.create_cost_function>` and `initial_params` arguments. Once constructed, optimizers are fully interchangeable.
 
 .. literalinclude:: ../examples/interfaces_guide.py
     :start-after: >> Guide code snippet: script showing passing parameters for optimizers

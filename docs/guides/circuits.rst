@@ -8,13 +8,13 @@ Circuits guide
 What this guide covers
 ======================
 
-This guide is an in-depth dive into the ``Circuit`` class within Orquestra Core. In it, we'll cover advanced capabilities that can be performed using ``Circuit``\ s like using symbolic gates, creating your own gates, and building decomposition rules. If you're looking for a place to get started, please see :ref:`the basics tutorial <creating_basic_circuits>` before diving into the advanced capabilities here.
+This guide is an in-depth dive into the :class:`Circuit <orquestra.quantum.circuits.Circuit>` class within Orquestra Core. In it, we'll cover advanced capabilities that can be performed using :class:`Circuit <orquestra.quantum.circuits.Circuit>` s like using symbolic gates, creating your own gates, and building decomposition rules. If you're looking for a place to get started, please see :ref:`the basics tutorial <creating_basic_circuits>` before diving into the advanced capabilities here.
 
 
 The problem
 ===========
 
-In this guide we will use the example of creating a QAOA circuit to solve a 3-node, fully-connected maxcut problem as motivation for showcasing the capabilities of ``Circuit``\ s in Orquestra Core. Our :ref:`Basic QAOA Tutorial <qaoa>` walks through using Orquestra Core's built-in QAOA functionality to solve the problem from circuit creation through to a final result. Here, we'll do a smaller example and build the circuit we can use to solve the problem later.
+In this guide we will use the example of creating a QAOA circuit to solve a 3-node, fully-connected maxcut problem as motivation for showcasing the capabilities of :class:`Circuit <orquestra.quantum.circuits.Circuit>` s in Orquestra Core. Our :ref:`Basic QAOA Tutorial <qaoa>` walks through using Orquestra Core's built-in QAOA functionality to solve the problem from circuit creation through to a final result. Here, we'll do a smaller example and build the circuit we can use to solve the problem later.
 
 Here is the overall circuit we want to build:
 
@@ -34,7 +34,7 @@ General ``Circuit`` information
 Circuit architecture
 --------------------
 
-Orquestra Core represents quantum circuits with the ``Circuit`` class, which contains multiple ``Operation``\ s. The most common operation type is a ``GateOperation``, which we'll focus on here, although in some circumstances :ref:`wavefunction operations <wavefunction_operations>` can be useful as well.
+Orquestra Core represents quantum circuits with the :class:`Circuit <orquestra.quantum.circuits.Circuit>` class, which contains multiple ``Operation``\ s. The most common operation type is a ``GateOperation``, which we'll focus on here, although in some circumstances :ref:`wavefunction operations <wavefunction_operations>` can be useful as well.
 
 If you would like to follow along with this guide, please create a new python file and start it with the imports we'll need to ensure the rest of the code examples can be run:
 
@@ -76,7 +76,7 @@ We could have also explicitly put a Hadamard gate on each qubit index too, as we
 Getting the unitary matrix of a circuit
 ---------------------------------------
 
-Now let's inspect some aspects of the unitary of the circuit, just as a sanity check to see that everything makes sense. We can convert our circuit to a unitary matrix with the ``.to_unitary()`` method. In this case, we should see that the shape of the unitary is an 8x8 matrix (because we have a circuit that operates on 3 qubits) and the type should be a numpy ndarray.
+Now let's inspect some aspects of the unitary of the circuit, just as a sanity check to see that everything makes sense. We can convert our circuit to a unitary matrix with the :meth:`to_unitary() <orquestra.quantum.circuits.Circuit.to_unitary>` method. In this case, we should see that the shape of the unitary is an 8x8 matrix (because we have a circuit that operates on 3 qubits) and the type should be a numpy ndarray.
 
 .. literalinclude:: ../examples/circuits_guide.py
   :language: python
@@ -97,7 +97,7 @@ The output we get from those two ``icecream`` statements should be
 Inverting a circuit
 -------------------
 
-In some contexts, you may want to invert a circuit. For instance, if instead of :ref:`building a bell state <creating_basic_circuits>`, you want to perform a bell measurement. Or perhaps your circuit requires some `uncomputation <https://quantum.country/search#building-blocks-quantum-search>`_ that you don't want to build manually. To get the inverse of a circuit, just call the ``.inverse()`` method on it:
+In some contexts, you may want to invert a circuit. For instance, if instead of :ref:`building a bell state <creating_basic_circuits>`, you want to perform a bell measurement. Or perhaps your circuit requires some `uncomputation <https://quantum.country/search#building-blocks-quantum-search>`_ that you don't want to build manually. To get the inverse of a circuit, just call the :meth:`.inverse() <orquestra.quantum.circuits.Circuit.inverse>` method on it:
 
 .. literalinclude:: ../examples/circuits_guide.py
   :language: python
@@ -128,7 +128,7 @@ You don't have to build a whole circuit all at once! Let's see how to append ope
   q_2: ─────────────────────────┤ X ├┤ Rz($\beta$) ├┤ X ├┤ X ├┤ Rz($\beta$) ├┤ X ├
                                 └───┘└─────────────┘└───┘└───┘└─────────────┘└───┘
 
-We'll build up this circuit one connection at a time, using ``+=`` to append ``Circuit`` objects to the end of our existing ``problem_hamiltonian_circ``. For now, don't worry about what the ``beta`` variables mean in these circuits.
+We'll build up this circuit one connection at a time, using ``+=`` to append :class:`Circuit <orquestra.quantum.circuits.Circuit>` objects to the end of our existing ``problem_hamiltonian_circ``. For now, don't worry about what the ``beta`` variables mean in these circuits.
 
 .. literalinclude:: ../examples/circuits_guide.py
   :language: python
@@ -179,7 +179,7 @@ To build up the mixing circuit, we need to put parametrized RX gate on each of t
   :end-at: ic(mixing_circ)
 
 .. note::
-  ``orquestra-quantum`` comes with a `built-in utility function <https://github.com/zapatacomputing/orquestra-quantum/blob/main/src/orquestra/quantum/circuits/_generators.py#L14=>`_ that puts down a layer of the same single-qubit gate acting on all qubits.
+  ``orquestra-quantum`` comes with a `built-in utility function <https://github.com/zapatacomputing/orquestra-quantum/blob/main/src/orquestra/quantum/circuits/_generators.py>`_ that puts down a layer of the same single-qubit gate acting on all qubits.
 
 The output of that looks like ``mixing_circ: Circuit(operations=[RX(gamma_0)(0), RX(gamma_1)(1), RX(gamma_2)(2)], n_qubits=3)``. Again, for now don't worry about the ``gamma`` parameters in there, that will be addressed in the :ref:`symbolic gates <symbolic_gates>` section.
 
@@ -260,7 +260,7 @@ Where the output is ``ic| H.power(2).matrix == sympy.eye(2): True``
 Gate operations vs wave function operations
 -------------------------------------------
 
-While gate operations perform the familiar gates on the qubits of a circuit, `wave function operations <https://github.com/zapatacomputing/orquestra-quantum/blob/main/src/orquestra/quantum/circuits/_wavefunction_operations.py>`_ can operate on the wave function directly. This is convenient if the operation you want to perform is not easily expressible using gates or is not unitary at all. It can also be used to quickly prepare your simulation in a given state if you know the amplitude vector of this state. Currently, the only built-in wave function operation in Orquestra is the ``MultiPhaseOperation``, which allows a specific phase (given as an angle theta) to be applied to all 2^N components of the wave function for an N-qubit circuit.
+While gate operations perform the familiar gates on the qubits of a circuit, `wave function operations <https://github.com/zapatacomputing/orquestra-quantum/blob/main/src/orquestra/quantum/circuits/_wavefunction_operations.py>`_ can operate on the wave function directly. This is convenient if the operation you want to perform is not easily expressible using gates or is not unitary at all. It can also be used to quickly prepare your simulation in a given state if you know the amplitude vector of this state. Currently, the only built-in wave function operation in Orquestra is the :class:`MultiPhaseOperation <orquestra.quantum.circuits.MultiPhaseOperation>`, which allows a specific phase (given as an angle theta) to be applied to all 2^N components of the wave function for an N-qubit circuit.
 
 Wave function operations can be included in the :ref:`creation of a circuit <creating_circuits>`, :ref:`appended later <appending_circuits>`, and :ref:`inspected <inspecting_circuits>` in the same manner GateOperations can be.
 
@@ -278,7 +278,7 @@ Symbolic gates allow the user to specify parametric gates in terms of parameters
 1. You can create the circuit once and bind the parameters later. Sometimes this saves on computational cost, and it allows for more easily understandable implementations of certain circuits, like the QAOA circuit in this example.
 2. It gives you a closed formula for the final state of the circuit. This allows users interested in mathematical description and manipulations of the state easier access than could be obtained by varying parameters and running the same circuit multiple times. However, when doing symbolic simulation of the circuit, the performance of the simulation is substantially worse than if the parameters were bound.
 
-Zapata has created the `SymbolicSimulator <https://github.com/zapatacomputing/orquestra-quantum/blob/main/tests/orquestra/quantum/symbolic_simulator_test.py>`_ which is purpose-built for running symbolic simulation of the circuit.
+Zapata has created the :class:`SymbolicSimulator <orquestra.quantum.runners.symbolic_simulator.SymbolicSimulator>` which is purpose-built for running symbolic simulation of the circuit.
 
 Using gates with symbolic parameters
 ---------------------------------------
@@ -301,7 +301,7 @@ As previously seen in the section on :ref:`appending circuits <appending_circuit
 
 Sympy returns a list of symbols to the ``beta`` and ``gamma`` variables above, so we access a specific symbol within the list with its index.
 
-Note that when you call ``.to_unitary()`` on a Circuit where some parameters are free symbolic parameters, the resulting matrix is a sympy matrix rather than a numpy matrix, as seen in these lines and their output:
+Note that when you call :meth:`to_unitary() <orquestra.quantum.circuits.Circuit.to_unitary>` on a Circuit where some parameters are free symbolic parameters, the resulting matrix is a sympy matrix rather than a numpy matrix, as seen in these lines and their output:
 
 .. literalinclude:: ../examples/circuits_guide.py
   :language: python
@@ -393,7 +393,7 @@ This should give us ``ic| new_problem_ham_circ.to_unitary() == problem_hamiltoni
 Getting custom gates from a circuit
 -----------------------------------
 
-To get a list of all the custom gate definitions in a ``Circuit``, you can use the ``collect_custom_gate_definitions()`` method. Let's do that on our ``new_problem_ham_circ`` circuit:
+To get a list of all the custom gate definitions in a ``Circuit``, you can use the :meth:`collect_custom_gate_definitions() <orquestra.quantum.circuits.Circuit.collect_custom_gate_definitions>` method. Let's do that on our ``new_problem_ham_circ`` circuit:
 
 .. literalinclude:: ../examples/circuits_guide.py
   :language: python
@@ -419,13 +419,14 @@ Decompostion is the process of representing gate operations using different (oft
 Creating a ``DecompositionRule``
 --------------------------------
 
-In order to create a ``DecompositionRule`` you need a ``predicate`` and a ``production`` method.
+In order to create a :class:`DecompositionRule <orquestra.quantum.decompositions._decomposition.DecompositionRule>` you need a :meth:`predicate <orquestra.quantum.decompositions._decomposition.DecompositionRule.predicate>` and a :meth:`production <orquestra.quantum.decompositions._decomposition.DecompositionRule.production>` method.
 
-``predicate`` tells Orquestra Core what should be decomposed. This should be a method that accepts an operation and returns a boolean (True if it should be decomposed, False otherwise).
+:meth:`predicate <orquestra.quantum.decompositions._decomposition.DecompositionRule.predicate>` tells Orquestra Core what should be decomposed. This should be a method that accepts an operation and returns a boolean (True if it should be decomposed, False otherwise).
 
-``production`` tells Orquestra Core how it should be decomposed. This method accepts an operation and returns a list of operations.
 
-Your custom decomposition rule should implement the `DecompositionRule <https://github.com/zapatacomputing/orquestra-quantum/blob/main/src/orquestra/quantum/decompositions/_decomposition.py#L12=>`_ protocol. We can see an example of that in our QAOA example. Suppose we want to decompose our CNOT gate, here's what that ``CNOTDecompositionRule`` class would look like:
+:meth:`production <orquestra.quantum.decompositions._decomposition.DecompositionRule.production>` tells Orquestra Core how it should be decomposed. This method accepts an operation and returns a list of operations.
+
+Your custom decomposition rule should implement the :class:`DecompositionRule <orquestra.quantum.decompositions._decomposition.DecompositionRule>` protocol. We can see an example of that in our QAOA example. Suppose we want to decompose our CNOT gate, here's what that ``CNOTDecompositionRule`` class would look like:
 
 .. literalinclude:: ../examples/circuits_guide.py
   :language: python
@@ -435,7 +436,7 @@ Your custom decomposition rule should implement the `DecompositionRule <https://
 Using a ``DecompositionRule``
 -----------------------------
 
-In order to use a ``DecompositionRule``, use the ``decompose_operations()`` method. This method accepts a list of operations and a ``DecompositionRule`` and returns a new list of operations where the rule has been applied.
+In order to use a :class:`DecompositionRule <orquestra.quantum.decompositions._decomposition.DecompositionRule>`, use the :func:`decompose_operations() <orquestra.quantum.decompositions.decompose_operations>` function. This function accepts a list of operations and a :class:`DecompositionRule <orquestra.quantum.decompositions._decomposition.DecompositionRule>` and returns a new list of operations where the rule has been applied.
 
 Let's apply our ``CNOTDecompositionRule`` to our problem hamiltonian circuit. Because the ``Circuit`` class can accept a list of operations as a constructor argument, we can do this in one line:
 
@@ -449,7 +450,7 @@ We can see here that the decomposed circuit is equivalent to the original circui
 Built-in decompositions
 -----------------------
 
-There is currently only one built-in decomposition in ``orquestra-quantum`` and that is a `U3GateToRotation <https://github.com/zapatacomputing/orquestra-quantum/blob/main/src/orquestra/quantum/decompositions/_orquestra_decompositions.py>`_ decomposition.
+There is currently only one built-in decomposition in ``orquestra-quantum`` and that is a :class:`U3GateToRotation <orquestra.quantum.decompositions.U3GateToRotation>` decomposition.
 
 
 --------------------------------

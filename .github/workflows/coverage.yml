@@ -71,4 +71,10 @@ jobs:
           repository: zapatacomputing/orquestra-braket
           path: orquestra-braket
 
+      - name: Get orquestra-forest
+        uses: actions/checkout@v2
+        with:
+          repository: zapatacomputing/orquestra-forest
+          path: orquestra-forest
+
       - uses: ./subtrees/z_quantum_actions/actions/coverage

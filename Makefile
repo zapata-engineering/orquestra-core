@@ -26,7 +26,7 @@ github_actions:
 		${VENV_NAME}/bin/python3 -m pip install --upgrade pip && \
 		${VENV_NAME}/bin/python3 -m pip install orquestra-python-dev && \
 		${VENV_NAME}/bin/python3 -m pip install ./orquestra-quantum && \
-		${VENV_NAME}/bin/python3 -m pip install ./orquestra-opt[cma] && \
+		${VENV_NAME}/bin/python3 -m pip install ./orquestra-opt[all] && \
 		${VENV_NAME}/bin/python3 -m pip install ./orquestra-vqa && \
 		${VENV_NAME}/bin/python3 -m pip install ./orquestra-qiskit && \
 		${VENV_NAME}/bin/python3 -m pip install ./orquestra-cirq[qsim] && \
@@ -36,6 +36,7 @@ github_actions:
 
 coverage:
 	$(PYTHON) -m pytest tests/
+	$(PYTHON) -m pytest docs/examples/tests
 
 # Runs tests with the latest dependncies from PyPI
 run_tests_before_release:

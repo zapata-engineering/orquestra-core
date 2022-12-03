@@ -81,7 +81,7 @@ class TestMaxcut:
 
         opt_results = optimizer.minimize(cost_function, initial_params)
         circuit = ansatz.get_executable_circuit(opt_results.opt_params)
-        measurements = backend.run_circuit_and_measure(circuit, n_samples=10000)
+        measurements = backend.run_and_measure(circuit, n_samples=10000)
 
         counter = Counter(measurements.bitstrings)
         most_common_string = counter.most_common()[0][0]

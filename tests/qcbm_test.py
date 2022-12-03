@@ -19,7 +19,7 @@ from orquestra.quantum.distributions import (
 from orquestra.quantum.distributions.BAS_dataset import (
     get_bars_and_stripes_target_distribution,
 )
-from orquestra.vqa.ansatz.qcbm import QCBMAnsatz
+from orquestra.vqa.ansatz import QCBMAnsatz
 from orquestra.vqa.cost_function.qcbm_cost_function import create_QCBM_cost_function
 
 

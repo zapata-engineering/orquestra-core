@@ -27,11 +27,11 @@ The Basics
 
 The process for running a VQA algorithm can be outlined in 5 steps:
 
-1. Define initial ingredients: ``Ansatz``, ``QuantumBackend`` and ``Optimizer``.
-2. Create an ``EstimationTaskFactory`` factory using ``Ansatz``.
-3. Call ``create_cost_function`` using the ``EstimationTaskFactory`` and ``QuantumBackend``.
-4. Call ``optimizer.minimize`` using the ``CostFunction`` to get optimized parameters.
-5. Call ``ansatz.get_executable_circuit`` with optimized parameters to get the quantum program.
+1. Define initial ingredients: :class:`Ansatz <orquestra.vqa.api.ansatz.Ansatz>`, :class:`WavefunctionSimulator <orquestra.quantum.api.wavefunction_simulator.WavefunctionSimulator>` or :class:`CircuitRunner <orquestra.quantum.api.circuit_runner.CircuitRunner>` and :class:`Optimizer <orquestra.opt.api.Optimizer>`.
+2. Create an :class:`EstimationTaskFactory <orquestra.quantum.api.estimation.EstimationTasksFactory>` factory using :class:`Ansatz <orquestra.vqa.api.ansatz.Ansatz>`.
+3. Call :func:`create_cost_function <orquestra.vqa.cost_function.cost_function.create_cost_function>` using the :class:`EstimationTaskFactory <orquestra.quantum.api.estimation.EstimationTasksFactory>`  and :class:`WavefunctionSimulator <orquestra.quantum.api.wavefunction_simulator.WavefunctionSimulator>` or :class:`CircuitRunner <orquestra.quantum.api.circuit_runner.CircuitRunner>`.
+4. Call :meth:`optimizer.minimize <orquestra.opt.api.Optimizer.minimize>` using the :class:`CostFunction <orquestra.opt.api.cost_function.CostFunction>` to get optimized parameters.
+5. Call :meth:`ansatz.get_executable_circuit <orquestra.vqa.api.ansatz.Ansatz.get_executable_circuit>` with optimized parameters to get the quantum program.
 
 
 Let's go through an example where a vqa is used to solve the maxcut problem. See the :ref:`qaoa tutorial <qaoa_tutorial>` for a more hands-on example how to use VQAs with Orquestra Core
@@ -43,9 +43,9 @@ Let's go through an example where a vqa is used to solve the maxcut problem. See
 
 We'll go through the steps as they were outlined above:
 
-1. The ``Ansatz``, ``Backend`` and ``Optimizer`` can be defined independently of one another.
-2. As explained in :ref:`estimators guide <estimators>`, the ``EstimationTaskFactory`` tells the quantum computer how to construct a circuit. It therefore will always take an ``Ansatz`` as an argument.
-3. As explained briefly above, VQA uses a quantum computer to estimate the value of the cost function. So to create our cost function we would need the method of costructing circuits for our cost function (``estimation_task_factory``) and the quantum computer to run them on (``QuantumBackend``). See the :ref:`cost function <cost_function_guide>` guide for details.
+1. The :class:`Ansatz <orquestra.vqa.api.ansatz.Ansatz>`, :class:`WavefunctionSimulator <orquestra.quantum.api.wavefunction_simulator.WavefunctionSimulator>` or :class:`CircuitRunner <orquestra.quantum.api.circuit_runner.CircuitRunner>` and :class:`Optimizer <orquestra.opt.api.Optimizer>` can be defined independently of one another.
+2. As explained in :ref:`estimators guide <estimators>`, the :class:`EstimationTaskFactory <orquestra.quantum.api.estimation.EstimationTasksFactory>` tells the quantum computer how to construct a circuit. It therefore will always take an :class:`Ansatz <orquestra.vqa.api.ansatz.Ansatz>` as an argument.
+3. As explained briefly above, VQA uses a quantum computer to estimate the value of the cost function. So to create our cost function we would need the method of constructing circuits for our cost function (``estimation_task_factory``) and a simulator or runner to execute them. See the :ref:`cost function <cost_function_guide>` guide for details.
 4. Now that we have the cost function, we minimize if using the optimizer. This step generally takes the longest to run.
 5. Obtain the final circuit by substituting the optimized parameters into the ansatz.
 

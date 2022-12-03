@@ -94,7 +94,7 @@ Once we have our circuit, the next step is to select what backend to run on and 
     :start-at: import QiskitSimulator
     :end-at: ic(measurements.get_counts())
 
-It's actually very easy to switch out backends thanks to Orquestra Core's interfaces. Let's say instead of the QiskitSimulator, we want to use Zapata's very own SymbolicSimulator. We can do that by changing just part of one line:
+It's actually very easy to switch out backends thanks to Orquestra Core's interfaces. Let's say instead of the QiskitSimulator, we want to use Zapata's very own :class:`SymbolicSimulator <orquestra.quantum.runners.symbolic_simulator.SymbolicSimulator>` . We can do that by changing just part of one line:
 
 .. literalinclude:: ../examples/tutorials/bell_state.py
     :language: python

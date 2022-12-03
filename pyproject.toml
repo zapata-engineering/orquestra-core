@@ -27,6 +27,7 @@ module = [
     'rapidjson',
     'networkx.*',
     'openfermion.*',
+    'qiskit.*'
 ]
 ignore_missing_imports = true
 

@@ -13,14 +13,14 @@ Available Ansatzes
 ==================
 `orquestra-vqa <https://github.com/zapatacomputing/orquestra-vqa>`_ provides several ansatzes. Here we give a list of ansatzes with a brief description of each.
 
-1. ``QAOAFarhiAnsatz`` - Vanilla QAOA Ansatz, alternates global cost Hamiltonians with local mixer Hamiltonians. See `the paper <https://arxiv.org/abs/1411.4028>`_ for details.
-2. kbody ansatzes - ansatzes created to solve maxcut problems. Number of parameters increases exponentially with number of qubits, but these ansaztes avoid local minima. See `the paper <https://arxiv.org/abs/2105.01114>`_ for details.
-    a. ``XAnsatz`` - Couples qubits in the X direction. 
-    b. ``XZAnsatz`` - Couples qubits in the X and Z directions. 
-3. ``WarmStartQAOAAnsatz`` - Uses existing solution to the optimization problem to improve performance of QAOA. See `the paper <https://arxiv.org/abs/2009.10095v3>`_ for details.
-4. ``SingletUCCSDAnsatz`` - Widely used in chemistry problems to estimate the ground state of a molecule's Hamiltonian. Parameters control the probability of single an double excitations in your simulated molecule. See `this paper <https://arxiv.org/abs/1701.02691>`_ for details.
-5. ``HEAQuantumCompilingAnsatz`` - Hardware-efficient ansatz using quantum compiling . See `the paper <https://arxiv.org/abs/2011.12245>`_ for details.
-6. ``QCBMAnsatz`` - Ansatz for learning distributions for Quantum Circuit Born Machine. See `this paper <https://arxiv.org/abs/1801.07686>`_ for details.
+1. :class:`QAOAFarhiAnsatz <orquestra.vqa.ansatz.qaoa_farhi.QAOAFarhiAnsatz>` - Vanilla QAOA Ansatz, alternates global cost Hamiltonians with local mixer Hamiltonians. See `the paper <https://arxiv.org/abs/1411.4028>`_ for details.
+2. ``kbody ansatzes`` - ansatzes created to solve maxcut problems. Number of parameters increases exponentially with number of qubits, but these ansaztes avoid local minima. See `the paper <https://arxiv.org/abs/2105.01114>`_ for details.
+    a. :class:`XAnsatz <orquestra.vqa.ansatz.kbody.XAnsatz>` - Couples qubits in the X direction. 
+    b. :class:`XZAnsatz <orquestra.vqa.ansatz.kbody.XZAnsatz>` - Couples qubits in the X and Z directions. 
+3. :class:`WarmStartQAOAAnsatz <orquestra.vqa.ansatz.qaoa_warm_start.WarmStartQAOAAnsatz>` - Uses existing solution to the optimization problem to improve performance of QAOA. See `the paper <https://arxiv.org/abs/2009.10095v3>`_ for details.
+4. :class:`SingletUCCSDAnsatz <orquestra.vqa.ansatz.singlet_uccsd.SingletUCCSDAnsatz>` - Widely used in chemistry problems to estimate the ground state of a molecule's Hamiltonian. Parameters control the probability of single an double excitations in your simulated molecule. See `this paper <https://arxiv.org/abs/1701.02691>`_ for details.
+5. :class:`HEAQuantumCompilingAnsatz <orquestra.vqa.ansatz.quantum_compiling.HEAQuantumCompilingAnsatz>` ``HEAQuantumCompilingAnsatz`` - Hardware-efficient ansatz using quantum compiling . See `the paper <https://arxiv.org/abs/2011.12245>`_ for details.
+6. :class:`QCBMAnsatz <orquestra.vqa.ansatz.qcbm.QCBMAnsatz>` - Ansatz for learning distributions for Quantum Circuit Born Machine. See `this paper <https://arxiv.org/abs/1801.07686>`_ for details.
 
 
 Creating Your Own Ansatz
@@ -28,7 +28,7 @@ Creating Your Own Ansatz
 
 While the ansatzes listed above provide a good start, eventually you might need to implement your own ansatz. Below you can find an example of how to do this.
 
-Let's construct a simple example where we only have a single layer of Z rotations in our ansatz. We start by creating a child of the ``Ansatz`` class.
+Let's construct a simple example where we only have a single layer of Z rotations in our ansatz. We start by creating a child of the :class:`Ansatz <orquestra.vqa.api.ansatz.Ansatz>` class.
 
 .. literalinclude:: ../../examples/guides/mock_ansatz.py
     :language: python

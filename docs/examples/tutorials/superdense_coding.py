@@ -1,6 +1,6 @@
 from icecream import ic
-from orquestra.quantum.backends import SymbolicSimulator
 from orquestra.quantum.circuits import CNOT, Circuit, H, X, Z
+from orquestra.quantum.runners import SymbolicSimulator
 
 teleport_circuit = Circuit()
 
@@ -19,5 +19,5 @@ teleport_circuit += H(0)
 
 # bob runs and measures the qubits
 backend = SymbolicSimulator()
-measurements = backend.run_circuit_and_measure(teleport_circuit, 1)
+measurements = backend.run_and_measure(teleport_circuit, 1)
 ic(measurements.get_counts())

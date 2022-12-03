@@ -1,14 +1,18 @@
-from typing import Protocol, List
-from orquestra.quantum.api.backend import QuantumBackend
+from typing import List, Protocol
+
+from orquestra.quantum.api.circuit_runner import BaseCircuitRunner
 from orquestra.quantum.api.estimation import EstimationTask, ExpectationValues
+
 
 # >> Tutorial code snippet: estimation protocol
 # >> Start
 class EstimateExpectationValues(Protocol):
     def __call__(
-        self, backend: QuantumBackend, estimation_tasks: List[EstimationTask]
+        self, backend: BaseCircuitRunner, estimation_tasks: List[EstimationTask]
     ) -> List[ExpectationValues]:
         """Estimate expectation values using given backend."""
+
+
 # >> End
 
 
@@ -29,7 +33,7 @@ shot_allocation_preprocessor = partial(
 from functools import partial
 
 import numpy as np
-from orquestra.integrations.qulacs import QulacsSimulator
+from orquestra.integrations.qulacs.simulator import QulacsSimulator
 from orquestra.opt.optimizers import ScipyOptimizer
 from orquestra.quantum.operators import PauliSum
 from orquestra.vqa.ansatz.quantum_compiling import HEAQuantumCompilingAnsatz

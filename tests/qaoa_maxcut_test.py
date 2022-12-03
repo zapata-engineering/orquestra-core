@@ -7,8 +7,8 @@ import networkx as nx
 import numpy as np
 import pytest
 from orquestra.integrations.cirq.simulator import CirqSimulator
-from orquestra.integrations.qiskit.simulator import QiskitSimulator
-from orquestra.integrations.qulacs import QulacsSimulator
+from orquestra.integrations.qiskit.simulator import QiskitWavefunctionSimulator
+from orquestra.integrations.qulacs.simulator import QulacsSimulator
 from orquestra.opt.optimizers import ScipyOptimizer
 from orquestra.opt.problems.maxcut import MaxCut
 from orquestra.quantum.estimation import calculate_exact_expectation_values
@@ -17,6 +17,7 @@ from orquestra.vqa.cost_function.cost_function import (
     create_cost_function,
     substitution_based_estimation_tasks_factory,
 )
+from qiskit import Aer
 
 
 @pytest.fixture
@@ -41,7 +42,7 @@ def test_graph():
     params=[
         CirqSimulator(),
         QulacsSimulator(),
-        QiskitSimulator("aer_simulator_statevector"),
+        QiskitWavefunctionSimulator(Aer.get_backend("aer_simulator_statevector")),
     ]
 )
 def backend(request):

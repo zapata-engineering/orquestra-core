@@ -95,7 +95,7 @@ The ``SymbolicSimulator`` can be used the same way any other simulator can be. T
 
 A ``MeasurementTrackingBackend`` is a backend that tracks and stores data about each run of a circuit. This is accomplished by wrapping pre-existing backends in a ``MeasurementTrackingBackend`` from :doc:`orquestra.quantum.trackers </api/quantum/trackers/index>`.
 
-When ``run_circuit_and_measure`` is called, the tracking backend stores the ``data_type`` received from the call (usually a measurement outcome distribution), the wrapped device, the circuit which was run, the distribution of bitstrings which was received, the number of gates in the circuit, and the number of shots run in a JSON file. This is useful when you are paying to run circuits on a machine and you want to be able to re-use the data for different computations.
+When ``run_and_measure`` is called, the tracking backend stores the ``data_type`` received from the call (usually a measurement outcome distribution), the wrapped device, the circuit which was run, the distribution of bitstrings which was received, the number of gates in the circuit, and the number of shots run in a JSON file. This is useful when you are paying to run circuits on a machine and you want to be able to re-use the data for different computations.
 
 To create a ``MeasurementTrackingBackend`` it must be initialized with a backend to be wrapped around, a name for the file you are storing the data in, and an optional boolean indicating whether or not the individual bitstrings should be saved (defaults to `False`)
 
@@ -107,7 +107,7 @@ To create a ``MeasurementTrackingBackend`` it must be initialized with a backend
 
   If all the bitstrings are saved, it will greatly increase the size of the produced JSON file.
 
-To use the ``MeasurementTrackingBackend`` you can call ``run_circuit_and_measure`` or ``run_circuitset_and_measure`` :ref:`just like with all other QuantumBackends <backend_methods>`. There is also the option to manually append measurement information to the data in a ``MeasurementTrackingBackend`` using ``record_raw_measurement_data``. This is not usually necessary, but if your use case requires it, please see the :doc:`API documentation </api/quantum/trackers/index>` for more information.
+To use the ``MeasurementTrackingBackend`` you can call ``run_and_measure`` or ``run_circuitset_and_measure`` :ref:`just like with all other QuantumBackends <backend_methods>`. There is also the option to manually append measurement information to the data in a ``MeasurementTrackingBackend`` using ``record_raw_measurement_data``. This is not usually necessary, but if your use case requires it, please see the :doc:`API documentation </api/quantum/trackers/index>` for more information.
 
 For more examples of using the ``MeasurementTrackingBackend``, refer to the `tracking backend tests <https://github.com/zapatacomputing/orquestra-quantum/blob/main/tests/orquestra/quantum/trackers_test.py>`_
 
@@ -156,7 +156,7 @@ If you want to use some specific features from a particular framework (e.g. draw
 How to integrate your own backend
 =================================
 
-We have simplified the process of integrating any hardware or simulator which runs quantum circuits into Orquestra Core. First you need to create a function that can translate gates between your library and `Orquestra's gates <https://github.com/zapatacomputing/orquestra-quantum/blob/main/src/orquestra/quantum/circuits/_builtin_gates.py>`_. Then create a class method that inherits from ``QuantumBackend`` and overrides the needed abstract methods (like ``run_circuit_and_measure``). In order for integration to work properly, the signature of all the methods needs to be exactly the same as in the abstract class. If your simulator requires some extra arguments (e.g. whether to use a noise model), please provide it in the ``__init__`` method.
+We have simplified the process of integrating any hardware or simulator which runs quantum circuits into Orquestra Core. First you need to create a function that can translate gates between your library and `Orquestra's gates <https://github.com/zapatacomputing/orquestra-quantum/blob/main/src/orquestra/quantum/circuits/_builtin_gates.py>`_. Then create a class method that inherits from ``QuantumBackend`` and overrides the needed abstract methods (like ``run_and_measure``). In order for integration to work properly, the signature of all the methods needs to be exactly the same as in the abstract class. If your simulator requires some extra arguments (e.g. whether to use a noise model), please provide it in the ``__init__`` method.
 
 Here is an example of a (fake) simulator integrated using this process:
 

@@ -6,7 +6,7 @@ Guides
     :maxdepth: 2
 
     circuits.rst
-    backends.rst
+    circuit_runners.rst
     cost_function.rst
     interfaces.rst
     optimizers.rst

@@ -41,11 +41,11 @@ import os
 
 LOOKMORTYITURNEDMYSELFINTOANAPITOKENIMAPIRICK = os.getenv("ZAPATA_IBMQ_API_TOKEN")
 
-# QuantumBackend creation example
+# Inherit BaseCircuitRunner
 from orquestra.integrations.qiskit.runner import create_ibmq_runner
 
 backend = create_ibmq_runner(LOOKMORTYITURNEDMYSELFINTOANAPITOKENIMAPIRICK, "ibmq_lima")
-# End QuantumBackend creation example
+# End Inherit BaseCircuitRunner
 
 # CircuitRunner run and measure circuit
 circuit = Circuit() + X(0) + X(1)
@@ -113,9 +113,7 @@ class MyRunner(BaseCircuitRunner):
     def _run_and_measure(self, circuit, n_samples):
         my_circ = export_to_my_circ(circuit)  # function to translate circuits
         # Here we assume your simulator uses the method run() to execute and measure.
-        result = self.simulator.run(
-            my_circ, n_samples, self.noise_model
-        )
+        result = self.simulator.run(my_circ, n_samples, self.noise_model)
         samples = convert_the_results_to_samples(result)
 
         return Measurements(samples)

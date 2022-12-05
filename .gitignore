@@ -139,4 +139,5 @@ docs/api/
 docs/tmp_monorepo/
 docs/.DS_Store
 
+# ignore outcomes from running tests
 outcmaes/

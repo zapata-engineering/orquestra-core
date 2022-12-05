@@ -3,7 +3,7 @@ import os
 from orquestra.quantum.circuits import Circuit, X
 from orquestra.quantum.runners import SymbolicSimulator
 
-from ...guides.backends_guide import MyRunner
+from ...guides.circuit_runners_guide import MyRunner
 
 api_token = os.getenv("ZAPATA_IBMQ_API_TOKEN")
 

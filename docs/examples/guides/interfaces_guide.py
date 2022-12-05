@@ -1,4 +1,20 @@
-import scipy 
+import numpy as np
+import scipy
+from scipy.optimize.bounds import Bounds
+
+
+def cost_function(self, x: np.ndarray) -> float:
+    w = 1 + (x - 1) * 0.25
+    return (
+        np.sin(np.pi * x[0]) ** 2
+        + np.sum((w[:-1] - 1) ** 2 * (1 + 10 * np.sin(np.pi * w[:-1]) ** 2))
+        + (w[-1] - 1) ** 2 * (1 + np.sin(2 * np.pi * w[-1]) ** 2)
+    )
+
+
+initial_params = np.random.uniform(-600, 600, 3)
+bounds = Bounds()
+constraints = ()
 
 # >> Guide code snippet: script showing scipy optimizers
 # >> Start
@@ -21,7 +37,8 @@ optimizer_2.minimize(cost_function, initial_params)
 
 import pytest
 from orquestra.quantum.api.estimator_contract import ESTIMATOR_CONTRACTS
-from orquestra.vqa.estimators import CvarEstimator
+from orquestra.vqa.estimation.cvar import CvarEstimator
+
 
 # >> Guide code snippet: script showing how to use contract tests
 # >> Start
@@ -29,5 +46,6 @@ from orquestra.vqa.estimators import CvarEstimator
 def test_estimator_contract(contract):
     estimator = CvarEstimator(alpha=0.2)
     assert contract(estimator)
-# >> End
 
+
+# >> End

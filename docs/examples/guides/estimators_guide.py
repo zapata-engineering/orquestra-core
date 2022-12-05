@@ -1,19 +1,30 @@
+from typing import List, Protocol
+
+from orquestra.quantum.api.circuit_runner import BaseCircuitRunner
+from orquestra.quantum.api.estimation import EstimationTask, ExpectationValues
+
+
 # >> Tutorial code snippet: estimation protocol
 # >> Start
 class EstimateExpectationValues(Protocol):
     def __call__(
-        self, backend: QuantumBackend, estimation_tasks: List[EstimationTask]
+        self, backend: BaseCircuitRunner, estimation_tasks: List[EstimationTask]
     ) -> List[ExpectationValues]:
         """Estimate expectation values using given backend."""
-# >> End
 
+
+# >> End
 
 
 # >> Tutorial code snippet: script showing how to use partials
 # >> Start
 from functools import partial
+
 from orquestra.vqa.shot_allocation import allocate_shots_proportionally
-shot_allocation_preprocessor = partial(allocate_shots_proportionally, total_n_shots=50000)
+
+shot_allocation_preprocessor = partial(
+    allocate_shots_proportionally, total_n_shots=50000
+)
 # >> End
 
 
@@ -22,7 +33,7 @@ shot_allocation_preprocessor = partial(allocate_shots_proportionally, total_n_sh
 from functools import partial
 
 import numpy as np
-from orquestra.integrations.qulacs import QulacsSimulator
+from orquestra.integrations.qulacs.simulator import QulacsSimulator
 from orquestra.opt.optimizers import ScipyOptimizer
 from orquestra.quantum.operators import PauliSum
 from orquestra.vqa.ansatz.quantum_compiling import HEAQuantumCompilingAnsatz
@@ -47,7 +58,7 @@ shot_allocation = partial(allocate_shots_proportionally, total_n_shots=50000)
 # Order matters - context selection needs to happen after the grouping!
 estimation_preprocessors = [
     group_greedily,
-    perform_context_selection, # This is required for VQE measurements to be done in the right way
+    perform_context_selection,  # This is required for VQE measurements to be done in the right way
     shot_allocation,
 ]
 

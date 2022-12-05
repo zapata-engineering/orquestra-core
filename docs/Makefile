@@ -21,3 +21,6 @@ help:
 
 update:
 	morq -m repos/manifest.json update
+
+test:
+	pytest ./examples/tests/

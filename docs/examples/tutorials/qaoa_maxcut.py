@@ -6,7 +6,7 @@ from collections import Counter
 
 import networkx as nx
 import numpy as np
-
+from icecream import ic
 from orquestra.integrations.cirq.simulator import CirqSimulator
 from orquestra.opt.optimizers import ScipyOptimizer
 from orquestra.opt.problems.maxcut import MaxCut
@@ -16,8 +16,6 @@ from orquestra.vqa.cost_function.cost_function import (
     create_cost_function,
     substitution_based_estimation_tasks_factory,
 )
-
-from icecream import ic
 
 
 def create_simple_graph():
@@ -77,7 +75,7 @@ def solve_maxcut_qaoa(test_graph):
     opt_results = optimizer.minimize(cost_function, initial_params)
 
     circuit = ansatz.get_executable_circuit(opt_results.opt_params)
-    measurements = backend.run_circuit_and_measure(circuit, n_samples=10000)
+    measurements = backend.run_and_measure(circuit, n_samples=10000)
     counter = Counter(measurements.bitstrings)
     most_common_string = counter.most_common()[0][0]
     return most_common_string

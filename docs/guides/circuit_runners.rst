@@ -19,7 +19,7 @@ CircuitRunner and WavefunctionSimulator
 
 Most often, :class:`CircuitRunner <orquestra.quantum.api.circuit_runner.CircuitRunner>`\s connect to a third-party service to run circuits remotely. The details of how this interaction is performed depends mostly on the parameters used for initializing runner.  For instance, to create runner using IBMQ backend it is necessary to specify API token and backend name:
 
-.. literalinclude:: ../examples/circuit_runners_guide.py
+.. literalinclude:: ../examples/guides/circuit_runners_guide.py
   :start-after: # IBMQ runner creation example
   :end-before: # End IBMQ runner creation example
 
@@ -27,7 +27,7 @@ Most often, :class:`CircuitRunner <orquestra.quantum.api.circuit_runner.CircuitR
 
 :class:`WavefunctionSimulator <orquestra.quantum.api.wavefunction_simulator.WavefunctionSimulator>` is a special case of ``CircuitRunner``. Runners implementing this protocol can compute coefficients of the wavefunction and exact expectation values. Similarly to other `CircuitRunner``\ s, ``WavefunctionSimulator``\ s may require some parameters to be passed during their initialization.
 
-.. literalinclude:: ../examples/circuit_runners_guide.py
+.. literalinclude:: ../examples/guides/circuit_runners_guide.py
   :start-after: # WavefunctionSimulator creation example
   :end-before: # End WavefunctionSimulator creation example
 
@@ -40,13 +40,13 @@ CircuitRunner and WavefunctionSimulator Methods Usage
 
 We will demonstrate usage of ``CircuitRunner`` and ``WavefunctionSimulator`` on the example of ``QiskitRunner`` and its extension, ``QiskitWavefunctionSimulator``. The ``QiskitRunner`` class can be used, in principle, with an arbitrary Qiskit backend. In particular, one may use ``IBMQBackend`` for running code on the real hardware. Since creating this backend is more involved, a convenience function ``create_ibmq_runner`` is provided to ease this process. We need to provide an API token used for authentication and an IBMQ device name to be used. Optionally, we might tweak other parameters, such as number of seconds waited between retries.
 
-.. literalinclude:: ../examples/circuit_runners_guide.py
+.. literalinclude:: ../examples/guides/circuit_runners_guide.py
   :start-after: # IBMQ runner creation example
   :end-before: # End IBMQ runner creation example
 
 For an example of direct construction of `QiskitRunner`, we will just wrap an `Aer backend <https://qiskit.org/documentation/tutorials/simulators/1_aer_provider.html#The-Aer-Simulator>`. In a similar fashion, one can construct a ``WavefunctionSimulator``, provided that the passed backend supports computing state vector.
 
-.. literalinclude:: ../examples/circuit_runners_guide.py
+.. literalinclude:: ../examples/guides/circuit_runners_guide.py
   :start-after: # Example Qiskit options
   :end-before: # End WavefunctionSimulator creation example
 
@@ -56,19 +56,19 @@ General CircuitRunner methods
 
 Once the initialization is done, we can send the ``Circuit`` and number of repetitions to the runner and read the measurements. For more information on creating circuits to send to a circuit runner, refer to the :ref:`Circuits Guide <circuits_guide>`. For a single circuit, that looks like this:
 
-.. literalinclude:: ../examples/circuit_runners_guide.py
+.. literalinclude:: ../examples/guides/circuit_runners_guide.py
   :start-after: # CircuitRunner run and measure circuit
   :end-before: # End CircuitRunner run and measure circuit
 
 If you want to run a batch of multiple circuits, possibly with different number of samples, the code needs to be modified as follows:
 
-.. literalinclude:: ../examples/circuit_runners_guide.py
+.. literalinclude:: ../examples/guides/circuit_runners_guide.py
   :start-after: # CircuitRunner run batch and measure
   :end-before: # End CircuitRunner run batch and measure
 
 ``CircuitRunner`` can also provide the distribution of the outcome measurement. It can be extracted using the following approach:
 
-.. literalinclude:: ../examples/circuit_runners_guide.py
+.. literalinclude:: ../examples/guides/circuit_runners_guide.py
   :start-after: # CircuitRunner measurement distribution
   :end-before: # End CircuitRunner measurement distribution
 
@@ -79,7 +79,7 @@ WavefunctionSimulator-specific methods
 
 ``WavefunctionSimulator`` can be used to extract a wave function and expectation value for a given circuit (or circuit and operator). Below is an example of extracting these values using a ``WavefunctionSimulator`` called :class:`CirqSimulator <orquestra.integrations.cirq.simulator.CirqSimulator>`:
 
-.. literalinclude:: ../examples/circuit_runners_guide.py
+.. literalinclude:: ../examples/guides/circuit_runners_guide.py
   :start-after: # WavefunctionSimulator examples
   :end-before: # End WavefunctionSimulator examples
 
@@ -104,7 +104,7 @@ When :meth:`run_and_measure <orquestra.quantum.api.circuit_runner.CircuitRunner.
 
 To create a :class:`MeasurementTrackingBackend <orquestra.quantum.runners.trackers.MeasurementTrackingBackend>` it must be initialized with a runner to be wrapped around, a name for the file you are storing the data in, and an optional boolean indicating whether or not the individual bitstrings should be saved (defaults to `False`)
 
-.. literalinclude:: ../examples/circuit_runners_guide.py
+.. literalinclude:: ../examples/guides/circuit_runners_guide.py
   :start-after: # TrackingBackend creation example
   :end-before: # End TrackingBackend creation example
 
@@ -148,8 +148,8 @@ The integrations Orquestra Core has with :ref:`many other frameworks <orq_core_s
 
 There are slightly different ways to import the conversions from the integrations for different frameworks, so here's examples for all of them:
 
-.. literalinclude:: ../examples/circuit_runners_guide.py
-  :start-after: # Importng and Exporting with different frameworks
+.. literalinclude:: ../examples/guides/circuit_runners_guide.py
+  :start-after: # Importing and Exporting with different frameworks
   :end-before: # end importing/exporting examples
 
 If you want to use some specific features from a particular framework (e.g. drawing circuits from qiskit) feel free to export/import and do it! Examples of using the import and export functions for this purpose can be found in the :ref:`getting started tutorial <beginner_translating_circuits>`.
@@ -169,7 +169,7 @@ First you need to create a function that can translate circuits between your lib
 
 Here is an example of a (fake) simulator integrated using this process:
 
-.. literalinclude:: ../examples/circuit_runners_guide.py
+.. literalinclude:: ../examples/guides/circuit_runners_guide.py
   :start-after: # Inherit BaseCircuitRunner
   :end-before: # End Inherit BaseCircuitRunner
 

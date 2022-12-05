@@ -19,7 +19,7 @@ import numpy as np
 # WavefunctionSimulator examples
 from orquestra.integrations.cirq.simulator import CirqSimulator
 from orquestra.quantum.circuits import CNOT, Circuit, H, X
-from orquestra.quantum.operators import PauliTerm
+from orquestra.quantum.operators import PauliSum
 
 initial_state = np.array([0, 1, 0, 0])
 circuit = Circuit([H(0), X(1)])
@@ -31,21 +31,21 @@ wave_function = simulator.get_wavefunction(circuit, initial_state)
 
 # expectation values
 
-operator = PauliTerm("Z0") + PauliTerm("Z1")
+operator = PauliSum("Z0 + 2*Z1")
 
 expectation_values = simulator.get_exact_expectation_values(circuit, operator)
-# End WavefunctionSimulator examples
 
-# IBMQ runner creation example
+# End QuantumSimulator examples
+
+import os
+
+LOOKMORTYITURNEDMYSELFINTOANAPITOKENIMAPIRICK = os.getenv("ZAPATA_IBMQ_API_TOKEN")
+
+# Inherit BaseCircuitRunner
 from orquestra.integrations.qiskit.runner import create_ibmq_runner
 
-runner = create_ibmq_runner(
-    api_token="LOOKMORTYITURNEDMYSELFINTOANAPITOKEN!I'MAPIRICK",
-    backend_name="ibm_oslo",
-    retry_delay_seconds=1,
-)
-
-# End IBMQ runner creation example
+backend = create_ibmq_runner(LOOKMORTYITURNEDMYSELFINTOANAPITOKENIMAPIRICK, "ibmq_lima")
+# End Inherit BaseCircuitRunner
 
 # CircuitRunner run and measure circuit
 circuit = Circuit() + X(0) + X(1)
@@ -86,7 +86,7 @@ from orquestra.integrations.cirq.conversions._circuit_conversions import (
     import_from_cirq,
 )
 
-# Importng and Exporting with different frameworks
+# Importing and Exporting with different frameworks
 from orquestra.integrations.forest.conversions import (
     export_to_pyquil,
     import_from_pyquil,
@@ -100,6 +100,7 @@ from orquestra.integrations.qulacs.conversions import convert_to_qulacs
 # Inherit BaseCircuitRunner
 from orquestra.quantum.api.circuit_runner import BaseCircuitRunner
 from orquestra.quantum.measurements import Measurements
+
 # end importing/exporting examples
 
 
@@ -107,15 +108,34 @@ class MyRunner(BaseCircuitRunner):
     def __init__(self, simulator_name, noise_model):
         super().__init__()
         self.noise_model = noise_model
-        self.simulator = create_simulator(simulator_name) # function to c
+        self.simulator = create_simulator(simulator_name)  # function to c
 
     def _run_and_measure(self, circuit, n_samples):
         my_circ = export_to_my_circ(circuit)  # function to translate circuits
-        result = self.simulator.run(
-            circuit, n_samples, self.noise_model
-        )  # assumption that your simulator uses the method .run to execute and measure. Also it takes circuit and shots as the only params
+        # Here we assume your simulator uses the method run() to execute and measure.
+        result = self.simulator.run(my_circ, n_samples, self.noise_model)
         samples = convert_the_results_to_samples(result)
 
         return Measurements(samples)
 
-# End Inherit BaseCircuitRunner
+
+# End Inherit QuantumSimulator
+
+
+def export_to_my_circ(circuit):
+    # mock function to translate circuits
+    return circuit
+
+
+def convert_the_results_to_samples(result):
+    # mock function to convert the results of your simulator to samples
+    return result
+
+
+def create_simulator(simulator_name):
+    # mock function to create your simulator
+    class Simulator:
+        def run(self, circuit, n_samples, noise_model):
+            return circuit
+
+    return Simulator()

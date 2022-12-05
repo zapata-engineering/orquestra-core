@@ -34,17 +34,18 @@ wave_function = simulator.get_wavefunction(circuit, initial_state)
 operator = PauliSum("Z0 + 2*Z1")
 
 expectation_values = simulator.get_exact_expectation_values(circuit, operator)
+
 # End QuantumSimulator examples
 
-"""
-# QuantumBackend creation example
-from orquestra.integrations.qiskit.runner import QiskitRunner
+import os
 
-backend = QiskitBackend(
-    "ibmq_lima", api_token="LOOKMORTYITURNEDMYSELFINTOANAPITOKEN!I'MAPIRICK"
-)
+LOOKMORTYITURNEDMYSELFINTOANAPITOKENIMAPIRICK = os.getenv("ZAPATA_IBMQ_API_TOKEN")
+
+# QuantumBackend creation example
+from orquestra.integrations.qiskit.runner import create_ibmq_runner
+
+backend = create_ibmq_runner(LOOKMORTYITURNEDMYSELFINTOANAPITOKENIMAPIRICK, "ibmq_lima")
 # End QuantumBackend creation example
-"""
 
 # CircuitRunner run and measure circuit
 circuit = Circuit() + X(0) + X(1)
@@ -111,9 +112,10 @@ class MyRunner(BaseCircuitRunner):
 
     def _run_and_measure(self, circuit, n_samples):
         my_circ = export_to_my_circ(circuit)  # function to translate circuits
+        # Here we assume your simulator uses the method run() to execute and measure.
         result = self.simulator.run(
-            circuit, n_samples, self.noise_model
-        )  # assumption that your simulator uses the method .run to execute and measure. Also it takes circuit and shots as the only params
+            my_circ, n_samples, self.noise_model
+        )
         samples = convert_the_results_to_samples(result)
 
         return Measurements(samples)

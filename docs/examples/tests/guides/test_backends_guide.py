@@ -1,6 +1,5 @@
 import os
 
-from orquestra.integrations.qiskit.runner import create_ibmq_runner
 from orquestra.quantum.circuits import Circuit, X
 from orquestra.quantum.runners import SymbolicSimulator
 
@@ -15,7 +14,3 @@ def test_my_simulator_produces_output():
 
     mybackend = MyRunner(my_symbolic_sim, None)
     mybackend.run_and_measure(Circuit([X(0)]), 1000)
-
-
-def test_qiskit_backend_initialization():
-    create_ibmq_runner(api_token, "ibmq_lima")

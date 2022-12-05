@@ -79,3 +79,7 @@ jobs:
 
       # Installs project, checks codestyle
       - uses: ./subtrees/z_quantum_actions/actions/style
+
+      - uses: ./subtrees/z_quantum_actions/actions/coverage
+        env:
+          ZAPATA_IBMQ_API_TOKEN: ${{ secrets.ZAPATA_IBMQ_API_TOKEN }}

@@ -1,0 +1,50 @@
+:py:mod:`orquestra.integrations.forest.conversions`
+===================================================
+
+.. py:module:: orquestra.integrations.forest.conversions
+
+
+Package Contents
+----------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.integrations.forest.conversions.export_to_pyquil
+   orquestra.integrations.forest.conversions.import_from_pyquil
+   orquestra.integrations.forest.conversions.orq_to_pyquil
+   orquestra.integrations.forest.conversions.pyquil_to_orq
+
+
+
+.. py:function:: export_to_pyquil(circuit: orquestra.quantum.circuits._circuit.Circuit) -> pyquil.Program
+
+
+.. py:function:: import_from_pyquil(program: pyquil.Program)
+
+
+.. py:function:: orq_to_pyquil(pauli_operator: orquestra.quantum.operators.PauliRepresentation) -> Union[pyquil.paulis.PauliSum, pyquil.paulis.PauliTerm]
+
+   Convert an Orquestra PauliSum or PauliTerm to a pyQuil PauliSum or PauliTerm,
+   respectively.
+
+   :param pauli_operator: Orquestra PauliSum or PauliTerm to convert to a pyquil PauliSum
+                          or PauliTerm
+
+   :returns: PauliSum or PauliTerm representing the input pauli operator
+
+
+.. py:function:: pyquil_to_orq(pyquil_pauli: Union[pyquil.paulis.PauliTerm, pyquil.paulis.PauliSum]) -> orquestra.quantum.operators.PauliRepresentation
+
+   Convert a pyQuil PauliSum or PauliTerm to an Orquestra PauliSum or PauliTerm,
+       respectively.
+
+   :param pyquil_pauli: pyQuil PauliTerm or PauliSum to convert to an Orquestra PauliTerm
+                        or PauliSum
+
+   :returns: Orquestra PauliSum or PauliTerm representing the pyQuil PauliTerm or PauliSum
+
+

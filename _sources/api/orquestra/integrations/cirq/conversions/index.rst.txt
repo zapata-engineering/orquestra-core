@@ -1,0 +1,76 @@
+:py:mod:`orquestra.integrations.cirq.conversions`
+=================================================
+
+.. py:module:: orquestra.integrations.cirq.conversions
+
+
+Package Contents
+----------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.integrations.cirq.conversions.export_to_cirq
+   orquestra.integrations.cirq.conversions.import_from_cirq
+   orquestra.integrations.cirq.conversions.pauliop_to_cirq_paulisum
+   orquestra.integrations.cirq.conversions.from_openfermion
+   orquestra.integrations.cirq.conversions.to_openfermion
+
+
+
+.. py:function:: export_to_cirq(gate: orquestra.quantum.circuits._gates.Gate) -> cirq.Gate
+              export_to_cirq(gate_operation: orquestra.quantum.circuits._gates.GateOperation) -> cirq.GateOperation
+              export_to_cirq(circuit: orquestra.quantum.circuits._circuit.Circuit) -> cirq.Circuit
+
+   Export given native Orquestra object to its Cirq equivalent.
+
+   This should be primarily used with Circuit objects, but
+   also works for builtin gates and gate operations.
+
+   Exporting of user-defined gates is atm not supported.
+
+
+.. py:function:: import_from_cirq(obj)
+
+   Import given Cirq object, converting it to its Orquestra counterpart.
+
+   Gates corresponding to Orquestra built-in gates, operations on such gates and
+   circuits composed of such gates will use the native definitions, e.g. `cirq.X` will
+   become `circuits.X`.
+
+   Importing gates from Cirq that don't have built-in counterparts in Orquestra will
+   result in custom gates. See `help(orquestra.quantum.circuits)` for examples of
+   custom gates.
+
+   Also note that only objects using only LineQubits are supported, as currently there
+   is no notion of GridQubit in Orquestra circuits.
+
+
+.. py:function:: pauliop_to_cirq_paulisum(pauli_operator: orquestra.quantum.operators.PauliRepresentation, qubits: Optional[Union[List[cirq.GridQubit], List[cirq.LineQubit]]] = None) -> cirq.PauliSum
+
+   Convert an orquestra PauliSum or PauliTerm to a cirq PauliSum
+
+   :param pauli_operator: The openfermion operator to convert
+   :param qubits: The qubits the operator is applied to
+
+   :returns: cirq.PauliSum
+
+
+.. py:function:: from_openfermion(op: openfermion.SymbolicOperator) -> orquestra.quantum.operators.PauliSum
+
+   Convert from OpenFermion symbolic operator to Orquestra native PauliSum
+
+
+.. py:function:: to_openfermion(op: orquestra.quantum.operators.PauliRepresentation, operatorType=QubitOperator)
+
+   Convert from Orquestra native PauliSum or PauliTerm to OpenFermion symbolic
+   operator
+
+   :param op: PauliSum to convert
+   :param operatorType: a subclass of OpenFermion SymbolicOperator (can be OpenFermion
+                        QubitOperator or IsingOperator)
+
+

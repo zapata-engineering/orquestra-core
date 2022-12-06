@@ -1,0 +1,37 @@
+:orphan:
+
+:py:mod:`orquestra.integrations.cirq.conversions._openfermion_conversions`
+==========================================================================
+
+.. py:module:: orquestra.integrations.cirq.conversions._openfermion_conversions
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.integrations.cirq.conversions._openfermion_conversions.from_openfermion
+   orquestra.integrations.cirq.conversions._openfermion_conversions.to_openfermion
+
+
+
+.. py:function:: from_openfermion(op: openfermion.SymbolicOperator) -> orquestra.quantum.operators.PauliSum
+
+   Convert from OpenFermion symbolic operator to Orquestra native PauliSum
+
+
+.. py:function:: to_openfermion(op: orquestra.quantum.operators.PauliRepresentation, operatorType=QubitOperator)
+
+   Convert from Orquestra native PauliSum or PauliTerm to OpenFermion symbolic
+   operator
+
+   :param op: PauliSum to convert
+   :param operatorType: a subclass of OpenFermion SymbolicOperator (can be OpenFermion
+                        QubitOperator or IsingOperator)
+
+

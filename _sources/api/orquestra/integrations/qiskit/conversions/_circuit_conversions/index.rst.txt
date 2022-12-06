@@ -1,0 +1,87 @@
+:orphan:
+
+:py:mod:`orquestra.integrations.qiskit.conversions._circuit_conversions`
+========================================================================
+
+.. py:module:: orquestra.integrations.qiskit.conversions._circuit_conversions
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.integrations.qiskit.conversions._circuit_conversions.AnonGateOperation
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.integrations.qiskit.conversions._circuit_conversions.export_to_qiskit
+   orquestra.integrations.qiskit.conversions._circuit_conversions.import_from_qiskit
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.integrations.qiskit.conversions._circuit_conversions.QiskitTriplet
+   orquestra.integrations.qiskit.conversions._circuit_conversions.ORQUESTRA_QISKIT_GATE_MAP
+   orquestra.integrations.qiskit.conversions._circuit_conversions.QISKIT_ORQUESTRA_GATE_MAP
+   orquestra.integrations.qiskit.conversions._circuit_conversions.ImportedOperation
+
+
+.. py:data:: QiskitTriplet
+   
+
+   
+
+.. py:data:: ORQUESTRA_QISKIT_GATE_MAP
+   
+
+   
+
+.. py:data:: QISKIT_ORQUESTRA_GATE_MAP
+   
+
+   
+
+.. py:function:: export_to_qiskit(circuit: orquestra.quantum.circuits._circuit.Circuit) -> qiskit.QuantumCircuit
+
+
+.. py:class:: AnonGateOperation
+
+   Bases: :py:obj:`NamedTuple`
+
+   .. py:attribute:: gate_name
+      :annotation: :str
+
+      
+
+   .. py:attribute:: matrix
+      :annotation: :sympy.Matrix
+
+      
+
+   .. py:attribute:: qubit_indices
+      :annotation: :Tuple[int, Ellipsis]
+
+      
+
+
+.. py:data:: ImportedOperation
+   
+
+   
+
+.. py:function:: import_from_qiskit(circuit: qiskit.QuantumCircuit) -> orquestra.quantum.circuits._circuit.Circuit
+
+

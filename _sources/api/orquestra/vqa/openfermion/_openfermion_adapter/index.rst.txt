@@ -1,0 +1,43 @@
+:orphan:
+
+:py:mod:`orquestra.vqa.openfermion._openfermion_adapter`
+========================================================
+
+.. py:module:: orquestra.vqa.openfermion._openfermion_adapter
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.vqa.openfermion._openfermion_adapter.openfermion_adapter
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.vqa.openfermion._openfermion_adapter.relevant_openfermion_types
+   orquestra.vqa.openfermion._openfermion_adapter.relevant_orquestra_types
+
+
+.. py:data:: relevant_openfermion_types
+   
+
+   
+
+.. py:data:: relevant_orquestra_types
+   
+
+   
+
+.. py:function:: openfermion_adapter(operatorType=openfermion.QubitOperator)
+
+

@@ -1,0 +1,47 @@
+:py:mod:`orquestra.integrations.qulacs.conversions`
+===================================================
+
+.. py:module:: orquestra.integrations.qulacs.conversions
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.integrations.qulacs.conversions.convert_to_qulacs
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.integrations.qulacs.conversions.QULACS_GATE_FACTORY
+   orquestra.integrations.qulacs.conversions.ORQUESTRA_TO_QULACS_GATES
+   orquestra.integrations.qulacs.conversions.GATE_SPECIAL_CASES
+
+
+.. py:data:: QULACS_GATE_FACTORY
+   
+
+   
+
+.. py:data:: ORQUESTRA_TO_QULACS_GATES
+   :annotation: :Dict[str, Tuple[QULACS_GATE_FACTORY, Callable]]
+
+   
+
+.. py:data:: GATE_SPECIAL_CASES
+   
+
+   
+
+.. py:function:: convert_to_qulacs(circuit: orquestra.quantum.circuits.Circuit) -> qulacs.QuantumCircuit
+
+

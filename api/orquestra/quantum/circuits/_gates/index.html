@@ -1,0 +1,1410 @@
+<!doctype html>
+<html class="no-js">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../../../../genindex.html" /><link rel="search" title="Search" href="../../../../../search.html" />
+
+    <link rel="shortcut icon" href="../../../../../_static/favicon.ico"/><meta name="generator" content="sphinx-4.5.0, furo 2022.09.29"/>
+        <title>orquestra.quantum.circuits._gates - Orquestra Core Documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/styles/furo.css?digest=d81277517bee4d6b0349d71bb2661d4890b5617c" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../../../../index.html"><div class="brand">Orquestra Core Documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand centered" href="../../../../../index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="../../../../../_static/orquestra.png" alt="Logo"/>
+  </div>
+  
+  <span class="sidebar-brand-text">Orquestra Core Documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../../../../search.html" role="search">
+  <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../../tutorials/index.html">Tutorials</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../tutorials/beginner_tutorial.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../tutorials/basic_qaoa.html">Solving MaxCut with QAOA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../tutorials/orq_core_structure.html">Package Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../tutorials/integrations.html">Integrations, Modules, and Libraries in Orquestra Core</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../tutorials/contributing.html">Contributing to Orquestra Core</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../../guides/index.html">Guides</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../guides/circuits.html">Circuits guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../guides/circuit_runners.html">Circuit Runners guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../guides/cost_function.html">Cost function guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../guides/interfaces.html">Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../guides/optimizers.html">Optimizers guide</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../guides/vqa_guide/index.html">VQA Guide</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../guides/vqa_guide/structure.html">Structure of VQAs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../guides/vqa_guide/ansatzes.html">Ansatzes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../guides/vqa_guide/estimators.html">Estimators</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../index.html">API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../integrations/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.integrations</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../../integrations/braket/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.integrations.braket</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../integrations/braket/conversions/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.integrations.braket.conversions</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../integrations/braket/runner/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.integrations.braket.runner</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../integrations/braket/simulator/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.integrations.braket.simulator</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../../integrations/cirq/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.integrations.cirq</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../integrations/cirq/conversions/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.integrations.cirq.conversions</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../integrations/cirq/decompositions/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.integrations.cirq.decompositions</span></code></a></li>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../../../integrations/cirq/noise/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.integrations.cirq.noise</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../../integrations/cirq/noise/basic/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.integrations.cirq.noise.basic</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="../../../integrations/cirq/simulator/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.integrations.cirq.simulator</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../../integrations/custatevec/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.integrations.custatevec</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../integrations/custatevec/simulator/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.integrations.custatevec.simulator</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../../integrations/forest/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.integrations.forest</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../integrations/forest/conversions/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.integrations.forest.conversions</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../../integrations/qiskit/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.integrations.qiskit</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../integrations/qiskit/conversions/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.integrations.qiskit.conversions</span></code></a></li>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../../../integrations/qiskit/noise/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.integrations.qiskit.noise</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../../integrations/qiskit/noise/basic/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.integrations.qiskit.noise.basic</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="../../../integrations/qiskit/runner/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.integrations.qiskit.runner</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../integrations/qiskit/simulator/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.integrations.qiskit.simulator</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../../integrations/qulacs/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.integrations.qulacs</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../integrations/qulacs/simulator/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.integrations.qulacs.simulator</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../integrations/qulacs/conversions/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.integrations.qulacs.conversions</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../opt/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../../opt/api/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt.api</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../opt/api/bqm_solver/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt.api.bqm_solver</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../opt/api/bqm_solver_test/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt.api.bqm_solver_test</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../opt/api/cost_function/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt.api.cost_function</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../opt/api/example_functions/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt.api.example_functions</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../opt/api/functions/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt.api.functions</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../opt/api/optimizer/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt.api.optimizer</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../opt/api/optimizer_test/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt.api.optimizer_test</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../opt/api/problem/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt.api.problem</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../opt/api/save_conditions/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt.api.save_conditions</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../../opt/bqm/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt.bqm</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" role="switch" type="checkbox"/><label for="toctree-checkbox-17"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../opt/bqm/conversions/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt.bqm.conversions</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../opt/bqm/io/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt.bqm.io</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../opt/bqm/utils/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt.bqm.utils</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../../opt/history/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt.history</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" role="switch" type="checkbox"/><label for="toctree-checkbox-18"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../opt/history/recorder/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt.history.recorder</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../../opt/optimizers/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt.optimizers</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" role="switch" type="checkbox"/><label for="toctree-checkbox-19"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../opt/optimizers/basin_hopping/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt.optimizers.basin_hopping</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../opt/optimizers/cma_es_optimizer/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt.optimizers.cma_es_optimizer</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../opt/optimizers/qiskit_optimizer/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt.optimizers.qiskit_optimizer</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../opt/optimizers/scikit_quant_optimizer/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt.optimizers.scikit_quant_optimizer</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../opt/optimizers/scipy_optimizer/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt.optimizers.scipy_optimizer</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../opt/optimizers/search_points_optimizer/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt.optimizers.search_points_optimizer</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../opt/optimizers/simple_gradient_descent/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt.optimizers.simple_gradient_descent</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../../opt/problems/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt.problems</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" role="switch" type="checkbox"/><label for="toctree-checkbox-20"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../opt/problems/generators/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt.problems.generators</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../opt/problems/graph/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt.problems.graph</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../opt/problems/graph_partition/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt.problems.graph_partition</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../opt/problems/max_independent_set/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt.problems.max_independent_set</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../opt/problems/maxcut/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt.problems.maxcut</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../opt/problems/vertex_cover/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt.problems.vertex_cover</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../opt/convex/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt.convex</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../opt/cost_function_augmentations/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt.cost_function_augmentations</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../opt/gradients/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt.gradients</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../opt/mock_objects/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt.mock_objects</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" role="switch" type="checkbox"/><label for="toctree-checkbox-21"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../api/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.api</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" role="switch" type="checkbox"/><label for="toctree-checkbox-22"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../api/circuit_runner/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.api.circuit_runner</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../api/circuit_runner_contracts/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.api.circuit_runner_contracts</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../api/estimation/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.api.estimation</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../api/estimator_contract/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.api.estimator_contract</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../api/wavefunction_simulator/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.api.wavefunction_simulator</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../api/wavefunction_simulator_contracts/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.api.wavefunction_simulator_contracts</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.circuits</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" role="switch" type="checkbox"/><label for="toctree-checkbox-23"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../symbolic/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.circuits.symbolic</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" role="switch" type="checkbox"/><label for="toctree-checkbox-24"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l6"><a class="reference internal" href="../symbolic/expressions/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.circuits.symbolic.expressions</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../symbolic/sympy_expressions/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.circuits.symbolic.sympy_expressions</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../symbolic/translations/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.circuits.symbolic.translations</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="../layouts/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.circuits.layouts</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../decompositions/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.decompositions</span></code></a></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../distributions/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.distributions</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" role="switch" type="checkbox"/><label for="toctree-checkbox-25"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../distributions/BAS_dataset/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.distributions.BAS_dataset</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../distributions/clipped_negative_log_likelihood/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.distributions.clipped_negative_log_likelihood</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../distributions/jensen_shannon_divergence/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.distributions.jensen_shannon_divergence</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../distributions/mmd/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.distributions.mmd</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../distributions/target_thermal_states/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.distributions.target_thermal_states</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../estimation/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.estimation</span></code></a></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../measurements/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.measurements</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-26" name="toctree-checkbox-26" role="switch" type="checkbox"/><label for="toctree-checkbox-26"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../measurements/expectation_values/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.measurements.expectation_values</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../measurements/measurements/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.measurements.measurements</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../measurements/parities/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.measurements.parities</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../operators/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.operators</span></code></a></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../runners/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.runners</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-27" name="toctree-checkbox-27" role="switch" type="checkbox"/><label for="toctree-checkbox-27"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../runners/symbolic_simulator/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.runners.symbolic_simulator</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../runners/trackers/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.runners.trackers</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../testing/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.testing</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-28" name="toctree-checkbox-28" role="switch" type="checkbox"/><label for="toctree-checkbox-28"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../testing/generate_cases_for_backend_tests/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.testing.generate_cases_for_backend_tests</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../testing/mocks/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.testing.mocks</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../testing/test_cases_for_backend_tests/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.testing.test_cases_for_backend_tests</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../evolution/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.evolution</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../typing/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.typing</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../utils/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.utils</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../wavefunction/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.wavefunction</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../vqa/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" role="switch" type="checkbox"/><label for="toctree-checkbox-29"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../../vqa/algorithms/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.algorithms</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-30" name="toctree-checkbox-30" role="switch" type="checkbox"/><label for="toctree-checkbox-30"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../vqa/algorithms/qaoa/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.algorithms.qaoa</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../vqa/algorithms/qcbm/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.algorithms.qcbm</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../vqa/algorithms/vqe/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.algorithms.vqe</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../../vqa/ansatz/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.ansatz</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-31" name="toctree-checkbox-31" role="switch" type="checkbox"/><label for="toctree-checkbox-31"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../vqa/ansatz/qcbm/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.ansatz.qcbm</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../vqa/ansatz/kbody/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.ansatz.kbody</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../vqa/ansatz/qaoa_farhi/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.ansatz.qaoa_farhi</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../vqa/ansatz/qaoa_warm_start/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.ansatz.qaoa_warm_start</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../vqa/ansatz/quantum_compiling/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.ansatz.quantum_compiling</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../vqa/ansatz/singlet_uccsd/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.ansatz.singlet_uccsd</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../../vqa/api/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.api</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-32" name="toctree-checkbox-32" role="switch" type="checkbox"/><label for="toctree-checkbox-32"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../vqa/api/ansatz/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.api.ansatz</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../vqa/api/ansatz_test/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.api.ansatz_test</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../vqa/api/ansatz_utils/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.api.ansatz_utils</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../../vqa/cost_function/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.cost_function</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-33" name="toctree-checkbox-33" role="switch" type="checkbox"/><label for="toctree-checkbox-33"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../vqa/cost_function/cost_function/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.cost_function.cost_function</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../vqa/cost_function/qcbm_cost_function/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.cost_function.qcbm_cost_function</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../../vqa/estimation/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.estimation</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-34" name="toctree-checkbox-34" role="switch" type="checkbox"/><label for="toctree-checkbox-34"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../vqa/estimation/context_selection/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.estimation.context_selection</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../vqa/estimation/cvar/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.estimation.cvar</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../vqa/estimation/gibbs_objective/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.estimation.gibbs_objective</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../vqa/grouping/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.grouping</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../vqa/openfermion/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.openfermion</span></code></a></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../../vqa/opt/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.opt</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-35" name="toctree-checkbox-35" role="switch" type="checkbox"/><label for="toctree-checkbox-35"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../vqa/opt/fourier_qaoa/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.opt.fourier_qaoa</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../vqa/opt/layerwise_ansatz_optimizer/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.opt.layerwise_ansatz_optimizer</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../vqa/opt/recursive_qaoa/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.opt.recursive_qaoa</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../vqa/parameter_initialization/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.parameter_initialization</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../vqa/shot_allocation/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.shot_allocation</span></code></a></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../../vqa/testing/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.testing</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-36" name="toctree-checkbox-36" role="switch" type="checkbox"/><label for="toctree-checkbox-36"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../vqa/testing/mock_objects/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.testing.mock_objects</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <div class="section" id="module-orquestra.quantum.circuits._gates">
+<span id="orquestra-quantum-circuits-gates"></span><h1><a class="reference internal" href="#module-orquestra.quantum.circuits._gates" title="orquestra.quantum.circuits._gates"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.circuits._gates</span></code></a><a class="headerlink" href="#module-orquestra.quantum.circuits._gates" title="Permalink to this headline">#</a></h1>
+<p>Data structures for orquestra gates.</p>
+<div class="section" id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">#</a></h2>
+<div class="section" id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">#</a></h3>
+<div class="table-wrapper autosummary longtable docutils container">
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#orquestra.quantum.circuits._gates.Gate" title="orquestra.quantum.circuits._gates.Gate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gate</span></code></a></p></td>
+<td><p>Interface of a quantum gate representable by a matrix, translatable to other</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#orquestra.quantum.circuits._gates.GateOperation" title="orquestra.quantum.circuits._gates.GateOperation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GateOperation</span></code></a></p></td>
+<td><p>Represents applying a <cite>Gate</cite> to 1 or more qubits in a circuit.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#orquestra.quantum.circuits._gates.MatrixFactoryGate" title="orquestra.quantum.circuits._gates.MatrixFactoryGate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MatrixFactoryGate</span></code></a></p></td>
+<td><p>Data structure for a <cite>Gate</cite> with deferred matrix construction.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#orquestra.quantum.circuits._gates.ControlledGate" title="orquestra.quantum.circuits._gates.ControlledGate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ControlledGate</span></code></a></p></td>
+<td><p>Interface of a quantum gate representable by a matrix, translatable to other</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#orquestra.quantum.circuits._gates.Dagger" title="orquestra.quantum.circuits._gates.Dagger"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Dagger</span></code></a></p></td>
+<td><p>Interface of a quantum gate representable by a matrix, translatable to other</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#orquestra.quantum.circuits._gates.Exponential" title="orquestra.quantum.circuits._gates.Exponential"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Exponential</span></code></a></p></td>
+<td><p>Interface of a quantum gate representable by a matrix, translatable to other</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#orquestra.quantum.circuits._gates.Power" title="orquestra.quantum.circuits._gates.Power"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Power</span></code></a></p></td>
+<td><p>Interface of a quantum gate representable by a matrix, translatable to other</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#orquestra.quantum.circuits._gates.CustomGateMatrixFactory" title="orquestra.quantum.circuits._gates.CustomGateMatrixFactory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CustomGateMatrixFactory</span></code></a></p></td>
+<td><p>Can be passed as <cite>matrix_factory</cite> when a gate matrix isn't lazily evaluated.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#orquestra.quantum.circuits._gates.CustomGateDefinition" title="orquestra.quantum.circuits._gates.CustomGateDefinition"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CustomGateDefinition</span></code></a></p></td>
+<td><p>Use this class to define a non-built-in gate.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">#</a></h3>
+<div class="table-wrapper autosummary longtable docutils container">
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#orquestra.quantum.circuits._gates.gate_is_parametric" title="orquestra.quantum.circuits._gates.gate_is_parametric"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gate_is_parametric</span></code></a>(gate_ref, gate_params)</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">#</a></h3>
+<div class="table-wrapper autosummary longtable docutils container">
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#orquestra.quantum.circuits._gates.CONTROLLED_GATE_NAME" title="orquestra.quantum.circuits._gates.CONTROLLED_GATE_NAME"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CONTROLLED_GATE_NAME</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#orquestra.quantum.circuits._gates.DAGGER_GATE_NAME" title="orquestra.quantum.circuits._gates.DAGGER_GATE_NAME"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DAGGER_GATE_NAME</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#orquestra.quantum.circuits._gates.EXPONENTIAL_GATE_NAME" title="orquestra.quantum.circuits._gates.EXPONENTIAL_GATE_NAME"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EXPONENTIAL_GATE_NAME</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#orquestra.quantum.circuits._gates.POWER_GATE_SYMBOL" title="orquestra.quantum.circuits._gates.POWER_GATE_SYMBOL"><code class="xref py py-obj docutils literal notranslate"><span class="pre">POWER_GATE_SYMBOL</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl class="py class">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.Gate">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">orquestra.quantum.circuits._gates.</span></span><span class="sig-name descname"><span class="pre">Gate</span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.Gate" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Protocol</span></code></p>
+<p>Interface of a quantum gate representable by a matrix, translatable to other
+frameworks and backends.</p>
+<p>See <cite>orquestra.quantum.circuits</cite> for a list of built-in gates and usage guide.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.Gate.name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">name</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.Gate.name" title="Permalink to this definition">#</a></dt>
+<dd><p>Globally unique name of the gate.</p>
+<p>Name is used in textual representation and dispatching in conversion between
+frameworks. Defining different gates with the same name as built-in ones
+is discouraged.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.Gate.params">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">params</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">orquestra.quantum.circuits._operations.Parameter</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Ellipsis</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.Gate.params" title="Permalink to this definition">#</a></dt>
+<dd><p>Value of parameters bound to this gate.</p>
+<p>Length of <cite>params</cite> should be equal to number of parameters in gate initializer.
+In particular, nonparametric gates should always return ().</p>
+<p>Examples:
+- an <cite>H</cite> gate has no params
+- a <cite>RX(np.pi)</cite> gate has a single param with value of <cite>np.pi</cite>
+- a <cite>RX(sympy.Symbol(“theta”))</cite> gate has a single symbolic param <cite>theta</cite>
+- a <cite>RX(sympy.sympify(“theta * alpha”))</cite> gate has a single symbolic expression</p>
+<blockquote>
+<div><p>param <cite>theta*alpha</cite></p>
+</div></blockquote>
+<p>We need it for translations to other frameworks and for serialization.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.Gate.free_symbols">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">free_symbols</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">sympy.Symbol</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.Gate.free_symbols" title="Permalink to this definition">#</a></dt>
+<dd><p>Unbound symbols in the gate matrix.</p>
+<p>Examples:
+- an <cite>H</cite> gate has no free symbols
+- a <cite>RX(np.pi)</cite> gate has no free symbols
+- a <cite>RX(sympy.Symbol(“theta”))</cite> gate has a single free symbol <cite>theta</cite>
+- a <cite>RX(sympy.sympify(“theta * alpha”))</cite> gate has two free symbols, <cite>alpha</cite> and</p>
+<blockquote>
+<div><p><cite>theta</cite></p>
+</div></blockquote>
+<ul class="simple">
+<li><dl class="simple">
+<dt>a <cite>RX(sympy.sympify(“theta * alpha”)).bind({sympy.Symbol(“theta”): 0.42})</cite></dt><dd><p>gate has one free symbol, <cite>alpha</cite></p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.Gate.num_qubits">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_qubits</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.Gate.num_qubits" title="Permalink to this definition">#</a></dt>
+<dd><p>Number of qubits this gate acts on.
+We need it because matrix is computed lazily, and we don’t want to create matrix
+just to know the number of qubits.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.Gate.matrix">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">matrix</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">sympy.Matrix</span></span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.Gate.matrix" title="Permalink to this definition">#</a></dt>
+<dd><p>Unitary matrix describing gate’s action on state vector.</p>
+<p>We need it to be able to implement .propagate() on the operation class.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.Gate.controlled">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">controlled</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_control_qubits</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#orquestra.quantum.circuits._gates.Gate" title="orquestra.quantum.circuits._gates.Gate"><span class="pre">Gate</span></a></span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.Gate.controlled" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.Gate.dagger">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dagger</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#orquestra.quantum.circuits._gates.Gate" title="orquestra.quantum.circuits._gates.Gate"><span class="pre">Gate</span></a></span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.Gate.dagger" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.Gate.power">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">power</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exponent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#orquestra.quantum.circuits._gates.Gate" title="orquestra.quantum.circuits._gates.Gate"><span class="pre">Gate</span></a></span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.Gate.power" title="Permalink to this definition">#</a></dt>
+<dd><p>Gate representing the underlying matrix raised to the power
+of the given exponent.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.Gate.exp">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">exp</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#orquestra.quantum.circuits._gates.Gate" title="orquestra.quantum.circuits._gates.Gate"><span class="pre">Gate</span></a></span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.Gate.exp" title="Permalink to this definition">#</a></dt>
+<dd><p>Gate representing the exponential of the given gate.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.Gate.bind">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bind</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">symbols_map</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">sympy.Symbol</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">orquestra.quantum.circuits._operations.Parameter</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#orquestra.quantum.circuits._gates.Gate" title="orquestra.quantum.circuits._gates.Gate"><span class="pre">Gate</span></a></span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.Gate.bind" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.Gate.replace_params">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">replace_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">orquestra.quantum.circuits._operations.Parameter</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Ellipsis</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#orquestra.quantum.circuits._gates.Gate" title="orquestra.quantum.circuits._gates.Gate"><span class="pre">Gate</span></a></span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.Gate.replace_params" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.gate_is_parametric">
+<span class="sig-prename descclassname"><span class="pre">orquestra.quantum.circuits._gates.</span></span><span class="sig-name descname"><span class="pre">gate_is_parametric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gate_ref</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gate_params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#orquestra.quantum.circuits._gates.gate_is_parametric" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.GateOperation">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">orquestra.quantum.circuits._gates.</span></span><span class="sig-name descname"><span class="pre">GateOperation</span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.GateOperation" title="Permalink to this definition">#</a></dt>
+<dd><p>Represents applying a <cite>Gate</cite> to 1 or more qubits in a circuit.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.GateOperation.gate">
+<span class="sig-name descname"><span class="pre">gate</span></span><em class="property"><span class="w"> </span><span class="pre">:Gate</span></em><a class="headerlink" href="#orquestra.quantum.circuits._gates.GateOperation.gate" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.GateOperation.qubit_indices">
+<span class="sig-name descname"><span class="pre">qubit_indices</span></span><em class="property"><span class="w"> </span><span class="pre">:Tuple[int,</span> <span class="pre">Ellipsis]</span></em><a class="headerlink" href="#orquestra.quantum.circuits._gates.GateOperation.qubit_indices" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.GateOperation.params">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">params</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">orquestra.quantum.circuits._operations.Parameter</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Ellipsis</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.GateOperation.params" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.GateOperation.bind">
+<span class="sig-name descname"><span class="pre">bind</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">symbols_map</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">sympy.Symbol</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">orquestra.quantum.circuits._operations.Parameter</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#orquestra.quantum.circuits._gates.GateOperation" title="orquestra.quantum.circuits._gates.GateOperation"><span class="pre">GateOperation</span></a></span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.GateOperation.bind" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.GateOperation.replace_params">
+<span class="sig-name descname"><span class="pre">replace_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">orquestra.quantum.circuits._operations.Parameter</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Ellipsis</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#orquestra.quantum.circuits._gates.GateOperation" title="orquestra.quantum.circuits._gates.GateOperation"><span class="pre">GateOperation</span></a></span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.GateOperation.replace_params" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.GateOperation.lifted_matrix">
+<span class="sig-name descname"><span class="pre">lifted_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_qubits</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#orquestra.quantum.circuits._gates.GateOperation.lifted_matrix" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.GateOperation.apply">
+<span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amplitude_vector</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">orquestra.quantum.typing.ParameterizedVector</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">orquestra.quantum.typing.ParameterizedVector</span></span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.GateOperation.apply" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.GateOperation.free_symbols">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">free_symbols</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">sympy.Symbol</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.GateOperation.free_symbols" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.MatrixFactoryGate">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">orquestra.quantum.circuits._gates.</span></span><span class="sig-name descname"><span class="pre">MatrixFactoryGate</span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.MatrixFactoryGate" title="Permalink to this definition">#</a></dt>
+<dd><p>Data structure for a <cite>Gate</cite> with deferred matrix construction.</p>
+<p>Most built-in gates are instances of this class.
+See <cite>orquestra.quantum.circuits</cite> for built-in gates and usage guide.</p>
+<p>This class requires the gate definition to be present during deserialization, so
+it’s not easily applicable for gates defined in Orquestra steps. If you want to
+define a new gate, check out <cite>CustomGateDefinition</cite> first.</p>
+<p>Keeping a <cite>matrix_factory</cite> instead of a plain gate matrix allows us to defer matrix
+construction to _after_ parameter binding. This saves unnecessary work in scenarios
+where we construct a quantum circuit and immediately bind parameter values. When
+done multiple times, e.g. for every gate in each optimization step, this can lead
+to major performance issues.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – Name of this gate. Implementers of new gates should make sure that the
+names are unique.</p></li>
+<li><p><strong>matrix_factory</strong> – a callable mapping arbitrary number of parameters into gate
+matrix. Implementers of new gates should make sure the returned matrices are
+square and of dimension being 2 ** <cite>num_qubits</cite>.</p></li>
+<li><p><strong>params</strong> – gate parameters - either concrete values or opaque symbols.
+Will be passed to <cite>matrix_factory</cite> when <cite>matrix</cite> property is requested.</p></li>
+<li><p><strong>num_qubits</strong> – number of qubits this gate acts on.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.MatrixFactoryGate.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="pre">:str</span></em><a class="headerlink" href="#orquestra.quantum.circuits._gates.MatrixFactoryGate.name" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.MatrixFactoryGate.matrix_factory">
+<span class="sig-name descname"><span class="pre">matrix_factory</span></span><em class="property"><span class="w"> </span><span class="pre">:Callable[Ellipsis,</span> <span class="pre">sympy.Matrix]</span></em><a class="headerlink" href="#orquestra.quantum.circuits._gates.MatrixFactoryGate.matrix_factory" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.MatrixFactoryGate.params">
+<span class="sig-name descname"><span class="pre">params</span></span><em class="property"><span class="w"> </span><span class="pre">:Tuple[orquestra.quantum.circuits._operations.Parameter,</span> <span class="pre">Ellipsis]</span></em><a class="headerlink" href="#orquestra.quantum.circuits._gates.MatrixFactoryGate.params" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.MatrixFactoryGate.num_qubits">
+<span class="sig-name descname"><span class="pre">num_qubits</span></span><em class="property"><span class="w"> </span><span class="pre">:int</span></em><a class="headerlink" href="#orquestra.quantum.circuits._gates.MatrixFactoryGate.num_qubits" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.MatrixFactoryGate.is_hermitian">
+<span class="sig-name descname"><span class="pre">is_hermitian</span></span><em class="property"><span class="w"> </span><span class="pre">:bool</span> <span class="pre">=</span> <span class="pre">False</span></em><a class="headerlink" href="#orquestra.quantum.circuits._gates.MatrixFactoryGate.is_hermitian" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.MatrixFactoryGate.matrix">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">matrix</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">sympy.Matrix</span></span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.MatrixFactoryGate.matrix" title="Permalink to this definition">#</a></dt>
+<dd><p>Unitary matrix defining action of this gate.</p>
+<dl class="simple">
+<dt>This is a computed property using <cite>self.matrix_factory</cite> called with parameters</dt><dd><p>bound to this gate.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.MatrixFactoryGate.bind">
+<span class="sig-name descname"><span class="pre">bind</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">symbols_map</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#orquestra.quantum.circuits._gates.MatrixFactoryGate" title="orquestra.quantum.circuits._gates.MatrixFactoryGate"><span class="pre">MatrixFactoryGate</span></a></span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.MatrixFactoryGate.bind" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.MatrixFactoryGate.replace_params">
+<span class="sig-name descname"><span class="pre">replace_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">orquestra.quantum.circuits._operations.Parameter</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Ellipsis</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#orquestra.quantum.circuits._gates.MatrixFactoryGate" title="orquestra.quantum.circuits._gates.MatrixFactoryGate"><span class="pre">MatrixFactoryGate</span></a></span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.MatrixFactoryGate.replace_params" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.MatrixFactoryGate.controlled">
+<span class="sig-name descname"><span class="pre">controlled</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_controlled_qubits</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#orquestra.quantum.circuits._gates.Gate" title="orquestra.quantum.circuits._gates.Gate"><span class="pre">Gate</span></a></span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.MatrixFactoryGate.controlled" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.MatrixFactoryGate.dagger">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dagger</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#orquestra.quantum.circuits._gates.MatrixFactoryGate" title="orquestra.quantum.circuits._gates.MatrixFactoryGate"><span class="pre">MatrixFactoryGate</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#orquestra.quantum.circuits._gates.Gate" title="orquestra.quantum.circuits._gates.Gate"><span class="pre">Gate</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.MatrixFactoryGate.dagger" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.MatrixFactoryGate.exp">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">exp</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#orquestra.quantum.circuits._gates.Gate" title="orquestra.quantum.circuits._gates.Gate"><span class="pre">Gate</span></a></span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.MatrixFactoryGate.exp" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.MatrixFactoryGate.power">
+<span class="sig-name descname"><span class="pre">power</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exponent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#orquestra.quantum.circuits._gates.Gate" title="orquestra.quantum.circuits._gates.Gate"><span class="pre">Gate</span></a></span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.MatrixFactoryGate.power" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.MatrixFactoryGate.free_symbols">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">free_symbols</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">sympy.Symbol</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.MatrixFactoryGate.free_symbols" title="Permalink to this definition">#</a></dt>
+<dd><p>Unbound symbols in the gate matrix. See Gate.free_symbols for details.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.CONTROLLED_GATE_NAME">
+<span class="sig-prename descclassname"><span class="pre">orquestra.quantum.circuits._gates.</span></span><span class="sig-name descname"><span class="pre">CONTROLLED_GATE_NAME</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">Control</span></em><a class="headerlink" href="#orquestra.quantum.circuits._gates.CONTROLLED_GATE_NAME" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.ControlledGate">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">orquestra.quantum.circuits._gates.</span></span><span class="sig-name descname"><span class="pre">ControlledGate</span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.ControlledGate" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#orquestra.quantum.circuits._gates.Gate" title="orquestra.quantum.circuits._gates.Gate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gate</span></code></a></p>
+<p>Interface of a quantum gate representable by a matrix, translatable to other
+frameworks and backends.</p>
+<p>See <cite>orquestra.quantum.circuits</cite> for a list of built-in gates and usage guide.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.ControlledGate.wrapped_gate">
+<span class="sig-name descname"><span class="pre">wrapped_gate</span></span><em class="property"><span class="w"> </span><span class="pre">:Gate</span></em><a class="headerlink" href="#orquestra.quantum.circuits._gates.ControlledGate.wrapped_gate" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.ControlledGate.num_control_qubits">
+<span class="sig-name descname"><span class="pre">num_control_qubits</span></span><em class="property"><span class="w"> </span><span class="pre">:int</span></em><a class="headerlink" href="#orquestra.quantum.circuits._gates.ControlledGate.num_control_qubits" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.ControlledGate.name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.ControlledGate.name" title="Permalink to this definition">#</a></dt>
+<dd><p>Globally unique name of the gate.</p>
+<p>Name is used in textual representation and dispatching in conversion between
+frameworks. Defining different gates with the same name as built-in ones
+is discouraged.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.ControlledGate.num_qubits">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_qubits</span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.ControlledGate.num_qubits" title="Permalink to this definition">#</a></dt>
+<dd><p>Number of qubits this gate acts on.
+We need it because matrix is computed lazily, and we don’t want to create matrix
+just to know the number of qubits.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.ControlledGate.matrix">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">matrix</span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.ControlledGate.matrix" title="Permalink to this definition">#</a></dt>
+<dd><p>Unitary matrix describing gate’s action on state vector.</p>
+<p>We need it to be able to implement .propagate() on the operation class.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.ControlledGate.params">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">params</span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.ControlledGate.params" title="Permalink to this definition">#</a></dt>
+<dd><p>Value of parameters bound to this gate.</p>
+<p>Length of <cite>params</cite> should be equal to number of parameters in gate initializer.
+In particular, nonparametric gates should always return ().</p>
+<p>Examples:
+- an <cite>H</cite> gate has no params
+- a <cite>RX(np.pi)</cite> gate has a single param with value of <cite>np.pi</cite>
+- a <cite>RX(sympy.Symbol(“theta”))</cite> gate has a single symbolic param <cite>theta</cite>
+- a <cite>RX(sympy.sympify(“theta * alpha”))</cite> gate has a single symbolic expression</p>
+<blockquote>
+<div><p>param <cite>theta*alpha</cite></p>
+</div></blockquote>
+<p>We need it for translations to other frameworks and for serialization.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.ControlledGate.controlled">
+<span class="sig-name descname"><span class="pre">controlled</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_control_qubits</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#orquestra.quantum.circuits._gates.ControlledGate" title="orquestra.quantum.circuits._gates.ControlledGate"><span class="pre">ControlledGate</span></a></span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.ControlledGate.controlled" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.ControlledGate.dagger">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dagger</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#orquestra.quantum.circuits._gates.ControlledGate" title="orquestra.quantum.circuits._gates.ControlledGate"><span class="pre">ControlledGate</span></a></span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.ControlledGate.dagger" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.ControlledGate.exp">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">exp</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#orquestra.quantum.circuits._gates.Gate" title="orquestra.quantum.circuits._gates.Gate"><span class="pre">Gate</span></a></span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.ControlledGate.exp" title="Permalink to this definition">#</a></dt>
+<dd><p>Gate representing the exponential of the given gate.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.ControlledGate.power">
+<span class="sig-name descname"><span class="pre">power</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exponent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#orquestra.quantum.circuits._gates.Gate" title="orquestra.quantum.circuits._gates.Gate"><span class="pre">Gate</span></a></span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.ControlledGate.power" title="Permalink to this definition">#</a></dt>
+<dd><p>Gate representing the underlying matrix raised to the power
+of the given exponent.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.ControlledGate.bind">
+<span class="sig-name descname"><span class="pre">bind</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">symbols_map</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#orquestra.quantum.circuits._gates.Gate" title="orquestra.quantum.circuits._gates.Gate"><span class="pre">Gate</span></a></span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.ControlledGate.bind" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.ControlledGate.replace_params">
+<span class="sig-name descname"><span class="pre">replace_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">orquestra.quantum.circuits._operations.Parameter</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Ellipsis</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#orquestra.quantum.circuits._gates.Gate" title="orquestra.quantum.circuits._gates.Gate"><span class="pre">Gate</span></a></span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.ControlledGate.replace_params" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.DAGGER_GATE_NAME">
+<span class="sig-prename descclassname"><span class="pre">orquestra.quantum.circuits._gates.</span></span><span class="sig-name descname"><span class="pre">DAGGER_GATE_NAME</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">Dagger</span></em><a class="headerlink" href="#orquestra.quantum.circuits._gates.DAGGER_GATE_NAME" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.Dagger">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">orquestra.quantum.circuits._gates.</span></span><span class="sig-name descname"><span class="pre">Dagger</span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.Dagger" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#orquestra.quantum.circuits._gates.Gate" title="orquestra.quantum.circuits._gates.Gate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gate</span></code></a></p>
+<p>Interface of a quantum gate representable by a matrix, translatable to other
+frameworks and backends.</p>
+<p>See <cite>orquestra.quantum.circuits</cite> for a list of built-in gates and usage guide.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.Dagger.wrapped_gate">
+<span class="sig-name descname"><span class="pre">wrapped_gate</span></span><em class="property"><span class="w"> </span><span class="pre">:Gate</span></em><a class="headerlink" href="#orquestra.quantum.circuits._gates.Dagger.wrapped_gate" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.Dagger.matrix">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">matrix</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">sympy.Matrix</span></span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.Dagger.matrix" title="Permalink to this definition">#</a></dt>
+<dd><p>Unitary matrix describing gate’s action on state vector.</p>
+<p>We need it to be able to implement .propagate() on the operation class.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.Dagger.params">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">params</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">orquestra.quantum.circuits._operations.Parameter</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Ellipsis</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.Dagger.params" title="Permalink to this definition">#</a></dt>
+<dd><p>Value of parameters bound to this gate.</p>
+<p>Length of <cite>params</cite> should be equal to number of parameters in gate initializer.
+In particular, nonparametric gates should always return ().</p>
+<p>Examples:
+- an <cite>H</cite> gate has no params
+- a <cite>RX(np.pi)</cite> gate has a single param with value of <cite>np.pi</cite>
+- a <cite>RX(sympy.Symbol(“theta”))</cite> gate has a single symbolic param <cite>theta</cite>
+- a <cite>RX(sympy.sympify(“theta * alpha”))</cite> gate has a single symbolic expression</p>
+<blockquote>
+<div><p>param <cite>theta*alpha</cite></p>
+</div></blockquote>
+<p>We need it for translations to other frameworks and for serialization.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.Dagger.num_qubits">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_qubits</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.Dagger.num_qubits" title="Permalink to this definition">#</a></dt>
+<dd><p>Number of qubits this gate acts on.
+We need it because matrix is computed lazily, and we don’t want to create matrix
+just to know the number of qubits.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.Dagger.name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.Dagger.name" title="Permalink to this definition">#</a></dt>
+<dd><p>Globally unique name of the gate.</p>
+<p>Name is used in textual representation and dispatching in conversion between
+frameworks. Defining different gates with the same name as built-in ones
+is discouraged.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.Dagger.controlled">
+<span class="sig-name descname"><span class="pre">controlled</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_control_qubits</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#orquestra.quantum.circuits._gates.Gate" title="orquestra.quantum.circuits._gates.Gate"><span class="pre">Gate</span></a></span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.Dagger.controlled" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.Dagger.bind">
+<span class="sig-name descname"><span class="pre">bind</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">symbols_map</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#orquestra.quantum.circuits._gates.Gate" title="orquestra.quantum.circuits._gates.Gate"><span class="pre">Gate</span></a></span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.Dagger.bind" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.Dagger.replace_params">
+<span class="sig-name descname"><span class="pre">replace_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">orquestra.quantum.circuits._operations.Parameter</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Ellipsis</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#orquestra.quantum.circuits._gates.Gate" title="orquestra.quantum.circuits._gates.Gate"><span class="pre">Gate</span></a></span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.Dagger.replace_params" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.Dagger.dagger">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dagger</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#orquestra.quantum.circuits._gates.Gate" title="orquestra.quantum.circuits._gates.Gate"><span class="pre">Gate</span></a></span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.Dagger.dagger" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.Dagger.exp">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">exp</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#orquestra.quantum.circuits._gates.Gate" title="orquestra.quantum.circuits._gates.Gate"><span class="pre">Gate</span></a></span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.Dagger.exp" title="Permalink to this definition">#</a></dt>
+<dd><p>Gate representing the exponential of the given gate.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.Dagger.power">
+<span class="sig-name descname"><span class="pre">power</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exponent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#orquestra.quantum.circuits._gates.Gate" title="orquestra.quantum.circuits._gates.Gate"><span class="pre">Gate</span></a></span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.Dagger.power" title="Permalink to this definition">#</a></dt>
+<dd><p>Gate representing the underlying matrix raised to the power
+of the given exponent.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.EXPONENTIAL_GATE_NAME">
+<span class="sig-prename descclassname"><span class="pre">orquestra.quantum.circuits._gates.</span></span><span class="sig-name descname"><span class="pre">EXPONENTIAL_GATE_NAME</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">Exponential</span></em><a class="headerlink" href="#orquestra.quantum.circuits._gates.EXPONENTIAL_GATE_NAME" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.Exponential">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">orquestra.quantum.circuits._gates.</span></span><span class="sig-name descname"><span class="pre">Exponential</span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.Exponential" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#orquestra.quantum.circuits._gates.Gate" title="orquestra.quantum.circuits._gates.Gate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gate</span></code></a></p>
+<p>Interface of a quantum gate representable by a matrix, translatable to other
+frameworks and backends.</p>
+<p>See <cite>orquestra.quantum.circuits</cite> for a list of built-in gates and usage guide.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.Exponential.wrapped_gate">
+<span class="sig-name descname"><span class="pre">wrapped_gate</span></span><em class="property"><span class="w"> </span><span class="pre">:Gate</span></em><a class="headerlink" href="#orquestra.quantum.circuits._gates.Exponential.wrapped_gate" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.Exponential.matrix">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">matrix</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">sympy.Matrix</span></span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.Exponential.matrix" title="Permalink to this definition">#</a></dt>
+<dd><p>Unitary matrix describing gate’s action on state vector.</p>
+<p>We need it to be able to implement .propagate() on the operation class.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.Exponential.params">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">params</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">orquestra.quantum.circuits._operations.Parameter</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Ellipsis</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.Exponential.params" title="Permalink to this definition">#</a></dt>
+<dd><p>Value of parameters bound to this gate.</p>
+<p>Length of <cite>params</cite> should be equal to number of parameters in gate initializer.
+In particular, nonparametric gates should always return ().</p>
+<p>Examples:
+- an <cite>H</cite> gate has no params
+- a <cite>RX(np.pi)</cite> gate has a single param with value of <cite>np.pi</cite>
+- a <cite>RX(sympy.Symbol(“theta”))</cite> gate has a single symbolic param <cite>theta</cite>
+- a <cite>RX(sympy.sympify(“theta * alpha”))</cite> gate has a single symbolic expression</p>
+<blockquote>
+<div><p>param <cite>theta*alpha</cite></p>
+</div></blockquote>
+<p>We need it for translations to other frameworks and for serialization.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.Exponential.num_qubits">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_qubits</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.Exponential.num_qubits" title="Permalink to this definition">#</a></dt>
+<dd><p>Number of qubits this gate acts on.
+We need it because matrix is computed lazily, and we don’t want to create matrix
+just to know the number of qubits.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.Exponential.name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.Exponential.name" title="Permalink to this definition">#</a></dt>
+<dd><p>Globally unique name of the gate.</p>
+<p>Name is used in textual representation and dispatching in conversion between
+frameworks. Defining different gates with the same name as built-in ones
+is discouraged.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.Exponential.controlled">
+<span class="sig-name descname"><span class="pre">controlled</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_control_qubits</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#orquestra.quantum.circuits._gates.Gate" title="orquestra.quantum.circuits._gates.Gate"><span class="pre">Gate</span></a></span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.Exponential.controlled" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.Exponential.bind">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bind</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">symbols_map</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#orquestra.quantum.circuits._gates.Gate" title="orquestra.quantum.circuits._gates.Gate"><span class="pre">Gate</span></a></span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.Exponential.bind" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.Exponential.replace_params">
+<span class="sig-name descname"><span class="pre">replace_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">orquestra.quantum.circuits._operations.Parameter</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Ellipsis</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#orquestra.quantum.circuits._gates.Gate" title="orquestra.quantum.circuits._gates.Gate"><span class="pre">Gate</span></a></span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.Exponential.replace_params" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.Exponential.dagger">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dagger</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#orquestra.quantum.circuits._gates.Gate" title="orquestra.quantum.circuits._gates.Gate"><span class="pre">Gate</span></a></span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.Exponential.dagger" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.Exponential.exp">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">exp</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#orquestra.quantum.circuits._gates.Gate" title="orquestra.quantum.circuits._gates.Gate"><span class="pre">Gate</span></a></span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.Exponential.exp" title="Permalink to this definition">#</a></dt>
+<dd><p>Gate representing the exponential of the given gate.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.Exponential.power">
+<span class="sig-name descname"><span class="pre">power</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exponent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#orquestra.quantum.circuits._gates.Gate" title="orquestra.quantum.circuits._gates.Gate"><span class="pre">Gate</span></a></span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.Exponential.power" title="Permalink to this definition">#</a></dt>
+<dd><p>Gate representing the underlying matrix raised to the power
+of the given exponent.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.POWER_GATE_SYMBOL">
+<span class="sig-prename descclassname"><span class="pre">orquestra.quantum.circuits._gates.</span></span><span class="sig-name descname"><span class="pre">POWER_GATE_SYMBOL</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">^</span></em><a class="headerlink" href="#orquestra.quantum.circuits._gates.POWER_GATE_SYMBOL" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.Power">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">orquestra.quantum.circuits._gates.</span></span><span class="sig-name descname"><span class="pre">Power</span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.Power" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#orquestra.quantum.circuits._gates.Gate" title="orquestra.quantum.circuits._gates.Gate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gate</span></code></a></p>
+<p>Interface of a quantum gate representable by a matrix, translatable to other
+frameworks and backends.</p>
+<p>See <cite>orquestra.quantum.circuits</cite> for a list of built-in gates and usage guide.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.Power.wrapped_gate">
+<span class="sig-name descname"><span class="pre">wrapped_gate</span></span><em class="property"><span class="w"> </span><span class="pre">:Gate</span></em><a class="headerlink" href="#orquestra.quantum.circuits._gates.Power.wrapped_gate" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.Power.exponent">
+<span class="sig-name descname"><span class="pre">exponent</span></span><em class="property"><span class="w"> </span><span class="pre">:float</span></em><a class="headerlink" href="#orquestra.quantum.circuits._gates.Power.exponent" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.Power.name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">name</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.Power.name" title="Permalink to this definition">#</a></dt>
+<dd><p>Globally unique name of the gate.</p>
+<p>Name is used in textual representation and dispatching in conversion between
+frameworks. Defining different gates with the same name as built-in ones
+is discouraged.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.Power.params">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">params</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">orquestra.quantum.circuits._operations.Parameter</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Ellipsis</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.Power.params" title="Permalink to this definition">#</a></dt>
+<dd><p>Value of parameters bound to this gate.</p>
+<p>Length of <cite>params</cite> should be equal to number of parameters in gate initializer.
+In particular, nonparametric gates should always return ().</p>
+<p>Examples:
+- an <cite>H</cite> gate has no params
+- a <cite>RX(np.pi)</cite> gate has a single param with value of <cite>np.pi</cite>
+- a <cite>RX(sympy.Symbol(“theta”))</cite> gate has a single symbolic param <cite>theta</cite>
+- a <cite>RX(sympy.sympify(“theta * alpha”))</cite> gate has a single symbolic expression</p>
+<blockquote>
+<div><p>param <cite>theta*alpha</cite></p>
+</div></blockquote>
+<p>We need it for translations to other frameworks and for serialization.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.Power.free_symbols">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">free_symbols</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">sympy.Symbol</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.Power.free_symbols" title="Permalink to this definition">#</a></dt>
+<dd><p>Unbound symbols in the gate matrix.</p>
+<p>Examples:
+- an <cite>H</cite> gate has no free symbols
+- a <cite>RX(np.pi)</cite> gate has no free symbols
+- a <cite>RX(sympy.Symbol(“theta”))</cite> gate has a single free symbol <cite>theta</cite>
+- a <cite>RX(sympy.sympify(“theta * alpha”))</cite> gate has two free symbols, <cite>alpha</cite> and</p>
+<blockquote>
+<div><p><cite>theta</cite></p>
+</div></blockquote>
+<ul class="simple">
+<li><dl class="simple">
+<dt>a <cite>RX(sympy.sympify(“theta * alpha”)).bind({sympy.Symbol(“theta”): 0.42})</cite></dt><dd><p>gate has one free symbol, <cite>alpha</cite></p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.Power.num_qubits">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_qubits</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.Power.num_qubits" title="Permalink to this definition">#</a></dt>
+<dd><p>Number of qubits this gate acts on.
+We need it because matrix is computed lazily, and we don’t want to create matrix
+just to know the number of qubits.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.Power.matrix">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">matrix</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">sympy.Matrix</span></span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.Power.matrix" title="Permalink to this definition">#</a></dt>
+<dd><p>Unitary matrix describing gate’s action on state vector.</p>
+<p>We need it to be able to implement .propagate() on the operation class.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.Power.controlled">
+<span class="sig-name descname"><span class="pre">controlled</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_control_qubits</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#orquestra.quantum.circuits._gates.Gate" title="orquestra.quantum.circuits._gates.Gate"><span class="pre">Gate</span></a></span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.Power.controlled" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.Power.dagger">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dagger</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#orquestra.quantum.circuits._gates.Gate" title="orquestra.quantum.circuits._gates.Gate"><span class="pre">Gate</span></a></span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.Power.dagger" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.Power.exp">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">exp</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#orquestra.quantum.circuits._gates.Gate" title="orquestra.quantum.circuits._gates.Gate"><span class="pre">Gate</span></a></span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.Power.exp" title="Permalink to this definition">#</a></dt>
+<dd><p>Gate representing the exponential of the given gate.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.Power.power">
+<span class="sig-name descname"><span class="pre">power</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exponent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#orquestra.quantum.circuits._gates.Gate" title="orquestra.quantum.circuits._gates.Gate"><span class="pre">Gate</span></a></span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.Power.power" title="Permalink to this definition">#</a></dt>
+<dd><p>Gate representing the underlying matrix raised to the power
+of the given exponent.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.Power.bind">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bind</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">symbols_map</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">sympy.Symbol</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">orquestra.quantum.circuits._operations.Parameter</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#orquestra.quantum.circuits._gates.Gate" title="orquestra.quantum.circuits._gates.Gate"><span class="pre">Gate</span></a></span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.Power.bind" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.Power.replace_params">
+<span class="sig-name descname"><span class="pre">replace_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">orquestra.quantum.circuits._operations.Parameter</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Ellipsis</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#orquestra.quantum.circuits._gates.Gate" title="orquestra.quantum.circuits._gates.Gate"><span class="pre">Gate</span></a></span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.Power.replace_params" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.CustomGateMatrixFactory">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">orquestra.quantum.circuits._gates.</span></span><span class="sig-name descname"><span class="pre">CustomGateMatrixFactory</span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.CustomGateMatrixFactory" title="Permalink to this definition">#</a></dt>
+<dd><p>Can be passed as <cite>matrix_factory</cite> when a gate matrix isn’t lazily evaluated.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.CustomGateMatrixFactory.gate_definition">
+<span class="sig-name descname"><span class="pre">gate_definition</span></span><em class="property"><span class="w"> </span><span class="pre">:CustomGateDefinition</span></em><a class="headerlink" href="#orquestra.quantum.circuits._gates.CustomGateMatrixFactory.gate_definition" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.CustomGateMatrixFactory.matrix">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">matrix</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">sympy.Matrix</span></span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.CustomGateMatrixFactory.matrix" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.CustomGateMatrixFactory.params_ordering">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">params_ordering</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">orquestra.quantum.circuits._operations.Parameter</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Ellipsis</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.CustomGateMatrixFactory.params_ordering" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.CustomGateDefinition">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">orquestra.quantum.circuits._gates.</span></span><span class="sig-name descname"><span class="pre">CustomGateDefinition</span></span><a class="headerlink" href="#orquestra.quantum.circuits._gates.CustomGateDefinition" title="Permalink to this definition">#</a></dt>
+<dd><p>Use this class to define a non-built-in gate.</p>
+<p>See “Defining new gates” section in <cite>help(orquestra.quantum.circuits)</cite> for
+usage guide.</p>
+<p>User-defined gates are treated differently than the built-in ones,
+because the built-in ones are defined in <cite>orquestra.quantum</cite> library, and so
+we can assume that the definitions will be available during circuit deserialization.</p>
+<p>User-provided gates can be defined in one repo (e.g. Orquestra step), serialized,
+and passed to another project for deserialization. The other project must have
+access to gate details, e.g. the gate matrix. This class is designed to keep track
+of the gate details needed for deserialization.</p>
+<p>Instances of this class are serialized by the Circuit objects, additionally to
+Circuit operations.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.CustomGateDefinition.gate_name">
+<span class="sig-name descname"><span class="pre">gate_name</span></span><em class="property"><span class="w"> </span><span class="pre">:str</span></em><a class="headerlink" href="#orquestra.quantum.circuits._gates.CustomGateDefinition.gate_name" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.CustomGateDefinition.matrix">
+<span class="sig-name descname"><span class="pre">matrix</span></span><em class="property"><span class="w"> </span><span class="pre">:sympy.Matrix</span></em><a class="headerlink" href="#orquestra.quantum.circuits._gates.CustomGateDefinition.matrix" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="orquestra.quantum.circuits._gates.CustomGateDefinition.params_ordering">
+<span class="sig-name descname"><span class="pre">params_ordering</span></span><em class="property"><span class="w"> </span><span class="pre">:Tuple[sympy.Symbol,</span> <span class="pre">Ellipsis]</span></em><a class="headerlink" href="#orquestra.quantum.circuits._gates.CustomGateDefinition.params_ordering" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2022, Zapata Computing, Inc
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            <div class="icons">
+              
+            </div>
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.circuits._gates</span></code></a><ul>
+<li><a class="reference internal" href="#module-contents">Module Contents</a><ul>
+<li><a class="reference internal" href="#classes">Classes</a></li>
+<li><a class="reference internal" href="#functions">Functions</a></li>
+<li><a class="reference internal" href="#attributes">Attributes</a><ul>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.Gate">Gate</a><ul>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.Gate.name">name</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.Gate.params">params</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.Gate.free_symbols">free_symbols</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.Gate.num_qubits">num_qubits</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.Gate.matrix">matrix</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.Gate.controlled">controlled</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.Gate.dagger">dagger</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.Gate.power">power</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.Gate.exp">exp</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.Gate.bind">bind</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.Gate.replace_params">replace_params</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.gate_is_parametric">gate_is_parametric</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.GateOperation">GateOperation</a><ul>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.GateOperation.gate">gate</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.GateOperation.qubit_indices">qubit_indices</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.GateOperation.params">params</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.GateOperation.bind">bind</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.GateOperation.replace_params">replace_params</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.GateOperation.lifted_matrix">lifted_matrix</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.GateOperation.apply">apply</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.GateOperation.free_symbols">free_symbols</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.MatrixFactoryGate">MatrixFactoryGate</a><ul>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.MatrixFactoryGate.name">name</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.MatrixFactoryGate.matrix_factory">matrix_factory</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.MatrixFactoryGate.params">params</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.MatrixFactoryGate.num_qubits">num_qubits</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.MatrixFactoryGate.is_hermitian">is_hermitian</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.MatrixFactoryGate.matrix">matrix</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.MatrixFactoryGate.bind">bind</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.MatrixFactoryGate.replace_params">replace_params</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.MatrixFactoryGate.controlled">controlled</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.MatrixFactoryGate.dagger">dagger</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.MatrixFactoryGate.exp">exp</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.MatrixFactoryGate.power">power</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.MatrixFactoryGate.free_symbols">free_symbols</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.CONTROLLED_GATE_NAME">CONTROLLED_GATE_NAME</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.ControlledGate">ControlledGate</a><ul>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.ControlledGate.wrapped_gate">wrapped_gate</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.ControlledGate.num_control_qubits">num_control_qubits</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.ControlledGate.name">name</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.ControlledGate.num_qubits">num_qubits</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.ControlledGate.matrix">matrix</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.ControlledGate.params">params</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.ControlledGate.controlled">controlled</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.ControlledGate.dagger">dagger</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.ControlledGate.exp">exp</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.ControlledGate.power">power</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.ControlledGate.bind">bind</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.ControlledGate.replace_params">replace_params</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.DAGGER_GATE_NAME">DAGGER_GATE_NAME</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.Dagger">Dagger</a><ul>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.Dagger.wrapped_gate">wrapped_gate</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.Dagger.matrix">matrix</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.Dagger.params">params</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.Dagger.num_qubits">num_qubits</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.Dagger.name">name</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.Dagger.controlled">controlled</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.Dagger.bind">bind</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.Dagger.replace_params">replace_params</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.Dagger.dagger">dagger</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.Dagger.exp">exp</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.Dagger.power">power</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.EXPONENTIAL_GATE_NAME">EXPONENTIAL_GATE_NAME</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.Exponential">Exponential</a><ul>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.Exponential.wrapped_gate">wrapped_gate</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.Exponential.matrix">matrix</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.Exponential.params">params</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.Exponential.num_qubits">num_qubits</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.Exponential.name">name</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.Exponential.controlled">controlled</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.Exponential.bind">bind</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.Exponential.replace_params">replace_params</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.Exponential.dagger">dagger</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.Exponential.exp">exp</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.Exponential.power">power</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.POWER_GATE_SYMBOL">POWER_GATE_SYMBOL</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.Power">Power</a><ul>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.Power.wrapped_gate">wrapped_gate</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.Power.exponent">exponent</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.Power.name">name</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.Power.params">params</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.Power.free_symbols">free_symbols</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.Power.num_qubits">num_qubits</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.Power.matrix">matrix</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.Power.controlled">controlled</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.Power.dagger">dagger</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.Power.exp">exp</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.Power.power">power</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.Power.bind">bind</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.Power.replace_params">replace_params</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.CustomGateMatrixFactory">CustomGateMatrixFactory</a><ul>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.CustomGateMatrixFactory.gate_definition">gate_definition</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.CustomGateMatrixFactory.matrix">matrix</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.CustomGateMatrixFactory.params_ordering">params_ordering</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.CustomGateDefinition">CustomGateDefinition</a><ul>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.CustomGateDefinition.gate_name">gate_name</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.CustomGateDefinition.matrix">matrix</a></li>
+<li><a class="reference internal" href="#orquestra.quantum.circuits._gates.CustomGateDefinition.params_ordering">params_ordering</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js"></script>
+    <script src="../../../../../_static/jquery.js"></script>
+    <script src="../../../../../_static/underscore.js"></script>
+    <script src="../../../../../_static/doctools.js"></script>
+    <script src="../../../../../_static/scripts/furo.js"></script>
+    <script src="../../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../../../_static/togglebutton.js"></script>
+    <script src="../../../../../_static/design-tabs.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    </body>
+</html>

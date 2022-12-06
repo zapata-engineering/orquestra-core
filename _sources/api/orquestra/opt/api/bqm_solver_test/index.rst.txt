@@ -1,0 +1,24 @@
+:py:mod:`orquestra.opt.api.bqm_solver_test`
+===========================================
+
+.. py:module:: orquestra.opt.api.bqm_solver_test
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.opt.api.bqm_solver_test.BQMSolverTests
+
+
+
+
+.. py:class:: BQMSolverTests
+
+   Bases: :py:obj:`dimod.Sampler`
+
+

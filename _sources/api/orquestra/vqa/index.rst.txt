@@ -1,0 +1,25 @@
+:py:mod:`orquestra.vqa`
+=======================
+
+.. py:module:: orquestra.vqa
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   algorithms/index.rst
+   ansatz/index.rst
+   api/index.rst
+   cost_function/index.rst
+   estimation/index.rst
+   grouping/index.rst
+   openfermion/index.rst
+   opt/index.rst
+   parameter_initialization/index.rst
+   shot_allocation/index.rst
+   testing/index.rst
+
+

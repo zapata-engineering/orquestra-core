@@ -1,0 +1,34 @@
+:py:mod:`orquestra.opt.problems.graph_partition`
+================================================
+
+.. py:module:: orquestra.opt.problems.graph_partition
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.opt.problems.graph_partition.GraphPartitioning
+
+
+
+
+.. py:class:: GraphPartitioning
+
+   Bases: :py:obj:`orquestra.opt.api.problem.Problem`
+
+   Solves the graph partitioning problem for undirected, unweighted graph using
+   an ising model formulation.
+
+   The solution of a graph partitioning  problem is the set of nodes S that minimizes
+   the weight of the edges between S and the rest of the graph. S must contain half
+   the nodes in the graph.
+
+   From "Ising formulations of many NP problems" by A. Lucas, page 6, eqs 7-9
+   (https://arxiv.org/pdf/1302.5843.pdf).
+
+

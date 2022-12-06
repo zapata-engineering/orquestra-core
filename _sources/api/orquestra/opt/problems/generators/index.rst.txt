@@ -1,0 +1,32 @@
+:py:mod:`orquestra.opt.problems.generators`
+===========================================
+
+.. py:module:: orquestra.opt.problems.generators
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.opt.problems.generators.get_random_ising_hamiltonian
+
+
+
+.. py:function:: get_random_ising_hamiltonian(number_of_qubits: int, number_of_terms: int, max_number_of_qubits_per_term: int) -> orquestra.quantum.operators.PauliSum
+
+   Generates a random Hamiltonian for a given number of qubits and terms with
+   weights between -1 and 1.
+
+   NOTE: Due to randomness, we cannot ensure that the returned hamiltonian has an
+       operation on every qubit.
+
+   :param number_of_qubits: The number of qubits in the Hamiltonian. Should be >= 2.
+   :param max_number_qubits_per_term: The maximum number of qubits for each term in the
+                                      hamiltonian. Should be <= number_of_qubits.
+
+

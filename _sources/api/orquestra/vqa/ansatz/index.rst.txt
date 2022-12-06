@@ -1,0 +1,403 @@
+:py:mod:`orquestra.vqa.ansatz`
+==============================
+
+.. py:module:: orquestra.vqa.ansatz
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   qcbm/index.rst
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   kbody/index.rst
+   qaoa_farhi/index.rst
+   qaoa_warm_start/index.rst
+   quantum_compiling/index.rst
+   singlet_uccsd/index.rst
+
+
+Package Contents
+----------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.vqa.ansatz.XAnsatz
+   orquestra.vqa.ansatz.XZAnsatz
+   orquestra.vqa.ansatz.QAOAFarhiAnsatz
+   orquestra.vqa.ansatz.WarmStartQAOAAnsatz
+   orquestra.vqa.ansatz.QCBMAnsatz
+   orquestra.vqa.ansatz.HEAQuantumCompilingAnsatz
+   orquestra.vqa.ansatz.SingletUCCSDAnsatz
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.vqa.ansatz.create_all_x_mixer_hamiltonian
+   orquestra.vqa.ansatz.create_farhi_qaoa_circuits
+   orquestra.vqa.ansatz.convert_relaxed_solution_to_angles
+   orquestra.vqa.ansatz.get_entangling_layer
+   orquestra.vqa.ansatz.load_qcbm_ansatz_set
+   orquestra.vqa.ansatz.save_qcbm_ansatz_set
+
+
+
+.. py:class:: XAnsatz(number_of_layers: int, number_of_qubits: int)
+
+   Bases: :py:obj:`orquestra.vqa.api.ansatz.Ansatz`
+
+   Helper class that provides a standard way to create an ABC using
+   inheritance.
+
+   .. py:attribute:: supports_parametrized_circuits
+      :annotation: = True
+
+      
+
+   .. py:attribute:: number_of_qubits
+      
+
+      
+
+
+.. py:class:: XZAnsatz(number_of_layers: int, number_of_qubits: int, use_k_body_z_operators: bool = True)
+
+   Bases: :py:obj:`orquestra.vqa.api.ansatz.Ansatz`
+
+   Helper class that provides a standard way to create an ABC using
+   inheritance.
+
+   .. py:attribute:: supports_parametrized_circuits
+      :annotation: = True
+
+      
+
+   .. py:attribute:: number_of_qubits
+      
+
+      
+
+   .. py:attribute:: use_k_body_z_operators
+      
+
+      
+
+
+.. py:class:: QAOAFarhiAnsatz(number_of_layers: int, cost_hamiltonian: orquestra.quantum.operators.PauliRepresentation, mixer_hamiltonian: Optional[orquestra.quantum.operators.PauliRepresentation] = None)
+
+   Bases: :py:obj:`orquestra.vqa.api.ansatz.Ansatz`
+
+   Helper class that provides a standard way to create an ABC using
+   inheritance.
+
+   .. py:attribute:: supports_parametrized_circuits
+      :annotation: = True
+
+      
+
+   .. py:attribute:: cost_hamiltonian
+      
+
+      
+
+   .. py:attribute:: mixer_hamiltonian
+      
+
+      
+
+   .. py:method:: symbols_sort_key() -> orquestra.vqa.api.ansatz.SymbolsSortKey
+      :property:
+
+
+   .. py:method:: number_of_qubits()
+      :property:
+
+      Returns number of qubits used for the ansatz circuit.
+
+
+   .. py:method:: number_of_params() -> int
+      :property:
+
+      Returns number of parameters in the ansatz.
+
+
+
+.. py:function:: create_all_x_mixer_hamiltonian(number_of_qubits)
+
+
+.. py:function:: create_farhi_qaoa_circuits(hamiltonians: List[orquestra.quantum.operators.PauliRepresentation], number_of_layers: Union[int, List[int]])
+
+   Creates parameterizable quantum circuits based on the farhi qaoa ansatz for each
+   hamiltonian in the input list using the set number of layers.
+
+   :param hamiltonians: List of hamiltonians for constructing
+                        the circuits
+   :type hamiltonians: List[PauliRepresentation]
+   :param number_of_layers: The number of layers of the ansatz in
+                            the circuit. If an int is passed in, the same number of layers is used for
+                            every ansatz circuit, however, if a list of ints is passed in, the number
+                            of layers used for the hamiltonian at index i of the hamiltonians list is
+                            the integer at index i of the number_of_layers list.
+   :type number_of_layers: Union[int, List[int]]
+
+   :returns: List of orquestra.quantum.circuit.Circuit
+
+
+.. py:class:: WarmStartQAOAAnsatz(number_of_layers: int, cost_hamiltonian: orquestra.quantum.operators.PauliRepresentation, thetas: numpy.ndarray)
+
+   Bases: :py:obj:`orquestra.vqa.api.ansatz.Ansatz`
+
+   Helper class that provides a standard way to create an ABC using
+   inheritance.
+
+   .. py:attribute:: supports_parametrized_circuits
+      :annotation: = True
+
+      
+
+   .. py:attribute:: cost_hamiltonian
+      
+
+      
+
+   .. py:attribute:: thetas
+      
+
+      
+
+   .. py:method:: number_of_qubits()
+      :property:
+
+      Returns number of qubits used for the ansatz circuit.
+
+
+   .. py:method:: number_of_params() -> int
+      :property:
+
+      Returns number of parameters in the ansatz.
+
+
+
+.. py:function:: convert_relaxed_solution_to_angles(relaxed_solution: numpy.ndarray, epsilon: float = 0.5) -> numpy.ndarray
+
+   Maps solution to a QP problem from values between 0 to 1 to values between 0-2pi.
+   It uses method presented in section 2B in https://arxiv.org/abs/2009.10095v3 .
+
+   :param relaxed_solution: relaxed solution.
+   :param epsilon: regularization constant.
+
+   :returns: converted values.
+   :rtype: np.ndarray
+
+
+.. py:class:: QCBMAnsatz(number_of_layers: int, number_of_qubits: int, topology: str = 'all', **topology_kwargs)
+
+   Bases: :py:obj:`orquestra.vqa.api.ansatz.Ansatz`
+
+   Helper class that provides a standard way to create an ABC using
+   inheritance.
+
+   .. py:attribute:: supports_parametrized_circuits
+      :annotation: = True
+
+      
+
+   .. py:attribute:: number_of_qubits
+      
+
+      
+
+   .. py:attribute:: topology
+      
+
+      
+
+   .. py:method:: number_of_params() -> int
+      :property:
+
+      Returns number of parameters in the ansatz.
+
+
+   .. py:method:: n_params_per_ent_layer() -> int
+      :property:
+
+
+   .. py:method:: get_number_of_parameters_by_layer() -> numpy.ndarray
+
+      Determine the number of parameters needed for each layer in the ansatz
+      :returns: A 1D array of integers
+
+
+   .. py:method:: to_dict()
+
+      Creates a dictionary representing a QCBM ansatz.
+
+      :returns: the dictionary
+      :rtype: dictionary (dict)
+
+
+   .. py:method:: from_dict(item: dict) -> QCBMAnsatz
+      :classmethod:
+
+      Creates a QCBM ansatz object from an input dictionary of values.
+
+      :returns: the ansatz with a given number of layers, qubits, and topology
+      :rtype: QCBMAnsatz
+
+
+
+.. py:function:: get_entangling_layer(params: numpy.ndarray, n_qubits: int, entangling_gate: orquestra.quantum.circuits.GatePrototype, topology: str, topology_kwargs: Optional[Dict[str, Any]] = None) -> orquestra.quantum.circuits.Circuit
+
+   Builds an entangling layer in the circuit.
+
+   :param params: parameters of the circuit.
+   :param n_qubits: number of qubits in the circuit.
+   :param entangling_gate: gate specification for the entangling layer.
+   :param topology: describes connectivity of the qubits in the desired circuit
+
+
+.. py:function:: load_qcbm_ansatz_set(file: str) -> List[QCBMAnsatz]
+
+   Load a list of qcbm_ansatz from a json file.
+
+   :param file: the name of the file
+   :type file: str
+
+   :returns: a list of qcbm_ansatz loaded from the file
+   :rtype: object
+
+
+.. py:function:: save_qcbm_ansatz_set(qcbm_ansatz_set: List[QCBMAnsatz], filename: str) -> None
+
+   Save a set of qcbm_ansatz to a file.
+
+   :param qcbm_ansatz_set: a list ansatz to be saved
+   :type qcbm_ansatz_set: list
+   :param file: the name of the file
+   :type file: str
+
+
+.. py:class:: HEAQuantumCompilingAnsatz(number_of_layers: int, number_of_qubits: int)
+
+   Bases: :py:obj:`orquestra.vqa.api.ansatz.Ansatz`
+
+   Helper class that provides a standard way to create an ABC using
+   inheritance.
+
+   .. py:attribute:: supports_parametrized_circuits
+      :annotation: = True
+
+      
+
+   .. py:attribute:: number_of_qubits
+      
+
+      
+
+   .. py:method:: number_of_params() -> int
+      :property:
+
+      Returns number of parameters in the ansatz.
+
+
+   .. py:method:: number_of_params_per_layer() -> int
+      :property:
+
+      Returns number of parameters in the ansatz.
+
+
+   .. py:method:: symbols() -> List[sympy.Symbol]
+      :property:
+
+      Returns a list of symbolic parameters used for creating the ansatz.
+      The order of the symbols should match the order in which parameters
+      should be passed for creating executable circuit.
+
+
+
+.. py:class:: SingletUCCSDAnsatz(number_of_spatial_orbitals: int, number_of_alpha_electrons: int, number_of_layers: int = 1, transformation: str = 'Jordan-Wigner')
+
+   Bases: :py:obj:`orquestra.vqa.api.ansatz.Ansatz`
+
+   Helper class that provides a standard way to create an ABC using
+   inheritance.
+
+   .. py:attribute:: supports_parametrized_circuits
+      :annotation: = True
+
+      
+
+   .. py:attribute:: transformation
+      
+
+      
+
+   .. py:method:: number_of_layers()
+      :property:
+
+
+   .. py:method:: number_of_spatial_orbitals()
+      :property:
+
+
+   .. py:method:: number_of_qubits()
+      :property:
+
+      Returns number of qubits ansatz circuit uses
+
+
+   .. py:method:: number_of_alpha_electrons()
+      :property:
+
+
+   .. py:method:: number_of_electrons()
+      :property:
+
+
+   .. py:method:: number_of_params() -> int
+      :property:
+
+      Returns number of parameters in the ansatz.
+
+
+   .. py:method:: screen_out_operator_terms_below_threshold(threshold: float, fermion_generator: openfermion.FermionOperator, ignore_singles=False) -> Tuple[numpy.ndarray, openfermion.FermionOperator]
+      :staticmethod:
+
+      Screen single and double excitation operators based on a guess
+          for the amplitudes
+      :param threshold: threshold to select excitations. Only those with
+                        absolute amplitudes above the threshold are kept.
+      :type threshold: float
+      :param fermion_generator: Fermion Operator
+                                containing the generators for the UCC ansatz
+      :type fermion_generator: openfermion.FermionOperator
+
+      :returns: screened amplitudes
+                new_fermion_generator (openfermion.FermionOperator): screened
+                    Fermion Operator
+      :rtype: amplitudes (np.array)
+
+
+   .. py:method:: compute_uccsd_vector_from_fermion_generator(raw_fermion_generator: openfermion.FermionOperator, screening_threshold: float = 0.0) -> numpy.ndarray
+
+
+   .. py:method:: generate_circuit_from_fermion_generator(raw_fermion_generator: openfermion.FermionOperator, screening_threshold: float = 0.0) -> orquestra.quantum.circuits.Circuit
+
+
+

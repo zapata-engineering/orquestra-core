@@ -1,0 +1,22 @@
+:py:mod:`orquestra.integrations.braket.simulator`
+=================================================
+
+.. py:module:: orquestra.integrations.braket.simulator
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.integrations.braket.simulator.braket_local_simulator
+
+
+
+.. py:function:: braket_local_simulator()
+
+

@@ -1,0 +1,14 @@
+:py:mod:`orquestra.quantum.operators._openfermion_utils.config`
+===============================================================
+
+.. py:module:: orquestra.quantum.operators._openfermion_utils.config
+
+
+Module Contents
+---------------
+
+.. py:data:: EQ_TOLERANCE
+   :annotation: = 1e-08
+
+   
+

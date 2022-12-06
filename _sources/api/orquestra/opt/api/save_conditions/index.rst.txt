@@ -1,0 +1,61 @@
+:py:mod:`orquestra.opt.api.save_conditions`
+===========================================
+
+.. py:module:: orquestra.opt.api.save_conditions
+
+.. autoapi-nested-parse::
+
+   Save conditions possible to use with recorder.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.opt.api.save_conditions.SaveCondition
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.opt.api.save_conditions.always
+   orquestra.opt.api.save_conditions.every_nth
+
+
+
+.. py:class:: SaveCondition
+
+   Bases: :py:obj:`Protocol`
+
+   Protocol of a function determining if given call should should be saved in the
+   history.
+
+
+.. py:function:: always(value: Any, params: Any, call_number: int) -> bool
+
+   Default save condition: save always.
+
+   See parameters in SaveCondition.__call__ for explanation.
+
+
+.. py:function:: every_nth(n: int) -> SaveCondition
+
+   Save condition: every n-th step, counting from zero-th one.
+
+   Note: this is factory function, i.e. it returns the actual save condition
+   for given n.
+
+   :param n: the integer determining which steps should be saved in history.
+
+   :returns: Function `f` implementing the SaveCondition protocol, such that
+             f(y, x, k) is True if and only if k = 0 (mod n).
+
+

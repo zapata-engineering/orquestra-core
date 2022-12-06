@@ -1,0 +1,91 @@
+:orphan:
+
+:py:mod:`orquestra.vqa.ansatz.qcbm._qcbm_utils`
+===============================================
+
+.. py:module:: orquestra.vqa.ansatz.qcbm._qcbm_utils
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.vqa.ansatz.qcbm._qcbm_utils.get_entangling_layer
+   orquestra.vqa.ansatz.qcbm._qcbm_utils.get_entangling_layer_all_topology
+   orquestra.vqa.ansatz.qcbm._qcbm_utils.get_entangling_layer_line_topology
+   orquestra.vqa.ansatz.qcbm._qcbm_utils.get_entangling_layer_star_topology
+   orquestra.vqa.ansatz.qcbm._qcbm_utils.get_entangling_layer_graph_topology
+   orquestra.vqa.ansatz.qcbm._qcbm_utils.adjacency_list_to_matrix
+
+
+
+.. py:function:: get_entangling_layer(params: numpy.ndarray, n_qubits: int, entangling_gate: orquestra.quantum.circuits.GatePrototype, topology: str, topology_kwargs: Optional[Dict[str, Any]] = None) -> orquestra.quantum.circuits.Circuit
+
+   Builds an entangling layer in the circuit.
+
+   :param params: parameters of the circuit.
+   :param n_qubits: number of qubits in the circuit.
+   :param entangling_gate: gate specification for the entangling layer.
+   :param topology: describes connectivity of the qubits in the desired circuit
+
+
+.. py:function:: get_entangling_layer_all_topology(params: numpy.ndarray, n_qubits: int, entangling_gate: orquestra.quantum.circuits.GatePrototype) -> orquestra.quantum.circuits.Circuit
+
+   Builds a circuit representing an entangling layer according to
+       the all-to-all topology.
+
+   :param params: parameters of the circuit.
+   :param n_qubits: number of qubits in the circuit.
+   :param entangling_gate: gate specification for the entangling layer.
+
+
+.. py:function:: get_entangling_layer_line_topology(params: numpy.ndarray, n_qubits: int, entangling_gate: orquestra.quantum.circuits.GatePrototype) -> orquestra.quantum.circuits.Circuit
+
+   Builds a circuit representing an entangling layer according to
+       the line topology.
+
+   :param params: parameters of the circuit.
+   :param n_qubits: number of qubits in the circuit.
+   :param entangling_gate: gate specification for the entangling layer.
+
+
+.. py:function:: get_entangling_layer_star_topology(params: numpy.ndarray, n_qubits: int, entangling_gate: orquestra.quantum.circuits.GatePrototype, center_qubit: int) -> orquestra.quantum.circuits.Circuit
+
+   Builds a circuit representing an entangling layer according
+       to the star topology.
+
+   :param params: parameters of the circuit.
+   :type params: numpy.array
+   :param n_qubits: number of qubits in the circuit.
+   :type n_qubits: int
+   :param entangling_gate: gate specification for the entangling layer.
+   :type entangling_gate: str
+   :param center_qubit: the center qubit of the star topology.
+   :type center_qubit: int
+
+
+.. py:function:: get_entangling_layer_graph_topology(params: numpy.ndarray, n_qubits: int, entangling_gate: orquestra.quantum.circuits.GatePrototype, adjacency_matrix: numpy.ndarray) -> orquestra.quantum.circuits.Circuit
+
+   Builds a circuit representing an entangling layer according
+       to a general graph topology.
+
+   :param params: parameters of the circuit.
+   :param n_qubits: number of qubits in the circuit.
+   :param entangling_gate: gate specification for the entangling layer.
+   :param adjacency_matrix: adjacency matrix for the entangling layer.
+
+
+.. py:function:: adjacency_list_to_matrix(n_qubits: int, adj_list: numpy.ndarray) -> numpy.ndarray
+
+   Converts an adjacency list to an adjacency matrix.
+
+   :param n_qubits: number of qubits in the circuit.
+   :type n_qubits: int
+   :param adjacency_list: (numpy.array): adjacency list for the entangling layer.
+
+

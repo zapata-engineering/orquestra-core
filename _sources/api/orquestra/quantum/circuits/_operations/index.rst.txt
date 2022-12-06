@@ -1,0 +1,101 @@
+:orphan:
+
+:py:mod:`orquestra.quantum.circuits._operations`
+================================================
+
+.. py:module:: orquestra.quantum.circuits._operations
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.quantum.circuits._operations.Operation
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.quantum.circuits._operations.sub_symbols
+   orquestra.quantum.circuits._operations.get_free_symbols
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.quantum.circuits._operations.T
+
+
+.. py:data:: T
+   
+
+   
+
+.. py:class:: Operation
+
+   Bases: :py:obj:`Protocol`
+
+   Represents arbitrary operation applicable to a circuit or wavefunction.
+
+   .. py:method:: params() -> Tuple[orquestra.quantum.typing.Parameter, Ellipsis]
+      :property:
+
+      Parameters of this operation.
+
+
+   .. py:method:: bind(symbols_map: Dict[sympy.Symbol, orquestra.quantum.typing.Parameter]) -> T
+      :abstractmethod:
+
+      Create new operation by replacing free symbols in operation params.
+
+      The operation returned by this method should be of the same type
+      as self, e.g. binding parameters to GateOperation should produce
+      GateOperation.
+
+
+   .. py:method:: replace_params(new_params: Tuple[orquestra.quantum.typing.Parameter, Ellipsis]) -> T
+      :abstractmethod:
+
+      Create new operation by replacing params.
+
+      The difference between bind and replace params is that it bind performs
+      parameter substitution - in particular, parameters without free symbols
+      are unaffected by bind, whereas replace_params replaces *all* params.
+
+
+   .. py:method:: apply(amplitude_vector: orquestra.quantum.typing.ParameterizedVector) -> orquestra.quantum.typing.ParameterizedVector
+      :abstractmethod:
+
+      Apply this operation to given wavefunction.
+
+      Operations that cannot be applied deterministically should raise
+      NotImplementedError.
+
+
+   .. py:method:: free_symbols() -> Iterable[sympy.Symbol]
+      :property:
+
+      Free symbols parameterizing this operation.
+
+      Note that number of free_symbols is unrelated to number of params.
+      Some params can be expressions with multiple free symbols, while other params
+      might not comprise free symbols at all.
+
+
+
+.. py:function:: sub_symbols(parameter, symbols_map: Dict[sympy.Symbol, orquestra.quantum.typing.Parameter]) -> orquestra.quantum.typing.Parameter
+
+
+.. py:function:: get_free_symbols(parameters: Tuple[orquestra.quantum.typing.Parameter, Ellipsis]) -> Iterable[sympy.Symbol]
+
+

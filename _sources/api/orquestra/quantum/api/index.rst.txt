@@ -1,0 +1,330 @@
+:py:mod:`orquestra.quantum.api`
+===============================
+
+.. py:module:: orquestra.quantum.api
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   circuit_runner/index.rst
+   circuit_runner_contracts/index.rst
+   estimation/index.rst
+   estimator_contract/index.rst
+   wavefunction_simulator/index.rst
+   wavefunction_simulator_contracts/index.rst
+
+
+Package Contents
+----------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.quantum.api.BaseCircuitRunner
+   orquestra.quantum.api.CircuitRunner
+   orquestra.quantum.api.BaseWavefunctionSimulator
+   orquestra.quantum.api.WavefunctionSimulator
+
+
+
+
+.. py:class:: BaseCircuitRunner
+
+   Bases: :py:obj:`abc.ABC`, :py:obj:`CircuitRunner`
+
+   ABC for implementing simple circuit runners.
+
+   To implement this ABC, override at least `_run_and_measure` method.
+   In addition, if your runner supports more sophisticated way of
+   running multiple circuits in a batch, you can override the
+   `_run_batch_and_measure` method.
+
+   .. note::
+
+      For purpose of counting executed jobs and circuits, this ABC
+      makes assumption that each call to _run_and_measure constitutes
+      a single job. If this assumption is not valid, you should avoid
+      inheriting this class and instead implement CircuitRunner protocol
+      separately.
+
+   .. py:method:: run_and_measure(circuit: orquestra.quantum.circuits.Circuit, n_samples: int) -> orquestra.quantum.measurements.Measurements
+
+      Run circuit given number of times and return obtained measurements.
+
+      See docstrings of CircuitRunner protocol for exact description of
+      parameters.
+
+      .. note::
+
+         Subclasses of `BaseCircuitRunner` ABC should not override this method.
+         Instead, implement `_run_and_measure`.
+
+
+   .. py:method:: run_batch_and_measure(circuits_batch: Sequence[orquestra.quantum.circuits.Circuit], n_samples: Union[int, Sequence[int]]) -> List[orquestra.quantum.measurements.Measurements]
+
+      Run multiple circuits and return measurements for each circuit.
+
+      See docstrings of CircuitRunner protocol for exact description of
+      parameters.
+
+      .. note::
+
+         Subclasses of `BaseCircuitRunner` ABC should not override this method.
+         Instead, implement `_run_and_measure` method and, if you have a
+         dedicated way of running circuits' batch, `_run_batch_and_measure`
+         method.
+
+
+   .. py:method:: n_jobs_executed() -> int
+      :property:
+
+      Number of executed jobs.
+
+
+   .. py:method:: n_circuits_executed() -> int
+      :property:
+
+      Number of executed circuits.
+
+
+   .. py:method:: get_measurement_outcome_distribution(circuit: orquestra.quantum.circuits.Circuit, n_samples: Optional[int]) -> orquestra.quantum.distributions.MeasurementOutcomeDistribution
+
+      Get a distribution of measurement outcomes from a given circuit.
+
+      :param circuit: circuit to be sampled
+      :param n_samples: number of times `circuit` should be sampled
+
+      :returns: An object representing empirical distribution of measured bitstrings
+
+      :raises ValueError: if n_samples is None or n_samples is not positive.
+
+
+
+.. py:class:: CircuitRunner
+
+   Bases: :py:obj:`Protocol`
+
+   Protocol for objects able to run circuits and collect measurements.
+
+   This protocol is a pure interface and does not contain any default
+   implementations. See BaseCircuitRunner ABC that can be extended to
+   implement simple CircuitRunner.
+
+   .. note:: This protocol was previously known as QuantumBackend.
+
+   .. py:method:: run_and_measure(circuit: orquestra.quantum.circuits.Circuit, n_samples: int) -> orquestra.quantum.measurements.Measurements
+
+      Run circuit given number of times and return obtained measurements.
+
+      :param circuit: a circuit to be run.
+      :param n_samples: minimum number of times the circuit should be run. This
+                        is sometimes called "number of shots" in other SDKs.
+
+      :returns: A Measurements object containing *at least* n_samples.
+
+      :raises ValueError: if n_samples is not positive.
+
+      .. note::
+
+         For some runners, the returned number of measurements might be
+         actually larger than n_samples. Runner - independent code should
+         take it into account and not rely on the assumption
+         len(measurement.bitstrings) == n_samples
+
+
+   .. py:method:: run_batch_and_measure(circuits_batch: Sequence[orquestra.quantum.circuits.Circuit], n_samples: Union[int, Sequence[int]]) -> List[orquestra.quantum.measurements.Measurements]
+
+      Run multiple circuits and return measurements for each circuit.
+
+      Essentially, this method performs the same as `run_and_measure` for
+      a single circuit. However, some runners may be able to submit multiple
+      circuits at once (thus possibly reducing costs), or run multiple
+      circuits in parallel (thus increasing performance). For this reasons,
+      usage of run_batch_and_measure is always recommended over
+      run_and_measure if one needs to run multiple circuits.
+
+      :param circuits_batch: sequence of circuits to be run.
+      :param n_samples: minimum number of times each circuit should be run. If
+                        a single integer N is passed, each circuit will be run at least
+                        N times. If a sequence of integers is passed, it must be of the
+                        same length as circuits_batch and i-th number is treated as
+                        minimum number of runs for i-th circuit.
+
+      :returns: A list of measurements such that i-th object corresponds to i-th
+                circuit.
+
+      :raises ValueError:
+      :raises - for integral n_samples if it is not positive:
+      :raises - if any element of n_samples sequence is not positive, or n_samples: has length differing from circuits_batch.
+
+      .. note::
+
+         Similarly as with `run_and_measure` method, clients of circuit
+         runners can only assume number of returned samples is greater
+         or equal to the requested one. Furthermore, clients should not
+         assume that each cicruict has been run the same number of times.
+
+
+   .. py:method:: get_measurement_outcome_distribution(circuit: orquestra.quantum.circuits.Circuit, n_samples: Optional[int]) -> orquestra.quantum.distributions.MeasurementOutcomeDistribution
+
+      Get a distribution of measurement outcomes from a given circuit.
+
+      This is essentially the same as `run_and_measure`, except that
+      a frequency of obtained outcomes is returned rather than a
+      Measurements object.
+
+      If `n_samples` is equal to None, supported samplers may returned
+      exact distribution instead of an empirical one.
+
+
+   .. py:method:: n_jobs_executed() -> int
+      :property:
+
+      Number of jobs executed by this runner.
+
+      For circuit runners wrapping external resources or simulators,
+      this number determines how many calls were made to the external
+      library or API.
+
+
+   .. py:method:: n_circuits_executed() -> int
+      :property:
+
+      Total number of circuits executed by this runner.
+
+      .. note::
+
+         This number is counted with repetitions. For instance, if the
+         same circuit has to be run multiple times to obtain required number
+         of samples.
+
+
+
+.. py:class:: BaseWavefunctionSimulator(*, seed: Optional[int] = None)
+
+   Bases: :py:obj:`orquestra.quantum.api.circuit_runner.BaseCircuitRunner`, :py:obj:`WavefunctionSimulator`
+
+   ABC for implementing simple wavefunction simulators.
+
+   This ABC is build around _get_wavefunction_from_native_circuit
+   method. In general, most simulators wrap some third-party resource (
+   a library, service, API etc.), which can only consume circuits comprising
+   operations from a given set. Such operations are called "native" to
+   the given simulator, whereas other operations are called "nonnative".
+
+   The idea of simulating arbitrary circuit is thus as follows:
+   - split circuit into alternating consecutive parts of only native and
+     only "nonnative" operations.
+   - start with some initial state
+   - for each part:
+     - if it is native, run it via third-party resource, save the new
+       statevector
+     - if it is nonnative, apply each operation in the sequence using
+       operation.apply(previous_statevector). Save the new statevector.
+     Last saved statevector is the wavefunction of the total circuit.
+
+     For this to work, subclasses of this ABC should implement
+     _get_wavefunction_from_the_native_circuit method.
+
+     Note:
+         Since this class inherits all the limitations of BaseCircuitRunner.
+         The _run_and_measure function is implemented via sampling from the
+         wavefunction. Care must be taken when using third-party service that
+         implements more sophisticated/more performant sampling method not
+         involving direct computation of the whole wavefunction. In such cases,
+         using BaseWavefunctionSimulator ABC will likely result in huge
+         performance hit.
+
+   .. py:method:: run_and_measure(circuit: orquestra.quantum.circuits.Circuit, n_samples: int) -> orquestra.quantum.measurements.Measurements
+
+      Run circuit given number of times and return obtained measurements.
+
+      See docstrings of CircuitRunner protocol for exact description of
+      parameters.
+
+      .. note::
+
+         For BaseWavefunctionSimulator, running a circuit comprising computing
+         its wavefunction and then sampling from the probability distribution
+         that it defines.
+
+
+   .. py:method:: get_wavefunction(circuit: orquestra.quantum.circuits.Circuit, initial_state: Optional[orquestra.quantum.typing.StateVector] = None) -> orquestra.quantum.wavefunction.Wavefunction
+
+      Get a wavefunction of a circuit starting from a given initial state.
+
+      See docstrings of WavefunctionSimulator protocol for exact description of
+      parameters.
+
+
+   .. py:method:: get_exact_expectation_values(circuit: orquestra.quantum.circuits.Circuit, operator: orquestra.quantum.operators.PauliRepresentation) -> float
+
+      Get an exact expectation value of an operator.
+
+      See docstrings of WavefunctionSimulator protocol for exact description of
+      parameters.
+
+
+   .. py:method:: is_natively_supported(operation: orquestra.quantum.circuits.Operation) -> bool
+
+      Determine if given operation is natively supported by this simulator.
+
+      By default, operation is natively supported iff it is a GateOperation.
+      However, this doesn't have to be true for every simulator.
+      If the set of natively supported operations is different for
+      some simulator, this method should be changed accordingly.
+
+      :param operation: operation to be checked.
+
+      :returns: True if `operation` is natively supported and False otherwise.
+
+
+   .. py:method:: get_measurement_outcome_distribution(circuit: orquestra.quantum.circuits.Circuit, n_samples: Optional[int] = None) -> orquestra.quantum.distributions.MeasurementOutcomeDistribution
+
+      Get a distribution of measurement outcomes from a given circuit.
+
+      :param circuit: circuit to be sampled
+      :param n_samples: number of times `circuit` should be sampled or None, if
+      :param exact computation should be performed.:
+
+      :returns: An object representing empirical (for integral n_samples) or theoretical
+                (n_samples is None) distribution of measured bitstrings
+
+
+
+.. py:class:: WavefunctionSimulator
+
+   Bases: :py:obj:`orquestra.quantum.api.circuit_runner.CircuitRunner`, :py:obj:`Protocol`
+
+   The protocol for objects able to compute the wavefunction.
+
+   .. py:method:: get_wavefunction(circuit: orquestra.quantum.circuits.Circuit, initial_state: Optional[orquestra.quantum.typing.StateVector] = None) -> orquestra.quantum.wavefunction.Wavefunction
+
+      Get a wavefunction of a circuit starting from a given initial state.
+
+      :param circuit: circuit whose wavefunction is to be computed.
+      :param initial_state: state used as an input to the `circuit`. If not provided,
+                            |0...0> will be used.
+
+      :returns: Wavefunction comprising 2 ** n amplitudes, where n is number of qubits in
+                `circuit`.
+
+
+   .. py:method:: get_exact_expectation_values(circuit: orquestra.quantum.circuits.Circuit, operator: orquestra.quantum.operators.PauliRepresentation) -> float
+
+      Get an exact expectation value of an operator.
+
+      :param circuit: circuit constructing state for which expectation value
+                      is to be computed.
+      :param operator: operator of which expectation value should be computed.
+
+      :returns: An expectation value as a single floating point number.
+
+
+

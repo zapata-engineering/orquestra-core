@@ -1,0 +1,49 @@
+:orphan:
+
+:py:mod:`orquestra.integrations.braket.conversions._circuit_conversions`
+========================================================================
+
+.. py:module:: orquestra.integrations.braket.conversions._circuit_conversions
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.integrations.braket.conversions._circuit_conversions.export_to_braket
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.integrations.braket.conversions._circuit_conversions.NON_PARAMETERIZED_BRAKET_GATES
+   orquestra.integrations.braket.conversions._circuit_conversions.PARAMETERIZED_BRAKET_GATES
+
+
+.. py:function:: export_to_braket(circuit: orquestra.quantum.circuits.Circuit) -> braket.circuits.Circuit
+
+   Converts the circuit to a Braket Circuit object.
+
+   :param circuit: the circuit to convert
+
+   :returns: BraketCircuit
+
+
+.. py:data:: NON_PARAMETERIZED_BRAKET_GATES
+   :annotation: :Dict[str, Callable]
+
+   
+
+.. py:data:: PARAMETERIZED_BRAKET_GATES
+   :annotation: :Dict[str, Callable]
+
+   
+

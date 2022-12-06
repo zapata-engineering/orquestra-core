@@ -1,0 +1,35 @@
+:py:mod:`orquestra.quantum`
+===========================
+
+.. py:module:: orquestra.quantum
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   api/index.rst
+   circuits/index.rst
+   decompositions/index.rst
+   distributions/index.rst
+   estimation/index.rst
+   measurements/index.rst
+   operators/index.rst
+   runners/index.rst
+   testing/index.rst
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   evolution/index.rst
+   typing/index.rst
+   utils/index.rst
+   wavefunction/index.rst
+
+

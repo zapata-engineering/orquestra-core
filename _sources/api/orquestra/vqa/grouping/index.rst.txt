@@ -1,0 +1,85 @@
+:py:mod:`orquestra.vqa.grouping`
+================================
+
+.. py:module:: orquestra.vqa.grouping
+
+
+Package Contents
+----------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.vqa.grouping.compute_group_variances
+   orquestra.vqa.grouping.group_comeasureable_terms_greedy
+   orquestra.vqa.grouping.group_greedily
+   orquestra.vqa.grouping.group_individually
+   orquestra.vqa.grouping.is_comeasureable
+
+
+
+.. py:function:: compute_group_variances(groups: List[orquestra.quantum.operators.PauliRepresentation], expecval: Optional[orquestra.quantum.measurements.ExpectationValues] = None) -> numpy.ndarray
+
+   Computes the variances of each frame in a grouped operator.
+
+   If expectation values are provided, use variances from there,
+   otherwise assume the upper bound for variances. Correlation information
+   is ignored in the current implementation, covariances are assumed to be 0.
+
+   :param groups: A list of Pauli terms that defines a (grouped) operator
+   :param expecval: An ExpectationValues object containing the expectation
+                    values of each Pauli term. The term coefficients should be
+                    included in the expectation values, e.g. the expectation value of
+                    2*Z0 should be between -2 and 2.
+
+   :returns: Computed variances for each frame.
+   :rtype: frame_variances
+
+
+.. py:function:: group_comeasureable_terms_greedy(qubit_operator: orquestra.quantum.operators.PauliRepresentation, sort_terms: bool = False) -> List[orquestra.quantum.operators.PauliRepresentation]
+
+   Group co-measurable terms in a qubit operator using a greedy algorithm.
+
+   Adapted from PyQuil. Constant term is included as a separate group.
+
+   :param qubit_operator: the operator whose terms are to be grouped
+   :param sort_terms: whether to sort terms by the absolute value of the coefficient when
+                      grouping.
+   :param Returns:
+   :param A list of qubit operators.:
+
+
+.. py:function:: group_greedily(estimation_tasks: List[orquestra.quantum.api.estimation.EstimationTask], sort_terms: bool = False) -> List[orquestra.quantum.api.estimation.EstimationTask]
+
+   Transforms list of estimation tasks by performing greedy grouping and adding
+   context selection logic to the circuits.
+
+   :param estimation_tasks: list of estimation tasks
+
+
+.. py:function:: group_individually(estimation_tasks: List[orquestra.quantum.api.estimation.EstimationTask]) -> List[orquestra.quantum.api.estimation.EstimationTask]
+
+   Transforms list of estimation tasks by putting each term into a estimation task.
+
+   :param estimation_tasks: list of estimation tasks
+
+
+.. py:function:: is_comeasureable(term_1: orquestra.quantum.operators.PauliTerm, term_2: orquestra.quantum.operators.PauliTerm) -> bool
+
+   Determine if two Pauli terms are co-measureable.
+
+   Co-measureable means that
+   for each qubit: if one term contains a Pauli operator acting on a qubit,
+   then the other term cannot have a different Pauli operator acting on that
+   qubit.
+
+   :param term_1: a Pauli term consisting of a product of Pauli operators
+   :param term_2: a Pauli term consisting of a product of Pauli operators
+
+   :returns: True if the terms are co-measureable.
+   :rtype: bool
+
+

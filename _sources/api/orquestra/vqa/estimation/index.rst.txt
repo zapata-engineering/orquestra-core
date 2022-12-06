@@ -1,0 +1,87 @@
+:py:mod:`orquestra.vqa.estimation`
+==================================
+
+.. py:module:: orquestra.vqa.estimation
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   context_selection/index.rst
+   cvar/index.rst
+   gibbs_objective/index.rst
+
+
+Package Contents
+----------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.vqa.estimation.CvarEstimator
+   orquestra.vqa.estimation.GibbsObjectiveEstimator
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.vqa.estimation.get_context_selection_circuit_for_group
+   orquestra.vqa.estimation.perform_context_selection
+
+
+
+.. py:function:: get_context_selection_circuit_for_group(qubit_operator: orquestra.quantum.operators.PauliRepresentation) -> Tuple[orquestra.quantum.circuits.Circuit, orquestra.quantum.operators.PauliSum]
+
+   Get the context selection circuit for measuring the expectation value
+   of a group of co-measurable Pauli terms.
+
+   :param qubit_operator: operator representing group of co-measurable Pauli term
+
+
+.. py:function:: perform_context_selection(estimation_tasks: List[orquestra.quantum.api.estimation.EstimationTask]) -> List[orquestra.quantum.api.estimation.EstimationTask]
+
+   Changes the circuits in estimation tasks to involve context selection.
+
+   :param estimation_tasks: list of estimation tasks
+
+
+.. py:class:: CvarEstimator(alpha: float, use_exact_expectation_values: Optional[bool] = False)
+
+   Bases: :py:obj:`orquestra.quantum.api.estimation.EstimateExpectationValues`
+
+   Protocol defining a function that estimates expectation values for a list of
+   estimation tasks. Implementations of this protocol should obey the following rules:
+   1. Return one ExpectationValue for each EstimationTask.
+   2. The order in which ExpectationValues are returned should match the order
+      in which EstimationTasks were provided.
+   3. Number of entries in each ExpectationValue is not restricted.
+   4. Output ExpectationValue should include coefficients of the terms/operators.
+   5. estimation_tasks can include tasks where operator consists of a constant term or
+       contains a constant term. The implemented method should include the
+       contributions of such constant terms in the return value.
+
+
+.. py:class:: GibbsObjectiveEstimator(alpha: float)
+
+   Bases: :py:obj:`orquestra.quantum.api.estimation.EstimateExpectationValues`
+
+   Estimator calculating expectation value using Gibbs objective function method.
+
+   The main idea is that we exponentiate the negative expectation value of each
+   sample, which amplifies bitstrings with low energies while reducing the role
+   that high energy bitstrings play in determining the cost.
+
+   Reference:
+   https://arxiv.org/abs/1909.07621 Section III
+   "Quantum Optimization with a Novel Gibbs Objective Function and Ansatz Architecture Search"
+   L. Li, M. Fan, M. Coram, P. Riley, and S. Leichenauer
+
+

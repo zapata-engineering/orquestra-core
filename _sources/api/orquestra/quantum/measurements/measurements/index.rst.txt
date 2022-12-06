@@ -1,0 +1,136 @@
+:py:mod:`orquestra.quantum.measurements.measurements`
+=====================================================
+
+.. py:module:: orquestra.quantum.measurements.measurements
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.quantum.measurements.measurements.Measurements
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.quantum.measurements.measurements.convert_bitstring_to_int
+   orquestra.quantum.measurements.measurements.get_expectation_value_from_frequencies
+
+
+
+.. py:function:: convert_bitstring_to_int(bitstring: Sequence[int]) -> int
+
+   Convert a bitstring to an integer.
+
+   :param bitstring: A list of integers.
+   :type bitstring: list
+
+   :returns:
+
+             The value of the bitstring, where the first bit in the least
+                 significant (little endian).
+   :rtype: int
+
+
+.. py:function:: get_expectation_value_from_frequencies(marked_qubits: Iterable[int], bitstring_frequencies: Dict[str, int]) -> float
+
+   Get the expectation value the product of Z operators on selected qubits
+   from bitstring frequencies.
+
+   :param marked_qubits: The qubits that the Z operators act on.
+   :param bitstring_frequences: The frequencies of the bitstrings.
+
+   :returns: The expectation value of the product of Z operators on selected qubits.
+
+
+.. py:class:: Measurements(bitstrings: Optional[List[Tuple[int, Ellipsis]]] = None)
+
+   A class representing measurements from a quantum circuit. The bitstrings variable
+   represents the internal data structure of the Measurements class. It is expressed as
+   a list of tuples wherein each tuple is a measurement and the value of the tuple at a
+   given index is the measured bit-value of the qubit (indexed from 0 -> N-1)
+
+   .. py:method:: from_counts(counts: Dict[str, int])
+      :classmethod:
+
+      Create an instance of the Measurements class from a dictionary
+
+      :param counts: mapping of bitstrings to integers representing the number of times
+                     the bitstring was measured
+
+
+   .. py:method:: get_measurements_representing_distribution(measurement_outcome_distribution: orquestra.quantum.distributions.MeasurementOutcomeDistribution, number_of_samples: int)
+      :classmethod:
+
+      Create an instance of the Measurements class that exactly (or as closely as
+      possible) resembles the input bitstring distribution.
+
+      :param measurement_outcome_distribution: the bitstring distribution to be sampled
+      :param number_of_samples: the number of measurements
+
+
+   .. py:method:: load_from_file(file: TextIO)
+      :classmethod:
+
+      Load a set of measurements from file
+
+      :param file: the name of the file, or a file-like object
+      :type file: str or file-like object
+
+
+   .. py:method:: save(filename: orquestra.quantum.typing.AnyPath)
+
+      Serialize the Measurements object into a file in JSON format.
+
+      :param filename: filename to save the data to
+      :type filename: string
+
+
+   .. py:method:: get_counts()
+
+      Get the measurements as a histogram
+
+      :returns: A dictionary mapping bitstrings to integers representing the number of times
+                the bitstring was measured
+
+
+   .. py:method:: add_counts(counts: Dict[str, int])
+
+      Add measurements from a histogram
+
+      :param counts: mapping of bitstrings to integers representing the number of times
+                     the bitstring was measured
+                     NOTE: bitstrings are also indexed from 0 -> N-1, where the "001"
+                     bitstring represents a measurement of qubit 2 in the 1 state
+
+
+   .. py:method:: get_distribution() -> orquestra.quantum.distributions.MeasurementOutcomeDistribution
+
+      Get the normalized probability distribution representing the measurements
+
+      :returns: bitstring distribution based on the frequency of measurements
+      :rtype: distribution
+
+
+   .. py:method:: get_expectation_values(ising_operator: orquestra.quantum.operators.PauliRepresentation, use_bessel_correction: bool = False) -> orquestra.quantum.measurements.expectation_values.ExpectationValues
+
+      Get the expectation values of an operator from the measurements.
+
+      :param ising_operator: the operator
+      :param use_bessel_correction: Whether to use Bessel's correction when
+                                    when estimating the covariance of operators. Using the
+                                    correction provides an unbiased estimate for covariances, but
+                                    diverges when only one sample is taken.
+
+      :returns: expectation values of each term in the operator
+
+
+

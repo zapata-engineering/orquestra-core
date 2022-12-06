@@ -1,0 +1,105 @@
+:py:mod:`orquestra.quantum.circuits.symbolic.expressions`
+=========================================================
+
+.. py:module:: orquestra.quantum.circuits.symbolic.expressions
+
+.. autoapi-nested-parse::
+
+   Utilities for converting symbolic expressions between different dialects.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.quantum.circuits.symbolic.expressions.Symbol
+   orquestra.quantum.circuits.symbolic.expressions.FunctionCall
+   orquestra.quantum.circuits.symbolic.expressions.ExpressionDialect
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.quantum.circuits.symbolic.expressions.reduction
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.quantum.circuits.symbolic.expressions.Expression
+
+
+.. py:class:: Symbol
+
+   Bases: :py:obj:`NamedTuple`
+
+   Abstract symbol.
+
+   .. py:attribute:: name
+      :annotation: :str
+
+      
+
+
+.. py:class:: FunctionCall
+
+   Bases: :py:obj:`NamedTuple`
+
+   Represents abstract function call.
+
+   .. py:attribute:: name
+      :annotation: :str
+
+      
+
+   .. py:attribute:: args
+      :annotation: :Iterable[Expression]
+
+      
+
+
+.. py:data:: Expression
+   
+
+   
+
+.. py:class:: ExpressionDialect
+
+   Bases: :py:obj:`NamedTuple`
+
+   Dialect of arithmetic expression.
+
+   This is to group information on how to transform expression given in
+   our native representation into some representation in external
+   library (e.g. Sympy).
+
+   .. py:attribute:: symbol_factory
+      :annotation: :Callable[[Symbol], Any]
+
+      
+
+   .. py:attribute:: number_factory
+      :annotation: :Callable[[numbers.Number], Any]
+
+      
+
+   .. py:attribute:: known_functions
+      :annotation: :Dict[str, Callable[Ellipsis, Any]]
+
+      
+
+
+.. py:function:: reduction(operator)
+
+

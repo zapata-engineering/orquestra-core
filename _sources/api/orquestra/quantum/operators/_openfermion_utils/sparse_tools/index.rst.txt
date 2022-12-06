@@ -1,0 +1,90 @@
+:py:mod:`orquestra.quantum.operators._openfermion_utils.sparse_tools`
+=====================================================================
+
+.. py:module:: orquestra.quantum.operators._openfermion_utils.sparse_tools
+
+.. autoapi-nested-parse::
+
+   This module provides functions to interface with scipy.sparse.
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.quantum.operators._openfermion_utils.sparse_tools.get_sparse_operator
+   orquestra.quantum.operators._openfermion_utils.sparse_tools.expectation
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.quantum.operators._openfermion_utils.sparse_tools.identity_csc
+   orquestra.quantum.operators._openfermion_utils.sparse_tools.pauli_x_csc
+   orquestra.quantum.operators._openfermion_utils.sparse_tools.pauli_y_csc
+   orquestra.quantum.operators._openfermion_utils.sparse_tools.pauli_z_csc
+   orquestra.quantum.operators._openfermion_utils.sparse_tools.pauli_matrix_map
+
+
+.. py:data:: identity_csc
+   
+
+   
+
+.. py:data:: pauli_x_csc
+   
+
+   
+
+.. py:data:: pauli_y_csc
+   
+
+   
+
+.. py:data:: pauli_z_csc
+   
+
+   
+
+.. py:data:: pauli_matrix_map
+   
+
+   
+
+.. py:function:: get_sparse_operator(operator: orquestra.quantum.operators._pauli_operators.PauliRepresentation, n_qubits: Optional[int] = None)
+
+   Initialize a Scipy sparse matrix from a PauliTerm or PauliSum.
+
+   :param operator: the pauli representation to convert to matrix representation.
+   :param n_qubits: Number of qubits.
+   :type n_qubits: int
+
+   :returns: The corresponding Scipy sparse matrix.
+
+
+.. py:function:: expectation(operator, state)
+
+   Compute the expectation value of an operator with a state.
+
+   :param operator: The operator whose expectation value is desired.
+   :type operator: scipy.sparse.spmatrix or scipy.sparse.linalg.LinearOperator
+   :param state: A numpy array
+                 representing a pure state or a sparse matrix representing a density
+                 matrix. If `operator` is a LinearOperator, then this must be a
+                 numpy array.
+   :type state: numpy.ndarray or scipy.sparse.spmatrix
+
+   :returns: A complex number giving the expectation value.
+
+   :raises ValueError: Input state has invalid format.
+
+

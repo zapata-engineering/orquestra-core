@@ -19,7 +19,7 @@ Two types of backends
 
 Because ``QuantumBackend``\ s connect to a cloud provider to run remote circuits, it is necessary to specify which device you want to connect to. For example, the ``QiskitBackend`` takes in a ``device_name`` string:
 
-.. literalinclude:: ../examples/backends_guide.py
+.. literalinclude:: ../examples/guides/backends_guide.py
   :start-after: # QuantumBackend creation example
   :end-before: # End QuantumBackend creation example
 
@@ -27,7 +27,7 @@ Because ``QuantumBackend``\ s connect to a cloud provider to run remote circuits
 
 ``QuantumSimulator`` is a subclass of ``QuantumBackend`` with added functionality that only simulators can provide, such as getting the wavefunction of a circuit and getting exact expectation values. Unlike ``QuantumBackend``\ s, ``QuantumSimulator``\ s usually do not require a ``device_name`` parameter. One exception to this rule is the ``QiskitSimulator``, which has :ref:`multiple options <integrated_backends>`:
 
-.. literalinclude:: ../examples/backends_guide.py
+.. literalinclude:: ../examples/guides/backends_guide.py
   :start-after: # QuantumSimulator creation example
   :end-before: # End QuantumSimulator creation example
 
@@ -42,7 +42,7 @@ In order to use quantum hardware, the user must use the backend's authentication
 
 ``QuantumSimulator``\ s run in your own environment and therefore can be used without needing authentication credentials.
 
-.. literalinclude:: ../examples/backends_guide.py
+.. literalinclude:: ../examples/guides/backends_guide.py
   :start-after: # QuantumBackend creation example
   :end-before: # End QuantumBackend creation example
 
@@ -51,19 +51,19 @@ General Backend Methods
 
 After intializing the backend we can send the ``Circuit`` and number of repetitions to the backend and read the measurement. For more information on creating circuits to send to a backend, refer to the :ref:`Circuits Guide <circuits_guide>`. For a single circuit, that looks like this:
 
-.. literalinclude:: ../examples/backends_guide.py
+.. literalinclude:: ../examples/guides/backends_guide.py
   :start-after: # QuantumBackend run and measure circuit
   :end-before: # End QuantumBackend run and measure circuit
 
 If you want to run multiple circuits with different number of samples, the code needs to be modified as follows:
 
-.. literalinclude:: ../examples/backends_guide.py
+.. literalinclude:: ../examples/guides/backends_guide.py
   :start-after: # QuantumBackend run and measure circuitset
   :end-before: # End QuantumBackend run and measure circuitset
 
 ``QuantumBackend`` can also provide the distribution of the outcome measurement. It can be extracted using the following approach:
 
-.. literalinclude:: ../examples/backends_guide.py
+.. literalinclude:: ../examples/guides/backends_guide.py
   :start-after: # Quantumbackend measurement distribution
   :end-before: # End Quantumbackend measurement distribution
 
@@ -74,7 +74,7 @@ Simulator-specific methods
 
 ``QuantumSimulator`` can be used to extract a wave function and expectation value for a given circuit (or circuit and operator). Below is an example of extracting these values using a ``QuantumSimulator`` called ``CirqSimulator``:
 
-.. literalinclude:: ../examples/backends_guide.py
+.. literalinclude:: ../examples/guides/backends_guide.py
   :start-after: # Quantumsimulator examples
   :end-before: # End Quantumsimulator examples
 
@@ -95,11 +95,11 @@ The ``SymbolicSimulator`` can be used the same way any other simulator can be. T
 
 A ``MeasurementTrackingBackend`` is a backend that tracks and stores data about each run of a circuit. This is accomplished by wrapping pre-existing backends in a ``MeasurementTrackingBackend`` from :doc:`orquestra.quantum.trackers </api/quantum/trackers/index>`.
 
-When ``run_circuit_and_measure`` is called, the tracking backend stores the ``data_type`` received from the call (usually a measurement outcome distribution), the wrapped device, the circuit which was run, the distribution of bitstrings which was received, the number of gates in the circuit, and the number of shots run in a JSON file. This is useful when you are paying to run circuits on a machine and you want to be able to re-use the data for different computations.
+When ``run_and_measure`` is called, the tracking backend stores the ``data_type`` received from the call (usually a measurement outcome distribution), the wrapped device, the circuit which was run, the distribution of bitstrings which was received, the number of gates in the circuit, and the number of shots run in a JSON file. This is useful when you are paying to run circuits on a machine and you want to be able to re-use the data for different computations.
 
 To create a ``MeasurementTrackingBackend`` it must be initialized with a backend to be wrapped around, a name for the file you are storing the data in, and an optional boolean indicating whether or not the individual bitstrings should be saved (defaults to `False`)
 
-.. literalinclude:: ../examples/backends_guide.py
+.. literalinclude:: ../examples/guides/backends_guide.py
   :start-after: # TrackingBackend creation example
   :end-before: # End TrackingBackend creation example
 
@@ -107,7 +107,7 @@ To create a ``MeasurementTrackingBackend`` it must be initialized with a backend
 
   If all the bitstrings are saved, it will greatly increase the size of the produced JSON file.
 
-To use the ``MeasurementTrackingBackend`` you can call ``run_circuit_and_measure`` or ``run_circuitset_and_measure`` :ref:`just like with all other QuantumBackends <backend_methods>`. There is also the option to manually append measurement information to the data in a ``MeasurementTrackingBackend`` using ``record_raw_measurement_data``. This is not usually necessary, but if your use case requires it, please see the :doc:`API documentation </api/quantum/trackers/index>` for more information.
+To use the ``MeasurementTrackingBackend`` you can call ``run_and_measure`` or ``run_circuitset_and_measure`` :ref:`just like with all other QuantumBackends <backend_methods>`. There is also the option to manually append measurement information to the data in a ``MeasurementTrackingBackend`` using ``record_raw_measurement_data``. This is not usually necessary, but if your use case requires it, please see the :doc:`API documentation </api/quantum/trackers/index>` for more information.
 
 For more examples of using the ``MeasurementTrackingBackend``, refer to the `tracking backend tests <https://github.com/zapatacomputing/orquestra-quantum/blob/main/tests/orquestra/quantum/trackers_test.py>`_
 
@@ -120,6 +120,7 @@ Hardware backends
 -----------------
 
 * `QiskitBackend <https://github.com/zapatacomputing/orquestra-qiskit/blob/main/tests/orquestra/integrations/qiskit/backend/backend_test.py>`_
+* `BraketBackend <https://github.com/zapatacomputing/orquestra-braket/tree/main/src/orquestra/integrations/braket/backend>`_
 
 Simulators
 ----------
@@ -135,6 +136,8 @@ Simulators
 * `QulacsSimulator <https://github.com/zapatacomputing/orquestra-qulacs/blob/main/tests/orquestra/integrations/qulacs/simulator_test.py>`_
 * `QSimSimulator <https://github.com/zapatacomputing/orquestra-cirq/blob/main/tests/orquestra/integrations/cirq/simulator/qsimsimulator_test.py>`_
 * `CuStateVecSimulator <https://github.com/zapatacomputing/orquestra-cirq/tree/main/src/orquestra/integrations/custatevec/simulator>`_
+* `BraketLocalSimulator <https://github.com/zapatacomputing/orquestra-braket/blob/main/tests/orquestra/braket/simulator/localbraket_test.py>`_
+* `BraketOnDemandSimulator <https://github.com/zapatacomputing/orquestra-braket/blob/main/tests/orquestra/braket/simulator/ondemandbraket_test.py>`_
 
 Conversions to other frameworks
 ===============================
@@ -143,7 +146,7 @@ The integrations Orquestra Core has with :ref:`many other frameworks <orq_core_s
 
 There are slightly different ways to import the conversions from the integrations for different frameworks, so here's examples for all of them:
 
-.. literalinclude:: ../examples/backends_guide.py
+.. literalinclude:: ../examples/guides/backends_guide.py
   :start-after: # Importng and Exporting with different frameworks
   :end-before: # end importing/exporting examples
 
@@ -153,11 +156,11 @@ If you want to use some specific features from a particular framework (e.g. draw
 How to integrate your own backend
 =================================
 
-We have simplified the process of integrating any simulator into Orquestra Core. First you need to create a function that can translate gates between your library and `Orquestra's gates <https://github.com/zapatacomputing/orquestra-quantum/blob/main/src/orquestra/quantum/circuits/_builtin_gates.py>`_. Then create a class method that inherits from ``QuantumSimulator`` and overrides the needed abstract methods (like ``run_circuit_and_measure``). In order for integration to work properly, the signature of all the methods needs to be exactly the same as in the abstract class. If your simulator requires some extra arguments (e.g. whether to use a noise model), please provide it in the ``__init__`` method.
+We have simplified the process of integrating any hardware or simulator which runs quantum circuits into Orquestra Core. First you need to create a function that can translate gates between your library and `Orquestra's gates <https://github.com/zapatacomputing/orquestra-quantum/blob/main/src/orquestra/quantum/circuits/_builtin_gates.py>`_. Then create a class method that inherits from ``QuantumBackend`` and overrides the needed abstract methods (like ``run_and_measure``). In order for integration to work properly, the signature of all the methods needs to be exactly the same as in the abstract class. If your simulator requires some extra arguments (e.g. whether to use a noise model), please provide it in the ``__init__`` method.
 
 Here is an example of a (fake) simulator integrated using this process:
 
-.. literalinclude:: ../examples/backends_guide.py
+.. literalinclude:: ../examples/guides/backends_guide.py
   :start-after: # Inherit QuantumSimulator
   :end-before: # End Inherit QuantumSimulator
 

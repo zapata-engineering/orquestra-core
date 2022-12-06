@@ -1,0 +1,61 @@
+:py:mod:`orquestra.opt.mock_objects`
+====================================
+
+.. py:module:: orquestra.opt.mock_objects
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.opt.mock_objects.MockOptimizer
+   orquestra.opt.mock_objects.MockNestedOptimizer
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.opt.mock_objects.mock_cost_function
+
+
+
+.. py:class:: MockOptimizer(recorder: orquestra.opt.history.recorder.RecorderFactory = _recorder)
+
+   Bases: :py:obj:`orquestra.opt.api.Optimizer`
+
+   Interface for implementing different optimizers.
+
+   :param recorder: recorder object which defines how to store the optimization history.
+
+
+.. py:function:: mock_cost_function(parameters: numpy.ndarray)
+
+
+.. py:class:: MockNestedOptimizer(inner_optimizer: orquestra.opt.api.Optimizer, n_iters: int, recorder: orquestra.opt.history.recorder.RecorderFactory = _recorder)
+
+   Bases: :py:obj:`orquestra.opt.api.NestedOptimizer`
+
+   As most mock objects this implementation does not make much sense in itself,
+   however it's an example of how a NestedOptimizer could be implemented.
+
+
+   .. py:method:: inner_optimizer() -> orquestra.opt.api.Optimizer
+      :property:
+
+      Inner optimizer used by this optimizer.
+
+
+   .. py:method:: recorder() -> orquestra.opt.history.recorder.RecorderFactory
+      :property:
+
+      Factory for creating recorders of functions being minimized.
+
+
+

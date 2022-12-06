@@ -1,0 +1,75 @@
+:py:mod:`orquestra.vqa.opt.layerwise_ansatz_optimizer`
+======================================================
+
+.. py:module:: orquestra.vqa.opt.layerwise_ansatz_optimizer
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.vqa.opt.layerwise_ansatz_optimizer.LayerwiseAnsatzOptimizer
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.vqa.opt.layerwise_ansatz_optimizer.append_random_params
+
+
+
+.. py:function:: append_random_params(target_size: int, params: numpy.ndarray) -> numpy.ndarray
+
+   Adds new random parameters to the `params` so that the size
+   of the output is `target_size`.
+   New parameters are sampled from a uniform distribution over [-pi, pi].
+
+   :param target_size: target number of parameters
+   :param params: params that we want to extend
+
+
+.. py:class:: LayerwiseAnsatzOptimizer(ansatz: orquestra.vqa.api.ansatz.Ansatz, inner_optimizer: orquestra.opt.api.Optimizer, min_layer: int, max_layer: int, n_layers_per_iteration: int = 1, parameters_initializer: Callable[[int, numpy.ndarray], numpy.ndarray] = append_random_params, recorder: orquestra.opt.history.recorder.RecorderFactory = _recorder)
+
+   Bases: :py:obj:`orquestra.opt.api.NestedOptimizer`
+
+   Optimizers that modify cost function throughout optimization.
+   An example of such optimizer could be on that freezes certain
+   parameters during every iteration or adds new layers of
+   the underlying circuit (so called layer-by-layer optimization).
+
+   See MockNestedOptimizer in orquestra.opt.mock_objects for an example.
+
+   :param inner_optimizer: Optimizer object used in the inner optimization loop.
+   :param recorder: recorder object which defines how to store the optimization history.
+
+   :returns:     opt_value,
+                 opt_params,
+                 nit: total number of iterations of inner_optimizer,
+                 nfev: total number of calls to cost function,
+                 history: a list of HistoryEntrys.
+                     If keep_history is False this should be an empty list.
+                 gradient_history: if the cost function is a FunctionWithGradient,
+                     this should be a list of HistoryEntrys representing
+                     previous calls to the gradient.
+   :rtype: An instance of OptimizeResult containing
+
+   .. py:method:: inner_optimizer() -> orquestra.opt.api.Optimizer
+      :property:
+
+      Inner optimizer used by this optimizer.
+
+
+   .. py:method:: recorder() -> orquestra.opt.history.recorder.RecorderFactory
+      :property:
+
+      Factory for creating recorders of functions being minimized.
+
+
+

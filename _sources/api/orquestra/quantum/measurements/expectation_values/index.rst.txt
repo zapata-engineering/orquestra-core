@@ -1,0 +1,123 @@
+:py:mod:`orquestra.quantum.measurements.expectation_values`
+===========================================================
+
+.. py:module:: orquestra.quantum.measurements.expectation_values
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.quantum.measurements.expectation_values.ExpectationValues
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.quantum.measurements.expectation_values.save_expectation_values
+   orquestra.quantum.measurements.expectation_values.load_expectation_values
+   orquestra.quantum.measurements.expectation_values.expectation_values_to_real
+   orquestra.quantum.measurements.expectation_values.concatenate_expectation_values
+   orquestra.quantum.measurements.expectation_values.get_expectation_values_from_parities
+
+
+
+.. py:class:: ExpectationValues(values: numpy.ndarray, correlations: Optional[List[numpy.ndarray]] = None, estimator_covariances: Optional[List[numpy.ndarray]] = None)
+
+   A class representing expectation values of operators.
+   For more context on how it is being used, please see the docstring of
+   EstimateExpectationValues Protocol in interfaces/estimation.py.
+
+   :param values: The expectation values of a set of terms in an ising operator.
+   :param correlations: The expectation values of pairwise products of operators.
+                        Contains an NxN array for each frame, where N is the number of
+                        operators in that frame.
+   :param estimator_covariances: The (estimated) covariances between estimates of
+                                 expectation values of pairs of operators. Contains an NxN array for
+                                 each frame, where N is the number of operators in that frame. Note
+                                 that for direct sampling, the covariance between estimates of
+                                 expectation values is equal to the population covariance divided by
+                                 the number of samples.
+
+   .. attribute:: values
+
+      See Args.
+
+   .. attribute:: correlations
+
+      See Args.
+
+   .. attribute:: estimator_covariances
+
+      See Args.
+
+   .. py:method:: to_dict() -> Dict[str, Any]
+
+      Convert to a dictionary
+
+
+   .. py:method:: from_dict(dictionary: dict) -> ExpectationValues
+      :classmethod:
+
+      Create an ExpectationValues object from a dictionary.
+
+
+
+.. py:function:: save_expectation_values(expectation_values: ExpectationValues, filename: orquestra.quantum.typing.AnyPath) -> None
+
+   Save expectation values to a file.
+
+   :param expectation_values: the expectation values to save
+   :type expectation_values: ExpectationValues
+   :param file: the name of the file, or a file-like object
+   :type file: str or file-like object
+
+
+.. py:function:: load_expectation_values(file: orquestra.quantum.typing.LoadSource) -> ExpectationValues
+
+   Load an array from a file.
+
+   :param file: the name of the file, or a file-like object.
+   :type file: str or file-like object
+
+   :returns: the array
+   :rtype: array (numpy.array)
+
+
+.. py:function:: expectation_values_to_real(expectation_values: ExpectationValues) -> ExpectationValues
+
+   Remove the imaginary parts of the expectation values
+
+   :param expectation_values:
+   :type expectation_values: orquestra.quantum.measurement.ExpectationValues object
+
+   :returns: expectation_values (orquestra.quantum.measurement.ExpectationValues object)
+
+
+.. py:function:: concatenate_expectation_values(expectation_values_set: Iterable[ExpectationValues]) -> ExpectationValues
+
+   Concatenates a set of expectation values objects.
+
+   :param expectation_values_set: The expectation values objects to be concatenated.
+
+   :returns: The combined expectation values.
+
+
+.. py:function:: get_expectation_values_from_parities(parities: orquestra.quantum.measurements.parities.Parities) -> ExpectationValues
+
+   Get the expectation values of a set of operators (with precisions) from a set of
+   samples (with even/odd parities) for them.
+
+   :param parities: Contains the number of samples with even and odd parities for each
+                    operator.
+
+   :returns: Expectation values of the operators and the associated precisions.
+
+

@@ -4,7 +4,163 @@
 Optimizers guide
 ================
 
-This guide is currently a work in progress and only contains bullet points for now.
+Optimization (i.e. ability to minimize a scalar function) lies at the heart of scientific computing
+and its applications. For instance, being able to minimize a cost function is crucial for
+Variational Quantum Algorithms (VQAs).
 
-- The typical arguments to an optimizer. They are usually simple and don't require other objects.
-- 
+Optimization is nothing new, and there exists plethora of ready to use libraries with various
+optimizers. So what new can Orquestra bring to the table? The answer, as usually with Orquestra,
+is unification. The `orquestra-opt` package defines interfaces for all things related to
+optimization and provides implementation of many existing optimizers.
+
+
+What this guide covers
+======================
+This guide will introduce you to everything you need to know to optimize scalar functions using
+`orquestra-opt` package. In particular we'll discuss:
+
+- What functions can be minimized? Definition o cost function.
+- Gradients, and how to add them to your cost function.
+- Orquestra's approach for implementing optimization algorithms - the :class:`Optimizer` interface.
+- How to record history of evaluation of the cost function.
+- How we put optimizers in the optimizers - the :class:`MetaOptimizer` interface.
+- List of optimizers are currently available.
+
+
+Cost functions
+==============
+
+Before we start optimizing, we need to know what can be optimized. In Orquestra, we deal only with
+minimization of functions of the form :math:`f:\mathbb{R}^N \to \mathbb{R}`. Throughout the
+codebase, such functions are called the *cost functions*.
+
+All optimizers expect that the arguments to cost functions are stored as a single vector as 1-D
+numpy arrays. Suppose you want to create the following cost function:
+:math:`f(x, y, z) = x^2 + y^2 + z^2`. Out of the two natural ways of defining it in Python, the
+second one is the one expected by Optimizers:
+
+.. literalinclude:: ../examples/guides/optimizers.py
+  :language: python
+  :start-after: # Definition of cost function
+  :end-before: # --- End
+
+.. note::
+   Remember that the argument to your cost function should be called `parameters`. While
+   it makes no difference for most optimizers at runtime, it makes your function match
+   structurally to the :class:`CostFunction` protocol expected by Optimizers.
+
+Adding gradients
+================
+Some optimization methods use gradients to move across the optimization landscape in the
+correct direction. You can enrich your cost function with gradient in several ways.
+
+To start with, cost function with gradients are just normal cost functions having additional
+`gradient` attribute. This attribute should also be a callable returning gradient
+of you function at a given point. Hence, one possible way of defining a cost function with
+gradient is to just write a class with `__call__` dunder method and a gradient attribute.
+
+.. literalinclude:: ../examples/guides/optimizers.py
+  :language: python
+  :start-after: # Cost function with gradient as a class
+  :end-before: # --- End
+
+For some cases, like in the example above, defining a whole class just to add a gradient
+to your function is an overkill. There has to be a simpler way, right? Right. You can use
+a :class:`FunctionWithGradient` wrapper to combine your cost function and another function
+defining its gradient.
+
+.. literalinclude:: ../examples/guides/optimizers.py
+  :language: python
+  :start-after: # FunctionWithGradient
+  :end-before: # --- End
+
+There are some cases when you can't define the gradient analytically. In such cases, it is
+possible to use some approximation methods to compute it. One possibility is to use
+finite differences method as demonstrated in the example below.
+
+.. literalinclude:: ../examples/guides/optimizers.py
+  :language: python
+  :start-after: # finite difference
+  :end-before: # --- End
+
+The :func:`finite_differences_gradient` function itself returns a function that
+approximates its input gradient. The second parameter controls the step size in the
+approximation.
+
+The optimizers
+==============
+
+Knowing what functions can be minimized, let us now take a closer look at how to minimize them.
+The objects responsible for the whole process are implementations of the :class:`Optimizer`
+interface. Every Optimizer implements the :meth:`minimize` method that accepts the following
+parameters:
+
+- `cost_function`: the cost function to be optimized.
+- `initial_params`:  the initial guess for the optimal parameters. Its dimension should
+  match the dimension of the first argument of the `cost_function`.
+- `keep_history`: a boolean determining if history of function evaluations should be kept or
+  not. The default is `False`, as storage of evaluation history might eat up a lot of
+  memory.
+
+Of course, optimizers have other methods as well. Those methods are relevant mainly when we
+are implementing our own optimizers, and hence we defer discussing them until later.
+
+But wait, surely some optimization methods require additional parameters and some fine tuning.
+Where do those parameters go, if `minimize` only accepts the arguments listed above?
+That's a very good question. Similarly as we have done with other interfaces, we moved all
+optimizer-specific parametrization into Optimizers' :meth:`__init__` method. This way, once the
+optimizers are constructed, they can be used interchangeably with one another.
+
+Let us illustrate how the optimizers work. In the example below, we construct two optimizers
+and we use them to optimize our sum of squares. We then print the results.
+
+.. literalinclude:: ../examples/guides/optimizers.py
+  :language: python
+  :start-after: # Basic optimization
+  :end-before: # --- End
+
+The results might differ slightly, but here is what we got when running the example.
+
+.. code-block:: text
+
+        history: []
+           nfev: 3
+            nit: 2
+     opt_params: array([0., 0., 0.])
+      opt_value: 0.0
+
+.. code-block:: text
+
+        history: []
+           nfev: None
+            nit: 1000
+     opt_params: array([ 5.11528491e-21, -5.11528491e-21,  5.38660015e-21])
+      opt_value: 8.134774054521418e-41
+
+
+As we can see, once constructed, :class:`ScipyOptimizer` and :class:`SimpleGradientDescent`
+optimizer could be used in the same way. The output contains the following fields:
+
+- `opt_params`: optimal parameters found
+- `opt_value`: value of the cost function at the optimal point (i.e.
+  :code:`cost_function(opt_params)`
+- `nfev`: number of function evaluation during the optimization process
+- `nit`: number of iterations
+- `history`: history of evaluation of our cost function.
+
+The `history` field is empty in both cases, since we haven't passed :code:`keep_history=True`.
+Both optimizers did well and found optimal or near-optimal solution, although we have to admit
+that the optimization task we gave them wasn't too hard. The
+:class:`SimpleGradientDescentOptimizer` haven't evaluated our function even once during the
+optimization, which is expected - it only uses gradient to guide the optimization.
+The :class:`ScipyOptimizer` used two iterations to reach the global minimum, while the second
+optimizer used 1000 which is expected, as it was explicitly instructed to do so.
+
+Of course, all of the fields discussed above can be accessed programmatically during program
+execution, for instance:
+
+.. literalinclude:: ../examples/guides/optimizers.py
+  :language: python
+  :start-after: # Using OptimizeResult
+  :end-before: # --- End
+

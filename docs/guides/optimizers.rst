@@ -164,3 +164,157 @@ execution, for instance:
   :start-after: # Using OptimizeResult
   :end-before: # --- End
 
+Storing evaluation history
+==========================
+
+In the simplest case, the evaluation history can be kept by passing :code:`keep_history=True`.
+Let us first see how this history info is stored.
+
+.. literalinclude:: ../examples/guides/optimizers.py
+  :language: python
+  :start-after: # keep_history
+  :end-before: # --- End
+
+The output could look as follows
+
+.. code:: text
+
+   [HistoryEntry(call_number=0, params=array([ 1. , -1. ,  0.5]), value=2.25), HistoryEntry(call_number=1, params=array([ 0.33333333, -0.33333333,  0.16666667]), value=0.2499999999999999), HistoryEntry(call_number=2, params=array([0., 0., 0.]), value=0.0)]
+
+We can observe that:
+
+- Stored history info is a list.
+- This list contains items of type :class:`HistoryEntry`
+- Each such entry contains the following:
+  - call number: sequentially number of call to the cost function
+  - params: parameters with which the cost function was called
+  - value: current value of the cost function
+
+Of course, as usually, we can access all these info programmatically. For instance, this
+is how you can extract only the sequence of values of the cost function:
+
+.. literalinclude:: ../examples/guides/optimizers.py
+  :language: python
+  :start-after: # history_entry
+  :end-before: # --- End
+
+.. code:: text
+
+   [2.25, 0.2499999999999999, 0.0]
+
+For many applications, this is everything that you need to know. However, there are some caveats.
+
+- What if I want only *some* evaluations to be saved? For instance, if we suspect there will be
+  one million calls, maybe it is enough to save memory and save only every tenth entry?
+- Want if I want to store some more info? Maybe our cust function produces some other artifacts
+  that are worth saving for the purpose of further analysis?
+
+The :code:`orquestra-opt` package contains everything you need to accomplish this task. To
+properly discuss how to do this, we need to introduce a new concept. Enter *recorders*.
+
+Recorders
+---------
+
+Simply put, recorders are callable objects that wrap the cost function and pass through
+all calls. However, they also store the history of invocations.
+
+Recorder for given function is created by calling a :func:`recorder` function on it.
+This function chooses the appropriate recorder type and returns it. Before going any
+further, let us check on some simple function that recorder created in this way indeed
+behaves as expected.
+
+.. literalinclude:: ../examples/guides/optimizers.py
+  :language: python
+  :start-after: # basic recorder
+  :end-before: # --- End
+
+Looking at the output we see that the recorder correctly stored the called that we made.
+
+.. code:: text
+
+   [0.93765228 0.69672247 0.68539876]
+   [HistoryEntry(call_number=0, params=array([0.93765228, 0.69672247, 0.68539876]), value=1.8343854651854021)]
+
+Ok, what about gradient? It turns out that if your cost function has a gradient it will be
+recorder as well.
+
+.. literalinclude:: ../examples/guides/optimizers.py
+  :language: python
+  :start-after: # recording gradient
+  :end-before: # --- End
+
+.. code:: text
+
+   [2. 4. 6.]
+   [HistoryEntry(call_number=0, params=array([1, 2, 3]), value=array([2., 4., 6.]))]
+
+As you can see from the output, the recorder successfully captured evaluation of the
+gradient.
+
+The next thing we need to learn is how to conditionally store only selected evaluations.
+All recorders have something called :code:`save_condition`. It is a boolean function that
+accepts value, parameters and call number and returns :code:`True` if and only
+if it this particular evaluation should be saved. The default save condition is a dummy
+function called :func:`always` which always returns true. Another function, :func:`every_nth`,
+saves only every-nth evaluation. Here's how it works:
+
+.. literalinclude:: ../examples/guides/optimizers.py
+  :language: python
+  :start-after: # every nth
+  :end-before: # --- End
+
+.. code:: text
+
+   [0.0, 48.0, 192.0, 432.0, 768.0]
+
+As can bee seen, the recorder saved only every 4-th evaluation of the cost function.
+
+Let's conclude this part by demonstrating custom save conditions. In this, rather artificial,
+scenario, we save only these evaluations for which second coordinate is greater than the first one.
+
+.. literalinclude:: ../examples/guides/optimizers.py
+  :language: python
+  :start-after: # custom save condition
+  :end-before: # --- End
+
+.. code:: text
+
+   [HistoryEntry(call_number=0, params=array([1, 2, 0]), value=5)]
+
+
+Saving artifacts
+----------------
+
+There is even more advanced usage of the recorders. As already stated we can store arbitrary
+artifacts. But how does the recorder know what to save? Well it doesn't, but it exposes
+a callback for your cost function that can be used to store anything it wants.
+
+To illustrate, let us modify our sum of squares so that it saves the indices sorting its
+input. E.g. if the input was [3, 5, 0] it should save vector [2, 0, 1]).
+
+
+.. literalinclude:: ../examples/guides/optimizers.py
+  :language: python
+  :start-after: # storing artifacts
+  :end-before: # --- End
+
+.. code:: text
+
+   HistoryEntryWithArtifacts(call_number=0, params=array([0.83539053, 0.60336326, 0.68849924]), value=1.5359557618364512, artifacts={'order': array([1, 2, 0])})
+   parameters: [0.83539053 0.60336326 0.68849924], order: [1 2 0]
+   parameters: [0.77104168 0.88808436 0.82558708], order: [0 2 1]
+   parameters: [0.45159923 0.5376592  0.14075176], order: [2 0 1]
+   parameters: [0.93415374 0.78783696 0.35753713], order: [2 1 0]
+
+We see that if our function stores artifacts, the entries stored in recorder's :code:`history`
+attribute are of :class:`HistoryEntryWithArtifacts` type, which has additional field called
+:code:`artifacts`. This field stores a dictionary of the artifacts taht your cost function
+saved for given evaluation.
+
+Of course, there's no need for you cost function to store the same artifacts for each evaluation.
+The stored dictionary is completely free-form, and you can store whatever you want.
+
+.. note::
+
+   This guide primarily focuses on optimization, and hence we only used recorders on
+   cost functions. However, they work just as fine for arbitrary functions.

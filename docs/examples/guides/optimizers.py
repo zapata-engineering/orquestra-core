@@ -147,3 +147,59 @@ print(wrapped_cost_function.history[0])
 for entry in wrapped_cost_function.history:
     print(f"parameters: {entry.params}, order: {entry.artifacts['order']}")
 # --- End
+
+# custom recorder
+def rosenbrock(parameters: np.ndarray) -> float:
+    x, y = parameters
+    return (1-x) ** 2 + 100 * (y - x ** 2) ** 2
+
+
+def my_recorder_factory(cost_function):
+    return recorder(cost_function, save_condition=every_nth(2))
+
+optimizer = ScipyOptimizer(method="L-BFGS-B", recorder=my_recorder_factory)
+
+result = optimizer.minimize(
+    rosenbrock, initial_params=np.array([0.1, 0.1]), keep_history=True
+)
+
+print([entry.call_number for entry in result.history])
+# --- End
+
+# custom optimizer
+from orquestra.opt.api import Optimizer, CostFunction
+from scipy.optimize import OptimizeResult
+
+class MyOptimizer(Optimizer):
+
+    def __init__(
+        self,
+        method: str,             # Hypothetical argument choosing optimization method
+        some_hyper_param: float, # Hypothetical hyper parameter
+        recorder=recorder
+    ):
+        super().__init__(recorder)
+        self.method = method
+        self.some_hyper_param = some_hyper_param
+
+    def _minimize(
+        self,
+        cost_function: CostFunction,
+        initial_params: np.ndarray,
+        keep_history: bool = False,
+    ) -> OptimizeResult:
+        # Actual implementation of your optimization method goes here
+        ...
+
+    def _preprocess_cost_function(
+        self,
+        cost_function: CostFunction
+    ) -> CostFunction:
+        # Validate the cost function is compatible with the optimizer
+        # If needed, you might return another modified cost function
+        # If no modifications are required, just return `cost_function`
+        ...
+# --- End
+
+
+

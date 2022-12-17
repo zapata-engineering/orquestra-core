@@ -19,11 +19,11 @@ What this guide covers
 This guide will introduce you to everything you need to know to optimize scalar functions using
 `orquestra-opt` package. In particular we'll discuss:
 
-- What functions can be minimized? Definition o cost function.
+- What functions can be minimized? Definition of cost function.
 - Gradients, and how to add them to your cost function.
-- Orquestra's approach for implementing optimization algorithms - the :class:`Optimizer` interface.
+- Orquestra's approach for implementing optimization algorithms - the
+  :class:`Optimizer <orquestra.opt.api.Optimizer>` interface.
 - How to record history of evaluation of the cost function.
-- How we put optimizers in the optimizers - the :class:`MetaOptimizer` interface.
 - List of optimizers are currently available.
 
 
@@ -34,7 +34,7 @@ Before we start optimizing, we need to know what can be optimized. In Orquestra,
 minimization of functions of the form :math:`f:\mathbb{R}^N \to \mathbb{R}`. Throughout the
 codebase, such functions are called the *cost functions*.
 
-All optimizers expect that the arguments to cost functions are stored as a single vector as 1-D
+All optimizers expect that the arguments to cost functions are stored as a single vector in a 1-D
 numpy arrays. Suppose you want to create the following cost function:
 :math:`f(x, y, z) = x^2 + y^2 + z^2`. Out of the two natural ways of defining it in Python, the
 second one is the one expected by Optimizers:
@@ -47,7 +47,8 @@ second one is the one expected by Optimizers:
 .. note::
    Remember that the argument to your cost function should be called `parameters`. While
    it makes no difference for most optimizers at runtime, it makes your function match
-   structurally to the :class:`CostFunction` protocol expected by Optimizers.
+   structurally to the :class:`CostFunction <orquestra.opt.api.CostFunction>` protocol expected
+   by Optimizers.
 
 Adding gradients
 ================
@@ -66,8 +67,8 @@ gradient is to just write a class with `__call__` dunder method and a gradient a
 
 For some cases, like in the example above, defining a whole class just to add a gradient
 to your function is an overkill. There has to be a simpler way, right? Right. You can use
-a :class:`FunctionWithGradient` wrapper to combine your cost function and another function
-defining its gradient.
+a :class:`FunctionWithGradient <orquestra.opt.api.FunctionWithGradient>` wrapper to combine
+your cost function and another function defining its gradient.
 
 .. literalinclude:: ../examples/guides/optimizers.py
   :language: python
@@ -83,23 +84,23 @@ finite differences method as demonstrated in the example below.
   :start-after: # finite difference
   :end-before: # --- End
 
-The :func:`finite_differences_gradient` function itself returns a function that
-approximates its input gradient. The second parameter controls the step size in the
-approximation.
+The :func:`finite_differences_gradient <orquestra.opt.gradients.finite_differences_gradient>`
+function itself returns a function that approximates its input gradient. The second parameter
+controls the step size in the approximation.
 
 The optimizers
 ==============
 
 Knowing what functions can be minimized, let us now take a closer look at how to minimize them.
 The objects responsible for the whole process are implementations of the :class:`Optimizer`
-interface. Every Optimizer implements the :meth:`minimize` method that accepts the following
-parameters:
+interface. Every Optimizer implements the :meth:`minimize <orquestra.opt.api.Optimizer.minimize>`
+method that accepts the following parameters:
 
 - `cost_function`: the cost function to be optimized.
 - `initial_params`:  the initial guess for the optimal parameters. Its dimension should
   match the dimension of the first argument of the `cost_function`.
 - `keep_history`: a boolean determining if history of function evaluations should be kept or
-  not. The default is `False`, as storage of evaluation history might eat up a lot of
+  not. The default is :code:`False`, as storage of evaluation history might eat up a lot of
   memory.
 
 Of course, optimizers have other methods as well. Those methods are relevant mainly when we
@@ -108,7 +109,8 @@ are implementing our own optimizers, and hence we defer discussing them until la
 But wait, surely some optimization methods require additional parameters and some fine tuning.
 Where do those parameters go, if `minimize` only accepts the arguments listed above?
 That's a very good question. Similarly as we have done with other interfaces, we moved all
-optimizer-specific parametrization into Optimizers' :meth:`__init__` method. This way, once the
+optimizer-specific parametrization into Optimizers'
+:meth:`__init__ <orquestra.opt.api.Optimizer.__init__>` method. This way, once the
 optimizers are constructed, they can be used interchangeably with one another.
 
 Let us illustrate how the optimizers work. In the example below, we construct two optimizers
@@ -138,7 +140,8 @@ The results might differ slightly, but here is what we got when running the exam
       opt_value: 8.134774054521418e-41
 
 
-As we can see, once constructed, :class:`ScipyOptimizer` and :class:`SimpleGradientDescent`
+As we can see, once constructed, :class:`ScipyOptimizer <orquestra.opt.optimizers.ScipyOptimizer>`
+and :class:`SimpleGradientDescent <orquestra.opt.optimizers.SimpleGradientDescent>`
 optimizer could be used in the same way. The output contains the following fields:
 
 - `opt_params`: optimal parameters found
@@ -151,7 +154,7 @@ optimizer could be used in the same way. The output contains the following field
 The `history` field is empty in both cases, since we haven't passed :code:`keep_history=True`.
 Both optimizers did well and found optimal or near-optimal solution, although we have to admit
 that the optimization task we gave them wasn't too hard. The
-:class:`SimpleGradientDescentOptimizer` haven't evaluated our function even once during the
+:class:`SimpleGradientDescent` haven't evaluated our function even once during the
 optimization, which is expected - it only uses gradient to guide the optimization.
 The :class:`ScipyOptimizer` used two iterations to reach the global minimum, while the second
 optimizer used 1000 which is expected, as it was explicitly instructed to do so.
@@ -186,7 +189,8 @@ We can observe that:
 - Stored history info is a list.
 - This list contains items of type :class:`HistoryEntry`
 - Each such entry contains the following:
-  - call number: sequentially number of call to the cost function
+
+  - call number: sequential number of call to the cost function
   - params: parameters with which the cost function was called
   - value: current value of the cost function
 
@@ -206,10 +210,10 @@ For many applications, this is everything that you need to know. However, there 
 
 - What if I want only *some* evaluations to be saved? For instance, if we suspect there will be
   one million calls, maybe it is enough to save memory and save only every tenth entry?
-- Want if I want to store some more info? Maybe our cust function produces some other artifacts
+- What if I want to store some more info? Maybe our cust function produces some other artifacts
   that are worth saving for the purpose of further analysis?
 
-The :code:`orquestra-opt` package contains everything you need to accomplish this task. To
+The :code:`orquestra-opt` package contains everything you need to accomplish those goals. To
 properly discuss how to do this, we need to introduce a new concept. Enter *recorders*.
 
 Recorders
@@ -218,8 +222,8 @@ Recorders
 Simply put, recorders are callable objects that wrap the cost function and pass through
 all calls. However, they also store the history of invocations.
 
-Recorder for given function is created by calling a :func:`recorder` function on it.
-This function chooses the appropriate recorder type and returns it. Before going any
+Recorder for a given function is created by calling a :func:`recorder` function on it.
+This function chooses the appropriate recorder type and returns its instance. Before going any
 further, let us check on some simple function that recorder created in this way indeed
 behaves as expected.
 
@@ -228,7 +232,7 @@ behaves as expected.
   :start-after: # basic recorder
   :end-before: # --- End
 
-Looking at the output we see that the recorder correctly stored the called that we made.
+Looking at the output we see that the recorder correctly stored the call that we made.
 
 .. code:: text
 
@@ -252,11 +256,11 @@ As you can see from the output, the recorder successfully captured evaluation of
 gradient.
 
 The next thing we need to learn is how to conditionally store only selected evaluations.
-All recorders have something called :code:`save_condition`. It is a boolean function that
+All recorders have an attribute called :code:`save_condition`. It is a boolean function that
 accepts value, parameters and call number and returns :code:`True` if and only
 if it this particular evaluation should be saved. The default save condition is a dummy
-function called :func:`always` which always returns true. Another function, :func:`every_nth`,
-saves only every-nth evaluation. Here's how it works:
+function called :func:`always <orquestra.opt.api.always>` which always returns true. Another function,
+:func:`every_nth <orquestra.opt.api.every_nth>`, saves only every nth evaluation. Here's how it works:
 
 .. literalinclude:: ../examples/guides/optimizers.py
   :language: python
@@ -307,9 +311,9 @@ input. E.g. if the input was [3, 5, 0] it should save vector [2, 0, 1]).
    parameters: [0.93415374 0.78783696 0.35753713], order: [2 1 0]
 
 We see that if our function stores artifacts, the entries stored in recorder's :code:`history`
-attribute are of :class:`HistoryEntryWithArtifacts` type, which has additional field called
-:code:`artifacts`. This field stores a dictionary of the artifacts taht your cost function
-saved for given evaluation.
+attribute are of :class:`HistoryEntryWithArtifacts <orquestra.opt.history.recorder.HistoryEntryWithArtifacts>`
+type, which has additional field called :code:`artifacts`. This field stores a dictionary of the
+artifacts that your cost function saved for given evaluation.
 
 Of course, there's no need for you cost function to store the same artifacts for each evaluation.
 The stored dictionary is completely free-form, and you can store whatever you want.
@@ -318,3 +322,80 @@ The stored dictionary is completely free-form, and you can store whatever you wa
 
    This guide primarily focuses on optimization, and hence we only used recorders on
    cost functions. However, they work just as fine for arbitrary functions.
+
+Using recorders with optimizers
+-------------------------------
+
+The previous section focused on using recorders as a standalone feature. We will now explore
+how recorders can be used with optimizers.
+
+If you take a closer look at the initializer of base :class:`Optimizer` class, you'll see
+that it accepts a `recorder` argument. This argument is a factory, which means it should be a
+callable that, when provided a cost function, returns a recorder. It defaults to
+the :func:`recorder <orquestra.opt.history.recorder>` that we just discussed. We can replace it with
+our own factory. The example below shows how to minimize the Rosenbrock function,
+and record its evaluation using both the default :func:`recorder` and the custom one provided by us.
+
+.. literalinclude:: ../examples/guides/optimizers.py
+  :language: python
+  :start-after: # custom recorder
+  :end-before: # --- End
+
+.. code:: text
+
+   [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76]
+
+As can be seen, our optimizer saved only every second evaluation of the cost function when
+we passed :code:`keep_history=True`. Under the hood, the optimizer constructed an instance
+of the recorder according to the recipe that we specified.
+
+The information presented so far should be enough for optimizing arbitrary cost function
+and control how its evaluation history is stored. Let us now move to more advanced topics.
+
+Creating your own optimizer
+===========================
+
+So far we only discussed using already existing optimizers. However, you might want to implement
+an optimizer using some fancy optimization method that is not yet available in Orquestra.
+
+The way it is done is by subclassing the :class:`Optimizer` class. At bare minimum,
+your implementation has to include the :meth:`_minimize` method that implements the actual
+minimization algorithm.
+
+Optionally, you may also override the :meth:`_preprocess_cost_function` method. This method
+is responsible for two things:
+
+- validating the passed cost function, and raising an error if some problems are detected.
+- wrapping/modifying the cost function to adapt it to use with the given optimizer.
+
+For instance, the :meth:`_preprocess_cost_function` can make sure that the function has
+a gradient if the optimizer requires it. Or it can add an approximate gradient, if the
+cost function doesn't have one.
+
+The following snippet may serve as a template for implementing your own optimizer.
+
+.. literalinclude:: ../examples/guides/optimizers.py
+  :language: python
+  :start-after: # custom optimizer
+  :end-before: # --- End
+
+
+List of currently available optimizers
+======================================
+
+We conclude this guide by listing all optimizers currently available in orquestra-opt.
+
+Optimizers available with the default installation:
+
+- :class:`BasicHoppingOptimizer <orquestra.opt.optimizers.BasinHoppingOptimizer>`, an optimizer utilizing :code:`scipy.optimize.basinhopping` method
+- :class:`ScipyOptimizer <orquestra.opt.optimizers.ScipyOptimizer>`, a generic Scipy base optimizer
+- :class:`SearchPointOptimizer <orquestra.opt.optimizers.SearchPointsOptimizer>`, an optimizer performing brute-force search over specified grid
+
+Other optimizers:
+
+- :class:`QiskitOptimizer <orquestra.opt.optimizers.qiskit_optimizer.QiskitOptimizer>`, a wrapper around optimizers available in Qiskit. Available if
+  :code:`orquestra-opt` was installed with :code:`qiskit` extra.
+- :class:`CMAESOptimizer <orquestra.opt.optimizers.cma_es_optimizer.CMAESOptimizer>`, an optimizer utilizing Covariance Matrix Adaptation Evolution Strategy.
+  Available if :code:`orquestra-opt` was installed with :code:`cma` extra.
+- :class:`ScikitQuantOptimizer <orquestra.opt.optimizers.scikit_quant_optimizer.ScikitQuantOptimizer>`, a wrapper around scikit-quant optimizers.
+  Available if :code:`orquestra-opt` was installed with :code:`scikit-quant` extra.

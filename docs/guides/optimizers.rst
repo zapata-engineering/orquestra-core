@@ -24,7 +24,7 @@ This guide will introduce you to everything you need to know to optimize scalar 
 - Orquestra's approach for implementing optimization algorithms - the
   :class:`Optimizer <orquestra.opt.api.Optimizer>` interface.
 - How to record history of evaluation of the cost function.
-- List of optimizers are currently available.
+- List of currently available optimizers.
 
 
 Cost functions

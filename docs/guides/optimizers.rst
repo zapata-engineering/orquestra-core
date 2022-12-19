@@ -58,7 +58,7 @@ correct direction. You can enrich your cost function with gradient in several wa
 To start with, cost function with gradients are just normal cost functions having additional
 `gradient` attribute. This attribute should also be a callable returning gradient
 of you function at a given point. Hence, one possible way of defining a cost function with
-gradient is to just write a class with `__call__` dunder method and a gradient attribute.
+gradient is to just write a class with `__call__` method and a gradient attribute.
 
 .. literalinclude:: ../examples/guides/optimizers.py
   :language: python

@@ -391,9 +391,16 @@ Optimizers available with the default installation:
 
 Other optimizers:
 
-- :class:`QiskitOptimizer <orquestra.opt.optimizers.qiskit_optimizer.QiskitOptimizer>`, a wrapper around optimizers available in Qiskit. Available if
-  :code:`orquestra-opt` was installed with :code:`qiskit` extra.
-- :class:`CMAESOptimizer <orquestra.opt.optimizers.cma_es_optimizer.CMAESOptimizer>`, an optimizer utilizing Covariance Matrix Adaptation Evolution Strategy.
+* :class:`QiskitOptimizer <orquestra.opt.optimizers.qiskit_optimizer.QiskitOptimizer>`, a wrapper around optimizers available in Qiskit. Available if :code:`orquestra-opt` was installed with :code:`qiskit` extra.
+  This optimizer supports :code:`ADAM`, :code:`AMSGRAD`, :code:`SPSA` and :code:`NFT` optimization methods.
+* :class:`CMAESOptimizer <orquestra.opt.optimizers.cma_es_optimizer.CMAESOptimizer>`, an optimizer utilizing Covariance Matrix Adaptation Evolution Strategy.
   Available if :code:`orquestra-opt` was installed with :code:`cma` extra.
-- :class:`ScikitQuantOptimizer <orquestra.opt.optimizers.scikit_quant_optimizer.ScikitQuantOptimizer>`, a wrapper around scikit-quant optimizers.
-  Available if :code:`orquestra-opt` was installed with :code:`scikit-quant` extra.
+* :class:`ScikitQuantOptimizer <orquestra.opt.optimizers.scikit_quant_optimizer.ScikitQuantOptimizer>`, a wrapper around scikit-quant optimizers. Available if :code:`orquestra-opt` was installed with :code:`scikit-quant` extra.
+  The :class:`ScipyOptimizer` supports all of the optimization methods present in `scipy.optimize.minimize <https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize.html>`_ module. Those include, amongst others:
+
+  * :code:`Nelder-Mead`
+  * :code:`COBYLA`
+  * :code:`BFGS` and :code:`L-BFGS-B`
+  * :code:`SLSQP`
+
+* :class:`PSOOptimizer <orquestra.opt.optimizers.pso.PSOOptimizer>`, a custom optimizer utilizing `Particle Swarm <https://en.wikipedia.org/wiki/Particle_swarm_optimization>`_ optimization technique.

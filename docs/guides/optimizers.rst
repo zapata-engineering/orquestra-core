@@ -140,9 +140,7 @@ The results might differ slightly, but here is what we got when running the exam
       opt_value: 8.134774054521418e-41
 
 
-As we can see, once constructed, :class:`ScipyOptimizer <orquestra.opt.optimizers.ScipyOptimizer>`
-and :class:`SimpleGradientDescent <orquestra.opt.optimizers.SimpleGradientDescent>`
-optimizer could be used in the same way. The output contains the following fields:
+As we can see, once constructed, :class:`ScipyOptimizer <orquestra.opt.optimizers.ScipyOptimizer>` and :class:`SimpleGradientDescent <orquestra.opt.optimizers.SimpleGradientDescent>` optimizer could be used in the same way. The output of the :meth:`minimize` method is a Scipy `OptimizeResult <https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.OptimizeResult.html>`_ object containing the following fields:
 
 - `opt_params`: optimal parameters found
 - `opt_value`: value of the cost function at the optimal point (i.e.

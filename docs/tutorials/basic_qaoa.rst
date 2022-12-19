@@ -76,49 +76,43 @@ Now let's write a function that accepts our graph object and uses QAOA to try to
 .. literalinclude:: ../examples/tutorials/qaoa_maxcut.py
     :language: python
     :start-at: def solve_maxcut_qaoa(test_graph):
-    :end-at: ansatz = QAOAFarhiAnsatz(2, cost_hamiltonian=hamiltonian)
+    :end-at: qaoa = QAOA.default(cost_hamiltonian=hamiltonian, n_layers=2)
 
-Notice we didn't have to build up the Hamiltonian or ansatz ourselves, Orquestra Core just did that for us! MaxCut isn't the only problem we can do that for, either. The ``opt`` part of Orquestra Core has `a number of problems <https://github.com/zapatacomputing/orquestra-opt/tree/main/src/orquestra/opt/problems>`_ readily solvable like `graph partition <https://github.com/zapatacomputing/orquestra-opt/blob/main/src/orquestra/opt/problems/graph_partition.py>`_ and `vertex cover <https://github.com/zapatacomputing/orquestra-opt/blob/main/src/orquestra/opt/problems/vertex_cover.py>`_. Similarly, we can select from a `number of ansatzes <https://github.com/zapatacomputing/orquestra-vqa/tree/main/src/orquestra/vqa/ansatz>`_
+Notice we didn't have to build up the Hamiltonian or ansatz ourselves, Orquestra Core just did that for us! MaxCut isn't the only problem we can do that for, either. The ``opt`` part of Orquestra Core has `a number of problems <https://github.com/zapatacomputing/orquestra-opt/tree/main/src/orquestra/opt/problems>`_ readily solvable like `graph partition <https://github.com/zapatacomputing/orquestra-opt/blob/main/src/orquestra/opt/problems/graph_partition.py>`_ and `vertex cover <https://github.com/zapatacomputing/orquestra-opt/blob/main/src/orquestra/opt/problems/vertex_cover.py>`_. Similarly, we can select from a `number of ansatzes <https://github.com/zapatacomputing/orquestra-vqa/tree/main/src/orquestra/vqa/ansatz>`_.
+If you are familiar with QAOA, you might have noticed, that we did not specify a lot of details, such as what ansatz or optimizer do we want to use. That's because in this tutorial we will rely on the "default" version of QAOA which `QAOA`(TODO) class provides. For more details on how to use it, please refer to VQA guide (TODO).
 
-Next, we need to define how the QAOA will estimate expectation values, and create a set of tasks to do that:
-
-.. literalinclude:: ../examples/tutorials/qaoa_maxcut.py
-    :language: python
-    :start-at: estimation_method = calculate_exact_expectation_values
-    :end-at:     )
-
-Now we can select which backend we want to run on and which optimizer we want to use:
+Now we can select which backend we want to use to run our QAOA and run it:
 
 .. literalinclude:: ../examples/tutorials/qaoa_maxcut.py
     :language: python
-    :start-at: backend = 
-    :end-at: optimizer =
+    :start-at: runner = CirqSimulator()
+    :end-at: opt_results = qaoa.find_optimal_params(runner=runner)
 
-If you want to use a different optimizer, you can certainly `do that <https://github.com/zapatacomputing/orquestra-opt/tree/main/src/orquestra/opt/optimizers>`_. And if you want to run on a different backend, you can :ref:`do so easily <running_circuits>`! In fact, in your own code, try using the Qiskit Aer Statevector simulator. If you don't remember how to do that, take a look at the :ref:`Running Circuits on a Backend <running_circuits>` tutorial again.
+If you want to run using different simulator or hardware, you can :ref:`do so easily <running_circuits>`! In fact, in your own code, try using the Qiskit Aer Statevector simulator. If you don't remember how to do that, take a look at the :ref:`Running Circuits on a Backend <running_circuits>` tutorial again.
 
 .. hint::
     :class: dropdown
 
     Rememember that you'll need to import the ``QiskitSimulator`` at the top of your file and change ``CirqSimulator()`` to ``QiskitSimulator(aer_simulator_statevector)``
 
-The last steps before running the circuit are to minimize the cost of the parameters for the circuit and get runnable circuit:
+If you want, you can see what do the optimal results look like:
 
 .. literalinclude:: ../examples/tutorials/qaoa_maxcut.py
     :language: python
-    :start-at: cost_function = 
-    :end-at: circuit = ansatz.get_executable_circuit(opt_results.opt_params)
+    :start-at: ic(opt_results)
+    :end-at: ic(opt_results)
 
-Now that we have those parameters, we can actually run the circuit! Write a line in your own code that runs the circuit on the backend 10000 times and stores the results in a variable called ``measurements``.
+Now that we know optimal parameters, we can actually build and the circuit! Write your own code that runs the circuit on the backend 10000 times and stores the results in a variable called ``measurements``. Check the documentation of `QAOA` class to see what method you need to obtain the circuit.
 
 .. hint::
     :class: dropdown
 
-    That line should look like this:
+    The code should look like this:
 
     .. literalinclude:: ../examples/tutorials/qaoa_maxcut.py
         :language: python
-        :start-at: measurements = 
-        :end-at: measurements = 
+        :start-at: circuit = qaoa.get_circuit(opt_results.opt_params)
+        :end-at: measurements = runner.run_and_measure(circuit, n_samples=10000)
 
 Finally, we can get the most common result from our runs and return that:
 

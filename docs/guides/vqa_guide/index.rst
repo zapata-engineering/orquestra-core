@@ -5,7 +5,8 @@ Variational quantum algorithms (VQAs) are a promising class of near-term algorit
 
 .. toctree::
     :maxdepth: 2
-
+    
+    introduction.rst
     structure.rst
     ansatzes.rst
     estimators.rst

@@ -8,14 +8,8 @@ import networkx as nx
 import numpy as np
 from icecream import ic
 from orquestra.integrations.cirq.simulator import CirqSimulator
-from orquestra.opt.optimizers import ScipyOptimizer
 from orquestra.opt.problems.maxcut import MaxCut
-from orquestra.quantum.estimation import calculate_exact_expectation_values
-from orquestra.vqa.ansatz.qaoa_farhi import QAOAFarhiAnsatz
-from orquestra.vqa.cost_function.cost_function import (
-    create_cost_function,
-    substitution_based_estimation_tasks_factory,
-)
+from orquestra.vqa.algorithms import QAOA
 
 
 def create_simple_graph():
@@ -56,26 +50,14 @@ def create_harder_graph():
 def solve_maxcut_qaoa(test_graph):
 
     hamiltonian = MaxCut().get_hamiltonian(test_graph)
-    ansatz = QAOAFarhiAnsatz(2, cost_hamiltonian=hamiltonian)
+    qaoa = QAOA.default(cost_hamiltonian=hamiltonian, n_layers=2)
 
-    estimation_method = calculate_exact_expectation_values
-    estimation_task_factory = substitution_based_estimation_tasks_factory(
-        hamiltonian, ansatz
-    )
+    runner = CirqSimulator()
+    opt_results = qaoa.find_optimal_params(runner=runner)
+    ic(opt_results)
 
-    backend = CirqSimulator()
-    optimizer = ScipyOptimizer(method="L-BFGS-B")
-
-    cost_function = create_cost_function(
-        backend,
-        estimation_task_factory,
-        estimation_method,
-    )
-    initial_params = np.ones(ansatz.number_of_params) * np.pi / 5
-    opt_results = optimizer.minimize(cost_function, initial_params)
-
-    circuit = ansatz.get_executable_circuit(opt_results.opt_params)
-    measurements = backend.run_and_measure(circuit, n_samples=10000)
+    circuit = qaoa.get_circuit(opt_results.opt_params)
+    measurements = runner.run_and_measure(circuit, n_samples=10000)
     counter = Counter(measurements.bitstrings)
     most_common_string = counter.most_common()[0][0]
     return most_common_string

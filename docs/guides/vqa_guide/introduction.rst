@@ -19,7 +19,7 @@ To **estimate** the value of the cost function for given set of parameters, we n
 
 
 TODO: links to ansatzes and estimators.
-:ref:`Optimizers <optimizers_guide>` and :ref:`cost functions <cost_function_guide>` are general features of optimization problems, so this guide focuses on ansatzes and estimators, which are more specific to quantum algorithms. For a more complete, yet approachable discussion, see `Michał's blogpost <https://www.mustythoughts.com/vqas-how-do-they-work>`_.
+:ref:`Optimizers <optimizers_guide>` and :ref:`cost ffunctions <cost_function_guide>` are general features of optimization problems, so this guide focuses on ansatzes and estimators, which are more specific to quantum algorithms. For a more complete, yet approachable discussion, see `Michał's blogpost <https://www.mustythoughts.com/vqas-how-do-they-work>`_.
 
 
 .. _vqa_basics:
@@ -34,9 +34,72 @@ They all work similarly, but each is a little bit different - that's why we will
 
 VQE
 ---
-TODO: check if this is the right header
 
-TODO:
+For most scenarios, the easiest way to use VQE with orquestra is via means of the :class:`orquestra.opt.algorithms.vqe.VQE` class.
+Instances of this class group together several different objects needed for running
+VQEs, and expose convenience methods for finding optimal params and constructing cost functions.
+The :class:`VQE` class also contains a convenience :meth:`orquestra.opt.algorithms.vqe.VQE.default` method which simplifies creation of its instances even further.
+Since the :meth:`default` method covers most of the use cases, we'll start by describing its arguments:
+
+- :code:`hamilatonian`: a hamiltonian of the problem given in PauliRepresentation.
+- :code:`ansatz`: ansatz defining how the parametrized circuits should be constructed.
+- :code:`use_exact_expectation_values`: boolean determining if computation of expectation values should  be done exactly, or estimated using sampling.
+- :code:`grouping`: optional string determining how grouping of terms in Hamiltonian is done. Either "greedy" or "individual".
+- :code:`shots_allocation`: optional string determining how the shots are allocated. Either "uniform" or "proportional".
+- :code:`n_shots`: number of shots used when estimating expectation values. Should be provided only if you specified :code:`use_exact_expectation_values=False`.
+
+The :code:`VQE` objects constructed in this way will use :class:`orquestra.opt.optimizers.ScipyOptimizer` with "L-BFGS-B" optimization method.
+
+In the example below, we construct a two-qubit VQE with Hardware Efficient Quantum Compiling Ansatz.
+
+.. literalinclude:: ../../examples/guides/vqa_guide.py
+  :language: python
+  :start-after: Default VQE
+  :end-before: # --- End
+
+Now, in order to optimize it, we need an instance of some :class:`CircuitRunner`. For our example, we will construct a :class:`SymbolicSimulator`. Finally, we run the :meth:`orquestra.vqe.algorithms.vqe.VQE.find_optimal_params` method to obtain the results.
+
+.. literalinclude:: ../../examples/guides/vqa_guide.py
+  :language: python
+  :start-after: # Optimizing default VQE
+  :end-before: # --- End
+
+.. code-block:: text
+
+   opt_value=-0.9999999903697773
+   opt_params=[8.68771769e-01 1.80528665e+00 2.15249204e+00 2.77605314e+00
+    1.57081967e+00 3.14161674e+00 1.28392551e+00 1.66060268e+00
+    2.34053047e+00 1.66618319e+00 1.40691211e-03 1.66622948e+00]
+
+Notice, that you can obtain raw cost function from :class:`VQE` object. This might be useful for instance if you want to compare the obtained result with some other pre-existing solution that you have. Here we verify that the returned optimal value indeed corresponds to the returned params.
+
+.. note::
+   This example only used because we opted for exact computation of expectation values. Obviously,
+   if the cost function requires sampling, the results might differ even for the same params.
+
+.. literalinclude:: ../../examples/guides/vqa_guide.py
+  :language: python
+  :start-after: # Cost function
+  :end-before: # --- End
+
+.. code:: text
+
+   True
+
+As already stated, the default method of constructing :class:`VQE` objects is sufficient for most use cases. Let us now describe how to deal with those cases where the :meth:`default` method is not sufficient.
+
+First of all, there are two ways of customizing the :class:`VQE` objects. You can either construct a new instance using normal initializer of :class:`VQE` object, or start with a default implementation, and then customize it using one of the :meth:`replace_<xyz>` methods. We start with the first method. But before we do, let us explain some simplifications made by the :meth:`default` method.
+
+As you probably guessed, the "uniform" and "proportional" are not the only possible methods of allocating shots. Similarly, there might be other ways of grouping not covered by the :meth:`default` method. Of course, one could think we can extend the method to accept more and more options. However, such code would be rather unpleasant to maintain. And what about your custom methods of allocating shots or grouping? In Orquestra, both of those tasks are implemented as :class:`EstimationPreprocessor` and Under the hood, the :meth:`default` method constructed them for you.
+
+When using the :meth:`__init__` method of :class:`VQE`, you need to specify the preprocessors yourself. The preprocessors already available in Orquestra are available in :module:`orquestra.vqa.grouping` and :module:`orquestra.vqa.shot_allocation` respectively. Another difference is that you need to specify the optimizer explicitly. In the example below, we construct a :class:`VQE` object with the same ansatz and hamiltonian as previously, but this time we choose to estimate expectation values by averaging. We then optimize it using the same runner as before.
+
+.. literalinclude:: ../../examples/guides/vqa_guide.py
+  :language: python
+  :start-after: # VQE initializer
+  :end-before: # --- End
+
+TODO: the example above raises an exception
 
 TODO: Add some good initial references?
 

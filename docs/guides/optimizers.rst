@@ -315,7 +315,7 @@ attribute are of :class:`HistoryEntryWithArtifacts <orquestra.opt.history.record
 type, which has additional field called :code:`artifacts`. This field stores a dictionary of the
 artifacts that your cost function saved for given evaluation.
 
-Of course, there's no need for you cost function to store the same artifacts for each evaluation.
+Of course, there's no need for your cost function to store the same artifacts for each evaluation.
 The stored dictionary is completely free-form, and you can store whatever you want.
 
 .. note::

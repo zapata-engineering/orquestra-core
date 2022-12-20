@@ -9,7 +9,7 @@ hamiltonian = (
     + PauliTerm("X1")
 )
 
-ansatz = HEAQuantumCompilingAnsatz(1, hamiltonian.n_qubits)
+ansatz = HEAQuantumCompilingAnsatz(number_of_layers=1, number_of_qubits=hamiltonian.n_qubits)
 
 vqe = VQE.default(
     hamiltonian=hamiltonian,

@@ -39,7 +39,7 @@ For most scenarios, the easiest way to use VQE with orquestra is via means of th
 
 - :code:`hamiltonian`: a Hamiltonian of the problem given in :class:`PauliRepresentation <orquestra.quantum.operators.PauliRepresentation>`.
 - :code:`ansatz`: ansatz defining how the parametrized circuits should be constructed.
-- :code:`use_exact_expectation_values`: boolean determining if computation of expectation values should  be done exactly, or estimated using sampling.
+- :code:`use_exact_expectation_values`: boolean determining if computation of expectation values should be done exactly, or estimated using sampling. Exact calculation is only possible when using a simulator!
 - :code:`grouping`: optional string determining how grouping of terms in Hamiltonian is done. Either "greedy" or "individual".
 - :code:`shots_allocation`: optional string determining how the shots are allocated. Either "uniform" or "proportional".
 - :code:`n_shots`: number of shots used when estimating expectation values. Should be provided only if you specified :code:`use_exact_expectation_values=False`.
@@ -86,9 +86,9 @@ As already stated, the default method of constructing :class:`VQE` objects is su
 
 First of all, there are two ways of customizing the :class:`VQE` objects. You can either construct a new instance using normal initializer of :class:`VQE` object, or start with a default implementation, and then customize it using one of the :meth:`replace_xyz` methods. We start with the first method. But before we do, let us explain some simplifications made by the :meth:`default` method.
 
-As you probably guessed, the "uniform" and "proportional" are not the only possible methods of allocating shots. Similarly, there might be other ways of grouping not covered by the :meth:`default` method. Of course, one could think we can extend the :meth:`default` method to accept more and more options. However, such code would be rather unpleasant to maintain and confusing to use. And what about your custom methods of allocating shots or grouping? In Orquestra, both of those tasks are implemented as :class:`orquestra.quantum.api.EstimationPreprocessor`s and under the hood, the :meth:`default` method constructed them for you.
+As you probably guessed, the "uniform" and "proportional" are not the only possible methods of allocating shots. Similarly, there might be other ways of grouping not covered by the :meth:`default` method. Of course, one could think we can extend the :meth:`default` method to accept more and more options. However, such code would be rather unpleasant to maintain and confusing to use. And what about your custom methods of allocating shots or grouping? In Orquestra, both of those tasks are implemented as :class:`orquestra.quantum.api.EstimationPreprocessor` and under the hood, the :meth:`default` method constructed them for you.
 
-When using the :meth:`__init__` method of :class:`VQE`, you need to specify the preprocessors yourself. The preprocessors already available in Orquestra are available in :mod:`orquestra.vqa.grouping` and :mod:`orquestra.vqa.shot_allocation` respectively. Another difference is that you need to specify the optimizer explicitly. In the example below, we construct a :class:`VQE` object with the same ansatz and hamiltonian as previously, but this time we choose to estimate expectation values by averaging. We then optimize it using the same runner as before.
+When using the :meth:`__init__` method of :class:`VQE`, you need to specify the preprocessors yourself. The preprocessors already available in Orquestra are available in :mod:`orquestra.vqa.grouping` and :mod:`orquestra.vqa.shot_allocation`. Another difference is that you need to specify the optimizer explicitly. In the example below, we construct a :class:`VQE` object with the same ansatz and hamiltonian as previously, but this time we choose to estimate expectation values by averaging. We then optimize it using the same runner as before.
 
 .. literalinclude:: ../../examples/guides/vqa_guide.py
   :language: python

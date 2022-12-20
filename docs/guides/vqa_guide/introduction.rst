@@ -41,7 +41,7 @@ VQE, and expose convenience methods for finding optimal params and constructing 
 The :class:`VQE` class also contains a convenience :meth:`orquestra.opt.algorithms.vqe.VQE.default` method which simplifies creation of its instances even further.
 Since the :meth:`default` method covers most of the use cases, we'll start by describing its arguments:
 
-- :code:`hamiltonian`: a Hamiltonian of the problem given in :class:`from orquestra.quantum.operators.PauliRepresentation`.
+- :code:`hamiltonian`: a Hamiltonian of the problem given in :class:`orquestra.quantum.operators.PauliRepresentation`.
 - :code:`ansatz`: ansatz defining how the parametrized circuits should be constructed.
 - :code:`use_exact_expectation_values`: boolean determining if computation of expectation values should  be done exactly, or estimated using sampling.
 - :code:`grouping`: optional string determining how grouping of terms in Hamiltonian is done. Either "greedy" or "individual".
@@ -101,18 +101,42 @@ When using the :meth:`__init__` method of :class:`VQE`, you need to specify the 
 
 TODO: the example above raises an exception
 
+One can also construct new VQE objects based off the already existing ones. To do so, one can use one of the :meth:`replace_xyz` methods, where :code:`xyz` stands for an attribute you want to replace. The important thing to notice is that all those methods are not mutating an existing object, but creating a new one with one attribute replaced and the others preserved.
+
+We can verify this is indeed the case by inspecting objects returned by :meth:`replace_xyz` methods and comparing them to the original objects. for instance:
+
+.. literalinclude:: ../../examples/guides/vqa_guide.py
+  :language: python
+  :start-after: # replace optimizer
+  :end-before: # --- End
+
+..  note::
+
+   Arguments to :meth:`replace_xyz` follow the same semantics as the arguments to :code:`orquestra.vqa.algorithms.vqe.VQE.__init__` method. In particular, all preprocessors has to be passed as callables and not strings.
+
+To find all the attributes of :class:`orquestra.vqa.algorithms.vqe.VQE` that can be replaced in this way, refer to the class documentation.
+
 TODO: Add some good initial references?
+
+Implementations of QAOA and QCBM algorithms follow the same design principles as VQE. In particular:
+
+* Their instances can be constructed using either simplified :meth:`default` method, or with more control using their initializer
+* They store optimizer as one of the attributes. The optimization is done by calling
+  :meth:`find_optimal_params`
+* The instances are supposed to be treated as immutable, but new instances can be constructed by replacing respective attributes using :meth:`replace_xyz` methods.
+
+Knowing those similarities, in the rest of the introduction we will only highlight differences between Orquestra's implementation of VQE and QAOA/QCBM.
 
 QAOA
 ----
 
-TODO:
+The Quantum Approximate Optimization Algorithm is implemented by the :class:`orquestra.vqa.algorithms.QAOA` class. The  :meth:`orquestra.vqa.algorithms.QAOA.default` method constructs :class:`QAOA` object using Fahri ansatz with specified number of layers. Using class' initializer, one can further customize what ansatz is used.
 
 
 QCBM
 ----
 
-TODO:
+The Quantum Circuit Born Machine algorithm is implemented by the :class:`orquestra.vqa.algorithms.QCBM` class. Contrary  to the previously discussed algorithms, in QCBM one cannot customize what ansatz is used. The :meth:`orquestra.vqa.algorithms.QAOA.default` allows for configuring target measurement distribution and number of layers. One can also configure estimation method, just like in case of QAOA and VQE. Using :meth:`orquestra.vqa.algorithms.QCBM` initializer allows for more advanced customization of estimation method, but otherwise doesn't differ from the :meth:`default` method.
 
 Details of running VQAs
 =======================

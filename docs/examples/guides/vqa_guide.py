@@ -54,3 +54,15 @@ result = vqe_2.find_optimal_params(runner)
 print(f"opt_value={result.opt_value}")
 print(f"opt_params={result.opt_params}")
 # --- End
+
+# replace optimizer
+vqe_3 = vqe_2.replace_optimizer(ScipyOptimizer(method="COBYLA"))
+
+print(f"Ansatzes equal? {vqe_3.ansatz == vqe_2.ansatz}")
+print(f"Grouping equal? {vqe_3.grouping == vqe_2.grouping}")
+print(f"Estimation method equal? {vqe_3.estimation_method == vqe_2.estimation_method}")
+print(f"Hamiltonians equal? {vqe_3.hamiltonian == vqe_2.hamiltonian}")
+print(f"Optimizers equal? {vqe_3.optimizer == vqe_2.optimizer}")
+print(f"First optimization method: {vqe_2.optimizer.method}")
+print(f"Second optimization method: {vqe_3.optimizer.method}")
+# --- End

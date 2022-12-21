@@ -34,6 +34,10 @@ They all work similarly, but each is a little bit different - that's why we will
 VQE
 ---
 
+.. note::
+
+   This guide does not provide any sort of theoretical introduction to VQE. If you are not familiar with the algorithm itself, you might want to start by reading `this paper <https://arxiv.org/abs/1304.3061>`_
+
 For most scenarios, the easiest way to use VQE with orquestra is via means of the :class:`VQE <orquestra.vqa.algorithms.VQE>` class. Instances of this class group together several different objects needed for running VQE, and expose convenience methods for finding optimal params and constructing cost functions. The :class:`VQE <orquestra.vqa.algorithms.VQE>` class also contains a convenience :meth:`default <orquestra.vqa.algorithms.VQE.default>` method which simplifies creation of its instances even further. Since the :meth:`default` method covers most of the use cases, we'll start by describing its arguments:
 
 - :code:`hamiltonian`: a Hamiltonian of the problem given in :class:`PauliRepresentation <orquestra.quantum.operators.PauliRepresentation>`.
@@ -119,8 +123,6 @@ We can verify this is indeed the case by inspecting objects returned by :meth:`r
 
 To find all the attributes of :class:`VQE <orquestra.vqa.algorithms.vqe.VQE>` that can be replaced in this way, refer to the class documentation.
 
-TODO: Add some good initial references?
-
 Implementations of QAOA and QCBM algorithms follow the same design principles as VQE. In particular:
 
 * Their instances can be constructed using either simplified :meth:`default` method, or with more control using their initializer
@@ -133,11 +135,19 @@ Knowing those similarities, in the rest of the introduction we will only highlig
 QAOA
 ----
 
+.. note::
+
+   For a good introductory paper about QAOA, see `here <https://arxiv.org/abs/1411.4028>`_.
+
 The Quantum Approximate Optimization Algorithm is implemented by the :class:`QAOA <orquestra.vqa.algorithms.QAOA>` class. The  :meth:`default <orquestra.vqa.algorithms.QAOA.default>` method constructs :class:`QAOA` object using Fahri ansatz with specified number of layers. Using class' initializer, one can further customize what ansatz is used.
 
 
 QCBM
 ----
+
+.. note::
+
+   See `here <https://arxiv.org/abs/1804.04168>`_ or `here <https://arxiv.org/abs/1801.07686>`_ for a good introductory reading on Quantum Circuit Born Machine.
 
 The Quantum Circuit Born Machine algorithm is implemented by the :class:`QCBM <orquestra.vqa.algorithms.QCBM>` class. Contrary  to the previously discussed algorithms, in QCBM one cannot customize what ansatz is used. The :meth:`default <orquestra.vqa.algorithms.QAOA.default>` allows for configuring target measurement distribution and number of layers. One can also configure estimation method, just like in case of QAOA and VQE. Using :class:`QAOA <orquestra.vqa.algorithms.QCBM>` initializer allows for more advanced customization of estimation method, but otherwise doesn't differ from the :meth:`default` method.
 

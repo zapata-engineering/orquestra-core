@@ -18,8 +18,7 @@ The optimizer selects the parameters by minimizing a **cost function** obtained 
 To **estimate** the value of the cost function for given set of parameters, we need to run (or simulate) the quantum program.
 
 
-TODO: links to ansatzes and estimators.
-:ref:`Optimizers <optimizers_guide>` and :ref:`cost functions <cost_function_guide>` are general features of optimization problems, so this guide focuses on ansatzes and estimators, which are more specific to quantum algorithms. For a more complete, yet approachable discussion, see `Michał's blogpost <https://www.mustythoughts.com/vqas-how-do-they-work>`_.
+Our :ref:`Optimizers guide <optimizers_guide>` contains introduction to general features of optimization, so this guide focuses on :ref:`ansatzes <ansatzes_guide>` and :ref:`estimators <estimators_guide>`, which are more specific to quantum algorithms. For a more complete, yet approachable discussion, see `Michał's blogpost <https://www.mustythoughts.com/vqas-how-do-they-work>`_.
 
 
 .. _vqa_basics:
@@ -169,8 +168,8 @@ TODO: replace
 We'll go through the steps as they were outlined above:
 
 1. The :class:`Ansatz <orquestra.vqa.api.ansatz.Ansatz>`, :class:`WavefunctionSimulator <orquestra.quantum.api.wavefunction_simulator.WavefunctionSimulator>` or :class:`CircuitRunner <orquestra.quantum.api.circuit_runner.CircuitRunner>` and :class:`Optimizer <orquestra.opt.api.Optimizer>` can be defined independently of one another.
-2. As explained in :ref:`estimators guide <estimators>`, the :class:`EstimationTaskFactory <orquestra.quantum.api.estimation.EstimationTasksFactory>` tells the quantum computer how to construct a circuit. It therefore will always take an :class:`Ansatz <orquestra.vqa.api.ansatz.Ansatz>` as an argument.
-3. As explained briefly above, VQA uses a quantum computer to estimate the value of the cost function. So to create our cost function we would need the method of constructing circuits for our cost function (``estimation_task_factory``) and a simulator or runner to execute them. See the :ref:`cost function <cost_function_guide>` guide for details.
+2. As explained in :ref:`estimators guide <estimators_guide>`, the :class:`EstimationTaskFactory <orquestra.quantum.api.estimation.EstimationTasksFactory>` tells the quantum computer how to construct a circuit. It therefore will always take an :class:`Ansatz <orquestra.vqa.api.ansatz.Ansatz>` as an argument.
+3. As explained briefly above, VQA uses a quantum computer to estimate the value of the cost function. So to create our cost function we would need the method of constructing circuits for our cost function (``estimation_task_factory``) and a simulator or runner to execute them.
 4. Now that we have the cost function, we minimize if using the optimizer. This step generally takes the longest to run.
 5. Obtain the final circuit by substituting the optimized parameters into the ansatz.
 
@@ -185,8 +184,7 @@ Most of the code associated directly with VQAs lives in the `orquestra-vqa <http
 
 So here's a short list of what's in `orquestra-vqa`:
 
-- ansatzes - see :ref:`ansatzes guide <_ansatzes_guide>`
-- cost functions - see: :ref:`cost functions guide <cost_function_guide>`
+- ansatzes - see :ref:`ansatzes guide <ansatzes_guide>`
 - estimation - see: :ref:`estimation guide <estimators_guide>`
 - grouping - see: :ref:`estimation guide <estimators_guide>`
 - openfermion - some utility tools to make it easier to work with `OpenFermion <https://quantumai.google/openfermion>`_ within Orquestra.

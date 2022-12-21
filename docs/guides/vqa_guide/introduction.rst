@@ -94,8 +94,6 @@ When using the :meth:`__init__` method of :class:`VQE`, you need to specify the 
   :start-after: # VQE initializer
   :end-before: # --- End
 
-TODO: the example above raises an exception
-
 One can also construct new VQE objects based off the already existing ones. To do so, one can use one of the :meth:`replace_xyz` methods, where :code:`xyz` stands for an attribute you want to replace. The important thing to notice is that all those methods are not mutating an existing object, but creating a new one with one attribute replaced and the others preserved.
 
 We can verify this is indeed the case by inspecting objects returned by :meth:`replace_xyz` methods and comparing them to the original objects. for instance:

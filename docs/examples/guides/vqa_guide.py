@@ -4,9 +4,9 @@ from orquestra.vqa.algorithms import VQE
 from orquestra.vqa.ansatz import HEAQuantumCompilingAnsatz
 
 hamiltonian = (
-    PauliTerm("X0") * PauliTerm("Y0")
-    + PauliTerm("X0") * PauliTerm("Z0")
-    + PauliTerm("X1")
+    PauliTerm("X0") +
+    PauliTerm("X1") +
+    + PauliTerm("Z0") * PauliTerm("Z1")
 )
 
 ansatz = HEAQuantumCompilingAnsatz(number_of_layers=1, number_of_qubits=hamiltonian.n_qubits)

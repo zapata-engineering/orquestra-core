@@ -124,22 +124,35 @@ Currently integrated backends
 Hardware backends
 -----------------
 
-* `QiskitRunner <https://github.com/zapatacomputing/orquestra-qiskit/blob/main/tests/orquestra/integrations/qiskit/runner/_qiskit_runner_test.py>`_ can wrap any Qiskit backend, including ones using physical hardware
-   * `A helper function for creating runners using IBMQ devices <https://github.com/zapatacomputing/orquestra-qiskit/blob/main/tests/orquestra/integrations/qiskit/runner/_ibmq_runner_test.py>`_
-* `BraketRunner <https://github.com/zapatacomputing/orquestra-braket/blob/main/tests/orquestra/braket/runner_test.py>`_
+
+.. list-table::
+
+  * - :class:`QiskitRunner <orquestra.integrations.qiskit.runner.QiskitRunner>`
+    - Can wrap any Qiskit backend, including ones using physical hardware.
+  * - :class:`create_ibmq_runner <orquestra.integrations.qiskit.runner.create_ibmq_runner>`
+    - Runner for `IBM Quantum <https://quantum-computing.ibm.com/>`_.
+  * - :class:`aws_runner <orquestra.integrations.braket.runner.aws_runner>`
+    - Runner for `Amazon Braket <https://aws.amazon.com/braket/>`_.
 
 Simulators
 ----------
 
-* `SymbolicSimulator <https://github.com/zapatacomputing/orquestra-quantum/blob/main/tests/orquestra/quantum/symbolic_simulator_test.py>`_
-* `CirqSimulator <https://github.com/zapatacomputing/orquestra-cirq/blob/main/tests/orquestra/integrations/cirq/simulator/simulator_test.py>`_
-* `QiskitWavefunctionSimulator <https://github.com/zapatacomputing/orquestra-qiskit/blob/main/tests/orquestra/integrations/qiskit/runner/_qiskit_wavefunction_simulator_test.py>`_ can wrap any Qiskit backend supporting ``save_statevector`` instruction.
+.. list-table::
 
-* `QulacsSimulator <https://github.com/zapatacomputing/orquestra-qulacs/blob/main/tests/orquestra/integrations/qulacs/simulator_test.py>`_
-* `QSimSimulator <https://github.com/zapatacomputing/orquestra-cirq/blob/main/tests/orquestra/integrations/cirq/simulator/qsimsimulator_test.py>`_
-* `CuStateVecSimulator <https://github.com/zapatacomputing/orquestra-cirq/tree/main/src/orquestra/integrations/custatevec/simulator>`_
-* `BraketLocalSimulator <https://github.com/zapatacomputing/orquestra-braket/blob/main/tests/orquestra/braket/simulator/localbraket_test.py>`_
-* `braket_local_simulator <https://github.com/zapatacomputing/orquestra-braket/blob/main/tests/orquestra/braket/simulator/ondemandbraket_test.py>`_ function can be used for constructing local wavefunction simulator utilizing Braket's local simulator.
+  * - :class:`SymbolicSimulator <orquestra.quantum.runners.symbolic_simulator.SymbolicSimulator>`
+    - Built-in simulator providing by the Orquestra Quantum SDK for simulating small circuits. 
+  * - :class:`CirqSimulator <orquestra.integrations.cirq.simulator.CirqSimulator>`
+    - Integration with the `Cirq simulator <https://quantumai.google/cirq/simulate/simulation>`_.
+  * - :class:`QiskitWavefunctionSimulator <orquestra.integrations.qiskit.simulator._qiskit_wavefunction_simulator.QiskitWavefunctionSimulator>`
+    - Can wrap any Qiskit backend supporting ``save_statevector`` instruction.
+  * - :class:`QulacsSimulator <orquestra.integrations.qulacs.simulator.QulacsSimulator>`
+    - Integration with the `Qulacs simulator <https://github.com/qulacs/qulacs>`_.
+  * - :class:`QSimSimulator <orquestra.integrations.cirq.simulator._qsim_simulator.QSimSimulator>`
+    - Integration with the `qsim simulator <https://github.com/quantumlib/qsim>`_.
+  * - :class:`CuStateVecSimulator <orquestra.integrations.custatevec.simulator.CuStateVecSimulator>`
+    - A simulator for running circuits on a GPU using Nvidia's `CuStateVec library <https://docs.nvidia.com/cuda/cuquantum/custatevec/>`_.
+  * - :class:`braket_local_simulator <orquestra.integrations.braket.simulator.braket_local_simulator>`
+    - Function for initializing Braket's local simulator.
 
 Conversions to other frameworks
 ===============================

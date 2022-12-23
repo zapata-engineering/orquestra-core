@@ -15,7 +15,7 @@ Ahhhh this dream again.
 In all seriousness, what I'm describing here is called the MaxCut problem. Given some graph, we want to cut it into two parts so that the value of the "cut" edges is maximized. For instance, let's take this graph:
 
 .. image:: images/uncut_graph.excalidraw.png
-    :width: 75%
+    :width: 50%
     :align: center
 
 How could you split each of the nodes into one of two categories such that the line that circles one category (but not the other) cuts edges in such a way that the sum of the edges is maximized?
@@ -23,13 +23,13 @@ How could you split each of the nodes into one of two categories such that the l
 Maybe you saw the answer right away: if we circle the nodes on the top right and bottom left of the graph, we cut through all of the edges!
 
 .. image:: images/cut_graph.excalidraw.png
-    :width: 75%
+    :width: 50%
     :align: center
 
 That was a pretty easy example, but now try to find a solution for this one:
 
 .. image:: images/harder_graph.excalidraw.png
-    :width: 75%
+    :width: 50%
     :align: center
 
 All I've done is add 2 nodes and a couple edges to connect them up to the graph (plus changing one edge weight), but the problem has become significantly harder! You can see why this problem will get very computationally expensive very quickly. I don't know about you, but I'd rather not sit here and try to solve that by hand. Let's make Orquestra Core do it for us!
@@ -140,7 +140,7 @@ Finally, at the end of the file, put a couple lines to call the functions we mad
 The output should be ``most_common_string: (0, 1, 0, 1, 1, 1)`` or ``most_common_string: (1, 0, 1, 0, 0, 0)`` which corresponds to nodes 0 and 2 being one color, and the remaining nodes being another color. That looks like this graphically:
 
 .. image:: images/harder_graph_cut.excalidraw.png
-    :width: 75%
+    :width: 50%
     :align: center
 
 If you want to see all of the code put together, here it is:

@@ -381,26 +381,34 @@ The following snippet may serve as a template for implementing your own optimize
 List of currently available optimizers
 ======================================
 
-We conclude this guide by listing all optimizers currently available in orquestra-opt.
+The table below lists the optimizers currently available in orquestra-opt.
+Note that some optimizers are only available when the appropriate install extra is used, e.g. ``pip install orquestra-opt[qiskit]``.
 
-Optimizers available with the default installation:
-
-- :class:`BasicHoppingOptimizer <orquestra.opt.optimizers.BasinHoppingOptimizer>`, an optimizer utilizing :code:`scipy.optimize.basinhopping` method
-- :class:`ScipyOptimizer <orquestra.opt.optimizers.ScipyOptimizer>`, a generic Scipy base optimizer
-- :class:`SearchPointOptimizer <orquestra.opt.optimizers.SearchPointsOptimizer>`, an optimizer performing brute-force search over specified grid
-
-Other optimizers:
-
-* :class:`QiskitOptimizer <orquestra.opt.optimizers.qiskit_optimizer.QiskitOptimizer>`, a wrapper around optimizers available in Qiskit. Available if :code:`orquestra-opt` was installed with :code:`qiskit` extra.
-  This optimizer supports :code:`ADAM`, :code:`AMSGRAD`, :code:`SPSA` and :code:`NFT` optimization methods.
-* :class:`CMAESOptimizer <orquestra.opt.optimizers.cma_es_optimizer.CMAESOptimizer>`, an optimizer utilizing Covariance Matrix Adaptation Evolution Strategy.
-  Available if :code:`orquestra-opt` was installed with :code:`cma` extra.
-* :class:`ScikitQuantOptimizer <orquestra.opt.optimizers.scikit_quant_optimizer.ScikitQuantOptimizer>`, a wrapper around scikit-quant optimizers. Available if :code:`orquestra-opt` was installed with :code:`scikit-quant` extra.
-  The :class:`ScipyOptimizer` supports all of the optimization methods present in `scipy.optimize.minimize <https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize.html>`_ module. Those include, amongst others:
-
-  * :code:`Nelder-Mead`
-  * :code:`COBYLA`
-  * :code:`BFGS` and :code:`L-BFGS-B`
-  * :code:`SLSQP`
-
-* :class:`PSOOptimizer <orquestra.opt.optimizers.pso.PSOOptimizer>`, a custom optimizer utilizing `Particle Swarm <https://en.wikipedia.org/wiki/Particle_swarm_optimization>`_ optimization technique.
+.. list-table::
+  :header-rows: 1
+  :widths: 30 50 20
+  
+  * - Optimizer
+    - Description
+    - Install extra
+  * - :class:`BasicHoppingOptimizer <orquestra.opt.optimizers.BasinHoppingOptimizer>`
+    - An optimizer utilizing the :code:`scipy.optimize.basinhopping` method.
+    -
+  * - :class:`ScipyOptimizer <orquestra.opt.optimizers.ScipyOptimizer>`
+    - Wrapper around `scipy.optimize.minimize <https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize.html>`_ module. Provides optimizers such as Nelder-Mead, COBYLA, BFGS, and SLSQP.
+    -
+  * - :class:`SearchPointOptimizer <orquestra.opt.optimizers.SearchPointsOptimizer>`
+    - An optimizer performing brute-force search over specified grid.
+    -
+  * - :class:`PSOOptimizer <orquestra.opt.optimizers.pso.PSOOptimizer>`
+    - `Particle swarm <https://en.wikipedia.org/wiki/Particle_swarm_optimization>`_ optimizer.
+    -
+  * - :class:`QiskitOptimizer <orquestra.opt.optimizers.qiskit_optimizer.QiskitOptimizer>`
+    - A wrapper around optimizers available in Qiskit, including ADAM, AMSGRAD, SPSA, and NFT.
+    - :code:`qiskit`
+  * - :class:`CMAESOptimizer <orquestra.opt.optimizers.cma_es_optimizer.CMAESOptimizer>`
+    - A wrapper around the `Covariance Matrix Adaptation Evolution Strategy (CMA-ES) <https://cma-es.github.io/>`_ optimizer.
+    - :code:`cma`
+  * - :class:`ScikitQuantOptimizer <orquestra.opt.optimizers.scikit_quant_optimizer.ScikitQuantOptimizer>`
+    - A wrapper around `scikit-quant <https://scikit-quant.readthedocs.io/en/latest/>`_ optimizers.
+    - :code:`scikit-quant`

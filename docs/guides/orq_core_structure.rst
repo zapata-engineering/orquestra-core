@@ -6,31 +6,29 @@ Package Structure
 
 As shown in the diagram below, Orquestra Core is broken into multiple packages, each with a different purpose.
 
-* `orquestra-quantum <https://github.com/zapatacomputing/orquestra-quantum>`_ provides
-
-  * core functionalities required to run experiments, such as the Circuit class.
-  * interfaces for implementing other Orquestra modules, such as quantum backends.
-  * basic data structures and functions for quantum computing.
-
-* `orquestra-opt <https://github.com/zapatacomputing/orquestra-opt>`_ provides
-
-  * interface for optimizers and integrations with many optimizers
-  * utilities for optimizers (e.g. recording history, integration with QUBOs)
-  * mappings of graph problems to Ising Hamiltonians
-
-* `orquestra-vqa <https://github.com/zapatacomputing/orquestra-vqa>`_ provides
-
-  * interfaces for implementing ansatzes including qaoa and qcbm.
-  * optimizers and cost functions tailored to vqa
-  * misc functions such as grouping, qaoa interpolation, and estimators
-
-* `orquestra-qiskit <https://github.com/zapatacomputing/orquestra-qiskit>`_ provides an integration with `Qiskit <https://qiskit.org/>`_.
-* `orquestra-cirq <https://github.com/zapatacomputing/orquestra-cirq>`_ provides an integration with `Cirq <https://quantumai.google/cirq>`_ as well as :ref:`Nvidia's custatevec backend <backends>`.
-* `orquestra-forest <https://github.com/zapatacomputing/orquestra-forest>`_ provides an integration with `Rigetti Forest <https://pyquil-docs.rigetti.com/en/stable/>`_.
-* `orquestra-qulacs <https://github.com/zapatacomputing/orquestra-qulacs>`_ provides an integration with the `Qulacs simulator <https://github.com/qulacs/qulacs>`_.
-* `orquestra-braket <https://github.com/zapatacomputing/orquestra-braket>`_ provides an integration with the `Amazon Braket SDK Python <https://github.com/aws/amazon-braket-sdk-python>`_
+.. list-table::
+  :widths: 30 70
+  
+  * - `orquestra-quantum <https://github.com/zapatacomputing/orquestra-quantum>`_
+    - Data structures and interfaces describing fundamental concepts in quantum computing such as circuits and backends.
+  * - `orquestra-opt <https://github.com/zapatacomputing/orquestra-opt>`_
+    - Data structures, interfaces, and utilities related to continuous and discrete optimization.
+  * - `orquestra-vqa <https://github.com/zapatacomputing/orquestra-vqa>`_
+    - Implementations of common variational quantum algorithms including VQE, QAOA, and QCBM.
+  * - `orquestra-qiskit <https://github.com/zapatacomputing/orquestra-qiskit>`_
+    - Integration with `Qiskit <https://qiskit.org/>`_.
+  * - `orquestra-cirq <https://github.com/zapatacomputing/orquestra-cirq>`_
+    - Integration with `Cirq <https://quantumai.google/cirq>`_ and :ref:`Nvidia's custatevec backend <backends>`.
+  * - `orquestra-forest <https://github.com/zapatacomputing/orquestra-forest>`_
+    - Integration with `Rigetti Forest <https://pyquil-docs.rigetti.com/en/stable/>`_.
+  * - `orquestra-qulacs <https://github.com/zapatacomputing/orquestra-qulacs>`_
+    - Integration with the `Qulacs simulator <https://github.com/qulacs/qulacs>`_.
+  * - `orquestra-braket <https://github.com/zapatacomputing/orquestra-braket>`_
+    - Integration with `Amazon Braket <https://aws.amazon.com/braket/>`_.
 
 .. image:: images/orquestra_core_connection.excalidraw.png
+    :width: 75%
+    :align: center
 
 Dividing Orquestra core into multiple packages creates provides a number of benefits:
 

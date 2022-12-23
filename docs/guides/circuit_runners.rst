@@ -1,7 +1,7 @@
 .. _circuit_runners_guide:
 
 =====================
-Circuit Runners guide
+Circuit Runners Guide
 =====================
 
 Circuit runners are objects used to run :ref:`Circuits <circuits_guide>` in Orquestra Core. In this guide we'll cover differences between types of circuit runners (generic ``CircuitRunner`` vs ``WavefunctionSimulator``), how to use circuit runners, currently available runners, and creating your own runner (among other topics).

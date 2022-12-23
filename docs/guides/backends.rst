@@ -1,7 +1,7 @@
 .. _backends_guide:
 
 ==============
-Backends guide
+Backends Guide
 ==============
 
 Backends are the interfaces used to run :ref:`Circuits <circuits_guide>` in Orquestra Core. In this guide we'll cover differences between types of backends (``QuantumBackend`` vs ``QuantumSimulator``), how to use backends, currently integrated backends, and creating your own backend (among other topics).

@@ -7,7 +7,8 @@ Guides
 
     Circuits<circuits.rst>
     Circuit Runners<circuit_runners.rst>
-    VQAs<vqa_guide/index>
+    Variational Algorithms<vqa_guide/index>
     Optimizers<optimizers.rst>
     interfaces.rst
     orq_core_structure.rst
+    Contributing<contributing.md>

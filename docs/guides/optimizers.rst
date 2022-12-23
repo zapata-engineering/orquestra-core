@@ -391,8 +391,8 @@ Note that some optimizers are only available when the appropriate install extra 
   * - Optimizer
     - Description
     - Install extra
-  * - :class:`BasicHoppingOptimizer <orquestra.opt.optimizers.BasinHoppingOptimizer>`
-    - An optimizer utilizing the :code:`scipy.optimize.basinhopping` method.
+  * - :class:`BasinHoppingOptimizer <orquestra.opt.optimizers.BasinHoppingOptimizer>`
+    - An optimizer utilizing the `scipy.optimize.basinhopping <https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.basinhopping.html>`_ method.
     -
   * - :class:`ScipyOptimizer <orquestra.opt.optimizers.ScipyOptimizer>`
     - Wrapper around `scipy.optimize.minimize <https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize.html>`_ module. Provides optimizers such as Nelder-Mead, COBYLA, BFGS, and SLSQP.

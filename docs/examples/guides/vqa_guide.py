@@ -6,7 +6,7 @@ from orquestra.vqa.ansatz import HEAQuantumCompilingAnsatz
 hamiltonian = (
     PauliTerm("X0") +
     PauliTerm("X1") +
-    + PauliTerm("Z0") * PauliTerm("Z1")
+    PauliTerm("Z0") * PauliTerm("Z1")
 )
 
 ansatz = HEAQuantumCompilingAnsatz(number_of_layers=1, number_of_qubits=hamiltonian.n_qubits)
@@ -65,4 +65,43 @@ print(f"Hamiltonians equal? {vqe_3.hamiltonian == vqe_2.hamiltonian}")
 print(f"Optimizers equal? {vqe_3.optimizer == vqe_2.optimizer}")
 print(f"First optimization method: {vqe_2.optimizer.method}")
 print(f"Second optimization method: {vqe_3.optimizer.method}")
+# --- End
+
+# Detailed VQA
+# Step 1: initial ingredients
+from orquestra.vqa.ansatz import QAOAFarhiAnsatz
+# We reuse the the hamiltonian we used in previous examples
+cost_hamiltonian = hamiltonian
+ansatz = QAOAFarhiAnsatz(
+    number_of_layers=3,
+    cost_hamiltonian=cost_hamiltonian
+)
+runner = SymbolicSimulator()
+optimizer = ScipyOptimizer(method="L-BFGS-B")
+
+# Step 2: creating estimation_task_factory
+from orquestra.vqa.cost_function import substitution_based_estimation_tasks_factory
+estimation_task_factory = substitution_based_estimation_tasks_factory(
+    target_operator=hamiltonian,
+    ansatz=ansatz,
+    estimation_preprocessors=[]
+)
+
+# Step 3: creating cost function
+from orquestra.vqa.cost_function import create_cost_function
+from orquestra.quantum.estimation import calculate_exact_expectation_values
+cost_function = create_cost_function(
+    runner,
+    estimation_task_factory,
+    calculate_exact_expectation_values
+)
+
+# Step 4: optimizing cost function
+import numpy as np
+optimal_params = optimizer.minimize(
+    cost_function, initial_params=0.1 * np.ones(6)
+).opt_params
+
+# Step 5: getting executable circuit with optimal parameters
+circuit = ansatz.get_executable_circuit(optimal_params)
 # --- End

@@ -26,8 +26,8 @@ Ansatzes
 * `HEAQuantumCompilingAnsatz <https://github.com/zapatacomputing/orquestra-vqa/blob/main/tests/orquestra/vqa/ansatz/quantum_compiling_test.py>`_
 * `SingletUCCSDAnsatz <https://github.com/zapatacomputing/orquestra-vqa/blob/main/tests/orquestra/vqa/ansatz/singlet_uccsd_test.py>`_
 
-.. include:: ../guides/backends.rst
-  :start-after: .. _integrated_backends:
+.. include:: ../guides/circuit_runners.rst
+  :start-after: .. _integrated_circuit_runners:
   :end-before: Conversions to other frameworks
 
 

@@ -57,9 +57,9 @@ You might wonder - what if I have two optimizers which take different sets of pa
     :language: python
 
 
-``L-BFGS-B``` doesn't support argument called ``constraints`` and ``COBYLA`` doesn't support ``bounds``. So how can you make them fit the same interface, if they have different inputs?
+``L-BFGS-B`` doesn't support argument called ``constraints`` and ``COBYLA`` doesn't support ``bounds``. So how can you make them fit the same interface, if they have different inputs?
 
-In the case of optimizers, Orquestra solves this problem by moving differing parameters into object initialization. Constructed optimizers provide :meth:`minimize <orquestra.opt.api.Optimizer.minimize>` method that always accepts only :func:`create_cost_function <orquestra.vqa.cost_function.cost_function.create_cost_function>` and ``initial_param`s`` arguments. Once constructed, optimizers are fully interchangeable.
+In the case of optimizers, Orquestra solves this problem by moving differing parameters into object initialization. Constructed optimizers provide :meth:`minimize <orquestra.opt.api.Optimizer.minimize>` method that always accepts only :func:`create_cost_function <orquestra.vqa.cost_function.cost_function.create_cost_function>` and ``initial_params`` arguments. Once constructed, optimizers are fully interchangeable.
 
 .. literalinclude:: ../examples/guides/interfaces_guide.py
     :start-after: >> Guide code snippet: script showing passing parameters for optimizers

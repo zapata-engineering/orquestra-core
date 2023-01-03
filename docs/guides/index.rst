@@ -1,12 +1,14 @@
 Guides
-=======================
+======
 
 
 .. toctree::
     :maxdepth: 2
 
-    circuits.rst
-    circuit_runners.rst
+    Circuits<circuits.rst>
+    Circuit Runners<circuit_runners.rst>
+    Variational Algorithms<vqa_guide/index>
+    Optimizers<optimizers.rst>
     interfaces.rst
-    optimizers.rst
-    vqa_guide/index
+    orq_core_structure.rst
+    Contributing<contributing.md>

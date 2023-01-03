@@ -1,7 +1,7 @@
 .. _circuits_guide:
 
 ==============
-Circuits guide
+Circuits Guide
 ==============
 
 

@@ -30,10 +30,12 @@ Functions
 
    :param hamiltonian: cost hamiltonian
 
-   :returns: value of the best solution
-             List[Tuple[int]]: list of solutions which correspond to the best value, each
-                 solution is a tuple of ints.
-   :rtype: float
+   :returns:
+
+             - value of the best solution
+             - list of solutions which correspond to the best value, each solution is a
+               tuple of ints.
+   :rtype: A tuple with the following two elements
 
 
 .. py:function:: solve_graph_problem_by_exhaustive_search(graph: networkx.Graph, cost_function: Callable[[Tuple[int], networkx.Graph], float]) -> Tuple[float, List[Tuple[int, Ellipsis]]]
@@ -47,10 +49,12 @@ Functions
    :param cost_function: function which calculates the cost of solution of a given
                          problem.
 
-   :returns: value of the best solution
-             List[Tuple[int]]: list of solutions which correspond to the best value, each
-                 solution is a tuple of ints.
-   :rtype: float
+   :returns:
+
+             - value of the best solution
+             - list of solutions which correspond to the best value, each solution is a
+               tuple of ints.
+   :rtype: A tuple with the following two elements
 
 
 .. py:function:: evaluate_solution(solution: Tuple[int], graph: networkx.Graph, get_hamiltonian: Callable[[networkx.Graph], orquestra.quantum.operators.PauliSum]) -> float

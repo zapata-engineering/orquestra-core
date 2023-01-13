@@ -198,11 +198,10 @@ Functions
    :param target_distribution: The target measurement outcome probability distribution
    :param measured_distribution: The measured measurement outcome probability
                                  distribution
-   :param distance_measure_function:
-                                     function used to calculate the distance measure
-                                      Currently implemented: clipped negative log-likelihood, maximum mean
+   :param distance_measure_function: function used to calculate the distance measure
+                                     Currently implemented: clipped negative log-likelihood, maximum mean
                                      discrepancy (MMD).
-   :param Additional distance measure parameters can be passed as key word arguments.:
+   :param Additional distance measure parameters can be passed as keyword arguments.:
 
    :returns: The value of the distance measure.
 

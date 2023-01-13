@@ -24,6 +24,7 @@ Functions
 .. py:function:: convert_integer_to_ising_bitstring(number: int, length: int) -> List[int]
 
    Converts an integer into a +/-1s bitstring (also called Ising bitstring).
+
    :param number: positive number to be converted into its corresponding
                   Ising bitstring representation
    :param length: length of the Ising bitstring (i.e. positive number of spins

@@ -56,10 +56,6 @@ Classes
 
       an optional noise model to pass in for noisy simulations
 
-   .. attribute:: qubit_order
-
-      qubit_order: Optional arg that defines the ordering of qubits.
-
    .. attribute:: param_resolver
 
       param_resolver: Optional arg that defines the

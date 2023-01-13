@@ -34,7 +34,6 @@ Functions
    :param qubo: Object we want to convert
 
    :returns: PauliSum representation of the input qubo.
-   :rtype: PauliSum
 
 
 .. py:function:: convert_paulisum_to_qubo(operator: orquestra.quantum.operators.PauliSum) -> dimod.BinaryQuadraticModel

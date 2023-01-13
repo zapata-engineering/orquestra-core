@@ -67,6 +67,7 @@ Classes
 
       Screen single and double excitation operators based on a guess
           for the amplitudes
+
       :param threshold: threshold to select excitations. Only those with
                         absolute amplitudes above the threshold are kept.
       :type threshold: float
@@ -76,7 +77,7 @@ Classes
 
       :returns: screened amplitudes
                 new_fermion_generator (openfermion.FermionOperator): screened
-                    Fermion Operator
+                Fermion Operator
       :rtype: amplitudes (np.array)
 
 

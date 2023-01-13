@@ -52,10 +52,12 @@ Functions
 
    :param hamiltonian: cost hamiltonian
 
-   :returns: value of the best solution
-             List[Tuple[int]]: list of solutions which correspond to the best value, each
-                 solution is a tuple of ints.
-   :rtype: float
+   :returns:
+
+             - value of the best solution
+             - list of solutions which correspond to the best value, each solution is a
+               tuple of ints.
+   :rtype: A tuple with the following two elements
 
 
 .. py:function:: get_random_ising_hamiltonian(number_of_qubits: int, number_of_terms: int, max_number_of_qubits_per_term: int) -> orquestra.quantum.operators.PauliSum

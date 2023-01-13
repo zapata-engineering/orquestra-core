@@ -21,22 +21,22 @@ Classes
 
    Bases: :py:obj:`orquestra.integrations.cirq.simulator._qsim_simulator.QSimSimulator`
 
-   CustatevecSimulator is qsimcirq simulator that
-      uses Nvidia GPUs for all simulation. CUDA toolkit and some dependency tools
-      must be installed. The installation guidelines are provided in
-      https://quantumai.google/qsim/tutorials/gcp_gpu.
+   Qsimcirq simulator that using Nvidia GPUs for all simulations.
+
+   CUDA toolkit and some dependency tools must be installed. The installation
+   guidelines are provided in https://quantumai.google/qsim/tutorials/gcp_gpu.
+
    :param noise_model: an optional noise model to pass in for noisy simulations
-   :param param_resolver: Optional arg that defines the
-   :param parameters to run with the program.:
+   :param param_resolver: Optional arg that defines the parameters to run with
+                          the program.
    :param qubit_order: Optional arg that defines the ordering of qubits.
    :param seed: seed for random number generator.
    :param circuit_memoization_size: Optional arg tht defines the number of
-   :param last translated circuits to be memoized from simulation executions:
-   :param :
-   :param to eliminate translation overhead.:
+                                    last translated circuits to be memoized from simulation executions,
+                                    to eliminate translation overhead.
    :param qsim_options: An options dict or QSimOptions object with options
-   :param to use for all circuits run using this simulator. See QSimOptions from:
-   :param qsimcirq for more details.:
+                        to use for all circuits run using this simulator. See QSimOptions from
+                        qsimcirq for more details.
 
    .. py:attribute:: supports_batching
       :annotation: = True

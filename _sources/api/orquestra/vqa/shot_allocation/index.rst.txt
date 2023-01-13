@@ -46,17 +46,16 @@ Functions
 
    We are assuming the exact expectation values are provided
    (i.e. infinite number of measurements or simulations without noise)
-   M ~ (sum_{i} prec(H_i)) ** 2.0 / (epsilon ** 2.0)
-   where prec(H_i) is the precision (square root of the variance)
+   :math:`M ~ (sum_{i} prec(H_i)) ** 2.0 / (epsilon ** 2.0)`
+   where :math:`prec(H_i)` is the precision (square root of the variance)
    for each group of co-measurable terms H_{i}. It is computed as
-   prec(H_{i}) = sum{ab} |h_{a}^{i}||h_{b}^{i}| cov(O_{a}^{i}, O_{b}^{i})
-   where h_{a}^{i} is the coefficient of the a-th operator, O_{a}^{i}, in the
-   i-th group. Covariances are assumed to be zero for a != b:
-   cov(O_{a}^{i}, O_{b}^{i}) = <O_{a}^{i} O_{b}^{i}> - <O_{a}^{i}> <O_{b}^{i}> = 0
+   :math:`prec(H_{i}) = sum{ab} |h_{a}^{i}||h_{b}^{i}| cov(O_{a}^{i}, O_{b}^{i})`
+   where :math:`h_{a}^{i}` is the coefficient of the a-th operator, :math:`O_{a}^{i}`,
+   in the i-th group. Covariances are assumed to be zero for a != b:
+   :math:`cov(O_{a}^{i},O_{b}^{i})=<O_{a}^{i}O_{b}^{i}>-<O_{a}^{i}><O_{b}^{i}>=0`
 
    :param frame_operators: A list of pauli operators, where
                            each element in the list is a group of co-measurable terms.
-   :type frame_operators: List[PauliRepresentation]
    :param expecval: An ExpectationValues object containing
                     the expectation values of all operators in frame_operators. If absent,
                     variances are assumed to be maximal (i.e. equal to the square of the
@@ -66,7 +65,6 @@ Functions
                     NOTE: YOU HAVE TO MAKE SURE THAT THE ORDER OF EXPECTATION VALUES MATCHES
                     THE ORDER OF THE TERMS IN THE *GROUPED* TARGET QUBIT OPERATOR, OTHERWISE
                     THIS FUNCTION WILL NOT RETURN THE CORRECT RESULT.
-   :type expecval: Optional[ExpectationValues]
 
    :returns: number of measurements for epsilon = 1.0
              nterms (int): number of groups in frame_operators

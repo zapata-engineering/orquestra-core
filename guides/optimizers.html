@@ -2,7 +2,7 @@
 <html class="no-js">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="VQA Guide" href="vqa_guide/index.html" /><link rel="prev" title="Interfaces" href="interfaces.html" />
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Interfaces" href="interfaces.html" /><link rel="prev" title="Estimators" href="vqa_guide/estimators.html" />
 
     <link rel="shortcut icon" href="../_static/favicon.ico"/><meta name="generator" content="sphinx-4.5.0, furo 2022.09.29"/>
         <title>Optimizers guide - Orquestra Core Documentation</title>
@@ -137,7 +137,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -164,23 +164,21 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../tutorials/index.html">Tutorials</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/beginner_tutorial.html">Getting Started</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/basic_qaoa.html">Solving MaxCut with QAOA</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/orq_core_structure.html">Package Structure</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/integrations.html">Integrations, Modules, and Libraries in Orquestra Core</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/contributing.html">Contributing to Orquestra Core</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">Guides</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="circuits.html">Circuits guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="circuit_runners.html">Circuit Runners guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cost_function.html">Cost function guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="interfaces.html">Interfaces</a></li>
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Optimizers guide</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="vqa_guide/index.html">VQA Guide</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="circuits.html">Circuits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circuit_runners.html">Circuit Runners</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="vqa_guide/index.html">Variational Algorithms</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="vqa_guide/introduction.html">Introduction to VQAs in Orquestra</a></li>
 <li class="toctree-l3"><a class="reference internal" href="vqa_guide/structure.html">Structure of VQAs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="vqa_guide/ansatzes.html">Ansatzes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="vqa_guide/estimators.html">Estimators</a></li>
 </ul>
 </li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Optimizers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interfaces.html">Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="orq_core_structure.html">Package Structure</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../api/index.html">API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -251,6 +249,11 @@
 </ul>
 </li>
 <li class="toctree-l4 has-children"><a class="reference internal" href="../api/orquestra/opt/optimizers/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt.optimizers</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" role="switch" type="checkbox"/><label for="toctree-checkbox-19"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../api/orquestra/opt/optimizers/pso/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt.optimizers.pso</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" role="switch" type="checkbox"/><label for="toctree-checkbox-20"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l6"><a class="reference internal" href="../api/orquestra/opt/optimizers/pso/continuous_pso_optimizer/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt.optimizers.pso.continuous_pso_optimizer</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../api/orquestra/opt/optimizers/pso/topologies/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt.optimizers.pso.topologies</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/opt/optimizers/basin_hopping/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt.optimizers.basin_hopping</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/opt/optimizers/cma_es_optimizer/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt.optimizers.cma_es_optimizer</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/opt/optimizers/qiskit_optimizer/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt.optimizers.qiskit_optimizer</span></code></a></li>
@@ -260,7 +263,7 @@
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/opt/optimizers/simple_gradient_descent/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt.optimizers.simple_gradient_descent</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l4 has-children"><a class="reference internal" href="../api/orquestra/opt/problems/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt.problems</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" role="switch" type="checkbox"/><label for="toctree-checkbox-20"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../api/orquestra/opt/problems/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt.problems</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" role="switch" type="checkbox"/><label for="toctree-checkbox-21"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/opt/problems/generators/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt.problems.generators</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/opt/problems/graph/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt.problems.graph</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/opt/problems/graph_partition/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt.problems.graph_partition</span></code></a></li>
@@ -275,8 +278,8 @@
 <li class="toctree-l4"><a class="reference internal" href="../api/orquestra/opt/mock_objects/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt.mock_objects</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../api/orquestra/quantum/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" role="switch" type="checkbox"/><label for="toctree-checkbox-21"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4 has-children"><a class="reference internal" href="../api/orquestra/quantum/api/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.api</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" role="switch" type="checkbox"/><label for="toctree-checkbox-22"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../api/orquestra/quantum/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" role="switch" type="checkbox"/><label for="toctree-checkbox-22"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../api/orquestra/quantum/api/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.api</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" role="switch" type="checkbox"/><label for="toctree-checkbox-23"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/quantum/api/circuit_runner/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.api.circuit_runner</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/quantum/api/circuit_runner_contracts/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.api.circuit_runner_contracts</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/quantum/api/estimation/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.api.estimation</span></code></a></li>
@@ -285,8 +288,8 @@
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/quantum/api/wavefunction_simulator_contracts/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.api.wavefunction_simulator_contracts</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l4 has-children"><a class="reference internal" href="../api/orquestra/quantum/circuits/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.circuits</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" role="switch" type="checkbox"/><label for="toctree-checkbox-23"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l5 has-children"><a class="reference internal" href="../api/orquestra/quantum/circuits/symbolic/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.circuits.symbolic</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" role="switch" type="checkbox"/><label for="toctree-checkbox-24"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../api/orquestra/quantum/circuits/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.circuits</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" role="switch" type="checkbox"/><label for="toctree-checkbox-24"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../api/orquestra/quantum/circuits/symbolic/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.circuits.symbolic</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" role="switch" type="checkbox"/><label for="toctree-checkbox-25"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l6"><a class="reference internal" href="../api/orquestra/quantum/circuits/symbolic/expressions/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.circuits.symbolic.expressions</span></code></a></li>
 <li class="toctree-l6"><a class="reference internal" href="../api/orquestra/quantum/circuits/symbolic/sympy_expressions/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.circuits.symbolic.sympy_expressions</span></code></a></li>
 <li class="toctree-l6"><a class="reference internal" href="../api/orquestra/quantum/circuits/symbolic/translations/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.circuits.symbolic.translations</span></code></a></li>
@@ -296,7 +299,7 @@
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="../api/orquestra/quantum/decompositions/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.decompositions</span></code></a></li>
-<li class="toctree-l4 has-children"><a class="reference internal" href="../api/orquestra/quantum/distributions/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.distributions</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" role="switch" type="checkbox"/><label for="toctree-checkbox-25"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../api/orquestra/quantum/distributions/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.distributions</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-26" name="toctree-checkbox-26" role="switch" type="checkbox"/><label for="toctree-checkbox-26"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/quantum/distributions/BAS_dataset/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.distributions.BAS_dataset</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/quantum/distributions/clipped_negative_log_likelihood/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.distributions.clipped_negative_log_likelihood</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/quantum/distributions/jensen_shannon_divergence/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.distributions.jensen_shannon_divergence</span></code></a></li>
@@ -305,19 +308,19 @@
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="../api/orquestra/quantum/estimation/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.estimation</span></code></a></li>
-<li class="toctree-l4 has-children"><a class="reference internal" href="../api/orquestra/quantum/measurements/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.measurements</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-26" name="toctree-checkbox-26" role="switch" type="checkbox"/><label for="toctree-checkbox-26"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../api/orquestra/quantum/measurements/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.measurements</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-27" name="toctree-checkbox-27" role="switch" type="checkbox"/><label for="toctree-checkbox-27"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/quantum/measurements/expectation_values/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.measurements.expectation_values</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/quantum/measurements/measurements/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.measurements.measurements</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/quantum/measurements/parities/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.measurements.parities</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="../api/orquestra/quantum/operators/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.operators</span></code></a></li>
-<li class="toctree-l4 has-children"><a class="reference internal" href="../api/orquestra/quantum/runners/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.runners</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-27" name="toctree-checkbox-27" role="switch" type="checkbox"/><label for="toctree-checkbox-27"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../api/orquestra/quantum/runners/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.runners</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-28" name="toctree-checkbox-28" role="switch" type="checkbox"/><label for="toctree-checkbox-28"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/quantum/runners/symbolic_simulator/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.runners.symbolic_simulator</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/quantum/runners/trackers/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.runners.trackers</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l4 has-children"><a class="reference internal" href="../api/orquestra/quantum/testing/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.testing</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-28" name="toctree-checkbox-28" role="switch" type="checkbox"/><label for="toctree-checkbox-28"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../api/orquestra/quantum/testing/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.testing</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" role="switch" type="checkbox"/><label for="toctree-checkbox-29"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/quantum/testing/generate_cases_for_backend_tests/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.testing.generate_cases_for_backend_tests</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/quantum/testing/mocks/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.testing.mocks</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/quantum/testing/test_cases_for_backend_tests/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.testing.test_cases_for_backend_tests</span></code></a></li>
@@ -329,14 +332,14 @@
 <li class="toctree-l4"><a class="reference internal" href="../api/orquestra/quantum/wavefunction/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.wavefunction</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../api/orquestra/vqa/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" role="switch" type="checkbox"/><label for="toctree-checkbox-29"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4 has-children"><a class="reference internal" href="../api/orquestra/vqa/algorithms/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.algorithms</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-30" name="toctree-checkbox-30" role="switch" type="checkbox"/><label for="toctree-checkbox-30"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../api/orquestra/vqa/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-30" name="toctree-checkbox-30" role="switch" type="checkbox"/><label for="toctree-checkbox-30"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../api/orquestra/vqa/algorithms/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.algorithms</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-31" name="toctree-checkbox-31" role="switch" type="checkbox"/><label for="toctree-checkbox-31"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/vqa/algorithms/qaoa/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.algorithms.qaoa</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/vqa/algorithms/qcbm/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.algorithms.qcbm</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/vqa/algorithms/vqe/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.algorithms.vqe</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l4 has-children"><a class="reference internal" href="../api/orquestra/vqa/ansatz/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.ansatz</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-31" name="toctree-checkbox-31" role="switch" type="checkbox"/><label for="toctree-checkbox-31"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../api/orquestra/vqa/ansatz/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.ansatz</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-32" name="toctree-checkbox-32" role="switch" type="checkbox"/><label for="toctree-checkbox-32"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/vqa/ansatz/qcbm/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.ansatz.qcbm</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/vqa/ansatz/kbody/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.ansatz.kbody</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/vqa/ansatz/qaoa_farhi/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.ansatz.qaoa_farhi</span></code></a></li>
@@ -345,18 +348,18 @@
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/vqa/ansatz/singlet_uccsd/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.ansatz.singlet_uccsd</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l4 has-children"><a class="reference internal" href="../api/orquestra/vqa/api/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.api</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-32" name="toctree-checkbox-32" role="switch" type="checkbox"/><label for="toctree-checkbox-32"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../api/orquestra/vqa/api/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.api</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-33" name="toctree-checkbox-33" role="switch" type="checkbox"/><label for="toctree-checkbox-33"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/vqa/api/ansatz/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.api.ansatz</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/vqa/api/ansatz_test/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.api.ansatz_test</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/vqa/api/ansatz_utils/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.api.ansatz_utils</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l4 has-children"><a class="reference internal" href="../api/orquestra/vqa/cost_function/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.cost_function</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-33" name="toctree-checkbox-33" role="switch" type="checkbox"/><label for="toctree-checkbox-33"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../api/orquestra/vqa/cost_function/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.cost_function</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-34" name="toctree-checkbox-34" role="switch" type="checkbox"/><label for="toctree-checkbox-34"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/vqa/cost_function/cost_function/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.cost_function.cost_function</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/vqa/cost_function/qcbm_cost_function/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.cost_function.qcbm_cost_function</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l4 has-children"><a class="reference internal" href="../api/orquestra/vqa/estimation/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.estimation</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-34" name="toctree-checkbox-34" role="switch" type="checkbox"/><label for="toctree-checkbox-34"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../api/orquestra/vqa/estimation/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.estimation</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-35" name="toctree-checkbox-35" role="switch" type="checkbox"/><label for="toctree-checkbox-35"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/vqa/estimation/context_selection/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.estimation.context_selection</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/vqa/estimation/cvar/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.estimation.cvar</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/vqa/estimation/gibbs_objective/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.estimation.gibbs_objective</span></code></a></li>
@@ -364,7 +367,7 @@
 </li>
 <li class="toctree-l4"><a class="reference internal" href="../api/orquestra/vqa/grouping/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.grouping</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../api/orquestra/vqa/openfermion/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.openfermion</span></code></a></li>
-<li class="toctree-l4 has-children"><a class="reference internal" href="../api/orquestra/vqa/opt/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.opt</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-35" name="toctree-checkbox-35" role="switch" type="checkbox"/><label for="toctree-checkbox-35"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../api/orquestra/vqa/opt/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.opt</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-36" name="toctree-checkbox-36" role="switch" type="checkbox"/><label for="toctree-checkbox-36"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/vqa/opt/fourier_qaoa/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.opt.fourier_qaoa</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/vqa/opt/layerwise_ansatz_optimizer/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.opt.layerwise_ansatz_optimizer</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/vqa/opt/recursive_qaoa/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.opt.recursive_qaoa</span></code></a></li>
@@ -372,7 +375,7 @@
 </li>
 <li class="toctree-l4"><a class="reference internal" href="../api/orquestra/vqa/parameter_initialization/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.parameter_initialization</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../api/orquestra/vqa/shot_allocation/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.shot_allocation</span></code></a></li>
-<li class="toctree-l4 has-children"><a class="reference internal" href="../api/orquestra/vqa/testing/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.testing</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-36" name="toctree-checkbox-36" role="switch" type="checkbox"/><label for="toctree-checkbox-36"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../api/orquestra/vqa/testing/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.testing</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-37" name="toctree-checkbox-37" role="switch" type="checkbox"/><label for="toctree-checkbox-37"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/vqa/testing/mock_objects/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.testing.mock_objects</span></code></a></li>
 </ul>
 </li>
@@ -410,7 +413,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -418,11 +421,486 @@
         <article role="main">
           <div class="section" id="optimizers-guide">
 <span id="id1"></span><h1>Optimizers guide<a class="headerlink" href="#optimizers-guide" title="Permalink to this headline">#</a></h1>
-<p>This guide is currently a work in progress and only contains bullet points for now.</p>
+<p>Optimization (i.e. ability to minimize a scalar function) lies at the heart of scientific computing
+and its applications. For instance, being able to minimize a cost function is crucial for
+Variational Quantum Algorithms (VQAs).</p>
+<p>Optimization is nothing new, and there exists plethora of ready to use libraries with various
+optimizers. So what new can Orquestra bring to the table? The answer, as usually with Orquestra,
+is unification. The <cite>orquestra-opt</cite> package defines interfaces for all things related to
+optimization and provides implementation of many existing optimizers.</p>
+<div class="section" id="what-this-guide-covers">
+<h2>What this guide covers<a class="headerlink" href="#what-this-guide-covers" title="Permalink to this headline">#</a></h2>
+<p>This guide will introduce you to everything you need to know to optimize scalar functions using
+<cite>orquestra-opt</cite> package. In particular we’ll discuss:</p>
 <ul class="simple">
-<li><p>The typical arguments to an optimizer. They are usually simple and don’t require other objects.</p></li>
-<li></li>
+<li><p>What functions can be minimized? Definition of cost function.</p></li>
+<li><p>Gradients, and how to add them to your cost function.</p></li>
+<li><p>Orquestra’s approach for implementing optimization algorithms - the
+<a class="reference internal" href="../api/orquestra/opt/api/index.html#orquestra.opt.api.Optimizer" title="orquestra.opt.api.Optimizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Optimizer</span></code></a> interface.</p></li>
+<li><p>How to record history of evaluation of the cost function.</p></li>
+<li><p>List of currently available optimizers.</p></li>
 </ul>
+</div>
+<div class="section" id="cost-functions">
+<h2>Cost functions<a class="headerlink" href="#cost-functions" title="Permalink to this headline">#</a></h2>
+<p>Before we start optimizing, we need to know what can be optimized. In Orquestra, we deal only with
+minimization of functions of the form <span class="math notranslate nohighlight">\(f:\mathbb{R}^N \to \mathbb{R}\)</span>. Throughout the
+codebase, such functions are called the <em>cost functions</em>.</p>
+<p>All optimizers expect that the arguments to cost functions are stored as a single vector in a 1-D
+numpy arrays. Suppose you want to create the following cost function:
+<span class="math notranslate nohighlight">\(f(x, y, z) = x^2 + y^2 + z^2\)</span>. Out of the two natural ways of defining it in Python, the
+second one is the one expected by Optimizers:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+<span class="k">def</span> <span class="nf">f_incorrect</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">z</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">y</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">z</span> <span class="o">**</span> <span class="mi">2</span>
+
+
+<span class="k">def</span> <span class="nf">f_correct</span><span class="p">(</span><span class="n">parameters</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">parameters</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">y</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">z</span> <span class="o">**</span> <span class="mi">2</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Remember that the argument to your cost function should be called <cite>parameters</cite>. While
+it makes no difference for most optimizers at runtime, it makes your function match
+structurally to the <a class="reference internal" href="../api/orquestra/opt/api/index.html#orquestra.opt.api.CostFunction" title="orquestra.opt.api.CostFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">CostFunction</span></code></a> protocol expected
+by Optimizers.</p>
+</div>
+</div>
+<div class="section" id="adding-gradients">
+<h2>Adding gradients<a class="headerlink" href="#adding-gradients" title="Permalink to this headline">#</a></h2>
+<p>Some optimization methods use gradients to move across the optimization landscape in the
+correct direction. You can enrich your cost function with gradient in several ways.</p>
+<p>To start with, cost function with gradients are just normal cost functions having additional
+<cite>gradient</cite> attribute. This attribute should also be a callable returning gradient
+of you function at a given point. Hence, one possible way of defining a cost function with
+gradient is to just write a class with <cite>__call__</cite> method and a gradient attribute.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">SumOfSquaresWithGradient</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parameters</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">parameters</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">gradient</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parameters</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">parameters</span>
+</pre></div>
+</div>
+<p>For some cases, like in the example above, defining a whole class just to add a gradient
+to your function is an overkill. There has to be a simpler way, right? Right. You can use
+a <a class="reference internal" href="../api/orquestra/opt/api/index.html#orquestra.opt.api.FunctionWithGradient" title="orquestra.opt.api.FunctionWithGradient"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionWithGradient</span></code></a> wrapper to combine
+your cost function and another function defining its gradient.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">orquestra.opt.api</span> <span class="kn">import</span> <span class="n">FunctionWithGradient</span>
+
+
+<span class="k">def</span> <span class="nf">sum_of_squares</span><span class="p">(</span><span class="n">parameters</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">parameters</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">sum_of_squares_gradient</span><span class="p">(</span><span class="n">parameters</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+    <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">parameters</span>
+
+
+<span class="n">cost_function</span> <span class="o">=</span> <span class="n">FunctionWithGradient</span><span class="p">(</span>
+    <span class="n">sum_of_squares</span><span class="p">,</span>
+    <span class="n">sum_of_squares_gradient</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>There are some cases when you can’t define the gradient analytically. In such cases, it is
+possible to use some approximation methods to compute it. One possibility is to use
+finite differences method as demonstrated in the example below.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">orquestra.opt.gradients</span> <span class="kn">import</span> <span class="n">finite_differences_gradient</span>
+
+<span class="n">cost_function</span> <span class="o">=</span> <span class="n">FunctionWithGradient</span><span class="p">(</span>
+    <span class="n">sum_of_squares</span><span class="p">,</span>
+    <span class="n">finite_differences_gradient</span><span class="p">(</span>
+        <span class="n">sum_of_squares</span><span class="p">,</span>
+        <span class="n">finite_diff_step_size</span><span class="o">=</span><span class="mf">1e-4</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>The <a class="reference internal" href="../api/orquestra/opt/gradients/index.html#orquestra.opt.gradients.finite_differences_gradient" title="orquestra.opt.gradients.finite_differences_gradient"><code class="xref py py-func docutils literal notranslate"><span class="pre">finite_differences_gradient</span></code></a>
+function itself returns a function that approximates its input gradient. The second parameter
+controls the step size in the approximation.</p>
+</div>
+<div class="section" id="the-optimizers">
+<h2>The optimizers<a class="headerlink" href="#the-optimizers" title="Permalink to this headline">#</a></h2>
+<p>Knowing what functions can be minimized, let us now take a closer look at how to minimize them.
+The objects responsible for the whole process are implementations of the <code class="xref py py-class docutils literal notranslate"><span class="pre">Optimizer</span></code>
+interface. Every Optimizer implements the <a class="reference internal" href="../api/orquestra/opt/api/index.html#orquestra.opt.api.Optimizer.minimize" title="orquestra.opt.api.Optimizer.minimize"><code class="xref py py-meth docutils literal notranslate"><span class="pre">minimize</span></code></a>
+method that accepts the following parameters:</p>
+<ul class="simple">
+<li><p><cite>cost_function</cite>: the cost function to be optimized.</p></li>
+<li><p><cite>initial_params</cite>:  the initial guess for the optimal parameters. Its dimension should
+match the dimension of the first argument of the <cite>cost_function</cite>.</p></li>
+<li><p><cite>keep_history</cite>: a boolean determining if history of function evaluations should be kept or
+not. The default is <code class="code docutils literal notranslate"><span class="pre">False</span></code>, as storage of evaluation history might eat up a lot of
+memory.</p></li>
+</ul>
+<p>Of course, optimizers have other methods as well. Those methods are relevant mainly when we
+are implementing our own optimizers, and hence we defer discussing them until later.</p>
+<p>But wait, surely some optimization methods require additional parameters and some fine tuning.
+Where do those parameters go, if <cite>minimize</cite> only accepts the arguments listed above?
+That’s a very good question. Similarly as we have done with other interfaces, we moved all
+optimizer-specific parametrization into Optimizers’
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__</span></code> method. This way, once the
+optimizers are constructed, they can be used interchangeably with one another.</p>
+<p>Let us illustrate how the optimizers work. In the example below, we construct two optimizers
+and we use them to optimize our sum of squares. We then print the results.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">orquestra.opt.optimizers</span> <span class="kn">import</span> <span class="n">ScipyOptimizer</span><span class="p">,</span> <span class="n">SimpleGradientDescent</span>
+
+
+<span class="n">my_optimizers</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">ScipyOptimizer</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s2">&quot;L-BFGS-B&quot;</span><span class="p">),</span>
+    <span class="n">SimpleGradientDescent</span><span class="p">(</span><span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">number_of_iterations</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="k">for</span> <span class="n">optimizer</span> <span class="ow">in</span> <span class="n">my_optimizers</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">optimizer</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">cost_function</span><span class="p">,</span> <span class="n">initial_params</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The results might differ slightly, but here is what we got when running the example.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>   history: []
+      nfev: 3
+       nit: 2
+opt_params: array([0., 0., 0.])
+ opt_value: 0.0
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>   history: []
+      nfev: None
+       nit: 1000
+opt_params: array([ 5.11528491e-21, -5.11528491e-21,  5.38660015e-21])
+ opt_value: 8.134774054521418e-41
+</pre></div>
+</div>
+<p>As we can see, once constructed, <a class="reference internal" href="../api/orquestra/opt/optimizers/index.html#orquestra.opt.optimizers.ScipyOptimizer" title="orquestra.opt.optimizers.ScipyOptimizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">ScipyOptimizer</span></code></a> and <a class="reference internal" href="../api/orquestra/opt/optimizers/index.html#orquestra.opt.optimizers.SimpleGradientDescent" title="orquestra.opt.optimizers.SimpleGradientDescent"><code class="xref py py-class docutils literal notranslate"><span class="pre">SimpleGradientDescent</span></code></a> optimizer could be used in the same way. The output of the <code class="xref py py-meth docutils literal notranslate"><span class="pre">minimize()</span></code> method is a Scipy <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.OptimizeResult.html">OptimizeResult</a> object containing the following fields:</p>
+<ul class="simple">
+<li><p><cite>opt_params</cite>: optimal parameters found</p></li>
+<li><p><cite>opt_value</cite>: value of the cost function at the optimal point (i.e.
+<code class="code docutils literal notranslate"><span class="pre">cost_function(opt_params)</span></code></p></li>
+<li><p><cite>nfev</cite>: number of function evaluation during the optimization process</p></li>
+<li><p><cite>nit</cite>: number of iterations</p></li>
+<li><p><cite>history</cite>: history of evaluation of our cost function.</p></li>
+</ul>
+<p>The <cite>history</cite> field is empty in both cases, since we haven’t passed <code class="code docutils literal notranslate"><span class="pre">keep_history=True</span></code>.
+Both optimizers did well and found optimal or near-optimal solution, although we have to admit
+that the optimization task we gave them wasn’t too hard. The
+<code class="xref py py-class docutils literal notranslate"><span class="pre">SimpleGradientDescent</span></code> haven’t evaluated our function even once during the
+optimization, which is expected - it only uses gradient to guide the optimization.
+The <code class="xref py py-class docutils literal notranslate"><span class="pre">ScipyOptimizer</span></code> used two iterations to reach the global minimum, while the second
+optimizer used 1000 which is expected, as it was explicitly instructed to do so.</p>
+<p>Of course, all of the fields discussed above can be accessed programmatically during program
+execution, for instance:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">optimizer</span> <span class="o">=</span> <span class="n">ScipyOptimizer</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s2">&quot;L-BFGS-B&quot;</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">optimizer</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">cost_function</span><span class="p">,</span> <span class="n">initial_params</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;opt_value: </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">opt_value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;opt_params: </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">opt_params</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="storing-evaluation-history">
+<h2>Storing evaluation history<a class="headerlink" href="#storing-evaluation-history" title="Permalink to this headline">#</a></h2>
+<p>In the simplest case, the evaluation history can be kept by passing <code class="code docutils literal notranslate"><span class="pre">keep_history=True</span></code>.
+Let us first see how this history info is stored.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">optimizer</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span>
+    <span class="n">cost_function</span><span class="p">,</span>
+    <span class="n">initial_params</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]),</span>
+    <span class="n">keep_history</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">history</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The output could look as follows</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[HistoryEntry(call_number=0, params=array([ 1. , -1. ,  0.5]), value=2.25), HistoryEntry(call_number=1, params=array([ 0.33333333, -0.33333333,  0.16666667]), value=0.2499999999999999), HistoryEntry(call_number=2, params=array([0., 0., 0.]), value=0.0)]
+</pre></div>
+</div>
+<p>We can observe that:</p>
+<ul class="simple">
+<li><p>Stored history info is a list.</p></li>
+<li><p>This list contains items of type <code class="xref py py-class docutils literal notranslate"><span class="pre">HistoryEntry</span></code></p></li>
+<li><p>Each such entry contains the following:</p>
+<ul>
+<li><p>call number: sequential number of call to the cost function</p></li>
+<li><p>params: parameters with which the cost function was called</p></li>
+<li><p>value: current value of the cost function</p></li>
+</ul>
+</li>
+</ul>
+<p>Of course, as usually, we can access all these info programmatically. For instance, this
+is how you can extract only the sequence of values of the cost function:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">([</span><span class="n">entry</span><span class="o">.</span><span class="n">value</span> <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">result</span><span class="o">.</span><span class="n">history</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[2.25, 0.2499999999999999, 0.0]
+</pre></div>
+</div>
+<p>For many applications, this is everything that you need to know. However, there are some caveats.</p>
+<ul class="simple">
+<li><p>What if I want only <em>some</em> evaluations to be saved? For instance, if we suspect there will be
+one million calls, maybe it is enough to save memory and save only every tenth entry?</p></li>
+<li><p>What if I want to store some more info? Maybe our cust function produces some other artifacts
+that are worth saving for the purpose of further analysis?</p></li>
+</ul>
+<p>The <code class="code docutils literal notranslate"><span class="pre">orquestra-opt</span></code> package contains everything you need to accomplish those goals. To
+properly discuss how to do this, we need to introduce a new concept. Enter <em>recorders</em>.</p>
+<div class="section" id="recorders">
+<h3>Recorders<a class="headerlink" href="#recorders" title="Permalink to this headline">#</a></h3>
+<p>Simply put, recorders are callable objects that wrap the cost function and pass through
+all calls. However, they also store the history of invocations.</p>
+<p>Recorder for a given function is created by calling a <code class="xref py py-func docutils literal notranslate"><span class="pre">recorder()</span></code> function on it.
+This function chooses the appropriate recorder type and returns its instance. Before going any
+further, let us check on some simple function that recorder created in this way indeed
+behaves as expected.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">orquestra.opt.history</span> <span class="kn">import</span> <span class="n">recorder</span>
+
+<span class="n">wrapped_cost_function</span> <span class="o">=</span> <span class="n">recorder</span><span class="p">(</span><span class="n">cost_function</span><span class="p">)</span>
+<span class="n">parameters</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="c1"># Check that we get the same results</span>
+<span class="k">assert</span> <span class="n">cost_function</span><span class="p">(</span><span class="n">parameters</span><span class="p">)</span> <span class="o">==</span> <span class="n">wrapped_cost_function</span><span class="p">(</span><span class="n">parameters</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">parameters</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">wrapped_cost_function</span><span class="o">.</span><span class="n">history</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Looking at the output we see that the recorder correctly stored the call that we made.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[0.93765228 0.69672247 0.68539876]
+[HistoryEntry(call_number=0, params=array([0.93765228, 0.69672247, 0.68539876]), value=1.8343854651854021)]
+</pre></div>
+</div>
+<p>Ok, what about gradient? It turns out that if your cost function has a gradient it will be
+recorder as well.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">wrapped_cost_function</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">wrapped_cost_function</span><span class="o">.</span><span class="n">gradient</span><span class="o">.</span><span class="n">history</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[2. 4. 6.]
+[HistoryEntry(call_number=0, params=array([1, 2, 3]), value=array([2., 4., 6.]))]
+</pre></div>
+</div>
+<p>As you can see from the output, the recorder successfully captured evaluation of the
+gradient.</p>
+<p>The next thing we need to learn is how to conditionally store only selected evaluations.
+All recorders have an attribute called <code class="code docutils literal notranslate"><span class="pre">save_condition</span></code>. It is a boolean function that
+accepts value, parameters and call number and returns <code class="code docutils literal notranslate"><span class="pre">True</span></code> if and only
+if it this particular evaluation should be saved. The default save condition is a dummy
+function called <a class="reference internal" href="../api/orquestra/opt/api/index.html#orquestra.opt.api.always" title="orquestra.opt.api.always"><code class="xref py py-func docutils literal notranslate"><span class="pre">always</span></code></a> which always returns true. Another function,
+<a class="reference internal" href="../api/orquestra/opt/api/index.html#orquestra.opt.api.every_nth" title="orquestra.opt.api.every_nth"><code class="xref py py-func docutils literal notranslate"><span class="pre">every_nth</span></code></a>, saves only every nth evaluation. Here’s how it works:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">orquestra.opt.api.save_conditions</span> <span class="kn">import</span> <span class="n">every_nth</span>
+
+<span class="c1"># Create fresh recorder</span>
+<span class="n">wrapped_cost_function</span> <span class="o">=</span> <span class="n">recorder</span><span class="p">(</span><span class="n">cost_function</span><span class="p">,</span> <span class="n">save_condition</span><span class="o">=</span><span class="n">every_nth</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">):</span>
+    <span class="n">wrapped_cost_function</span><span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">([</span><span class="n">entry</span><span class="o">.</span><span class="n">value</span> <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">wrapped_cost_function</span><span class="o">.</span><span class="n">history</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[0.0, 48.0, 192.0, 432.0, 768.0]
+</pre></div>
+</div>
+<p>As can bee seen, the recorder saved only every 4-th evaluation of the cost function.</p>
+<p>Let’s conclude this part by demonstrating custom save conditions. In this, rather artificial,
+scenario, we save only these evaluations for which second coordinate is greater than the first one.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_save_condition</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">parameters</span><span class="p">,</span> <span class="n">call_number</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">parameters</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">parameters</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+
+<span class="n">wrapped_cost_function</span> <span class="o">=</span> <span class="n">recorder</span><span class="p">(</span><span class="n">cost_function</span><span class="p">,</span> <span class="n">save_condition</span><span class="o">=</span><span class="n">my_save_condition</span><span class="p">)</span>
+<span class="n">wrapped_cost_function</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]))</span>  <span class="c1"># Should be saved</span>
+<span class="n">wrapped_cost_function</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]))</span>  <span class="c1"># Should not be saved</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">wrapped_cost_function</span><span class="o">.</span><span class="n">history</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[HistoryEntry(call_number=0, params=array([1, 2, 0]), value=5)]
+</pre></div>
+</div>
+</div>
+<div class="section" id="saving-artifacts">
+<h3>Saving artifacts<a class="headerlink" href="#saving-artifacts" title="Permalink to this headline">#</a></h3>
+<p>There is even more advanced usage of the recorders. As already stated we can store arbitrary
+artifacts. But how does the recorder know what to save? Well it doesn’t, but it exposes
+a callback for your cost function that can be used to store anything it wants.</p>
+<p>To illustrate, let us modify our sum of squares so that it saves the indices sorting its
+input. E.g. if the input was [3, 5, 0] it should save vector [2, 0, 1]).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sum_of_squares_with_artifacts</span><span class="p">(</span><span class="n">parameters</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">store_artifact</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">store_artifact</span><span class="p">:</span>
+        <span class="n">store_artifact</span><span class="p">(</span><span class="s2">&quot;order&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">parameters</span><span class="p">))</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">parameters</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+<span class="n">wrapped_cost_function</span> <span class="o">=</span> <span class="n">recorder</span><span class="p">(</span><span class="n">sum_of_squares_with_artifacts</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+    <span class="n">wrapped_cost_function</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">wrapped_cost_function</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">wrapped_cost_function</span><span class="o">.</span><span class="n">history</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;parameters: </span><span class="si">{</span><span class="n">entry</span><span class="o">.</span><span class="n">params</span><span class="si">}</span><span class="s2">, order: </span><span class="si">{</span><span class="n">entry</span><span class="o">.</span><span class="n">artifacts</span><span class="p">[</span><span class="s1">&#39;order&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>HistoryEntryWithArtifacts(call_number=0, params=array([0.83539053, 0.60336326, 0.68849924]), value=1.5359557618364512, artifacts={&#39;order&#39;: array([1, 2, 0])})
+parameters: [0.83539053 0.60336326 0.68849924], order: [1 2 0]
+parameters: [0.77104168 0.88808436 0.82558708], order: [0 2 1]
+parameters: [0.45159923 0.5376592  0.14075176], order: [2 0 1]
+parameters: [0.93415374 0.78783696 0.35753713], order: [2 1 0]
+</pre></div>
+</div>
+<p>We see that if our function stores artifacts, the entries stored in recorder’s <code class="code docutils literal notranslate"><span class="pre">history</span></code>
+attribute are of <a class="reference internal" href="../api/orquestra/opt/history/recorder/index.html#orquestra.opt.history.recorder.HistoryEntryWithArtifacts" title="orquestra.opt.history.recorder.HistoryEntryWithArtifacts"><code class="xref py py-class docutils literal notranslate"><span class="pre">HistoryEntryWithArtifacts</span></code></a>
+type, which has additional field called <code class="code docutils literal notranslate"><span class="pre">artifacts</span></code>. This field stores a dictionary of the
+artifacts that your cost function saved for given evaluation.</p>
+<p>Of course, there’s no need for your cost function to store the same artifacts for each evaluation.
+The stored dictionary is completely free-form, and you can store whatever you want.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This guide primarily focuses on optimization, and hence we only used recorders on
+cost functions. However, they work just as fine for arbitrary functions.</p>
+</div>
+</div>
+<div class="section" id="using-recorders-with-optimizers">
+<h3>Using recorders with optimizers<a class="headerlink" href="#using-recorders-with-optimizers" title="Permalink to this headline">#</a></h3>
+<p>The previous section focused on using recorders as a standalone feature. We will now explore
+how recorders can be used with optimizers.</p>
+<p>If you take a closer look at the initializer of base <code class="xref py py-class docutils literal notranslate"><span class="pre">Optimizer</span></code> class, you’ll see
+that it accepts a <cite>recorder</cite> argument. This argument is a factory, which means it should be a
+callable that, when provided a cost function, returns a recorder. It defaults to
+the <a class="reference internal" href="../api/orquestra/opt/history/recorder/index.html#module-orquestra.opt.history.recorder" title="orquestra.opt.history.recorder"><code class="xref py py-func docutils literal notranslate"><span class="pre">recorder</span></code></a> that we just discussed. We can replace it with
+our own factory. The example below shows how to minimize the Rosenbrock function,
+and record its evaluation using both the default <code class="xref py py-func docutils literal notranslate"><span class="pre">recorder()</span></code> and the custom one provided by us.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">rosenbrock</span><span class="p">(</span><span class="n">parameters</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">parameters</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">100</span> <span class="o">*</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+
+
+<span class="k">def</span> <span class="nf">my_recorder_factory</span><span class="p">(</span><span class="n">cost_function</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">recorder</span><span class="p">(</span><span class="n">cost_function</span><span class="p">,</span> <span class="n">save_condition</span><span class="o">=</span><span class="n">every_nth</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">ScipyOptimizer</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s2">&quot;L-BFGS-B&quot;</span><span class="p">,</span> <span class="n">recorder</span><span class="o">=</span><span class="n">my_recorder_factory</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">optimizer</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span>
+    <span class="n">rosenbrock</span><span class="p">,</span> <span class="n">initial_params</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">]),</span> <span class="n">keep_history</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">([</span><span class="n">entry</span><span class="o">.</span><span class="n">call_number</span> <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">result</span><span class="o">.</span><span class="n">history</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76]
+</pre></div>
+</div>
+<p>As can be seen, our optimizer saved only every second evaluation of the cost function when
+we passed <code class="code docutils literal notranslate"><span class="pre">keep_history=True</span></code>. Under the hood, the optimizer constructed an instance
+of the recorder according to the recipe that we specified.</p>
+<p>The information presented so far should be enough for optimizing arbitrary cost function
+and control how its evaluation history is stored. Let us now move to more advanced topics.</p>
+</div>
+</div>
+<div class="section" id="creating-your-own-optimizer">
+<h2>Creating your own optimizer<a class="headerlink" href="#creating-your-own-optimizer" title="Permalink to this headline">#</a></h2>
+<p>So far we only discussed using already existing optimizers. However, you might want to implement
+an optimizer using some fancy optimization method that is not yet available in Orquestra.</p>
+<p>The way it is done is by subclassing the <code class="xref py py-class docutils literal notranslate"><span class="pre">Optimizer</span></code> class. At bare minimum,
+your implementation has to include the <code class="xref py py-meth docutils literal notranslate"><span class="pre">_minimize()</span></code> method that implements the actual
+minimization algorithm.</p>
+<p>Optionally, you may also override the <code class="xref py py-meth docutils literal notranslate"><span class="pre">_preprocess_cost_function()</span></code> method. This method
+is responsible for two things:</p>
+<ul class="simple">
+<li><p>validating the passed cost function, and raising an error if some problems are detected.</p></li>
+<li><p>wrapping/modifying the cost function to adapt it to use with the given optimizer.</p></li>
+</ul>
+<p>For instance, the <code class="xref py py-meth docutils literal notranslate"><span class="pre">_preprocess_cost_function()</span></code> can make sure that the function has
+a gradient if the optimizer requires it. Or it can add an approximate gradient, if the
+cost function doesn’t have one.</p>
+<p>The following snippet may serve as a template for implementing your own optimizer.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">orquestra.opt.api</span> <span class="kn">import</span> <span class="n">Optimizer</span><span class="p">,</span> <span class="n">CostFunction</span>
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">OptimizeResult</span>
+
+<span class="k">class</span> <span class="nc">MyOptimizer</span><span class="p">(</span><span class="n">Optimizer</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">method</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>             <span class="c1"># Hypothetical argument choosing optimization method</span>
+        <span class="n">some_hyper_param</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="c1"># Hypothetical hyper parameter</span>
+        <span class="n">recorder</span><span class="o">=</span><span class="n">recorder</span>
+    <span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">recorder</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">method</span> <span class="o">=</span> <span class="n">method</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">some_hyper_param</span> <span class="o">=</span> <span class="n">some_hyper_param</span>
+
+    <span class="k">def</span> <span class="nf">_minimize</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">cost_function</span><span class="p">:</span> <span class="n">CostFunction</span><span class="p">,</span>
+        <span class="n">initial_params</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+        <span class="n">keep_history</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">OptimizeResult</span><span class="p">:</span>
+        <span class="c1"># Actual implementation of your optimization method goes here</span>
+        <span class="o">...</span>
+
+    <span class="k">def</span> <span class="nf">_preprocess_cost_function</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">cost_function</span><span class="p">:</span> <span class="n">CostFunction</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">CostFunction</span><span class="p">:</span>
+        <span class="c1"># Validate the cost function is compatible with the optimizer</span>
+        <span class="c1"># If needed, you might return another modified cost function</span>
+        <span class="c1"># If no modifications are required, just return `cost_function`</span>
+        <span class="o">...</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="list-of-currently-available-optimizers">
+<h2>List of currently available optimizers<a class="headerlink" href="#list-of-currently-available-optimizers" title="Permalink to this headline">#</a></h2>
+<p>The table below lists the optimizers currently available in orquestra-opt.
+Note that some optimizers are only available when the appropriate install extra is used, e.g. <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">orquestra-opt[qiskit]</span></code>.</p>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 50%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Optimizer</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Install extra</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="../api/orquestra/opt/optimizers/index.html#orquestra.opt.optimizers.BasinHoppingOptimizer" title="orquestra.opt.optimizers.BasinHoppingOptimizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">BasinHoppingOptimizer</span></code></a></p></td>
+<td><p>An optimizer utilizing the <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.basinhopping.html">scipy.optimize.basinhopping</a> method.</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../api/orquestra/opt/optimizers/index.html#orquestra.opt.optimizers.ScipyOptimizer" title="orquestra.opt.optimizers.ScipyOptimizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">ScipyOptimizer</span></code></a></p></td>
+<td><p>Wrapper around <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize.html">scipy.optimize.minimize</a> module. Provides optimizers such as Nelder-Mead, COBYLA, BFGS, and SLSQP.</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../api/orquestra/opt/optimizers/index.html#orquestra.opt.optimizers.SearchPointsOptimizer" title="orquestra.opt.optimizers.SearchPointsOptimizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">SearchPointOptimizer</span></code></a></p></td>
+<td><p>An optimizer performing brute-force search over specified grid.</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../api/orquestra/opt/optimizers/pso/index.html#orquestra.opt.optimizers.pso.PSOOptimizer" title="orquestra.opt.optimizers.pso.PSOOptimizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">PSOOptimizer</span></code></a></p></td>
+<td><p><a class="reference external" href="https://en.wikipedia.org/wiki/Particle_swarm_optimization">Particle swarm</a> optimizer.</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../api/orquestra/opt/optimizers/qiskit_optimizer/index.html#orquestra.opt.optimizers.qiskit_optimizer.QiskitOptimizer" title="orquestra.opt.optimizers.qiskit_optimizer.QiskitOptimizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">QiskitOptimizer</span></code></a></p></td>
+<td><p>A wrapper around optimizers available in Qiskit, including ADAM, AMSGRAD, SPSA, and NFT.</p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">qiskit</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../api/orquestra/opt/optimizers/cma_es_optimizer/index.html#orquestra.opt.optimizers.cma_es_optimizer.CMAESOptimizer" title="orquestra.opt.optimizers.cma_es_optimizer.CMAESOptimizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">CMAESOptimizer</span></code></a></p></td>
+<td><p>A wrapper around the <a class="reference external" href="https://cma-es.github.io/">Covariance Matrix Adaptation Evolution Strategy (CMA-ES)</a> optimizer.</p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">cma</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../api/orquestra/opt/optimizers/scikit_quant_optimizer/index.html#orquestra.opt.optimizers.scikit_quant_optimizer.ScikitQuantOptimizer" title="orquestra.opt.optimizers.scikit_quant_optimizer.ScikitQuantOptimizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">ScikitQuantOptimizer</span></code></a></p></td>
+<td><p>A wrapper around <a class="reference external" href="https://scikit-quant.readthedocs.io/en/latest/">scikit-quant</a> optimizers.</p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">scikit-quant</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 
         </article>
@@ -430,23 +908,23 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="vqa_guide/index.html">
+          <a class="next-page" href="interfaces.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">VQA Guide</div>
+                <div class="title">Interfaces</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="interfaces.html">
+          <a class="prev-page" href="vqa_guide/estimators.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Interfaces</div>
+                <div class="title">Estimators</div>
                 
               </div>
             </a>
@@ -470,8 +948,38 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Optimizers guide</a><ul>
+<li><a class="reference internal" href="#what-this-guide-covers">What this guide covers</a></li>
+<li><a class="reference internal" href="#cost-functions">Cost functions</a></li>
+<li><a class="reference internal" href="#adding-gradients">Adding gradients</a></li>
+<li><a class="reference internal" href="#the-optimizers">The optimizers</a></li>
+<li><a class="reference internal" href="#storing-evaluation-history">Storing evaluation history</a><ul>
+<li><a class="reference internal" href="#recorders">Recorders</a></li>
+<li><a class="reference internal" href="#saving-artifacts">Saving artifacts</a></li>
+<li><a class="reference internal" href="#using-recorders-with-optimizers">Using recorders with optimizers</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#creating-your-own-optimizer">Creating your own optimizer</a></li>
+<li><a class="reference internal" href="#list-of-currently-available-optimizers">List of currently available optimizers</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
@@ -489,5 +997,6 @@
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/design-tabs.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     </body>
 </html>

@@ -1,7 +1,7 @@
 .. _interfaces:
-========================
+==========
 Interfaces
-========================
+==========
 
 
 One of the biggest strengths of Orquestra is its modularity. Integrating new backends, optimizers, ansatzes, etc. does not require changing the core code - it requires only creating a new module that conforms to existing interfaces and therefore can be used across the whole platform. Using our interfaces helps you add whatever building blocks you need for your project and ensure that they will work well with other existing elements.
@@ -16,11 +16,7 @@ Before we get into the details, let's explain what we mean by "interfaces" in th
 Benefits of interfaces
 ======================
 
-Interface offers the ability to define behaviour that can be implemented by unrelated classes without forcing them to share a common class hierarchy. This results in code flexibility and faster development with easier testing options. Other benefits include:
-
-* Interoperability
-* Modularity
-* Dependencies decoupling
+Interface offers the ability to define behaviour that can be implemented by unrelated classes without forcing them to share a common class hierarchy. This results in code flexibility and faster development with easier testing options. Other benefits include greater interoperability, modularity, and decoupling of dependencies.
 
 
 Interface implementation
@@ -38,18 +34,22 @@ However, using abstract classes requires using inheritance, which sometimes is u
 
 Orquestra provides the following interfaces:
 
-* :class:`CircuitRunner <orquestra.quantum.api.circuit_runner.CircuitRunner>` (:ref:`guide <backends_guide>`)
-* :class:`WavefunctionSimulator <orquestra.quantum.api.wavefunction_simulator.WavefunctionSimulator>` (:ref:`guide <backends_guide>`)
-* :class:`Optimizer <orquestra.opt.api.Optimizer>` (:ref:`guide <optimizers_guide>`)
-* :class:`CostFunction <orquestra.opt.api.CostFunction>` (:ref:`guide <cost_function_guide>`)
-* :class:`Ansatz <orquestra.vqa.api.ansatz.Ansatz>` (:ref:`guide <ansatzes_guide>`)
-* :class:`Estimators <orquestra.quantum.api.estimation.EstimateExpectationValues>` (:ref:`guide <estimators_guide>`)
+
+.. list-table::
+    :align: left
+
+    * - :class:`CircuitRunner <orquestra.quantum.api.circuit_runner.CircuitRunner>` (:ref:`guide <backends_guide>`)
+    * - :class:`WavefunctionSimulator <orquestra.quantum.api.wavefunction_simulator.WavefunctionSimulator>` (:ref:`guide <backends_guide>`)
+    * - :class:`Optimizer <orquestra.opt.api.Optimizer>` (:ref:`guide <optimizers_guide>`)
+    * - :class:`CostFunction <orquestra.opt.api.CostFunction>`
+    * - :class:`Ansatz <orquestra.vqa.api.ansatz.Ansatz>` (:ref:`guide <ansatzes_guide>`)
+    * - :class:`Estimators <orquestra.quantum.api.estimation.EstimateExpectationValues>` (:ref:`guide <estimators_guide>`)
 
 
 Passing parameters
 ------------------
 
-You might wonder - what if I have two optimizers which take different sets of parameters? For example, you might want to use `L-BFGS-B <https://docs.scipy.org/doc/scipy/reference/optimize.minimize-lbfgsb.html#optimize-minimize-lbfgsb>`_ and `COBYLA <https://docs.scipy.org/doc/scipy/reference/optimize.minimize-cobyla.html#optimize-minimize-cobyla>`_ from `scipy`. This is how you would use them in scipy: 
+You might wonder - what if I have two optimizers which take different sets of parameters? For example, you might want to use `L-BFGS-B <https://docs.scipy.org/doc/scipy/reference/optimize.minimize-lbfgsb.html#optimize-minimize-lbfgsb>`_ and `COBYLA <https://docs.scipy.org/doc/scipy/reference/optimize.minimize-cobyla.html#optimize-minimize-cobyla>`_ from ``scipy``. This is how you would use them in scipy: 
 
 .. literalinclude:: ../examples/guides/interfaces_guide.py
     :start-after: >> Guide code snippet: script showing scipy optimizers
@@ -57,9 +57,9 @@ You might wonder - what if I have two optimizers which take different sets of pa
     :language: python
 
 
-`L-BFGS-B` doesn't support argument called `constraints` and `COBYLA` doesn't support `bounds`. So how can you make them fit the same interface, if they have different inputs?
+``L-BFGS-B`` doesn't support argument called ``constraints`` and ``COBYLA`` doesn't support ``bounds``. So how can you make them fit the same interface, if they have different inputs?
 
-In the case of optimizers, Orquestra solves this problem by moving differing parameters into object initialization. Constructed optimizers provide :meth:`minimize <orquestra.opt.api.Optimizer.minimize>` method that always accepts only :func:`create_cost_function <orquestra.vqa.cost_function.cost_function.create_cost_function>` and `initial_params` arguments. Once constructed, optimizers are fully interchangeable.
+In the case of optimizers, Orquestra solves this problem by moving differing parameters into object initialization. Constructed optimizers provide :meth:`minimize <orquestra.opt.api.Optimizer.minimize>` method that always accepts only :func:`create_cost_function <orquestra.vqa.cost_function.cost_function.create_cost_function>` and ``initial_params`` arguments. Once constructed, optimizers are fully interchangeable.
 
 .. literalinclude:: ../examples/guides/interfaces_guide.py
     :start-after: >> Guide code snippet: script showing passing parameters for optimizers
@@ -73,9 +73,9 @@ We used optimizers here just as an example - this is the pattern that you might 
 Testing
 =======
 
-Not every requirement can be expressed and enforced by using an abstract base class or a combination of static typing and protocols. For instance, there might be some nontrivial relationships between inputs and outputs that need to hold, or there might be some necessary side effects. Such requirements need to be verified by additional tests, as their violation cannot be caught by tools like MyPy or flake8. In Orquestra, every interface comes with a basic set of tests. You can find them in the `<INTERFACE_NAME>_test` directory next to the file where the interface itself is implemented. 
+Not every requirement can be expressed and enforced by using an abstract base class or a combination of static typing and protocols. For instance, there might be some nontrivial relationships between inputs and outputs that need to hold, or there might be some necessary side effects. Such requirements need to be verified by additional tests, as their violation cannot be caught by tools like mypy or Flake8. In Orquestra, every interface comes with a basic set of tests. You can find them in the ``<INTERFACE_NAME>_test`` directory next to the file where the interface itself is implemented. 
 
-In many cases, Orquestra captures additional requirements as so-called "contracts". They are specific test functions that take an instance of the particular interface as input and check if it meets a certain "contract". Each contract checks some basic expected behaviour typically described by its name, e.g.: `_validate_gradients_history_is_recorded_if_keep_history_is_true`. They are grouped in a list and can then be used in tests in the following way:
+In many cases, Orquestra captures additional requirements as so-called "contracts". They are specific test functions that take an instance of the particular interface as input and check if it meets a certain "contract". Each contract checks some basic expected behaviour typically described by its name, e.g.: ``_validate_gradients_history_is_recorded_if_keep_history_is_true``. They are grouped in a list and can then be used in tests in the following way:
 
 .. literalinclude:: ../examples/guides/interfaces_guide.py
     :start-after: >> Guide code snippet: script showing how to use contract tests
@@ -83,7 +83,3 @@ In many cases, Orquestra captures additional requirements as so-called "contract
     :language: python
 
 Apart from the contracts, each implementation might have a set of other unit tests which check behaviour specific to this implementation. You can find an example of how we test estimators `here <https://github.com/zapatacomputing/orquestra-vqa/blob/977a68202d00f93caa7e89726229c6a8a8bc05b0/tests/orquestra/vqa/estimation/cvar_test.py>`_.
-
-New interface idea
-==================
-If you have any suggestions for new interfaces, please reach out to `info@zapatacomputing.com <info@zapatacomputing.com>`_

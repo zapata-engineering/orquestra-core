@@ -167,15 +167,17 @@ Attributes
    :param inner_optimizer: Optimizer object used in the inner optimization loop.
    :param recorder: recorder object which defines how to store the optimization history.
 
-   :returns:     opt_value,
-                 opt_params,
-                 nit: total number of iterations of inner_optimizer,
-                 nfev: total number of calls to cost function,
-                 history: a list of HistoryEntrys.
-                     If keep_history is False this should be an empty list.
-                 gradient_history: if the cost function is a FunctionWithGradient,
-                     this should be a list of HistoryEntrys representing
-                     previous calls to the gradient.
+   :returns:
+
+             - opt_value: optimal value of the objective function
+             - opt_params: corresponding optimal parameters
+             - nit: total number of iterations of inner_optimizer,
+             - nfev: total number of calls to cost function,
+             - history: a list of HistoryEntrys.
+               If keep_history is False this should be an empty list.
+             - gradient_history: if the cost function is a FunctionWithGradient,
+               this should be a list of HistoryEntrys representing
+               previous calls to the gradient.
    :rtype: An instance of OptimizeResult containing
 
    .. py:method:: inner_optimizer() -> Optimizer
@@ -190,7 +192,7 @@ Attributes
       Factory for creating recorders of functions being minimized.
 
 
-   .. py:method:: minimize(cost_function_factory: Callable[Ellipsis, orquestra.opt.api.CostFunction], initial_params: numpy.ndarray, keep_history: bool = False) -> scipy.optimize.OptimizeResult
+   .. py:method:: minimize(cost_function_factory: Callable[Ellipsis, orquestra.opt.api.cost_function.CostFunction], initial_params: numpy.ndarray, keep_history: bool = False) -> scipy.optimize.OptimizeResult
 
       Finds optimal parameters to minimize the cost function factory.
 
@@ -209,7 +211,7 @@ Attributes
 
    :param recorder: recorder object which defines how to store the optimization history.
 
-   .. py:method:: minimize(cost_function: orquestra.opt.api.CostFunction, initial_params: numpy.ndarray, keep_history: bool = False) -> scipy.optimize.OptimizeResult
+   .. py:method:: minimize(cost_function: orquestra.opt.api.cost_function.CostFunction, initial_params: numpy.ndarray, keep_history: bool = False) -> scipy.optimize.OptimizeResult
 
       Finds the parameters which minimize given cost function.
 
@@ -220,7 +222,7 @@ Attributes
 
 
 
-.. py:function:: construct_history_info(cost_function: orquestra.opt.api.CostFunction, keep_history: bool) -> Dict[str, orquestra.opt.history.recorder.AnyHistory]
+.. py:function:: construct_history_info(cost_function: orquestra.opt.api.cost_function.CostFunction, keep_history: bool) -> Dict[str, orquestra.opt.history.recorder.AnyHistory]
 
 
 .. py:function:: optimization_result(*, opt_value, opt_params, **kwargs) -> scipy.optimize.OptimizeResult

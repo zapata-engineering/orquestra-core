@@ -18,12 +18,16 @@ Classes
 .. autoapisummary::
 
    orquestra.opt.history.recorder.ArtifactCollection
-   orquestra.opt.history.recorder.HistoryEntryWithArtifacts
    orquestra.opt.history.recorder.HistoryEntry
+   orquestra.opt.history.recorder.HistoryEntryWithArtifacts
    orquestra.opt.history.recorder.SimpleRecorder
    orquestra.opt.history.recorder.SimpleRecorderWithGradient
    orquestra.opt.history.recorder.ArtifactRecorder
    orquestra.opt.history.recorder.ArtifactRecorderWithGradient
+   orquestra.opt.history.recorder.SimpleRecorderImpl
+   orquestra.opt.history.recorder.SimpleRecorderWithGradientImpl
+   orquestra.opt.history.recorder.ArtifactRecorderImpl
+   orquestra.opt.history.recorder.ArtifactRecorderWithGradientImpl
 
 
 
@@ -82,36 +86,7 @@ Attributes
       
 
 
-.. py:class:: HistoryEntryWithArtifacts
-
-   Bases: :py:obj:`NamedTuple`
-
-   A history entry enhanced with artifacts.
-
-   .. py:attribute:: call_number
-      :annotation: :int
-
-      
-
-   .. py:attribute:: params
-      :annotation: :Any
-
-      
-
-   .. py:attribute:: value
-      :annotation: :Any
-
-      
-
-   .. py:attribute:: artifacts
-      :annotation: :Dict[str, Any]
-
-      
-
-
 .. py:class:: HistoryEntry
-
-   Bases: :py:obj:`NamedTuple`
 
    A history entry storing call number, parameters and target function value.
 
@@ -131,13 +106,117 @@ Attributes
       
 
 
+.. py:class:: HistoryEntryWithArtifacts
+
+   Bases: :py:obj:`HistoryEntry`
+
+   A history entry enhanced with artifacts.
+
+   .. py:attribute:: artifacts
+      :annotation: :Dict[str, Any]
+
+      
+
+
 .. py:function:: copy_recorder(recorder_to_copy)
 
 
 .. py:function:: deepcopy_recorder(recorder_to_copy, memo)
 
 
-.. py:class:: SimpleRecorder(target: Callable[[S], T], save_condition: orquestra.opt.api.save_conditions.SaveCondition)
+.. py:class:: SimpleRecorder
+
+   Bases: :py:obj:`Protocol`\ [\ :py:obj:`S`\ , :py:obj:`T`\ ]
+
+   Protocol representing recorder with basic functionalities.
+
+   Simple recorders have target and history attributes. They forward calls made
+   to them to the target.
+
+   The target property is exposed so that clients have access to an unwrapped
+   callable in case they need to make a call that is not recorder.
+
+   Note that this recorder is structurally a base protocol for any other
+   types of recorders. In other words  every recorder is at least a SimpleRecorder.
+
+   .. py:method:: target() -> Callable[[S], T]
+      :property:
+
+
+   .. py:method:: history() -> Sequence[HistoryEntry]
+      :property:
+
+
+
+.. py:class:: SimpleRecorderWithGradient
+
+   Bases: :py:obj:`Protocol`
+
+   A protocol representing recorders wrapping functions with gradients.
+
+   Aside the attributes of SimpleRecorder, this recorder also has a gradient
+   attribute which itself is a recorder (and hence, has its own `history`
+   attribute.
+
+   Note that this protocol is not generic, because we only define gradients
+   for functions from R^N to R (which translates to Callable[[ndarray], float]).
+
+   .. py:method:: target() -> Callable[[numpy.ndarray], float]
+      :property:
+
+
+   .. py:method:: gradient() -> SimpleRecorder[numpy.ndarray, numpy.ndarray]
+      :property:
+
+
+   .. py:method:: history() -> Sequence[HistoryEntry]
+      :property:
+
+
+
+.. py:class:: ArtifactRecorder
+
+   Bases: :py:obj:`Protocol`\ [\ :py:obj:`S`\ , :py:obj:`T`\ ]
+
+   A protocol representing recorders that can store artifacts.
+
+   It is like simple recorder, but its target has to be a CallableStoringArtifacts.
+   It also stores a list of HistoryEntryWithArtifact objects instead of usual
+   HistoryEntry ones.
+
+   .. py:method:: target() -> orquestra.opt.api.functions.CallableStoringArtifacts[S, T]
+      :property:
+
+
+   .. py:method:: history() -> Sequence[HistoryEntryWithArtifacts]
+      :property:
+
+
+
+.. py:class:: ArtifactRecorderWithGradient
+
+   Bases: :py:obj:`Protocol`
+
+   Protocol for recorders wrapping functions having gradient and storing artifacts.
+
+   It is the most narrow type of recorder, combining both the
+   SimpleReorderWithGradient and Artifact recorder. Hence, this recorder is
+   non-generic and stores history entries with artifacts.
+
+   .. py:method:: target() -> orquestra.opt.api.functions.CallableWithGradientStoringArtifacts
+      :property:
+
+
+   .. py:method:: gradient() -> SimpleRecorder[numpy.ndarray, numpy.ndarray]
+      :property:
+
+
+   .. py:method:: history() -> Sequence[HistoryEntryWithArtifacts]
+      :property:
+
+
+
+.. py:class:: SimpleRecorderImpl(target: Callable[[S], T], save_condition: orquestra.opt.api.save_conditions.SaveCondition)
 
    Bases: :py:obj:`Generic`\ [\ :py:obj:`S`\ , :py:obj:`T`\ ]
 
@@ -149,16 +228,16 @@ Attributes
                           to the history. See respective protocol for explanation of this parameter.
 
 
-.. py:class:: SimpleRecorderWithGradient(target: orquestra.opt.api.functions.CallableWithGradient, save_condition: orquestra.opt.api.save_conditions.SaveCondition)
+.. py:class:: SimpleRecorderWithGradientImpl(target: orquestra.opt.api.functions.CallableWithGradient, save_condition: orquestra.opt.api.save_conditions.SaveCondition)
 
-   Bases: :py:obj:`SimpleRecorder`
+   Bases: :py:obj:`SimpleRecorderImpl`
 
    A recorder saving history entries that works with callables with gradient.
 
    Except having `gradient` attribute, this recorder is the same as `SimpleRecorder`.
 
 
-.. py:class:: ArtifactRecorder(target: orquestra.opt.api.functions.CallableStoringArtifacts[S, T], save_condition: orquestra.opt.api.save_conditions.SaveCondition)
+.. py:class:: ArtifactRecorderImpl(target: orquestra.opt.api.functions.CallableStoringArtifacts[S, T], save_condition: orquestra.opt.api.save_conditions.SaveCondition)
 
    Bases: :py:obj:`Generic`\ [\ :py:obj:`S`\ , :py:obj:`T`\ ]
 
@@ -168,9 +247,9 @@ Attributes
    except the target function should now be capable of storing artifacts.
 
 
-.. py:class:: ArtifactRecorderWithGradient(target: orquestra.opt.api.functions.CallableWithGradientStoringArtifacts, save_condition: orquestra.opt.api.save_conditions.SaveCondition)
+.. py:class:: ArtifactRecorderWithGradientImpl(target: orquestra.opt.api.functions.CallableWithGradientStoringArtifacts, save_condition: orquestra.opt.api.save_conditions.SaveCondition)
 
-   Bases: :py:obj:`ArtifactRecorder`
+   Bases: :py:obj:`ArtifactRecorderImpl`
 
    A recorder storing history entries with artifacts supporting callables with
    gradient.
@@ -219,8 +298,10 @@ Attributes
              The return type depends on the passed callable. See overloads defined
              above to check for available variants. Here is a summary:
              - recorder is always callable
+
              - if `function` has gradient, so does the recorder. Calls to gradient
                and calls made by gradient are NOT recorded.
+
              - if `function` has possibility to store artifacts (i.e. accepts
                `store_artifact` argument, then so does the recorder.
 

@@ -118,6 +118,7 @@ Functions
 .. py:function:: get_expectation_value(qubit_op: orquestra.quantum.operators._pauli_operators.PauliRepresentation, wavefunction: orquestra.quantum.wavefunction.Wavefunction, reverse_operator: bool = False) -> complex
 
    Get the expectation value of a qubit operator with respect to a wavefunction.
+
    :param qubit_op: the operator
    :param wavefunction: the wavefunction
    :param reverse_operator: whether to reverse order of qubit operator

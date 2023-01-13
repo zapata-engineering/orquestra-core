@@ -1,0 +1,43 @@
+:py:mod:`orquestra.opt.optimizers.pso.topologies`
+=================================================
+
+.. py:module:: orquestra.opt.optimizers.pso.topologies
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   orquestra.opt.optimizers.pso.topologies.SwarmTopology
+   orquestra.opt.optimizers.pso.topologies.StarTopology
+
+
+
+
+.. py:class:: SwarmTopology(dimensions)
+
+   Bases: :py:obj:`abc.ABC`
+
+   Helper class that provides a standard way to create an ABC using
+   inheritance.
+
+   .. py:method:: update_best(positions, function_at_positions)
+      :abstractmethod:
+
+
+
+.. py:class:: StarTopology(dimensions)
+
+   Bases: :py:obj:`SwarmTopology`
+
+   Helper class that provides a standard way to create an ABC using
+   inheritance.
+
+   .. py:method:: update_best(positions, function_at_positions)
+
+
+

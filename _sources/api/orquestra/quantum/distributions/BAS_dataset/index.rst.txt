@@ -22,6 +22,7 @@ Functions
 .. py:function:: get_bars_and_stripes_target_distribution(nrows, ncols, fraction=1.0, method='zigzag')
 
    Generates bars and stripes (BAS) data in zigzag pattern
+
    :param nrows: number of rows in BAS dataset
    :param ncols: number of columns in BAS dataset
    :param fraction: maximum fraction of patterns to include
@@ -34,6 +35,7 @@ Functions
 .. py:function:: bars_and_stripes_zigzag(nrows, ncols)
 
    Generates bars and stripes data in zigzag pattern
+
    :param nrows: number of rows in BAS dataset
    :param ncols: number of columns in BAS dataset
 
@@ -43,6 +45,7 @@ Functions
 .. py:function:: get_num_bars_and_stripes_patterns(nrows, ncols) -> int
 
    Get the number of bars and stripes patters for a 2-dimensional grid.
+
    :param nrows: number of rows in BAS dataset
    :type nrows: int
    :param ncols: number of columns in BAS dataset

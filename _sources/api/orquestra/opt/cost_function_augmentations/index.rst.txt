@@ -13,16 +13,20 @@
 
    Cost functions are augmented via `augment_cost_function`. Basic usage looks as follows
 
-   augmented_func = augment_cost_function(func, [function_logger(level=level)])
+   .. code:: python
+
+      augmented_func = augment_cost_function(func, [function_logger(level=level)])
 
    If the function to be augmented has gradient, separate augmentations can be applied
    to the function and the gradient, e.g.:
 
-   augmented_func = augment_cost_function(
-       func,
-       cost_function_augmentations=[function_logger(level=logging.INFO)],
-       gradient_augmentations=[function_logger(level=logging.DEBUG)]
-   )
+   .. code:: python
+
+      augmented_func = augment_cost_function(
+          func,
+          cost_function_augmentations=[function_logger(level=logging.INFO)],
+          gradient_augmentations=[function_logger(level=logging.DEBUG)]
+      )
 
 
    In principle, any function mapping cost function to cost function can be used as

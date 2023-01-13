@@ -37,6 +37,7 @@ Functions
 .. autoapisummary::
 
    orquestra.quantum.circuits._gates.gate_is_parametric
+   orquestra.quantum.circuits._gates.check_has_non_commuting_gate_type
 
 
 
@@ -45,11 +46,31 @@ Attributes
 
 .. autoapisummary::
 
-   orquestra.quantum.circuits._gates.CONTROLLED_GATE_NAME
    orquestra.quantum.circuits._gates.DAGGER_GATE_NAME
+   orquestra.quantum.circuits._gates.CONTROLLED_GATE_NAME
    orquestra.quantum.circuits._gates.EXPONENTIAL_GATE_NAME
    orquestra.quantum.circuits._gates.POWER_GATE_SYMBOL
 
+
+.. py:data:: DAGGER_GATE_NAME
+   :annotation: = Dagger
+
+   
+
+.. py:data:: CONTROLLED_GATE_NAME
+   :annotation: = Control
+
+   
+
+.. py:data:: EXPONENTIAL_GATE_NAME
+   :annotation: = Exponential
+
+   
+
+.. py:data:: POWER_GATE_SYMBOL
+   :annotation: = ^
+
+   
 
 .. py:class:: Gate
 
@@ -79,6 +100,7 @@ Attributes
       In particular, nonparametric gates should always return ().
 
       Examples:
+
       - an `H` gate has no params
       - a `RX(np.pi)` gate has a single param with value of `np.pi`
       - a `RX(sympy.Symbol("theta"))` gate has a single symbolic param `theta`
@@ -94,6 +116,7 @@ Attributes
       Unbound symbols in the gate matrix.
 
       Examples:
+
       - an `H` gate has no free symbols
       - a `RX(np.pi)` gate has no free symbols
       - a `RX(sympy.Symbol("theta"))` gate has a single free symbol `theta`
@@ -107,6 +130,7 @@ Attributes
       :property:
 
       Number of qubits this gate acts on.
+
       We need it because matrix is computed lazily, and we don't want to create matrix
       just to know the number of qubits.
 
@@ -244,7 +268,7 @@ Attributes
       Unitary matrix defining action of this gate.
 
       This is a computed property using `self.matrix_factory` called with parameters
-          bound to this gate.
+      bound to this gate.
 
 
    .. py:method:: bind(symbols_map) -> MatrixFactoryGate
@@ -273,11 +297,6 @@ Attributes
       Unbound symbols in the gate matrix. See Gate.free_symbols for details.
 
 
-
-.. py:data:: CONTROLLED_GATE_NAME
-   :annotation: = Control
-
-   
 
 .. py:class:: ControlledGate
 
@@ -312,6 +331,7 @@ Attributes
       :property:
 
       Number of qubits this gate acts on.
+
       We need it because matrix is computed lazily, and we don't want to create matrix
       just to know the number of qubits.
 
@@ -333,6 +353,7 @@ Attributes
       In particular, nonparametric gates should always return ().
 
       Examples:
+
       - an `H` gate has no params
       - a `RX(np.pi)` gate has a single param with value of `np.pi`
       - a `RX(sympy.Symbol("theta"))` gate has a single symbolic param `theta`
@@ -368,11 +389,6 @@ Attributes
 
 
 
-.. py:data:: DAGGER_GATE_NAME
-   :annotation: = Dagger
-
-   
-
 .. py:class:: Dagger
 
    Bases: :py:obj:`Gate`
@@ -404,6 +420,7 @@ Attributes
       In particular, nonparametric gates should always return ().
 
       Examples:
+
       - an `H` gate has no params
       - a `RX(np.pi)` gate has a single param with value of `np.pi`
       - a `RX(sympy.Symbol("theta"))` gate has a single symbolic param `theta`
@@ -417,6 +434,7 @@ Attributes
       :property:
 
       Number of qubits this gate acts on.
+
       We need it because matrix is computed lazily, and we don't want to create matrix
       just to know the number of qubits.
 
@@ -457,11 +475,6 @@ Attributes
 
 
 
-.. py:data:: EXPONENTIAL_GATE_NAME
-   :annotation: = Exponential
-
-   
-
 .. py:class:: Exponential
 
    Bases: :py:obj:`Gate`
@@ -493,6 +506,7 @@ Attributes
       In particular, nonparametric gates should always return ().
 
       Examples:
+
       - an `H` gate has no params
       - a `RX(np.pi)` gate has a single param with value of `np.pi`
       - a `RX(sympy.Symbol("theta"))` gate has a single symbolic param `theta`
@@ -506,6 +520,7 @@ Attributes
       :property:
 
       Number of qubits this gate acts on.
+
       We need it because matrix is computed lazily, and we don't want to create matrix
       just to know the number of qubits.
 
@@ -547,11 +562,6 @@ Attributes
 
 
 
-.. py:data:: POWER_GATE_SYMBOL
-   :annotation: = ^
-
-   
-
 .. py:class:: Power
 
    Bases: :py:obj:`Gate`
@@ -590,6 +600,7 @@ Attributes
       In particular, nonparametric gates should always return ().
 
       Examples:
+
       - an `H` gate has no params
       - a `RX(np.pi)` gate has a single param with value of `np.pi`
       - a `RX(sympy.Symbol("theta"))` gate has a single symbolic param `theta`
@@ -605,6 +616,7 @@ Attributes
       Unbound symbols in the gate matrix.
 
       Examples:
+
       - an `H` gate has no free symbols
       - a `RX(np.pi)` gate has no free symbols
       - a `RX(sympy.Symbol("theta"))` gate has a single free symbol `theta`
@@ -618,6 +630,7 @@ Attributes
       :property:
 
       Number of qubits this gate acts on.
+
       We need it because matrix is computed lazily, and we don't want to create matrix
       just to know the number of qubits.
 
@@ -708,5 +721,8 @@ Attributes
       :annotation: :Tuple[sympy.Symbol, Ellipsis]
 
       
+
+
+.. py:function:: check_has_non_commuting_gate_type(self, non_commuting_gate_types)
 
 

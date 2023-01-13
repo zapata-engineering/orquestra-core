@@ -21,35 +21,9 @@ Classes
 
    Bases: :py:obj:`orquestra.quantum.api.wavefunction_simulator.BaseWavefunctionSimulator`
 
-   ABC for implementing simple wavefunction simulators.
+   Wavefunction simulator using Qiskit backends.
 
-   This ABC is build around _get_wavefunction_from_native_circuit
-   method. In general, most simulators wrap some third-party resource (
-   a library, service, API etc.), which can only consume circuits comprising
-   operations from a given set. Such operations are called "native" to
-   the given simulator, whereas other operations are called "nonnative".
-
-   The idea of simulating arbitrary circuit is thus as follows:
-   - split circuit into alternating consecutive parts of only native and
-     only "nonnative" operations.
-   - start with some initial state
-   - for each part:
-     - if it is native, run it via third-party resource, save the new
-       statevector
-     - if it is nonnative, apply each operation in the sequence using
-       operation.apply(previous_statevector). Save the new statevector.
-     Last saved statevector is the wavefunction of the total circuit.
-
-     For this to work, subclasses of this ABC should implement
-     _get_wavefunction_from_the_native_circuit method.
-
-     Note:
-         Since this class inherits all the limitations of BaseCircuitRunner.
-         The _run_and_measure function is implemented via sampling from the
-         wavefunction. Care must be taken when using third-party service that
-         implements more sophisticated/more performant sampling method not
-         involving direct computation of the whole wavefunction. In such cases,
-         using BaseWavefunctionSimulator ABC will likely result in huge
-         performance hit.
+   Note that this simulator only works with backends that supports save_state
+   instruction.
 
 

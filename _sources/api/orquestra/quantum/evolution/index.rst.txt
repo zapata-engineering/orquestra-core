@@ -45,7 +45,6 @@ Functions
    :param time: time of evolution
 
    :returns: Circuit representing evolved term.
-   :rtype: Circuit
 
 
 .. py:function:: time_evolution_derivatives(hamiltonian: orquestra.quantum.operators.PauliRepresentation, time: float, method: str = 'Trotter', trotter_order: int = 1) -> Tuple[List[orquestra.quantum.circuits.Circuit], List[float]]

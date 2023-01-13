@@ -2,10 +2,10 @@
 <html class="no-js">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Cost function guide" href="cost_function.html" /><link rel="prev" title="Circuits guide" href="circuits.html" />
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="VQA Guide" href="vqa_guide/index.html" /><link rel="prev" title="Circuits Guide" href="circuits.html" />
 
     <link rel="shortcut icon" href="../_static/favicon.ico"/><meta name="generator" content="sphinx-4.5.0, furo 2022.09.29"/>
-        <title>Circuit Runners guide - Orquestra Core Documentation</title>
+        <title>Circuit Runners Guide - Orquestra Core Documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=d81277517bee4d6b0349d71bb2661d4890b5617c" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -164,23 +164,21 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../tutorials/index.html">Tutorials</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/beginner_tutorial.html">Getting Started</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/basic_qaoa.html">Solving MaxCut with QAOA</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/orq_core_structure.html">Package Structure</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/integrations.html">Integrations, Modules, and Libraries in Orquestra Core</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/contributing.html">Contributing to Orquestra Core</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">Guides</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="circuits.html">Circuits guide</a></li>
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Circuit Runners guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cost_function.html">Cost function guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="interfaces.html">Interfaces</a></li>
-<li class="toctree-l2"><a class="reference internal" href="optimizers.html">Optimizers guide</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="vqa_guide/index.html">VQA Guide</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="circuits.html">Circuits</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Circuit Runners</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="vqa_guide/index.html">Variational Algorithms</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="vqa_guide/introduction.html">Introduction to VQAs in Orquestra</a></li>
 <li class="toctree-l3"><a class="reference internal" href="vqa_guide/structure.html">Structure of VQAs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="vqa_guide/ansatzes.html">Ansatzes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="vqa_guide/estimators.html">Estimators</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="optimizers.html">Optimizers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interfaces.html">Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="orq_core_structure.html">Package Structure</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../api/index.html">API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -251,6 +249,11 @@
 </ul>
 </li>
 <li class="toctree-l4 has-children"><a class="reference internal" href="../api/orquestra/opt/optimizers/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt.optimizers</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" role="switch" type="checkbox"/><label for="toctree-checkbox-19"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../api/orquestra/opt/optimizers/pso/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt.optimizers.pso</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" role="switch" type="checkbox"/><label for="toctree-checkbox-20"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l6"><a class="reference internal" href="../api/orquestra/opt/optimizers/pso/continuous_pso_optimizer/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt.optimizers.pso.continuous_pso_optimizer</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../api/orquestra/opt/optimizers/pso/topologies/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt.optimizers.pso.topologies</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/opt/optimizers/basin_hopping/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt.optimizers.basin_hopping</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/opt/optimizers/cma_es_optimizer/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt.optimizers.cma_es_optimizer</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/opt/optimizers/qiskit_optimizer/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt.optimizers.qiskit_optimizer</span></code></a></li>
@@ -260,7 +263,7 @@
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/opt/optimizers/simple_gradient_descent/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt.optimizers.simple_gradient_descent</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l4 has-children"><a class="reference internal" href="../api/orquestra/opt/problems/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt.problems</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" role="switch" type="checkbox"/><label for="toctree-checkbox-20"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../api/orquestra/opt/problems/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt.problems</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" role="switch" type="checkbox"/><label for="toctree-checkbox-21"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/opt/problems/generators/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt.problems.generators</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/opt/problems/graph/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt.problems.graph</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/opt/problems/graph_partition/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt.problems.graph_partition</span></code></a></li>
@@ -275,8 +278,8 @@
 <li class="toctree-l4"><a class="reference internal" href="../api/orquestra/opt/mock_objects/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.opt.mock_objects</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../api/orquestra/quantum/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" role="switch" type="checkbox"/><label for="toctree-checkbox-21"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4 has-children"><a class="reference internal" href="../api/orquestra/quantum/api/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.api</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" role="switch" type="checkbox"/><label for="toctree-checkbox-22"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../api/orquestra/quantum/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" role="switch" type="checkbox"/><label for="toctree-checkbox-22"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../api/orquestra/quantum/api/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.api</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" role="switch" type="checkbox"/><label for="toctree-checkbox-23"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/quantum/api/circuit_runner/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.api.circuit_runner</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/quantum/api/circuit_runner_contracts/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.api.circuit_runner_contracts</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/quantum/api/estimation/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.api.estimation</span></code></a></li>
@@ -285,8 +288,8 @@
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/quantum/api/wavefunction_simulator_contracts/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.api.wavefunction_simulator_contracts</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l4 has-children"><a class="reference internal" href="../api/orquestra/quantum/circuits/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.circuits</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" role="switch" type="checkbox"/><label for="toctree-checkbox-23"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l5 has-children"><a class="reference internal" href="../api/orquestra/quantum/circuits/symbolic/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.circuits.symbolic</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" role="switch" type="checkbox"/><label for="toctree-checkbox-24"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../api/orquestra/quantum/circuits/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.circuits</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" role="switch" type="checkbox"/><label for="toctree-checkbox-24"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../api/orquestra/quantum/circuits/symbolic/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.circuits.symbolic</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" role="switch" type="checkbox"/><label for="toctree-checkbox-25"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l6"><a class="reference internal" href="../api/orquestra/quantum/circuits/symbolic/expressions/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.circuits.symbolic.expressions</span></code></a></li>
 <li class="toctree-l6"><a class="reference internal" href="../api/orquestra/quantum/circuits/symbolic/sympy_expressions/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.circuits.symbolic.sympy_expressions</span></code></a></li>
 <li class="toctree-l6"><a class="reference internal" href="../api/orquestra/quantum/circuits/symbolic/translations/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.circuits.symbolic.translations</span></code></a></li>
@@ -296,7 +299,7 @@
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="../api/orquestra/quantum/decompositions/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.decompositions</span></code></a></li>
-<li class="toctree-l4 has-children"><a class="reference internal" href="../api/orquestra/quantum/distributions/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.distributions</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" role="switch" type="checkbox"/><label for="toctree-checkbox-25"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../api/orquestra/quantum/distributions/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.distributions</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-26" name="toctree-checkbox-26" role="switch" type="checkbox"/><label for="toctree-checkbox-26"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/quantum/distributions/BAS_dataset/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.distributions.BAS_dataset</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/quantum/distributions/clipped_negative_log_likelihood/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.distributions.clipped_negative_log_likelihood</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/quantum/distributions/jensen_shannon_divergence/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.distributions.jensen_shannon_divergence</span></code></a></li>
@@ -305,19 +308,19 @@
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="../api/orquestra/quantum/estimation/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.estimation</span></code></a></li>
-<li class="toctree-l4 has-children"><a class="reference internal" href="../api/orquestra/quantum/measurements/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.measurements</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-26" name="toctree-checkbox-26" role="switch" type="checkbox"/><label for="toctree-checkbox-26"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../api/orquestra/quantum/measurements/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.measurements</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-27" name="toctree-checkbox-27" role="switch" type="checkbox"/><label for="toctree-checkbox-27"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/quantum/measurements/expectation_values/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.measurements.expectation_values</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/quantum/measurements/measurements/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.measurements.measurements</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/quantum/measurements/parities/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.measurements.parities</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="../api/orquestra/quantum/operators/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.operators</span></code></a></li>
-<li class="toctree-l4 has-children"><a class="reference internal" href="../api/orquestra/quantum/runners/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.runners</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-27" name="toctree-checkbox-27" role="switch" type="checkbox"/><label for="toctree-checkbox-27"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../api/orquestra/quantum/runners/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.runners</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-28" name="toctree-checkbox-28" role="switch" type="checkbox"/><label for="toctree-checkbox-28"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/quantum/runners/symbolic_simulator/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.runners.symbolic_simulator</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/quantum/runners/trackers/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.runners.trackers</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l4 has-children"><a class="reference internal" href="../api/orquestra/quantum/testing/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.testing</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-28" name="toctree-checkbox-28" role="switch" type="checkbox"/><label for="toctree-checkbox-28"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../api/orquestra/quantum/testing/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.testing</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" role="switch" type="checkbox"/><label for="toctree-checkbox-29"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/quantum/testing/generate_cases_for_backend_tests/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.testing.generate_cases_for_backend_tests</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/quantum/testing/mocks/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.testing.mocks</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/quantum/testing/test_cases_for_backend_tests/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.testing.test_cases_for_backend_tests</span></code></a></li>
@@ -329,14 +332,14 @@
 <li class="toctree-l4"><a class="reference internal" href="../api/orquestra/quantum/wavefunction/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.quantum.wavefunction</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../api/orquestra/vqa/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" role="switch" type="checkbox"/><label for="toctree-checkbox-29"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4 has-children"><a class="reference internal" href="../api/orquestra/vqa/algorithms/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.algorithms</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-30" name="toctree-checkbox-30" role="switch" type="checkbox"/><label for="toctree-checkbox-30"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../api/orquestra/vqa/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-30" name="toctree-checkbox-30" role="switch" type="checkbox"/><label for="toctree-checkbox-30"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../api/orquestra/vqa/algorithms/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.algorithms</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-31" name="toctree-checkbox-31" role="switch" type="checkbox"/><label for="toctree-checkbox-31"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/vqa/algorithms/qaoa/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.algorithms.qaoa</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/vqa/algorithms/qcbm/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.algorithms.qcbm</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/vqa/algorithms/vqe/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.algorithms.vqe</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l4 has-children"><a class="reference internal" href="../api/orquestra/vqa/ansatz/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.ansatz</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-31" name="toctree-checkbox-31" role="switch" type="checkbox"/><label for="toctree-checkbox-31"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../api/orquestra/vqa/ansatz/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.ansatz</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-32" name="toctree-checkbox-32" role="switch" type="checkbox"/><label for="toctree-checkbox-32"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/vqa/ansatz/qcbm/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.ansatz.qcbm</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/vqa/ansatz/kbody/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.ansatz.kbody</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/vqa/ansatz/qaoa_farhi/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.ansatz.qaoa_farhi</span></code></a></li>
@@ -345,18 +348,18 @@
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/vqa/ansatz/singlet_uccsd/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.ansatz.singlet_uccsd</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l4 has-children"><a class="reference internal" href="../api/orquestra/vqa/api/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.api</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-32" name="toctree-checkbox-32" role="switch" type="checkbox"/><label for="toctree-checkbox-32"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../api/orquestra/vqa/api/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.api</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-33" name="toctree-checkbox-33" role="switch" type="checkbox"/><label for="toctree-checkbox-33"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/vqa/api/ansatz/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.api.ansatz</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/vqa/api/ansatz_test/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.api.ansatz_test</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/vqa/api/ansatz_utils/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.api.ansatz_utils</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l4 has-children"><a class="reference internal" href="../api/orquestra/vqa/cost_function/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.cost_function</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-33" name="toctree-checkbox-33" role="switch" type="checkbox"/><label for="toctree-checkbox-33"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../api/orquestra/vqa/cost_function/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.cost_function</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-34" name="toctree-checkbox-34" role="switch" type="checkbox"/><label for="toctree-checkbox-34"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/vqa/cost_function/cost_function/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.cost_function.cost_function</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/vqa/cost_function/qcbm_cost_function/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.cost_function.qcbm_cost_function</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l4 has-children"><a class="reference internal" href="../api/orquestra/vqa/estimation/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.estimation</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-34" name="toctree-checkbox-34" role="switch" type="checkbox"/><label for="toctree-checkbox-34"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../api/orquestra/vqa/estimation/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.estimation</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-35" name="toctree-checkbox-35" role="switch" type="checkbox"/><label for="toctree-checkbox-35"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/vqa/estimation/context_selection/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.estimation.context_selection</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/vqa/estimation/cvar/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.estimation.cvar</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/vqa/estimation/gibbs_objective/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.estimation.gibbs_objective</span></code></a></li>
@@ -364,7 +367,7 @@
 </li>
 <li class="toctree-l4"><a class="reference internal" href="../api/orquestra/vqa/grouping/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.grouping</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../api/orquestra/vqa/openfermion/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.openfermion</span></code></a></li>
-<li class="toctree-l4 has-children"><a class="reference internal" href="../api/orquestra/vqa/opt/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.opt</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-35" name="toctree-checkbox-35" role="switch" type="checkbox"/><label for="toctree-checkbox-35"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../api/orquestra/vqa/opt/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.opt</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-36" name="toctree-checkbox-36" role="switch" type="checkbox"/><label for="toctree-checkbox-36"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/vqa/opt/fourier_qaoa/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.opt.fourier_qaoa</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/vqa/opt/layerwise_ansatz_optimizer/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.opt.layerwise_ansatz_optimizer</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/vqa/opt/recursive_qaoa/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.opt.recursive_qaoa</span></code></a></li>
@@ -372,7 +375,7 @@
 </li>
 <li class="toctree-l4"><a class="reference internal" href="../api/orquestra/vqa/parameter_initialization/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.parameter_initialization</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../api/orquestra/vqa/shot_allocation/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.shot_allocation</span></code></a></li>
-<li class="toctree-l4 has-children"><a class="reference internal" href="../api/orquestra/vqa/testing/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.testing</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-36" name="toctree-checkbox-36" role="switch" type="checkbox"/><label for="toctree-checkbox-36"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../api/orquestra/vqa/testing/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.testing</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-37" name="toctree-checkbox-37" role="switch" type="checkbox"/><label for="toctree-checkbox-37"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l5"><a class="reference internal" href="../api/orquestra/vqa/testing/mock_objects/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">orquestra.vqa.testing.mock_objects</span></code></a></li>
 </ul>
 </li>
@@ -417,7 +420,7 @@
         </div>
         <article role="main">
           <div class="section" id="circuit-runners-guide">
-<span id="id1"></span><h1>Circuit Runners guide<a class="headerlink" href="#circuit-runners-guide" title="Permalink to this headline">#</a></h1>
+<span id="id1"></span><h1>Circuit Runners Guide<a class="headerlink" href="#circuit-runners-guide" title="Permalink to this headline">#</a></h1>
 <p>Circuit runners are objects used to run <a class="reference internal" href="circuits.html#circuits-guide"><span class="std std-ref">Circuits</span></a> in Orquestra Core. In this guide we’ll cover differences between types of circuit runners (generic <code class="docutils literal notranslate"><span class="pre">CircuitRunner</span></code> vs <code class="docutils literal notranslate"><span class="pre">WavefunctionSimulator</span></code>), how to use circuit runners, currently available runners, and creating your own runner (among other topics).</p>
 <div class="section" id="general-circuit-runner-information">
 <h2>General Circuit Runner Information<a class="headerlink" href="#general-circuit-runner-information" title="Permalink to this headline">#</a></h2>
@@ -520,34 +523,64 @@
 <span id="integrated-circuit-runners"></span><h2>Currently integrated backends<a class="headerlink" href="#currently-integrated-backends" title="Permalink to this headline">#</a></h2>
 <div class="section" id="hardware-backends">
 <h3>Hardware backends<a class="headerlink" href="#hardware-backends" title="Permalink to this headline">#</a></h3>
-<ul class="simple">
-<li><dl class="simple">
-<dt><a class="reference external" href="https://github.com/zapatacomputing/orquestra-qiskit/blob/main/tests/orquestra/integrations/qiskit/runner/_qiskit_runner_test.py">QiskitRunner</a> can wrap any Qiskit backend, including ones using physical hardware</dt><dd><ul>
-<li><p><a class="reference external" href="https://github.com/zapatacomputing/orquestra-qiskit/blob/main/tests/orquestra/integrations/qiskit/runner/_ibmq_runner_test.py">A helper function for creating runners using IBMQ devices</a></p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><p><a class="reference external" href="https://github.com/zapatacomputing/orquestra-braket/blob/main/tests/orquestra/braket/runner_test.py">BraketRunner</a></p></li>
-</ul>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="../api/orquestra/integrations/qiskit/runner/index.html#orquestra.integrations.qiskit.runner.QiskitRunner" title="orquestra.integrations.qiskit.runner.QiskitRunner"><code class="xref py py-class docutils literal notranslate"><span class="pre">QiskitRunner</span></code></a></p></td>
+<td><p>Can wrap any Qiskit backend, including ones using physical hardware.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../api/orquestra/integrations/qiskit/runner/index.html#orquestra.integrations.qiskit.runner.create_ibmq_runner" title="orquestra.integrations.qiskit.runner.create_ibmq_runner"><code class="xref py py-class docutils literal notranslate"><span class="pre">create_ibmq_runner</span></code></a></p></td>
+<td><p>Runner for <a class="reference external" href="https://quantum-computing.ibm.com/">IBM Quantum</a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../api/orquestra/integrations/braket/runner/index.html#orquestra.integrations.braket.runner.aws_runner" title="orquestra.integrations.braket.runner.aws_runner"><code class="xref py py-class docutils literal notranslate"><span class="pre">aws_runner</span></code></a></p></td>
+<td><p>Runner for <a class="reference external" href="https://aws.amazon.com/braket/">Amazon Braket</a>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 <div class="section" id="simulators">
 <h3>Simulators<a class="headerlink" href="#simulators" title="Permalink to this headline">#</a></h3>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/zapatacomputing/orquestra-quantum/blob/main/tests/orquestra/quantum/symbolic_simulator_test.py">SymbolicSimulator</a></p></li>
-<li><p><a class="reference external" href="https://github.com/zapatacomputing/orquestra-cirq/blob/main/tests/orquestra/integrations/cirq/simulator/simulator_test.py">CirqSimulator</a></p></li>
-<li><p><a class="reference external" href="https://github.com/zapatacomputing/orquestra-qiskit/blob/main/tests/orquestra/integrations/qiskit/runner/_qiskit_wavefunction_simulator_test.py">QiskitWavefunctionSimulator</a> can wrap any Qiskit backend supporting <code class="docutils literal notranslate"><span class="pre">save_statevector</span></code> instruction.</p></li>
-<li><p><a class="reference external" href="https://github.com/zapatacomputing/orquestra-qulacs/blob/main/tests/orquestra/integrations/qulacs/simulator_test.py">QulacsSimulator</a></p></li>
-<li><p><a class="reference external" href="https://github.com/zapatacomputing/orquestra-cirq/blob/main/tests/orquestra/integrations/cirq/simulator/qsimsimulator_test.py">QSimSimulator</a></p></li>
-<li><p><a class="reference external" href="https://github.com/zapatacomputing/orquestra-cirq/tree/main/src/orquestra/integrations/custatevec/simulator">CuStateVecSimulator</a></p></li>
-<li><p><a class="reference external" href="https://github.com/zapatacomputing/orquestra-braket/blob/main/tests/orquestra/braket/simulator/localbraket_test.py">BraketLocalSimulator</a></p></li>
-<li><p><a class="reference external" href="https://github.com/zapatacomputing/orquestra-braket/blob/main/tests/orquestra/braket/simulator/ondemandbraket_test.py">braket_local_simulator</a> function can be used for constructing local wavefunction simulator utilizing Braket’s local simulator.</p></li>
-</ul>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="../api/orquestra/quantum/runners/symbolic_simulator/index.html#orquestra.quantum.runners.symbolic_simulator.SymbolicSimulator" title="orquestra.quantum.runners.symbolic_simulator.SymbolicSimulator"><code class="xref py py-class docutils literal notranslate"><span class="pre">SymbolicSimulator</span></code></a></p></td>
+<td><p>Built-in simulator providing by the Orquestra Quantum SDK for simulating small circuits.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../api/orquestra/integrations/cirq/simulator/index.html#orquestra.integrations.cirq.simulator.CirqSimulator" title="orquestra.integrations.cirq.simulator.CirqSimulator"><code class="xref py py-class docutils literal notranslate"><span class="pre">CirqSimulator</span></code></a></p></td>
+<td><p>Integration with the <a class="reference external" href="https://quantumai.google/cirq/simulate/simulation">Cirq simulator</a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../api/orquestra/integrations/qiskit/simulator/_qiskit_wavefunction_simulator/index.html#orquestra.integrations.qiskit.simulator._qiskit_wavefunction_simulator.QiskitWavefunctionSimulator" title="orquestra.integrations.qiskit.simulator._qiskit_wavefunction_simulator.QiskitWavefunctionSimulator"><code class="xref py py-class docutils literal notranslate"><span class="pre">QiskitWavefunctionSimulator</span></code></a></p></td>
+<td><p>Can wrap any Qiskit backend supporting <code class="docutils literal notranslate"><span class="pre">save_statevector</span></code> instruction.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../api/orquestra/integrations/qulacs/simulator/index.html#orquestra.integrations.qulacs.simulator.QulacsSimulator" title="orquestra.integrations.qulacs.simulator.QulacsSimulator"><code class="xref py py-class docutils literal notranslate"><span class="pre">QulacsSimulator</span></code></a></p></td>
+<td><p>Integration with the <a class="reference external" href="https://github.com/qulacs/qulacs">Qulacs simulator</a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../api/orquestra/integrations/cirq/simulator/_qsim_simulator/index.html#orquestra.integrations.cirq.simulator._qsim_simulator.QSimSimulator" title="orquestra.integrations.cirq.simulator._qsim_simulator.QSimSimulator"><code class="xref py py-class docutils literal notranslate"><span class="pre">QSimSimulator</span></code></a></p></td>
+<td><p>Integration with the <a class="reference external" href="https://github.com/quantumlib/qsim">qsim simulator</a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../api/orquestra/integrations/custatevec/simulator/index.html#orquestra.integrations.custatevec.simulator.CuStateVecSimulator" title="orquestra.integrations.custatevec.simulator.CuStateVecSimulator"><code class="xref py py-class docutils literal notranslate"><span class="pre">CuStateVecSimulator</span></code></a></p></td>
+<td><p>A simulator for running circuits on a GPU using Nvidia’s <a class="reference external" href="https://docs.nvidia.com/cuda/cuquantum/custatevec/">CuStateVec library</a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../api/orquestra/integrations/braket/simulator/index.html#orquestra.integrations.braket.simulator.braket_local_simulator" title="orquestra.integrations.braket.simulator.braket_local_simulator"><code class="xref py py-class docutils literal notranslate"><span class="pre">braket_local_simulator</span></code></a></p></td>
+<td><p>Function for initializing Braket’s local simulator.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 <div class="section" id="conversions-to-other-frameworks">
 <h2>Conversions to other frameworks<a class="headerlink" href="#conversions-to-other-frameworks" title="Permalink to this headline">#</a></h2>
-<p>The integrations Orquestra Core has with <a class="reference internal" href="../tutorials/orq_core_structure.html#orq-core-structure"><span class="std std-ref">many other frameworks</span></a> not only allows for running on Orquestra-supported backends, but also allows for converting circuits to and from those frameworks.</p>
+<p>The integrations Orquestra Core has with <a class="reference internal" href="orq_core_structure.html#orq-core-structure"><span class="std std-ref">many other frameworks</span></a> not only allows for running on Orquestra-supported backends, but also allows for converting circuits to and from those frameworks.</p>
 <p>There are slightly different ways to import the conversions from the integrations for different frameworks, so here’s examples for all of them:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">orquestra.integrations.forest.conversions</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">export_to_pyquil</span><span class="p">,</span>
@@ -595,7 +628,7 @@
 <p>Contracts are great when you are developing your own <code class="docutils literal notranslate"><span class="pre">CircuitRunner</span></code> or a <code class="docutils literal notranslate"><span class="pre">WavefunctionSimulator</span></code>. However, if you are only using the existing ones, you probably won’t need to look too much into the contracts.</p>
 </div>
 <p>Let’s first discuss contracts for a generic <code class="docutils literal notranslate"><span class="pre">CircuitRunner</span></code>,
-<cite>residing here &lt;https://github.com/zapatacomputing/orquestra-quantum/blob/main/src/orquestra/quantum/api/circuit_runner_contracts.py&gt;</cite>. The basic mandatory contracts are called <code class="docutils literal notranslate"><span class="pre">CIRCUIT_RUNNER_CONTRACTS</span></code>, to be a valid implementation of <code class="docutils literal notranslate"><span class="pre">CircuitRunner</span></code>, an object has to pass all of the contracts in this list. Another list of contracts, <code class="docutils literal notranslate"><span class="pre">STRICT_CIRCUIT_RUNNER_CONTRACTS</span></code>, is designed for runners that guarantee that number of samples they return is the same as the requested number (in general, backends need to return <em>at least</em> as many samples as requested).</p>
+<a class="reference external" href="https://github.com/zapatacomputing/orquestra-quantum/blob/main/src/orquestra/quantum/api/circuit_runner_contracts.py">residing here</a>. The basic mandatory contracts are called <code class="docutils literal notranslate"><span class="pre">CIRCUIT_RUNNER_CONTRACTS</span></code>, to be a valid implementation of <code class="docutils literal notranslate"><span class="pre">CircuitRunner</span></code>, an object has to pass all of the contracts in this list. Another list of contracts, <code class="docutils literal notranslate"><span class="pre">STRICT_CIRCUIT_RUNNER_CONTRACTS</span></code>, is designed for runners that guarantee that number of samples they return is the same as the requested number (in general, backends need to return <em>at least</em> as many samples as requested).</p>
 <p>For <code class="docutils literal notranslate"><span class="pre">WavefunctionSimulator</span></code>s the situation is (slightly) more complicated. Some contracts ensure that the computed wavefunction is correct we cannot just compare the computed wavefunction to the expected one and expect an exact equality. That’s because we are using floating point numbers. Furthermore, some simulators may trade off precision for performance. which also excludes possibility of exact comparison. Since the precision is always simulator-dependent, the contract tests for <code class="docutils literal notranslate"><span class="pre">WavefunctionSimulator</span></code>s are parametrized with absolute tolerance value (<em>atol</em>).</p>
 <p>The first, mandatory list of for all <code class="docutils literal notranslate"><span class="pre">WavefunctionSimulators</span></code> is constructed by calling <code class="docutils literal notranslate"><span class="pre">simulator_contracts_for_tolerance(atol=some_tolerance)</span></code> function, with the default for <code class="docutils literal notranslate"><span class="pre">atol</span></code> being 1e-7. For simulators capable of starting from an arbitrary initial state, you should also include contracts returned by the <code class="docutils literal notranslate"><span class="pre">simulator_contracts_with_nontrivial_initial_state</span></code> function.</p>
 <p>Lastly, there are some lists of contracts ensuring that our runners use definitions of quantum gates compatible with rest of the Orquestra. While most libraries agree on the definition of most gates, there might be some differences. For instance, angles in rotations may differ by the factor of 2, or the order of qubits in two-qubit gates may be reversed. To ensure that runners use the compatible definition of gates, we first construct vast family of circuits (such that given gate appears in multiple circuits) and some set of operators. We choose the operators so that their expected value is easy to compute by hand. By sampling the circuits and comparing computed expectation values, we may judge if the gates that we think we submitted match the ones that were actually executed. Additionally, for <code class="docutils literal notranslate"><span class="pre">WavefunctionSimulator</span></code>s, we may just compute the wavefunction instead of computing expectation values. The functions for constructing gate compatibility contracts are called <code class="docutils literal notranslate"><span class="pre">circuit_runner_gate_compatibility_contracts</span></code> and <code class="docutils literal notranslate"><span class="pre">simulator_gate_compatibility_contracts</span></code>.</p>
@@ -616,12 +649,12 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="cost_function.html">
+          <a class="next-page" href="vqa_guide/index.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Cost function guide</div>
+                <div class="title">VQA Guide</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -632,7 +665,7 @@
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Circuits guide</div>
+                <div class="title">Circuits Guide</div>
                 
               </div>
             </a>
@@ -668,7 +701,7 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Circuit Runners guide</a><ul>
+<li><a class="reference internal" href="#">Circuit Runners Guide</a><ul>
 <li><a class="reference internal" href="#general-circuit-runner-information">General Circuit Runner Information</a><ul>
 <li><a class="reference internal" href="#circuitrunner-and-wavefunctionsimulator">CircuitRunner and WavefunctionSimulator</a></li>
 </ul>

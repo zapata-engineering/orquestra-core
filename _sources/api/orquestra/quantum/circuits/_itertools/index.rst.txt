@@ -65,6 +65,7 @@ Attributes
 
    :returns: An iterable yielding tuples of the forms (circuits_chunk, n_samples)
              satisfying the following constraints:
+
              - len(circuits_chunk) <= max_batch_size
              - n_samples is large enough to accommodate sample sizes requested
                for each circuit in circuits_chunk

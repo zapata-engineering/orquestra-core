@@ -76,6 +76,12 @@ jobs:
         with:
           repository: zapatacomputing/orquestra-forest
           path: orquestra-forest
+  
+      - name: Get orqviz
+        uses: actions/checkout@v2
+        with:
+          repository: zapatacomputing/orqviz
+          path: orqviz
 
       # Installs project, checks codestyle
       - uses: ./subtrees/z_quantum_actions/actions/style

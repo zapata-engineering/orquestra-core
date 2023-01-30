@@ -33,6 +33,7 @@ github_actions:
 		${VENV_NAME}/bin/python3 -m pip install ./orquestra-qulacs && \
 		${VENV_NAME}/bin/python3 -m pip install ./orquestra-braket && \
 		${VENV_NAME}/bin/python3 -m pip install ./orquestra-forest && \
+		${VENV_NAME}/bin/python3 -m pip install ./orqviz && \
 		${VENV_NAME}/bin/python3 -m pip install -r docs/requirements.txt
 
 coverage:

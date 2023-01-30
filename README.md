@@ -32,6 +32,8 @@ Orquestra Core comprises of the following packages:
 
 We have temporarily removed [`orquestra-forest`](https://github.com/zapatacomputing/orquestra-forest) (integration with [Forest SDK](https://docs.rigetti.com/qcs/)) due to compatibility issues. It should work in most cases, if you need it feel free to install it manually.
 
+- [`orqviz`](https://github.com/zapatacomputing/orqviz) – Visualization tool for VQA landscapes.
+
 ## Installation
 
 To install the latest versions of all of the Orquestra Core packages together run:

@@ -2,7 +2,7 @@
 Orqviz
 ======
 
-To aid in the development of variational quantum algorithms, we have developed a visualization tool called OrqViz. It is a Python package that allows users to visualize the cost function landscape of a variational quantum algorithm. It is designed to be used in Jupyter notebooks, and can be installed via pip.
+To aid in the development of variational quantum algorithms, we have developed a visualization tool called orqviz. It is a Python package that allows users to visualize high dimensional cost function landscapes. It is designed to be used in Jupyter notebooks, and can be installed via pip.
 
 ```orqviz``` provides a collection of tools which quantum researchers and enthusiasts alike can use for their simulations. It works with any framework for running quantum circuits, for example `qiskit`, `cirq`, `pennylane`, and `Orquestra`. The package contains functions to generate data, as well as a range of flexible plotting and helper functions.
 

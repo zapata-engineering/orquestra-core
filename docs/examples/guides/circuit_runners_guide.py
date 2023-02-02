@@ -87,9 +87,9 @@ from orquestra.integrations.cirq.conversions._circuit_conversions import (
 )
 
 # Importing and Exporting with different frameworks
-from orquestra.integrations.forest.conversions import (
-    export_to_pyquil,
-    import_from_pyquil,
+from orquestra.integrations.cirq.conversions import (
+    export_to_cirq,
+    import_from_cirq,
 )
 from orquestra.integrations.qiskit.conversions import (
     export_to_qiskit,

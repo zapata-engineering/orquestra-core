@@ -184,14 +184,14 @@ And we should get ``wavefunction.amplitudes: array([0.70710678+0.j, 0.+0.j, 0.+0
 
 **Your turn!**
 
-Try to export our new ``bell_circuit_X`` to pyQuil!
+Try to export our new ``bell_circuit_X`` to Qulacs!
 
 .. hint::
     :class: dropdown
 
     .. literalinclude:: ../examples/tutorials/bell_state.py
         :language: python
-        :start-at: import export_to_pyquil
-        :end-at: pyquil_circuit = 
+        :start-at: import export_to_qulacs
+        :end-at: qulacs_circuit = 
 
 Ready for something a bit more interesting? Try the :ref:`qaoa tutorial <qaoa>`!

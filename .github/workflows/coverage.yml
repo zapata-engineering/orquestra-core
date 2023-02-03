@@ -77,6 +77,12 @@ jobs:
           repository: zapatacomputing/orquestra-forest
           path: orquestra-forest
 
+      - name: Get orqviz
+        uses: actions/checkout@v2
+        with:
+          repository: zapatacomputing/orqviz
+          path: orqviz
+
       - uses: ./subtrees/z_quantum_actions/actions/coverage
         env:
           ZAPATA_IBMQ_API_TOKEN: ${{ secrets.ZAPATA_IBMQ_API_TOKEN }}

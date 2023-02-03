@@ -66,6 +66,6 @@ print(cirq_circuit)
 wavefunction = sv_simulator.get_wavefunction(bell_circuit_X)
 ic(wavefunction.amplitudes)
 
-from orquestra.integrations.forest.conversions import export_to_pyquil
+from orquestra.integrations.qulacs.conversions import convert_to_qulacs
 
-pyquil_circuit = export_to_pyquil(bell_circuit_X)
+qulacs_circuit = convert_to_qulacs(bell_circuit_X)

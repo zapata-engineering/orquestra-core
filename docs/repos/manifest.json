@@ -48,6 +48,12 @@
       "ref": "main",
       "type": "python",
       "autodoc": ["src/"]
+    },
+    "orqviz": {
+      "url": "https://github.com/zapatacomputing/orqviz.git",
+      "ref": "main",
+      "type": "python",
+      "autodoc": ["src/"]
     }
   }
 }

@@ -1,6 +1,25 @@
+<<<<<<< HEAD:docs/quantum/tutorials/beginner_tutorial.rst
 ================
 Quantum Circuits
 ================
+=======
+===============
+Getting Started
+===============
+
+
+Installing orquestra-core
+=========================
+
+Orquestra Core can be installed by running ``pip install orquestra-core``.
+
+The ``orquestra-core`` metapackage bundles together :doc:`several packages <orq_core_structure>`, including the ``orquestra-quantum``, ``orquestra-qiskit``, and ``orquestra-cirq`` packages used in this tutorial.
+
+.. note::
+    ``orquestra-forest`` is no longer automatically installed with orquestra-core. If you want to convert orquestra circuits to pyquil, you will need to uninstall ``orqviz`` and install it separately with ``pip install orquestra-forest``.
+
+Note that Orquestra Core can also be installed from source from the `orquestra-core GitHub repository <https://github.com/zapatacomputing/orquestra-core>`_.
+>>>>>>> main:docs/tutorials/beginner_tutorial.rst
 
 This tutorial explains how to use the Orquestra Quantum SDK to define and run quantum circuits, as well as translate between frameworks such as Qiskit and Cirq. 
 
@@ -175,14 +194,14 @@ And we should get ``wavefunction.amplitudes: array([0.70710678+0.j, 0.+0.j, 0.+0
 
 **Your turn!**
 
-Try to export our new ``bell_circuit_X`` to pyQuil!
+Try to export our new ``bell_circuit_X`` to Qulacs!
 
 .. hint::
     :class: dropdown
 
     .. literalinclude:: ../examples/tutorials/bell_state.py
         :language: python
-        :start-at: import export_to_pyquil
-        :end-at: pyquil_circuit = 
+        :start-at: import export_to_qulacs
+        :end-at: qulacs_circuit = 
 
 Ready for something a bit more interesting? Try the :ref:`qaoa tutorial <qaoa>`!

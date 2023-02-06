@@ -7,3 +7,4 @@ Tutorials
 
     beginner_tutorial.rst
     basic_qaoa.rst
+    orqviz.rst

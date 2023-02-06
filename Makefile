@@ -38,7 +38,7 @@ github_actions:
 
 coverage:
 	$(PYTHON) -m pytest tests/
-	$(PYTHON) -m pytest docs/examples/tests
+	$(PYTHON) -m pytest docs/quantum/examples/tests
 
 # Runs tests with the latest dependncies from PyPI
 run_tests_before_release:

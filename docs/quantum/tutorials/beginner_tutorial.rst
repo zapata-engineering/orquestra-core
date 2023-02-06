@@ -1,20 +1,8 @@
-===============
-Getting Started
-===============
+================
+Quantum Circuits
+================
 
-
-Installing orquestra-core
-=========================
-
-Orquestra Core can be installed by running ``pip install orquestra-core``.
-
-The ``orquestra-core`` metapackage bundles together :doc:`several packages <orq_core_structure>`, including the ``orquestra-quantum``, ``orquestra-qiskit``, and ``orquestra-cirq`` packages used in this tutorial.
-
-.. note::
-    ``orquestra-forest`` is no longer automatically installed with orquestra-core. If you want to convert orquestra circuits to pyquil, you will need to uninstall ``orqviz`` and install it separately with ``pip install orquestra-forest``.
-
-Note that Orquestra Core can also be installed from source from the `orquestra-core GitHub repository <https://github.com/zapatacomputing/orquestra-core>`_.
-
+This tutorial explains how to use the Orquestra Quantum SDK to define and run quantum circuits, as well as translate between frameworks such as Qiskit and Cirq. 
 
 .. _creating_basic_circuits:
 

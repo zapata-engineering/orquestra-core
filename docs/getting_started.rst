@@ -44,6 +44,8 @@ There are two ways to get started with Orquestra Core: by installing the package
               - Data structures, interfaces, and utilities related to continuous and discrete optimization.
             * - `orquestra-vqa <https://github.com/zapatacomputing/orquestra-vqa>`_
               - Implementations of common variational quantum algorithms including VQE, QAOA, and QCBM.
+            * - `orqviz <https://github.com/zapatacomputing/orqviz>`_
+              - Tools for visualizing the loss landscape of parameterized quantum algorithms.
             * - `orquestra-qiskit <https://github.com/zapatacomputing/orquestra-qiskit>`_
               - Integration with `Qiskit <https://qiskit.org/>`_.
             * - `orquestra-cirq <https://github.com/zapatacomputing/orquestra-cirq>`_

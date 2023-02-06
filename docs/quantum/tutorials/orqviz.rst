@@ -4,7 +4,7 @@ Orqviz
 
 To aid in the development of variational quantum algorithms, we have developed a visualization tool called orqviz. It is a Python package that allows users to visualize high dimensional cost function landscapes. It is designed to be used in Jupyter notebooks, and can be installed via pip.
 
-```orqviz``` provides a collection of tools which quantum researchers and enthusiasts alike can use for their simulations. It works with any framework for running quantum circuits, for example `qiskit`, `cirq`, `pennylane`, and `Orquestra`. The package contains functions to generate data, as well as a range of flexible plotting and helper functions.
+Orqviz provides a collection of tools which quantum researchers and enthusiasts alike can use for their simulations. It works with any framework for running quantum circuits, for example Qiskit, Cirq, PennyLane, and the Orquestra Quantum SDK. The package contains functions to generate data, as well as a range of flexible plotting and helper functions.
 
 Visualizing a Cost Function Landscape
 =====================================
@@ -50,14 +50,14 @@ The plot shows the cost function landscape in the region of interest. The color 
 FAQ
 ===
 
-**What are the expected type and shape for the parameters?**\
-Parameters should be of type `numpy.ndarray` filled with real numbers. In recent releases, the shape of the parameters can be arbitrary, as long as `numpy` allows it, i.e., you cannot have inconsistent sizes per dimension. Until version `0.1.1`, the parameter array needed to be one-dimensional.
+**What are the expected type and shape for the parameters?**
+Parameters should be of type ``numpy.ndarray`` filled with real numbers. The shape of the parameters can be arbitrary, as long as ``numpy`` allows it, i.e., you cannot have inconsistent sizes per dimension.
 
-**What is the format of the `loss_function` that most `orqviz` methods expect?**\
-We define a `loss_function` as a function which receives only the parameters of the model and returns a floating point/ real number. That value could for example be the cost function of an optimization problem, the prediction of a classifier, or the fidelity with respect to a fixed quantum state. All the calculation that needs to be performed to get to these values needs to happen in your function. Check out the above code as a minimal example.
+**What is the format of the loss_function that most orqviz methods expect?**
+We define a ``loss_function`` as a function which receives only the parameters of the model and returns a floating point number. That value could for example be the cost function of an optimization problem, the prediction of a classifier, or the fidelity with respect to a fixed quantum state. All the calculation that needs to be performed to get to these values needs to happen in your function. Check out the above code as a minimal example.
 
-**What can I do if my loss function requires additional arguments?**\
-In that case you need to wrap the function into another function such that it again receives only the parameters of the model. We built a wrapper class called `LossFunctionWrapper` that you can import from `orqviz.loss_function`. It is a thin wrapper with helpful perks such as measuring the average evaluation time of a single loss function call, and the total number of calls.
+**What can I do if my loss function requires additional arguments?**
+In that case you need to wrap the function into another function such that it again receives only the parameters of the model. We built a wrapper class called ``LossFunctionWrapper`` that you can import from ``orqviz.loss_function``. It is a thin wrapper with helpful perks such as measuring the average evaluation time of a single loss function call, and the total number of calls.
 
 
 Other Tutorials

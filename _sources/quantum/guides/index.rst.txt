@@ -10,5 +10,4 @@ Guides
     Variational Algorithms<vqa_guide/index>
     Optimizers<optimizers.rst>
     interfaces.rst
-    orq_core_structure.rst
     Contributing<contributing.md>

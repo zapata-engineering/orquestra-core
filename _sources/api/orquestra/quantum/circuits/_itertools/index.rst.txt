@@ -18,6 +18,7 @@ Functions
    orquestra.quantum.circuits._itertools.split_into_batches
    orquestra.quantum.circuits._itertools.expand_sample_sizes
    orquestra.quantum.circuits._itertools.combine_measurement_counts
+   orquestra.quantum.circuits._itertools.combine_bitstrings
 
 
 
@@ -96,7 +97,7 @@ Attributes
    :rtype: Tuple of three sequences (new_circuits, new_sample_sizes, multiplicities)
 
 
-.. py:function:: combine_measurement_counts(all_measurements: Sequence[Dict[str, int]], multiplicities: Sequence[int]) -> Sequence[Dict[str, int]]
+.. py:function:: combine_measurement_counts(all_measurements: Sequence[Dict[str, int]], multiplicities: Sequence[int]) -> List[Dict[str, int]]
 
    Combine (aggregate) measurements of the same circuits run several times.
 
@@ -121,6 +122,37 @@ Attributes
 
    :returns: Sequence of combined measurements of length equal len(multiplicities)
 
-   :raises ValueError: if len(all_measurements != sum(multiplicities)
+   :raises ValueError: if len(all_measurements) != sum(multiplicities)
+
+
+.. py:function:: combine_bitstrings(all_bitstrings: Sequence[List[str]], multiplicities: Sequence[int]) -> List[List[str]]
+
+   Combine (aggregate) bitstrings of the same circuits run several times.
+
+   Suppose multiplicities is a list [1, 2 ,3]. Then, the all_bitstrings should
+   be a sequence of 1+2+3=6 elements, each of them being a sequence of bitstrings.
+   For instance, all_bitstrings could be equal to:
+   [["00", "01"], ["1", "0"], ["0"], ["001", "001"], ["111", "000"], ["000"]]
+   and then the result would be:
+   [
+       ["00", "01"],
+       ["1", "0", "0],
+       ["001", "001", "111", "000", "000"]
+   ]
+
+   :param all_bitstrings: sequence of lists containing bitstrings
+                          gathered from some, possibly duplicated, circuits. The bitstrings
+                          lists objects corresponding to the same circuit should be placed next
+                          to each other. Should have the same length as sum(multiplicities).
+   :param multiplicities: sequence of positive integers marking groups of
+                          consecutive measurements corresponding to the same circuit. For
+                          instance, multiplicities [1, 2, 3] mean that first group of
+                          bitstrings comprises 1 sequence, second group comprises 2
+                          consecutive sequences, third group contains 3 consecutive
+                          sequences and so on.
+
+   :returns: Sequence of combined measurements of length equal len(multiplicities)
+
+   :raises ValueError: if len(all_bitstrings) != sum(multiplicities)
 
 

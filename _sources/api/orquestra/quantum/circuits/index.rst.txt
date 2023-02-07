@@ -195,6 +195,7 @@ Functions
    orquestra.quantum.circuits.add_ancilla_register
    orquestra.quantum.circuits.apply_gate_to_qubits
    orquestra.quantum.circuits.create_layer_of_gates
+   orquestra.quantum.circuits.combine_bitstrings
    orquestra.quantum.circuits.combine_measurement_counts
    orquestra.quantum.circuits.expand_sample_sizes
    orquestra.quantum.circuits.split_into_batches
@@ -220,6 +221,7 @@ Attributes
    orquestra.quantum.circuits.CPHASE
    orquestra.quantum.circuits.CZ
    orquestra.quantum.circuits.ISWAP
+   orquestra.quantum.circuits.MS
    orquestra.quantum.circuits.PHASE
    orquestra.quantum.circuits.RH
    orquestra.quantum.circuits.RX
@@ -233,6 +235,8 @@ Attributes
    orquestra.quantum.circuits.ZZ
    orquestra.quantum.circuits.Delay
    orquestra.quantum.circuits.GatePrototype
+   orquestra.quantum.circuits.GPi
+   orquestra.quantum.circuits.GPi2
    orquestra.quantum.circuits.H
    orquestra.quantum.circuits.I
    orquestra.quantum.circuits.S
@@ -258,6 +262,11 @@ Attributes
    
 
 .. py:data:: ISWAP
+   
+
+   
+
+.. py:data:: MS
    
 
    
@@ -323,6 +332,16 @@ Attributes
    
 
 .. py:data:: GatePrototype
+   
+
+   
+
+.. py:data:: GPi
+   
+
+   
+
+.. py:data:: GPi2
    
 
    
@@ -999,7 +1018,38 @@ Attributes
    :rtype: circuit
 
 
-.. py:function:: combine_measurement_counts(all_measurements: Sequence[Dict[str, int]], multiplicities: Sequence[int]) -> Sequence[Dict[str, int]]
+.. py:function:: combine_bitstrings(all_bitstrings: Sequence[List[str]], multiplicities: Sequence[int]) -> List[List[str]]
+
+   Combine (aggregate) bitstrings of the same circuits run several times.
+
+   Suppose multiplicities is a list [1, 2 ,3]. Then, the all_bitstrings should
+   be a sequence of 1+2+3=6 elements, each of them being a sequence of bitstrings.
+   For instance, all_bitstrings could be equal to:
+   [["00", "01"], ["1", "0"], ["0"], ["001", "001"], ["111", "000"], ["000"]]
+   and then the result would be:
+   [
+       ["00", "01"],
+       ["1", "0", "0],
+       ["001", "001", "111", "000", "000"]
+   ]
+
+   :param all_bitstrings: sequence of lists containing bitstrings
+                          gathered from some, possibly duplicated, circuits. The bitstrings
+                          lists objects corresponding to the same circuit should be placed next
+                          to each other. Should have the same length as sum(multiplicities).
+   :param multiplicities: sequence of positive integers marking groups of
+                          consecutive measurements corresponding to the same circuit. For
+                          instance, multiplicities [1, 2, 3] mean that first group of
+                          bitstrings comprises 1 sequence, second group comprises 2
+                          consecutive sequences, third group contains 3 consecutive
+                          sequences and so on.
+
+   :returns: Sequence of combined measurements of length equal len(multiplicities)
+
+   :raises ValueError: if len(all_bitstrings) != sum(multiplicities)
+
+
+.. py:function:: combine_measurement_counts(all_measurements: Sequence[Dict[str, int]], multiplicities: Sequence[int]) -> List[Dict[str, int]]
 
    Combine (aggregate) measurements of the same circuits run several times.
 
@@ -1024,7 +1074,7 @@ Attributes
 
    :returns: Sequence of combined measurements of length equal len(multiplicities)
 
-   :raises ValueError: if len(all_measurements != sum(multiplicities)
+   :raises ValueError: if len(all_measurements) != sum(multiplicities)
 
 
 .. py:function:: expand_sample_sizes(circuits: Sequence[T], n_samples_per_circuit: Sequence[int], max_sample_size: int) -> Tuple[Sequence[T], Sequence[int], Sequence[int]]

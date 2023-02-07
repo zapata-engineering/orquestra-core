@@ -25,10 +25,10 @@ Functions
 
 
 
-.. py:function:: create_ibmq_runner(api_token: str, backend_name: str, hub: str = 'ibm-q', group: str = 'open', project: str = 'main', noise_model: Optional[qiskit_aer.noise.NoiseModel] = None, basis_gates: Optional[List[str]] = None, optimization_level: int = 0, seed: Optional[int] = None, retry_delay_seconds: int = 60, retry_timeout_seconds: int = 24 * 60 * 60)
+.. py:function:: create_ibmq_runner(api_token: str, backend_name: str, hub: str = 'ibm-q', group: str = 'open', project: str = 'main', noise_model: Optional[qiskit_aer.noise.NoiseModel] = None, basis_gates: Optional[List[str]] = None, optimization_level: int = 0, seed: Optional[int] = None, retry_delay_seconds: int = 60, retry_timeout_seconds: int = 24 * 60 * 60, discard_extra_measurements=False)
 
 
-.. py:class:: QiskitRunner(qiskit_backend: AnyQiskitBackend, noise_model: Optional[qiskit_aer.noise.NoiseModel] = None, coupling_map: Optional[qiskit.transpiler.CouplingMap] = None, basis_gates: Optional[List[str]] = None, optimization_level: int = 0, seed: Optional[int] = None, execute_function=execute)
+.. py:class:: QiskitRunner(qiskit_backend: AnyQiskitBackend, noise_model: Optional[qiskit_aer.noise.NoiseModel] = None, coupling_map: Optional[qiskit.transpiler.CouplingMap] = None, basis_gates: Optional[List[str]] = None, optimization_level: int = 0, seed: Optional[int] = None, discard_extra_measurements: bool = False, execute_function=execute)
 
    Bases: :py:obj:`orquestra.quantum.api.BaseCircuitRunner`
 

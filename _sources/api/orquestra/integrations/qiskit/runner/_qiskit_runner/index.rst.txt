@@ -43,7 +43,7 @@ Attributes
 .. py:function:: prepare_for_running_on_backend(circuit: orquestra.quantum.circuits.Circuit) -> qiskit.QuantumCircuit
 
 
-.. py:class:: QiskitRunner(qiskit_backend: AnyQiskitBackend, noise_model: Optional[qiskit_aer.noise.NoiseModel] = None, coupling_map: Optional[qiskit.transpiler.CouplingMap] = None, basis_gates: Optional[List[str]] = None, optimization_level: int = 0, seed: Optional[int] = None, execute_function=execute)
+.. py:class:: QiskitRunner(qiskit_backend: AnyQiskitBackend, noise_model: Optional[qiskit_aer.noise.NoiseModel] = None, coupling_map: Optional[qiskit.transpiler.CouplingMap] = None, basis_gates: Optional[List[str]] = None, optimization_level: int = 0, seed: Optional[int] = None, discard_extra_measurements: bool = False, execute_function=execute)
 
    Bases: :py:obj:`orquestra.quantum.api.BaseCircuitRunner`
 

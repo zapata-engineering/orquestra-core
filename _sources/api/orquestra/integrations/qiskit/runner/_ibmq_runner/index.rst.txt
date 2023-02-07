@@ -19,6 +19,6 @@ Functions
 
 
 
-.. py:function:: create_ibmq_runner(api_token: str, backend_name: str, hub: str = 'ibm-q', group: str = 'open', project: str = 'main', noise_model: Optional[qiskit_aer.noise.NoiseModel] = None, basis_gates: Optional[List[str]] = None, optimization_level: int = 0, seed: Optional[int] = None, retry_delay_seconds: int = 60, retry_timeout_seconds: int = 24 * 60 * 60)
+.. py:function:: create_ibmq_runner(api_token: str, backend_name: str, hub: str = 'ibm-q', group: str = 'open', project: str = 'main', noise_model: Optional[qiskit_aer.noise.NoiseModel] = None, basis_gates: Optional[List[str]] = None, optimization_level: int = 0, seed: Optional[int] = None, retry_delay_seconds: int = 60, retry_timeout_seconds: int = 24 * 60 * 60, discard_extra_measurements=False)
 
 

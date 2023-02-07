@@ -33,6 +33,8 @@ Functions
    orquestra.quantum.circuits._matrices.rh_matrix
    orquestra.quantum.circuits._matrices.phase_matrix
    orquestra.quantum.circuits._matrices.u3_matrix
+   orquestra.quantum.circuits._matrices.gpi_matrix
+   orquestra.quantum.circuits._matrices.gpi2_matrix
    orquestra.quantum.circuits._matrices.cnot_matrix
    orquestra.quantum.circuits._matrices.cz_matrix
    orquestra.quantum.circuits._matrices.swap_matrix
@@ -42,6 +44,7 @@ Functions
    orquestra.quantum.circuits._matrices.yy_matrix
    orquestra.quantum.circuits._matrices.zz_matrix
    orquestra.quantum.circuits._matrices.xy_matrix
+   orquestra.quantum.circuits._matrices.ms_matrix
    orquestra.quantum.circuits._matrices.delay_matrix
 
 
@@ -90,6 +93,16 @@ Functions
    after the sequence of gates.
 
 
+.. py:function:: gpi_matrix(theta)
+
+   Based on https://ionq.com/docs/getting-started-with-native-gates
+
+
+.. py:function:: gpi2_matrix(theta)
+
+   Based on https://ionq.com/docs/getting-started-with-native-gates
+
+
 .. py:function:: cnot_matrix()
 
 
@@ -115,6 +128,11 @@ Functions
 
 
 .. py:function:: xy_matrix(angle)
+
+
+.. py:function:: ms_matrix(phi_0, phi_1)
+
+   Based on https://ionq.com/docs/getting-started-with-native-gates
 
 
 .. py:function:: delay_matrix(_duration)

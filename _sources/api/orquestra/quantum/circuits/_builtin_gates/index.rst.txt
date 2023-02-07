@@ -40,6 +40,8 @@ Attributes
    orquestra.quantum.circuits._builtin_gates.RH
    orquestra.quantum.circuits._builtin_gates.PHASE
    orquestra.quantum.circuits._builtin_gates.U3
+   orquestra.quantum.circuits._builtin_gates.GPi
+   orquestra.quantum.circuits._builtin_gates.GPi2
    orquestra.quantum.circuits._builtin_gates.CNOT
    orquestra.quantum.circuits._builtin_gates.CZ
    orquestra.quantum.circuits._builtin_gates.SWAP
@@ -49,6 +51,7 @@ Attributes
    orquestra.quantum.circuits._builtin_gates.YY
    orquestra.quantum.circuits._builtin_gates.ZZ
    orquestra.quantum.circuits._builtin_gates.XY
+   orquestra.quantum.circuits._builtin_gates.MS
    orquestra.quantum.circuits._builtin_gates.Delay
 
 
@@ -137,6 +140,16 @@ Attributes
 
    
 
+.. py:data:: GPi
+   
+
+   
+
+.. py:data:: GPi2
+   
+
+   
+
 .. py:data:: CNOT
    
 
@@ -178,6 +191,11 @@ Attributes
    
 
 .. py:data:: XY
+   
+
+   
+
+.. py:data:: MS
    
 
    

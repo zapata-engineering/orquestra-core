@@ -3,9 +3,11 @@
 ## What is it?
 
 Orquestra Core is a set of libraries used for quantum computing developed by [Zapata Computing](https://www.zapatacomputing.com). It's a part of [Orquestra](https://www.zapatacomputing.com/orquestra/) platform, but can be used as standalone Python libraries.
-For more details please refer to [the documentation](https://zapatacomputing.github.io/orquestra-core/)
+For more details please refer to [the documentation](https://docs.orquestra.io/docs/core/index.html)
 
 Orquestra Core comprises of the following packages:
+
+- [`orquestra-sdk`](https://github.com/zapatacomputing/orquestra-workflow-sdk) provides tools for composing, executing, and managing computational workflows.
 
 - [`orquestra-quantum`](https://github.com/zapatacomputing/orquestra-quantum) provides
 
@@ -51,7 +53,7 @@ pip install orquestra-opt[qubo]
 
 ## Usage
 
-For examples and tutorials please refer to [the documentation](https://zapatacomputing.github.io/orquestra-core/).
+For examples and tutorials please refer to [the documentation](https://docs.orquestra.io/docs/core/index.html).
 
 ## Bug Reporting
 

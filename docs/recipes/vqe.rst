@@ -11,15 +11,18 @@ Setup
 
 Installing Dependencies
 -----------------------
-You will need to install the Orquestra Workflow SDK, Orquestra Quantum SDK (including the Qiskit integration), as well as pandas. You can do this by running the command below in your terminal. (See the :doc:`installation guide <../tutorials/installing-macos-linux>` for more details on installing the Workflow SDK.)
+In addition to having :doc:`Orquestra Core installed <../getting_started>`, this recipe also requires pandas.
+If you do not already have pandas installed, you can install it with the following command:
 
 .. code-block:: bash
 
-   pip install orquestra-sdk[all] orquestra-core[qiskit] pandas
+   pip install pandas
 
 Starting Ray
 ------------
-Next, follow :doc:`the instructions for starting Ray<../tutorials/ray>`.
+If you are running locally, follow :doc:`the instructions for starting Ray<../sdk/tutorials/ray>`.
+If you are using Orquestra Portal, you can skip this step.
+
 
 Configuring IBM Quantum Credentials
 -----------------------------------

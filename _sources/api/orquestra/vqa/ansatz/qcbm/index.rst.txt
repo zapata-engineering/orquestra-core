@@ -1,6 +1,0 @@
-:py:mod:`orquestra.vqa.ansatz.qcbm`
-===================================
-
-.. py:module:: orquestra.vqa.ansatz.qcbm
-
-

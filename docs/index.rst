@@ -45,3 +45,4 @@ Featured tutorials
    Getting Started<getting_started>
    Workflow SDK <sdk/index>
    Quantum SDK <quantum/index>
+   recipes/index

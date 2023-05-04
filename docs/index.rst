@@ -16,7 +16,7 @@ Featured tutorials
    :gutter: 3 3 4 5
 
    .. grid-item-card:: Circuit Basics 
-      :link: quantum/tutorials/basic_qaoa
+      :link: quantum/tutorials/beginner_tutorial
       :link-type: doc
       
       Learn how to create and manipulate quantum circuits using the Orquestra Quantum SDK.
@@ -34,7 +34,7 @@ Featured tutorials
       Learn how to compose, execute, and manage computational workflows from within a Jupyter notebook.
 
    .. grid-item-card:: VQE with IBM Quantum
-      :link: sdk/recipes/vqe
+      :link: recipes/vqe
       :link-type: doc
 
       Use Orquestra Workflow and Quantum SDKs to compare VQE results on different IBM backends.

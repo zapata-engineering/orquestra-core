@@ -22,11 +22,11 @@ Featured tutorials
       An end-to-end example of using Quantum Approximate Optimization Algorithm (QAOA) to solve the maximum cut problem.
       
 
-   .. grid-item-card:: Integrations, Modules, and Libraries
-      :link: tutorials/integrations
+   .. grid-item-card:: Visualize Variational Algorithms
+      :link: tutorials/orqviz
       :link-type: doc
 
-      Explore ansatzes, quantum backends, noise models, optimizers, and graph problems.
+      Visualize cost function landscapes for variational quantum algorithms using Orqviz.
 
 .. toctree::
    :hidden:

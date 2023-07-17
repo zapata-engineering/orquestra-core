@@ -25,13 +25,13 @@ This state can be created using a Hadamard gate and a CNOT gate:
     q_1: ─────┤ X ├
               └───┘
 
-Let's create a circuit that does this for us! Create a new file ``bell_state.py`` and follow along
+Let's create a circuit that does this for us! Create a new file ``bell_state.py`` and follow along with these steps ↓
 
 This circuit can be created in a few lines. First, we import the needed gate and circuit classes, then create a new ``Circuit`` object, and finally add the gates we want.
 
 .. literalinclude:: ../examples/tutorials/bell_state.py
     :language: python
-    :start-at: from orquestra.quantum.circuits import CNOT, H, Circuit
+    :start-at: # build the circuit
     :end-at: ic(bell_circuit)
 
 .. _icecream-note:

@@ -182,7 +182,7 @@ Try to export our new ``bell_circuit_X`` to Qulacs!
 
     .. literalinclude:: ../examples/tutorials/bell_state.py
         :language: python
-        :start-at: import export_to_qulacs
+        :start-at: import convert_to_qulacs
         :end-at: qulacs_circuit = 
 
 Ready for something a bit more interesting? Try the :ref:`qaoa tutorial <qaoa>`!

@@ -82,14 +82,14 @@ Once we have our circuit, the next step is to select what backend to run on and 
 
 .. literalinclude:: ../examples/tutorials/bell_state.py
     :language: python
-    :start-at: import QiskitSimulator
+    :start-at: from orquestra.integrations.qiskit.runner import QiskitRunner
     :end-at: ic(measurements.get_counts())
 
-It's actually very easy to switch out backends thanks to Orquestra Core's interfaces. Let's say instead of the QiskitSimulator, we want to use Zapata's very own :class:`SymbolicSimulator <orquestra.quantum.runners.symbolic_simulator.SymbolicSimulator>` . We can do that by changing just part of one line:
+It's actually very easy to switch out backends thanks to Orquestra Core's interfaces. Let's say instead of the QiskitRunner, we want to use Zapata's very own :class:`SymbolicSimulator <orquestra.quantum.runners.symbolic_simulator.SymbolicSimulator>` . We can do that by changing just part of one line:
 
 .. literalinclude:: ../examples/tutorials/bell_state.py
     :language: python
-    :start-at: import SymbolicSimulator
+    :start-at: from orquestra.quantum.runners.symbolic_simulator import SymbolicSimulator
     :end-at: ic(measurements2.get_counts())
 
 .. _running_amplitudes:
@@ -98,7 +98,7 @@ If we want to get the amplitudes from the wavefunction instead of running measur
 
 .. literalinclude:: ../examples/tutorials/bell_state.py
     :language: python
-    :start-at: sv_simulator = QiskitSimulator("aer_simulator_statevector")
+    :start-at: sv_simulator = QiskitWavefunctionSimulator(Aer.get_backend("statevector_simulator"))
     :end-at: ic(wavefunction.amplitudes)
 
 We can also get an expectation value for the circuit given an operator we want to use:

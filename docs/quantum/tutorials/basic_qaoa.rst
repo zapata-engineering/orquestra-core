@@ -41,7 +41,7 @@ Let's start by creating a new python file called ``qaoa_maxcut.py``. The first t
 .. literalinclude:: ../examples/tutorials/qaoa_maxcut.py
     :language: python
     :start-at: from collections import Counter
-    :end-at: from icecream import ic
+    :end-at: from orquestra.vqa.algorithms import QAOA
 
 .. include:: ../tutorials/beginner_tutorial.rst
     :start-after: icecream-note:
@@ -79,7 +79,7 @@ Now let's write a function that accepts our graph object and uses QAOA to try to
     :end-at: qaoa = QAOA.default(cost_hamiltonian=hamiltonian, n_layers=2)
 
 Notice we didn't have to build up the Hamiltonian or ansatz ourselves, Orquestra Core just did that for us! MaxCut isn't the only problem we can do that for, either. The ``opt`` part of Orquestra Core has `a number of problems <https://github.com/zapatacomputing/orquestra-opt/tree/main/src/orquestra/opt/problems>`_ readily solvable like `graph partition <https://github.com/zapatacomputing/orquestra-opt/blob/main/src/orquestra/opt/problems/graph_partition.py>`_ and `vertex cover <https://github.com/zapatacomputing/orquestra-opt/blob/main/src/orquestra/opt/problems/vertex_cover.py>`_. Similarly, we can select from a `number of ansatzes <https://github.com/zapatacomputing/orquestra-vqa/tree/main/src/orquestra/vqa/ansatz>`_.
-If you are familiar with QAOA, you might have noticed, that we did not specify a lot of details, such as what ansatz or optimizer do we want to use. That's because in this tutorial we will rely on the "default" version of QAOA which `QAOA`(TODO) class provides. For more details on how to use it, please refer to VQA guide (TODO).
+If you are familiar with QAOA, you might have noticed, that we did not specify a lot of details, such as what ansatz or optimizer do we want to use. That's because in this tutorial we will rely on the "default" version of QAOA which `QAOA <https://docs.orquestra.io/docs/api/orquestra/vqa/algorithms/qaoa/index.html#module-orquestra.vqa.algorithms.qaoa>`_ class provides. For more details on how to use it, please refer to `VQA guide <https://docs.orquestra.io/docs/core/quantum/guides/vqa_guide/introduction.html>`_.
 
 Now we can select which backend we want to use to run our QAOA and run it:
 

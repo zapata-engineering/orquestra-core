@@ -132,6 +132,10 @@ We'll build up this circuit one connection at a time, using ``+=`` to append :cl
 
 .. literalinclude:: ../examples/guides/circuits_guide.py
   :language: python
+  :start-at: beta = sympy.symbols
+  :end-before: gamma = sympy.symbols
+.. literalinclude:: ../examples/guides/circuits_guide.py
+  :language: python
   :start-at: problem_hamiltonian_circ = Circuit(
   :end-before: unitary = problem_hamiltonian_circ.to_unitary()
 
@@ -143,7 +147,8 @@ We'll cover information about the ``beta`` variables later when we talk about :r
 
   In our approach ``RZ`` is treated as a family of gates, and the parameter specifies the concrete member of the family. Hence, the syntax is always the same (``GATE(qubit)``), it's just that ``RZ(beta)`` is a ``GATE`` that needs to be applied to some qubit.
 
-Let's get the :ref:`unitary matrix <getting_unitary>` again and see if it makes sense for this circuit
+
+Let’s get the :ref:`unitary matrix <getting_unitary>` again and see if it makes sense for this circuit:
 
 .. literalinclude:: ../examples/guides/circuits_guide.py
   :language: python
@@ -175,13 +180,23 @@ To build up the mixing circuit, we need to put parametrized RX gate on each of t
 
 .. literalinclude:: ../examples/guides/circuits_guide.py
   :language: python
+  :start-at: gamma = sympy.symbols
+  :end-before: theta = sympy.Symbol
+.. literalinclude:: ../examples/guides/circuits_guide.py
+  :language: python
   :start-at: mixing_circ = Circuit()
   :end-at: ic(mixing_circ)
 
 .. note::
   ``orquestra-quantum`` comes with a `built-in utility function <https://github.com/zapatacomputing/orquestra-quantum/blob/main/src/orquestra/quantum/circuits/_generators.py>`_ that puts down a layer of the same single-qubit gate acting on all qubits.
 
-The output of that looks like ``mixing_circ: Circuit(operations=[RX(gamma_0)(0), RX(gamma_1)(1), RX(gamma_2)(2)], n_qubits=3)``. Again, for now don't worry about the ``gamma`` parameters in there, that will be addressed in the :ref:`symbolic gates <symbolic_gates>` section.
+The output of that looks like this:
+
+.. code-block:: text
+  
+  ic| mixing_circ: Circuit(operations=[RX(gamma_0)(0), RX(gamma_1)(1), RX(gamma_2)(2)], n_qubits=3)
+  
+Again, for now don't worry about the ``gamma`` parameters in there, that will be addressed in the :ref:`symbolic gates <symbolic_gates>` section.
 
 .. _inspecting_circuits:
 

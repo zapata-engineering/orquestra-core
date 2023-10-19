@@ -44,9 +44,7 @@ LOOKMORTYITURNEDMYSELFINTOANAPITOKENIMAPIRICK = os.getenv("ZAPATA_IBMQ_API_TOKEN
 # Inherit BaseCircuitRunner
 from orquestra.integrations.qiskit.runner import create_ibmq_runner
 
-backend = create_ibmq_runner(
-    LOOKMORTYITURNEDMYSELFINTOANAPITOKENIMAPIRICK, "ibmq_perth"
-)
+backend = create_ibmq_runner(LOOKMORTYITURNEDMYSELFINTOANAPITOKENIMAPIRICK, "ibm_perth")
 # End Inherit BaseCircuitRunner
 
 # CircuitRunner run and measure circuit
